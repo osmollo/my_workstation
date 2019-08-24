@@ -29,3 +29,6 @@ ubuntu_packages:
 
 fedora_packages:
   - libsecret
+  - openvpn
+  - NetworkManager-openvpn
+  - NetworkManager-openvpn-gnome
