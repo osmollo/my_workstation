@@ -1,0 +1,89 @@
+---
+
+- hosts:
+    - all
+  become: false
+  tasks:
+    - name: "Check if dropbox is synchronized"
+      shell: dropbox status
+      register: dropbox_response
+
+    - name: "Configure environment"
+      block:
+        - name: "Create directories"
+          file:
+            path: "{{ item }}"
+            state: present
+          with_items:
+            - "{{ ansible_user_dir }}/.docker"
+            - "{{ git_dir }}
+
+        - name: "Create links from Dropbox"
+          file:
+            src: "{{ item.src }}"
+            dest: "{{ item.dest }}"
+            state: link
+          with_items:
+            - src: "{{ dropbox_dir }}/datio/zshrc"
+              dest: "{{ ansible_user_dir }}/.zshrc"
+            - src: "{{ dropbox_dir }}/datio/bash_aliases"
+              dest: "{{ ansible_user_dir }}/.bash_aliases"
+            - src: "{{ dropbox_dir }}/datio/ssh"
+              dest: "{{ ansible_user_dir }}/.ssh"
+            - src: "{{ dropbox_dir }}/datio/soft"
+              dest: "{{ ansible_user_dir }}/soft"
+            - src: "{{ dropbox_dir }}/datio/doc"
+              dest: "{{ ansible_user_dir }}/doc"
+            - src: "{{ dropbox_dir }}/datio/work"
+              dest: "{{ ansible_user_dir }}/work"
+            - src: "{{ dropbox_dir }}/docker.config.json"
+              dest: "{{ ansible_user_dir }}/.docker/config.json"
+
+        - name: "Change permissions to ssh config"
+          file:
+            path: "{{ item }}"
+            mode: 0600
+          with_items:
+            - "{{ ansible_user_dir }}/.ssh/config"
+            - "{{ ansible_user_dir }}/.ssh/id*"
+            - "{{ ansible_user_dir }}/.ssh/ccr/*"
+            - "{{ ansible_user_dir }}/.ssh/aws/*"
+
+        - name: "Clone git repositories"
+          git:
+            repo: "{{ item }}"
+            dest: "{{ ansible_user_dir }}/git/"
+            clone: yes
+          with_items: "{{ git_repositories }}"
+
+        - name: "Configure name and user of BBVA repositories"
+          git_config:
+            name: user.email
+            repo: "{{ git_repositories | filter 'globaldevtools' in dest  }}"
+            scope: local
+            value: 'oscar.hermosa@datiobbva.com'
+
+        - name: "Configure name and user of BBVA repositories"
+          git_config:
+            name: user.name
+            repo: "{{ git_repositories | filter 'globaldevtools' in dest }}"
+            scope: local
+            value: 'Oscar Hermosa'
+      when: dropbox_response == "Actualizado"
+
+- hosts:
+    - all
+  become: true
+  become_method: sudo
+  vars:
+    dropbox_dir: "{{ ansible_user_dir }}/Dropbox"
+  tasks:
+    - name: "Create link for docker daemon.json"
+      file:
+        src: "{{ dropbox_dir }}/datio/etc.docker.daemon.json"
+        dest: /etc/docker/daemon.json
+
+    - name: "Restart docker"
+      systemd:
+        name: docker
+        state: restarted
