@@ -1,9 +1,7 @@
 ---
 
-- import_tasks:
-    name: dropbox_ubuntu.yml
+- import_tasks: dropbox_ubuntu.yml
   when: ansible_distribution == "Ubuntu"
 
-- import_tasks:
-    name: dropbox_fedora.yml
-  when: ansible_distribution == "RedHat"
+- import_tasks: dropbox_fedora.yml
+  when: ansible_distribution == "Fedora"

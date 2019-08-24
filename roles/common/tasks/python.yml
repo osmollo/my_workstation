@@ -7,7 +7,7 @@
       - ipython3
     state: latest
     update_cache: true
-  when: ansible_distribution == "RedHat"
+  when: ansible_distribution == "Fedora"
 
 - name: "Install Python3 in Ubuntu"
   apt:

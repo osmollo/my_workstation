@@ -1,36 +1,26 @@
 ---
 
-- import_tasks:
-    name: hostname.yml
-  tags:
-    - common
-    - hostname
-
-- import_tasks:
-    name: selinux.yml
-  when: ansible_distribution == "RedHat"
+- import_tasks: selinux.yml
+  when: ansible_distribution == "Fedora"
   tags:
     - common
     - disable_selinux
 
-- import_tasks:
-    name: install_ubuntu_packages.yml
+- import_tasks: install_ubuntu_packages.yml
   when: ansible_distribution == "Ubuntu"
   tags:
     - common
     - install_packages
     - install_ubuntu_packages
 
-- import_tasks:
-    name: install_fedora_packages.yml
-  when: ansible_distribution == "RedHat"
+- import_tasks: install_fedora_packages.yml
+  when: ansible_distribution == "Fedora"
   tags:
     - common
     - install_packages
     - install_fedora_packages
 
-- import_tasks:
-    name: python.yml
+- import_tasks: python.yml
   tags:
     - common
     - python3

@@ -1,9 +1,7 @@
 ---
 
-- import_tasks:
-    name: vscode_fedora.yml
-  when: ansible_distribution == "RedHat"
+- import_tasks: vscode_fedora.yml
+  when: ansible_distribution == "Fedora"
 
-- import_tasks:
-    name: vscode_ubuntu.yml
+- import_tasks: vscode_ubuntu.yml
   when: ansible_distribution == "Ubuntu"

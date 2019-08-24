@@ -1,36 +1,31 @@
 ---
 
 - name: "Install Docker"
-  import_tasks:
-    name: docker.yml
+  import_tasks: docker.yml
   tags:
     - extra_software
     - install_docker
 
 - name: "Install Dropbox"
-  import_tasks:
-    name: dropbox.yml
+  import_tasks: dropbox.yml
   tags:
     - extra_software
     - install_dropbox
 
 - name: "Install Visual Studio Code"
-  import_tasks:
-    name: vscode.yml
+  import_tasks: vscode.yml
   tags:
     - extra_software
     - install_code
 
 - name: "Install Spotify"
-  import_tasks:
-    name: spotify.yml
+  import_tasks: spotify.yml
   tags:
     - extra_software
     - install_spotify
 
 - name: "Install Oh My ZSH!"
-  import_tasks:
-    name: oh_my_zsh.yml
+  import_tasks: oh_my_zsh.yml
   tags:
     - extra_software
     - install_zsh
