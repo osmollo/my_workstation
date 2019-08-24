@@ -1,0 +1,6 @@
+---
+
+- name: "Install Spotify using snap"
+  snap:
+    name:
+      - spotify

@@ -1,7 +1,13 @@
 ---
 
-- import_tasks:
+- name: "Install Dropbox"
+  import_tasks:
     name: dropbox.yml
 
-- import_tasks:
+- name: "Install code"
+  import_tasks:
     name: vscode.yml
+
+- name: "Install Spotify"
+  import_tasks:
+    name: spotify.yml
