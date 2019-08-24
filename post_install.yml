@@ -4,8 +4,47 @@
   connection: local
   become: true
   become_method: sudo
-  roles:
-    - post_install
+  tasks:
+    - name: "Check if dropbox is synchronized"
+      shell: dropbox status
+      register: dropbox_response
+
+    - name: "Several tasks"
+      block:
+        - import_role:
+            name: post_install
+            tasks_from: openvpn.yml
+
+        - name: "Create link for docker daemon.json"
+          file:
+            src: "{{ dropbox_dir }}/datio/etc.docker.daemon.json"
+            dest: /etc/docker/daemon.json
+
+        - name: "Restart docker"
+          systemd:
+            name: docker
+            state: restarted
+
+        - name: "Check if /var/spool/cron/crontabs exists"
+          stat:
+            path: /var/spool/cron/crontabs
+          register: crontabs_exists
+
+        - name: "Create directory /var/spool/cron/crontabs if not exists"
+          file:
+            path: /var/spool/cron/crontabs
+            state: directory
+          when: not crontabs_exists.stat.exists
+
+        - name: "Create link to user crontab"
+          file:
+            src: "{{ dropbox_dir }}/datio/crontab.ohermosa"
+            dest: "/var/spool/cron/crontabs/{{ ansible_user}}"
+            mode: 0600
+            owner: {{ ansible_user }}
+            group: crontab
+
+      when: dropbox_response == "Actualizado"
 
 
 - hosts: localhost
@@ -78,39 +117,3 @@
             scope: local
             value: 'Oscar Hermosa'
       when: dropbox_response == "Actualizado"
-
-- hosts: "{{ target | default('foo') }}"
-  become: true
-  become_method: sudo
-  vars:
-    dropbox_dir: "{{ ansible_user_dir }}/Dropbox"
-  tasks:
-    - name: "Create link for docker daemon.json"
-      file:
-        src: "{{ dropbox_dir }}/datio/etc.docker.daemon.json"
-        dest: /etc/docker/daemon.json
-
-    - name: "Restart docker"
-      systemd:
-        name: docker
-        state: restarted
-
-    - name: "Check if /var/spool/cron/crontabs exists"
-      stat:
-        path: /var/spool/cron/crontabs
-      register: crontabs_exists
-
-    - name: "Create directory /var/spool/cron/crontabs if not exists"
-      file:
-        path: /var/spool/cron/crontabs
-        state: directory
-      when: not crontabs_exists.stat.exists
-
-    - name: "Create link to user crontab"
-      file:
-        src: "{{ dropbox_dir }}/datio/crontab.ohermosa"
-        dest: "/var/spool/cron/crontabs/{{ ansible_user}}"
-        mode: 0600
-        owner: {{ ansible_user }}
-        group: crontab
-      when: ansible_hostname == "rufino"
