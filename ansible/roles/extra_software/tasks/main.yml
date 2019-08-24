@@ -11,3 +11,7 @@
 - name: "Install Spotify"
   import_tasks:
     name: spotify.yml
+
+- name: "Install Oh My ZSH!"
+  import_tasks:
+    name: oh_my_zsh.yml
