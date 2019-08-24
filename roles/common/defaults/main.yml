@@ -17,6 +17,9 @@ common_packages:
   - curl
   - wget
   - gimp
+  - zeal
+  - colordiff
+  - htop
 
 ubuntu_packages:
   - libsecret-tools

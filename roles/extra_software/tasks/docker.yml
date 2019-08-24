@@ -7,3 +7,9 @@
 - import_tasks:
     name: dropbox_fedora.yml
   when: ansible_distribution == "RedHat"
+
+- name: "Adding {{ ansible_user }} to group docker"
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: true
