@@ -7,7 +7,7 @@
       - ipython3
     state: latest
     update_cache: true
-  when: ansible_os_family == "RedHat"
+  when: ansible_distribution == "RedHat"
 
 - name: "Install Python3 in Ubuntu"
   apt:
@@ -16,7 +16,7 @@
       - ipython3
     state: latest
     update_cache: true
-  when: ansible_os_family == "Ubuntu"
+  when: ansible_distribution == "Ubuntu"
 
 - name: "Alternatives link created"
   alternatives:
