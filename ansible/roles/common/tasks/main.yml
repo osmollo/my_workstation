@@ -1,6 +1,12 @@
 ---
 
 - import_tasks:
+    name: hostname.yml
+  tags:
+    - common
+    - hostname
+
+- import_tasks:
     name: selinux.yml
   when: ansible_os_family == "RedHat"
   tags:

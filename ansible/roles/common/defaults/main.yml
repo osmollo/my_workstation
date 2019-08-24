@@ -13,6 +13,8 @@ common_packages:
   - wireshark
   - sshpass
   - zsh
+  - git
+  - ansible
 
 ubuntu_packages:
   - libsecret-tools
