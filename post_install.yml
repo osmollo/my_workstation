@@ -1,7 +1,6 @@
 ---
 
-- hosts:
-    - all
+- hosts: "{{ target | default('foo') }}"
   become: false
   tasks:
     - name: "Check if dropbox is synchronized"
@@ -16,7 +15,7 @@
             state: present
           with_items:
             - "{{ ansible_user_dir }}/.docker"
-            - "{{ git_dir }}
+            - "{{ git_dir }}"
 
         - name: "Create links from Dropbox"
           file:
@@ -71,8 +70,7 @@
             value: 'Oscar Hermosa'
       when: dropbox_response == "Actualizado"
 
-- hosts:
-    - all
+- hosts: "{{ target | default('foo') }}"
   become: true
   become_method: sudo
   vars:

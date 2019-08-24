@@ -1,7 +1,6 @@
 ---
 
-- hosts:
-    - all
+- hosts: "{{ target | default('foo') }}"
   become: true
   become_method: sudo
   roles:

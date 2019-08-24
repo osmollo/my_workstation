@@ -21,12 +21,16 @@
 
 ## Instalación
 
+Para ejecutar el playbook de instalación, es necesario definir la variable `target` en el extravars con el nombre de la máquina que se quiere instalar
+
 ```bash
-ansible-playbook -i inventory/workstation install.yml -l eusebio
+ansible-playbook -i inventory/workstation install.yml -e "target=eusebio"
 ```
 
 ## Post Instalación
 
+Para ejecutar el playbook de post instalación, es necesario definir la variable `target` en el extravars con el nombre de la máquina que se quiere instalar
+
 ```bash
-ansible-playbook -i inventory/workstation post_install.yml -l rufino
+ansible-playbook -i inventory/workstation post_install.yml -e "target=rufino"
 ```
