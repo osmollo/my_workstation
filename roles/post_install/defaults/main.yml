@@ -23,3 +23,13 @@ git_repositories:
     dest: "{{ git_dir}}/whopper_bot"
   - repo: git@gitlab.com:ohermosa/my_workstation.git
     dest: "{{ git_dir}}/my_workstation"
+
+openvpn_ubuntu_packages:
+  - network-manager-openvpn
+  - network-manager-openvpn-gnome
+  - openvpn
+
+openvpn_fedora_packages:
+  - openvpn
+  - NetworkManager-openvpn
+  - NetworkManager-openvpn-gnome
