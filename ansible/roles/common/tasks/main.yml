@@ -28,3 +28,9 @@
     - common
     - install_packages
     - install_fedora_packages
+
+- import_tasks:
+    name: python.yml
+  tags:
+    - common
+    - python3

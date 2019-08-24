@@ -1,0 +1,29 @@
+---
+
+- name: "Install Python3 in Fedora"
+  yum:
+    name:
+      - python3
+      - ipython3
+    state: latest
+    update_cache: true
+  when: ansible_os_family == "RedHat"
+
+- name: "Install Python3 in Ubuntu"
+  apt:
+    name:
+      - python3
+      - ipython3
+    state: latest
+    update_cache: true
+  when: ansible_os_family == "Ubuntu"
+
+- name: "Alternatives link created"
+  alternatives:
+    name: python
+    link: /usr/bin/python
+    path: /usr/bin/python3
+
+- name: "Install telepot"
+  pip:
+    name: telepot
