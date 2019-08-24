@@ -1,0 +1,32 @@
+---
+
+- name: "Configure environment"
+  block:
+    - name: "Create links from Dropbox"
+      file:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+        state: link
+      with_items:
+        - src: "{{ dropbox_dir }}/datio/zshrc"
+          dest: "{{ ansible_user_dir }}/.zshrc"
+        - src: "{{ dropbox_dir }}/datio/bash_aliases"
+          dest: "{{ ansible_user_dir }}/.bash_aliases"
+        - src: "{{ dropbox_dir }}/datio/ssh"
+          dest: "{{ ansible_user_dir }}/.ssh"
+        - src: "{{ dropbox_dir }}/datio/soft"
+          dest: "{{ ansible_user_dir }}/soft"
+        - src: "{{ dropbox_dir }}/datio/doc"
+          dest: "{{ ansible_user_dir }}/doc"
+        - src: "{{ dropbox_dir }}/datio/work"
+          dest: "{{ ansible_user_dir }}/work"
+
+    - name: "Change permissions to ssh config"
+      file:
+        path: "{{ item }}"
+        mode: 0600
+      with_items:
+        - "{{ ansible_user_dir }}/.ssh/config"
+        - "{{ ansible_user_dir }}/.ssh/id*"
+        - "{{ ansible_user_dir }}/.ssh/ccr/*"
+        - "{{ ansible_user_dir }}/.ssh/aws/*"

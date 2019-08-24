@@ -1,0 +1,20 @@
+---
+
+- name: "Check if /var/spool/cron/crontabs exists"
+  stat:
+    path: /var/spool/cron/crontabs
+  register: crontabs_exists
+
+- name: "Create directory /var/spool/cron/crontabs if not exists"
+  file:
+    path: /var/spool/cron/crontabs
+    state: directory
+  when: not crontabs_exists.stat.exists
+
+- name: "Create link to user crontab"
+  file:
+    src: "{{ dropbox_dir }}/datio/crontab.ohermosa"
+    dest: "/var/spool/cron/crontabs/{{ ansible_user}}"
+    mode: 0600
+    owner: {{ ansible_user }}
+    group: crontab

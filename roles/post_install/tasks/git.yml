@@ -1,0 +1,27 @@
+---
+
+- name: "Create {{ git_dir }}"
+  file:
+    path: "{{ git_dir }}"
+    state: directory
+
+- name: "Clone git repositories"
+  git:
+    repo: "{{ item }}"
+    dest: "{{ ansible_user_dir }}/git/"
+    clone: yes
+  with_items: "{{ git_repositories }}"
+
+- name: "Configure name and user of BBVA repositories"
+  git_config:
+    name: user.email
+    repo: "{{ git_repositories | filter 'globaldevtools' in dest  }}"
+    scope: local
+    value: 'oscar.hermosa@datiobbva.com'
+
+- name: "Configure name and user of BBVA repositories"
+  git_config:
+    name: user.name
+    repo: "{{ git_repositories | filter 'globaldevtools' in dest }}"
+    scope: local
+    value: 'Oscar Hermosa'

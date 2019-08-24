@@ -1,0 +1,27 @@
+---
+
+- name: "Create user config directory"
+    file:
+    path: "{{ ansible_user_dir }}/.docker"
+    state: present
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: "Create link to config.json"
+  file:
+    src: "{{ dropbox_dir }}/docker.config.json"
+    dest: "{{ ansible_user_dir }}/.docker/config.json"
+    state: link
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: "Create link for docker daemon.json"
+  file:
+    src: "{{ dropbox_dir }}/datio/etc.docker.daemon.json"
+    dest: /etc/docker/daemon.json
+    state: link
+
+- name: "Restart docker"
+  systemd:
+    name: docker
+    state: restarted

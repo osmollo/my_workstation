@@ -1,6 +1,28 @@
 ---
 
-- import_task: openvpn.yml
+- import_tasks: openvpn.yml
   tags:
     - post_install
     - openvpn
+
+- import_tasks: docker.yml
+  tags:
+    - post_install
+    - docker
+
+- import_tasks: crontab.yml
+  tags:
+    - post_install
+    - crontab
+
+- import_tasks: git.yml
+  become: false
+  tags:
+    - post_install
+    - git
+
+- import_tasks: environment.yml
+  become: false
+  tags:
+    - post_install
+    - environment

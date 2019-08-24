@@ -23,13 +23,13 @@
 ## Instalación
 
 ```bash
-ansible-playbook install.yml --ask-vault-pass --ask-become-pass
+ansible-playbook install.yml --ask-become-pass
 ```
 
 ## Post Instalación
 
 ```bash
-ansible-playbook post_install.yml --ask-vault-pass --ask-become-pass
+ansible-playbook post_install.yml --ask-become-pass
 ```
 
 ## Ejecución de comandos ansible ad-hoc
