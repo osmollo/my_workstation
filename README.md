@@ -28,5 +28,5 @@ ansible-playbook -i inventory/workstation install.yml -l eusebio
 ## Post Instalación
 
 ```bash
-ansible-playbook -i inventory/workstation post_install.yml -l leviatan
+ansible-playbook -i inventory/workstation post_install.yml -l rufino
 ```
