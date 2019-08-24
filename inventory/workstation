@@ -1,6 +1,1 @@
-[personal]
-eusebio     ansible_connection=local    ansible_user=ohermosa     become_method=sudo   vault_password_file=inventory/secrets/main.yml
-
-
-[trabajo]
-rufino      ansible_connection=local    ansible_user=ohermosa     become_method=sudo   vault_password_file=inventory/secrets/main.yml
+localhost     ansible_connection=local    ansible_user=ohermosa     become_method=sudo   vault_password_file=inventory/secrets/main.yml
