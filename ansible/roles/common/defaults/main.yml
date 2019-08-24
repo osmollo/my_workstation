@@ -15,10 +15,14 @@ common_packages:
   - zsh
   - git
   - ansible
+  - curl
+  - wget
 
 ubuntu_packages:
   - libsecret-tools
   - aptitude
+  - software-properties-common
+  - apt-transport-https
 
 fedora_packages:
   - libsecret
