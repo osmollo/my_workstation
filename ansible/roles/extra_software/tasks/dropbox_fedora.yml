@@ -1,0 +1,12 @@
+---
+
+
+- name: "Download Dropbox for Fedora"
+  get_url:
+    url: https://linux.dropbox.com/packages/fedora/nautilus-dropbox-2019.02.14-1.fedora.x86_64.rpm
+    dest: /tmp/dropbox_fedora.rpm
+
+- name: "Install Dropbox package"
+  yum:
+    name: /tmp/dropbox_fedora.rpm
+    state: present

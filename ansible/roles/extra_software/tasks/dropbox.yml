@@ -1,1 +1,9 @@
 ---
+
+- import_tasks:
+    name: dropbox_ubuntu.yml
+  when: ansible_os_family == "Ubuntu"
+
+- import_tasks:
+    name: dropbox_fedora.yml
+  when: ansible_os_family == "RedHat"
