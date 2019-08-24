@@ -1,0 +1,28 @@
+---
+
+- name: "[Fedora] Install openvpn packages"
+  yum:
+    name: "{{ openvpn_fedora_packages }}"
+    state: latest
+    update_cache: true
+  when: ansible_distribution == "Fedora"
+
+- name: "[Ubuntu] Install openvpn packages"
+  apt:
+    name: "{{ openvpn_ubuntu_packages }}"
+    state: latest
+    update_cache: true
+  when: ansible_distribution == "Ubuntu"
+
+- name: "Copy vpn configuration files to NetworkManager"
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: 0600
+    owner: root
+    group: root
+  with_items:
+    - src: bbva_vpn.j2
+      dest: /etc/NetworkManager/system-connections/BBVA.nmconnection
+    - src: datio_mx_vpn.j2
+      dest: /etc/NetworkManager/system-connections/Datio_MX.nmconnection

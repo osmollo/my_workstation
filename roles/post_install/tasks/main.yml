@@ -1,0 +1,6 @@
+---
+
+- import_task: openvpn.yml
+  tags:
+    - post_install
+    - openvpn
