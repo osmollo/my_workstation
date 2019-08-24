@@ -1,3 +1,9 @@
 ---
 
-https://go.microsoft.com/fwlink/?LinkID=760868
+- import_tasks:
+    name: vscode_fedora.yml
+  when: ansible_os_family == "RedHat"
+
+- import_tasks:
+    name: vscode_ubuntu.yml
+  when: ansible_os_family == "Ubuntu"

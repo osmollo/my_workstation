@@ -1,2 +1,7 @@
 ---
 
+- import_tasks:
+    name: dropbox.yml
+
+- import_tasks:
+    name: vscode.yml

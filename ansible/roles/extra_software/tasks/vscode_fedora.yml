@@ -1,0 +1,20 @@
+---
+
+- name: "Copy repository file"
+  copy:
+    src: vscode.repo"
+    dest: /etc/yum.repos.d/vscode.repo
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "Import Microsoft key"
+  rpm_key:
+    key: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+
+- name: "Install Code"
+  yum:
+    name: code
+    state: latest
+    update_cache: true
