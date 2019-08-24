@@ -1,5 +1,17 @@
 ---
 
+- name: "Install zsh"
+  yum:
+    name: zsh
+    state: latest
+  when: ansible_os_family == "RedHat"
+
+- name: "Install zsh"
+  apt:
+    name: zsh
+    state: latest
+  when: ansible_os_family == "Ubuntu"
+
 - name: "Download installation script"
   get_url:
     url: https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh

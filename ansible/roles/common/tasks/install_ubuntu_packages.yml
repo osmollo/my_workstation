@@ -4,8 +4,10 @@
   apt:
     name: "{{ common_packages | list }}"
     status: latest
+    update_cache: true
 
 - name: "Install Ubuntu packages"
   apt:
     name: "{{ ubuntu_packages | list }}"
     status: latest
+    update_cache: true

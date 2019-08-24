@@ -4,8 +4,10 @@
   yum:
     name: "{{ common_packages | list }}"
     state: latest
+    update_cache: true
 
 - name: "Install Fedora packages"
   yum:
     name: "{{ fedora_packages | list }}"
     state: latest
+    update_cache: true

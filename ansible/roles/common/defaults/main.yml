@@ -12,7 +12,6 @@ common_packages:
   - meld
   - wireshark
   - sshpass
-  - zsh
   - git
   - ansible
   - curl
