@@ -1,2 +1,24 @@
 ---
 
+- import_tasks:
+    name: selinux.yml
+  when: ansible_os_family == "RedHat"
+  tags:
+    - common
+    - disable_selinux
+
+- import_tasks:
+    name: install_ubuntu_packages.yml
+  when: ansible_os_family == "Ubuntu"
+  tags:
+    - common
+    - install_packages
+    - install_ubuntu_packages
+
+- import_tasks:
+    name: install_fedora_packages.yml
+  when: ansible_os_family == "RedHat"
+  tags:
+    - common
+    - install_packages
+    - install_fedora_packages

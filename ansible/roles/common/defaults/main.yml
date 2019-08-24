@@ -1,2 +1,22 @@
 ---
 
+common_packages:
+  - zeal
+  - jq
+  - libreoffice-icon-theme-papirus
+  - seahorse
+  - vim
+  - gedit-plugins
+  - tilix
+  - vlc
+  - meld
+  - wireshark
+  - sshpass
+  - zsh
+
+ubuntu_packages:
+  - libsecret-tools
+  - aptitude
+
+fedora_packages:
+  - libsecret
