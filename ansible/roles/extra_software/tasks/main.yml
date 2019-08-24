@@ -1,10 +1,14 @@
 ---
 
+- name: "Install Docker"
+  import_tasks:
+    name: docker.yml
+
 - name: "Install Dropbox"
   import_tasks:
     name: dropbox.yml
 
-- name: "Install code"
+- name: "Install Visual Studio Code"
   import_tasks:
     name: vscode.yml
 
