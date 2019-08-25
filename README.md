@@ -9,11 +9,27 @@
 
 ## Software extra instalado
 
+Por defecto se instala el siguiente software:
+
 * [Docker](https://docs.docker.com/install/linux/docker-ce/)
 * [Dropbox](https://www.dropbox.com/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Spotify](https://www.spotify.com/es/premium/?checkout=false)
 * [Oh my ZSH!](https://ohmyz.sh/)
+
+En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente variable a `false`:
+
+* install_docker
+* install_dropbox
+* install_code
+* install_spotify
+* install_ohmyzsh
+
+Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
+
+```bash
+ansible-playbook install.yml --ask-become-pass -e "install_spotify=false install_ohmyzsh=false"
+```
 
 ## Prerequisitos
 

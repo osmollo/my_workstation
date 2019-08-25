@@ -1,0 +1,7 @@
+---
+
+install_docker: true
+install_dropbox: true
+install_code: true
+install_spotify: true
+install_ohmyzsh: true
