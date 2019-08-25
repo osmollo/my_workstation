@@ -3,7 +3,6 @@
 common_packages:
   - zeal
   - jq
-  - libreoffice-icon-theme-papirus
   - seahorse
   - vim
   - gedit-plugins
