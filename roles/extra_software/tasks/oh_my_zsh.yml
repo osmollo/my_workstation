@@ -3,13 +3,13 @@
 - name: "Install zsh"
   yum:
     name: zsh
-    state: latest
+    state: present
   when: ansible_distribution == "Fedora"
 
 - name: "Install zsh"
   apt:
     name: zsh
-    state: latest
+    state: present
   when: ansible_distribution == "Ubuntu"
 
 - name: "Download installation script"
