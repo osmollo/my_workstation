@@ -5,3 +5,7 @@
 
 - import_tasks: atom_fedora.yml
   when: ansible_distribution == "Fedora"
+
+- name: "Install 'sync-settings' package for Atom"
+  become: false
+  shell: apm install sync-settings
