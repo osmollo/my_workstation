@@ -1,0 +1,23 @@
+---
+
+- name: "Copy repository file"
+  copy:
+    src: ansible.list
+    dest: /etc/apt/sources.list.d/ansible.list
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "Import Ansible repository key"
+  apt_key:
+    url: keyserver.ubuntu.com
+    id: 93C4A3FD7BB9C367
+    state: present
+
+- name: "Update ansible"
+  apt:
+    name:
+      - ansible
+      - python-apt
+    update_cache: true
+    state: latest
