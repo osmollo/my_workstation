@@ -1,5 +1,13 @@
 ---
 
+- name: "Delete bash files"
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ ansible_user_dir }}/.bashrc"
+    - "{{ ansible_user_dir }}/.bash_history"
+
 - name: "Configure environment"
   block:
     - name: "Create links from Dropbox"
@@ -20,6 +28,10 @@
           dest: "{{ ansible_user_dir }}/doc"
         - src: "{{ dropbox_dir }}/datio/work"
           dest: "{{ ansible_user_dir }}/work"
+        - src: "{{ dropbox_dir }}/datio/bashrc"
+          dest: "{{ ansible_user_dir }}/.bashrc"
+        - src: "{{ dropbox_dir }}/datio/bash_history"
+          dest: "{{ ansible_user_dir}}/.bash_history"
 
     - name: "Change permissions to ssh config"
       file:
