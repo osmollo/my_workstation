@@ -34,3 +34,17 @@
   tags:
     - extra_software
     - install_ohmyzsh
+
+- name: "Install Sublime Text"
+  import_tasks: sublime.yml
+  when: install_sublime
+  tags:
+    - extra_software
+    - install_sublime
+
+- name: "Install Atom"
+  import_tasks: atom.yml
+  when: install_atom
+  tags:
+    - extra_software
+    - install_atom
