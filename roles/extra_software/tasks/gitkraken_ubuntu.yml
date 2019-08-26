@@ -1,0 +1,16 @@
+---
+
+- name: "Downlaod Gitkraken package"
+  get_url:
+    url: "{{ gitkraken_ubuntu_package }}"
+    dest: /tmp/gitkraken.deb
+
+- name: "Install Gitkraken"
+  apt:
+    deb: /tmp/gitkraken.deb
+    state: present
+
+- name: "Delete temporal file"
+  file:
+    path: /tmp/gitkraken.deb
+    state: absent
