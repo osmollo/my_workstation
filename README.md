@@ -31,6 +31,12 @@ Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh
 ansible-playbook install.yml --ask-become-pass -e "install_spotify=false install_ohmyzsh=false"
 ```
 
+En caso contrario, si lo único que se quiere hacer es instalar alguna de las aplicaciones, hay que usar el tag correspondiente, que coincide con las variables anteriores. Por ejemplo, para instalar *Visual Studio Code*:
+
+```bash
+ansible-playbook install.yml --ask-become-pass -t "install_code"
+```
+
 ## Prerequisitos
 
 * El usuario que ejecute los playbooks debe tener `sudo` activado e incluír `--ask-become-pass` para ejecutar el playbook con permisos de administrador

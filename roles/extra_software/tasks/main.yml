@@ -33,4 +33,4 @@
   when: install_ohmyzsh
   tags:
     - extra_software
-    - install_zsh
+    - install_ohmyzsh
