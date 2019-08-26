@@ -1,0 +1,4 @@
+---
+
+- import_tasks: ansible_ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
