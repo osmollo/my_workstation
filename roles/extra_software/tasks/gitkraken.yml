@@ -1,0 +1,7 @@
+---
+
+- import_tasks: gitkraken_ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- import_tasks: gitkraken_fedora.yml
+  when: ansible_distribution == "Fedora"
