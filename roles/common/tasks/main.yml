@@ -20,6 +20,11 @@
     - install_packages
     - install_fedora_packages
 
+- import_tasks: ansible.yml
+  tags:
+    - common
+    - ansible
+
 - import_tasks: python.yml
   tags:
     - common
