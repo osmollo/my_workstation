@@ -8,7 +8,9 @@ install_ohmyzsh: true
 install_sublime: true
 install_atom: true
 
-
 atom_version: 1.40.1
 atom_fedora_package: "https://atom-installer.github.com/v{{ atom_version }}/atom.x86_64.rpm"
 atom_ubuntu_package: "https://atom-installer.github.com/v{{ atom_version }}/atom-amd64.deb"
+
+gitkraken_fedora_package: https://release.gitkraken.com/linux/gitkraken-amd64.rpm
+gitkraken_ubuntu_package: https://release.axocdn.com/linux/gitkraken-amd64.deb
