@@ -15,7 +15,7 @@
     - install_dropbox
 
 - name: "Install Visual Studio Code"
-  import_tasks: vscode.yml
+  import_tasks: code.yml
   when: install_code
   tags:
     - extra_software
