@@ -5,3 +5,10 @@ install_dropbox: true
 install_code: true
 install_spotify: true
 install_ohmyzsh: true
+install_sublime: true
+install_atom: true
+
+
+atom_version: 1.40.1
+atom_fedora_package: "https://atom-installer.github.com/v{{ atom_version }}/atom.x86_64.rpm"
+atom_ubuntu_package: "https://atom-installer.github.com/v{{ atom_version }}/atom-amd64.deb"
