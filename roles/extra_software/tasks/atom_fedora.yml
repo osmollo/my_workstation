@@ -1,0 +1,16 @@
+---
+
+- name: "Download Atom"
+  get_url:
+    url: "{{ atom_fedora_package }}"
+    dest: /tmp/atom.rpm
+
+- name: "Install Atom"
+  yum:
+    name: /tmp/atom.rpm
+    state: present
+
+- name: "Delete temporal file"
+  file:
+    path: /tmp/atom.rpm
+    state: absent

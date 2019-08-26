@@ -16,6 +16,8 @@ Por defecto se instala el siguiente software:
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Spotify](https://www.spotify.com/es/premium/?checkout=false)
 * [Oh my ZSH!](https://ohmyz.sh/)
+* [Sublime Text](https://www.sublimetext.com/)
+* [Atom](https://atom.io/)
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente variable a `false`:
 
@@ -24,6 +26,8 @@ En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se p
 * install_code
 * install_spotify
 * install_ohmyzsh
+* install_sublime
+* install_atom
 
 Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
@@ -39,6 +43,7 @@ ansible-playbook install.yml --ask-become-pass -t "install_code"
 
 ## Prerequisitos
 
+* La distribución del sistema debe ser [Ubuntu](https://ubuntu.com/download/desktop) o [Fedora](https://getfedora.org/es/workstation/)
 * El usuario que ejecute los playbooks debe tener `sudo` activado e incluír `--ask-become-pass` para ejecutar el playbook con permisos de administrador
 * En la post instalación, se crearán enlaces simbólicos desde el directorio */home/{{ ansible_user }}/Dropbox/datio*, será necesario modificar este directorio si no es correcto
 
