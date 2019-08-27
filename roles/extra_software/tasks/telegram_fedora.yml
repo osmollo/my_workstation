@@ -9,5 +9,5 @@
 
 - name: "Install the Telegram flatpak"
   flatpak:
-    name:  https://flathub.org/repo/appstream/org.telegram.desktop.flatpakref
+    name:  "{{ telegram_flatpak }}"
     state: present

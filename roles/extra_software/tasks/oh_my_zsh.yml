@@ -14,7 +14,7 @@
 
 - name: "Download installation script"
   get_url:
-    url: https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+    url: "{{ ohmyzsh_installer }}"
     dest: /tmp/install.sh
     mode: 0755
 

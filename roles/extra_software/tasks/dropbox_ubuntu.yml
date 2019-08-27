@@ -2,7 +2,7 @@
 
 - name: "Download Dropbox for Ubuntu"
   get_url:
-    url: https://linux.dropbox.com/packages/ubuntu/dropbox_2019.02.14_amd64.deb
+    url: "{{ dropbox_ubuntu_package }}"
     dest: /tmp/dropbox_ubuntu.deb
 
 - name: "Install Dropbox package"

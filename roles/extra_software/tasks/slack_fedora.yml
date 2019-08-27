@@ -9,5 +9,5 @@
 
 - name: "Install the Slack flatpak"
   flatpak:
-    name:  https://flathub.org/repo/appstream/com.slack.Slack.flatpakref
+    name:  "{{ slack_flatpak }}"
     state: present
