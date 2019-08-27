@@ -55,3 +55,10 @@
   tags:
     - extra_software
     - install_telegram
+
+- name: "Install Slack"
+  import_tasks: slack.yml
+  when: install_slack
+  tags:
+    - extra_software
+    - install_slack
