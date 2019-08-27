@@ -1,0 +1,11 @@
+---
+
+- hosts: localhost
+  connection: local
+  become: true
+  become_method: sudo
+  tasks:
+    - name: "Update ansible"
+      import_role:
+        name: common
+        tasks_from: ansible.yml
