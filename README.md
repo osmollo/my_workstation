@@ -19,6 +19,7 @@ Por defecto se instala el siguiente software:
 * [Sublime Text](https://www.sublimetext.com/)
 * [Atom](https://atom.io/)
 * [Gitkraken](https://www.gitkraken.com/git-client)
+* [Telegram Desktop](https://telegram.org/)
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente variable a `false`:
 
@@ -30,6 +31,7 @@ En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se p
 * install_sublime
 * install_atom
 * install_gitkraken
+* install_telegram
 
 Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

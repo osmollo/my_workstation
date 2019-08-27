@@ -1,0 +1,7 @@
+---
+
+- import_tasks: telegram_ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- import_tasks: telegram_fedora.yml
+  when: ansible_distribution == "Fedora"
