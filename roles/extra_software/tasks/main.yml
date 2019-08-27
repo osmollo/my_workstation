@@ -49,6 +49,13 @@
     - extra_software
     - install_atom
 
+- name: "Install Gitkraken"
+  import_tasks: gitkraken.yml
+  when: install_gitkraken
+  tags:
+    - extra_software
+    - install_gitkraken
+
 - name: "Install Telegram"
   import_tasks: telegram.yml
   when: install_telegram
