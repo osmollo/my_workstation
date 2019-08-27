@@ -69,3 +69,10 @@
   tags:
     - extra_software
     - install_slack
+
+- name: "Install Forticlient VPN"
+  import_tasks: forticlientvpn.yml
+  when: install_forticlientvpn
+  tags:
+    - extra_software
+    - install_forticlientvpn

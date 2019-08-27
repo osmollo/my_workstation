@@ -1,0 +1,11 @@
+---
+
+- name: "Install Forticlient VPN package"
+  vars:
+    forticlientvpn_fedora_package: "https://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/n/NetworkManager-fortisslvpn-1.3.90-2.fc31.x86_64.rpm"
+  yum:
+    name:
+      - openfortivpn
+      - "{{ forticlientvpn_fedora_package }}"
+    state: present
+    update_cache: true
