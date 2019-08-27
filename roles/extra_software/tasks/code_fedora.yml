@@ -2,8 +2,8 @@
 
 - name: "Copy repository file"
   copy:
-    src: vscode.repo"
-    dest: /etc/yum.repos.d/vscode.repo
+    src: code.repo"
+    dest: /etc/yum.repos.d/code.repo
     owner: root
     group: root
     mode: 0644
