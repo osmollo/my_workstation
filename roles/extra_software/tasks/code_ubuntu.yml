@@ -2,8 +2,8 @@
 
 - name: "Copy repository file"
   copy:
-    src: vscode.list
-    dest: /etc/apt/sources.list.d/vscode.list
+    src: code.list
+    dest: /etc/apt/sources.list.d/code.list
     mode: 0644
     owner: root
     group: root
