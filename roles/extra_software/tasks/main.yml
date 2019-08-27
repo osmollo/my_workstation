@@ -48,3 +48,10 @@
   tags:
     - extra_software
     - install_atom
+
+- name: "Install Telegram"
+  import_tasks: telegram.yml
+  when: install_telegram
+  tags:
+    - extra_software
+    - install_telegram
