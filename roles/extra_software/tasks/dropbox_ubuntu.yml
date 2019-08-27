@@ -7,5 +7,5 @@
 
 - name: "Install Dropbox package"
   apt:
-    name: /tmp/dropbox_ubuntu.deb
+    deb: /tmp/dropbox_ubuntu.deb
     state: present

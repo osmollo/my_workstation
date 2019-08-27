@@ -2,30 +2,56 @@
 
 - name: "Install Docker"
   import_tasks: docker.yml
+  when: install_docker
   tags:
     - extra_software
     - install_docker
 
 - name: "Install Dropbox"
   import_tasks: dropbox.yml
+  when: install_dropbox
   tags:
     - extra_software
     - install_dropbox
 
 - name: "Install Visual Studio Code"
-  import_tasks: vscode.yml
+  import_tasks: code.yml
+  when: install_code
   tags:
     - extra_software
     - install_code
 
 - name: "Install Spotify"
   import_tasks: spotify.yml
+  when: install_spotify
   tags:
     - extra_software
     - install_spotify
 
 - name: "Install Oh My ZSH!"
   import_tasks: oh_my_zsh.yml
+  when: install_ohmyzsh
   tags:
     - extra_software
-    - install_zsh
+    - install_ohmyzsh
+
+- name: "Install Sublime Text"
+  import_tasks: sublime.yml
+  when: install_sublime
+  tags:
+    - extra_software
+    - install_sublime
+
+- name: "Install Atom"
+  import_tasks: atom.yml
+  when: install_atom
+  tags:
+    - extra_software
+    - install_atom
+
+- name: "Install Telegram"
+  import_tasks: telegram.yml
+  when: install_telegram
+  tags:
+    - extra_software
+    - install_telegram

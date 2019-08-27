@@ -1,0 +1,7 @@
+---
+
+- name: "Install ansible"
+  yum:
+    name: ansible
+    state: present
+    update_cache: true

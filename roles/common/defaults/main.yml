@@ -3,7 +3,6 @@
 common_packages:
   - zeal
   - jq
-  - libreoffice-icon-theme-papirus
   - seahorse
   - vim
   - gedit-plugins
@@ -13,7 +12,6 @@ common_packages:
   - wireshark
   - sshpass
   - git
-  - ansible
   - curl
   - wget
   - gimp

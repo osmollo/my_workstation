@@ -7,8 +7,8 @@
     fail_msg: "Ansible version must be >= 2.8. Please, ejecute 'ansible-playbook update_ansible.yml --ask-become-pass'"
     success_msg: "OK, your ansible version is {{ ansible_version.full }}"
 
-- name: "Install Spotify using snap"
+- name: "Install Telegram using snap"
   snap:
     name:
-      - spotify
+      - telegram-desktop
     state: present
