@@ -50,7 +50,7 @@ ansible-playbook install.yml --ask-become-pass -t "install_code"
 * La distribución del sistema debe ser [Ubuntu](https://ubuntu.com/download/desktop) o [Fedora](https://getfedora.org/es/workstation/)
 * El usuario que ejecute los playbooks debe tener `sudo` activado e incluír `--ask-become-pass` para ejecutar el playbook con permisos de administrador
 * En la post instalación, se crearán enlaces simbólicos desde el directorio */home/{{ ansible_user }}/Dropbox/datio*, será necesario modificar este directorio si no es correcto
-* Para poder instalar *Spotify*, es necesario tener actualizado **Ansible** a la versión 2.8 o similar. Para ello hay que ejecutar el siguiente playbook:
+* Para poder instalar *Telegram* o *Spotify*, es necesario tener actualizado **Ansible** a la versión 2.6 o 2.8, respectivamente. Para ello hay que ejecutar el siguiente playbook:
 
 ```bash
 ansible-playbook update_ansible.yml --ask-become-pass
