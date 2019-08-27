@@ -9,3 +9,8 @@
   apt:
     deb: /tmp/dropbox_ubuntu.deb
     state: present
+
+- name: "Delete temporal file"
+  file:
+    path: /tmp/dropbox_ubuntu.deb
+    state: absent

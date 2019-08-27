@@ -21,6 +21,7 @@ Por defecto se instala el siguiente software:
 * [Gitkraken](https://www.gitkraken.com/git-client)
 * [Telegram Desktop](https://telegram.org/)
 * [Slack](https://datiodevelopers.slack.com/)
+* [Forticlient VPN](https://www.fortinet.com/lat)
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente variable a `false`:
 
@@ -34,6 +35,7 @@ En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se p
 * install_gitkraken
 * install_telegram
 * install_slack
+* install_forticlientvpn
 
 Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

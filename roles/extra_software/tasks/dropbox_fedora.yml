@@ -10,3 +10,8 @@
   yum:
     name: /tmp/dropbox_fedora.rpm
     state: present
+
+- name: "Delete temporal file"
+  file:
+    path: /tmp/dropbox_fedora.rpm
+    state: absent
