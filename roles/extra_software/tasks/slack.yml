@@ -1,0 +1,7 @@
+---
+
+- import_tasks: slack_ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- import_tasks: slack_fedora.yml
+  when: ansible_distribution == "Fedora"
