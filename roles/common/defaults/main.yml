@@ -12,7 +12,6 @@ common_packages:
   - wireshark
   - sshpass
   - git
-  - ansible
   - curl
   - wget
   - gimp
