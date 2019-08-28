@@ -1,2 +1,4 @@
 facts/*
 *.retry
+.vagrant
+Vagrantfile

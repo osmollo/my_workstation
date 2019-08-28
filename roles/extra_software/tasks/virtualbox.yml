@@ -1,0 +1,13 @@
+---
+
+- import_tasks: virtualbox_ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- import_tasks: virtualbox_fedora.yml
+  when: ansible_distribution == "Fedora"
+
+- name: "Adding {{ ansible_user }} to group vboxusers"
+  user:
+    name: "{{ ansible_user }}"
+    groups: vboxusers
+    append: true
