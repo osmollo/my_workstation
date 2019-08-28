@@ -11,41 +11,28 @@
 
 Por defecto se instala el siguiente software:
 
-* [Docker](https://docs.docker.com/install/linux/docker-ce/)
-* [Dropbox](https://www.dropbox.com/)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [Spotify](https://www.spotify.com/es/premium/?checkout=false)
-* [Oh my ZSH!](https://ohmyz.sh/)
-* [Sublime Text](https://www.sublimetext.com/)
-* [Atom](https://atom.io/)
-* [Gitkraken](https://www.gitkraken.com/git-client)
-* [Telegram Desktop](https://telegram.org/)
-* [Slack](https://datiodevelopers.slack.com/)
-* [Forticlient VPN](https://www.fortinet.com/lat)
-* [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html)
+| Aplicación | TAG/Variable |
+|------------|--------------|
+| [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker |
+| [Dropbox](https://www.dropbox.com/) | install_dropbox |
+| [Visual Studio Code](https://code.visualstudio.com/) | install_code |
+| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | install_spotify |
+| [Oh my ZSH!](https://ohmyz.sh/) | install_ohmyzsh |
+| [Sublime Text](https://www.sublimetext.com/) | install_sublime |
+| [Atom](https://atom.io/) | install_atom |
+| [Gitkraken](https://www.gitkraken.com/git-client) | install_gitkraken |
+| [Telegram Desktop](https://telegram.org/) | install_telegram |
+| [Slack](https://datiodevelopers.slack.com/) | install_slack |
+| [Forticlient VPN](https://www.fortinet.com/lat) | install_forticlientvpn |
+| [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | install_tlp |
 
-En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente variable a `false`:
-
-* install_docker
-* install_dropbox
-* install_code
-* install_spotify
-* install_ohmyzsh
-* install_sublime
-* install_atom
-* install_gitkraken
-* install_telegram
-* install_slack
-* install_forticlientvpn
-* install_tlp
-
-Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
+En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
 ```bash
 ansible-playbook install.yml --ask-become-pass -e "install_spotify=false install_ohmyzsh=false"
 ```
 
-En caso contrario, si lo único que se quiere hacer es instalar alguna de las aplicaciones, hay que usar el tag correspondiente, que coincide con las variables anteriores. Por ejemplo, para instalar *Visual Studio Code*:
+En caso contrario, si lo único que se quiere hacer es instalar alguna de las aplicaciones, hay que usar el **tag** correspondiente, que coincide con las variables anteriores. Por ejemplo, para instalar *Visual Studio Code*:
 
 ```bash
 ansible-playbook install.yml --ask-become-pass -t "install_code"
