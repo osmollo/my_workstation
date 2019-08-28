@@ -11,3 +11,9 @@
     name: "{{ ansible_user }}"
     groups: docker
     append: true
+
+- name: "Restart Docker"
+  systemd:
+    name: docker
+    enabled: true
+    state: restarted

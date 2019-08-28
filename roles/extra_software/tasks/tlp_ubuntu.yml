@@ -1,10 +1,10 @@
 ---
 
-- name: "Add TLP repository"
+- name: "[UBUNTU] Add TLP repository"
   apt_repository:
     repo: ppa:nginx/stable
 
-- name: "Install common TLP packages"
+- name: "[UBUNTU] Install common TLP packages"
   apt:
     name:
       - tlp
@@ -12,7 +12,7 @@
     state: present
     update_cache: true
 
-- name: "Install TLP packages for ThinkPads"
+- name: "[UBUNTU] Install TLP packages for ThinkPads"
   apt:
     name:
       - tp-smapi-dkms

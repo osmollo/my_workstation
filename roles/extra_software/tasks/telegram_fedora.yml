@@ -1,13 +1,13 @@
 ---
 
-- name: "Check if ansible_version >= 2.8"
+- name: "[FEDORA] Check if ansible_version >= 2.8"
   assert:
     that:
       - ansible_version.full >= "2.6"
     fail_msg: "Ansible version must be >= 2.6. Please, ejecute 'ansible-playbook update_ansible.yml --ask-become-pass'"
     success_msg: "OK, your ansible version is {{ ansible_version.full }}"
 
-- name: "Install the Telegram flatpak"
+- name: "[FEDORA] Install the Telegram flatpak"
   flatpak:
     name:  "{{ telegram_flatpak }}"
     state: present

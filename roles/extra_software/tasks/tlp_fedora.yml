@@ -1,19 +1,19 @@
 ---
 
-- name: "Install common TLP packages"
+- name: "[FEDORA] Install common TLP packages"
   yum:
     name:
       - tlp
       - tlp-rdw
     state: present
 
-- name: "Import repository key"
+- name: "[FEDORA] Import repository key"
   rpm_key:
     key: https://repo.linrunner.de/fedora/tlp/repos/RPM-GPG-KEY-tlp-fedora-28-primary
     state: present
   when: "'ThinkPad' in ansible_product_version"
 
-- name: "Install TLP repositories for ThinkPads"
+- name: "[FEDORA] Install TLP repositories for ThinkPads"
   yum:
     name:
       - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
@@ -21,7 +21,7 @@
     state: present
   when: "'ThinkPad' in ansible_product_version"
 
-- name: "Install TLP packages for ThinkPads"
+- name: "[FEDORA] Install TLP packages for ThinkPads"
   yum:
     name:
       - akmod-tp_smapi

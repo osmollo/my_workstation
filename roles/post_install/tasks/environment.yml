@@ -15,7 +15,7 @@
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
         state: link
-      with_items:
+      loop:
         - src: "{{ dropbox_dir }}/datio/zshrc"
           dest: "{{ ansible_user_dir }}/.zshrc"
         - src: "{{ dropbox_dir }}/datio/bash_aliases"

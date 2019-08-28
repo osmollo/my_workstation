@@ -21,7 +21,7 @@
     mode: 0600
     owner: root
     group: root
-  with_items:
+  loop:
     - src: bbva_vpn.j2
       dest: /etc/NetworkManager/system-connections/BBVA.nmconnection
     - src: datio_mx_vpn.j2

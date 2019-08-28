@@ -1,6 +1,6 @@
 ---
 
-- name: "Uninstall old docker"
+- name: "[FEDORA] Uninstall old docker"
   yum:
     name:
       - docker
@@ -15,7 +15,7 @@
       - docker-engine
     state: absent
 
-- name: "Copy repository file for Docker-CE"
+- name: "[FEDORA] Copy repository file for Docker-CE"
   copy:
     src: docker-ce.repo
     dest: /etc/yum.repos.d/docker-ce.repo
@@ -23,7 +23,7 @@
     owner: root
     group: root
 
-- name: "Install Docker"
+- name: "[FEDORA] Install Docker"
   yum:
     name:
       - docker-ce

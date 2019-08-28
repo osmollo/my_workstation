@@ -1,16 +1,16 @@
 ---
 
-- name: "Download Dropbox for Ubuntu"
+- name: "[UBUNTU] Download Dropbox"
   get_url:
     url: "{{ dropbox_ubuntu_package }}"
     dest: /tmp/dropbox_ubuntu.deb
 
-- name: "Install Dropbox package"
+- name: "[UBUNTU] Install Dropbox package"
   apt:
     deb: /tmp/dropbox_ubuntu.deb
     state: present
 
-- name: "Delete temporal file"
+- name: "[UBUNTU] Delete temporal file"
   file:
     path: /tmp/dropbox_ubuntu.deb
     state: absent

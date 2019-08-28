@@ -1,6 +1,6 @@
 ---
 
-- name: "Install Forticlient VPN package"
+- name: "[FEDORA] Install Forticlient VPN package"
   yum:
     name:
       - openfortivpn

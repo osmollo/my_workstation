@@ -1,14 +1,14 @@
 ---
 
-- name: "Import repository key"
+- name: "[FEDORA] Import repository key"
   rpm_key:
     key: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
     state: present
 
-- name: "Add repository file"
+- name: "[FEDORA] Add repository file"
   shell: yum-config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 
-- name: "Install Sublime Text"
+- name: "[FEDORA] Install Sublime Text"
   yum:
     name: sublime-text
     state: present
