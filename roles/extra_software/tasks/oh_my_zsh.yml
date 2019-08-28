@@ -1,12 +1,12 @@
 ---
 
-- name: "Install zsh"
+- name: "[FEDORA] Install zsh"
   yum:
     name: zsh
     state: present
   when: ansible_distribution == "Fedora"
 
-- name: "Install zsh"
+- name: "[UBUNTU] Install zsh"
   apt:
     name: zsh
     state: present

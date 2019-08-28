@@ -1,6 +1,6 @@
 ---
 
-- name: "Install Python3 in Fedora"
+- name: "[FEDORA] Install Python3"
   yum:
     name:
       - python3
@@ -11,7 +11,7 @@
     update_cache: true
   when: ansible_distribution == "Fedora"
 
-- name: "Install Python3 in Ubuntu"
+- name: "[UBUNTU] Install Python3"
   apt:
     name:
       - python3

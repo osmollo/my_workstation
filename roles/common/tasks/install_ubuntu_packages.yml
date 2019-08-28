@@ -1,12 +1,12 @@
 ---
 
-- name: "Install common packages"
+- name: "[UBUNTU] Install common packages"
   apt:
     name: "{{ common_packages | list }}"
     state: present
     update_cache: true
 
-- name: "Install Ubuntu packages"
+- name: "[UBUNTU] Install Ubuntu packages"
   apt:
     name: "{{ ubuntu_packages | list }}"
     state: present

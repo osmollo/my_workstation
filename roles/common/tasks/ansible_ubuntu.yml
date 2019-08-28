@@ -1,6 +1,6 @@
 ---
 
-- name: "Copy repository file"
+- name: "[UBUNTU] Copy repository file"
   copy:
     src: ansible.list
     dest: /etc/apt/sources.list.d/ansible.list
@@ -8,13 +8,13 @@
     group: root
     mode: 0644
 
-- name: "Import Ansible repository key"
+- name: "[UBUNTU] Import Ansible repository key"
   apt_key:
     url: keyserver.ubuntu.com
     id: 93C4A3FD7BB9C367
     state: present
 
-- name: "Update ansible"
+- name: "[UBUNTU] Update ansible"
   apt:
     name:
       - ansible

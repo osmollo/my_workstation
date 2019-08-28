@@ -1,6 +1,6 @@
 ---
 
-- name: "Install ansible"
+- name: "[FEDORA] Install ansible"
   yum:
     name: ansible
     state: present
