@@ -7,7 +7,6 @@ common_packages:
   - vim
   - gedit-plugins
   - tilix
-  - vlc
   - meld
   - wireshark
   - sshpass
@@ -24,6 +23,7 @@ ubuntu_packages:
   - aptitude
   - software-properties-common
   - apt-transport-https
+  - vlc
 
 fedora_packages:
   - libsecret
