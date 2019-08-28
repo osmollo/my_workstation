@@ -11,6 +11,10 @@ install_gitkraken: true
 install_telegram: true
 install_slack: true
 install_forticlientvpn: true
+install_tlp: true
+
+tlp_battery_min: 75
+tlp_battery_max: 85
 
 atom_version: 1.40.1
 atom_fedora_package: "https://atom-installer.github.com/v{{ atom_version }}/atom.x86_64.rpm"

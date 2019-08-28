@@ -1,0 +1,22 @@
+---
+
+- name: "Add TLP repository"
+  apt_repository:
+    repo: ppa:nginx/stable
+
+- name: "Install common TLP packages"
+  apt:
+    name:
+      - tlp
+      - tlp-rdw
+    state: present
+    update_cache: true
+
+- name: "Install TLP packages for ThinkPads"
+  apt:
+    name:
+      - tp-smapi-dkms
+      - acpi-call-dkms
+    state: present
+    update_cache: true
+  when: "'ThinkPad' in ansible_product_version"
