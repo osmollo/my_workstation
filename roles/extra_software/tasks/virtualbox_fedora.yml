@@ -1,0 +1,19 @@
+---
+
+- name: "[FEDORA] Import repository key"
+  rpm_key:
+    key: https://www.virtualbox.org/download/oracle_vbox.asc
+    state: present
+
+- name: "[FEDORA] Create repository file"
+  template:
+    src: virtualbox.repo.j2
+    dest: /etc/yum.repos.d/virtualbox.repo
+
+- name: "[FEDORA] Install Virtualbox and Vagrant packages"
+  yum:
+    name:
+      - virtualbox-6.0
+      - vagrant
+    state: present
+    update_cache: true

@@ -25,6 +25,7 @@ Por defecto se instala el siguiente software:
 | [Slack](https://datiodevelopers.slack.com/) | install_slack |
 | [Forticlient VPN](https://www.fortinet.com/lat) | install_forticlientvpn |
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | install_tlp |
+| [Virtualbox](https://www.virtualbox.org/) | install_virtualbox |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
@@ -65,4 +66,30 @@ ansible-playbook post_install.yml --ask-become-pass
 
 ```bash
 ansible localhost -m shell -a "df -h"
+```
+
+## Uso de Vagrant
+
+Para probar el código, se puede levantar una máquina con **Ubuntu** o **Fedora** usando [Vagrant](https://www.vagrantup.com/) y [Virtualbox](https://www.virtualbox.org/). Para ello, será necesario usar *Virtualbox* usando el tag `--install_virtualbox`:
+
+```bash
+ansible-playbook install.yml --ask-become-pass -t install_virtualbox
+```
+
+A continuación, dentro del directorio del repo, hay que ejecutar:
+
+```bash
+vagrant init
+```
+
+Este comando creará un fichero `Vagrantfile` donde tendremos que sobreescribir la configuración de los ficheros existentes en el repo `Vagrantfile_ubuntu` o `Vagrantfile_fedora`:
+
+```bash
+cat Vagrantfile_ubuntu > Vagrantfile
+```
+
+A continuación, podemos levantar la máquina virtual:
+
+```bash
+vagrant up
 ```

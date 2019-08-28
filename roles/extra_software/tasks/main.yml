@@ -83,3 +83,10 @@
   tags:
     - extra_software
     - install_tlp
+
+- name: "Install Virtualbox"
+  import_tasks: virtualbox.yml
+  when: install_virtualbox
+  tags:
+    - extra_software
+    - install_virtualbox
