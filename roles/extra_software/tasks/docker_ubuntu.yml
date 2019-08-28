@@ -11,8 +11,8 @@
     state: absent
 
 - name: "[UBUNTU] Copy repository file"
-  copy:
-    src: docker-ce.list
+  template:
+    src: docker-ce.list.j2
     dest: /etc/apt/sources.list.d/docker-ce.list
     mode: 0644
     owner: root

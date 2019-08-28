@@ -16,8 +16,8 @@
 - name: "[FEDORA] Install TLP repositories for ThinkPads"
   yum:
     name:
-      - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-      - http://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc$(rpm -E %fedora).noarch.rpm
+      - "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm"
+      - "http://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc{{ ansible_distribution_version }}.noarch.rpm"
     state: present
   when: "'ThinkPad' in ansible_product_version"
 
