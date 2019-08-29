@@ -20,6 +20,7 @@
     - tlp.service
     - tlp-sleep.service
     - NetworkManager-dispatcher.service
+  ignore_errors: true
 
 - name: "Mask TLP system services"
   systemd:

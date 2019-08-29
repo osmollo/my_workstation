@@ -1,28 +1,43 @@
 ---
 
-- import_tasks: openvpn.yml
+- name: "Check if dropbox is synchronized"
+  shell: dropbox status
+  register: dropbox_response
   tags:
     - post_install
-    - openvpn
+    - post_docker
+    - post_crontab
+    - post_environment
+    - post_git
 
 - import_tasks: docker.yml
+  when: dropbox_response.stdout == "Actualizado"
   tags:
     - post_install
-    - docker
+    - post_docker
 
 - import_tasks: crontab.yml
+  when: dropbox_response.stdout == "Actualizado"
   tags:
     - post_install
-    - crontab
-
-- import_tasks: git.yml
-  become: false
-  tags:
-    - post_install
-    - git
+    - post_crontab
 
 - import_tasks: environment.yml
-  become: false
+  when: dropbox_response.stdout == "Actualizado"
   tags:
     - post_install
-    - environment
+    - post_environment
+    - post_git
+
+- import_tasks: git.yml
+  when: dropbox_response.stdout == "Actualizado"
+  tags:
+    - post_install
+    - post_git
+
+- import_tasks: openvpn.yml
+  become: true
+  become_method: sudo
+  tags:
+    - post_install
+    - post_openvpn
