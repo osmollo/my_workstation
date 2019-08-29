@@ -7,6 +7,9 @@
   with_items:
     - "{{ ansible_user_dir }}/.bashrc"
     - "{{ ansible_user_dir }}/.bash_history"
+    - "{{ ansible_user_dir }}/.zshrc"
+    - "{{ ansible_user_dir }}/.ssh"
+    - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
 
 - name: "Configure environment"
   block:
@@ -33,12 +36,27 @@
         - src: "{{ dropbox_dir }}/datio/bash_history"
           dest: "{{ ansible_user_dir}}/.bash_history"
 
-    - name: "Change permissions to ssh config"
+    - name: "Change permissions to files in .ssh"
       file:
         path: "{{ item }}"
         mode: 0600
       with_items:
         - "{{ ansible_user_dir }}/.ssh/config"
-        - "{{ ansible_user_dir }}/.ssh/id*"
-        - "{{ ansible_user_dir }}/.ssh/ccr/*"
-        - "{{ ansible_user_dir }}/.ssh/aws/*"
+        - "{{ ansible_user_dir }}/.ssh/id_rsa"
+        - "{{ ansible_user_dir }}/.ssh/id_rsa.pub"
+        - "{{ ansible_user_dir }}/.ssh/id_bbva"
+
+    - name: "Change permissions to files in .ssh directories"
+      file:
+        path: "{{ item }}/*"
+        mode: 0600
+      with_items:
+        - "{{ ansible_user_dir }}/.ssh/ccr"
+        - "{{ ansible_user_dir }}/.ssh/aws"
+        - "{{ ansible_user_dir }}/.ssh/isilon"
+
+    - name: "Create link to Oh my zsh! theme directory in Dropbox"
+      file:
+        src: "{{ dropbox_dir }}/backups/oh-my-zsh_custom_themes"
+        dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
+        state: link

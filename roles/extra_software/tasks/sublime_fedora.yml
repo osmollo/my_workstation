@@ -6,7 +6,13 @@
     state: present
 
 - name: "[FEDORA] Add repository file"
-  shell: yum-config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+  yum_repository:
+    name: sublime-text
+    description: Sublime Text - x86_64 - Stable
+    baseurl: https://download.sublimetext.com/rpm/stable/x86_64
+    gpgkey: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+    gpgcheck: true
+    enabled: true
 
 - name: "[FEDORA] Install Sublime Text"
   yum:
