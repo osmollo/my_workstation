@@ -6,8 +6,12 @@
   - [Instalación](#instalación)
   - [Post Instalación](#post-instalación)
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
+  - [Uso de Vagrant](#uso-de-vagrant)
 
 ## Software extra instalado
+
+| **WARNING**: Estos playbooks se han probado únicamente en **Ubuntu 18.04** y **Fedora 30** |
+| --- |
 
 Por defecto se instala el siguiente software:
 
