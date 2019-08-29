@@ -1,5 +1,19 @@
 ---
 
+- name: "Get latest version of Atom"
+  uri:
+    url: "{{ atom_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: atom_latest
+
+- name: "Set urls for Atom packages"
+  vars:
+    atom_version: "{{ atom_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    atom_fedora_package: "https://github.com/atom/atom/releases/download/{{ atom_version }}/atom.x86_64.rpm"
+    atom_ubuntu_package: "https://github.com/atom/atom/releases/download/{{ atom_version }}/atom-amd64.deb"
+
 - import_tasks: atom_ubuntu.yml
   when: ansible_distribution == "Ubuntu"
 

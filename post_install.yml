@@ -2,46 +2,5 @@
 
 - hosts: localhost
   connection: local
-  become: true
-  become_method: sudo
-  tasks:
-    - name: "Check if dropbox is synchronized"
-      shell: dropbox status
-      register: dropbox_response
-
-    - name: "Openvpn, docker y crontab"
-      block:
-        - import_role:
-            name: post_install
-            tasks_from: openvpn.yml
-
-        - import_role:
-            name: post_install
-            tasks_from: docker.yml
-
-        - import_role:
-            name: post_install
-            tasks_from: crontab.yml
-      when: dropbox_response == "Actualizado"
-
-
-- hosts: localhost
-  connection: local
-  become: false
-  tasks:
-    - name: "Check if dropbox is synchronized"
-      shell: dropbox status
-      register: dropbox_response
-
-    - name: "Environment and git"
-      block:
-        - import_role:
-            name: post_install
-            tasks_from: environment.yml
-          become: false
-
-        - import_role:
-            name: post_install
-            tasks_from: git.yml
-          become: false
-      when: dropbox_response == "Actualizado"
+  roles:
+    - post_install

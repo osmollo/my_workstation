@@ -24,9 +24,15 @@ ubuntu_packages:
   - software-properties-common
   - apt-transport-https
   - vlc
+  - network-manager-openvpn
+  - network-manager-openvpn-gnome
+  - openvpn
 
 fedora_packages:
   - libsecret
+  - openvpn
+  - NetworkManager-openvpn
+  - NetworkManager-openvpn-gnome
   - openvpn
   - NetworkManager-openvpn
   - NetworkManager-openvpn-gnome
