@@ -24,3 +24,8 @@
     CHSH: yes
     RUNZSH: yes
   shell: /tmp/install.sh --unattended
+
+- name: "Change $SHELL variable for {{ ansible_user }}"
+  user:
+    name: "{{ ansible_user }}"
+    shell: /usr/bin/zsh
