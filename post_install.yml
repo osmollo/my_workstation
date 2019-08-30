@@ -2,5 +2,10 @@
 
 - hosts: localhost
   connection: local
-  roles:
-    - post_install
+  tasks:
+    - name: "Check if there is any config for {{ post_install_user }}"
+      stat:
+        path: "post_install/{{ post_install_user }}"
+
+    - import_role:
+        name: "post_install/{{ post_install_user }}"
