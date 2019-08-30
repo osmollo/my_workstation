@@ -1,0 +1,15 @@
+---
+
+- name: "[UBUNTU] Upgrade all packages to the latest version"
+  apt:
+    name: "*"
+    state: latest
+    update_cache: true
+  when: ansible_distribution == "Ubuntu"
+
+- name: "[FEDORA] upgrade all packages to the latest version"
+  yum:
+    name: '*'
+    state: latest
+    update_cache: true
+  when: ansible_distribution == "Fedora"
