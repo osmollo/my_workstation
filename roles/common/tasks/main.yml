@@ -1,24 +1,24 @@
 ---
 
+- import_tasks: update_packages.yml
+  tags:
+    - common
+    - update_packages
+    - install_packages
+    - ansible
+    - python
+    - python3
+
 - import_tasks: selinux.yml
   when: ansible_distribution == "Fedora"
   tags:
     - common
     - disable_selinux
 
-- import_tasks: install_ubuntu_packages.yml
-  when: ansible_distribution == "Ubuntu"
+- import_tasks: install_packages.yml
   tags:
     - common
     - install_packages
-    - install_ubuntu_packages
-
-- import_tasks: install_fedora_packages.yml
-  when: ansible_distribution == "Fedora"
-  tags:
-    - common
-    - install_packages
-    - install_fedora_packages
 
 - import_tasks: ansible.yml
   tags:
@@ -28,4 +28,5 @@
 - import_tasks: python.yml
   tags:
     - common
+    - python
     - python3

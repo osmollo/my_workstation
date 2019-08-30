@@ -1,0 +1,7 @@
+---
+
+- import_tasks: install_ubuntu_packages.yml
+  when: ansible_distribution == "Ubuntu"
+
+- import_tasks: install_fedora_packages.yml
+  when: ansible_distribution == "Fedora"
