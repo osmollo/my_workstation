@@ -6,7 +6,8 @@
   become_method: sudo
   tasks:
     - name: "Update all packages"
-      import_role: common
+      import_role:
+        name: common
         tasks_from: update_packages.yml
 
     - name: "Update ansible"
