@@ -90,3 +90,10 @@
   tags:
     - extra_software
     - install_virtualbox
+
+- name: "Install PyCharm"
+  import_tasks: pycharm.yml
+  when: install_pycharm
+  tags:
+    - extra_software
+    - install_pycharm
