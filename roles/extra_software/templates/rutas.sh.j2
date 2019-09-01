@@ -1,0 +1,19 @@
+#!/bin/bash
+
+IP=$(ip r | grep ppp0 | awk '{print $3}')
+
+ip route del default via $IP
+ip route add 10.0.0.0/8 dev ppp0
+ip route add 100.0.0.0/8 dev ppp0
+
+NAMESERVER=$(netstat -nulp | grep ":53 " | tr -s ' ' | awk '{ print $4 }' | awk -F\: '{ print $1 }')
+
+echo "nameserver $NAMESERVER" > /etc/resolv.conf
+
+{% if ansible_dns.search is defined and ansible_dns.search[0] == "es.datio" %}
+echo "search es.datio" >> /etc/resolv.conf
+# echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+{% else %}
+# echo "search es.datio" >> /etc/resolv.conf
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+{% endif %}

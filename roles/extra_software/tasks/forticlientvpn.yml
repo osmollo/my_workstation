@@ -5,3 +5,11 @@
 
 - import_tasks: forticlientvpn_fedora.yml
   when: ansible_distribution == "Fedora"
+
+- name: "Copy rutas.sh to {{ ansible_user_dir }}"
+  template:
+    src: rutas.sh.j2
+    dest: "/home/{{ ansible_env.USERNAME }}/rutas.sh"
+    mode: 0755
+    owner: "{{ ansible_env.USERNAME }}"
+    group: "{{ ansible_env.USERNAME }}"
