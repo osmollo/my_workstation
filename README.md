@@ -3,6 +3,7 @@
 - [Configuración de estación de trabajo con Ansible](#configuración-de-estación-de-trabajo-con-ansible)
   - [Software extra instalado](#software-extra-instalado)
   - [Prerequisitos](#prerequisitos)
+  - [Actualización de paquetes](#actualización-de-paquetes)
   - [Instalación](#instalación)
   - [Post Instalación](#post-instalación)
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
@@ -56,7 +57,17 @@ ansible-playbook install.yml --ask-become-pass -t "install_code"
 ansible-playbook update_ansible.yml --ask-become-pass
 ```
 
+## Actualización de paquetes
+
+Tanto si se ejecuta el playbook en **Ubuntu** como en **Fedora**, se pueden actualizar todos los paquetes con el siguiente playbook:
+
+```bash
+ansible-playbook update_packages.yml --ask-become-pass
+```
+
 ## Instalación
+
+La primera tarea que ejecuta este playbook es actualizar los paquetes de la distribución que se esté usando dentro de la misma rama, nunca se actualiza la distribución a la siguiente versión disponible
 
 ```bash
 ansible-playbook install.yml --ask-become-pass
