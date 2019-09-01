@@ -2,8 +2,6 @@
 
 - name: "[FEDORA] Install Forticlient VPN package"
   yum:
-    name:
-      - openfortivpn
-      - "{{ forticlientvpn_fedora_package }}"
+    name: "{{ forticlientvpn_fedora_packages }}"
     state: present
     update_cache: true
