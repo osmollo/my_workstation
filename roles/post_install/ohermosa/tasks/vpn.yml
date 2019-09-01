@@ -1,6 +1,6 @@
 ---
 
-- name: "Copy vpn configuration files to NetworkManager"
+- name: "Copy vpn configurations files to NetworkManager"
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -12,3 +12,12 @@
       dest: /etc/NetworkManager/system-connections/BBVA.nmconnection
     - src: datio_mx_vpn.j2
       dest: /etc/NetworkManager/system-connections/Datio_MX.nmconnection
+
+- name: "Copy vpn configurations files to NetworkManager"
+  template:
+    src: vpnaas.j2
+    dest: /etc/NetworkManager/system-connections/VPNaas_BBVA.nmconnection
+    mode: 0600
+    owner: root
+    group: root
+  when: ansible_distribution == "Fedora"

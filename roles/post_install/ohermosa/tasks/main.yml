@@ -35,9 +35,9 @@
     - post_install
     - post_git
 
-- import_tasks: openvpn.yml
+- import_tasks: vpn.yml
   become: true
   become_method: sudo
   tags:
     - post_install
-    - post_openvpn
+    - post_vpn
