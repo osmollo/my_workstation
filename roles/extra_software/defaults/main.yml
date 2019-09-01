@@ -13,6 +13,7 @@ install_slack: true
 install_forticlientvpn: true
 install_tlp: true
 install_virtualbox: true
+install_pycharm: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -35,3 +36,5 @@ ohmyzsh_installer: "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 telegram_flatpak: "https://flathub.org/repo/appstream/org.telegram.desktop.flatpakref"
 
 slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"
+
+pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Community.flatpakref"
