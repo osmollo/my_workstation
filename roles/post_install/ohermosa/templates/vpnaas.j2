@@ -8,10 +8,10 @@ permissions=user:{{ ansible_user }}:;
 [vpn]
 ca={{ dropbox_dir }}/datio/soft/forticlientsslvpn/vpnaas_ca_all.crt
 cert={{ dropbox_dir }}/datio/soft/forticlientsslvpn/vpnaas_DAAS_20180125.p12
-gateway=185.24.6.15: 443
+gateway=185.24.6.15:443
 otp-flags=0
 password-flags=2
-user=XE67334
+user={{ bbva_user }}
 service-type=org.freedesktop.NetworkManager.fortisslvpn
 
 [ipv4]

@@ -35,7 +35,7 @@
     link: /usr/bin/pip
     path: /usr/bin/pip3
 
-- name: "Install telepot"
+- name: "Install python modules"
   pip:
     name:
       - telepot
@@ -43,4 +43,4 @@
       - numpy
       - beautifulsoup4
       - bs4
-    state: present
+    

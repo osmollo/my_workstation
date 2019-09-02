@@ -36,3 +36,12 @@
   tags:
     - common
     - delete_snap
+
+- name: "Configure /etc/hosts"
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item.ip }}\t\t{{ item.host }}"
+  loop: "{{ etc_hosts }}"
+  tags:
+    - common
+    - resolv
