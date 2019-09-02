@@ -30,4 +30,3 @@
     state: restarted
   become: true
   become_method: sudo
-  

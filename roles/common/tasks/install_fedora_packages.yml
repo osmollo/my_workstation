@@ -11,3 +11,7 @@
     name: "{{ fedora_packages | list }}"
     state: present
     update_cache: true
+
+- import_tasks: vlc_fedora.yml
+  tags:
+    - vlc
