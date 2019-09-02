@@ -36,3 +36,8 @@ fedora_packages:
   - openvpn
   - NetworkManager-openvpn
   - NetworkManager-openvpn-gnome
+
+bad_snap_packages:
+  - gnome-calculator
+  - gnome-system-monitor
+  - gnome-logs
