@@ -7,7 +7,7 @@
       - python3-pip
       - python3-virtualenv
       - ipython3
-      - virtualenvwrapper
+      - python3-virtualenvwrapper
     state: present
     update_cache: true
   when: ansible_distribution == "Fedora"
@@ -19,6 +19,7 @@
       - python3-pip
       - python3-venv
       - ipython3
+      - virtualenvwrapper
     state: present
     update_cache: true
   when: ansible_distribution == "Ubuntu"
@@ -43,4 +44,3 @@
       - numpy
       - beautifulsoup4
       - bs4
-    

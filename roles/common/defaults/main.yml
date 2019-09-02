@@ -43,22 +43,32 @@ bad_snap_packages:
   - gnome-logs
 
 etc_hosts:
-  - host: mproxy.daas-es-priv-03.ext.es.iaas.igrupobbva
-    ip: 10.48.227.73
-  - host: mproxy.dat02.daas.es.asgard.datio
-    ip: 172.16.49.85
-  - host: daas.work.mx.ether.igrupobbva
-    ip: 10.52.228.159
-  - host: daas.work.eu.cld.nextgen.igrupobbva
-    ip: 100.88.66.33
   - host: dashboard.mx.iaas.igrupobbva vnc.es.iaas.igrupobbva
     ip: 127.0.0.1
+  - host: pepi
+    ip: 172.16.24.49
+  - host: monkeyops
+    ip: 172.16.25.84
+  - host: dashboard.internal.kubernetes
+    ip: 172.16.14.75
+  - host: idev2
+    ip: 172.16.48.147
+  - host: mproxy.dat02.daas.es.asgard.datio
+    ip: 172.16.49.85
+  - host: id2
+    ip: 10.48.238.129
+  - host: id2pro
+    ip: 10.48.195.95
+  - host: bastion
+    ip: 10.48.230.26
   - host: jenkins.daas.live.mx.ether.igrupobbva
     ip: 10.52.195.37
   - host: jenkins.daas.work.mx.ether.igrupobbva
     ip: 10.52.228.6
-  - host: jenkins.datio-work-01.work.eu.cld.nextgen.igrupobbva
-    ip: 100.88.69.9
+  - host: daas.work.mx.ether.igrupobbva
+    ip: 10.52.228.159
+  - host: mproxy.daas-es-priv-03.ext.es.iaas.igrupobbva
+    ip: 10.48.227.73
   - host: ldap.secaas.play.es.ether.igrupobbva
     ip: 10.48.224.154
   - host: ldap.secaas.work.es.ether.igrupobbva
@@ -79,17 +89,7 @@ etc_hosts:
     ip: 10.52.193.48
   - host: kappa.live.mx.ether.igrupobbva
     ip: 10.52.193.48
-  - host: idev2
-    ip: 172.16.48.147
-  - host: id2
-    ip: 10.48.238.129
-  - host: id2pro
-    ip: 10.48.195.95
-  - host: bastion
-    ip: 10.48.230.26
-  - host: pepi
-    ip: 172.16.24.49
-  - host: monkeyops
-    ip: 172.16.25.84
-  - host: dashboard.internal.kubernetes
-    ip: 172.16.14.75
+  - host: daas.work.eu.cld.nextgen.igrupobbva
+    ip: 100.88.66.33
+  - host: jenkins.datio-work-01.work.eu.cld.nextgen.igrupobbva
+    ip: 100.88.69.9

@@ -40,8 +40,19 @@
 - name: "Configure /etc/hosts"
   lineinfile:
     path: /etc/hosts
-    line: "{{ item.ip }}\t\t{{ item.host }}"
+    line: "{{ item.ip }}\t{{ item.host }}"
   loop: "{{ etc_hosts }}"
   tags:
     - common
     - resolv
+
+- name: "Configure size of bash history"
+  lineinfile:
+    path: /etc/profile
+    line: "{{ item }}"
+  loop:
+    - 'export HISTTIMEFORMAT="%d/%m - %H:%M:%S "'
+    - 'export HISTSIZE=50000'
+  tags:
+    - common
+    - bash_history_size
