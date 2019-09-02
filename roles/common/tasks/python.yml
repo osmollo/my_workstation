@@ -7,6 +7,7 @@
       - python3-pip
       - python3-virtualenv
       - ipython3
+      - virtualenvwrapper
     state: present
     update_cache: true
   when: ansible_distribution == "Fedora"
@@ -34,6 +35,12 @@
     link: /usr/bin/pip
     path: /usr/bin/pip3
 
-- name: "Install telepot"
+- name: "Install python modules"
   pip:
-    name: telepot
+    name:
+      - telepot
+      - matplotlib
+      - numpy
+      - beautifulsoup4
+      - bs4
+    
