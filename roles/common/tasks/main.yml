@@ -30,3 +30,9 @@
     - common
     - python
     - python3
+
+- import_tasks: delete_snap.yml
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version >= "18"
+  tags:
+    - common
+    - delete_snap
