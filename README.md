@@ -6,8 +6,8 @@
   - [Actualización de paquetes](#actualización-de-paquetes)
   - [Instalación](#instalación)
   - [Post Instalación](#post-instalación)
-  - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
-  - [Uso de Vagrant](#uso-de-vagrant)
+    - [Gestión de contraseñas](#gestión-de-contraseñas)
+      - [Ficheros locales](#ficheros-locales)
 
 ## Software extra instalado
 
@@ -107,6 +107,84 @@ post_install
         ├── bbva_vpn.j2
         └── datio_mx_vpn.j2
 ```
+
+### Gestión de contraseñas
+
+En caso de que sea necesario usar contraseñas en alguna tarea de Ansible, hay varias opciones
+
+#### Ficheros locales
+
+Las contraseñas se pueden definir como variables en ficheros *"yml"* al igual que el resto de variables pero sin estar bajo el seguimiento de **git**. Para ello no es necesario tenerlo fuera del directorio del repositorio sino que basta con incluír el nombre del fichero donde tengamos las contraseñas en un fichero *.gitignore*.
+
+```
+```text
+post_install
+├── dsamaniego
+    ├── secrets
+    │   └── main.yml
+```
+
+Para usar el fichero de contraseñas, habrá que usar la siguiente tarea de Ansible:
+
+```yaml
+- name: "include secrets file"
+  include_vars:
+    file: "secrets/main.yml"
+```
+
+Podedmos incluír la ruta al *main.yml* en el *.gitignore* que hay en el raíz o crear uno nuevo en el mismo direscorio secrets:
+
+```bash
+cat roles/post_install/dsamaniego/.gitignore
+secrets/main.yml
+```
+
+La ventaja de este método es que mantenemos las contraseñas fuera de **git** pero con la contrapartida de que el fichero es local, si en algún momento se clona el repositorio en otra máquina, habrá que copiar manualmente este fichero a ese ordenador. **Ojo cuidado**, que el fichero es local pero tendría las contraseñas en texto plano!
+
+#### Ansible Vault
+
+Vault tiene una herramienta `ansible-vault` que permite cifrar ficheros (con AES256) donde almacenar contraseñas. El formato de estos ficheros es exactamente el mismo que otros donde se almacenan variables solo que hay que cifrarlo/descifrarlo para su uso con una contraseña que se establece en el momento de su creación.
+
+```bash
+ansible-vault secrets/main.yml create
+New Vault password:
+Confirm New Vault password:
+```
+
+Si hacemos un cat del fichero, no podremos ver el contenido:
+
+```txt
+cat secrets/main.yml
+$ANSIBLE_VAULT;1.1;AES256
+64643661633666333836396338656364383734636638626332623166656335623964616462616263
+6237326165336231333037343136353664396265356635630a333231333238323863303832336661
+30626366353162613539623962363264363532323934663862373136363163656537666533373833
+6437346566356639360a666463643338656235393866626439353034336435663032643764393330
+63626332616533303338396339653963633261326336353231393863623335346532
+```
+
+Para usar este fichero de variables, habría que usar la misma tarea de Ansible que en el caso anterior:
+
+```yaml
+- name: "include secrets file"
+  include_vars:
+    file: "secrets/main.yml"
+```
+
+Y para ejecutar el playbook hay que agregar el parámetro `--ask-vault-pass` para que pueda descrifrar el fichero de contraseñas:
+
+```bash
+ansible-playbook post_install.yml -e "post_install_user=dsamaniego" --ask-become-pass --ask-vault-pass
+```
+
+Para editar el fichero habría que usar el siguiente comando (o bien instalar alguna extensión en el editor de textos que permita trabajar con estos ficheros)
+
+```bash
+ansible-vault secrets/main.yml edit
+Vault password:
+```
+
+La ventaja de este método es que podemos tener las contraseñas cifradas bajo el control de git sin riesgos de seguridad ya que no pueden ser vistas por otros usuarios
 
 ## Ejecución de comandos ansible ad-hoc
 
