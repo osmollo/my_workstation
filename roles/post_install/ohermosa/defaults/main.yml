@@ -46,218 +46,179 @@ bbva_user: XE67334
 
 
 dconf_config:
-  - path: system/proxy
-    conf:
-    - key: autoconfig-url
-      value: "'http://bbvapac.igrupobbva/accelerated_pac_base.pac'"
-    - key: mode
-      value: "'auto'"
-  - path: org/gnome/settings-daemon/peripherals/keyboard
-    conf:
-    - key: numlock-state
-      value: "'on'"
-  - path: org/gnome/shell
-    conf:
-    - key: app-picker-view
-      value: "'uint32 1'"
-    - key: enabled-extensions
-      value: "['drive-menu@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'refresh-wifi@kgshank.net']
-      favorite-apps=['google-chrome.desktop', 'com.gexperts.Tilix.desktop', 'code.desktop', 'org.gnome.Nautilus.desktop', 'forticlient-sslvpn.desktop', 'meld.desktop', 'gitkraken.desktop', 'telegram-desktop_telegramdesktop.desktop', 'spotify_spotify.desktop']"
-    - key: enable-hot-corners
-      value: "false"
-  - path: org/gnome/shell/extensions/dash-to-dock
-    conf:
-    - key: dash-max-icon-size
-      value: "40"
-  - path: org/gnome/shell/extensions/clipboard-indicator
-    conf:
-    - key: notify-on-copy
-      value: "false"
-    - key: toggle-menu
-      value: "'<Primary>Down'"
-  - path: org/gnome/gedit/preferences/editor
-    conf:
-    - key: highlight-current-line
-      value: "true"
-    - key: display-overview-map
-      value: "true"
-    - key: bracket-matching
-      value: "true"
-    - key: scheme
-      value: "'oblivion'"
-    - key: tabs-size
-      value: "uint32 4"
-    - key: display-line-numbers
-      value: "true"
-    - key: insert-spaces
-      value: "true"
-    - key: wrap-last-split-mode
-      value: "'word'"
-  - path: org/gnome/gedit/preferences/ui
-    conf:
-    - key: show-tabs-mode
-      value: "'auto'"
-  - path: org/gnome/gedit/plugins
-    conf:
-    - key: active-plugins
-      value: "'spell', 'bracketcompletion', 'docinfo', 'wordcompletion', 'multiedit', 'time', 'filebrowser', 'git', 'modelines'"
-  - path: org/gnome/gedit/state/window
-    conf:
-    - key: size
-      value: "(1541, 700)"
-    - key: state
-      value: "43908"
-    - key: bottom-panel-size
-      value: "140"
-    - key: side-panel-size
-      value: "200"
-    - key: side-panel-active-page
-      value: "'GeditWindowDocumentsPanel'"
-  - path: org/gnome/nautilus/preferences
-    conf:
-    - key: default-folder-viewer
-      value: "'list-view'"
-    - key: search-filter-time-type
-      value: "'last_modified'"
-  - path: org/gnome/desktop/screensaver
-    conf:
-    - key: picture-uri
-      value: "'file:///usr/share/backgrounds/contest/bionic.xml'"
-    - key: primary-color
-      value: "'#000000000000'"
-    - key: picture-options
-      value: "'zoom'"
-    - key: secondary-color
-      value: "'#000000000000'"
-  - path: org/gnome/desktop/background
-    conf:
-    - key: picture-uri
-      value: "'file:///usr/share/backgrounds/contest/bionic.xml'"
-    - key: show-desktop-icons
-      value: "false"
-    - key: primary-color
-      value: "'#000000000000'"
-    - key: picture-options
-      value: "'zoom'"
-    - key: secondary-color
-      value: "'#000000000000'"
-  - path: org/gnome/desktop/interface
-    conf:
-    - key: clock-show-date
-      value: "true"
-    - key: gtk-im-module
-      value: "'gtk-im-context-simple'"
-    - key: show-battery-percentage
-      value: "true"
-    - key: icon-theme
-      value: "'Papirus'"
-    - key: gtk-theme
-      value: "'Arc-Dark'"
-  - path: org/gnome/meld
-    conf:
-    - key: style-scheme
-      value: "'solarized-dark'"
-    - key: wrap-mode
-      value: "'none'"
-    - key: indent-width
-      value: "2"
-  - path: org/gnome/meld/window-state
-    conf:
-    - key: width
-      value: "617"
-    - key: is-fullscreen
-      value: "false"
-    - key: height
-      value: "400"
-    - key: is-maximized
-      value: "true"
-  - path: org/gtk/settings/file-chooser
-    conf:
-    - key: sort-column
-      value: "'name'"
-    - key: sidebar-width
-      value: "208"
-    - key: window-position
-      value: "(358, 103)"
-    - key: show-size-column
-      value: "true"
-    - key: show-hidden
-      value: "false"
-    - key: window-size
-      value: "(1203, 830)"
-    - key: sort-directories-first
-      value: "true"
-    - key: date-format
-      value: "'regular'"
-    - key: sort-order
-      value: "'ascending'"
-    - key: location-mode
-      value: "'path-bar'"
-  - path: com/gexperts/Tilix
-    conf:
-    - key: new-window-inherit-state
-      value: "true"
-    - key: prompt-on-close
-      value: "false"
-    - key: unsafe-paste-alert
-      value: "false"
-    - key: prompt-on-close-process
-      value: "false"
-    - key: theme-variant
-      value: "'dark'"
-    - key: session-name
-      value: "'Default${hostname}'"
-    - key: use-tabs
-      value: "true"
-    - key: warn-vte-config-issue
-      value: "false"
-    - key: terminal-title-show-when-single
-      value: "false"
-    - key: window-style
-      value: "'disable-csd-hide-toolbar'"
-  - path: com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d
-    conf:
-    - key: foreground-color
-      value: "'#EFEFEF'"
-    - key: visible-name
-      value: "'Por defecto'"
-    - key: palette
-      value: "['#000000', '#CC0000', '#4D9A05', '#C3A000', '#3464A3', '#754F7B', '#05979A', '#D3D6CF', '#545652', '#EF2828', '#89E234', '#FBE84F', '#729ECF', '#AC7EA8', '#34E2E2', '#EDEDEB']"
-    - key: bold-is-bright
-      value: "false"
-    - key: badge-color-set
-      value: "true"
-    - key: default-size-rows
-      value: "40"
-    - key: default-size-columns
-      value: "160"
-    - key: use-system-font
-      value: "false"
-    - key: cursor-colors-set
-      value: "false"
-    - key: highlight-colors-set
-      value: "false"
-    - key: use-theme-colors
-      value: "false"
-    - key: bold-color-set
-      value: "false"
-    - key: font
-      value: "'Monospace 10'"
-    - key: scrollback-unlimited
-      value: "true"
-    - key: background-color
-      value: "'#303030'"
-  - path: com/gexperts/Tilix/keybindings
-    conf:  
-    - key: session-add-right
-      value: "'<Primary><Alt>v'"
-    - key: app-new-session
-      value: "'<Primary>n'"
-    - key: session-synchronize-input
-      value: "'<Primary><Alt>b'"
-    - key: session-add-down
-      value: "'<Primary><Alt>h'"
-    - key: win-switch-to-next-session
-      value: "'<Shift>Right'"
-    - key: win-switch-to-previous-session
-      value: "'<Shift>Left'"
+  - key: "/system/proxy/autoconfig-url"
+    value: "'http://bbvapac.igrupobbva/accelerated_pac_base.pac'"
+  - key: "/system/proxy/mode"
+    value: "'auto'"
+  - key: "/org/gnome/settings-daemon/peripherals/keyboard/numlock-state"
+    value: "'on'"
+  - key: "/org/gnome/shell/app-picker-view"
+    value: "'uint32 1'"
+  - key: "/org/gnome/shell/enabled-extensions"
+    value: "['drive-menu@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'refresh-wifi@kgshank.net'] favorite-apps=['google-chrome.desktop', 'com.gexperts.Tilix.desktop', 'code.desktop', 'org.gnome.Nautilus.desktop', 'forticlient-sslvpn.desktop', 'meld.desktop', 'gitkraken.desktop', 'telegram-desktop_telegramdesktop.desktop', 'spotify_spotify.desktop']"
+  - key: "/org/gnome/shell/enable-hot-corners"
+    value: "false"
+  - key: "/org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size"
+    value: "40"
+  - key: "/org/gnome/shell/extensions/clipboard-indicator/notify-on-copy"
+    value: "false"
+  - key: "/org/gnome/shell/extensions/clipboard-indicator/toggle-menu"
+    value: "'<Primary>Down'"
+  - key: "/org/gnome/gedit/preferences/editor/highlight-current-line"
+    value: "true"
+  - key: "/org/gnome/gedit/preferences/editor/display-overview-map"
+    value: "true"
+  - key: "/org/gnome/gedit/preferences/editor/bracket-matching"
+    value: "true"
+  - key: "/org/gnome/gedit/preferences/editor/scheme"
+    value: "'oblivion'"
+  - key: "/org/gnome/gedit/preferences/editor/tabs-size"
+    value: "uint32 4"
+  - key: "/org/gnome/gedit/preferences/editor/display-line-numbers"
+    value: "true"
+  - key: "/org/gnome/gedit/preferences/editor/insert-spaces"
+    value: "true"
+  - key: "/org/gnome/gedit/preferences/editor/wrap-last-split-mode"
+    value: "'word'"
+  - key: "/org/gnome/gedit/preferences/ui/show-tabs-mode"
+    value: "'auto'"
+  - key: "/org/gnome/gedit/plugins/active-plugins"
+    value: "'spell', 'bracketcompletion', 'docinfo', 'wordcompletion', 'multiedit', 'time', 'filebrowser', 'git', 'modelines'"
+  - key: "/org/gnome/gedit/state/window/size"
+    value: "(1541, 700)"
+  - key: "/org/gnome/gedit/state/window/state"
+    value: "43908"
+  - key: "/org/gnome/gedit/state/window/bottom-panel-size"
+    value: "140"
+  - key: "/org/gnome/gedit/state/window/side-panel-size"
+    value: "200"
+  - key: "/org/gnome/gedit/state/window/side-panel-active-page"
+    value: "'GeditWindowDocumentsPanel'"
+  - key: "/org/gnome/nautilus/preferences/default-folder-viewer"
+    value: "'list-view'"
+  - key: "/org/gnome/nautilus/preferences/search-filter-time-type"
+    value: "'last_modified'"
+  - key: "/org/gnome/desktop/screensaver/picture-uri"
+    value: "'file:///usr/share/backgrounds/contest/bionic.xml'"
+  - key: "/org/gnome/desktop/screensaver/primary-color"
+    value: "'#000000000000'"
+  - key: "/org/gnome/desktop/screensaver/picture-options"
+    value: "'zoom'"
+  - key: "/org/gnome/desktop/screensaver/secondary-color"
+    value: "'#000000000000'"
+  - key: "/org/gnome/desktop/background/picture-uri"
+    value: "'file:///usr/share/backgrounds/contest/bionic.xml'"
+  - key: "/org/gnome/desktop/background/show-desktop-icons"
+    value: "false"
+  - key: "/org/gnome/desktop/background/primary-color"
+    value: "'#000000000000'"
+  - key: "/org/gnome/desktop/background/picture-options"
+    value: "'zoom'"
+  - key: "/org/gnome/desktop/background/secondary-color"
+    value: "'#000000000000'"
+  - key: "/org/gnome/desktop/interface/clock-show-date"
+    value: "true"
+  - key: "/org/gnome/desktop/interface/gtk-im-module"
+    value: "'gtk-im-context-simple'"
+  - key: "/org/gnome/desktop/interface/show-battery-percentage"
+    value: "true"
+  - key: "/org/gnome/desktop/interface/icon-theme"
+    value: "'Papirus'"
+  - key: "/org/gnome/desktop/interface/gtk-theme"
+    value: "'Arc-Dark'"
+  - key: "/org/gnome/meld/style-scheme"
+    value: "'solarized-dark'"
+  - key: "/org/gnome/meld/wrap-mode"
+    value: "'none'"
+  - key: "/org/gnome/meld/indent-width"
+    value: "2"
+  - key: "/org/gnome/meld/window-state/width"
+    value: "617"
+  - key: "/org/gnome/meld/window-state/is-fullscreen"
+    value: "false"
+  - key: "/org/gnome/meld/window-state/height"
+    value: "400"
+  - key: "/org/gnome/meld/window-state/is-maximized"
+    value: "true"
+  - key: "/org/gtk/settings/file-chooser/sort-column"
+    value: "'name'"
+  - key: "/org/gtk/settings/file-chooser/sidebar-width"
+    value: "208"
+  - key: "/org/gtk/settings/file-chooser/window-position"
+    value: "(358, 103)"
+  - key: "/org/gtk/settings/file-chooser/show-size-column"
+    value: "true"
+  - key: "/org/gtk/settings/file-chooser/show-hidden"
+    value: "false"
+  - key: "/org/gtk/settings/file-chooser/window-size"
+    value: "(1203, 830)"
+  - key: "/org/gtk/settings/file-chooser/sort-directories-first"
+    value: "true"
+  - key: "/org/gtk/settings/file-chooser/date-format"
+    value: "'regular'"
+  - key: "/org/gtk/settings/file-chooser/sort-order"
+    value: "'ascending'"
+  - key: "/org/gtk/settings/file-chooser/location-mode"
+    value: "'path-bar'"
+  - key: "/com/gexperts/Tilix/new-window-inherit-state"
+    value: "true"
+  - key: "/com/gexperts/Tilix/prompt-on-close"
+    value: "false"
+  - key: "/com/gexperts/Tilix/unsafe-paste-alert"
+    value: "false"
+  - key: "/com/gexperts/Tilix/prompt-on-close-process"
+    value: "false"
+  - key: "/com/gexperts/Tilix/theme-variant"
+    value: "'dark'"
+  - key: "/com/gexperts/Tilix/session-name"
+    value: "'Default${hostname}'"
+  - key: "/com/gexperts/Tilix/use-tabs"
+    value: "true"
+  - key: "/com/gexperts/Tilix/warn-vte-config-issue"
+    value: "false"
+  - key: "/com/gexperts/Tilix/terminal-title-show-when-single"
+    value: "false"
+  - key: "/com/gexperts/Tilix/window-style"
+    value: "'disable-csd-hide-toolbar'"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/foreground-color"
+    value: "'#EFEFEF'"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/visible-name"
+    value: "'Por defecto'"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/palette"
+    value: "['#000000', '#CC0000', '#4D9A05', '#C3A000', '#3464A3', '#754F7B', '#05979A', '#D3D6CF', '#545652', '#EF2828', '#89E234', '#FBE84F', '#729ECF', '#AC7EA8', '#34E2E2', '#EDEDEB']"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/bold-is-bright"
+    value: "false"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/badge-color-set"
+    value: "true"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/default-size-rows"
+    value: "40"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/default-size-columns"
+    value: "160"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/use-system-font"
+    value: "false"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/cursor-colors-set"
+    value: "false"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/highlight-colors-set"
+    value: "false"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/use-theme-colors"
+    value: "false"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/bold-color-set"
+    value: "false"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/font"
+    value: "'Monospace 10'"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/scrollback-unlimited"
+    value: "true"
+  - key: "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/background-color"
+    value: "'#303030'"
+  - key: "/com/gexperts/Tilix/keybindings/session-add-right"
+    value: "'<Primary><Alt>v'"
+  - key: "/com/gexperts/Tilix/keybindings/app-new-session"
+    value: "'<Primary>n'"
+  - key: "/com/gexperts/Tilix/keybindings/session-synchronize-input"
+    value: "'<Primary><Alt>b'"
+  - key: "/com/gexperts/Tilix/keybindings/session-add-down"
+    value: "'<Primary><Alt>h'"
+  - key: "/com/gexperts/Tilix/keybindings/win-switch-to-next-session"
+    value: "'<Shift>Right'"
+  - key: "/com/gexperts/Tilix/keybindings/win-switch-to-previous-session"
+    value: "'<Shift>Left'"

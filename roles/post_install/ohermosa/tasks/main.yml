@@ -8,7 +8,11 @@
     - post_gnome_packages
     - post_gnome
 
-- import_tasks: gnome.yml
+- name: "Import gnome config"
+  dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  loop: "{{ dconf_config }}"
   when: "'GNOME' in ansible_env.XDG_CURRENT_DESKTOP"
   tags:
     - post_install
