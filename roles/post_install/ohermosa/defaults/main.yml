@@ -43,3 +43,202 @@ git_user_mail_work: "oscar.hermosa@datiobbva.com"
 git_user_mail_personal: "ohermosa@gmail.com"
 
 bbva_user: XE67334
+
+
+dconf_config:
+  - path: system/proxy
+    - key: autoconfig-url
+      value: "'http://bbvapac.igrupobbva/accelerated_pac_base.pac'"
+    - key: mode
+      value: "'auto'"
+  - path: org/gnome/settings-daemon/peripherals/keyboard
+    - key: numlock-state
+      value: "'on'"
+  - path: org/gnome/shell
+    - key: app-picker-view
+      value: "'uint32 1'"
+    - key: enabled-extensions
+      value: "['drive-menu@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'refresh-wifi@kgshank.net']
+      favorite-apps=['google-chrome.desktop', 'com.gexperts.Tilix.desktop', 'code.desktop', 'org.gnome.Nautilus.desktop', 'forticlient-sslvpn.desktop', 'meld.desktop', 'gitkraken.desktop', 'telegram-desktop_telegramdesktop.desktop', 'spotify_spotify.desktop']"
+    - key: enable-hot-corners
+      value: "false"
+  - path: org/gnome/shell/extensions/dash-to-dock
+    - key: dash-max-icon-size
+      value: "40"
+  - path: org/gnome/shell/extensions/clipboard-indicator
+    - key: notify-on-copy
+      value: "false"
+    - key: toggle-menu
+      value: "'<Primary>Down'"
+  - path: org/gnome/gedit/preferences/editor
+    - key: highlight-current-line
+      value: "true"
+    - key: display-overview-map
+      value: "true"
+    - key: bracket-matching
+      value: "true"
+    - key: scheme
+      value: "'oblivion'"
+    - key: tabs-size
+      value: "uint32 4"
+    - key: display-line-numbers
+      value: "true"
+    - key: insert-spaces
+      value: "true"
+    - key: wrap-last-split-mode
+      value: "'word'"
+  - path: org/gnome/gedit/preferences/ui
+    - key: show-tabs-mode
+      value: "'auto'"
+  - path: org/gnome/gedit/plugins
+    - key: active-plugins
+      value: "'spell', 'bracketcompletion', 'docinfo', 'wordcompletion', 'multiedit', 'time', 'filebrowser', 'git', 'modelines'"
+  - path: org/gnome/gedit/state/window
+    - key: size
+      value: "(1541, 700)"
+    - key: state
+      value: "43908"
+    - key: bottom-panel-size
+      value: "140"
+    - key: side-panel-size
+      value: "200"
+    - key: side-panel-active-page
+      value: "'GeditWindowDocumentsPanel'"
+  - path: org/gnome/nautilus/preferences
+    - key: default-folder-viewer
+      value: "'list-view'"
+    - key: search-filter-time-type
+      value: "'last_modified'"
+  - path: org/gnome/desktop/screensaver
+    - key: picture-uri
+      value: "'file:///usr/share/backgrounds/contest/bionic.xml'"
+    - key: primary-color
+      value: "'#000000000000'"
+    - key: picture-options
+      value: "'zoom'"
+    - key: secondary-color
+      value: "'#000000000000'"
+  - path: org/gnome/desktop/background
+    - key: picture-uri
+      value: "'file:///usr/share/backgrounds/contest/bionic.xml'"
+    - key: show-desktop-icons
+      value: "false"
+    - key: primary-color
+      value: "'#000000000000'"
+    - key: picture-options
+      value: "'zoom'"
+    - key: secondary-color
+      value: "'#000000000000'"
+  - path: org/gnome/desktop/interface
+    - key: clock-show-date
+      value: "true"
+    - key: gtk-im-module
+      value: "'gtk-im-context-simple'"
+    - key: show-battery-percentage
+      value: "true"
+    - key: icon-theme
+      value: "'Papirus'"
+    - key: gtk-theme
+      value: "'Arc-Dark'"
+  - path: org/gnome/meld
+    - key: style-scheme
+      value: "'solarized-dark'"
+    - key: wrap-mode
+      value: "'none'"
+    - key: indent-width
+      value: "2"
+  - path: org/gnome/meld/window-state
+    - key: width
+      value: "617"
+    - key: is-fullscreen
+      value: "false"
+    - key: height
+      value: "400"
+    - key: is-maximized
+      value: "true"
+  - path: org/gtk/settings/file-chooser
+    - key: sort-column
+      value: "'name'"
+    - key: sidebar-width
+      value: "208"
+    - key: window-position
+      value: "(358, 103)"
+    - key: show-size-column
+      value: "true"
+    - key: show-hidden
+      value: "false"
+    - key: window-size
+      value: "(1203, 830)"
+    - key: sort-directories-first
+      value: "true"
+    - key: date-format
+      value: "'regular'"
+    - key: sort-order
+      value: "'ascending'"
+    - key: location-mode
+      value: "'path-bar'"
+  - path: com/gexperts/Tilix
+    - key: new-window-inherit-state
+      value: "true"
+    - key: prompt-on-close
+      value: "false"
+    - key: unsafe-paste-alert
+      value: "false"
+    - key: prompt-on-close-process
+      value: "false"
+    - key: theme-variant
+      value: "'dark'"
+    - key: session-name
+      value: "'Default${hostname}'"
+    - key: use-tabs
+      value: "true"
+    - key: warn-vte-config-issue
+      value: "false"
+    - key: terminal-title-show-when-single
+      value: "false"
+    - key: window-style
+      value: "'disable-csd-hide-toolbar'"
+  - path: com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d
+    - key: foreground-color
+      value: "'#EFEFEF'"
+    - key: visible-name
+      value: "'Por defecto'"
+    - key: palette
+      value: "['#000000', '#CC0000', '#4D9A05', '#C3A000', '#3464A3', '#754F7B', '#05979A', '#D3D6CF', '#545652', '#EF2828', '#89E234', '#FBE84F', '#729ECF', '#AC7EA8', '#34E2E2', '#EDEDEB']"
+    - key: bold-is-bright
+      value: "false"
+    - key: badge-color-set
+      value: "true"
+    - key: default-size-rows
+      value: "40"
+    - key: default-size-columns
+      value: "160"
+    - key: use-system-font
+      value: "false"
+    - key: cursor-colors-set
+      value: "false"
+    - key: highlight-colors-set
+      value: "false"
+    - key: use-theme-colors
+      value: "false"
+    - key: bold-color-set
+      value: "false"
+    - key: font
+      value: "'Monospace 10'"
+    - key: scrollback-unlimited
+      value: "true"
+    - key: background-color
+      value: "'#303030'"
+  - path: com/gexperts/Tilix/keybindings
+    - key: session-add-right
+      value: "'<Primary><Alt>v'"
+    - key: app-new-session
+      value: "'<Primary>n'"
+    - key: session-synchronize-input
+      value: "'<Primary><Alt>b'"
+    - key: session-add-down
+      value: "'<Primary><Alt>h'"
+    - key: win-switch-to-next-session
+      value: "'<Shift>Right'"
+    - key: win-switch-to-previous-session
+      value: "'<Shift>Left'"

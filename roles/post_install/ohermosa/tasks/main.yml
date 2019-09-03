@@ -1,5 +1,30 @@
 ---
 
+- name: "[UBUNTU] Install several theme packages"
+  apt:
+    name:
+      - arc-theme
+      - elementary-icon-theme
+      - papirus-icon-theme
+      - gnome-tweaks
+    state: present
+    update_cache: true
+  when: ansible_distribution == "Ubuntu"
+
+- name: "[FEDORA] Install several theme packages"
+  yum:
+    name:
+      - arc-theme
+      - elementary-icon-theme
+      - papirus-icon-theme
+      - gnome-tweaks
+    state: present
+    update_cache: true
+  when: ansible_distribution == "Fedora"
+
+- import_tasks: gnome.yml
+  when: 'GNOME' in ansible_env.XDG_CURRENT_DESKTOP
+
 - name: "Check if dropbox is synchronized"
   shell: dropbox status
   register: dropbox_response
