@@ -7,6 +7,8 @@
       - elementary-icon-theme
       - papirus-icon-theme
       - gnome-tweaks
+      - python-psutil
+      - python3-psutil
     state: present
     update_cache: true
   when: ansible_distribution == "Ubuntu"
@@ -14,7 +16,7 @@
   become_method: sudo
   tags:
     - post_install
-    - gnome
+    - post_gnome
 
 - name: "[FEDORA] Install several theme packages"
   yum:
@@ -23,6 +25,8 @@
       - elementary-icon-theme
       - papirus-icon-theme
       - gnome-tweaks
+      - python2-psutil
+      - python3-psutil
     state: present
     update_cache: true
   when: ansible_distribution == "Fedora"
@@ -30,11 +34,10 @@
   become_method: sudo
   tags:
     - post_install
-    - gnome
+    - post_gnome
 
 - import_tasks: gnome.yml
-  become_user: "{{ ansible_user }}"
-  when: 'GNOME' in ansible_env.XDG_CURRENT_DESKTOP
+  when: "'GNOME' in ansible_env.XDG_CURRENT_DESKTOP"
   tags:
     - post_install
     - post_gnome

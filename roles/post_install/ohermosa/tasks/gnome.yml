@@ -1,23 +1,4 @@
 ---
 
-- name: "[UBUNTU] install psutil dependencies"
-  apt:
-    name:
-      - python-psutil
-      - python3-psutil
-    state: present
-    update_cache: true
-  when: ansible_distribution == "Ubuntu"
-
-- name: "[FEDORA] install psutil dependencies"
-  apt:
-    name:
-      - python2-psutil
-      - python3-psutil
-    state: present
-    update_cache: true
-  when: ansible_distribution == "Fedora"
-
-
 - debug:
     msg: "{{ dconf_config }}"
