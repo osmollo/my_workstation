@@ -1,39 +1,11 @@
 ---
 
-- name: "[UBUNTU] Install several theme packages"
-  apt:
-    name:
-      - arc-theme
-      - elementary-icon-theme
-      - papirus-icon-theme
-      - gnome-tweaks
-      - python-psutil
-      - python3-psutil
-    state: present
-    update_cache: true
-  when: ansible_distribution == "Ubuntu"
+- import_tasks: gnome_packages.yml
   become: true
   become_method: sudo
   tags:
     - post_install
-    - post_gnome
-
-- name: "[FEDORA] Install several theme packages"
-  yum:
-    name:
-      - arc-theme
-      - elementary-icon-theme
-      - papirus-icon-theme
-      - gnome-tweaks
-      - python2-psutil
-      - python3-psutil
-    state: present
-    update_cache: true
-  when: ansible_distribution == "Fedora"
-  become: true
-  become_method: sudo
-  tags:
-    - post_install
+    - post_gnome_packages
     - post_gnome
 
 - import_tasks: gnome.yml
