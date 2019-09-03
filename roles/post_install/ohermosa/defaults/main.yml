@@ -47,14 +47,17 @@ bbva_user: XE67334
 
 dconf_config:
   - path: system/proxy
+    conf:
     - key: autoconfig-url
       value: "'http://bbvapac.igrupobbva/accelerated_pac_base.pac'"
     - key: mode
       value: "'auto'"
   - path: org/gnome/settings-daemon/peripherals/keyboard
+    conf:
     - key: numlock-state
       value: "'on'"
   - path: org/gnome/shell
+    conf:
     - key: app-picker-view
       value: "'uint32 1'"
     - key: enabled-extensions
@@ -63,14 +66,17 @@ dconf_config:
     - key: enable-hot-corners
       value: "false"
   - path: org/gnome/shell/extensions/dash-to-dock
+    conf:
     - key: dash-max-icon-size
       value: "40"
   - path: org/gnome/shell/extensions/clipboard-indicator
+    conf:
     - key: notify-on-copy
       value: "false"
     - key: toggle-menu
       value: "'<Primary>Down'"
   - path: org/gnome/gedit/preferences/editor
+    conf:
     - key: highlight-current-line
       value: "true"
     - key: display-overview-map
@@ -88,12 +94,15 @@ dconf_config:
     - key: wrap-last-split-mode
       value: "'word'"
   - path: org/gnome/gedit/preferences/ui
+    conf:
     - key: show-tabs-mode
       value: "'auto'"
   - path: org/gnome/gedit/plugins
+    conf:
     - key: active-plugins
       value: "'spell', 'bracketcompletion', 'docinfo', 'wordcompletion', 'multiedit', 'time', 'filebrowser', 'git', 'modelines'"
   - path: org/gnome/gedit/state/window
+    conf:
     - key: size
       value: "(1541, 700)"
     - key: state
@@ -105,11 +114,13 @@ dconf_config:
     - key: side-panel-active-page
       value: "'GeditWindowDocumentsPanel'"
   - path: org/gnome/nautilus/preferences
+    conf:
     - key: default-folder-viewer
       value: "'list-view'"
     - key: search-filter-time-type
       value: "'last_modified'"
   - path: org/gnome/desktop/screensaver
+    conf:
     - key: picture-uri
       value: "'file:///usr/share/backgrounds/contest/bionic.xml'"
     - key: primary-color
@@ -119,6 +130,7 @@ dconf_config:
     - key: secondary-color
       value: "'#000000000000'"
   - path: org/gnome/desktop/background
+    conf:
     - key: picture-uri
       value: "'file:///usr/share/backgrounds/contest/bionic.xml'"
     - key: show-desktop-icons
@@ -130,6 +142,7 @@ dconf_config:
     - key: secondary-color
       value: "'#000000000000'"
   - path: org/gnome/desktop/interface
+    conf:
     - key: clock-show-date
       value: "true"
     - key: gtk-im-module
@@ -141,6 +154,7 @@ dconf_config:
     - key: gtk-theme
       value: "'Arc-Dark'"
   - path: org/gnome/meld
+    conf:
     - key: style-scheme
       value: "'solarized-dark'"
     - key: wrap-mode
@@ -148,6 +162,7 @@ dconf_config:
     - key: indent-width
       value: "2"
   - path: org/gnome/meld/window-state
+    conf:
     - key: width
       value: "617"
     - key: is-fullscreen
@@ -157,6 +172,7 @@ dconf_config:
     - key: is-maximized
       value: "true"
   - path: org/gtk/settings/file-chooser
+    conf:
     - key: sort-column
       value: "'name'"
     - key: sidebar-width
@@ -178,6 +194,7 @@ dconf_config:
     - key: location-mode
       value: "'path-bar'"
   - path: com/gexperts/Tilix
+    conf:
     - key: new-window-inherit-state
       value: "true"
     - key: prompt-on-close
@@ -199,6 +216,7 @@ dconf_config:
     - key: window-style
       value: "'disable-csd-hide-toolbar'"
   - path: com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d
+    conf:
     - key: foreground-color
       value: "'#EFEFEF'"
     - key: visible-name
@@ -230,6 +248,7 @@ dconf_config:
     - key: background-color
       value: "'#303030'"
   - path: com/gexperts/Tilix/keybindings
+    conf:  
     - key: session-add-right
       value: "'<Primary><Alt>v'"
     - key: app-new-session
