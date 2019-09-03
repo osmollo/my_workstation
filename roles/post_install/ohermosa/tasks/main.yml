@@ -10,6 +10,8 @@
     state: present
     update_cache: true
   when: ansible_distribution == "Ubuntu"
+  become: true
+  become_method: sudo
   tags:
     - post_install
     - gnome
@@ -24,11 +26,14 @@
     state: present
     update_cache: true
   when: ansible_distribution == "Fedora"
+  become: true
+  become_method: sudo
   tags:
     - post_install
     - gnome
 
 - import_tasks: gnome.yml
+  become_user: "{{ ansible_user }}"
   when: 'GNOME' in ansible_env.XDG_CURRENT_DESKTOP
   tags:
     - post_install
