@@ -10,6 +10,9 @@
     state: present
     update_cache: true
   when: ansible_distribution == "Ubuntu"
+  tags:
+    - post_install
+    - gnome
 
 - name: "[FEDORA] Install several theme packages"
   yum:
@@ -21,9 +24,15 @@
     state: present
     update_cache: true
   when: ansible_distribution == "Fedora"
+  tags:
+    - post_install
+    - gnome
 
 - import_tasks: gnome.yml
   when: 'GNOME' in ansible_env.XDG_CURRENT_DESKTOP
+  tags:
+    - post_install
+    - post_gnome
 
 - name: "Check if dropbox is synchronized"
   shell: dropbox status
