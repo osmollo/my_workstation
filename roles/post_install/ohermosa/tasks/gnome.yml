@@ -3,14 +3,11 @@
 - name: "Parse dconf dump"
   dconf_to_list:
     paths_to_restore: "{{ dconf_paths_to_restore }}"
-    dconf_file: "{{ drropbox_dir }}/datio/gnome_config"
+    dconf_file: "{{ dropbox_dir }}/datio/gnome_config"
   register: response
-
-- debug:
-    msg: "{{ response }}"
 
 - name: "Import gnome config"
   dconf:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
-  loop: "{{ response.result }}"
+  loop: "{{ response.message }}"
