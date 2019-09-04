@@ -11,8 +11,8 @@
   vars:
     atom_version: "{{ atom_latest.url | urlsplit('path') | basename }}"
   set_fact:
-    atom_fedora_package: "{{ ansible_latest_url }}/download/{{ atom_version }}/atom.x86_64.rpm"
-    atom_ubuntu_package: "{{ ansible_latest_url }}/download/{{ atom_version }}/atom-amd64.deb"
+    atom_fedora_package: "{{ atom_latest_url }}/download/{{ atom_version }}/atom.x86_64.rpm"
+    atom_ubuntu_package: "{{ atom_latest_url }}/download/{{ atom_version }}/atom-amd64.deb"
 
 - import_tasks: atom_ubuntu.yml
   when: ansible_distribution == "Ubuntu"

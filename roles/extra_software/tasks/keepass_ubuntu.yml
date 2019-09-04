@@ -1,10 +1,10 @@
 ---
 
 - name: "[UBUNTU] - add ppa repository"
-    apt_repository:
-      validate_certs: no
-      repo: 'ppa:phoerious/keepassxc'
-      state: present
+  apt_repository:
+    validate_certs: no
+    repo: 'ppa:phoerious/keepassxc'
+    state: present
 
 - name: "[UBUNTU] - install KeepassXC"
   apt:

@@ -46,4 +46,4 @@ slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"
 
 pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Community.flatpakref"
 
-buttercup_latest_url: https://github.com/buttercup/buttercup-desktop/releases
+buttercup_latest_url: https://github.com/buttercup/buttercup-desktop/releases/latest

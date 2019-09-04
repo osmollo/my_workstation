@@ -11,15 +11,11 @@
   vars:
     buttercup_version: "{{ buttercup_latest.url | urlsplit('path') | basename }}"
   set_fact:
-    buttercup_fedora_package: "{{ buttercup_latest_url }}/download/{{ buttercup_version }}/buttercup-desktop-{{ buttercup_version }}.x86_64.rpm"
-    buttercup_ubuntu_package: "{{ buttercup_latest_url }}/download/{{ buttercup_version }}/buttercup-desktop_{{ buttercup_version }}_amd64.deb"
+    buttercup_fedora_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop-{{ buttercup_version | replace('v', '') }}.x86_64.rpm"
+    buttercup_ubuntu_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop_{{ buttercup_version | replace('v', '') }}_amd64.deb"
 
 - import_tasks: buttercup_ubuntu.yml
   when: ansible_distribution == "Ubuntu"
 
 - import_tasks: buttercup_fedora.yml
   when: ansible_distribution == "Fedora"
-
-- name: "Install 'sync-settings' package for buttercup"
-  become: false
-  shell: apm install sync-settings
