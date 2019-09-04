@@ -1,5 +1,19 @@
 ---
 
+- import_tasks: gnome_packages.yml
+  become: true
+  become_method: sudo
+  tags:
+    - post_install
+    - post_gnome_packages
+    - post_gnome
+
+- import_tasks: gnome.yml
+  when: "'GNOME' in ansible_env.XDG_CURRENT_DESKTOP"
+  tags:
+    - post_install
+    - post_gnome
+
 - name: "Check if dropbox is synchronized"
   shell: dropbox status
   register: dropbox_response
