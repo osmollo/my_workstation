@@ -14,6 +14,7 @@ install_forticlientvpn: true
 install_tlp: true
 install_virtualbox: true
 install_pycharm: true
+install_keepass: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
