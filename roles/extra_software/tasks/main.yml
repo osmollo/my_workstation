@@ -97,3 +97,10 @@
   tags:
     - extra_software
     - install_pycharm
+
+- name: "Install Keepass"
+  import_tasks: keepass.yml
+  when: install_keepass
+  tags:
+    - extra_software
+    - install_keepass
