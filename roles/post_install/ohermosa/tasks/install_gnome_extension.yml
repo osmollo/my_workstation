@@ -1,0 +1,15 @@
+---
+
+- name: "Download zip files of gnome extensions"
+  get_url:
+    url: "{{ item }}"
+    dest: "/tmp/gnome_extensions"
+
+- debug:
+    msg: "{{ item  | urlsplit('path') }}"
+
+- name: "Unzip gnome extension files"
+  unarchive:
+    src: ""
+    dest: "/tmp/"
+    remote_src: true

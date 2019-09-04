@@ -17,6 +17,7 @@ common_packages:
   - zeal
   - colordiff
   - htop
+  - unzip
 
 ubuntu_packages:
   - libsecret-tools
