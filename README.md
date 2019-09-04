@@ -36,6 +36,7 @@ Por defecto se instala el siguiente software:
 | [Virtualbox](https://www.virtualbox.org/) | install_virtualbox |
 | [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | install_pycharm |
 | [KeepassXC](https://keepassxc.org/download/) | install_keepass |
+| [Buttercup](https://buttercup.pw/) | install_buttercup |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
