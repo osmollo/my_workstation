@@ -8,6 +8,9 @@
   - [Post Instalación](#post-instalación)
     - [Gestión de contraseñas](#gestión-de-contraseñas)
       - [Ficheros locales](#ficheros-locales)
+      - [Ansible Vault](#ansible-vault)
+  - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
+  - [Uso de Vagrant](#uso-de-vagrant)
 
 ## Software extra instalado
 
@@ -117,7 +120,6 @@ En caso de que sea necesario usar contraseñas en alguna tarea de Ansible, hay v
 
 Las contraseñas se pueden definir como variables en ficheros *"yml"* al igual que el resto de variables pero sin estar bajo el seguimiento de **git**. Para ello no es necesario tenerlo fuera del directorio del repositorio sino que basta con incluír el nombre del fichero donde tengamos las contraseñas en un fichero *.gitignore*.
 
-```
 ```text
 post_install
 ├── dsamaniego
