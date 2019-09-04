@@ -1,11 +1,5 @@
 #!/usr/bin/python
 
-import requests
-import socket
-import textwrap
-import os
-import os.path
-
 from ansible.module_utils.basic import AnsibleModule
 
 ANSIBLE_METADATA = {
@@ -83,7 +77,7 @@ def read_file(dconf_file):
         return f.readlines()
 
 
-def from_dconf_to_list(dconf_file):
+def from_dconf_to_list(dconf_file, paths_to_restore):
     output = []
     lines = read_file(dconf_file)
     cont = 0
@@ -94,10 +88,10 @@ def from_dconf_to_list(dconf_file):
         if line.startswith('['):
             path = '/' + line[1:-1]
         elif '=' in line:
-            if path in paths_to_restore or paths_to_restore.len() == 0:
+            if path in paths_to_restore or len(paths_to_restore) == 0:
                 item = {
                     "key": path + '/' + line.split('=')[0],
-                    "value": '"' + line.split('=')[1] + '"'
+                    "value": line.split('=')[1]
                 }
                 output.append(item)
         elif line == '':
@@ -135,8 +129,8 @@ def run_module():
     else:
         paths_to_restore = []
 
-    output = from_dconf_to_list(dconf_file)
-    result['message'].append(output)
+    output = from_dconf_to_list(dconf_file, paths_to_restore)
+    result['message'] = output
     module.exit_json(**result)
 
 
@@ -145,6 +139,4 @@ def main():
 
 
 if __name__ == '__main__':
-    requests.packages.urllib3.disable_warnings(
-        requests.packages.urllib3.exceptions.InsecureRequestWarning)
     main()
