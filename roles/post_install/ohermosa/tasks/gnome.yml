@@ -14,7 +14,7 @@
 
 - name: "Create temporal directory"
   file:
-    path: "/tmp/gnome_extensions"
+    path: "{{ tmp_download_extensions }}"
     state: directory
 
 - include_tasks: install_gnome_extension.yml
@@ -22,5 +22,5 @@
 
 - name: "Delete temporal directory"
   file:
-    path: "/tmp/gnome_extensions"
+    path: "{{ tmp_download_extensions }}"
     state: absent

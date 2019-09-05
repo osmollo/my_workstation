@@ -3,13 +3,46 @@
 - name: "Download zip files of gnome extensions"
   get_url:
     url: "{{ item }}"
-    dest: "/tmp/gnome_extensions"
+    dest: "{{ tmp_download_extensions }}"
 
-- debug:
-    msg: "{{ item  | urlsplit('path') }}"
+- name: "Get downloaded file name"
+  find:
+    paths: "{{ tmp_download_extensions }}"
+    patterns: '^.*zip$'
+    use_regex: true
+  register: filename
+
+- set_fact:
+    downloaded_extension_filename: "{{ filename.files[0].path.split('/')[-1] }}"
 
 - name: "Unzip gnome extension files"
   unarchive:
-    src: ""
+    src: "{{ tmp_download_extensions }}/{{ downloaded_extension_filename }}"
     dest: "/tmp/"
     remote_src: true
+
+- name: "Get read metadata.json of {{ downloaded_extension_filename }}"
+  slurp:
+    path: "{{ tmp_download_extensions }}/{{ downloaded_extension_filename }}/metadata.json"
+  register: metadata_response
+
+- name: "Get uuid of {{ downloaded_extension_filename }}"
+  set_fact:
+    extension_uuid: "{{ (metadata_response.content | b64decode | from_json).uuid }}"
+
+- name: "Create local directory for {{ downloaded_extension_filename }}"
+  file:
+    path: "{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/{{ downloaded_extension_filename }}"
+    state: directory
+
+- name: "Copy extension files to final directory"
+  synchronize:
+    src: "{{ tmp_download_extensions }}/{{ downloaded_extension_filename }}"
+    dest: "{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/{{ downloaded_extension_filename }}"
+    archive: true
+  delegate_to: "{{ inventory_hostname }}"
+
+- name: "Delete temporal files"
+  file:
+    path: "{{ tmp_download_extensions }}/*"
+    state: absent
