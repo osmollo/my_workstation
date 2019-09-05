@@ -2,7 +2,7 @@
 
 - name: "[FEDORA] Copy repository file"
   copy:
-    src: code.repo"
+    src: code.repo
     dest: /etc/yum.repos.d/code.repo
     owner: root
     group: root
@@ -16,5 +16,5 @@
 - name: "[FEDORA] Install Code"
   yum:
     name: code
-    state: present
+    state: latest
     update_cache: true

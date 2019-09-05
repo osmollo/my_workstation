@@ -70,6 +70,8 @@ Tanto si se ejecuta el playbook en **Ubuntu** como en **Fedora**, se pueden actu
 ansible-playbook update_packages.yml --ask-become-pass
 ```
 
+Es recomemdable ejecutar este playbook nada más instalar el ordenador y antes de lanzar el resto de playbooks para que todos los paquetes se encuentren actualizados y no haya problema con dependencias
+
 ## Instalación
 
 La primera tarea que ejecuta este playbook es actualizar los paquetes de la distribución que se esté usando dentro de la misma rama, nunca se actualiza la distribución a la siguiente versión disponible
