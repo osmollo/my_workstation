@@ -209,10 +209,10 @@ A continuación, dentro del directorio del repo, hay que ejecutar:
 vagrant init
 ```
 
-Este comando creará un fichero `Vagrantfile` donde tendremos que sobreescribir la configuración de los ficheros existentes en el repo `Vagrantfile_ubuntu` o `Vagrantfile_fedora`:
+Este comando creará un fichero `Vagrantfile` donde tendremos que sobreescribir la configuración de los ficheros existentes en el repo `Vagrantfile-ubuntu` o `Vagrantfile-fedora`:
 
 ```bash
-cat Vagrantfile_ubuntu > Vagrantfile
+cat Vagrantfile-ubuntu > Vagrantfile
 ```
 
 A continuación, podemos levantar la máquina virtual:
