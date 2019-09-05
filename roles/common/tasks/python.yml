@@ -44,3 +44,6 @@
       - numpy
       - beautifulsoup4
       - bs4
+      - openstacksdk
+      - molecule
+      - dnspython

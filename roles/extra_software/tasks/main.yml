@@ -104,3 +104,10 @@
   tags:
     - extra_software
     - install_keepass
+
+- name: "Install Buttercup"
+  import_tasks: buttercup.yml
+  when: install_buttercup
+  tags:
+    - extra_software
+    - install_buttercup
