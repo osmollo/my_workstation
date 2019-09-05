@@ -1,0 +1,16 @@
+---
+
+- name: "[UBUNTU] Download buttercup"
+  get_url:
+    url: "{{ buttercup_ubuntu_package }}"
+    dest: /tmp/buttercup.deb
+
+- name: "[UBUNTU] Install buttercup"
+  apt:
+    deb: /tmp/buttercup.deb
+    state: present
+
+- name: "[UBUNTU] Delete temporal file"
+  file:
+    path: /tmp/buttercup.deb
+    state: absent
