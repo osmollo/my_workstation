@@ -42,6 +42,9 @@
     archive: true
   delegate_to: "{{ inventory_hostname }}"
 
+- name: "Enable gnome extension {{ downloaded_extension_filename }}"
+  shell: "gnome-shell-extension-tool -e {{ downloaded_extension_filename}}"
+
 - name: "Delete temporal files"
   file:
     path: "{{ tmp_download_extensions }}/*"
