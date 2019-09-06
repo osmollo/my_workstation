@@ -15,5 +15,5 @@
     name:
       - virtualbox-6.0
       - vagrant
-    state: present
+    state: latest
     update_cache: true
