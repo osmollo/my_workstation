@@ -1,0 +1,7 @@
+[windscribe]
+name=Windscribe
+baseurl=http://repo.windscribe.com/fedora/
+enabled=1
+gpgkey=http://repo.windscribe.com/fedora/windscribe.key
+gpgcheck=1
+metadata_expire=0
