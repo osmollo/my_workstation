@@ -29,5 +29,5 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
-    state: present
+    state: latest
     update_cache: true

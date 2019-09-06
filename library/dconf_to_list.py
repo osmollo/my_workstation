@@ -80,7 +80,6 @@ def read_file(dconf_file):
 def from_dconf_to_list(dconf_file, paths_to_restore):
     output = []
     lines = read_file(dconf_file)
-    cont = 0
     path = ""
     for line in lines:
         # Quitamos el '\n' del final de cada elemento de la lista
