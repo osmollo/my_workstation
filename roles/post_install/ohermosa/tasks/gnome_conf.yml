@@ -11,16 +11,3 @@
     key: "{{ item.key }}"
     value: "{{ item.value }}"
   loop: "{{ response.message }}"
-
-- name: "Create temporal directory"
-  file:
-    path: "{{ tmp_download_extensions }}"
-    state: directory
-
-- include_tasks: install_gnome_extension.yml
-  loop: "{{ gnome_extensions }}"
-
-- name: "Delete temporal directory"
-  file:
-    path: "{{ tmp_download_extensions }}"
-    state: absent
