@@ -63,8 +63,5 @@ dconf_paths_to_restore:
   - /com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d
   - /com/gexperts/Tilix/keybindings
 
-tmp_download_extensions: /tmp/gnome_extensions
-gnome_extensions:
-  - https://extensions.gnome.org/review/download/9189.shell-extension.zip
-  - https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator/archive/v30.zip
-  - https://github.com/kgshank/gse-refresh-wifi/archive/10.0.3.30.zip
+fedora_gnome_extensions:
+  - "dash-to-dock@micxgx.gmail.com"
