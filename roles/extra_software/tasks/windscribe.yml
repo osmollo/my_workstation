@@ -1,0 +1,7 @@
+---
+
+- import_tasks: windscribe_ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- import_tasks: windscribe_fedora.yml
+  when: ansible_distribution == "Fedora"

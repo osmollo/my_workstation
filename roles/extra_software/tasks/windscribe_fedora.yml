@@ -1,0 +1,12 @@
+---
+
+- name: "[FEDORA] copy repository file"
+  copy:
+    src: windscribe.repo
+    dest: /etc/yum.repos.d/windscribe.repo
+
+- name: "[FEDORA] install windscribe package"
+  yum:
+    name: windscribe-cli
+    state: latest
+    update_cache: true
