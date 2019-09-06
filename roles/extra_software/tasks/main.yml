@@ -20,6 +20,7 @@
   tags:
     - extra_software
     - install_code
+    - install_editors
 
 - name: "Install Spotify"
   import_tasks: spotify.yml
@@ -41,6 +42,7 @@
   tags:
     - extra_software
     - install_sublime
+    - install_editors
 
 - name: "Install Atom"
   import_tasks: atom.yml
@@ -48,6 +50,7 @@
   tags:
     - extra_software
     - install_atom
+    - install_editors
 
 - name: "Install Gitkraken"
   import_tasks: gitkraken.yml
@@ -62,6 +65,7 @@
   tags:
     - extra_software
     - install_telegram
+    - install_social
 
 - name: "Install Slack"
   import_tasks: slack.yml
@@ -69,6 +73,7 @@
   tags:
     - extra_software
     - install_slack
+    - install_social
 
 - name: "Install Forticlient VPN"
   import_tasks: forticlientvpn.yml
@@ -97,6 +102,7 @@
   tags:
     - extra_software
     - install_pycharm
+    - install_editors
 
 - name: "Install Keepass"
   import_tasks: keepass.yml
@@ -104,6 +110,7 @@
   tags:
     - extra_software
     - install_keepass
+    - install_pass_managers
 
 - name: "Install Buttercup"
   import_tasks: buttercup.yml
@@ -111,3 +118,4 @@
   tags:
     - extra_software
     - install_buttercup
+    - install_pass_managers
