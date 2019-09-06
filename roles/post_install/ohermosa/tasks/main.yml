@@ -58,6 +58,12 @@
     - post_install
     - post_git
 
+- import_tasks: sublime.yml
+  when: dropbox_response.stdout == "Actualizado"
+  tags:
+    - post_install
+    - post_sublime
+
 - import_tasks: vpn.yml
   become: true
   become_method: sudo

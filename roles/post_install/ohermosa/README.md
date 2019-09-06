@@ -17,6 +17,6 @@
 | **post_environment** | Restaura de **Dropbox** los ficheros de configuración del entorno (`.bashrc`, `.bash_history`, `.zshrc`,...) |
 | **post_git** | Clona los repositorios indicados en el fichero de variables y configura el `user.email` y `user.name` en cada uno de ellos |
 | **post_vpn** | Genera las configuraciones para las VPNs (OpenVPN y VPNaaS) |
-
+| **post_sublime** | Restaura la configuración de `Sublime Text` almacenada en **Dropbox** |
 | **WARNING**: algunos de los tags anteriores requieren que **Dropbox** esté totalmente sincronizado antes de ejecutarse |
 | --- |
