@@ -81,6 +81,7 @@
   tags:
     - extra_software
     - install_forticlientvpn
+    - install_vpnclient
 
 - name: "Install TLP"
   import_tasks: tlp.yml
@@ -119,3 +120,11 @@
     - extra_software
     - install_buttercup
     - install_pass_managers
+
+- name: "Install Windscribe client"
+  import_tasks: windscribe.yml
+  when: install_windscribe
+  tags:
+    - extra_software
+    - install_windscribe
+    - install_vpnclient
