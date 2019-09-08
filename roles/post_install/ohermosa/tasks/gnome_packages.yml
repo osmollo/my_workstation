@@ -9,7 +9,7 @@
       - gnome-tweaks
       - python-psutil
       - python3-psutil
-    state: present
+    state: latest
     update_cache: true
   when: ansible_distribution == "Ubuntu"
 
@@ -22,6 +22,6 @@
       - gnome-tweaks
       - python2-psutil
       - python3-psutil
-    state: present
+    state: latest
     update_cache: true
   when: ansible_distribution == "Fedora"

@@ -10,5 +10,5 @@
 - name: "[FEDORA] Install VLC"
   yum:
     name: vlc
-    state: present
+    state: latest
     update_cache: true
