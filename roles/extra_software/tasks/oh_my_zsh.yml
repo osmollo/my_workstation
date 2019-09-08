@@ -20,6 +20,7 @@
 
 - name: "Install oh_my_zsh"
   become: false
+  become_user: "{{ ansible_env.USERNAME }}"
   environment:
     CHSH: yes
     RUNZSH: yes
