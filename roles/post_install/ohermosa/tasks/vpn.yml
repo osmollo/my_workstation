@@ -13,11 +13,11 @@
     - src: datio_mx_vpn.j2
       dest: /etc/NetworkManager/system-connections/Datio_MX.nmconnection
 
-- name: "Copy vpn configurations files to NetworkManager"
-  template:
-    src: vpnaas.j2
-    dest: /etc/NetworkManager/system-connections/VPNaas_BBVA.nmconnection
-    mode: 0600
-    owner: root
-    group: root
-  when: ansible_distribution == "Fedora"
+# - name: "Copy vpn configurations files to NetworkManager"
+#   template:
+#     src: vpnaas.j2
+#     dest: /etc/NetworkManager/system-connections/VPNaas_BBVA.nmconnection
+#     mode: 0600
+#     owner: root
+#     group: root
+#   when: ansible_distribution == "Fedora"

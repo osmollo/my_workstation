@@ -22,5 +22,5 @@
 - name: "[UBUNTU] Install Sublime Text"
   apt:
     name: sublime-text
-    state: present
+    state: latest
     update_cache: true

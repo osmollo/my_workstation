@@ -3,11 +3,11 @@
 - name: "[UBUNTU] Install common packages"
   apt:
     name: "{{ common_packages | list }}"
-    state: present
+    state: latest
     update_cache: true
 
 - name: "[UBUNTU] Install Ubuntu packages"
   apt:
     name: "{{ ubuntu_packages | list }}"
-    state: present
+    state: latest
     update_cache: true

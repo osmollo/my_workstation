@@ -9,5 +9,5 @@
 - name: "[UBUNTU] install KeepassXC"
   apt:
     name: keepassxc
-    state: present
+    state: latest
     update_cache: true

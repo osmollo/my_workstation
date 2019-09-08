@@ -3,13 +3,13 @@
 - name: "[FEDORA] Install zsh"
   yum:
     name: zsh
-    state: present
+    state: latest
   when: ansible_distribution == "Fedora"
 
 - name: "[UBUNTU] Install zsh"
   apt:
     name: zsh
-    state: present
+    state: latest
   when: ansible_distribution == "Ubuntu"
 
 - name: "Download installation script"
@@ -20,6 +20,7 @@
 
 - name: "Install oh_my_zsh"
   become: false
+  become_user: "{{ ansible_env.USERNAME }}"
   environment:
     CHSH: yes
     RUNZSH: yes
