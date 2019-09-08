@@ -17,5 +17,5 @@
 - name: "[FEDORA] Install Sublime Text"
   yum:
     name: sublime-text
-    state: present
+    state: latest
     update_cache: true

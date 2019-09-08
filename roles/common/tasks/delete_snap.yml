@@ -15,4 +15,4 @@
 - name: "[UBUNTU] Install packages from Ubuntu repositories"
   apt:
     name: "{{ bad_snap_packages }}"
-    state: present
+    state: latest

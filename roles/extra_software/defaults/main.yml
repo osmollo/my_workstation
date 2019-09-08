@@ -29,15 +29,15 @@ gitkraken_ubuntu_package: "https://release.axocdn.com/linux/gitkraken-amd64.deb"
 dropbox_fedora_package: "https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2019.02.14-1.fedora.x86_64.rpm"
 dropbox_ubuntu_package: "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.02.14_amd64.deb"
 
-forticlientvpn_ubuntu_packages:
-  - openfortivpn
-  - network-manager-fortisslvpn
-  - network-manager-fortisslvpn-gnome
+# forticlientvpn_ubuntu_packages:
+#   - openfortivpn
+#   - network-manager-fortisslvpn
+#   - network-manager-fortisslvpn-gnome
 
-forticlientvpn_fedora_packages:
-  - openfortivpn
-  - NetworkManager-fortisslvpn
-  - NetworkManager-fortisslvpn-gnome
+# forticlientvpn_fedora_packages:
+#   - openfortivpn
+#   - NetworkManager-fortisslvpn
+#   - NetworkManager-fortisslvpn-gnome
 
 ohmyzsh_installer: "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
 

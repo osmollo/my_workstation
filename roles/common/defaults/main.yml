@@ -28,6 +28,7 @@ ubuntu_packages:
   - network-manager-openvpn
   - network-manager-openvpn-gnome
   - openvpn
+  - libsecret-tools
 
 fedora_packages:
   - libsecret
@@ -37,6 +38,7 @@ fedora_packages:
   - openvpn
   - NetworkManager-openvpn
   - NetworkManager-openvpn-gnome
+  - libsecret
 
 bad_snap_packages:
   - gnome-calculator
@@ -54,8 +56,6 @@ etc_hosts:
     ip: 172.16.14.75
   - host: idev2
     ip: 172.16.48.147
-  - host: mproxy.dat02.daas.es.asgard.datio
-    ip: 172.16.49.85
   - host: id2
     ip: 10.48.238.129
   - host: id2pro
