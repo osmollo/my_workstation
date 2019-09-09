@@ -1,5 +1,32 @@
 ---
 
+- import_role:
+    name: common
+    tasks_from: update_packages.yml
+  tags:
+    - extra_software
+    - install_atom
+    - install_buttercup
+    - install_code
+    - install_docker
+    - install_dropbox
+    - install_editors
+    - install_forticlientvpn
+    - install_gitkraken
+    - install_keepass
+    - install_ohmyzsh
+    - install_pass_managers
+    - install_pycharm
+    - install_slack
+    - install_social
+    - install_spotify
+    - install_sublime
+    - install_telegram
+    - install_tlp
+    - install_virtualbox
+    - install_vpnclient
+    - install_windscribe
+
 - name: "Install Docker"
   import_tasks: docker.yml
   when: install_docker
