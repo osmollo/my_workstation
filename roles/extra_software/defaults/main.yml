@@ -19,6 +19,7 @@ install_buttercup: true
 install_windscribe: true
 install_chrome: true
 install_teamviewer: true
+install_nomachine: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -56,3 +57,6 @@ chrome_fedora_package: "https://dl.google.com/linux/direct/google-chrome-stable_
 
 teamviewer_ubuntu_package: "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 teamviewer_fedora_package: "https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm"
+
+nomachine_ubuntu_package: "https://download.nomachine.com/download/6.7/Linux/nomachine_6.7.6_11_amd64.deb"
+nomachine_fedora_package: "https://download.nomachine.com/download/6.7/Linux/nomachine_6.7.6_11_x86_64.rpm"
