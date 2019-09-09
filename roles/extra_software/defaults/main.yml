@@ -18,6 +18,7 @@ install_keepass: true
 install_buttercup: true
 install_windscribe: true
 install_chrome: true
+install_teamviewer: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -52,3 +53,6 @@ buttercup_latest_url: https://github.com/buttercup/buttercup-desktop/releases/la
 
 chrome_ubuntu_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 chrome_fedora_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"
+
+teamviewer_ubuntu_package: "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
+teamviewer_fedora_package: "https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm"

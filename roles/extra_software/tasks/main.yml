@@ -27,6 +27,7 @@
     - install_vpnclient
     - install_windscribe
     - install_chrome
+    - install_teamviewer
 
 - name: "Install Docker"
   import_tasks: docker.yml
@@ -163,3 +164,10 @@
   tags:
     - extra_software
     - install_chrome
+
+- name: "Install Teamviewer"
+  import_tasks: teamviewer.yml
+  when: install_teamviewer
+  tags:
+    - extra_software
+    - install_teamviewer
