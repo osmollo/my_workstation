@@ -7,7 +7,6 @@
 
 - name: "Create the symlink to Sublime config in Dropbox"
   file:
-    src: "{{ dropboxdir }}/backup/Sublime/User"
+    src: "{{ dropbox_dir }}/backups/Sublime/User"
     dest: "{{ ansible_user_dir }}/.config/sublime-text-3/Packages/User"
-    state: symlink
-    
+    state: link
