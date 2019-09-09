@@ -17,6 +17,7 @@ install_pycharm: true
 install_keepass: true
 install_buttercup: true
 install_windscribe: true
+install_chrome: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -48,3 +49,6 @@ slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"
 pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Community.flatpakref"
 
 buttercup_latest_url: https://github.com/buttercup/buttercup-desktop/releases/latest
+
+chrome_ubuntu_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+chrome_fedora_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"
