@@ -40,6 +40,7 @@ Por defecto se instala el siguiente software:
 | [Buttercup](https://buttercup.pw/) | install_buttercup |
 | [Windscribe](https://windscribe.com/) | install_windscribe |
 | [Teamviewer](https://www.teamviewer.com/es/) | install_teamviewer |
+| [NoMachine](https://www.nomachine.com/es/) | install_nomachine |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

@@ -1,0 +1,7 @@
+---
+
+- import_tasks: nomachine_fedora.yml
+  when: ansible_distribution == "Fedora"
+
+- import_tasks: nomachine_ubuntu.yml
+  when: ansible_distribution == "Ubuntu"

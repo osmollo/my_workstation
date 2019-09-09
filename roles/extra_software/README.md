@@ -10,7 +10,8 @@
 | **extra_software** | Ejecuta el role completo |
 | **install_editors** | Instala los editores de texto `Visual Studio Code`, `Atom`, `Sublime Text` y `PyCharm` |
 | **install_pass_managers** | Instala `KeepassXC` y `Buttercup` |
-| **install_social** | Instala los clientes de mensajería `Telegram Desktop` y `Slack` |
+| **install_remotes** | Instala `Teamviewer` y `No Machine` |
+| **install_socials** | Instala los clientes de mensajería `Telegram Desktop` y `Slack` |
 | **install_windscribe** | Instala los clientes de VPN `Forti Client VPN` y `Windscribe` |
 | **install_docker** | Instala `Docker Community Edition` |
 | **install_dropbox** | Instala `Dropbox` |
@@ -31,3 +32,4 @@
 | **install_windscribe** | Instala `Windscribe Client VPN` |
 | **install_chrome** | Instala `Google Chrome` |
 | **install_teamviewer** | Instala `Teamviewer` |
+| **install_nomachine** | Instala `No Machine` |

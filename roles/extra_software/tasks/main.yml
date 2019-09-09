@@ -11,6 +11,7 @@
     - install_docker
     - install_dropbox
     - install_editors
+    - install_remotes
     - install_forticlientvpn
     - install_gitkraken
     - install_keepass
@@ -18,7 +19,7 @@
     - install_pass_managers
     - install_pycharm
     - install_slack
-    - install_social
+    - install_socials
     - install_spotify
     - install_sublime
     - install_telegram
@@ -94,7 +95,7 @@
   tags:
     - extra_software
     - install_telegram
-    - install_social
+    - install_socials
 
 - name: "Install Slack"
   import_tasks: slack.yml
@@ -102,7 +103,7 @@
   tags:
     - extra_software
     - install_slack
-    - install_social
+    - install_socials
 
 - name: "Install Forticlient VPN"
   import_tasks: forticlientvpn.yml
@@ -171,3 +172,11 @@
   tags:
     - extra_software
     - install_teamviewer
+
+- name: "Install No Machine"
+  import_tasks: nomachine.yml
+  when: install_nomachine
+  tags:
+    - extra_software
+    - install_nomachine
+    - install_remotes
