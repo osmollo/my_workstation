@@ -30,3 +30,4 @@
 | **install_buttercap** | Instala `Buttercup` |
 | **install_windscribe** | Instala `Windscribe Client VPN` |
 | **install_chrome** | Instala `Google Chrome` |
+| **install_teamviewer** | Instala `Teamviewer` |
