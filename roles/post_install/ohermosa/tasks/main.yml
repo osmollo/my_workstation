@@ -8,16 +8,7 @@
   tags:
     - post_install
     - post_gnome_packages
-    - post_gnome_extensions
-    - post_gnome_conf
     - post_gnome
-    - post_install
-    - post_docker
-    - post_crontab
-    - post_environment
-    - post_git
-    - post_sublime
-    - post_vpn
 
 - import_tasks: gnome_packages.yml
   when: "'GNOME' in ansible_env.XDG_CURRENT_DESKTOP"
