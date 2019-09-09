@@ -18,6 +18,7 @@ install_keepass: true
 install_buttercup: true
 install_windscribe: true
 install_chrome: true
+install_nomachine: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -52,3 +53,6 @@ buttercup_latest_url: https://github.com/buttercup/buttercup-desktop/releases/la
 
 chrome_ubuntu_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 chrome_fedora_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"
+
+nomachine_ubuntu_package: "https://download.nomachine.com/download/6.7/Linux/nomachine_6.7.6_11_amd64.deb"
+nomachine_fedora_package: "https://download.nomachine.com/download/6.7/Linux/nomachine_6.7.6_11_x86_64.rpm"
