@@ -1,0 +1,7 @@
+---
+
+- name: "[FEDORA] install google chrome"
+  yum:
+    name: "{{ chrome_fedora_package }}"
+    state: present
+    update_cache: true

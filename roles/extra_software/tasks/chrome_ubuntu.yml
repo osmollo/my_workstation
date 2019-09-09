@@ -1,0 +1,7 @@
+---
+
+- name: "[UBUNTU] Install Google Chrome"
+  apt:
+    deb: "{{ chrome_ubuntu_package }}"
+    state: present
+    update_cache: true
