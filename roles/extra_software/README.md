@@ -29,3 +29,4 @@
 | **install_keepass** | Instala `KeepassXD` |
 | **install_buttercap** | Instala `Buttercup` |
 | **install_windscribe** | Instala `Windscribe Client VPN` |
+| **install_chrome** | Instala `Google Chrome` |

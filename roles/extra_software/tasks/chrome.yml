@@ -1,0 +1,7 @@
+---
+
+- import_tasks: chrome_fedora.yml
+  when: ansible_distribution == "Fedora"
+
+- import_tasks: chrome_ubuntu.yml
+  when: ansible_distribution == "Ubuntu"

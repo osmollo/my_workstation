@@ -26,6 +26,7 @@
     - install_virtualbox
     - install_vpnclient
     - install_windscribe
+    - install_chrome
 
 - name: "Install Docker"
   import_tasks: docker.yml
@@ -155,3 +156,10 @@
     - extra_software
     - install_windscribe
     - install_vpnclient
+
+- name: "Install Google Chrome"
+  import_tasks: chrome.yml
+  when: install_chrome
+  tags:
+    - extra_software
+    - install_chrome
