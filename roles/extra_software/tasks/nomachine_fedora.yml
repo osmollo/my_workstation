@@ -2,6 +2,6 @@
 
 - name: "[FEDORA] install no machine"
   yum:
-    name: "{{ nomachine_package.fedora }}"
+    name: "{{ nomachine_package }}"
     state: present
     update_cache: true

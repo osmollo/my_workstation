@@ -1,0 +1,12 @@
+---
+
+# forticlientvpn_packages:
+#   - openfortivpn
+#   - NetworkManager-fortisslvpn
+#   - NetworkManager-fortisslvpn-gnome
+
+gitkraken_package: "https://release.axocdn.com/linux/gitkraken-amd64.rpm"
+dropbox_package: "https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2019.02.14-1.fedora.x86_64.rpm"
+chrome_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"
+teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm"
+nomachine_package: "https://download.nomachine.com/download/6.7/Linux/nomachine_6.7.6_11_x86_64.rpm"
