@@ -8,7 +8,7 @@
 
 - name: "[FEDORA] Install Fedora packages"
   yum:
-    name: "{{ fedora_packages | list }}"
+    name: "{{ distro_packages | list }}"
     state: latest
     update_cache: true
 
