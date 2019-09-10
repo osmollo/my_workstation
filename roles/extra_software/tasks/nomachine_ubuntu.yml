@@ -2,6 +2,6 @@
 
 - name: "[UBUNTU] Install no machine"
   apt:
-    deb: "{{ nomachine_package.ubuntu }}"
+    deb: "{{ nomachine_package }}"
     state: present
     update_cache: true

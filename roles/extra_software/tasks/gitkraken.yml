@@ -1,5 +1,8 @@
 ---
 
+- include_vars:
+    file: "{{ ansible_distribution | lower }}.yml"
+
 - import_tasks: gitkraken_ubuntu.yml
   when: ansible_distribution == "Ubuntu"
 
