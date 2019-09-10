@@ -5,12 +5,48 @@
   become: true
   become_method: sudo
   tasks:
-    - name: "Update all packages"
-      import_role:
-        name: common
-        tasks_from: update_packages.yml
+    - name: "[FEDORA] upgrade all packages to the latest version"
+      yum:
+        name: '*'
+        state: latest
+        update_cache: true
+      when: ansible_distribution == "Fedora"
 
-    - name: "Update ansible"
-      import_role:
-        name: common
-        tasks_from: ansible.yml
+    - name: "[FEDORA] Install ansible"
+      yum:
+        name: ansible
+        state: latest
+        update_cache: true
+      when: ansible_distribution == "Fedora"
+
+    - name: "[UBUNTU] Upgrade all packages to the latest version"
+      apt:
+        name: "*"
+        state: latest
+        update_cache: true
+      when: ansible_distribution == "Ubuntu"
+
+    - name: "[UBUNTU] Copy repository file"
+      copy:
+        src: ansible.list
+        dest: /etc/apt/sources.list.d/ansible.list
+        owner: root
+        group: root
+        mode: 0644
+      when: ansible_distribution == "Ubuntu"
+
+    - name: "[UBUNTU] Import Ansible repository key"
+      apt_key:
+        url: keyserver.ubuntu.com
+        id: 93C4A3FD7BB9C367
+        state: present
+      when: ansible_distribution == "Ubuntu"
+
+    - name: "[UBUNTU] Update ansible"
+      apt:
+        name:
+          - ansible
+          - python-apt
+        update_cache: true
+        state: latest
+      when: ansible_distribution == "Ubuntu"
