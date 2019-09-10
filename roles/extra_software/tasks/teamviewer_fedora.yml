@@ -2,6 +2,6 @@
 
 - name: "[FEDORA] install teamviwer package"
   yum:
-    name: "{{ teamviewer_package.fedora }}"
+    name: "{{ teamviewer_package }}"
     state: present
     update_cache: true

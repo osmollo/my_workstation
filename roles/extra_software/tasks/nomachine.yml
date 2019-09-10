@@ -1,5 +1,8 @@
 ---
 
+- include_vars:
+    file: "{{ ansible_distribution | lower }}.yml"
+
 - import_tasks: nomachine_fedora.yml
   when: ansible_distribution == "Fedora"
 

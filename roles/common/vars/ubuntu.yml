@@ -1,0 +1,12 @@
+---
+
+distro_packages:
+  - libsecret-tools
+  - aptitude
+  - software-properties-common
+  - apt-transport-https
+  - vlc
+  - network-manager-openvpn
+  - network-manager-openvpn-gnome
+  - openvpn
+  - libsecret-tools

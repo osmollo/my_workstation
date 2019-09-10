@@ -2,5 +2,5 @@
 
 - name: "[UBUNTU] Install Gitkraken"
   apt:
-    deb: "{{ gitkraken_package.ubuntu }}"
+    deb: "{{ gitkraken_package }}"
     state: present
