@@ -19,28 +19,28 @@
 
 Por defecto se instala el siguiente software:
 
-| **APLICACIÓN** | **TAG/VARIABLE** |
-|----------------|------------------|
-| [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome |
-| [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker |
-| [Dropbox](https://www.dropbox.com/) | install_dropbox |
-| [Visual Studio Code](https://code.visualstudio.com/) | install_code |
-| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | install_spotify |
-| [Oh my ZSH!](https://ohmyz.sh/) | install_ohmyzsh |
-| [Sublime Text](https://www.sublimetext.com/) | install_sublime |
-| [Atom](https://atom.io/) | install_atom |
-| [Gitkraken](https://www.gitkraken.com/git-client) | install_gitkraken |
-| [Telegram Desktop](https://telegram.org/) | install_telegram |
-| [Slack](https://datiodevelopers.slack.com/) | install_slack |
-| [Forticlient VPN](https://www.fortinet.com/lat) | install_forticlientvpn |
-| [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | install_tlp |
-| [Virtualbox](https://www.virtualbox.org/) | install_virtualbox |
-| [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | install_pycharm |
-| [KeepassXC](https://keepassxc.org/download/) | install_keepass |
-| [Buttercup](https://buttercup.pw/) | install_buttercup |
-| [Windscribe](https://windscribe.com/) | install_windscribe |
-| [Teamviewer](https://www.teamviewer.com/es/) | install_teamviewer |
-| [NoMachine](https://www.nomachine.com/es/) | install_nomachine |
+| **APLICACIÓN** | **TAG/VARIABLE** | **GRUPO** |
+|----------------|------------------|-----------|
+| [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | |
+| [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker | |
+| [Dropbox](https://www.dropbox.com/) | install_dropbox | |
+| [Visual Studio Code](https://code.visualstudio.com/) | install_code | install_editors |
+| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | install_spotify | |
+| [Oh my ZSH!](https://ohmyz.sh/) | install_ohmyzsh | |
+| [Sublime Text](https://www.sublimetext.com/) | install_sublime | install_editors |
+| [Atom](https://atom.io/) | install_atom | |
+| [Gitkraken](https://www.gitkraken.com/git-client) | install_gitkraken | |
+| [Telegram Desktop](https://telegram.org/) | install_telegram | install_socials |
+| [Slack](https://datiodevelopers.slack.com/) | install_slack | install_socials |
+| [Forticlient VPN](https://www.fortinet.com/lat) | install_forticlientvpn | |
+| [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | install_tlp | |
+| [Virtualbox](https://www.virtualbox.org/) | install_virtualbox | |
+| [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | install_pycharm | install_editors |
+| [KeepassXC](https://keepassxc.org/download/) | install_keepass | install_pass_managers |
+| [Buttercup](https://buttercup.pw/) | install_buttercup | install_pass_managers |
+| [Windscribe](https://windscribe.com/) | install_windscribe | |
+| [Teamviewer](https://www.teamviewer.com/es/) | install_teamviewer | install_remotes |
+| [NoMachine](https://www.nomachine.com/es/) | install_nomachine | install_remotes |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
@@ -60,7 +60,7 @@ ansible-playbook install.yml --ask-become-pass -t "install_code"
 * El usuario que ejecute los playbooks debe tener `sudo` activado e incluír `--ask-become-pass` para ejecutar el playbook con permisos de administrador
 * Las tareas de este repositorio se ejecutan en local, por lo que para poder ejecutar los playbooks es necesario tener instalado `git` y `ansible`
 * En la post instalación, se crearán enlaces simbólicos desde el directorio */home/{{ ansible_user }}/Dropbox/datio*, será necesario modificar este directorio si no es correcto
-* Para poder instalar *Telegram* o *Spotify*, es necesario tener actualizado **Ansible** a la versión 2.6 o 2.8, respectivamente. Para ello hay que ejecutar el siguiente playbook:
+* Para poder instalar *Telegram* o *Spotify*, es necesario tener actualizado **Ansible** a la versión 2.6 o superior. Para ello hay que ejecutar el siguiente playbook:
 
 ```bash
 ansible-playbook update_ansible.yml --ask-become-pass
