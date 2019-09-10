@@ -1,17 +1,8 @@
 ---
 
 
-- name: "[FEDORA] Download Dropbox"
-  get_url:
-    url: "{{ dropbox_fedora_package }}"
-    dest: /tmp/dropbox_fedora.rpm
 
 - name: "[FEDORA] Install Dropbox package"
   yum:
-    name: /tmp/dropbox_fedora.rpm
+    name: "{{ dropbox_package.fedora }}"
     state: present
-
-- name: "[FEDORA] Delete temporal file"
-  file:
-    path: /tmp/dropbox_fedora.rpm
-    state: absent
