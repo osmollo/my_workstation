@@ -1,16 +1,6 @@
 ---
 
-- name: "[FEDORA] Download Gitkraken package"
-  get_url:
-    url: "{{ gitkraken_fedora_package}}"
-    dest: /tmp/gitkraken.rpm
-
 - name: "[FEDORA] Install Gitkraken"
   yum:
-    name: /tmp/gitkraken.rpm
+    name: "{{ gitkraken_package.fedora}}"
     state: present
-
-- name: "[FEDORA] Delete temporal file"
-  file:
-    path: /tmp/gitkraken.rpm
-    state: absent

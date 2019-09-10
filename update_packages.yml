@@ -5,7 +5,16 @@
   become: true
   become_method: sudo
   tasks:
-    - name: "Update all packages"
-      import_role:
-        name: common
-        tasks_from: update_packages.yml
+    - name: "[FEDORA] upgrade all packages to the latest version"
+      yum:
+        name: '*'
+        state: latest
+        update_cache: true
+      when: ansible_distribution == "Fedora"
+
+    - name: "[UBUNTU] Upgrade all packages to the latest version"
+      apt:
+        name: "*"
+        state: latest
+        update_cache: true
+      when: ansible_distribution == "Ubuntu"
