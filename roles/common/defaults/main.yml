@@ -19,27 +19,6 @@ common_packages:
   - htop
   - unzip
 
-ubuntu_packages:
-  - libsecret-tools
-  - aptitude
-  - software-properties-common
-  - apt-transport-https
-  - vlc
-  - network-manager-openvpn
-  - network-manager-openvpn-gnome
-  - openvpn
-  - libsecret-tools
-
-fedora_packages:
-  - libsecret
-  - openvpn
-  - NetworkManager-openvpn
-  - NetworkManager-openvpn-gnome
-  - openvpn
-  - NetworkManager-openvpn
-  - NetworkManager-openvpn-gnome
-  - libsecret
-
 bad_snap_packages:
   - gnome-calculator
   - gnome-system-monitor

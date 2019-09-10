@@ -8,6 +8,6 @@
 
 - name: "[UBUNTU] Install Ubuntu packages"
   apt:
-    name: "{{ ubuntu_packages | list }}"
+    name: "{{ distro_packages | list }}"
     state: latest
     update_cache: true
