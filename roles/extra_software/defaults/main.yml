@@ -26,11 +26,13 @@ tlp_battery_max: 85
 
 atom_latest_url: https://github.com/atom/atom/releases/latest
 
-gitkraken_fedora_package: "https://release.axocdn.com/linux/gitkraken-amd64.rpm"
-gitkraken_ubuntu_package: "https://release.axocdn.com/linux/gitkraken-amd64.deb"
+gitkraken_package:
+  fedora: "https://release.axocdn.com/linux/gitkraken-amd64.rpm"
+  ubuntu: "https://release.axocdn.com/linux/gitkraken-amd64.deb"
 
-dropbox_fedora_package: "https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2019.02.14-1.fedora.x86_64.rpm"
-dropbox_ubuntu_package: "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.02.14_amd64.deb"
+dropbox_package:
+  fedora: "https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2019.02.14-1.fedora.x86_64.rpm"
+  ubuntu: "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.02.14_amd64.deb"
 
 # forticlientvpn_ubuntu_packages:
 #   - openfortivpn
@@ -52,11 +54,14 @@ pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Commu
 
 buttercup_latest_url: https://github.com/buttercup/buttercup-desktop/releases/latest
 
-chrome_ubuntu_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-chrome_fedora_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"
+chrome_package:
+  ubuntu: "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+  fedora: "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"
 
-teamviewer_ubuntu_package: "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
-teamviewer_fedora_package: "https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm"
+teamviewer_package:
+  ubuntu: "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
+  fedora: "https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm"
 
-nomachine_ubuntu_package: "https://download.nomachine.com/download/6.7/Linux/nomachine_6.7.6_11_amd64.deb"
-nomachine_fedora_package: "https://download.nomachine.com/download/6.7/Linux/nomachine_6.7.6_11_x86_64.rpm"
+nomachine_package:
+  ubuntu: "https://download.nomachine.com/download/6.7/Linux/nomachine_6.7.6_11_amd64.deb"
+  fedora: "https://download.nomachine.com/download/6.7/Linux/nomachine_6.7.6_11_x86_64.rpm"
