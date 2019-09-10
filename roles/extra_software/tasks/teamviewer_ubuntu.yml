@@ -2,6 +2,6 @@
 
 - name: "[UBUNTU] install teamviwer package"
   apt:
-    deb: "{{ teamviewer_package.ubuntu }}"
+    deb: "{{ teamviewer_package }}"
     state: present
     update_cache: true
