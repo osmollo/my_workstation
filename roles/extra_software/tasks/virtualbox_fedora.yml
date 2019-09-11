@@ -15,5 +15,11 @@
     name:
       - Virtualbox-6.0
       - vagrant
+      - kernel-devel
+      - kernel-headers
+      - dkms
+      - qt5-qtx11extras
+      - elfutils-libelf-devel
+      - zlib-devel
     state: latest
     update_cache: true
