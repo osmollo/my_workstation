@@ -35,6 +35,8 @@ git_repositories:
       dest: "{{ git_dir }}/whopper_bot"
     - repo: git@gitlab.com:ohermosa/my_workstation.git
       dest: "{{ git_dir }}/my_workstation"
+    - repo: git@gitlab.com:ohermosa/my_k8s.git
+      dest: "{{ git_dir }}/my_k8s"
 
 git_user_name: "Oscar Hermosa"
 git_user_mail_work: "oscar.hermosa@datiobbva.com"
