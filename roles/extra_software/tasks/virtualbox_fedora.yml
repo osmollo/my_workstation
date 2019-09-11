@@ -13,7 +13,7 @@
 - name: "[FEDORA] Install Virtualbox and Vagrant packages"
   yum:
     name:
-      - virtualbox-6.0
+      - Virtualbox-6.0
       - vagrant
     state: latest
     update_cache: true
