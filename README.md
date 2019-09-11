@@ -210,20 +210,8 @@ Para probar el código, se puede levantar una máquina con **Ubuntu** o **Fedora
 ansible-playbook install.yml --ask-become-pass -t install_virtualbox
 ```
 
-A continuación, dentro del directorio del repo, hay que ejecutar:
+A continuación, dentro del directorio del repo, hay que ejecutar el siguiente comando para levntar la máquina virtual:
 
 ```bash
-vagrant init
-```
-
-Este comando creará un fichero `Vagrantfile` donde tendremos que sobreescribir la configuración de los ficheros existentes en el repo `Vagrantfile-ubuntu` o `Vagrantfile-fedora`:
-
-```bash
-cat Vagrantfile-ubuntu > Vagrantfile
-```
-
-A continuación, podemos levantar la máquina virtual:
-
-```bash
-vagrant up
+vagrant up [ubuntu|fedora]
 ```
