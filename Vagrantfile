@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     node.vm.network :private_network, ip: "192.168.56.20"
     node.vm.hostname = 'ubuntu'
     config.vm.provision "shell" do |s|
-      ssh_pub_key = File.readlines("/home/ohermosa/.ssh/id_rsa.pub").first.strip
+      ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
       s.inline = <<-SHELL
         echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys
       SHELL
@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
     node.vm.network :private_network, ip: "192.168.56.10"
     node.vm.hostname = 'fedora'
     config.vm.provision "shell" do |s|
-      ssh_pub_key = File.readlines("/home/ohermosa/.ssh/id_rsa.pub").first.strip
+      ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
       s.inline = <<-SHELL
         echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys
       SHELL
