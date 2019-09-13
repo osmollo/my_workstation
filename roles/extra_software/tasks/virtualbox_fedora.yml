@@ -6,20 +6,12 @@
     state: present
 
 - name: "[FEDORA] Create repository file"
-  template:
-    src: virtualbox.repo.j2
+  get_url:
+    url: https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
     dest: /etc/yum.repos.d/virtualbox.repo
 
 - name: "[FEDORA] Install Virtualbox and Vagrant packages"
   yum:
-    name:
-      - Virtualbox-6.0
-      - vagrant
-      - kernel-devel
-      - kernel-headers
-      - dkms
-      - qt5-qtx11extras
-      - elfutils-libelf-devel
-      - zlib-devel
+    name: "{{ virtualbox_packages }}"
     state: latest
     update_cache: true

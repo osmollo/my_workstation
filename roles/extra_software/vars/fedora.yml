@@ -10,3 +10,13 @@ dropbox_package: "https://www.dropbox.com/download?dl=packages/fedora/nautilus-d
 chrome_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"
 teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm"
 nomachine_package: "https://download.nomachine.com/download/6.7/Linux/nomachine_6.7.6_11_x86_64.rpm"
+
+virtualbox_packages:
+  - Virtualbox-6.0
+  - vagrant
+  - kernel-devel
+  - kernel-headers
+  - dkms
+  - qt5-qtx11extras
+  - elfutils-libelf-devel
+  - zlib-devel
