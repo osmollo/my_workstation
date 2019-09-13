@@ -12,8 +12,6 @@
 
 - name: "[UBUNTU] Install Virtualbox and Vagrant packages"
   apt:
-    name:
-      - virtualbox-6.0
-      - vagrant
+    name: "{{ virtualbox_packages }}"
     state: latest
     update_cache: true

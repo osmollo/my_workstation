@@ -10,3 +10,7 @@ dropbox_package: "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_20
 chrome_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 nomachine_package: "https://download.nomachine.com/download/6.7/Linux/nomachine_6.7.6_11_amd64.deb"
+
+virtualbox_packages:
+  - virtualbox-6.0
+  - vagrant
