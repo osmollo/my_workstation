@@ -26,19 +26,10 @@
         update_cache: true
       when: ansible_distribution == "Ubuntu"
 
-    - name: "[UBUNTU] Copy repository file"
-      copy:
-        src: ansible.list
-        dest: /etc/apt/sources.list.d/ansible.list
-        owner: root
-        group: root
-        mode: 0644
-      when: ansible_distribution == "Ubuntu"
-
-    - name: "[UBUNTU] Import Ansible repository key"
-      apt_key:
-        url: keyserver.ubuntu.com
-        id: 93C4A3FD7BB9C367
+    - name: "[UBUNTU] add ppa repository"
+      apt_repository:
+        validate_certs: no
+        repo: 'ppa:ansible/ansible'
         state: present
       when: ansible_distribution == "Ubuntu"
 
