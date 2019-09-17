@@ -18,6 +18,11 @@
     dest: /tmp/install.sh
     mode: 0755
 
+- name: "check if previous oh_my_zsh exists"
+  stat:
+    path: "{{ ansible_env.HOME }}"
+  register: ohmyzshdir_exists
+
 - name: "Install oh_my_zsh"
   become: false
   become_user: "{{ ansible_env.USER }}"
@@ -25,6 +30,7 @@
     CHSH: yes
     RUNZSH: yes
   shell: /tmp/install.sh --unattended
+  when: not ohmyzshdir_exists.stat.exists
 
 - name: "Change $SHELL variable for {{ ansible_user }}"
   user:
