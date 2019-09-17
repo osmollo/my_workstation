@@ -1,14 +1,19 @@
 Vagrant.configure("2") do |config|
 
   config.vm.provider 'virtualbox' do |v|
-    v.memory = 2048
+    v.memory = 4096
     v.cpus = 2
+    v.disksize.size = '20GB'
   end
 
   config.vm.define 'ubuntu' do |node|
-    node.vm.box = "envimation/ubuntu-xenial"
-    node.vm.network :private_network, ip: "192.168.56.20"
-    node.vm.hostname = 'ubuntu'
+    node.vm.box = "guits/ubuntu-bionic64"
+    node.vm.network :private_network, ip: "192.168.56.200"
+    #node.vm.hostname = 'ubuntu'
+    node.vm.provision "ansible" do |ansible|
+      ansible.inventory_path = "inventory/ubuntu"
+      ansible.playbook = "vagrant.yml"
+    end
     config.vm.provision "shell" do |s|
       ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
       s.inline = <<-SHELL
@@ -19,8 +24,12 @@ Vagrant.configure("2") do |config|
 
   config.vm.define 'fedora' do |node|
     node.vm.box = "fedora/30-cloud-base"
-    node.vm.network :private_network, ip: "192.168.56.10"
-    node.vm.hostname = 'fedora'
+    node.vm.network :private_network, ip: "192.168.56.100"
+    #node.vm.hostname = 'fedora'
+    node.vm.provision "ansible" do |ansible|
+      ansible.inventory_path = "inventory/fedora"
+      ansible.playbook = "vagrant.yml"
+    end
     config.vm.provision "shell" do |s|
       ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
       s.inline = <<-SHELL
