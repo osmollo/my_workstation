@@ -16,5 +16,5 @@
 - name: "[UBUNTU] Install code package"
   apt:
     name: code
-    status: latest
+    state: latest
     update_cache: true
