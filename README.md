@@ -41,6 +41,7 @@ Por defecto se instala el siguiente software:
 | [Windscribe](https://windscribe.com/) | install_windscribe | |
 | [Teamviewer](https://www.teamviewer.com/es/) | install_teamviewer | install_remotes |
 | [NoMachine](https://www.nomachine.com/es/) | install_nomachine | install_remotes |
+| [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | install_ecs |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

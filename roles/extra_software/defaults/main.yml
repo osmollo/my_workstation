@@ -20,6 +20,7 @@ install_windscribe: true
 install_chrome: true
 install_teamviewer: true
 install_nomachine: true
+install_ecs: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -30,3 +31,5 @@ telegram_flatpak: "https://flathub.org/repo/appstream/org.telegram.desktop.flatp
 slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"
 pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Community.flatpakref"
 buttercup_latest_url: https://github.com/buttercup/buttercup-desktop/releases/latest
+
+ecs_cli_url: "https://globaldevtools.bbva.com/artifactory/semaas-global-bin/releases/ecs-cli/ecs-cli-0.2.16.tar.gz"
