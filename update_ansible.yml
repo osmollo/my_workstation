@@ -24,6 +24,7 @@
         name: "*"
         state: latest
         update_cache: true
+        force_apt_get: true
       when: ansible_distribution == "Ubuntu"
 
     - name: "[UBUNTU] add ppa repository"
@@ -40,4 +41,5 @@
           - python-apt
         update_cache: true
         state: latest
+        force_apt_get: true
       when: ansible_distribution == "Ubuntu"

@@ -217,10 +217,11 @@ A continuación, dentro del directorio del repo, hay que ejecutar el siguiente c
 vagrant up [ubuntu|fedora]
 ```
 
-Para probar ansible en la máquina de vagrant:
+Cuando se inicie la máquina, se lanzará automáticamente el playbook `vagrant.yml` que instala el role `common` y `extra_software`. Si se quiere lanzar *ansible* desde el anfitrión, habrá que ejecutar el playbook correspondiente usando el inventario de la máquina vagrant que hayamos levantado:
 
 ```bash
-ansible-playbook -i inventory/[ubuntu|fedora] install.yml
+ansible-playbook -i inventory/[ubuntu|fedora] vagrant_install.yml
+ansible-playbook -i inventory/[ubuntu|fedora] vagrant_post_install.yml
 ```
 
 Y para destruir las máquinas:
