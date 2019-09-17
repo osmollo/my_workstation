@@ -8,15 +8,15 @@
 
 - name: "Configure Sublime"
   become: false
-  become_user: "{{ ansible_env.USERNAME }}"
+  become_user: "{{ ansible_env.USER }}"
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: 0664
-    owner: "{{ ansible_env.USERNAME }}"
-    group: "{{ ansible_env.USERNAME }}"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
   loop:
     - src: package_control.sublime-settings
-      dest: "/home/{{ ansible_env.USERNAME }}/.config/sublime-text-3/Packages/User/Package Control.sublime-settings"
+      dest: "/home/{{ ansible_env.USER }}/.config/sublime-text-3/Packages/User/Package Control.sublime-settings"
     - src: preferences.sublime-settings
-      dest: "/home/{{ ansible_env.USERNAME }}/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+      dest: "/home/{{ ansible_env.USER }}/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
