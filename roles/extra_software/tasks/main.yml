@@ -180,3 +180,10 @@
     - extra_software
     - install_nomachine
     - install_remotes
+
+- name: "Install Ether Cloud Services Client"
+  import_tasks: ecs.yml
+  when: install_ecs
+  tags:
+    - extra_software
+    - install_ecs
