@@ -1,0 +1,17 @@
+---
+
+- name: "Unarchive ecs-cli"
+  unarchive:
+    src: "{{ ecs_cli_url }}"
+    dest: /tmp
+
+- name: "Move ecs binary to /usr/local/bin"
+  copy:
+    src: /tmp/ecs-cli.linux
+    dest: /usr/local/bin/ecs-cli
+    mode: 0755
+
+- name: "Delete temporal files"
+  file:
+    path: /tmp/ecs-cli*
+    state: absent

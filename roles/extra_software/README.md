@@ -33,3 +33,4 @@
 | **install_chrome** | Instala `Google Chrome` |
 | **install_teamviewer** | Instala `Teamviewer` |
 | **install_nomachine** | Instala `No Machine` |
+| **install_ecs** | Instala `Ether Cloud Services Client` |
