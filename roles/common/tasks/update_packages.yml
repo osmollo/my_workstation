@@ -5,6 +5,7 @@
     name: "*"
     state: latest
     update_cache: true
+    force_apt_get: true
   when: ansible_distribution == "Ubuntu"
 
 - name: "[FEDORA] upgrade all packages to the latest version"
