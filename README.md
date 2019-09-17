@@ -216,3 +216,15 @@ A continuación, dentro del directorio del repo, hay que ejecutar el siguiente c
 ```bash
 vagrant up [ubuntu|fedora]
 ```
+
+Para probar ansible en la máquina de vagrant:
+
+```bash
+ansible-playbook -i inventory/[ubuntu|fedora] install.yml
+```
+
+Y para destruir las máquinas:
+
+```bash
+vagrant destroy -f
+```
