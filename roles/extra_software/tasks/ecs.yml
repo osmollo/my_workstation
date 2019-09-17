@@ -15,3 +15,7 @@
   file:
     path: /tmp/ecs-cli*
     state: absent
+
+- name: "Configure ecs-cli"
+  debug:
+    msg: "Debes configurar ecs-cli siguiendo los siguientes pasos: {{ ecs_cli_doc_url }}"

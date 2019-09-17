@@ -2,6 +2,8 @@
 
 - [extra_software](#extra_software)
   - [Acciones disponibles](#acciones-disponibles)
+  - [Documentación](#documentación)
+    - [Ether Cloud Service client](#ether-cloud-service-client)
 
 ## Acciones disponibles
 
@@ -34,3 +36,9 @@
 | **install_teamviewer** | Instala `Teamviewer` |
 | **install_nomachine** | Instala `No Machine` |
 | **install_ecs** | Instala `Ether Cloud Services Client` |
+
+## Documentación
+
+### Ether Cloud Service client
+
+Para configurar el ecs-cli es necesario seguir [estos pasos](https://platform.bbva.com/en-us/developers/ether-cli/documentation/03-getting-started)
