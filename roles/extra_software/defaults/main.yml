@@ -33,3 +33,4 @@ pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Commu
 buttercup_latest_url: https://github.com/buttercup/buttercup-desktop/releases/latest
 
 ecs_cli_url: "https://globaldevtools.bbva.com/artifactory/semaas-global-bin/releases/ecs-cli/ecs-cli-0.2.16.tar.gz"
+ecs_cli_doc_url: "https://platform.bbva.com/en-us/developers/ether-cli/documentation/03-getting-started"
