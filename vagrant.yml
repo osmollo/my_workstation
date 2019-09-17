@@ -1,0 +1,8 @@
+---
+
+- hosts: all
+  become: true
+  become_user: root
+  roles:
+    - common
+    - extra_software
