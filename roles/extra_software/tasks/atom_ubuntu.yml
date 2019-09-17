@@ -1,16 +1,6 @@
 ---
 
-- name: "[UBUNTU] Download Atom"
-  get_url:
-    url: "{{ atom_ubuntu_package }}"
-    dest: /tmp/atom.deb
-
 - name: "[UBUNTU] Install Atom"
   apt:
-    deb: /tmp/atom.deb
+    deb: "{{ atom_ubuntu_package }}"
     state: present
-
-- name: "[UBUNTU] Delete temporal file"
-  file:
-    path: /tmp/atom.deb
-    state: absent

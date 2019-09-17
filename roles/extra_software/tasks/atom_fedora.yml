@@ -1,16 +1,6 @@
 ---
 
-- name: "[FEDORA] Download Atom"
-  get_url:
-    url: "{{ atom_fedora_package }}"
-    dest: /tmp/atom.rpm
-
 - name: "[FEDORA] Install Atom"
   yum:
-    name: /tmp/atom.rpm
+    name: "{{ atom_fedora_package }}"
     state: present
-
-- name: "[FEDORA] Delete temporal file"
-  file:
-    path: /tmp/atom.rpm
-    state: absent
