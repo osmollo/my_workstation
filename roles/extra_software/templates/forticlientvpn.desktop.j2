@@ -2,9 +2,9 @@
 Name=FortiClientVPN
 GenericName=Cliente VPN FortiSSL
 Comment=LDAP client
-Exec=/home/{{ ansible_env.USER }}/forticlientsslvpn/fortisslvpn.sh
+Exec=/home/{{ ansible_user }}/forticlientsslvpn/fortisslvpn.sh
 Terminal=false
 Type=Application
-Icon=/home/{{ ansible_env.USER }}/forticlientsslvpn/icon.png
+Icon=/home/{{ ansible_user }}/forticlientsslvpn/icon.png
 Categories=System;Network;
 StartupNotify=false
