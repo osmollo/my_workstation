@@ -10,9 +10,10 @@
 
 - name: "[UBUNTU] Import windscribe repository key"
   apt_key:
-    url: keyserver.ubuntu.com
+    keyserver: keyserver.ubuntu.com
     id: FDC247B7
     state: present
+    validate_certs: false
 
 - name: "[UBUNTU] install windscribe package"
   apt:
