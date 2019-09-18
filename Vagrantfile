@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
     #node.vm.hostname = 'ubuntu'
     node.vm.provision "ansible" do |ansible|
       ansible.inventory_path = "inventory/ubuntu"
-      ansible.playbook = "vagrant.yml"
+      ansible.playbook = "vagrant/install.yml"
     end
     config.vm.provision "shell" do |s|
       ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
     #node.vm.hostname = 'fedora'
     node.vm.provision "ansible" do |ansible|
       ansible.inventory_path = "inventory/fedora"
-      ansible.playbook = "vagrant.yml"
+      ansible.playbook = "vagrant/install.yml"
     end
     config.vm.provision "shell" do |s|
       ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
