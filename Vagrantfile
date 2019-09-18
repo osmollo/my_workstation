@@ -10,10 +10,10 @@ Vagrant.configure("2") do |config|
     node.vm.box = "guits/ubuntu-bionic64"
     node.vm.network :private_network, ip: "192.168.56.200"
     #node.vm.hostname = 'ubuntu'
-#    node.vm.provision "ansible" do |ansible|
-#      ansible.inventory_path = "inventory/ubuntu"
-#      ansible.playbook = "vagrant.yml"
-#    end
+    node.vm.provision "ansible" do |ansible|
+      ansible.inventory_path = "inventory/ubuntu"
+      ansible.playbook = "vagrant.yml"
+    end
     config.vm.provision "shell" do |s|
       ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
       s.inline = <<-SHELL

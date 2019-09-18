@@ -220,8 +220,8 @@ vagrant up [ubuntu|fedora]
 Cuando se inicie la máquina, se lanzará automáticamente el playbook `vagrant.yml` que instala el role `common` y `extra_software`. Si se quiere lanzar *ansible* desde el anfitrión, habrá que ejecutar el playbook correspondiente usando el inventario de la máquina vagrant que hayamos levantado:
 
 ```bash
-ansible-playbook -i inventory/[ubuntu|fedora] vagrant_install.yml
-ansible-playbook -i inventory/[ubuntu|fedora] vagrant_post_install.yml
+ansible-playbook -i inventory/[ubuntu|fedora] vagrant/install.yml
+ansible-playbook -i inventory/[ubuntu|fedora] vagrant/post_install.yml
 ```
 
 Y para destruir las máquinas:
