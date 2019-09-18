@@ -4,6 +4,7 @@
   unarchive:
     src: "{{ ecs_cli_url }}"
     dest: /tmp
+    remote_src: true
 
 - name: "Move ecs binary to /usr/local/bin"
   copy:
