@@ -1,6 +1,7 @@
 ---
 
-- import_role:
+- name: "---[INSTALL]--- updating packages"
+  import_role:
     name: common
     tasks_from: update_packages.yml
   tags:
@@ -30,21 +31,21 @@
     - install_chrome
     - install_teamviewer
 
-- name: "Install Docker"
+- name: "---[INSTALL]--- docker"
   import_tasks: docker.yml
   when: install_docker
   tags:
     - extra_software
     - install_docker
 
-- name: "Install Dropbox"
+- name: "---[INSTALL]--- dropbox"
   import_tasks: dropbox.yml
   when: install_dropbox
   tags:
     - extra_software
     - install_dropbox
 
-- name: "Install Visual Studio Code"
+- name: "---[INSTALL]--- Visual Studio Code"
   import_tasks: code.yml
   when: install_code
   tags:
@@ -52,21 +53,21 @@
     - install_code
     - install_editors
 
-- name: "Install Spotify"
+- name: "---[INSTALL]--- Spotify"
   import_tasks: spotify.yml
   when: install_spotify
   tags:
     - extra_software
     - install_spotify
 
-- name: "Install Oh My ZSH!"
+- name: "---[INSTALL]--- Oh My ZSH!"
   import_tasks: oh_my_zsh.yml
   when: install_ohmyzsh
   tags:
     - extra_software
     - install_ohmyzsh
 
-- name: "Install Sublime Text"
+- name: "---[INSTALL]--- Sublime Text"
   import_tasks: sublime.yml
   when: install_sublime
   tags:
@@ -74,7 +75,7 @@
     - install_sublime
     - install_editors
 
-- name: "Install Atom"
+- name: "---[INSTALL]--- Atom"
   import_tasks: atom.yml
   when: install_atom
   tags:
@@ -82,14 +83,14 @@
     - install_atom
     - install_editors
 
-- name: "Install Gitkraken"
+- name: "---[INSTALL]--- Gitkraken"
   import_tasks: gitkraken.yml
   when: install_gitkraken
   tags:
     - extra_software
     - install_gitkraken
 
-- name: "Install Telegram"
+- name: "---[INSTALL]--- Telegram"
   import_tasks: telegram.yml
   when: install_telegram
   tags:
@@ -97,7 +98,7 @@
     - install_telegram
     - install_socials
 
-- name: "Install Slack"
+- name: "---[INSTALL]--- Slack"
   import_tasks: slack.yml
   when: install_slack
   tags:
@@ -105,7 +106,7 @@
     - install_slack
     - install_socials
 
-- name: "Install Forticlient VPN"
+- name: "---[INSTALL]--- Forticlient VPN"
   import_tasks: forticlientvpn.yml
   when: install_forticlientvpn
   tags:
@@ -113,21 +114,21 @@
     - install_forticlientvpn
     - install_vpnclient
 
-- name: "Install TLP"
+- name: "---[INSTALL]--- TLP"
   import_tasks: tlp.yml
   when: install_tlp
   tags:
     - extra_software
     - install_tlp
 
-- name: "Install Virtualbox"
+- name: "---[INSTALL]--- Virtualbox"
   import_tasks: virtualbox.yml
   when: install_virtualbox
   tags:
     - extra_software
     - install_virtualbox
 
-- name: "Install PyCharm"
+- name: "---[INSTALL]--- PyCharm"
   import_tasks: pycharm.yml
   when: install_pycharm
   tags:
@@ -135,7 +136,7 @@
     - install_pycharm
     - install_editors
 
-- name: "Install Keepass"
+- name: "---[INSTALL]--- Keepass"
   import_tasks: keepass.yml
   when: install_keepass
   tags:
@@ -143,7 +144,7 @@
     - install_keepass
     - install_pass_managers
 
-- name: "Install Buttercup"
+- name: "---[INSTALL]--- Buttercup"
   import_tasks: buttercup.yml
   when: install_buttercup
   tags:
@@ -151,7 +152,7 @@
     - install_buttercup
     - install_pass_managers
 
-- name: "Install Windscribe client"
+- name: "---[INSTALL]--- Windscribe client"
   import_tasks: windscribe.yml
   when: install_windscribe
   tags:
@@ -159,21 +160,21 @@
     - install_windscribe
     - install_vpnclient
 
-- name: "Install Google Chrome"
+- name: "---[INSTALL]--- Google Chrome"
   import_tasks: chrome.yml
   when: install_chrome
   tags:
     - extra_software
     - install_chrome
 
-- name: "Install Teamviewer"
+- name: "---[INSTALL]--- Teamviewer"
   import_tasks: teamviewer.yml
   when: install_teamviewer
   tags:
     - extra_software
     - install_teamviewer
 
-- name: "Install No Machine"
+- name: "---[INSTALL]--- No Machine"
   import_tasks: nomachine.yml
   when: install_nomachine
   tags:
@@ -181,7 +182,7 @@
     - install_nomachine
     - install_remotes
 
-- name: "Install Ether Cloud Services Client"
+- name: "---[INSTALL]--- Ether Cloud Services Client"
   import_tasks: ecs.yml
   when: install_ecs
   tags:
