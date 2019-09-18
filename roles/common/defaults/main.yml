@@ -17,6 +17,7 @@ common_packages:
   - zeal
   - colordiff
   - htop
+  - zip
   - unzip
 
 bad_snap_packages:
