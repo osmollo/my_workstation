@@ -21,16 +21,18 @@ install_chrome: true
 install_teamviewer: true
 install_nomachine: true
 install_ecs: true
+install_postman: true
 install_skype: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
 
-atom_latest_url: https://github.com/atom/atom/releases/latest
+atom_latest_url: "https://github.com/atom/atom/releases/latest"
 ohmyzsh_installer: "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
 telegram_flatpak: "https://flathub.org/repo/appstream/org.telegram.desktop.flatpakref"
 slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"
 pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Community.flatpakref"
+postman_flatpak: "https://flathub.org/repo/appstream/com.getpostman.Postman.flatpakref"
 buttercup_latest_url: https://github.com/buttercup/buttercup-desktop/releases/latest
 skype_flatpak: "https://flathub.org/repo/appstream/com.skype.Client.flatpakref"
 
