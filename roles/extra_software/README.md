@@ -37,6 +37,7 @@
 | **install_nomachine** | Instala `No Machine` |
 | **install_ecs** | Instala `Ether Cloud Services Client` |
 | **install_postman** | Instala `Postman` |
+| **install_skype** | Instala `Skype` |
 
 ## Documentación
 
