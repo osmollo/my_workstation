@@ -39,6 +39,7 @@
 | **install_postman** | Instala `Postman` |
 | **install_skype** | Instala `Skype` |
 | **install_java** | Instala `Java OpenJDK` |
+| **install_apachedirectory** | Instala `Apache Directory Studio` |
 
 ## Documentación
 
