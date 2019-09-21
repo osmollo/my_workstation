@@ -1,0 +1,7 @@
+---
+
+- import_tasks: java_ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- import_tasks: java_fedora.yml
+  when: ansible_distribution == "Fedora"

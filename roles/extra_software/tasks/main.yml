@@ -202,3 +202,10 @@
   tags:
     - extra_software
     - install_skype
+
+- name: "---[INSTALL]--- Java"
+  import_tasks: java.yml
+  when: install_java
+  tags:
+    - extra_software
+    - install_java
