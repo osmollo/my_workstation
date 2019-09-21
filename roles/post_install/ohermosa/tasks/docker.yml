@@ -2,7 +2,7 @@
 
 - name: "Create user config directory"
   file:
-    path: "{{ ansible_user_dir }}/.docker"
+    path: "/home/{{ ansible_user }}/.docker"
     state: present
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
@@ -11,7 +11,7 @@
   become_user: "{{ ansible_user }}"
   file:
     src: "{{ dropbox_dir }}/docker.config.json"
-    dest: "{{ ansible_user_dir }}/.docker/config.json"
+    dest: "/home/{{ ansible_user }}/.docker/config.json"
     state: link
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"

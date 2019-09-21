@@ -1,0 +1,13 @@
+---
+
+- name: "[UBUNTU] install java repository"
+  apt_repository:
+    validate_certs: no
+    repo: 'ppa:openjdk-r/ppa'
+    state: present
+
+- name: "[UBUNTU] install java package"
+  apt:
+    name: openjdk-11-jdk
+    update_cache: true
+    state: latest
