@@ -23,6 +23,7 @@ install_nomachine: true
 install_ecs: true
 install_postman: true
 install_skype: true
+install_java: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
