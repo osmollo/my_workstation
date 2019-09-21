@@ -202,3 +202,18 @@
   tags:
     - extra_software
     - install_skype
+
+- name: "---[INSTALL]--- Java"
+  import_tasks: java.yml
+  when: install_java
+  tags:
+    - extra_software
+    - install_java
+    - install_apachedirectory
+
+- name: "---[INSTALL]--- Apache Directory"
+  import_tasks: apachedirectory.yml
+  when: install_apachedirectory
+  tags:
+    - extra_software
+    - install_apachedirectory
