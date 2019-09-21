@@ -2,6 +2,7 @@
 
 - [post_install/ohermosa](#post_installohermosa)
   - [Acciones disponibles](#acciones-disponibles)
+  - [Ejemplo de uso](#ejemplo-de-uso)
 
 ## Acciones disponibles
 
@@ -18,5 +19,14 @@
 | **post_git** | Clona los repositorios indicados en el fichero de variables y configura el `user.email` y `user.name` en cada uno de ellos |
 | **post_vpn** | Genera las configuraciones para las VPNs (OpenVPN y VPNaaS) |
 | **post_sublime** | Restaura la configuración de `Sublime Text` almacenada en **Dropbox** |
+| **post_apachedirectory** | Restaura el lanzador de `Apache Directory Studio` para que apunte a la copia de **Dropbox** |
+
+
 | **WARNING**: algunos de los tags anteriores requieren que **Dropbox** esté totalmente sincronizado antes de ejecutarse |
 | --- |
+
+## Ejemplo de uso
+
+```bash
+ansible-playbook post_install.yml --ask-become-pass -t post_apachedirectory -e post_install_user=ohermosa
+```
