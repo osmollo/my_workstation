@@ -188,3 +188,10 @@
   tags:
     - extra_software
     - install_ecs
+
+- name: "---[INSTALL]--- Skype"
+  import_tasks: skype.yml
+  when: install_skype
+  tags:
+    - extra_software
+    - install_skype
