@@ -209,3 +209,11 @@
   tags:
     - extra_software
     - install_java
+    - install_apachedirectory
+
+- name: "---[INSTALL]--- Apache Directory"
+  import_tasks: apachedirectory.yml
+  when: install_apachedirectory
+  tags:
+    - extra_software
+    - install_apachedirectory

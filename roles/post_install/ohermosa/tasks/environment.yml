@@ -5,11 +5,11 @@
     path: "{{ item }}"
     state: absent
   with_items:
-    - "{{ ansible_user_dir }}/.bashrc"
-    - "{{ ansible_user_dir }}/.bash_history"
-    - "{{ ansible_user_dir }}/.zshrc"
-    - "{{ ansible_user_dir }}/.ssh"
-    - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
+    - "/home/{{ ansible_user }}/.bashrc"
+    - "/home/{{ ansible_user }}/.bash_history"
+    - "/home/{{ ansible_user }}/.zshrc"
+    - "/home/{{ ansible_user }}/.ssh"
+    - "/home/{{ ansible_user }}/.oh-my-zsh/custom/themes"
 
 - name: "Configure environment"
   block:
@@ -20,19 +20,19 @@
         state: link
       loop:
         - src: "{{ dropbox_dir }}/datio/zshrc"
-          dest: "{{ ansible_user_dir }}/.zshrc"
+          dest: "/home/{{ ansible_user }}/.zshrc"
         - src: "{{ dropbox_dir }}/datio/bash_aliases"
-          dest: "{{ ansible_user_dir }}/.bash_aliases"
+          dest: "/home/{{ ansible_user }}/.bash_aliases"
         - src: "{{ dropbox_dir }}/datio/ssh"
-          dest: "{{ ansible_user_dir }}/.ssh"
+          dest: "/home/{{ ansible_user }}/.ssh"
         - src: "{{ dropbox_dir }}/datio/soft"
-          dest: "{{ ansible_user_dir }}/soft"
+          dest: "/home/{{ ansible_user }}/soft"
         - src: "{{ dropbox_dir }}/datio/doc"
-          dest: "{{ ansible_user_dir }}/doc"
+          dest: "/home/{{ ansible_user }}/doc"
         - src: "{{ dropbox_dir }}/datio/work"
-          dest: "{{ ansible_user_dir }}/work"
+          dest: "/home/{{ ansible_user }}/work"
         - src: "{{ dropbox_dir }}/datio/bashrc"
-          dest: "{{ ansible_user_dir }}/.bashrc"
+          dest: "/home/{{ ansible_user }}/.bashrc"
         - src: "{{ dropbox_dir }}/datio/bash_history"
           dest: "{{ ansible_user_dir}}/.bash_history"
 
@@ -41,22 +41,22 @@
         path: "{{ item }}"
         mode: 0600
       with_items:
-        - "{{ ansible_user_dir }}/.ssh/config"
-        - "{{ ansible_user_dir }}/.ssh/id_rsa"
-        - "{{ ansible_user_dir }}/.ssh/id_rsa.pub"
-        - "{{ ansible_user_dir }}/.ssh/id_bbva"
+        - "/home/{{ ansible_user }}/.ssh/config"
+        - "/home/{{ ansible_user }}/.ssh/id_rsa"
+        - "/home/{{ ansible_user }}/.ssh/id_rsa.pub"
+        - "/home/{{ ansible_user }}/.ssh/id_bbva"
 
     - name: "Change permissions to files in .ssh directories"
       file:
         path: "{{ item }}/*"
         mode: 0600
       with_items:
-        - "{{ ansible_user_dir }}/.ssh/ccr"
-        - "{{ ansible_user_dir }}/.ssh/aws"
-        - "{{ ansible_user_dir }}/.ssh/isilon"
+        - "/home/{{ ansible_user }}/.ssh/ccr"
+        - "/home/{{ ansible_user }}/.ssh/aws"
+        - "/home/{{ ansible_user }}/.ssh/isilon"
 
     - name: "Create link to Oh my zsh! theme directory in Dropbox"
       file:
         src: "{{ dropbox_dir }}/backups/oh-my-zsh_custom_themes"
-        dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
+        dest: "/home/{{ ansible_user }}/.oh-my-zsh/custom/themes"
         state: link
