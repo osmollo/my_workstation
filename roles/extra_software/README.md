@@ -13,7 +13,7 @@
 | **install_editors** | Instala los editores de texto `Visual Studio Code`, `Atom`, `Sublime Text` y `PyCharm` |
 | **install_pass_managers** | Instala `KeepassXC` y `Buttercup` |
 | **install_remotes** | Instala `Teamviewer` y `No Machine` |
-| **install_socials** | Instala los clientes de mensajería `Telegram Desktop` y `Slack` |
+| **install_socials** | Instala los clientes de mensajería `Telegram Desktop`, `Slack` y `Skype` |
 | **install_windscribe** | Instala los clientes de VPN `Forti Client VPN` y `Windscribe` |
 | **install_docker** | Instala `Docker Community Edition` |
 | **install_dropbox** | Instala `Dropbox` |
@@ -40,6 +40,7 @@
 | **install_skype** | Instala `Skype` |
 | **install_java** | Instala `Java OpenJDK` |
 | **install_apachedirectory** | Instala `Apache Directory Studio` |
+| **install_rambox** | Instala `Rambox` |
 
 ## Documentación
 
