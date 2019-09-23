@@ -46,7 +46,8 @@ Por defecto se instala el siguiente software:
 | [Skype](https://www.skype.com/es/) | install_skype | install_socials |
 | [Java](https://openjdk.java.net/) | install_java | |
 | [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) | install_apachedirectory | |
-| [Rambox](https://rambox.pro/#home) | install_rambox |
+| [Rambox](https://rambox.pro/#home) | install_rambox | |
+| [Franz](https://meetfranz.com/) | install_franz | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
