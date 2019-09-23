@@ -41,6 +41,7 @@
 | **install_java** | Instala `Java OpenJDK` |
 | **install_apachedirectory** | Instala `Apache Directory Studio` |
 | **install_rambox** | Instala `Rambox` |
+| **install_franz** | Instala `Franz` |
 
 ## Documentación
 

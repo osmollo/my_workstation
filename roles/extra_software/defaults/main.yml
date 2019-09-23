@@ -26,13 +26,15 @@ install_skype: true
 install_java: true
 install_apachedirectory: true
 install_rambox: true
+install_franz: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
 
 atom_latest_url: "https://github.com/atom/atom/releases/latest"
 rambox_latest_url: "https://github.com/ramboxapp/community-edition/releases/latest"
-buttercup_latest_url: https://github.com/buttercup/buttercup-desktop/releases/latest
+buttercup_latest_url: "https://github.com/buttercup/buttercup-desktop/releases/latest"
+franz_latest_url: "https://github.com/meetfranz/franz/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
 
@@ -41,6 +43,7 @@ slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"
 pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Community.flatpakref"
 postman_flatpak: "https://flathub.org/repo/appstream/com.getpostman.Postman.flatpakref"
 skype_flatpak: "https://flathub.org/repo/appstream/com.skype.Client.flatpakref"
+franz_flatpal: "https://flathub.org/repo/appstream/com.meetfranz.Franz.flatpakref"
 
 ecs_cli_url: "https://globaldevtools.bbva.com/artifactory/semaas-global-bin/releases/ecs-cli/ecs-cli-0.2.16.tar.gz"
 ecs_cli_doc_url: "https://platform.bbva.com/en-us/developers/ether-cli/documentation/03-getting-started"
