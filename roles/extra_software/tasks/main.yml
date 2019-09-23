@@ -217,3 +217,10 @@
   tags:
     - extra_software
     - install_apachedirectory
+
+- name: "---[INSTALL]--- Rambox"
+  import_tasks: rambox.yml
+  when: install_rambox
+  tags:
+    - extra_software
+    - install_rambox
