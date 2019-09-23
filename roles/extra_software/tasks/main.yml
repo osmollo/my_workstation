@@ -30,6 +30,10 @@
     - install_windscribe
     - install_chrome
     - install_teamviewer
+    - install_rambox
+    - install_franz
+    - install_nomachine
+    - install_java
 
 - name: "---[INSTALL]--- docker"
   import_tasks: docker.yml
@@ -224,3 +228,10 @@
   tags:
     - extra_software
     - install_rambox
+
+- name: "---[INSTALL]--- Franz"
+  import_tasks: franz.yml
+  when: install_franz
+  tags:
+    - extra_software
+    - install_franz
