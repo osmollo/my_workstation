@@ -41,7 +41,6 @@
     - post_docker
     - post_crontab
     - post_environment
-    - post_git
     - post_sublime
     - post_vpn
     - post_sublime
@@ -64,10 +63,8 @@
   tags:
     - post_install
     - post_environment
-    - post_git
 
 - import_tasks: git.yml
-  when: dropbox_response.stdout == "Actualizado"
   tags:
     - post_install
     - post_git
