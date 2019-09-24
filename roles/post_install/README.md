@@ -50,5 +50,5 @@ Puesto que muchas de las tareas que se ejecutan dentro de este role están orien
     - post_vpn
 ```
 
-| **WARNING**: en las tareas que se ejecutan como superusuario, la variable `ansible_user` será *root* y no el usuario sin privilegios que ejecuta el playbook |
+| **WARNING**: en las tareas que se ejecutan como superusuario, la variable `ansible_user_id` será *root* y no el usuario sin privilegios que ejecuta el playbook |
 | --- |

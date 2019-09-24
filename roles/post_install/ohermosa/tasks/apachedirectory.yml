@@ -1,8 +1,8 @@
 ---
 
-- name: "Check if /home/{{ ansible_user }}/ApacheDirectoryStudio exists"
+- name: "Check if /home/{{ ansible_user_id }}/ApacheDirectoryStudio exists"
   stat:
-    path: "/home/{{ ansible_user }}/ApacheDirectoryStudio"
+    path: "/home/{{ ansible_user_id }}/ApacheDirectoryStudio"
   register: apache_dir_exists
 
 - name: "Delete Apache Directory files"

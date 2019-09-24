@@ -3,11 +3,11 @@
 - name: "Unzip gnome extension files"
   unarchive:
     src: "gnome_extensions.tar.gz"
-    dest: "/home/{{ ansible_user }}/.local/share/gnome-shell/extensions/"
+    dest: "/home/{{ ansible_user_id }}/.local/share/gnome-shell/extensions/"
 
 - name: "Search for gnome extensions metadata.json"
   find:
-    paths: "/home/{{ ansible_user }}/.local/share/gnome-shell/extensions"
+    paths: "/home/{{ ansible_user_id }}/.local/share/gnome-shell/extensions"
     recurse: true
     patterns: "^metadata.json$"
     use_regex: true
