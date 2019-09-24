@@ -8,22 +8,22 @@
 
 - name: "Create path to sublime config directory"
   become: false
-  become_user: "{{ ansible_user }}"
+  become_user: "{{ ansible_user_id }}"
   file:
-    path: "/home/{{ ansible_user }}/.config/sublime-text-3/Packages/User"
+    path: "/home/{{ ansible_user_id }}/.config/sublime-text-3/Packages/User"
     state: directory
 
 - name: "Configure Sublime"
   become: false
-  become_user: "{{ ansible_user }}"
+  become_user: "{{ ansible_user_id }}"
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: 0664
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
   loop:
     - src: package_control.sublime-settings
-      dest: "/home/{{ ansible_user }}/.config/sublime-text-3/Packages/User/Package Control.sublime-settings"
+      dest: "/home/{{ ansible_user_id }}/.config/sublime-text-3/Packages/User/Package Control.sublime-settings"
     - src: preferences.sublime-settings
-      dest: "/home/{{ ansible_user }}/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+      dest: "/home/{{ ansible_user_id }}/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
