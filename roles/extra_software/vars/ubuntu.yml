@@ -14,3 +14,5 @@ nomachine_package: "https://download.nomachine.com/download/6.8/Linux/nomachine_
 virtualbox_packages:
   - virtualbox-6.0
   - vagrant
+
+chromium_package: chromium-browser
