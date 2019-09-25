@@ -4,38 +4,38 @@ dropbox_dir: "/home/{{ ansible_user }}/Dropbox"
 git_dir: "/home/{{ ansible_user }}/git2"
 git_repositories:
   work:
-    - repo: git@globaldevtools.bbva.com:7999/msqlm/msqlm_ops.git
+    - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_ops.git
       dest: "{{ git_dir }}/msqlm_ops"
-    - repo: git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar.git
+    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar.git
       dest: "{{ git_dir }}/iluvatar"
-    - repo: git@globaldevtools.bbva.com:7999/msqlm/msqlm_sshmagic.git
+    - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_sshmagic.git
       dest: "{{ git_dir }}/ssh_magic"
-    - repo: git@globaldevtools.bbva.com:7999/fkrva/fkrva_argos.git
+    - repo: ssh://git@globaldevtools.bbva.com:7999/fkrva/fkrva_argos.git
       dest: "{{ git_dir }}/argos"
-    - repo: git@globaldevtools.bbva.com:7999/mlyid/mlyid_fsm.git
+    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_fsm.git
       dest: "{{ git_dir }}/fsm"
-    - repo: git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar_base_image.git
+    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar_base_image.git
       dest: "{{ git_dir }}/iluvatar_base_image"
-    - repo: git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker_nexus_to_artifactory.git
+    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker_nexus_to_artifactory.git
       dest: "{{ git_dir }}/docker_nexus_to_artifactory"
-    - repo: git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker_stratio_to_artifactory.git
+    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker_stratio_to_artifactory.git
       dest: "{{ git_dir }}/docker_stratio_to_artifactory"
   home:
-    - repo: git@gitlab.com:ohermosa/AmazonPy.git
+    - repo: ssh://git@gitlab.com:ohermosa/AmazonPy.git
       dest: "{{ git_dir }}/AmazonPy"
-    - repo: git@gitlab.com:ohermosa/BingoPy.git
+    - repo: ssh://git@gitlab.com:ohermosa/BingoPy.git
       dest: "{{ git_dir }}/BingoPy"
-    - repo: git@gitlab.com:ohermosa/PiOPs.git
+    - repo: ssh://git@gitlab.com:ohermosa/PiOPs.git
       dest: "{{ git_dir }}/PiOPs"
-    - repo: git@gitlab.com:ohermosa/PuedoCircular.git
+    - repo: ssh://git@gitlab.com:ohermosa/PuedoCircular.git
       dest: "{{ git_dir }}/PuedoCircular"
-    - repo: git@gitlab.com:ohermosa/rootnerds.git
+    - repo: ssh://git@gitlab.com:ohermosa/rootnerds.git
       dest: "{{ git_dir }}/rootnerds"
-    - repo: git@gitlab.com:ohermosa/whopper_bot.git
+    - repo: ssh://git@gitlab.com:ohermosa/whopper_bot.git
       dest: "{{ git_dir }}/whopper_bot"
-    - repo: git@gitlab.com:ohermosa/my_workstation.git
+    - repo: ssh://git@gitlab.com:ohermosa/my_workstation.git
       dest: "{{ git_dir }}/my_workstation"
-    - repo: git@gitlab.com:ohermosa/my_k8s.git
+    - repo: ssh://git@gitlab.com:ohermosa/my_k8s.git
       dest: "{{ git_dir }}/my_k8s"
 
 git_user_name: "Oscar Hermosa"
