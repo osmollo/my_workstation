@@ -1,0 +1,20 @@
+---
+
+- include_vars:
+    file: "{{ ansible_distribution | lower }}.yml"
+
+- import_tasks: deluge_ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- import_tasks: deluge_fedora.yml
+  when: ansible_distribution == "Fedora"
+
+- name: "Basic Deluge configuration"
+  template:
+    src: "{{ item.src }}"
+    dest: "/home/{{ ansible_user }}/.config/deluge/{{ item.dest }}"
+  loop:
+    - src: deluge.core.conf.j2
+      dest: core.conf
+    - src: deluge.gtkui.conf.j2
+      dest: gtkui.conf

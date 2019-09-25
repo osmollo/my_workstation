@@ -28,6 +28,7 @@ install_apachedirectory: true
 install_rambox: true
 install_franz: true
 install_chromium: true
+install_deluge: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -50,3 +51,5 @@ ecs_cli_url: "https://globaldevtools.bbva.com/artifactory/semaas-global-bin/rele
 ecs_cli_doc_url: "https://platform.bbva.com/en-us/developers/ether-cli/documentation/03-getting-started"
 
 apachedirectory_url: "http://ftp.cixug.es/apache/directory/studio/2.0.0.v20180908-M14/ApacheDirectoryStudio-2.0.0.v20180908-M14-linux.gtk.x86_64.tar.gz"
+
+deluge_package: deluge
