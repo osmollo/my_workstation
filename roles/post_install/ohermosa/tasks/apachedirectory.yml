@@ -12,7 +12,7 @@
     path: "{{ item }}"
     state: absent
   loop:
-    - "/home/{{ post_install_user }}/ApacheDirectoryStudio"
+    - "/home/{{ ansible_user }}/ApacheDirectoryStudio"
     - /usr/share/applications/apachedirectory.desktop
   when: apache_dir_exists.stat.exists
 

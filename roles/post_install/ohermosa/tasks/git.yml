@@ -10,6 +10,8 @@
     repo: "{{ item.repo }}"
     dest: "{{ item.dest}}"
     clone: yes
+    key_file: "/home/{{ ansible_user }}/.ssh/id_rsa"
+    accept_hostkey: true
   with_items:
     - "{{ git_repositories.work }}"
     - "{{ git_repositories.home }}"

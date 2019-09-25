@@ -41,7 +41,6 @@
     - post_docker
     - post_crontab
     - post_environment
-    - post_git
     - post_sublime
     - post_vpn
     - post_sublime
@@ -64,10 +63,17 @@
   tags:
     - post_install
     - post_environment
+
+- name: "check if private ssh key exists"
+  stat:
+    path: "/home/{{ ansible_user }}/.ssh/id_rsa"
+  register: private_key_exists
+  tags:
+    - post_install
     - post_git
 
 - import_tasks: git.yml
-  when: dropbox_response.stdout == "Actualizado"
+  when: private_key_exists.stat.exists
   tags:
     - post_install
     - post_git

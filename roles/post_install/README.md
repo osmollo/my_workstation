@@ -49,6 +49,3 @@ Puesto que muchas de las tareas que se ejecutan dentro de este role están orien
     - post_install
     - post_vpn
 ```
-
-| **WARNING**: en las tareas que se ejecutan como superusuario, la variable `ansible_user` será *root* y no el usuario sin privilegios que ejecuta el playbook |
-| --- |
