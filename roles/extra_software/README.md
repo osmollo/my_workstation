@@ -43,6 +43,7 @@
 | **install_apachedirectory** | Instala `Apache Directory Studio` |
 | **install_rambox** | Instala `Rambox` |
 | **install_franz** | Instala `Franz` |
+| **install_deluge** | Instala `Deluge` |
 
 ## Documentación
 
