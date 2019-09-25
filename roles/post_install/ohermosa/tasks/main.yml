@@ -1,23 +1,5 @@
 ---
 
-# - name: "Set ansible_user variable if is not defined"
-#   set_fact:
-#     ansible_user: "{{ lookup('env', 'USER') }}"
-#   when: ansible_user is not defined
-#   tags:
-#     - post_install
-#     - post_gnome_packages
-#     - post_gnome
-#     - post_docker
-#     - post_crontab
-#     - post_environment
-#     - post_sublime
-#     - post_vpn
-#     - post_sublime
-#     - post_apachedirectory
-#     - post_git
-#     - post_vpn
-
 - import_role:
     name: common
     tasks_from: update_packages.yml
