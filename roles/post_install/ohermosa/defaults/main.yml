@@ -1,7 +1,7 @@
 ---
 
-dropbox_dir: "/home/{{ ansible_user_id }}/Dropbox"
-git_dir: "/home/{{ ansible_user_id }}/git2"
+dropbox_dir: "/home/{{ ansible_user }}/Dropbox"
+git_dir: "/home/{{ ansible_user }}/git2"
 git_repositories:
   work:
     - repo: git@globaldevtools.bbva.com:7999/msqlm/msqlm_ops.git

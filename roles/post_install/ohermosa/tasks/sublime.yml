@@ -2,11 +2,11 @@
 
 - name: "Delete local directory for Sublime configuration"
   file:
-    path: "/home/{{ ansible_user_id }}/.config/sublime-text-3/Packages/User"
+    path: "/home/{{ ansible_user }}/.config/sublime-text-3/Packages/User"
     state: absent
 
 - name: "Create the symlink to Sublime config in Dropbox"
   file:
     src: "{{ dropbox_dir }}/backups/Sublime/User"
-    dest: "/home/{{ ansible_user_id }}/.config/sublime-text-3/Packages/User"
+    dest: "/home/{{ ansible_user }}/.config/sublime-text-3/Packages/User"
     state: link

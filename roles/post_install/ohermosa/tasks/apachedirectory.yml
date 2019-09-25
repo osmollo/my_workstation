@@ -1,8 +1,8 @@
 ---
 
-- name: "Check if /home/{{ ansible_user_id }}/ApacheDirectoryStudio exists"
+- name: "Check if /home/{{ ansible_user }}/ApacheDirectoryStudio exists"
   stat:
-    path: "/home/{{ ansible_user_id }}/ApacheDirectoryStudio"
+    path: "/home/{{ ansible_user }}/ApacheDirectoryStudio"
   register: apache_dir_exists
 
 - name: "Delete Apache Directory files"
@@ -12,7 +12,7 @@
     path: "{{ item }}"
     state: absent
   loop:
-    - "/home/{{ post_install_user }}/ApacheDirectoryStudio"
+    - "/home/{{ ansible_user }}/ApacheDirectoryStudio"
     - /usr/share/applications/apachedirectory.desktop
   when: apache_dir_exists.stat.exists
 

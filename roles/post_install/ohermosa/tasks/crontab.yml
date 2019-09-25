@@ -16,7 +16,7 @@
 - name: "Create link to user crontab"
   file:
     src: "{{ dropbox_dir }}/datio/crontab.ohermosa"
-    dest: "/var/spool/cron/crontabs/{{ ansible_user_id}}"
+    dest: "/var/spool/cron/crontabs/{{ ansible_user}}"
     mode: 0600
-    owner: "{{ ansible_user_id }}"
+    owner: "{{ ansible_user }}"
     group: crontab
