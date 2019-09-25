@@ -33,6 +33,7 @@
 | **install_buttercap** | Instala `Buttercup` |
 | **install_windscribe** | Instala `Windscribe Client VPN` |
 | **install_chrome** | Instala `Google Chrome` |
+| **install_chromium** | Instala `Chromium` |
 | **install_teamviewer** | Instala `Teamviewer` |
 | **install_nomachine** | Instala `No Machine` |
 | **install_ecs** | Instala `Ether Cloud Services Client` |

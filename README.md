@@ -22,6 +22,7 @@ Por defecto se instala el siguiente software:
 | **APLICACIÓN** | **TAG/VARIABLE** | **GRUPO** |
 |----------------|------------------|-----------|
 | [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | |
+| [Chromium Browser](https://chromium.woolyss.com/download/es/) | install_chromium | |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker | |
 | [Dropbox](https://www.dropbox.com/) | install_dropbox | |
 | [Visual Studio Code](https://code.visualstudio.com/) | install_code | install_editors |
