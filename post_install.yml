@@ -2,6 +2,8 @@
 
 - hosts: localhost
   connection: local
+  vars:
+    ansible_user: "{{ lookup('env', 'USER') }}"
   tasks:
     - name: "Check if there is any config for {{ post_install_user }}"
       stat:
