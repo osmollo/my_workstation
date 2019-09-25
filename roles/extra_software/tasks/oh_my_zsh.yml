@@ -25,14 +25,14 @@
 
 - name: "Install oh_my_zsh"
   become: false
-  become_user: "{{ ansible_user_id }}"
+  become_user: "{{ ansible_user }}"
   environment:
     CHSH: yes
     RUNZSH: yes
   shell: /tmp/install.sh --unattended
   when: not ohmyzshdir_exists.stat.exists
 
-- name: "Change $SHELL variable for {{ ansible_user_id }}"
+- name: "Change $SHELL variable for {{ ansible_user }}"
   user:
-    name: "{{ ansible_user_id }}"
+    name: "{{ ansible_user }}"
     shell: /usr/bin/zsh

@@ -22,5 +22,5 @@
 
 - name: "Install 'sync-settings' package for Atom"
   become: false
-  become_user: "{{ ansible_user_id }}"
+  become_user: "{{ ansible_user }}"
   shell: apm install sync-settings

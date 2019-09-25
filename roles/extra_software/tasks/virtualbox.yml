@@ -9,8 +9,8 @@
 - import_tasks: virtualbox_fedora.yml
   when: ansible_distribution == "Fedora"
 
-- name: "Adding {{ ansible_user_id }} to group vboxusers"
+- name: "Adding {{ ansible_user }} to group vboxusers"
   user:
-    name: "{{ ansible_user_id }}"
+    name: "{{ ansible_user }}"
     groups: vboxusers
     append: true
