@@ -235,3 +235,10 @@
   tags:
     - extra_software
     - install_franz
+
+- name: "---[INSTALL]--- Chromium Browser"
+  import_tasks: chromium.yml
+  when: install_chromium
+  tags:
+    - extra_software
+    - install_chromium
