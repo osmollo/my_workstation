@@ -242,3 +242,10 @@
   tags:
     - extra_software
     - install_chromium
+
+- name: "---[INSTALL]--- "
+  import_tasks: deluge.yml
+  when: install_deluge
+  tags:
+    - extra_software
+    - install_deluge
