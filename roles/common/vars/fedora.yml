@@ -9,3 +9,15 @@ distro_packages:
   - NetworkManager-openvpn
   - NetworkManager-openvpn-gnome
   - libsecret
+  - net-tools
+  - bind-utils
+  - gstreamer1-libav
+  - gstreamer1-plugins-good-extras
+  - gstreamer1-plugins-ugly
+  - gstreamer-ffmpeg
+  - gstreamer-plugins-bad
+  - gstreamer-plugins-bad-free-extras
+  - gstreamer-plugins-bad-nonfree
+  - gstreamer-plugins-ugly
+  - gstreamer1-plugins-base-tools
+  - system-config-users
