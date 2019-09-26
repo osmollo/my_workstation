@@ -19,6 +19,9 @@ common_packages:
   - htop
   - zip
   - unzip
+  - ipcalc
+  - firewall-config
+  - dconf-editor
 
 bad_snap_packages:
   - gnome-calculator
