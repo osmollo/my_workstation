@@ -9,6 +9,7 @@
 | **TAG** | **DESCRIPCIÓN** |
 |------------|--------------|
 | **post_install** | Ejecuta el role completo |
+| **post_del_default_dirs** | Borra los directorios predeterminados en `$HOME` que se crean en la instalación |
 | **post_gnome_packages** | Instala paquetes de Gnome adicionales (Ej: gnome-tweaks) |
 | **post_gnome_extensions** | Instala extensiones de Gnome disponibles en el repositorio |
 | **post_conf** | Restaura la configuración de gnome guardada en **Dropbox** y obtenida con `dconf dump /` |
