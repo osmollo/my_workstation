@@ -5,3 +5,9 @@
     name: "{{ chrome_package }}"
     state: present
     update_cache: true
+
+- name: "[UBUNTU] Install gnome extension for chrome"
+  yum:
+    name: chrome-gnome-shell
+    state: present
+  when: "'GNOME' in ansible_env.XDG_CURRENT_DESKTOP"
