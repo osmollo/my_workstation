@@ -12,7 +12,7 @@ teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer.x
 nomachine_package: "https://download.nomachine.com/download/6.8/Linux/nomachine_6.8.1_1_x86_64.rpm"
 
 virtualbox_packages:
-  - Virtualbox-6.0
+  - VirtualBox-6.0
   - vagrant
   - kernel-devel
   - kernel-headers
