@@ -10,3 +10,5 @@ distro_packages:
   - network-manager-openvpn-gnome
   - openvpn
   - libsecret-tools
+  - ubuntu-restricted-extras
+  - dnsutils
