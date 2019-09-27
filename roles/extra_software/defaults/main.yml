@@ -29,6 +29,7 @@ install_rambox: true
 install_franz: true
 install_chromium: true
 install_deluge: true
+install_cherrytree: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -53,3 +54,4 @@ ecs_cli_doc_url: "https://platform.bbva.com/en-us/developers/ether-cli/documenta
 apachedirectory_url: "http://ftp.cixug.es/apache/directory/studio/2.0.0.v20180908-M14/ApacheDirectoryStudio-2.0.0.v20180908-M14-linux.gtk.x86_64.tar.gz"
 
 deluge_package: deluge
+cherrytree_package: cherrytree
