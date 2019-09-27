@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define 'fedora' do |node|
-    node.vm.box = "fedora/30-cloud-base"
+    node.vm.box = "generic/fedora30"
     node.vm.network :private_network, ip: "192.168.56.100"
     #node.vm.hostname = 'fedora'
     node.vm.provision "ansible" do |ansible|
