@@ -50,6 +50,7 @@ Por defecto se instala el siguiente software:
 | [Rambox](https://rambox.pro/#home) | install_rambox | |
 | [Franz](https://meetfranz.com/) | install_franz | |
 | [Deluge Torrent](https://deluge-torrent.org/) | install_deluge | |
+| [Cherrytree](https://www.giuspen.com/cherrytree/) | install_cherrytree | install_editors |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

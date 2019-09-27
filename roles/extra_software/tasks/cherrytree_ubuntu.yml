@@ -1,0 +1,12 @@
+---
+
+- name: "[UBUNTU] install cherrytree repository"
+  apt_repository:
+    repo: ppa:giuspen/ppa
+    state: present
+
+- name: "[UBUNTU] install cherrytree package"
+  apt:
+    name: "{{ cherrytree_package }}"
+    state: latest
+    update_cache: true
