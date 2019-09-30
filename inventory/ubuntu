@@ -1,2 +1,0 @@
-[ubuntu]
-vagrant-ubuntu  ansible_host=192.168.56.200    ansible_user=vagrant     become_method=sudo    ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
