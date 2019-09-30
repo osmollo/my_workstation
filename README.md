@@ -1,6 +1,7 @@
 # Configuración de estación de trabajo con Ansible
 
 - [Configuración de estación de trabajo con Ansible](#configuración-de-estación-de-trabajo-con-ansible)
+  - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
   - [Software extra instalado](#software-extra-instalado)
   - [Prerequisitos](#prerequisitos)
   - [Actualización de paquetes](#actualización-de-paquetes)
@@ -11,6 +12,20 @@
       - [Ansible Vault](#ansible-vault)
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
   - [Uso de Vagrant](#uso-de-vagrant)
+
+## Actualización de CHANGELOG.md
+
+Para poder actualizar el [CHANGELOG.md](CHANGELOG.md) con los cambios que se han realizado entre 2 tags hay que ejecutar el siguiente comando:
+
+```bash
+git log --pretty=oneline <tag_antiguo> <tag_nuevo>
+```
+
+Y entre el último tag y el último commit:
+
+```bash
+git log --pretty=oneline HEAD...tag
+```
 
 ## Software extra instalado
 
