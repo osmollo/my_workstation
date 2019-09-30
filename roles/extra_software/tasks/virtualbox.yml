@@ -9,11 +9,14 @@
 - import_tasks: virtualbox_fedora.yml
   when: ansible_distribution == "Fedora"
 
-- name: "Install vagrant-libvirt plugin"
-  shell: vagrant plugin install vagrant-libvirt
-
 - name: "Adding {{ ansible_user }} to group vboxusers"
   user:
     name: "{{ ansible_user }}"
     groups: vboxusers
     append: true
+
+- name: "Add VAGRANT_DEFAULT_PROVIDER to /etc/profile"
+  lineinfile:
+    path: /etc/profile
+    line: export VAGRANT_DEFAULT_PROVIDER=virtualbox
+    state: present

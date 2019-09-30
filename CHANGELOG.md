@@ -17,8 +17,10 @@
 
 * Instalación de `Cherrytree`
 * CHANGELOG.md para registrar el historial de cambios para cada versión
+* Uso del provider `virtualbox` para `vagrant` en lugar de `libvirt`
 * Fix en el repositorio de `virtualbox` para `fedora`
-* Fix en el box de `vagrant` para `fedora`
+* Fix en los box de `vagrant` para `fedora` y `ubuntu`
+* Inventario dinámico para las máquinas de `vagrant`
 * Borrardo de directorios predeterminados en el `$HOME` del usuario tras la instalación del sistema
 * Actualizazción README con el comando para ver commits entre tags
 

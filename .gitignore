@@ -2,3 +2,5 @@ facts/*
 *.retry
 .vagrant
 .vscode
+.inventory_cache
+*.log

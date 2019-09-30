@@ -3,15 +3,14 @@ Vagrant.configure("2") do |config|
   config.vm.provider 'virtualbox' do |v|
     v.memory = 4096
     v.cpus = 2
-    v.disksize.size = '20GB'
   end
 
   config.vm.define 'ubuntu' do |node|
-    node.vm.box = "guits/ubuntu-bionic64"
+    node.vm.box = "ubuntu/bionic64"
     node.vm.network :private_network, ip: "192.168.56.200"
     #node.vm.hostname = 'ubuntu'
     node.vm.provision "ansible" do |ansible|
-      ansible.inventory_path = "inventory/ubuntu"
+      ansible.inventory_path = "ansible_hosts"
       ansible.playbook = "vagrant/install.yml"
     end
     config.vm.provision "shell" do |s|
@@ -23,11 +22,11 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define 'fedora' do |node|
-    node.vm.box = "generic/fedora30"
+    node.vm.box = "bento/fedora-30"
     node.vm.network :private_network, ip: "192.168.56.100"
     #node.vm.hostname = 'fedora'
     node.vm.provision "ansible" do |ansible|
-      ansible.inventory_path = "inventory/fedora"
+      ansible.inventory_path = "ansible_hosts"
       ansible.playbook = "vagrant/install.yml"
     end
     config.vm.provision "shell" do |s|
