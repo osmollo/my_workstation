@@ -9,8 +9,17 @@
 - import_tasks: virtualbox_fedora.yml
   when: ansible_distribution == "Fedora"
 
+- name: "Enable and start libvrt daemon"
+  systemd:
+    name: libvirtd
+    state: restarted
+    enabled: true
+
 - name: "Adding {{ ansible_user }} to group vboxusers"
   user:
     name: "{{ ansible_user }}"
-    groups: vboxusers
+    groups: "{{ item }}"
     append: true
+  loop:
+    - vboxusers
+    - libvirt
