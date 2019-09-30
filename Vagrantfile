@@ -3,11 +3,10 @@ Vagrant.configure("2") do |config|
   config.vm.provider 'virtualbox' do |v|
     v.memory = 4096
     v.cpus = 2
-    v.disksize.size = '20GB'
   end
 
   config.vm.define 'ubuntu' do |node|
-    node.vm.box = "guits/ubuntu-bionic64"
+    node.vm.box = "ubuntu/bionic64"
     node.vm.network :private_network, ip: "192.168.56.200"
     #node.vm.hostname = 'ubuntu'
     node.vm.provision "ansible" do |ansible|
