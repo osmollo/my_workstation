@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     node.vm.network :private_network, ip: "192.168.56.200"
     #node.vm.hostname = 'ubuntu'
     node.vm.provision "ansible" do |ansible|
-      ansible.inventory_path = "inventory/ubuntu"
+      ansible.inventory_path = "ansible_hosts"
       ansible.playbook = "vagrant/install.yml"
     end
     config.vm.provision "shell" do |s|
@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
     node.vm.network :private_network, ip: "192.168.56.100"
     #node.vm.hostname = 'fedora'
     node.vm.provision "ansible" do |ansible|
-      ansible.inventory_path = "inventory/fedora"
+      ansible.inventory_path = "ansible_hosts"
       ansible.playbook = "vagrant/install.yml"
     end
     config.vm.provision "shell" do |s|
