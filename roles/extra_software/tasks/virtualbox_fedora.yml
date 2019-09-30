@@ -15,3 +15,8 @@
     name: "{{ virtualbox_packages }}"
     state: latest
     update_cache: true
+
+- name: "[FEDORA] Uninstall vagrant-libvirt if is installed"
+  yum:
+    name: vagrant-libvirt
+    state: absent

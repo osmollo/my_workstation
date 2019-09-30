@@ -15,3 +15,8 @@
     name: "{{ virtualbox_packages }}"
     state: latest
     update_cache: true
+
+- name: "[UBUNTU] Uninstall vagrant-libvirt if is installed"
+  apt:
+    name: vagrant-libvirt
+    state: absent
