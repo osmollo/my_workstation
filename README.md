@@ -1,6 +1,7 @@
 # Configuración de estación de trabajo con Ansible
 
 - [Configuración de estación de trabajo con Ansible](#configuración-de-estación-de-trabajo-con-ansible)
+  - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
   - [Software extra instalado](#software-extra-instalado)
   - [Prerequisitos](#prerequisitos)
   - [Actualización de paquetes](#actualización-de-paquetes)
@@ -11,6 +12,20 @@
       - [Ansible Vault](#ansible-vault)
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
   - [Uso de Vagrant](#uso-de-vagrant)
+
+## Actualización de CHANGELOG.md
+
+Para poder actualizar el [CHANGELOG.md](CHANGELOG.md) con los cambios que se han realizado entre 2 tags hay que ejecutar el siguiente comando:
+
+```bash
+git log --pretty=oneline <tag_antiguo> <tag_nuevo>
+```
+
+Y entre el último tag y el último commit:
+
+```bash
+git log --pretty=oneline HEAD...tag
+```
 
 ## Software extra instalado
 
@@ -50,6 +65,7 @@ Por defecto se instala el siguiente software:
 | [Rambox](https://rambox.pro/#home) | install_rambox | |
 | [Franz](https://meetfranz.com/) | install_franz | |
 | [Deluge Torrent](https://deluge-torrent.org/) | install_deluge | |
+| [Cherrytree](https://www.giuspen.com/cherrytree/) | install_cherrytree | install_editors |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

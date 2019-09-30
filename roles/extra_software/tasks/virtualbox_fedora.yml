@@ -7,7 +7,7 @@
 
 - name: "[FEDORA] Create repository file"
   get_url:
-    url: https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
+    url: https://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
     dest: /etc/yum.repos.d/virtualbox.repo
 
 - name: "[FEDORA] Install Virtualbox and Vagrant packages"
