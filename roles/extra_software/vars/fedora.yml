@@ -20,5 +20,6 @@ virtualbox_packages:
   - qt5-qtx11extras
   - elfutils-libelf-devel
   - zlib-devel
+  - vagrant-libvirt
 
 chromium_package: chromium
