@@ -1,3 +1,4 @@
 facts/*
 *.retry
 .vagrant
+.vscode
