@@ -1,0 +1,7 @@
+---
+
+- import_tasks: cherrytree_fedora.yml
+  when: ansible_distribution == "Fedora"
+
+- import_tasks: cherrytree_ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
