@@ -9,9 +9,6 @@
 - import_tasks: virtualbox_fedora.yml
   when: ansible_distribution == "Fedora"
 
-- name: "Install vagrant-libvirt plugin"
-  shell: vagrant plugin install vagrant-libvirt
-
 - name: "Adding {{ ansible_user }} to group vboxusers"
   user:
     name: "{{ ansible_user }}"
