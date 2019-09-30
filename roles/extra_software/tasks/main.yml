@@ -249,3 +249,11 @@
   tags:
     - extra_software
     - install_deluge
+
+- name: "---[INSTALL]--- "
+  import_tasks: cherrytree.yml
+  when: install_cherrytree
+  tags:
+    - extra_software
+    - install_cherrytree
+    - install_editors

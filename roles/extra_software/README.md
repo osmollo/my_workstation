@@ -44,6 +44,7 @@
 | **install_rambox** | Instala `Rambox` |
 | **install_franz** | Instala `Franz` |
 | **install_deluge** | Instala `Deluge` |
+| **install_cherrytree** | Instala `Cherry Tree` |
 
 ## Documentación
 
