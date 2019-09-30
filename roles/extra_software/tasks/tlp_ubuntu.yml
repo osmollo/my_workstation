@@ -3,6 +3,7 @@
 - name: "[UBUNTU] Add TLP repository"
   apt_repository:
     repo: ppa:nginx/stable
+    state: present
 
 - name: "[UBUNTU] Install common TLP packages"
   apt:

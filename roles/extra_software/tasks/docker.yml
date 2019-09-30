@@ -3,7 +3,7 @@
 - import_tasks: docker_ubuntu.yml
   when: ansible_distribution == "Ubuntu"
 
-- import_tasks: dropbox_fedora.yml
+- import_tasks: docker_fedora.yml
   when: ansible_distribution == "Fedora"
 
 - name: "Adding {{ ansible_user }} to group docker"
