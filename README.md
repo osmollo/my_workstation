@@ -76,7 +76,7 @@ ansible-playbook install.yml --ask-become-pass -e "install_spotify=false install
 En caso contrario, si lo único que se quiere hacer es instalar alguna de las aplicaciones, hay que usar el **tag** correspondiente, que coincide con las variables anteriores. Por ejemplo, para instalar *Visual Studio Code*:
 
 ```bash
-ansible-playbook install.yml --ask-become-pass -t "install_code"
+ansible-playbook install.yml --ask-become-pass -t "install_code,install_dropbox_install_spotify"
 ```
 
 ## Prerequisitos
@@ -108,6 +108,8 @@ La primera tarea que ejecuta este playbook es actualizar los paquetes de la dist
 ```bash
 ansible-playbook install.yml --ask-become-pass
 ```
+
+Esto instalará todo el software extra definido en el role `extra_software`. Para especificar cuál se quiere o no instalar, ver los comandos definidos [en esta sección](#software-extra-instalado)
 
 ## Post Instalación
 
