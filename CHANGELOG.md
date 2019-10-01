@@ -1,7 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
-  - [latest](#latest)
+  - [1.4](#14)
   - [1.3.1](#131)
   - [1.3](#13)
   - [1.2.1](#121)
@@ -13,7 +13,7 @@
   - [1.0.1](#101)
   - [1.0](#10)
 
-## latest
+## 1.4
 
 * Instalación de `Cherrytree`
 * CHANGELOG.md para registrar el historial de cambios para cada versión
@@ -23,6 +23,7 @@
 * Inventario dinámico para las máquinas de `vagrant`
 * Borrardo de directorios predeterminados en el `$HOME` del usuario tras la instalación del sistema
 * Actualizazción README con el comando para ver commits entre tags
+* Instalación de la última versión de vagrant en ubuntu
 
 ## 1.3.1
 
