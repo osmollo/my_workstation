@@ -1,7 +1,7 @@
 ---
 
 - name: "[UBUNTU] Create repository file for Virtualbox"
-  file:
+  lineinfile:
     path: /etc/apt/sources.list.d/virtualbox.list
     line: "deb https://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib"
 
@@ -16,7 +16,7 @@
     state: latest
     update_cache: true
 
-- name: "[UBUNTU] Uninstall vagrant-libvirt if is installed"
+- name: "[UBUNTU] Install vagrant"
   apt:
-    name: vagrant-libvirt
-    state: absent
+    deb: https://releases.hashicorp.com/vagrant/2.2.5/vagrant_2.2.5_x86_64.deb
+    state: present
