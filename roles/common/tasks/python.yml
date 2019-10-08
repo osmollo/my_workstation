@@ -47,3 +47,4 @@
       - openstacksdk
       - molecule
       - dnspython
+      - docker-py

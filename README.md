@@ -10,6 +10,7 @@
     - [Gestión de contraseñas](#gestión-de-contraseñas)
       - [Ficheros locales](#ficheros-locales)
       - [Ansible Vault](#ansible-vault)
+      - [Contraseñas cifradas](#contraseas-cifradas)
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
   - [Uso de Vagrant](#uso-de-vagrant)
 
@@ -116,7 +117,7 @@ Esto instalará todo el software extra definido en el role `extra_software`. Par
 El role `post_install` tiene como objetivo terminar de configurar el entorno personalizándolo como prefiera el usuario. Dentro del directorio del role, debe ir un subdirectorio con el nombre del usuario que también se pasará como variable a través de `extravars` con la variable `post_install_user`:
 
 ```bash
-ansible-playbook post_install.yml -e "post_install_user=ohermosa" --ask-become-pass
+ansible-playbook post_install.yml -e "post_install_user=ohermosa" --ask-become-pass [--ask-vault-pass]
 ```
 
 Un ejemplo de cómo debe ser la jerarquía de directorios del role `post_install` es el siguiente:
@@ -180,6 +181,8 @@ La ventaja de este método es que mantenemos las contraseñas fuera de **git** p
 
 #### Ansible Vault
 
+##### Fichero de contraseñas
+
 Vault tiene una herramienta `ansible-vault` que permite cifrar ficheros (con AES256) donde almacenar contraseñas. El formato de estos ficheros es exactamente el mismo que otros donde se almacenan variables solo que hay que cifrarlo/descifrarlo para su uso con una contraseña que se establece en el momento de su creación.
 
 ```bash
@@ -222,6 +225,42 @@ Vault password:
 ```
 
 La ventaja de este método es que podemos tener las contraseñas cifradas bajo el control de git sin riesgos de seguridad ya que no pueden ser vistas por otros usuarios
+
+##### Contraseñas cifradas
+
+Otra opción haciendo uso de `ansible-vault` es cifrar contraseñas con esta herramienta y pegar el hash dentro del fichero *defaults/main.yml* del role. Para ello, para cifrar una cadena de texto (la contraseña), hay que ejecutar el siguiente comando:
+
+```bash
+ansible-vault encrypt_string ceporro
+New Vault password:
+Confirm New Vault password:
+!vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          35393661323635626162626262626537626465313232666537616134353532376536363537366533
+          3138343938353264346662333561333362653661376564370a343735373865613536356538393137
+          62326139303938323664303432336164383732643735636536326365373733363066336565666536
+          6161343931623434640a386664336236373035623466613839333339333733346264663861393364
+          3937
+Encryption successful
+```
+
+La salida del anterior comando se debe copiar dentro del fichero **defaults/main.yml** con el siguiente formato:
+
+```yaml
+ceporro: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  35393661323635626162626262626537626465313232666537616134353532376536363537366533
+  3138343938353264346662333561333362653661376564370a343735373865613536356538393137
+  62326139303938323664303432336164383732643735636536326365373733363066336565666536
+  6161343931623434640a386664336236373035623466613839333339333733346264663861393364
+  3937
+```
+
+Para poder descrifrar esta contraseña al ejecutar el playbook, habrá que incluír el argumento `--ask-vault-pass` e indicar la contraseña que se usó en el paso anterior para cifrar la password:
+
+```bash
+ansible-playbook post_install -e post_install_user=ohermosa --ask-vault-pass
+```
 
 ## Ejecución de comandos ansible ad-hoc
 
