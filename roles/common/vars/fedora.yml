@@ -21,3 +21,5 @@ distro_packages:
   - gstreamer-plugins-ugly
   - gstreamer1-plugins-base-tools
   - system-config-users
+  - python-devel
+  - python3-devel

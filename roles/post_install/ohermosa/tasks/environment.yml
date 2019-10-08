@@ -1,5 +1,10 @@
 ---
 
+- name: "Create python-venv directory"
+  file:
+    path: "{{ ansible_user_dir }}/python-venv"
+    state: directory
+
 - name: "Delete bash files"
   file:
     path: "{{ item }}"
@@ -18,23 +23,7 @@
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
         state: link
-      loop:
-        - src: "{{ dropbox_dir }}/datio/zshrc"
-          dest: "/home/{{ ansible_user }}/.zshrc"
-        - src: "{{ dropbox_dir }}/datio/bash_aliases"
-          dest: "/home/{{ ansible_user }}/.bash_aliases"
-        - src: "{{ dropbox_dir }}/datio/ssh"
-          dest: "/home/{{ ansible_user }}/.ssh"
-        - src: "{{ dropbox_dir }}/datio/soft"
-          dest: "/home/{{ ansible_user }}/soft"
-        - src: "{{ dropbox_dir }}/datio/doc"
-          dest: "/home/{{ ansible_user }}/doc"
-        - src: "{{ dropbox_dir }}/datio/work"
-          dest: "/home/{{ ansible_user }}/work"
-        - src: "{{ dropbox_dir }}/datio/bashrc"
-          dest: "/home/{{ ansible_user }}/.bashrc"
-        - src: "{{ dropbox_dir }}/datio/bash_history"
-          dest: "{{ ansible_user_dir}}/.bash_history"
+      loop: "{{ links_to_create }}"
 
     - name: "Change permissions to files in .ssh"
       file:
