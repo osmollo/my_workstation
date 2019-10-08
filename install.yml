@@ -6,6 +6,7 @@
   become_method: sudo
   vars:
     ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
   roles:
     - common
     - extra_software
