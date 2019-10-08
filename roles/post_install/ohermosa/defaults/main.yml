@@ -21,7 +21,7 @@ git_repositories:
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker_stratio_to_artifactory.git
       dest: "{{ git_dir }}/docker_stratio_to_artifactory"
     - repo: ssh://git@globaldevtools.bbva.com:7999/usoup/usoup_vault_dockerized.git
-      dest: {{ git_dir }}/usoup_vault_dockerized"
+      dest: "{{ git_dir }}/usoup_vault_dockerized"
   home:
     - repo: ssh://git@gitlab.com:ohermosa/AmazonPy.git
       dest: "{{ git_dir }}/AmazonPy"

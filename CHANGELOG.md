@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.4.2](#142)
   - [1.4.1](#141)
   - [1.4](#14)
   - [1.3.1](#131)
@@ -13,6 +14,13 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.4.2
+
+* creacion de ficheros vacíos para vault_pass en el post_install de *ohermosa*
+* nuevos repositorios para clonar en el post_install de *ohermosa*
+* se instala modulo de python `docker-py`
+* documentación para el uso de cifrado de contraseñas en [README.md](README.md)
 
 ## 1.4.1
 
