@@ -12,3 +12,5 @@ distro_packages:
   - libsecret-tools
   - ubuntu-restricted-extras
   - dnsutils
+  - python-dev
+  - python3-dev

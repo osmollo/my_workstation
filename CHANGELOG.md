@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.4.1](#141)
   - [1.4](#14)
   - [1.3.1](#131)
   - [1.3](#13)
@@ -12,6 +13,14 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.4.1
+
+* Se mueve la lista de enlaces a crear en *post_install/environment* a lista de variables
+* Se crea un nuevo enlace para cargar credenciales de `asgard` en el role *post_install*
+* Se crea el directorio `$HOME/python-venv`
+* Se incluyen los paquetes de desarrollo de python2 y python3 para instalar en common
+* Se infiere la variable `ansible_user_dir` en todos los playbooks
 
 ## 1.4
 
