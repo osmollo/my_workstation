@@ -38,6 +38,26 @@ git_repositories:
     - repo: ssh://git@gitlab.com:ohermosa/my_k8s.git
       dest: "{{ git_dir }}/my_k8s"
 
+links_to_create:
+    - src: "{{ dropbox_dir }}/datio/zshrc"
+      dest: "/home/{{ ansible_user }}/.zshrc"
+    - src: "{{ dropbox_dir }}/datio/bash_aliases"
+      dest: "/home/{{ ansible_user }}/.bash_aliases"
+    - src: "{{ dropbox_dir }}/datio/ssh"
+      dest: "/home/{{ ansible_user }}/.ssh"
+    - src: "{{ dropbox_dir }}/datio/soft"
+      dest: "/home/{{ ansible_user }}/soft"
+    - src: "{{ dropbox_dir }}/datio/doc"
+      dest: "/home/{{ ansible_user }}/doc"
+    - src: "{{ dropbox_dir }}/datio/work"
+      dest: "/home/{{ ansible_user }}/work"
+    - src: "{{ dropbox_dir }}/datio/bashrc"
+      dest: "/home/{{ ansible_user }}/.bashrc"
+    - src: "{{ dropbox_dir }}/datio/bash_history"
+      dest: "{{ ansible_user_dir}}/.bash_history"
+    - src: "{{ dropbox_dir }}/datio/ohermosa_molecule-openrc.sh"
+      dest: "{{ ansible_user_dir }}/ohermosa_molecule-openrc.sh"
+
 git_user_name: "Oscar Hermosa"
 git_user_mail_work: "oscar.hermosa@datiobbva.com"
 git_user_mail_personal: "ohermosa@gmail.com"
