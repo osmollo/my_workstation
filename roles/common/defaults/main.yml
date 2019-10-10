@@ -22,6 +22,7 @@ common_packages:
   - ipcalc
   - firewall-config
   - dconf-editor
+  - terminator
 
 bad_snap_packages:
   - gnome-calculator
