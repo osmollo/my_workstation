@@ -34,6 +34,7 @@
     - install_franz
     - install_nomachine
     - install_java
+    - install_kubectl
 
 - name: "---[INSTALL]--- docker"
   import_tasks: docker.yml
@@ -257,3 +258,10 @@
     - extra_software
     - install_cherrytree
     - install_editors
+
+- name: "---[INSTALL]--- "
+  import_tasks: kubectl.yml
+  when: install_kubectl
+  tags:
+    - extra_software
+    - install_kubectl
