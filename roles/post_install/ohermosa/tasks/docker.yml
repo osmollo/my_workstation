@@ -3,14 +3,14 @@
 - name: "Create user config directory"
   file:
     path: "/home/{{ ansible_user }}/.docker"
-    state: present
+    state: directory
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
 
 - name: "Create link to config.json"
   become_user: "{{ ansible_user }}"
   file:
-    src: "{{ dropbox_dir }}/docker.config.json"
+    src: "{{ dropbox_dir }}/datio/docker.config.json"
     dest: "/home/{{ ansible_user }}/.docker/config.json"
     state: link
     owner: "{{ ansible_user }}"

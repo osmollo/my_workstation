@@ -1,0 +1,36 @@
+---
+
+- name: "[UBUNTU] Set LINUX_DISTRIBUTION variable"
+  set_fact:
+    linux_distribution: "ubuntu"
+  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Linux Mint"
+
+- name: "[FEDORA] Set LINUX_DISTRIBUTION variable"
+  set_fact:
+    linux_distribution: "fedora"
+  when: ansible_distribution == "Fedora"
+
+- name: "Get Ubuntu CODENAME"
+  shell: grep UBUNTU_CODENAME /etc/os-release | awk -F\= '{ print $2 }'
+  register: response_codename
+  when: linux_distribution == "ubuntu"
+
+
+- name: "Set UBUNTU_CODENAME variable"
+  set_fact:
+    ubuntu_codename: "{{ response_codename.stdout }}"
+  when: linux_distribution == "ubuntu"
+
+
+- name: "Set UBUNTU_VERSION variable"
+  set_fact:
+    ubuntu_version: "{{ ubuntu_versions[ubuntu_codename].split('.')[0] }}"
+  vars:
+    ubuntu_versions:
+      bionic: "18.04"
+      artful: "17.10"
+      zesty: "17.04"
+      yakkety: "16.10"
+      xenial: "16.04"
+      trusty: "14.04"
+  when: linux_distribution == "ubuntu"

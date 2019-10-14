@@ -1,7 +1,0 @@
----
-
-- import_tasks: franz_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-
-- import_tasks: franz_fedora.yml
-  when: ansible_distribution == "Fedora"

@@ -5,6 +5,7 @@
     validate_certs: no
     repo: 'ppa:ansible/ansible'
     state: present
+    codename: "{{ ubuntu_codename }}"
 
 - name: "[UBUNTU] Update ansible"
   apt:

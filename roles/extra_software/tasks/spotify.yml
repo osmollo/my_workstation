@@ -1,7 +1,0 @@
----
-
-- import_tasks: spotify_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-
-- import_tasks: spotify_fedora.yml
-  when: ansible_distribution == "Fedora"

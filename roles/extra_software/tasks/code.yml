@@ -1,10 +1,6 @@
 ---
 
-- import_tasks: code_fedora.yml
-  when: ansible_distribution == "Fedora"
-
-- import_tasks: code_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
+- include_tasks: "code_{{ linux_distribution }}.yml"
 
 - name: "Install 'Sync settings' for Visual Studio Code"
   become: false

@@ -1,10 +1,6 @@
 ---
 
-- import_tasks: windscribe_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-
-- import_tasks: windscribe_fedora.yml
-  when: ansible_distribution == "Fedora"
+- include_tasks: "windscribe_{{ linux_distribution }}.yml"
 
 - name: "Stop and disable windscribe daemon"
   systemd:

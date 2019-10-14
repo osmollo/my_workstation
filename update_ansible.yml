@@ -2,25 +2,32 @@
 
 - hosts: localhost
   connection: local
+  tasks:
+    - import_tasks: load_distro_vars.yml
+      tags:
+        - always
+
+- hosts: localhost
+  connection: local
   become: true
   become_method: sudo
   vars:
     ansible_user: "{{ lookup('env', 'USER') }}"
-    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"  
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
   tasks:
     - name: "[FEDORA] upgrade all packages to the latest version"
       yum:
         name: '*'
         state: latest
         update_cache: true
-      when: ansible_distribution == "Fedora"
+      when: linux_distribution == "fedora"
 
     - name: "[FEDORA] Install ansible"
       yum:
         name: ansible
         state: latest
         update_cache: true
-      when: ansible_distribution == "Fedora"
+      when: linux_distribution == "fedora"
 
     - name: "[UBUNTU] Upgrade all packages to the latest version"
       apt:
@@ -28,14 +35,15 @@
         state: latest
         update_cache: true
         force_apt_get: true
-      when: ansible_distribution == "Ubuntu"
+      when: linux_distribution == "ubuntu"
 
-    - name: "[UBUNTU] add ppa repository"
+    - name: "[UBUNTU] add ansible ppa repository"
       apt_repository:
         validate_certs: no
         repo: 'ppa:ansible/ansible'
         state: present
-      when: ansible_distribution == "Ubuntu"
+        codename: "{{ ubuntu_codename }}"
+      when: linux_distribution == "ubuntu"
 
     - name: "[UBUNTU] Update ansible"
       apt:
@@ -45,4 +53,4 @@
         update_cache: true
         state: latest
         force_apt_get: true
-      when: ansible_distribution == "Ubuntu"
+      when: linux_distribution == "ubuntu"

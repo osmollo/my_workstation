@@ -10,7 +10,7 @@
     - python3
 
 - import_tasks: selinux.yml
-  when: ansible_distribution == "Fedora"
+  when: linux_distribution == "fedora"
   tags:
     - common
     - disable_selinux
@@ -20,7 +20,7 @@
     - common
     - install_packages
 
-- import_tasks: ansible.yml
+- include_tasks: "ansible_{{ linux_distribution }}.yml"
   tags:
     - common
     - ansible
@@ -32,7 +32,7 @@
     - python3
 
 - import_tasks: delete_snap.yml
-  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version >= "18"
+  when: ansible_distribution == "ubuntu" and ansible_distribution_major_version >= "18"
   tags:
     - common
     - delete_snap
