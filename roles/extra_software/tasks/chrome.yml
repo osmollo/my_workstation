@@ -1,10 +1,6 @@
 ---
 
 - include_vars:
-    file: "{{ ansible_distribution | lower }}.yml"
+    file: "{{ linux_distribution }}.yml"
 
-- import_tasks: chrome_fedora.yml
-  when: ansible_distribution == "Fedora"
-
-- import_tasks: chrome_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
+- include_tasks: "chrome_{{ linux_distribution }}.yml"

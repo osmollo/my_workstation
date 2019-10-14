@@ -5,6 +5,7 @@
     validate_certs: no
     repo: 'ppa:openjdk-r/ppa'
     state: present
+    codename: "{{ ubuntu_codename }}"
 
 - name: "[UBUNTU] install java package"
   apt:

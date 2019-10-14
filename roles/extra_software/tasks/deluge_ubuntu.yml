@@ -5,6 +5,7 @@
     validate_certs: no
     repo: 'ppa:deluge-team/ppa'
     state: present
+    codename: "{{ ubuntu_codename }}"
 
 - name: "[UBUNTU] Install deluge"
   apt:

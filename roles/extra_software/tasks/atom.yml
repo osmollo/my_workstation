@@ -14,11 +14,7 @@
     atom_fedora_package: "https://github.com/atom/atom/releases/download/{{ atom_version }}/atom.x86_64.rpm"
     atom_ubuntu_package: "https://github.com/atom/atom/releases/download/{{ atom_version }}/atom-amd64.deb"
 
-- import_tasks: atom_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-
-- import_tasks: atom_fedora.yml
-  when: ansible_distribution == "Fedora"
+- include_tasks: "atom_{{ linux_distribution }}.yml"
 
 - name: "Install 'sync-settings' package for Atom"
   become: false
