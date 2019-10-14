@@ -1,7 +1,0 @@
----
-
-- import_tasks: pycharm_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-
-- import_tasks: pycharm_fedora.yml
-  when: ansible_distribution == "Fedora"

@@ -1,6 +1,12 @@
 ---
 
 - hosts: all
+  tasks:
+    - import_tasks: load_distro_vars.yml
+      tags:
+        - always
+
+- hosts: all
   become: true
   become_user: root
   tasks:

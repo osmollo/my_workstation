@@ -3,7 +3,8 @@
 - name: "[UBUNTU] Create repository file for Virtualbox"
   lineinfile:
     path: /etc/apt/sources.list.d/virtualbox.list
-    line: "deb https://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib"
+    line: "deb https://download.virtualbox.org/virtualbox/debian {{ linux_distribution }} contrib"
+    create: true
 
 - name: "[UBUNTU] Import repository key"
   apt_key:

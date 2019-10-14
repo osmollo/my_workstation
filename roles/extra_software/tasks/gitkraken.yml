@@ -1,10 +1,6 @@
 ---
 
 - include_vars:
-    file: "{{ ansible_distribution | lower }}.yml"
+    file: "{{ linux_distribution }}.yml"
 
-- import_tasks: gitkraken_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-
-- import_tasks: gitkraken_fedora.yml
-  when: ansible_distribution == "Fedora"
+- include_tasks: "gitkraken_{{ linux_distribution }}.yml"

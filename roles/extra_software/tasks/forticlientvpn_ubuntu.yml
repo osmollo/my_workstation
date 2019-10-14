@@ -14,8 +14,3 @@
   file:
     path: /tmp/forticlientvpn.deb
     state: absent
-
-# - name: "[UBUNTU] install forticlient packages"
-#   apt:
-#     name: "{{ forticlientvpn_ubuntu_packages }}"
-#     state: present

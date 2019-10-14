@@ -10,7 +10,7 @@
       - python3-virtualenvwrapper
     state: latest
     update_cache: true
-  when: ansible_distribution == "Fedora"
+  when: linux_distribution == "fedora"
 
 - name: "[UBUNTU] Install Python3"
   apt:
@@ -22,7 +22,7 @@
       - virtualenvwrapper
     state: latest
     update_cache: true
-  when: ansible_distribution == "Ubuntu"
+  when: linux_distribution == "ubuntu"
 
 - name: "Alternative link for python"
   alternatives:

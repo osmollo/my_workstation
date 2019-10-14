@@ -10,4 +10,4 @@
   apt:
     name: chrome-gnome-shell
     state: present
-  when: "'GNOME' in ansible_env.XDG_CURRENT_DESKTOP"
+  when: "'GNOME' in ansible_env.XDG_CURRENT_DESKTOP or 'Cinnamon' in ansible_env.XDG_CURRENT_DESKTOP"

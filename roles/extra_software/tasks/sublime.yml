@@ -1,10 +1,6 @@
 ---
 
-- import_tasks: sublime_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-
-- import_tasks: sublime_fedora.yml
-  when: ansible_distribution == "Fedora"
+- include_tasks: "sublime_{{ linux_distribution }}.yml"
 
 - name: "Create path to sublime config directory"
   become: false

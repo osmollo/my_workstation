@@ -6,11 +6,11 @@
     state: latest
     update_cache: true
     force_apt_get: true
-  when: ansible_distribution == "Ubuntu"
+  when: linux_distribution == "ubuntu"
 
 - name: "[FEDORA] upgrade all packages to the latest version"
   yum:
     name: '*'
     state: latest
     update_cache: true
-  when: ansible_distribution == "Fedora"
+  when: linux_distribution == "fedora"

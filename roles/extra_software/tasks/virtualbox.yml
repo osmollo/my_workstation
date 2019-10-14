@@ -1,13 +1,9 @@
 ---
 
 - include_vars:
-    file: "{{ ansible_distribution | lower }}.yml"
+    file: "{{ linux_distribution }}.yml"
 
-- import_tasks: virtualbox_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-
-- import_tasks: virtualbox_fedora.yml
-  when: ansible_distribution == "Fedora"
+- include_tasks: "virtualbox_{{ linux_distribution }}.yml"
 
 - name: "Adding {{ ansible_user }} to group vboxusers"
   user:
