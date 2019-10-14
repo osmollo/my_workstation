@@ -4,13 +4,13 @@
   yum:
     name: zsh
     state: latest
-  when: ansible_distribution == "Fedora"
+  when: linux_distribution == "fedora"
 
 - name: "[UBUNTU] Install zsh"
   apt:
     name: zsh
     state: latest
-  when: ansible_distribution == "Ubuntu"
+  when: linux_distribution == "ubuntu"
 
 - name: "Download installation script"
   get_url:

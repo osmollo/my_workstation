@@ -14,8 +14,4 @@
     rambox_fedora_package: "https://github.com/ramboxapp/community-edition/releases/download/{{ rambox_version }}/Rambox-{{ rambox_version }}-linux-x86_64.rpm"
     rambox_ubuntu_package: "https://github.com/ramboxapp/community-edition/releases/download/{{ rambox_version }}/Rambox-{{ rambox_version }}-linux-amd64.deb"
 
-- import_tasks: rambox_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-
-- import_tasks: rambox_fedora.yml
-  when: ansible_distribution == "Fedora"
+- include_tasks: "rambox_{{ linux_distribution }}.yml"

@@ -4,6 +4,7 @@
   apt_repository:
     repo: ppa:nginx/stable
     state: present
+    codename: "{{ ubuntu_codename }}"
 
 - name: "[UBUNTU] Install common TLP packages"
   apt:

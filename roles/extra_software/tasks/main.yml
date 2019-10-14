@@ -59,7 +59,7 @@
     - install_editors
 
 - name: "---[INSTALL]--- Spotify"
-  import_tasks: spotify.yml
+  include_tasks: "spotify_{{ linux_distribution }}.yml"
   when: install_spotify
   tags:
     - extra_software
@@ -96,7 +96,7 @@
     - install_gitkraken
 
 - name: "---[INSTALL]--- Telegram"
-  import_tasks: telegram.yml
+  include_tasks: "telegram_{{ linux_distribution }}.yml"
   when: install_telegram
   tags:
     - extra_software
@@ -104,7 +104,7 @@
     - install_socials
 
 - name: "---[INSTALL]--- Slack"
-  import_tasks: slack.yml
+  include_tasks: "slack_{{ linux_distribution }}.yml"
   when: install_slack
   tags:
     - extra_software
@@ -134,7 +134,7 @@
     - install_virtualbox
 
 - name: "---[INSTALL]--- PyCharm"
-  import_tasks: pycharm.yml
+  include_tasks: "pycharm_{{ linux_distribution }}.yml"
   when: install_pycharm
   tags:
     - extra_software
@@ -142,7 +142,7 @@
     - install_editors
 
 - name: "---[INSTALL]--- Keepass"
-  import_tasks: keepass.yml
+  include_tasks: "keepass_{{ linux_distribution }}.yml"
   when: install_keepass
   tags:
     - extra_software
@@ -195,21 +195,21 @@
     - install_ecs
 
 - name: "---[INSTALL]--- Postman"
-  import_tasks: postman.yml
+  include_tasks: "postman_{{ linux_distribution }}.yml"
   when: install_postman
   tags:
     - extra_software
     - install_postman
 
 - name: "---[INSTALL]--- Skype"
-  import_tasks: skype.yml
+  include_tasks: "skype_{{ linux_distribution }}.yml"
   when: install_skype
   tags:
     - extra_software
     - install_skype
 
 - name: "---[INSTALL]--- Java"
-  import_tasks: java.yml
+  include_tasks: "java_{{ linux_distribution }}.yml"
   when: install_java
   tags:
     - extra_software
@@ -231,7 +231,7 @@
     - install_rambox
 
 - name: "---[INSTALL]--- Franz"
-  import_tasks: franz.yml
+  include_tasks: "franz_{{ linux_distribution }}.yml"
   when: install_franz
   tags:
     - extra_software
@@ -252,7 +252,7 @@
     - install_deluge
 
 - name: "---[INSTALL]--- "
-  import_tasks: cherrytree.yml
+  include_tasks: "cherrytree_{{ linux_distribution }}.yml"
   when: install_cherrytree
   tags:
     - extra_software
@@ -260,7 +260,7 @@
     - install_editors
 
 - name: "---[INSTALL]--- "
-  import_tasks: kubectl.yml
+  include_tasks: "kubectl_{{ linux_distribution }}.yml"
   when: install_kubectl
   tags:
     - extra_software
