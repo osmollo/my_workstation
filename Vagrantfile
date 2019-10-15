@@ -3,12 +3,13 @@ Vagrant.configure("2") do |config|
   config.vm.provider 'virtualbox' do |v|
     v.memory = 4096
     v.cpus = 2
+    v.customize ["modifyvm", :id, "--usb", "on"]
+    v.customize ["modifyvm", :id, "--usbehci", "off"]
   end
 
   config.vm.define 'mint' do |node|
-    node.vm.box = "mrlesmithjr/linuxmint19-desktop"
+    node.vm.box = "boxcycler/linuxmint-19-cinnamon-64bit-v2-release"
     node.vm.network :private_network, ip: "192.168.56.200"
-    #node.vm.hostname = 'mint'
     node.vm.provision "ansible" do |ansible|
       ansible.inventory_path = "ansible_hosts"
       ansible.playbook = "vagrant/install.yml"
@@ -20,7 +21,6 @@ Vagrant.configure("2") do |config|
       SHELL
     end
   end
-
 
   config.vm.define 'ubuntu' do |node|
     node.vm.box = "ubuntu/bionic64"

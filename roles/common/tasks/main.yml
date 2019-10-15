@@ -2,12 +2,7 @@
 
 - import_tasks: update_packages.yml
   tags:
-    - common
-    - update_packages
-    - install_packages
-    - ansible
-    - python
-    - python3
+    - always
   ignore_errors: true
 
 - import_tasks: selinux.yml
