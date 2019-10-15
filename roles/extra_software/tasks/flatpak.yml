@@ -1,0 +1,7 @@
+---
+
+- name: "[FEDORA] install flatpak"
+  yum:
+    name: flatpak
+    state: latest
+    update_cache: true

@@ -11,7 +11,7 @@
       - python3-psutil
     state: latest
     update_cache: true
-  when: ansible_distribution == "Ubuntu"
+  when: linux_distribution == "ubuntu"
 
 - name: "[FEDORA] Install several theme packages"
   yum:
@@ -24,4 +24,4 @@
       - python3-psutil
     state: latest
     update_cache: true
-  when: ansible_distribution == "Fedora"
+  when: linux_distribution == "fedora"

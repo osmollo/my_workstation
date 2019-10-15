@@ -48,3 +48,4 @@
       - molecule
       - dnspython
       - docker-py
+      - virtualenvwrapper

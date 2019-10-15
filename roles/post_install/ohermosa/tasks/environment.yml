@@ -31,6 +31,11 @@
     dest: .vault_pass.txt
     state: link
 
+- name: "create python-venv directory"
+  file:
+    path: "{{ ansible_user_dir }}/python-venv"
+    state: directory
+
 - name: "Configure environment"
   block:
     - name: "Create links from Dropbox"

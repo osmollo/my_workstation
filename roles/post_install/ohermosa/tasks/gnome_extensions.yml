@@ -31,4 +31,4 @@
   shell: "gnome-shell-extension-tool -e {{ item }}"
   ignore_errors: true
   loop: "{{ fedora_gnome_extensions }}"
-  when: ansible_distribution == "Fedora"
+  when: linux_distribution == "fedora"
