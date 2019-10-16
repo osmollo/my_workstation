@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.6.2](#162)
   - [1.6.1](#161)
   - [1.6](#16)
   - [1.5](#15)
@@ -17,6 +18,10 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.6.2
+
+* Instalación de `snap` y `snapd` para distribuciones basadas en **Ubuntu**
 
 ## 1.6.1
 
