@@ -10,11 +10,20 @@
     url: https://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
     dest: /etc/yum.repos.d/virtualbox.repo
 
-- name: "[FEDORA] Install Virtualbox and Vagrant packages"
+- name: "[FEDORA] Install Virtualbox packages"
   yum:
     name: "{{ virtualbox_packages }}"
     state: latest
     update_cache: true
+
+- name: "[FEDORA] Install Vagrant"
+  yum:
+    name: "{{ vagrant_package }}"
+    state: latest
+    update_cache: true
+  tags:
+    - install_vagrant
+
 
 - name: "[FEDORA] Uninstall vagrant-libvirt if is installed"
   yum:

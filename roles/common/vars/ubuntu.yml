@@ -14,3 +14,4 @@ distro_packages:
   - dnsutils
   - python-dev
   - python3-dev
+  - build-essential

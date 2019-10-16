@@ -5,6 +5,7 @@
     validate_certs: no
     repo: 'ppa:phoerious/keepassxc'
     state: present
+    codename: "{{ ubuntu_codename }}"
 
 - name: "[UBUNTU] install KeepassXC"
   apt:

@@ -1,10 +1,6 @@
 ---
 
 - include_vars:
-    file: "{{ ansible_distribution | lower }}.yml"
+    file: "{{ linux_distribution | lower }}.yml"
 
-- import_tasks: install_ubuntu_packages.yml
-  when: ansible_distribution == "Ubuntu"
-
-- import_tasks: install_fedora_packages.yml
-  when: ansible_distribution == "Fedora"
+- include_tasks: "install_packages_{{ linux_distribution }}.yml"

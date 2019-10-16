@@ -1,7 +1,3 @@
 ---
 
-- import_tasks: skype_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-
-- import_tasks: skype_fedora.yml
-  when: ansible_distribution == "Fedora"
+- include_tasks: "skype_{{ linux_distribution }}.yml"

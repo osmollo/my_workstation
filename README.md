@@ -31,7 +31,7 @@ git log --pretty=oneline HEAD...tag
 
 ## Software extra instalado
 
-| **WARNING**: Estos playbooks se han probado únicamente en **Ubuntu 18.04** y **Fedora 30** |
+| **WARNING**: Estos playbooks se han probado únicamente en **Ubuntu 18.04**, **Fedora 30** y **Linux Mint 19** |
 | --- |
 
 Por defecto se instala el siguiente software:

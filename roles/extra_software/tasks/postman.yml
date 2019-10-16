@@ -1,7 +1,3 @@
 ---
 
-- import_tasks: postman_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-
-- import_tasks: postman_fedora.yml
-  when: ansible_distribution == "Fedora"
+- include_tasks: "postman_{{ linux_distribution }}.yml"
