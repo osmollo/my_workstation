@@ -31,6 +31,7 @@ install_chromium: true
 install_deluge: true
 install_cherrytree: true
 install_kubectl: true
+install_flatpak: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -47,7 +48,7 @@ slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"
 pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Community.flatpakref"
 postman_flatpak: "https://flathub.org/repo/appstream/com.getpostman.Postman.flatpakref"
 skype_flatpak: "https://flathub.org/repo/appstream/com.skype.Client.flatpakref"
-franz_flatpal: "https://flathub.org/repo/appstream/com.meetfranz.Franz.flatpakref"
+franz_flatpak: "https://flathub.org/repo/appstream/com.meetfranz.Franz.flatpakref"
 
 ecs_cli_url: "https://globaldevtools.bbva.com/artifactory/semaas-global-bin/releases/ecs-cli/ecs-cli-0.2.16.tar.gz"
 ecs_cli_doc_url: "https://platform.bbva.com/en-us/developers/ether-cli/documentation/03-getting-started"
@@ -56,3 +57,5 @@ apachedirectory_url: "http://ftp.cixug.es/apache/directory/studio/2.0.0.v2018090
 
 deluge_package: deluge
 cherrytree_package: cherrytree
+
+virtualbox_extpack_version: "6.0.14"

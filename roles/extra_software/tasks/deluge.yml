@@ -5,6 +5,11 @@
 
 - include_tasks: "deluge_{{ linux_distribution }}.yml"
 
+- name: "Create deluge config directory"
+  file:
+    path: "/home/{{ ansible_user }}/.config/deluge/"
+    state: directory
+
 - name: "Basic Deluge configuration"
   template:
     src: "{{ item.src }}"

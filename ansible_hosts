@@ -91,7 +91,7 @@ if __name__ == "__main__":
     if options.list:
         if not os.path.exists(inventory_cache_file) or time.time() - os.path.getmtime(inventory_cache_file) > 600:
             list_of_hosts = list_running_boxes()
-            ubuntu_machine = list(filter(lambda x: "ubuntu" in x, list_of_hosts))
+            ubuntu_machine = list(filter(lambda x: "ubuntu" in x or "mint" in x, list_of_hosts))
             fedora_machine = list(filter(lambda x: "fedora" in x, list_of_hosts))
             ssh_config = get_ssh_config(list_of_hosts)
             meta = defaultdict(dict)

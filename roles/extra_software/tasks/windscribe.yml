@@ -4,6 +4,6 @@
 
 - name: "Stop and disable windscribe daemon"
   systemd:
-    name:
+    name: windscribe
     state: stopped
     enabled: false

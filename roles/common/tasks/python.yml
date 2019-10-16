@@ -39,6 +39,7 @@
 - name: "Install python modules"
   pip:
     name:
+      - setuptools
       - telepot
       - matplotlib
       - numpy
@@ -48,3 +49,4 @@
       - molecule
       - dnspython
       - docker-py
+      - virtualenvwrapper

@@ -6,12 +6,10 @@ git_repositories:
   work:
     - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_ops.git
       dest: "{{ git_dir }}/msqlm_ops"
-    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar.git
-      dest: "{{ git_dir }}/iluvatar"
     - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_sshmagic.git
       dest: "{{ git_dir }}/ssh_magic"
-    - repo: ssh://git@globaldevtools.bbva.com:7999/fkrva/fkrva_argos.git
-      dest: "{{ git_dir }}/argos"
+    # - repo: ssh://git@globaldevtools.bbva.com:7999/fkrva/fkrva_argos.git
+    #   dest: "{{ git_dir }}/argos"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_fsm.git
       dest: "{{ git_dir }}/fsm"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar_base_image.git
@@ -23,25 +21,23 @@ git_repositories:
     - repo: ssh://git@globaldevtools.bbva.com:7999/usoup/usoup_vault_dockerized.git
       dest: "{{ git_dir }}/usoup_vault_dockerized"
   home:
-    - repo: ssh://git@gitlab.com:ohermosa/AmazonPy.git
+    - repo: git@gitlab.com:ohermosa/AmazonPy.git
       dest: "{{ git_dir }}/AmazonPy"
-    - repo: ssh://git@gitlab.com:ohermosa/BingoPy.git
+    - repo: git@gitlab.com:ohermosa/BingoPy.git
       dest: "{{ git_dir }}/BingoPy"
-    - repo: ssh://git@gitlab.com:ohermosa/PiOPs.git
+    - repo: git@gitlab.com:ohermosa/PiOPs.git
       dest: "{{ git_dir }}/PiOPs"
-    - repo: ssh://git@gitlab.com:ohermosa/PuedoCircular.git
+    - repo: git@gitlab.com:ohermosa/PuedoCircular.git
       dest: "{{ git_dir }}/PuedoCircular"
-    - repo: ssh://git@gitlab.com:ohermosa/rootnerds.git
+    - repo: git@gitlab.com:ohermosa/rootnerds.git
       dest: "{{ git_dir }}/rootnerds"
-    - repo: ssh://git@gitlab.com:ohermosa/whopper_bot.git
+    - repo: git@gitlab.com:ohermosa/whopper_bot.git
       dest: "{{ git_dir }}/whopper_bot"
-    - repo: ssh://git@gitlab.com:ohermosa/my_workstation.git
-      dest: "{{ git_dir }}/my_workstation"
-    - repo: ssh://git@gitlab.com:ohermosa/my_k8s.git
+    - repo: git@gitlab.com:ohermosa/my_k8s.git
       dest: "{{ git_dir }}/my_k8s"
-    - repo: ssh://git@gitlab.com:ohermosa/kubespray.git
+    - repo: git@gitlab.com:ohermosa/kubespray.git
       dest: "{{ git_dir }}/kubespray"
-    - repo: ssh://git@gitlab.com:ohermosa/raspberrypi.git
+    - repo: git@gitlab.com:ohermosa/raspberrypi.git
       dest: "{{ git_dir }}/raspberrypi"
 
 links_to_create:
@@ -63,6 +59,8 @@ links_to_create:
       dest: "{{ ansible_user_dir}}/.bash_history"
     - src: "{{ dropbox_dir }}/datio/ohermosa_molecule-openrc.sh"
       dest: "{{ ansible_user_dir }}/ohermosa_molecule-openrc.sh"
+    - src: "{{ dropbox_dir }}/backups/oh-my-zsh_custom_themes"
+      dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
 
 git_user_name: "Oscar Hermosa"
 git_user_mail_work: "oscar.hermosa@datiobbva.com"
@@ -70,26 +68,28 @@ git_user_mail_personal: "ohermosa@gmail.com"
 
 bbva_user: XE67334
 
-dconf_paths_to_restore:
+dconf_paths_to_restore_general:
   - /system/proxy
-  - /org/gnome/settings-daemon/peripherals/keyboard
-  - /org/gnome/shell
   - /org/gnome/shell/extensions/dash-to-dock
   - /org/gnome/shell/extensions/clipboard-indicator
-  - /org/gnome/gedit/preferences/editor
-  - /org/gnome/gedit/preferences/ui
-  - /org/gnome/gedit/plugins
-  - /org/gnome/gedit/state/window
+  - /org/gnome/meld
+  - /org/gnome/meld/window-state
+  - /com/gexperts/Tilix
+  - /com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d
+  - /com/gexperts/Tilix/keybindings
+
+dconf_paths_to_restore_ubuntu:
+  - /org/gnome/shell
+  - /org/gnome/settings-daemon/peripherals/keyboard
+  - /org/gtk/settings/file-chooser
   - /org/gnome/nautilus/preferences
   - /org/gnome/desktop/screensaver
   - /org/gnome/desktop/background
   - /org/gnome/desktop/interface
-  - /org/gnome/meld
-  - /org/gnome/meld/window-state
-  - /org/gtk/settings/file-chooser
-  - /com/gexperts/Tilix
-  - /com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d
-  - /com/gexperts/Tilix/keybindings
+  - /org/gnome/gedit/preferences/editor
+  - /org/gnome/gedit/preferences/ui
+  - /org/gnome/gedit/plugins
+  - /org/gnome/gedit/state/window
 
 fedora_gnome_extensions:
   - "dash-to-dock@micxgx.gmail.com"

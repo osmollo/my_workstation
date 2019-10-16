@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.6](#16)
   - [1.5](#15)
   - [1.4.2](#142)
   - [1.4.1](#141)
@@ -15,6 +16,13 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.6
+
+* Nueva máquina **Linux Mint** en el `Vagrantfile`
+* Se ha creado playbook para definir las variables `linux_distribution`, `ubuntu_codename`, `ubuntu_version` y `fedora_version` para poder trabajar con distribuciones basadas en **Ubuntu** y **Fedora**
+* Se han adaptado todas las tareas para usar las variables definidas anteriormente
+* Correcciones de errores
 
 ## 1.5
 
