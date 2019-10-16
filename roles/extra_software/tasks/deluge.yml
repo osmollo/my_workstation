@@ -1,13 +1,14 @@
 ---
 
 - include_vars:
-    file: "{{ ansible_distribution | lower }}.yml"
+    file: "{{ linux_distribution }}.yml"
 
-- import_tasks: deluge_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
+- include_tasks: "deluge_{{ linux_distribution }}.yml"
 
-- import_tasks: deluge_fedora.yml
-  when: ansible_distribution == "Fedora"
+- name: "Create deluge config directory"
+  file:
+    path: "/home/{{ ansible_user }}/.config/deluge/"
+    state: directory
 
 - name: "Basic Deluge configuration"
   template:

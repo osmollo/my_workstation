@@ -1,13 +1,27 @@
 ---
 
-- name: "Parse dconf dump"
+- name: "Parse dconf dump for general"
   dconf_to_list:
-    paths_to_restore: "{{ dconf_paths_to_restore }}"
+    paths_to_restore: "{{ dconf_paths_to_restore_general }}"
     dconf_file: "{{ dropbox_dir }}/datio/gnome_config"
-  register: response
+  register: response_general
 
-- name: "Import gnome config"
+- name: "Import gnome general config"
   dconf:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
-  loop: "{{ response.message }}"
+  loop: "{{ response_general.message }}"
+
+- name: "Parse dconf dump for ubuntu"
+  dconf_to_list:
+    paths_to_restore: "{{ dconf_paths_to_restore_ubuntu }}"
+    dconf_file: "{{ dropbox_dir }}/datio/gnome_config"
+  register: response_ubuntu
+  when: ansible_distribution == "Linux Mint"
+
+- name: "Import ubuntu gnome config"
+  dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  loop: "{{ response_ubuntu.message }}"
+  when: ansible_distibution == "Linux Mint"

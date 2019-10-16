@@ -14,9 +14,3 @@
     owner: root
     group: root
     mode: 0644
-
-# - name: "[FEDORA] Install Forticlient VPN package"
-#   yum:
-#     name: "{{ forticlientvpn_fedora_packages }}"
-#     state: present
-#     update_cache: true

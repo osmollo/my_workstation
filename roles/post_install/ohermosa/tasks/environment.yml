@@ -14,12 +14,12 @@
     - "{{ ansible_user_dir }}/.bash_history"
     - "{{ ansible_user_dir }}/.zshrc"
     - "{{ ansible_user_dir }}/.ssh"
-    - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
     - "{{ ansible_user_dir }}/.vault_pass*txt"
+    - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
 
 - name: "create empty vault_pass files"
   file:
-    path: "{{ item }}"
+    path: "{{ ansible_user_dir}}/{{ item }}"
     state: touch
   loop:
     - .vault_pass_personal.txt
@@ -27,9 +27,14 @@
 
 - name: "create link to vault_pass file"
   file:
-    src: .vault_pass_datio.txt
-    dest: .vault_pass.txt
+    src: "{{ ansible_user_dir }}/.vault_pass_datio.txt"
+    dest: "{{ ansible_user_dir }}/.vault_pass.txt"
     state: link
+
+- name: "create python-venv directory"
+  file:
+    path: "{{ ansible_user_dir }}/python-venv"
+    state: directory
 
 - name: "Configure environment"
   block:
@@ -42,25 +47,11 @@
 
     - name: "Change permissions to files in .ssh"
       file:
-        path: "{{ item }}"
+        dest: "{{ ansible_user_dir }}/.ssh/*"
         mode: 0600
-      with_items:
-        - "/home/{{ ansible_user }}/.ssh/config"
-        - "/home/{{ ansible_user }}/.ssh/id_rsa"
-        - "/home/{{ ansible_user }}/.ssh/id_rsa.pub"
-        - "/home/{{ ansible_user }}/.ssh/id_bbva"
-
-    - name: "Change permissions to files in .ssh directories"
-      file:
-        path: "{{ item }}/*"
-        mode: 0600
-      with_items:
-        - "/home/{{ ansible_user }}/.ssh/ccr"
-        - "/home/{{ ansible_user }}/.ssh/aws"
-        - "/home/{{ ansible_user }}/.ssh/isilon"
 
     - name: "Create link to Oh my zsh! theme directory in Dropbox"
       file:
         src: "{{ dropbox_dir }}/backups/oh-my-zsh_custom_themes"
-        dest: "/home/{{ ansible_user }}/.oh-my-zsh/custom/themes"
+        dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
         state: link

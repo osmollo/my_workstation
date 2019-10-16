@@ -1,10 +1,6 @@
 ---
 
 - include_vars:
-    file: "{{ ansible_distribution | lower }}.yml"
+    file: "{{ linux_distribution }}.yml"
 
-- import_tasks: teamviewer_fedora.yml
-  when: ansible_distribution == "Fedora"
-
-- import_tasks: teamviewer_ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
+- include_tasks: "teamviewer_{{ linux_distribution }}.yml"
