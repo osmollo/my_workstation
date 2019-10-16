@@ -13,12 +13,14 @@ nomachine_package: "https://download.nomachine.com/download/6.8/Linux/nomachine_
 
 virtualbox_packages:
   - VirtualBox-6.0
-  - vagrant
   - kernel-devel
   - kernel-headers
   - dkms
   - qt5-qtx11extras
   - elfutils-libelf-devel
   - zlib-devel
+
+vagrant_package:
+  - vagrant
 
 chromium_package: chromium

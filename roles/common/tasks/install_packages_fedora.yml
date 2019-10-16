@@ -12,6 +12,6 @@
     state: latest
     update_cache: true
 
-- import_tasks: vlc_fedora.yml
+- include_tasks: vlc_fedora.yml
   tags:
     - vlc

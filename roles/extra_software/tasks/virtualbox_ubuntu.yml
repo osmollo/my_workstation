@@ -3,7 +3,7 @@
 - name: "[UBUNTU] Create repository file for Virtualbox"
   lineinfile:
     path: /etc/apt/sources.list.d/virtualbox.list
-    line: "deb https://download.virtualbox.org/virtualbox/debian {{ linux_distribution }} contrib"
+    line: "deb https://download.virtualbox.org/virtualbox/debian {{ ubuntu_codename }} contrib"
     create: true
 
 - name: "[UBUNTU] Import repository key"
@@ -14,10 +14,12 @@
 - name: "[UBUNTU] Install Virtualbox and Vagrant packages"
   apt:
     name: "{{ virtualbox_packages }}"
-    state: latest
+    state: present
     update_cache: true
 
 - name: "[UBUNTU] Install vagrant"
   apt:
-    deb: https://releases.hashicorp.com/vagrant/2.2.5/vagrant_2.2.5_x86_64.deb
+    deb: "{{ vagrant_package }}"
     state: present
+  tags:
+    - install_vagrant

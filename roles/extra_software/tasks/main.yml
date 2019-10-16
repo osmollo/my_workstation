@@ -5,36 +5,22 @@
     name: common
     tasks_from: update_packages.yml
   tags:
+    - always
+
+- name: "---[INSTALL]--- flatpak"
+  import_tasks: flatpak.yml
+  when:
+    - linux_distribution == "fedora"
+    - install_flatpak
+  tags:
     - extra_software
-    - install_atom
-    - install_buttercup
-    - install_code
-    - install_docker
-    - install_dropbox
-    - install_editors
-    - install_remotes
-    - install_forticlientvpn
-    - install_gitkraken
-    - install_keepass
-    - install_ohmyzsh
-    - install_pass_managers
-    - install_pycharm
-    - install_slack
-    - install_socials
-    - install_spotify
-    - install_sublime
+    - install_flatpak
     - install_telegram
-    - install_tlp
-    - install_virtualbox
-    - install_vpnclient
-    - install_windscribe
-    - install_chrome
-    - install_teamviewer
-    - install_rambox
+    - install_slack
+    - install_pycharm
+    - install_postman
+    - install_skype
     - install_franz
-    - install_nomachine
-    - install_java
-    - install_kubectl
 
 - name: "---[INSTALL]--- docker"
   import_tasks: docker.yml
@@ -244,23 +230,23 @@
     - extra_software
     - install_chromium
 
-- name: "---[INSTALL]--- "
+- name: "---[INSTALL]--- Deluge"
   import_tasks: deluge.yml
   when: install_deluge
   tags:
     - extra_software
     - install_deluge
 
-- name: "---[INSTALL]--- "
-  include_tasks: "cherrytree_{{ linux_distribution }}.yml"
+- name: "---[INSTALL]--- Cherrytree"
+  import_tasks: cherrytree.yml
   when: install_cherrytree
   tags:
     - extra_software
     - install_cherrytree
     - install_editors
 
-- name: "---[INSTALL]--- "
-  include_tasks: "kubectl_{{ linux_distribution }}.yml"
+- name: "---[INSTALL]--- Kubectl"
+  import_tasks: kubectl.yml
   when: install_kubectl
   tags:
     - extra_software

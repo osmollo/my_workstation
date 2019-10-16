@@ -15,12 +15,10 @@
   register: response_codename
   when: linux_distribution == "ubuntu"
 
-
 - name: "Set UBUNTU_CODENAME variable"
   set_fact:
     ubuntu_codename: "{{ response_codename.stdout }}"
   when: linux_distribution == "ubuntu"
-
 
 - name: "Set UBUNTU_VERSION variable"
   set_fact:
@@ -34,3 +32,8 @@
       xenial: "16.04"
       trusty: "14.04"
   when: linux_distribution == "ubuntu"
+
+- name: "Set FEDORA_VERSION variable"
+  set_fact:
+    fedora_version: "{{ ansible_distribution_version }}"
+  when: linux_distribution == "fedora"

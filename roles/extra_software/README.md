@@ -46,6 +46,8 @@
 | **install_deluge** | Instala `Deluge` |
 | **install_cherrytree** | Instala `Cherry Tree` |
 | **install_kubectl** | Instala `Kubectl` |
+| **install_flatpak** | |
+| **install_vagrant** | |
 
 ## Documentación
 
