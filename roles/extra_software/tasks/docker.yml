@@ -13,3 +13,28 @@
     name: docker
     enabled: true
     state: restarted
+
+- name: "Get latest version of Docker Compose"
+  uri:
+    url: "{{ dockercompose_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: dockercompose_latest
+  tags:
+    - install_dockercompose
+
+- name: "Set urls for Docker Compose packages"
+  vars:
+    dockercompose_version: "{{ dockercompose_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    dockercompose_package: "https://github.com/docker/compose/releases/download/{{ dockercompose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+  tags:
+    - install_dockercompose
+
+- name: "Download Docker Compose binary"
+  get_url:
+    url: "{{ dockercompose_package }}"
+    dest: /usr/local/bin/docker-compose
+    mode: 0755
+  tags:
+    - install_dockercompose
