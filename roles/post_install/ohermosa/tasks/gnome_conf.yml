@@ -26,4 +26,4 @@
     value: "{{ item.value }}"
   loop: "{{ response_ubuntu.message }}"
   when:
-    - (ansible_distibution == "Linux Mint") or (restore_path | default("") in item.key)
+    - (ansible_distribution == "Linux Mint") or (restore_path | default("") in item.key)
