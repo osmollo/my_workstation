@@ -48,6 +48,7 @@
 | **install_kubectl** | Instala `Kubectl` |
 | **install_flatpak** | |
 | **install_vagrant** | |
+| **install_dockercompose** | |
 
 ## Documentación
 
