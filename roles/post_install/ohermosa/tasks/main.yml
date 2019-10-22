@@ -118,3 +118,8 @@
   tags:
     - post_install
     - post_apachedirectory
+
+- import_tasks: gpg.yml
+  tags:
+    - post_install
+    - post_gpg

@@ -93,3 +93,8 @@ dconf_paths_to_restore_ubuntu:
 
 fedora_gnome_extensions:
   - "dash-to-dock@micxgx.gmail.com"
+
+gpg_keyserver: pool.sks-keyservers.net
+gpg_pub_keys:
+  - 3984315D7B289D27BF19B5F2C1FD224DB195D7C9
+  - 148410BB2911EF171E1D3AA163A68D889DDC6AF5
