@@ -22,6 +22,7 @@
 
 ## 1.6.3
 
+* Instalación de `docker-compose` incluída en la de `docker`
 * Restaura únicamente rutas de `dconf` que contengan la cadena indicada en `extravars`
 
 ## 1.6.2
