@@ -11,6 +11,7 @@
     key: "{{ item.key }}"
     value: "{{ item.value }}"
   loop: "{{ response_general.message }}"
+  when: restore_path in item.key
 
 - name: "Parse dconf dump for ubuntu"
   dconf_to_list:
@@ -24,4 +25,5 @@
     key: "{{ item.key }}"
     value: "{{ item.value }}"
   loop: "{{ response_ubuntu.message }}"
-  when: ansible_distibution == "Linux Mint"
+  when:
+    - (ansible_distibution == "Linux Mint") or (restore_path | default("") in item.key)
