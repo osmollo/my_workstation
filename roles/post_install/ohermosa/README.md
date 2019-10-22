@@ -21,7 +21,7 @@
 | **post_vpn** | Genera las configuraciones para las VPNs (OpenVPN y VPNaaS) |
 | **post_sublime** | Restaura la configuración de `Sublime Text` almacenada en **Dropbox** |
 | **post_apachedirectory** | Restaura el lanzador de `Apache Directory Studio` para que apunte a la copia de **Dropbox** |
-
+| **post_gpg** | Importa llaves públicas GPG del keyserver |
 
 | **WARNING**: algunos de los tags anteriores requieren que **Dropbox** esté totalmente sincronizado antes de ejecutarse |
 | --- |

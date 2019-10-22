@@ -1,0 +1,12 @@
+---
+
+- name: "Import gpg keys from keyserver"
+  shell: "gpg --keyserver {{ gpg_keyserver }} --recv-keys  {{ item }}"
+  loop: "{{ gpg_pub_keys }}"
+
+- name: "Show GPG keyring"
+  shell: "gpg -k"
+  register: gpg_response
+
+- debug:
+    msg: "{{ gpg_response.stdout }}"

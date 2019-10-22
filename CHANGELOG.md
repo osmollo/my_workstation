@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.6.4](#164)
   - [1.6.3](#163)
   - [1.6.2](#162)
   - [1.6.1](#161)
@@ -19,6 +20,10 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.6.4
+
+* Importa llaves públicas gpg de ohermosa en el role `post_install`
 
 ## 1.6.3
 
