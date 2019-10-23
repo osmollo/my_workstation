@@ -1,12 +1,5 @@
 ---
 
-- name: "---[INSTALL]--- updating packages"
-  import_role:
-    name: common
-    tasks_from: update_packages.yml
-  tags:
-    - always
-
 - name: "---[INSTALL]--- flatpak"
   import_tasks: flatpak.yml
   when:
