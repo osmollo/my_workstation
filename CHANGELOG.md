@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.6.4.1](#1641)
   - [1.6.4](#164)
   - [1.6.3](#163)
   - [1.6.2](#162)
@@ -20,6 +21,11 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.6.4.1
+
+* Corrección de errores tipográficos
+* Ya no se ejecuta por duplicado la tarea de actualización de paquetes cuando se ejecuta el playbook `install.yml`
 
 ## 1.6.4
 
