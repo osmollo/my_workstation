@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define 'ubuntu' do |node|
     node.vm.box = "ubuntu/bionic64"
-    node.vm.network :private_network, ip: "192.168.56.200"
+    node.vm.network :private_network, ip: "192.168.56.201"
     #node.vm.hostname = 'ubuntu'
     node.vm.provision "ansible" do |ansible|
       ansible.inventory_path = "ansible_hosts"
@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define 'fedora' do |node|
     node.vm.box = "bento/fedora-30"
-    node.vm.network :private_network, ip: "192.168.56.100"
+    node.vm.network :private_network, ip: "192.168.56.202"
     #node.vm.hostname = 'fedora'
     node.vm.provision "ansible" do |ansible|
       ansible.inventory_path = "ansible_hosts"
