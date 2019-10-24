@@ -39,6 +39,14 @@ git_repositories:
       dest: "{{ git_dir }}/kubespray"
     - repo: git@gitlab.com:ohermosa/raspberrypi.git
       dest: "{{ git_dir }}/raspberrypi"
+    - repo: git@github.com:pysto/learning-python-packaging.git
+      dest: "{{ git_dir }}/learning-python-packaging"
+    - repo: git@github.com:pysto/learning-python-builtins.git
+      dest: "{{ git_dir }}/learning-python-builtins"
+    - repo: git@github.com:pysto/pykata-scorer.git
+      dest: "{{ git_dir }}/pykata-scorer"
+    - repo: git@github.com:pysto/openapi-ranker-spec.git
+      dest: "{{ git_dir }}/openapi-ranker-spec"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/zshrc"
