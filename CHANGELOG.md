@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.7](#17)
   - [1.6.4.3](#1643)
   - [1.6.4.2](#1642)
   - [1.6.4.1](#1641)
@@ -23,6 +24,11 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.7
+
+* Nuevo directorio `docker_deploys` para el despliegue de aplicaciones en local con `Docker`
+* Se ha movido todo lo relacionado con la configuración de la estación de trabajo al directorio `ansible`
 
 ## 1.6.4.3
 
