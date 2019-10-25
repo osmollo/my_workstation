@@ -10,7 +10,7 @@
 
 ## Ejecución
 
-Dentro del directorio `ansible` se encuentran todas las herramientas necesarias para configurar una estación de trabajo con  **Ansible**. Allí se podrá encontrar toda la documentación necesaria para su ejecución.
+Dentro del directorio [ansible](ansible) se encuentran todas las herramientas necesarias para configurar una estación de trabajo con  **Ansible**. Allí se podrá encontrar toda la documentación necesaria para su ejecución.
 
 Un ejemplo de ejecución de ansible para instalar todo el software disponible es el siguiente:
 
@@ -26,7 +26,7 @@ ansible-playbook install.yml --ask-become-pass
 
 # Despliegue de aplicaciones con Docker
 
-Dentro del directorio `docker_deploys` se encuentra, organizado en subdirectorios, el despliegue de diversas aplicaciones usando **Docker** mediante el uso de la herramienta `docker-compose`. Para instalarla, puede ejecutar el siguiente comando:
+Dentro del directorio [docker_deploys](docker_deploys) se encuentra, organizado en subdirectorios, el despliegue de diversas aplicaciones usando **Docker** mediante el uso de la herramienta `docker-compose`. Para instalarla, puede ejecutar el siguiente comando:
 
 ```bash
 cd ansible
