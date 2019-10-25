@@ -14,6 +14,9 @@
         - [Contraseñas cifradas](#contraseñas-cifradas)
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
   - [Uso de Vagrant](#uso-de-vagrant)
+- [Despliegue de aplicaciones con Docker](#despliegue-de-aplicaciones-con-docker)
+  - [Despliegues disponibles](#despliegues-disponibles)
+  - [Documentación](#documentación)
 
 ## Actualización de CHANGELOG.md
 
@@ -296,3 +299,23 @@ Y para destruir las máquinas:
 ```bash
 vagrant destroy -f
 ```
+
+# Despliegue de aplicaciones con Docker
+
+Dentro del directorio `docker_deploys` se encuentra, organizado en subdirectorios, el despliegue de diversas aplicaciones usando **Docker** mediante el uso de la herramienta `docker-compose`. Para instalarla, puede ejecutar el siguiente comando:
+
+```bash
+ansible-playbook install.yml -t install_docker --ask-bacome-pass
+```
+
+## Despliegues disponibles
+
+| **SUBDIRECTORIO** | **DESCRIPCIÓN** |
+|----------------|------------------|-----------|
+| [./vault](docker_deploys/vault) | Despliegue de `Vault` usando `Consul` como backend e incluyendo interfaz web y backup de datos |
+| [./nextcloud](docker_deploys/nextcloud) | Despliegue de `Nextcloud` con `MariaDB` como base de datos |
+
+## Documentación
+
+| **WARNING**: [La documentación de esta sección está disponible aquí](docker_deploys/README.md) |
+| --- |
