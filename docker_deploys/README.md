@@ -1,24 +1,24 @@
 # Docker Deploys
 
 - [Docker Deploys](#docker-deploys)
-  - [Lanzar un deploy](#lanzar-un-deploy)
-  - [Vault + Consul](#vault--consul)
-  - [Nextcloud](#nextcloud)
+  - [Despliegues disponibles](#despliegues-disponibles)
+    - [Vault](#vault)
+    - [Nextcloud](#nextcloud)
 
-## Lanzar un deploy
-
-```bash
-cd <directory>
-docker-compose up -d
-```
-
-Si el fichero `docker-compose.yml` tuviera otro nombre:
+Para `docker-compose`, hay que ejecutar el siguiente comando:
 
 ```bash
-cd <directory>
-docker-compose -f vault.yml up -d
+cd ansible
+ansible-playbook install.yml -t install_docker --ask-bacome-pass
 ```
 
-## Vault + Consul
+## Despliegues disponibles
 
-## Nextcloud
+| **SUBDIRECTORIO** | **DESCRIPCIÓN** |
+|-------------------|-----------------|
+| [vault](docker_deploys/vault) | Despliegue de `Vault` usando `Consul` como backend e incluyendo interfaz web y backup de datos |
+| [nextcloud](docker_deploys/nextcloud) | Despliegue de `Nextcloud` con `MariaDB` como base de datos |
+
+### Vault
+
+### Nextcloud

@@ -2,7 +2,7 @@
   - [Ejecución](#ejecución)
   - [Documentación](#documentación)
 - [Despliegue de aplicaciones con Docker](#despliegue-de-aplicaciones-con-docker)
-  - [Despliegues disponibles](#despliegues-disponibles)
+  - [Lanzar un deploy](#lanzar-un-deploy)
   - [Documentación](#documentación-1)
 
 
@@ -19,6 +19,13 @@ cd ansible
 ansible-playbook install.yml --ask-become-pass
 ```
 
+Si el fichero `docker-compose.yml` tuviera otro nombre:
+
+```bash
+cd <directory>
+docker-compose -f vault.yml up -d
+```
+
 ## Documentación
 
 | **WARNING**: [La documentación de esta sección está disponible aquí](ansible/README.md) |
@@ -26,19 +33,21 @@ ansible-playbook install.yml --ask-become-pass
 
 # Despliegue de aplicaciones con Docker
 
-Dentro del directorio [docker_deploys](docker_deploys) se encuentra, organizado en subdirectorios, el despliegue de diversas aplicaciones usando **Docker** mediante el uso de la herramienta `docker-compose`. Para instalarla, puede ejecutar el siguiente comando:
+Dentro del directorio [docker_deploys](docker_deploys) se encuentra, organizado en subdirectorios, el despliegue de diversas aplicaciones usando **Docker** mediante el uso de la herramienta `docker-compose`.
+
+## Lanzar un deploy
 
 ```bash
-cd ansible
-ansible-playbook install.yml -t install_docker --ask-bacome-pass
+cd <directory>
+docker-compose up -d
 ```
 
-## Despliegues disponibles
+Si el fichero `docker-compose.yml` tuviera otro nombre:
 
-| **SUBDIRECTORIO** | **DESCRIPCIÓN** |
-|-------------------|-----------------|
-| [./vault](docker_deploys/vault) | Despliegue de `Vault` usando `Consul` como backend e incluyendo interfaz web y backup de datos |
-| [./nextcloud](docker_deploys/nextcloud) | Despliegue de `Nextcloud` con `MariaDB` como base de datos |
+```bash
+cd <directory>
+docker-compose -f vault.yml up -d
+```
 
 ## Documentación
 
