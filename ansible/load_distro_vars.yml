@@ -1,14 +1,24 @@
 ---
 
+- name: "Set compatible distributions"
+  set_fact:
+    ubuntu_based:
+      - "Ubuntu"
+      - "Fedora"
+      - "Linux Mint"
+      - "KDE neon"
+    fedora_based:
+      - fedora
+
 - name: "[UBUNTU] Set LINUX_DISTRIBUTION variable"
   set_fact:
     linux_distribution: "ubuntu"
-  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Linux Mint"
+  when: ansible_distribution in ubuntu_based
 
 - name: "[FEDORA] Set LINUX_DISTRIBUTION variable"
   set_fact:
     linux_distribution: "fedora"
-  when: ansible_distribution == "Fedora"
+  when: ansible_distribution in fedora_based
 
 - name: "Get Ubuntu CODENAME"
   shell: grep UBUNTU_CODENAME /etc/os-release | awk -F\= '{ print $2 }'
@@ -37,3 +47,17 @@
   set_fact:
     fedora_version: "{{ ansible_distribution_version }}"
   when: linux_distribution == "fedora"
+
+- name: "[KDE] Set DESKTOP_ENVIRONMENT variable"
+  set_fact:
+    desktop_environment: "kde"
+  when:
+    - ansible_env.XDG_CURRENT_DESKTOP is defined
+    - "'KDE' in ansible_env.XDG_CURRENT_DESKTOP"
+
+- name: "[GNOME] Set DESKTOP_ENVIRONMENT variable"
+  set_fact:
+    desktop_environment: "gnome"
+  when:
+    - ansible_env.XDG_CURRENT_DESKTOP is defined
+    - "'GNOME' in ansible_env.XDG_CURRENT_DESKTOP or 'Cinnamon' in ansible_env.XDG_CURRENT_DESKTOP"

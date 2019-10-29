@@ -1,6 +1,0 @@
----
-
-- include_vars:
-    file: "{{ linux_distribution | lower }}.yml"
-
-- include_tasks: "install_packages_{{ linux_distribution }}.yml"

@@ -1,0 +1,9 @@
+---
+
+kde_packages:
+  - kgpg
+  - konsole
+  - yakuake
+  - ktorrent
+  - kate
+  - kompare

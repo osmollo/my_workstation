@@ -11,12 +11,31 @@
     - common
     - disable_selinux
 
-- include_tasks: install_packages.yml
+- include_vars:
+    file: "{{ item }}"
+  loop:
+    - "{{ linux_distribution | lower }}.yml"
+    - "{{ desktop_environment | lower }}.yml"
   tags:
     - common
     - install_packages
 
-- include_tasks: "ansible_{{ linux_distribution }}.yml"
+- include_tasks:
+    file: "install_packages_{{ linux_distribution }}.yml"
+    apply:
+      tags:
+        - common
+        - install_packages
+  tags:
+    - common
+    - install_packages
+
+- include_tasks:
+    file: "ansible_{{ linux_distribution }}.yml"
+    apply:
+      tags:
+        - common
+        - ansible
   tags:
     - common
     - ansible

@@ -2,16 +2,34 @@
 
 - name: "[FEDORA] Install common packages"
   yum:
-    name: "{{ common_packages | list }}"
+    name: "{{ common_packages }}"
     state: latest
     update_cache: true
 
 - name: "[FEDORA] Install Fedora packages"
   yum:
-    name: "{{ distro_packages | list }}"
+    name: "{{ distro_packages }}"
     state: latest
     update_cache: true
 
-- include_tasks: vlc_fedora.yml
+- name: "[FEDORA] Install Gnome packages"
+  yum:
+    name: "{{ gnome_fedora_packages }} + {{ gnome_packages }}"
+    state: latest
+    update_cache: true
+  when: desktop_environment == "gnome"
+
+- name: "[FEDORA] Install KDE packages"
+  yum:
+    name: "{{ kde_packages }}"
+    state: latest
+    update_cache: true
+  when: desktop_environment == "kde"
+
+- include_tasks:
+    file: vlc_fedora.yml
+    apply:
+      tags:
+        - vlc
   tags:
     - vlc

@@ -1,0 +1,9 @@
+---
+
+gnome_packages:
+  - seahorse
+  - gedit-plugins
+  - tilix
+  - meld
+  - dconf-editor
+  - terminator

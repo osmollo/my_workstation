@@ -6,8 +6,6 @@ distro_packages:
   - software-properties-common
   - apt-transport-https
   - vlc
-  - network-manager-openvpn
-  - network-manager-openvpn-gnome
   - openvpn
   - libsecret-tools
   - ubuntu-restricted-extras
@@ -17,3 +15,13 @@ distro_packages:
   - build-essential
   - snap
   - snapd
+
+gnome_ubuntu_packages:
+  - network-manager-openvpn
+  - network-manager-openvpn-gnome
+  - arc-theme
+  - elementary-icon-theme
+  - papirus-icon-theme
+  - gnome-tweaks
+  - python-psutil
+  - python3-psutil
