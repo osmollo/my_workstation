@@ -20,8 +20,11 @@
 
 - name: "check if previous oh_my_zsh exists"
   stat:
-    path: "{{ ansible_env.HOME }}"
+    path: "{{ ansible_env.HOME }}/.oh-my-zsh"
   register: ohmyzshdir_exists
+
+- debug:
+    msg: "{{ohmyzshdir_exists.stat }}"
 
 - name: "Install oh_my_zsh"
   become: false
