@@ -1,7 +1,0 @@
----
-
-- name: "[FEDORA] install KeepassXC package"
-  yum:
-    name: keepassxc
-    state: latest
-    update_cache: true

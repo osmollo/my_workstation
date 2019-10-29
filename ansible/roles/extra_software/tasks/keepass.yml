@@ -1,3 +1,0 @@
----
-
-- include_tasks: "keepass_{{ linux_distribution }}.yml"

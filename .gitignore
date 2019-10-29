@@ -1,6 +1,6 @@
-facts/*
-*.retry
-.vagrant
-.vscode
-.inventory_cache
-*.log
+ansible/facts/*
+ansible/*.retry
+ansible/.vagrant
+ansible/.vscode
+ansible/.inventory_cache
+ansible/*.log

@@ -2,15 +2,15 @@
 
 - name: "Unarchive ecs-cli"
   unarchive:
-    src: "{{ ecs_cli_url }}"
+    src: "{{ ecs_cli_package }}"
     dest: /tmp
-    remote_src: true
 
 - name: "Move ecs binary to /usr/local/bin"
   copy:
     src: /tmp/ecs-cli.linux
     dest: /usr/local/bin/ecs-cli
     mode: 0755
+    remote_src: true
 
 - name: "Delete temporal files"
   file:

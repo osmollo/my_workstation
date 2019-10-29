@@ -1,3 +1,0 @@
----
-
-- include_tasks: "spotify_{{ linux_distribution }}.yml"

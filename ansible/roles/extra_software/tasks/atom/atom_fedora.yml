@@ -1,0 +1,6 @@
+---
+
+- name: "[FEDORA] Install Atom"
+  yum:
+    name: "{{ atom_fedora_package }}"
+    state: present

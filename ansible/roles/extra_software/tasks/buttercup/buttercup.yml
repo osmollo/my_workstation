@@ -1,0 +1,17 @@
+---
+
+- name: "Get latest version of buttercup"
+  uri:
+    url: "{{ buttercup_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: buttercup_latest
+
+- name: "Set urls for buttercup packages"
+  vars:
+    buttercup_version: "{{ buttercup_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    buttercup_fedora_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop-{{ buttercup_version | replace('v', '') }}.x86_64.rpm"
+    buttercup_ubuntu_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop_{{ buttercup_version | replace('v', '') }}_amd64.deb"
+
+- include_tasks: "buttercup_{{ linux_distribution }}.yml"
