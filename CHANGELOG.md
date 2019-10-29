@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.7,1](#171)
   - [1.7](#17)
   - [1.6.4.3](#1643)
   - [1.6.4.2](#1642)
@@ -24,6 +25,11 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.7,1
+
+* Se han agrupado en subdirectorios los ficheros de la ruta `roles/extra_software/tasks`
+* Se ha corregido un error de instalación de `ecs`
 
 ## 1.7
 
