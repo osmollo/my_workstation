@@ -1,6 +1,0 @@
----
-
-- name: "[FEDORA] Install chromium browser"
-  yum:
-    name: "{{ chromium_package }}"
-    state: latest

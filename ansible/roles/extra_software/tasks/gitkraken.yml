@@ -1,6 +1,0 @@
----
-
-- include_vars:
-    file: "{{ linux_distribution }}.yml"
-
-- include_tasks: "gitkraken_{{ linux_distribution }}.yml"

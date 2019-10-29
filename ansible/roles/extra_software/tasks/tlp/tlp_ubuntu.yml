@@ -1,0 +1,24 @@
+---
+
+- name: "[UBUNTU] Add TLP repository"
+  apt_repository:
+    repo: ppa:nginx/stable
+    state: present
+    codename: "{{ ubuntu_codename }}"
+
+- name: "[UBUNTU] Install common TLP packages"
+  apt:
+    name:
+      - tlp
+      - tlp-rdw
+    state: latest
+    update_cache: true
+
+- name: "[UBUNTU] Install TLP packages for ThinkPads"
+  apt:
+    name:
+      - tp-smapi-dkms
+      - acpi-call-dkms
+    state: latest
+    update_cache: true
+  when: "'ThinkPad' in ansible_product_version"

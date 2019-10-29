@@ -1,0 +1,22 @@
+---
+
+- name: "[UBUNTU] Copy repository file"
+  copy:
+    src: windscribe.list
+    dest: /etc/apt/sources.list.d/windscribe.list
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "[UBUNTU] Import windscribe repository key"
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: FDC247B7
+    state: present
+    validate_certs: false
+
+- name: "[UBUNTU] install windscribe package"
+  apt:
+    name: windscribe-cli
+    state: latest
+    update_cache: true

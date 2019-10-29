@@ -1,3 +1,0 @@
----
-
-- include_tasks: "skype_{{ linux_distribution }}.yml"

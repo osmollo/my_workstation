@@ -1,3 +1,0 @@
----
-
-- include_tasks: "pycharm_{{ linux_distribution }}.yml"

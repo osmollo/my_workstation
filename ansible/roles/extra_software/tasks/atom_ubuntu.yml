@@ -1,6 +1,0 @@
----
-
-- name: "[UBUNTU] Install Atom"
-  apt:
-    deb: "{{ atom_ubuntu_package }}"
-    state: present

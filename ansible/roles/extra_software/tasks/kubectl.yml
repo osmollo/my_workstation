@@ -1,3 +1,0 @@
----
-
-- include_tasks: "kubectl_{{ linux_distribution }}.yml"

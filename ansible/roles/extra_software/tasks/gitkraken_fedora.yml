@@ -1,6 +1,0 @@
----
-
-- name: "[FEDORA] Install Gitkraken"
-  yum:
-    name: "{{ gitkraken_package }}"
-    state: present

@@ -1,0 +1,6 @@
+---
+
+- name: "[UBUNTU] Install Dropbox package"
+  apt:
+    deb: "{{ dropbox_package }}"
+    state: present

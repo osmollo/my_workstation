@@ -1,6 +1,0 @@
----
-
-- name: "[UBUNTU] Install chromium browser"
-  apt:
-    name: "{{ chromium_package }}"
-    state: latest

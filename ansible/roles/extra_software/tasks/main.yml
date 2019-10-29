@@ -16,21 +16,21 @@
     - install_franz
 
 - name: "---[INSTALL]--- docker"
-  import_tasks: docker.yml
+  import_tasks: docker/docker.yml
   when: install_docker
   tags:
     - extra_software
     - install_docker
 
 - name: "---[INSTALL]--- dropbox"
-  import_tasks: dropbox.yml
+  import_tasks: dropbox/dropbox.yml
   when: install_dropbox
   tags:
     - extra_software
     - install_dropbox
 
 - name: "---[INSTALL]--- Visual Studio Code"
-  import_tasks: code.yml
+  import_tasks: code/code.yml
   when: install_code
   tags:
     - extra_software
@@ -38,7 +38,7 @@
     - install_editors
 
 - name: "---[INSTALL]--- Spotify"
-  import_tasks: spotify.yml
+  import_tasks: spotify/spotify.yml
   when: install_spotify
   tags:
     - extra_software
@@ -52,7 +52,7 @@
     - install_ohmyzsh
 
 - name: "---[INSTALL]--- Sublime Text"
-  import_tasks: sublime.yml
+  import_tasks: sublime/sublime.yml
   when: install_sublime
   tags:
     - extra_software
@@ -60,7 +60,7 @@
     - install_editors
 
 - name: "---[INSTALL]--- Atom"
-  import_tasks: atom.yml
+  import_tasks: atom/atom.yml
   when: install_atom
   tags:
     - extra_software
@@ -68,14 +68,14 @@
     - install_editors
 
 - name: "---[INSTALL]--- Gitkraken"
-  import_tasks: gitkraken.yml
+  import_tasks: gitkraken/gitkraken.yml
   when: install_gitkraken
   tags:
     - extra_software
     - install_gitkraken
 
 - name: "---[INSTALL]--- Telegram"
-  import_tasks: telegram.yml
+  import_tasks: telegram/telegram.yml
   when: install_telegram
   tags:
     - extra_software
@@ -83,7 +83,7 @@
     - install_socials
 
 - name: "---[INSTALL]--- Slack"
-  import_tasks: slack.yml
+  import_tasks: slack/slack.yml
   when: install_slack
   tags:
     - extra_software
@@ -91,7 +91,7 @@
     - install_socials
 
 - name: "---[INSTALL]--- Forticlient VPN"
-  import_tasks: forticlientvpn.yml
+  import_tasks: forticlientvpn/forticlientvpn.yml
   when: install_forticlientvpn
   tags:
     - extra_software
@@ -99,21 +99,21 @@
     - install_vpnclient
 
 - name: "---[INSTALL]--- TLP"
-  import_tasks: tlp.yml
+  import_tasks: tlp/tlp.yml
   when: install_tlp
   tags:
     - extra_software
     - install_tlp
 
 - name: "---[INSTALL]--- Virtualbox"
-  import_tasks: virtualbox.yml
+  import_tasks: virtualbox/virtualbox.yml
   when: install_virtualbox
   tags:
     - extra_software
     - install_virtualbox
 
 - name: "---[INSTALL]--- PyCharm"
-  import_tasks: pycharm.yml
+  import_tasks: pycharm/pycharm.yml
   when: install_pycharm
   tags:
     - extra_software
@@ -121,7 +121,7 @@
     - install_editors
 
 - name: "---[INSTALL]--- Keepass"
-  import_tasks: keepass.yml
+  import_tasks: keepass/keepass.yml
   when: install_keepass
   tags:
     - extra_software
@@ -129,7 +129,7 @@
     - install_pass_managers
 
 - name: "---[INSTALL]--- Buttercup"
-  import_tasks: buttercup.yml
+  import_tasks: buttercup/buttercup.yml
   when: install_buttercup
   tags:
     - extra_software
@@ -137,7 +137,7 @@
     - install_pass_managers
 
 - name: "---[INSTALL]--- Windscribe client"
-  import_tasks: windscribe.yml
+  import_tasks: windscribe/windscribe.yml
   when: install_windscribe
   tags:
     - extra_software
@@ -145,21 +145,21 @@
     - install_vpnclient
 
 - name: "---[INSTALL]--- Google Chrome"
-  import_tasks: chrome.yml
+  import_tasks: chrome/chrome.yml
   when: install_chrome
   tags:
     - extra_software
     - install_chrome
 
 - name: "---[INSTALL]--- Teamviewer"
-  import_tasks: teamviewer.yml
+  import_tasks: teamviewer/teamviewer.yml
   when: install_teamviewer
   tags:
     - extra_software
     - install_teamviewer
 
 - name: "---[INSTALL]--- No Machine"
-  import_tasks: nomachine.yml
+  import_tasks: nomachine/nomachine.yml
   when: install_nomachine
   tags:
     - extra_software
@@ -174,21 +174,21 @@
     - install_ecs
 
 - name: "---[INSTALL]--- Postman"
-  import_tasks: postman.yml
+  import_tasks: postman/postman.yml
   when: install_postman
   tags:
     - extra_software
     - install_postman
 
 - name: "---[INSTALL]--- Skype"
-  import_tasks: skype.yml
+  import_tasks: skype/skype.yml
   when: install_skype
   tags:
     - extra_software
     - install_skype
 
 - name: "---[INSTALL]--- Java"
-  import_tasks: java.yml
+  import_tasks: java/java.yml
   when: install_java
   tags:
     - extra_software
@@ -203,35 +203,35 @@
     - install_apachedirectory
 
 - name: "---[INSTALL]--- Rambox"
-  import_tasks: rambox.yml
+  import_tasks: rambox/rambox.yml
   when: install_rambox
   tags:
     - extra_software
     - install_rambox
 
 - name: "---[INSTALL]--- Franz"
-  import_tasks: franz.yml
+  import_tasks: franz/franz.yml
   when: install_franz
   tags:
     - extra_software
     - install_franz
 
 - name: "---[INSTALL]--- Chromium Browser"
-  import_tasks: chromium.yml
+  import_tasks: chromium/chromium.yml
   when: install_chromium
   tags:
     - extra_software
     - install_chromium
 
 - name: "---[INSTALL]--- Deluge"
-  import_tasks: deluge.yml
+  import_tasks: deluge/deluge.yml
   when: install_deluge
   tags:
     - extra_software
     - install_deluge
 
 - name: "---[INSTALL]--- Cherrytree"
-  import_tasks: cherrytree.yml
+  import_tasks: cherrytree/cherrytree.yml
   when: install_cherrytree
   tags:
     - extra_software
@@ -239,7 +239,7 @@
     - install_editors
 
 - name: "---[INSTALL]--- Kubectl"
-  import_tasks: kubectl.yml
+  import_tasks: kubectl/kubectl.yml
   when: install_kubectl
   tags:
     - extra_software

@@ -1,6 +1,0 @@
----
-
-- name: "[FEDORA] Install rambox"
-  yum:
-    name: "{{ rambox_fedora_package }}"
-    state: present
