@@ -1,13 +1,8 @@
 ---
 
 common_packages:
-  - zeal
   - jq
-  - seahorse
   - vim
-  - gedit-plugins
-  - tilix
-  - meld
   - wireshark
   - sshpass
   - git
@@ -21,8 +16,6 @@ common_packages:
   - unzip
   - ipcalc
   - firewall-config
-  - dconf-editor
-  - terminator
 
 bad_snap_packages:
   - gnome-calculator
