@@ -94,11 +94,25 @@ ansible-playbook install.yml --ask-become-pass -t "install_code,install_dropbox_
 
 ## Prerequisitos
 
-* La distribución del sistema debe ser [Ubuntu](https://ubuntu.com/download/desktop) o [Fedora](https://getfedora.org/es/workstation/)
 * El usuario que ejecute los playbooks debe tener `sudo` activado e incluír `--ask-become-pass` para ejecutar el playbook con permisos de administrador
-* Las tareas de este repositorio se ejecutan en local, por lo que para poder ejecutar los playbooks es necesario tener instalado `git` y `ansible`
-* En la post instalación, se crearán enlaces simbólicos desde el directorio */home/{{ ansible_user }}/Dropbox/datio*, será necesario modificar este directorio si no es correcto
-* Para poder instalar *Telegram* o *Spotify*, es necesario tener actualizado **Ansible** a la versión 2.6 o superior. Para ello hay que ejecutar el siguiente playbook:
+* Las tareas de este repositorio se ejecutan en local, por lo que para poder ejecutar los playbooks es necesario tener instalado `git` y `ansible`:
+
+```bash
+# Para Fedora
+sudo dnf install git ansible
+
+# Para Ubuntu
+sudo apt install git fedora
+```
+
+A continuación habrá que clonar este repositorio (da igual el directorio de destino):
+
+```bash
+git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
+cd /tmp/repo/ansible
+```
+
+Y actualizamos `Ansible` a la última versión:
 
 ```bash
 ansible-playbook update_ansible.yml --ask-become-pass
