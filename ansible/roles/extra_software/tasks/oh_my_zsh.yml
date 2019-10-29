@@ -23,9 +23,6 @@
     path: "{{ ansible_env.HOME }}/.oh-my-zsh"
   register: ohmyzshdir_exists
 
-- debug:
-    msg: "{{ohmyzshdir_exists.stat }}"
-
 - name: "Install oh_my_zsh"
   become: false
   become_user: "{{ ansible_user }}"

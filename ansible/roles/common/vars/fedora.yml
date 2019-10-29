@@ -4,23 +4,10 @@ distro_packages:
   - libsecret
   - openvpn
   - NetworkManager-openvpn
-  - NetworkManager-openvpn-gnome
-  - openvpn
-  - NetworkManager-openvpn
-  - NetworkManager-openvpn-gnome
   - libsecret
   - net-tools
   - bind-utils
   - flatpak
-  # - gstreamer1-libav
-  # - gstreamer1-plugins-good-extras
-  # - gstreamer1-plugins-ugly
-  # - gstreamer-ffmpeg
-  # - gstreamer-plugins-bad
-  # - gstreamer-plugins-bad-free-extras
-  # - gstreamer-plugins-bad-nonfree
-  # - gstreamer-plugins-ugly
-  # - gstreamer1-plugins-base-tools
   - system-config-users
   - python-devel
   - python3-devel
@@ -29,3 +16,13 @@ distro_packages:
   - gcc
   - gcc-c++
   - kernel-devel
+
+gnome_fedora_packages:
+  - NetworkManager-openvpn-gnome
+  - NetworkManager-openvpn-gnome
+  - arc-theme
+  - elementary-icon-theme
+  - papirus-icon-theme
+  - gnome-tweaks
+  - python2-psutil
+  - python3-psutil

@@ -2,12 +2,26 @@
 
 - name: "[UBUNTU] Install common packages"
   apt:
-    name: "{{ common_packages | list }}"
+    name: "{{ common_packages }}"
     state: latest
     update_cache: true
 
 - name: "[UBUNTU] Install Ubuntu packages"
   apt:
-    name: "{{ distro_packages | list }}"
+    name: "{{ distro_packages }}"
     state: latest
     update_cache: true
+
+- name: "[UBUNTU] Install Gnome packages"
+  yum:
+    name: "{{ gnome_ubuntu_packages }} + {{ gnome_packages }}"
+    state: latest
+    update_cache: true
+  when: desktop_environment == "gnome"
+
+- name: "[UBUNTU] Install KDE packages"
+  yum:
+    name: "{{ kde_packages }}"
+    state: latest
+    update_cache: true
+  when: desktop_environment == "kde"
