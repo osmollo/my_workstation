@@ -31,7 +31,14 @@
 ## 1.8
 
 * Soporte para KDE
+  * Definición de la variable `desktop_environment` para que tome el contenido `gnome` o `kde`
+  * Instalación de paquetes de **Gnome** o **KDE** en función del escritorio utilizado
+  * Se simplifica la invocación a `install_packages.yml` desde `roles/common/tasks/main.yml`
+  * Corrección de errores en `include_tasks` cuyas subtareas no cogían los tags correctamente
+  * Refactor de variables inferidas para distribuciones basadas en **Ubuntu**/**Fedora
 * Nueva instancia de vagrant para `Kubuntu 18.04`
+* `ansible_hosts` ya no es el inventario por defecto sino que se tiene que especificar cuando se quiere configurar una instancia de `vagrant`
+* README.md actualizado con distribuciones compatibles
 
 ## 1.7.2
 
