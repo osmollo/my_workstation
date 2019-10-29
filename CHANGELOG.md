@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.8](#18)
   - [1.7.2](#172)
   - [1.7.1](#171)
   - [1.7](#17)
@@ -26,6 +27,11 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.8
+
+* Soporte para KDE
+* Nueva instancia de vagrant para `Kubuntu 18.04`
 
 ## 1.7.2
 
