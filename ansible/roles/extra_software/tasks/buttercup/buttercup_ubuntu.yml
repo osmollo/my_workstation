@@ -1,0 +1,6 @@
+---
+
+- name: "[UBUNTU] Install buttercup"
+  apt:
+    deb: "{{ buttercup_ubuntu_package }}"
+    state: present
