@@ -8,7 +8,6 @@ distro_packages:
   - vlc
   - openvpn
   - libsecret-tools
-  - ubuntu-restricted-extras
   - dnsutils
   - python-dev
   - python3-dev
@@ -17,6 +16,7 @@ distro_packages:
   - snapd
 
 gnome_ubuntu_packages:
+  - ubuntu-restricted-extras
   - network-manager-openvpn
   - network-manager-openvpn-gnome
   - arc-theme
@@ -25,3 +25,6 @@ gnome_ubuntu_packages:
   - gnome-tweaks
   - python-psutil
   - python3-psutil
+
+kde_ubuntu_packages:
+  - kubuntu_restricted_extras

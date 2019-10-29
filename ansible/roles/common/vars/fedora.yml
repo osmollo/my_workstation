@@ -26,3 +26,5 @@ gnome_fedora_packages:
   - gnome-tweaks
   - python2-psutil
   - python3-psutil
+
+kde_fedora_packages: []
