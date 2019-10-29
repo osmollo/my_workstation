@@ -8,7 +8,7 @@
       - "Linux Mint"
       - "KDE neon"
     fedora_based:
-      - fedora
+      - "Fedora"
 
 - name: "[UBUNTU] Set LINUX_DISTRIBUTION variable"
   set_fact:
