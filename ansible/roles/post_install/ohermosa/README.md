@@ -11,7 +11,7 @@
 | **post_install** | Ejecuta el role completo |
 | **post_del_default_dirs** | Borra los directorios predeterminados en `$HOME` que se crean en la instalación |
 | **post_gnome_extensions** | Instala extensiones de Gnome disponibles en el repositorio |
-| **post_conf** | Restaura la configuración de gnome guardada en **Dropbox** y obtenida con `dconf dump /` |
+| **post_gnome_conf** | Restaura la configuración de gnome guardada en **Dropbox** y obtenida con `dconf dump /` |
 | **post_gnome** | Ejecuta todas las tareas relacionadas con gnome (`post_gnome_packages`, `post_gnome_extensions` y `post_gnome_conf`) |
 | **post_docker** | Restaura de **Dropbox** los login en repositorios de Docker y la configuración del demonio `docker` |
 | **post_crontab** | Restaura de **Dropbox** el crontab del usuario |
