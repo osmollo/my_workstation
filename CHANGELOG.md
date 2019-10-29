@@ -30,6 +30,7 @@
 ## 1.7.2
 
 * Fix en la instalación de `Oh my Zsh!`
+* Se configura en `ansible.cfg` que no se compruebe la llave ssh del host
 
 ## 1.7.1
 
