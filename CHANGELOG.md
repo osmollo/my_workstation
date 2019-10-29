@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.8.1](#181)
   - [1.8](#18)
   - [1.7.2](#172)
   - [1.7.1](#171)
@@ -27,6 +28,12 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.8.1
+
+* Documentacion "primeros pasos" en README
+* Definición de `kde_ubuntu_packages` y `kde_gnome_packages`
+* Añadido posible mensaje de dropbox sincronizado en inglés para tareas dependientes (`dropbox_response.rc` es 0 tanto si está actualizado como si está sincronizando, así que hay que poner el mensaje de respuesta a fuego)
 
 ## 1.8
 
