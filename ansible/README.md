@@ -2,6 +2,7 @@
 
 - [Ansible](#ansible)
   - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
+  - [Distribuciones soportadas](#distribuciones-soportadas)
   - [Software extra instalado](#software-extra-instalado)
   - [Prerequisitos](#prerequisitos)
   - [Actualización de paquetes](#actualización-de-paquetes)
@@ -29,10 +30,19 @@ Y entre el último tag y el último commit:
 git log --pretty=oneline HEAD...tag
 ```
 
-## Software extra instalado
+## Distribuciones soportadas
 
-| **WARNING**: Estos playbooks se han probado únicamente en **Ubuntu 18.04**, **Fedora 30** y **Linux Mint 19** |
-| --- |
+Las distribuciones en las que se han probado estas configuraciones son las siguientes:
+
+| **DISTRIBUCIÓN** | **DESCARGA** |
+|------------------|--------------|
+| Ubuntu 18.04 | http://releases.ubuntu.com/18.04.3/ubuntu-18.04.3-desktop-amd64.iso |
+| Kubuntu 18.04 | http://cdimage.ubuntu.com/kubuntu/releases/18.04/release/kubuntu-18.04.3-desktop-amd64.iso |
+| Fedora 30/31 | https://download.fedoraproject.org/pub/fedora/linux/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso |
+| Linux Mint 19 | https://mirror.dogecloud.org/Linux/Mint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso |
+| KDE Neon | https://files.kde.org/neon/images/user/20191024-1119/neon-user-20191024-1119.iso |
+
+## Software extra instalado
 
 Por defecto se instala el siguiente software:
 
