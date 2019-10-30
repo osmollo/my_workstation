@@ -41,6 +41,7 @@ Las distribuciones en las que se han probado estas configuraciones son las sigui
 | Fedora 30/31 | https://download.fedoraproject.org/pub/fedora/linux/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso |
 | Linux Mint 19 | https://mirror.dogecloud.org/Linux/Mint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso |
 | KDE Neon | https://files.kde.org/neon/images/user/20191024-1119/neon-user-20191024-1119.iso |
+| Arch Linux | https://www.archlinux.org/releng/releases/2019.10.01/torrent/ |
 
 ## Software extra instalado
 
