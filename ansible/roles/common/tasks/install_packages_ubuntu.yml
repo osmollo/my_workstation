@@ -14,7 +14,7 @@
 
 - name: "[UBUNTU] Install Gnome packages"
   yum:
-    name: "{{ gnome_ubuntu_packages }} + {{ gnome_packages }}"
+    name: "{{ gnome_packages }} + {{ gnome_ubuntu_packages }} + {{ kde_ubuntu_packages }}"
     state: latest
     update_cache: true
   when: desktop_environment == "gnome"
