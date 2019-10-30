@@ -9,6 +9,8 @@
       - "KDE neon"
     fedora_based:
       - "Fedora"
+    arch_based:
+      - "Archlinux"
 
 - name: "[UBUNTU] Set LINUX_DISTRIBUTION variable"
   set_fact:
@@ -19,6 +21,11 @@
   set_fact:
     linux_distribution: "fedora"
   when: ansible_distribution in fedora_based
+
+- name: "[ARCH] Set LINUX_DISTRIBUTION variable"
+  set_fact:
+    linux_distribution: "arch"
+  when: ansible_distribution in arch_based
 
 - name: "Get Ubuntu CODENAME"
   shell: grep UBUNTU_CODENAME /etc/os-release | awk -F\= '{ print $2 }'
