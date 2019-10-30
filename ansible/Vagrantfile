@@ -45,4 +45,9 @@ Vagrant.configure("2") do |config|
     node.vm.box = "bento/fedora-30"
     node.vm.network :private_network, ip: "192.168.56.202"
   end
+
+  config.vm.define 'arch' do |node|
+    node.vm.box = "archlinux/archlinux"
+    node.vm.network :private_network, ip: "192.168.56.204"
+  end
 end
