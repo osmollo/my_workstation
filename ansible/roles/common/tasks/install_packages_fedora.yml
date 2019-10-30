@@ -14,7 +14,7 @@
 
 - name: "[FEDORA] Install Gnome packages"
   yum:
-    name: "{{ gnome_fedora_packages }} + {{ gnome_packages }}"
+    name: "{{ gnome_packages }} + {{ gnome_fedora_packages }} + {{ kde_fedora_packages }}"
     state: latest
     update_cache: true
   when: desktop_environment == "gnome"
