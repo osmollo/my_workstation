@@ -14,6 +14,9 @@ distro_packages:
   - build-essential
   - snap
   - snapd
+  - wireshark
+  - firewall-config
+
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras
