@@ -53,18 +53,6 @@
     - post_sublime
     - post_apachedirectory
 
-- debug:
-    msg: "{{ dropbox_response }}"
-  tags:
-    - post_install
-    - post_docker
-    - post_crontab
-    - post_environment
-    - post_sublime
-    - post_vpn
-    - post_sublime
-    - post_apachedirectory
-
 - import_tasks: docker.yml
   when: dropbox_response.stdout == "Actualizado" or dropbox_response.stdout == "Up to date"
   tags:
