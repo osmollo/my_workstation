@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.8.4](#184)
   - [1.8.3](#183)
   - [1.8.2](#182)
   - [1.8.1](#181)
@@ -30,6 +31,10 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.8.4
+
+- Nuevos perfiles de red wifi en `post_install` de **ohermosa**
 
 ## 1.8.3
 
