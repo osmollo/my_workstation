@@ -47,8 +47,14 @@
 
     - name: "Change permissions to files in .ssh"
       file:
-        dest: "{{ ansible_user_dir }}/.ssh/*"
+        dest: "*"
         mode: 0600
+      loop:
+        - "{{ ansible_user_dir }}/.ssh/id_rsa*"
+        - "{{ ansible_user_dir }}/.ssh/thinkpad*"
+        - "{{ ansible_user_dir }}/.ssh/ccr/*"
+        - "{{ ansible_user_dir }}/.ssh/aws/*"
+        - "{{ ansible_user_dir }}/.ssh/config"
 
     - name: "Create link to Oh my zsh! theme directory in Dropbox"
       file:
