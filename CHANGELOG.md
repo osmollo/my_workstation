@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.8.5](#185)
   - [1.8.4](#184)
   - [1.8.3](#183)
   - [1.8.2](#182)
@@ -31,6 +32,13 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.8.5
+
+- Se clona este mismo repositorio en el directorio `$HOME/git`
+- Fix permisos en el directorio `.ssh` en el tag `post_environment`
+- Corrección de errores en el tag `install_packages`
+- Corrección de error en tag `post_git`
 
 ## 1.8.4
 
