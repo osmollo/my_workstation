@@ -49,6 +49,7 @@
     - post_crontab
     - post_environment
     - post_sublime
+    - post_git
     - post_apachedirectory
 
 - import_tasks: docker.yml
