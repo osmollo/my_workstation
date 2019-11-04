@@ -30,4 +30,4 @@ gnome_ubuntu_packages:
   - python3-psutil
 
 kde_ubuntu_packages:
-  - kubuntu_restricted_extras
+  - kubuntu-restricted-extras
