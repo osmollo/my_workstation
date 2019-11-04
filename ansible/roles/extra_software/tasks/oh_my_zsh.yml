@@ -36,3 +36,9 @@
   user:
     name: "{{ ansible_user }}"
     shell: /usr/bin/zsh
+
+- name: "ZSH config for snap apps in KDE menu"
+  lineinfile:
+    path: /etc/zsh/zprofile
+    line: "emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'"
+  when: desktop_environment == "kde"

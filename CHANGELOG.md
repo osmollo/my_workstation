@@ -1,6 +1,8 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.8.3](#183)
+  - [1.8.2](#182)
   - [1.8.1](#181)
   - [1.8](#18)
   - [1.7.2](#172)
@@ -29,159 +31,170 @@
   - [1.0.1](#101)
   - [1.0](#10)
 
+## 1.8.3
+
+- Generación aleatoria del UUID de los perfiles para las VPNs del NetworkManager en el `post_install` de **ohermosa**
+
+## 1.8.2
+
+- Instalación de `net-tools` en ubuntu
+- Eliminado debug en `post_install/ohermosa/tasks/main.yml`
+- Configuración de ZSH para que las apps snap aparezcan en el menú KDE
+- Instalación de `network-manager-openvpn` en paquetes de **Ubuntu** (es común para **GNOME** y **KDE**)
+
 ## 1.8.1
 
-* Documentacion "primeros pasos" en README
-* Definición de `kde_ubuntu_packages` y `kde_gnome_packages`
-* Añadido posible mensaje de dropbox sincronizado en inglés para tareas dependientes (`dropbox_response.rc` es 0 tanto si está actualizado como si está sincronizando, así que hay que poner el mensaje de respuesta a fuego)
+- Documentacion "primeros pasos" en README
+- Definición de `kde_ubuntu_packages` y `kde_gnome_packages`
+- Añadido posible mensaje de dropbox sincronizado en inglés para tareas dependientes (`dropbox_response.rc` es 0 tanto si está actualizado como si está sincronizando, así que hay que poner el mensaje de respuesta a fuego)
 
 ## 1.8
 
-* Soporte para KDE
-  * Definición de la variable `desktop_environment` para que tome el contenido `gnome` o `kde`
-  * Instalación de paquetes de **Gnome** o **KDE** en función del escritorio utilizado
-  * Se simplifica la invocación a `install_packages.yml` desde `roles/common/tasks/main.yml`
-  * Corrección de errores en `include_tasks` cuyas subtareas no cogían los tags correctamente
-  * Refactor de variables inferidas para distribuciones basadas en **Ubuntu**/**Fedora
-* Nueva instancia de vagrant para `Kubuntu 18.04`
-* `ansible_hosts` ya no es el inventario por defecto sino que se tiene que especificar cuando se quiere configurar una instancia de `vagrant`
-* README.md actualizado con distribuciones compatibles
+- Soporte para KDE
+  - Definición de la variable `desktop_environment` para que tome el contenido `gnome` o `kde`
+  - Instalación de paquetes de **Gnome** o **KDE** en función del escritorio utilizado
+  - Se simplifica la invocación a `install_packages.yml` desde `roles/common/tasks/main.yml`
+  - Corrección de errores en `include_tasks` cuyas subtareas no cogían los tags correctamente
+  - Refactor de variables inferidas para distribuciones basadas en **Ubuntu**/**Fedora
+- Nueva instancia de vagrant para `Kubuntu 18.04`
+- `ansible_hosts` ya no es el inventario por defecto sino que se tiene que especificar cuando se quiere configurar una instancia de `vagrant`
+- README.md actualizado con distribuciones compatibles
 
 ## 1.7.2
 
-* Fix en la instalación de `Oh my Zsh!`
-* Se configura en `ansible.cfg` que no se compruebe la llave ssh del host
+- Fix en la instalación de `Oh my Zsh!`
+- Se configura en `ansible.cfg` que no se compruebe la llave ssh del host
 
 ## 1.7.1
 
-* Se han agrupado en subdirectorios los ficheros de la ruta `roles/extra_software/tasks`
-* Se ha corregido un error de instalación de `ecs`
+- Se han agrupado en subdirectorios los ficheros de la ruta `roles/extra_software/tasks`
+- Se ha corregido un error de instalación de `ecs`
 
 ## 1.7
 
-* Nuevo directorio `docker_deploys` para el despliegue de aplicaciones en local con `Docker`
-* Se ha movido todo lo relacionado con la configuración de la estación de trabajo al directorio `ansible`
+- Nuevo directorio `docker_deploys` para el despliegue de aplicaciones en local con `Docker`
+- Se ha movido todo lo relacionado con la configuración de la estación de trabajo al directorio `ansible`
 
 ## 1.6.4.3
 
-* Añadidos repositorios de la CoP de Python
+- Añadidos repositorios de la CoP de Python
 
 ## 1.6.4.2
 
-* Corregidas las IPs de las instancias vagrant
+- Corregidas las IPs de las instancias vagrant
 
 ## 1.6.4.1
 
-* Corrección de errores tipográficos
-* Ya no se ejecuta por duplicado la tarea de actualización de paquetes cuando se ejecuta el playbook `install.yml`
+- Corrección de errores tipográficos
+- Ya no se ejecuta por duplicado la tarea de actualización de paquetes cuando se ejecuta el playbook `install.yml`
 
 ## 1.6.4
 
-* Importa llaves públicas gpg de ohermosa en el role `post_install`
+- Importa llaves públicas gpg de ohermosa en el role `post_install`
 
 ## 1.6.3
 
-* Instalación de `docker-compose` incluída en la de `docker`
-* Restaura únicamente rutas de `dconf` que contengan la cadena indicada en `extravars`
+- Instalación de `docker-compose` incluída en la de `docker`
+- Restaura únicamente rutas de `dconf` que contengan la cadena indicada en `extravars`
 
 ## 1.6.2
 
-* Instalación de `snap` y `snapd` para distribuciones basadas en **Ubuntu**
+- Instalación de `snap` y `snapd` para distribuciones basadas en **Ubuntu**
 
 ## 1.6.1
 
-* Corrección de errores
+- Corrección de errores
 
 ## 1.6
 
-* Nueva máquina **Linux Mint** en el `Vagrantfile`
-* Se ha creado playbook para definir las variables `linux_distribution`, `ubuntu_codename`, `ubuntu_version` y `fedora_version` para poder trabajar con distribuciones basadas en **Ubuntu** y **Fedora**
-* Se han adaptado todas las tareas para usar las variables definidas anteriormente
-* Correcciones de errores
+- Nueva máquina **Linux Mint** en el `Vagrantfile`
+- Se ha creado playbook para definir las variables `linux_distribution`, `ubuntu_codename`, `ubuntu_version` y `fedora_version` para poder trabajar con distribuciones basadas en **Ubuntu** y **Fedora**
+- Se han adaptado todas las tareas para usar las variables definidas anteriormente
+- Correcciones de errores
 
 ## 1.5
 
-* instalación de kubectl
+- instalación de kubectl
 
 ## 1.4.2
 
-* creacion de ficheros vacíos para vault_pass en el post_install de *ohermosa*
-* nuevos repositorios para clonar en el post_install de *ohermosa*
-* se instala modulo de python `docker-py`
-* documentación para el uso de cifrado de contraseñas en [README.md](README.md)
+- creacion de ficheros vacíos para vault_pass en el post_install de *ohermosa*
+- nuevos repositorios para clonar en el post_install de *ohermosa*
+- se instala modulo de python `docker-py`
+- documentación para el uso de cifrado de contraseñas en [README.md](README.md)
 
 ## 1.4.1
 
-* Se mueve la lista de enlaces a crear en *post_install/environment* a lista de variables
-* Se crea un nuevo enlace para cargar credenciales de `asgard` en el role *post_install*
-* Se crea el directorio `$HOME/python-venv`
-* Se incluyen los paquetes de desarrollo de python2 y python3 para instalar en common
-* Se infiere la variable `ansible_user_dir` en todos los playbooks
+- Se mueve la lista de enlaces a crear en *post_install/environment- a lista de variables
+- Se crea un nuevo enlace para cargar credenciales de `asgard` en el role *post_install*
+- Se crea el directorio `$HOME/python-venv`
+- Se incluyen los paquetes de desarrollo de python2 y python3 para instalar en common
+- Se infiere la variable `ansible_user_dir` en todos los playbooks
 
 ## 1.4
 
-* Instalación de `Cherrytree`
-* CHANGELOG.md para registrar el historial de cambios para cada versión
-* Uso del provider `virtualbox` para `vagrant` en lugar de `libvirt`
-* Fix en el repositorio de `virtualbox` para `fedora`
-* Fix en los box de `vagrant` para `fedora` y `ubuntu`
-* Inventario dinámico para las máquinas de `vagrant`
-* Borrardo de directorios predeterminados en el `$HOME` del usuario tras la instalación del sistema
-* Actualizazción README con el comando para ver commits entre tags
-* Instalación de la última versión de vagrant en ubuntu
+- Instalación de `Cherrytree`
+- CHANGELOG.md para registrar el historial de cambios para cada versión
+- Uso del provider `virtualbox` para `vagrant` en lugar de `libvirt`
+- Fix en el repositorio de `virtualbox` para `fedora`
+- Fix en los box de `vagrant` para `fedora` y `ubuntu`
+- Inventario dinámico para las máquinas de `vagrant`
+- Borrardo de directorios predeterminados en el `$HOME` del usuario tras la instalación del sistema
+- Actualizazción README con el comando para ver commits entre tags
+- Instalación de la última versión de vagrant en ubuntu
 
 ## 1.3.1
 
-* Corrección de errores en la instalación de docker, para **fedora** se estaba instalando virtualbox
+- Corrección de errores en la instalación de docker, para **fedora** se estaba instalando virtualbox
 
 ## 1.3
 
-* Instalación de codecs de autio y paquetes de utilidadeds
-* Instalación de `deluge`
-* Instalación de `chromium`
+- Instalación de codecs de autio y paquetes de utilidadeds
+- Instalación de `deluge`
+- Instalación de `chromium`
 
 ## 1.2.1
 
-* Corregida la ruta de los repositorios para clonar en el post_install de **ohermosa**
-* Corrección de errores en `post_install`
-* Se corrige un problema con la variable `ansible_user` que no era consistente en todas las tasks
+- Corregida la ruta de los repositorios para clonar en el post_install de **ohermosa**
+- Corrección de errores en `post_install`
+- Se corrige un problema con la variable `ansible_user` que no era consistente en todas las tasks
 
 ## 1.2
 
-* Instalación de `franz`
-* Instalación de `rambox`
+- Instalación de `franz`
+- Instalación de `rambox`
 
 ## 1.1
 
-* Instalación de `skype`
-* Instalación de `postman`
-* Instalación de `Java OpenJDK`
-* Instalación de `Apache Directory Studio`
-* post_install de `Apache Directory Studio` para **ohermosa**
+- Instalación de `skype`
+- Instalación de `postman`
+- Instalación de `Java OpenJDK`
+- Instalación de `Apache Directory Studio`
+- post_install de `Apache Directory Studio` para **ohermosa**
 
 ## 1.0.4
 
-* Correcciones en `Vagrantfile` y `README.md`
+- Correcciones en `Vagrantfile` y `README.md`
 
 ## 1.0.3
 
-* Corrección de errores en la instalación de `Ether Cloud Services`
-* Actualización de la versión de `No Machine` y corrección de errores en su instalación
-* Se ha modificado el nombre de las tareas en el fichero *extra_software/tasks/main.yml*
-* Corrección de errores en la instalación de `slack`
-* Se han movido los playbooks para `vagrant` al subdirectorio *./vagrant*
+- Corrección de errores en la instalación de `Ether Cloud Services`
+- Actualización de la versión de `No Machine` y corrección de errores en su instalación
+- Se ha modificado el nombre de las tareas en el fichero *extra_software/tasks/main.yml*
+- Corrección de errores en la instalación de `slack`
+- Se han movido los playbooks para `vagrant` al subdirectorio *./vagrant*
 
 ## 1.0.2
 
-* En **Ubuntu**, `ansible` se instala desde repositorio ppa en lugar de copiar el fichero del repositorio
+- En **Ubuntu**, `ansible` se instala desde repositorio ppa en lugar de copiar el fichero del repositorio
 
 ## 1.0.1
 
-* El repo de `virtualbox` se descarga de internet en lugar de generarse a partir de un template
-* Se define la variable `virtualbox_packages` en base a la distribución usada y se incluyen dependencias para **Fedora**
-* Se modifica la ruta a la llave privada ssh para que sea dinámica en lugar de ir a fuego
-* Se documenta en el README.md cómo se usa Vagrant para pruebas
+- El repo de `virtualbox` se descarga de internet en lugar de generarse a partir de un template
+- Se define la variable `virtualbox_packages` en base a la distribución usada y se incluyen dependencias para **Fedora**
+- Se modifica la ruta a la llave privada ssh para que sea dinámica en lugar de ir a fuego
+- Se documenta en el README.md cómo se usa Vagrant para pruebas
 
 ## 1.0
 
-* Primera versión funcional
+- Primera versión funcional
