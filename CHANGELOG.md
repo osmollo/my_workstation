@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.8.5.1](#1851)
   - [1.8.5](#185)
   - [1.8.4](#184)
   - [1.8.3](#183)
@@ -32,6 +33,10 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.8.5.1
+
+- Primero se instala el módulo de python `setuptools` y luego el resto
 
 ## 1.8.5
 
