@@ -1,0 +1,25 @@
+[connection]
+id=LEXDEFENSA_CLIENTES_5G
+uuid={{ 999999999999999999999 | random | to_uuid }}
+type=wifi
+permissions=user:ohermosa:;
+
+[wifi]
+mac-address=60:57:18:9C:03:6A
+mac-address-blacklist=
+mode=infrastructure
+ssid=LEXDEFENSA_CLIENTES_5G
+
+[wifi-security]
+auth-alg=open
+key-mgmt=wpa-psk
+psk-flags=1
+
+[ipv4]
+dns-search=
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+dns-search=
+method=auto
