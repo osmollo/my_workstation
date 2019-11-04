@@ -49,8 +49,6 @@
     - post_crontab
     - post_environment
     - post_sublime
-    - post_vpn
-    - post_sublime
     - post_apachedirectory
 
 - import_tasks: docker.yml
@@ -93,12 +91,12 @@
     - post_install
     - post_sublime
 
-- import_tasks: vpn.yml
+- import_tasks: network.yml
   become: true
   become_method: sudo
   tags:
     - post_install
-    - post_vpn
+    - post_network
 
 - import_tasks: apachedirectory.yml
   when: dropbox_response.stdout == "Actualizado" or dropbox_response.stdout == "Up to date"
