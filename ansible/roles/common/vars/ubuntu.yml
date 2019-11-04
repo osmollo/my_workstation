@@ -16,6 +16,8 @@ distro_packages:
   - snap
   - snapd
   - net-tools
+  - python3-jmespath
+  - python-jmespath
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras
