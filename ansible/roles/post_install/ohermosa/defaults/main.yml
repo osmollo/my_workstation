@@ -33,6 +33,8 @@ git_repositories:
       dest: "{{ git_dir }}/rootnerds"
     - repo: git@gitlab.com:ohermosa/whopper_bot.git
       dest: "{{ git_dir }}/whopper_bot"
+    - repo: git@gitlab.com:ohermosa/my_workstation.git
+      dest: "{{ git_dir }}/my_workstation"
     - repo: git@gitlab.com:ohermosa/my_k8s.git
       dest: "{{ git_dir }}/my_k8s"
     - repo: git@gitlab.com:ohermosa/kubespray.git
@@ -106,3 +108,11 @@ gpg_keyserver: pool.sks-keyservers.net
 gpg_pub_keys:
   - 3984315D7B289D27BF19B5F2C1FD224DB195D7C9
   - 148410BB2911EF171E1D3AA163A68D889DDC6AF5
+
+wifi_password_1: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  30643837393062623933373532636361336263386565623433383535383461383061303961313739
+  6139313937663030323461303534663537353039366337650a386330623862376463343834646539
+  35623538363565313237353962613139363730386264363138376365383263643934343835306362
+  3333343031626565630a623763623732363065633535323161313161336564373763343037653437
+  30653266343830343838313732323335396663373533626461333732373530353166

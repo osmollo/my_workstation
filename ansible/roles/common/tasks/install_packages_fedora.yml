@@ -14,14 +14,14 @@
 
 - name: "[FEDORA] Install Gnome packages"
   yum:
-    name: "{{ gnome_packages }} + {{ gnome_fedora_packages }} + {{ kde_fedora_packages }}"
+    name: "{{ gnome_packages }} + {{ gnome_fedora_packages }}"
     state: latest
     update_cache: true
   when: desktop_environment == "gnome"
 
 - name: "[FEDORA] Install KDE packages"
   yum:
-    name: "{{ kde_packages }}"
+    name: "{{ kde_packages }} + {{ kde_fedora_packages }}"
     state: latest
     update_cache: true
   when: desktop_environment == "kde"
