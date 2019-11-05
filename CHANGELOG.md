@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.8.5.2](#1852)
   - [1.8.5.1](#1851)
   - [1.8.5](#185)
   - [1.8.4](#184)
@@ -33,6 +34,10 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.8.5.2
+
+- Modificado el nombre de los perfiles de red de `NetworkManager`
 
 ## 1.8.5.1
 

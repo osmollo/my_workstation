@@ -9,9 +9,9 @@
     group: root
   loop:
     - src: bbva_vpn.j2
-      dest: /etc/NetworkManager/system-connections/BBVA.nmconnection
+      dest: /etc/NetworkManager/system-connections/BBVA
     - src: datio_mx_vpn.j2
-      dest: /etc/NetworkManager/system-connections/Datio_MX.nmconnection
+      dest: /etc/NetworkManager/system-connections/Datio_CCR
 
 - name: "Copy network configuration files to NetworkManager"
   template:
@@ -22,10 +22,10 @@
     group: root
   loop:
     - src: movistar_8033.j2
-      dest: /etc/NetworkManager/system-connections/MOVISTAR_8033.nmconnection
+      dest: /etc/NetworkManager/system-connections/MOVISTAR_8033
     - src: movistar_plus_8033.j2
-      dest: /etc/NetworkManager/system-connections/MOVISTAR_PLUS_8033.nmconnection
+      dest: /etc/NetworkManager/system-connections/MOVISTAR_PLUS_8033
     - src: lexdefensa.j2
-      dest: /etc/NetworkManager/system-connections/LEXDEFENSA.nmconnection
+      dest: /etc/NetworkManager/system-connections/LEXDEFENSA
     - src: lexdefensa_clientes.j2
-      dest: /etc/NetworkManager/system-connections/LEXDEFENSA_CLIENTES_5G.nmconnection
+      dest: /etc/NetworkManager/system-connections/LEXDEFENSA_CLIENTES_5G
