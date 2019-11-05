@@ -18,6 +18,8 @@ distro_packages:
   - wireshark
   - firewall-config
   - net-tools
+  - python3-jmespath
+  - python-jmespath
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras
@@ -30,4 +32,4 @@ gnome_ubuntu_packages:
   - python3-psutil
 
 kde_ubuntu_packages:
-  - kubuntu_restricted_extras
+  - kubuntu-restricted-extras
