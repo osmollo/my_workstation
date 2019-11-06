@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.8.6](#186)
   - [1.8.5.2](#1852)
   - [1.8.5.1](#1851)
   - [1.8.5](#185)
@@ -34,6 +35,11 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.8.6
+
+- Clonado repositorio `iluvatar` en el `post_install` de **ohermosa**
+- Se ignoran los posibles errores del clonado de repositorios de **ohermosa**
 
 ## 1.8.5.2
 
