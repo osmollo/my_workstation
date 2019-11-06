@@ -15,6 +15,7 @@
   with_items:
     - "{{ git_repositories.work }}"
     - "{{ git_repositories.home }}"
+  ignore_errors: true
 
 - name: "Configure name and user of BBVA repositories"
   git_config:
