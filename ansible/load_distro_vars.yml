@@ -42,6 +42,9 @@
     ubuntu_version: "{{ ubuntu_versions[ubuntu_codename].split('.')[0] }}"
   vars:
     ubuntu_versions:
+      focal: "20.04"
+      eoan: "19.10"
+      disco: "19.04"
       bionic: "18.04"
       artful: "17.10"
       zesty: "17.04"
