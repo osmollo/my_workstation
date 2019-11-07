@@ -16,16 +16,6 @@
     - post_install
     - post_del_default_dirs
 
-- import_role:
-    name: common
-    tasks_from: update_packages.yml
-  become: true
-  become_method: sudo
-  tags:
-    - post_install
-    - post_gnome_packages
-    - post_gnome
-
 - import_tasks: gnome_extensions.yml
   when: desktop_environment == "gnome"
   tags:
@@ -52,6 +42,14 @@
     - post_git
     - post_apachedirectory
 
+- name: "Check if private ssh key exists"
+  stat:
+    path: "/home/{{ ansible_user }}/.ssh/id_rsa"
+  register: private_key_exists
+  tags:
+    - post_install
+    - post_git
+
 - import_tasks: docker.yml
   when: dropbox_response.stdout == "Actualizado" or dropbox_response.stdout == "Up to date"
   tags:
@@ -69,14 +67,6 @@
   tags:
     - post_install
     - post_environment
-
-- name: "check if private ssh key exists"
-  stat:
-    path: "/home/{{ ansible_user }}/.ssh/id_rsa"
-  register: private_key_exists
-  tags:
-    - post_install
-    - post_git
 
 - import_tasks: git.yml
   when:
