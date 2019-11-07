@@ -17,19 +17,24 @@
     name: "{{ gnome_packages }} + {{ gnome_fedora_packages }}"
     state: latest
     update_cache: true
-  when: desktop_environment == "gnome"
+  when:
+    - desktop_environment is defined
+    - desktop_environment == "gnome"
 
 - name: "[FEDORA] Install KDE packages"
   yum:
     name: "{{ kde_packages }} + {{ kde_fedora_packages }}"
     state: latest
     update_cache: true
-  when: desktop_environment == "kde"
+  when:
+    - desktop_environment is defined
+    - desktop_environment == "kde"
 
 - include_tasks:
     file: vlc_fedora.yml
     apply:
       tags:
         - vlc
+  when: desktop_environment is defined
   tags:
     - vlc

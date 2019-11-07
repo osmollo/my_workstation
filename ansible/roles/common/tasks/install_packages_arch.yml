@@ -1,29 +1,29 @@
 ---
 
-- name: "[UBUNTU] Install common packages"
-  apt:
+- name: "[ARCH] Install common packages"
+  pacman:
     name: "{{ common_packages }}"
     state: latest
     update_cache: true
 
-- name: "[UBUNTU] Install Ubuntu packages"
-  apt:
+- name: "[ARCH] Install Arch packages"
+  pacman:
     name: "{{ distro_packages }}"
     state: latest
     update_cache: true
 
-- name: "[UBUNTU] Install Gnome packages"
-  yum:
-    name: "{{ gnome_packages }} + {{ gnome_ubuntu_packages }}"
+- name: "[ARCH] Install Gnome packages"
+  pacman:
+    name: "{{ gnome_packages }} + {{ gnome_fedora_packages }}"
     state: latest
     update_cache: true
   when:
     - desktop_environment is defined
     - desktop_environment == "gnome"
 
-- name: "[UBUNTU] Install KDE packages"
-  yum:
-    name: "{{ kde_packages }} + {{ kde_ubuntu_packages }}"
+- name: "[ARCH] Install KDE packages"
+  pacman:
+    name: "{{ kde_packages }} + {{ kde_fedora_packages }}"
     state: latest
     update_cache: true
   when:

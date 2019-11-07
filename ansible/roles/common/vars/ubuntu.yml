@@ -6,7 +6,6 @@ distro_packages:
   - software-properties-common
   - network-manager-openvpn
   - apt-transport-https
-  - vlc
   - openvpn
   - libsecret-tools
   - dnsutils
@@ -15,7 +14,6 @@ distro_packages:
   - build-essential
   - snap
   - snapd
-  - wireshark
   - firewall-config
   - net-tools
   - python3-jmespath
@@ -30,6 +28,8 @@ gnome_ubuntu_packages:
   - gnome-tweaks
   - python-psutil
   - python3-psutil
+  - wireshark
+  - vlc
 
 kde_ubuntu_packages:
   - kubuntu-restricted-extras

@@ -24,17 +24,30 @@
     update_cache: true
   when: linux_distribution == "ubuntu"
 
+- name: "[ARCH] Install Python3"
+  pacman:
+    name:
+      - python3
+      - python-pip
+      - ipython
+      - python-virtualenv
+    state: latest
+    update_cache: true
+  when: linux_distribution == "arch"
+
 - name: "Alternative link for python"
   alternatives:
     name: python
     link: /usr/bin/python
     path: /usr/bin/python3
+  when: linux_distribution != "arch"
 
 - name: "Alternative link for pip"
   alternatives:
     name: pip
     link: /usr/bin/pip
     path: /usr/bin/pip3
+  when: linux_distribution != "arch"
 
 - name: "Install setuptools python module"
   pip:
