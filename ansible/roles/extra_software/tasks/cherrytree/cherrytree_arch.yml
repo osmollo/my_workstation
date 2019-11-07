@@ -1,0 +1,7 @@
+---
+
+- name: "[ARCH] Install cherrytree"
+  yay:
+    name: "{{ cherrytree_package }}"
+    state: present
+    update_cache: true

@@ -1,0 +1,6 @@
+---
+
+- name: "[ARCH] Install Visual Studio Code"
+  pacman:
+    name: code
+    state: latest

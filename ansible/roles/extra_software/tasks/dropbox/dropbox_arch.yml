@@ -1,0 +1,10 @@
+---
+
+- name: "[ARCH] Install Dropbox"
+  become: false
+  become_user
+  aur:
+    name: dropbox
+    use: makepkg
+    skip_installed: true
+    skip_pgp_check: false

@@ -20,6 +20,7 @@
     follow_redirects: safe
     body_format: raw
   register: dockercompose_latest
+  when: linux_distribution != "arch"
   tags:
     - install_dockercompose
 
@@ -28,6 +29,7 @@
     dockercompose_version: "{{ dockercompose_latest.url | urlsplit('path') | basename }}"
   set_fact:
     dockercompose_package: "https://github.com/docker/compose/releases/download/{{ dockercompose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+  when: linux_distribution != "arch"
   tags:
     - install_dockercompose
 
@@ -36,5 +38,6 @@
     url: "{{ dockercompose_package }}"
     dest: /usr/local/bin/docker-compose
     mode: 0755
+  when: linux_distribution != "arch"
   tags:
     - install_dockercompose

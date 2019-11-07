@@ -1,0 +1,11 @@
+---
+
+- name: "[ARCH] Install Docker"
+  pacman:
+    name:
+      - docker
+      - docker-compose
+    state: latest
+    update_cache: true
+  tags:
+    - install_dockercompose

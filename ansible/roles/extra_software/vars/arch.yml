@@ -1,1 +1,43 @@
 ---
+
+aur_url: https://aur.archlinux.org
+
+atom_repo: "{{ aur_url }}/packages/atom-editor-bin.git"
+dropbox_repo: "{{ aur_url }}/packages/dropbox.git"
+chrome_repo: "{{ aur_url }}/packages/google-chrome.git"
+code_repo: "{{ aur_url }}/packages/visual-studio-code-bin.git"
+skype_repo: "{{ aur_url }}/packages/skypeforlinux-stable-bin.git"
+ohmyzsh_repo: "{{ aur_url }}/packages/oh-my-zsh-git.git"
+cherrytree_repo: "{{ aur_url }}/packages/cherrytree.git"
+postman_repo: "{{ aur_url }}/packages/postman-bin.git"
+teamviewer_repo: "{{ aur_url }}/packages/teamviewer.git"
+keepass_repo: "{{ aur_url }}/packages/keepassxc-git.git"
+buttercup_repo: "{{ aur_url }}/packages/buttercup-desktop.git"
+virtualbox_repo: "{{ aur_url }}/packages/virtualbox-bin.git"
+tlp_repo: "{{ aur_url }}/packages/tlp-git.git"
+telegram_repo: "{{ aur_url }}/packages/telegram-desktop-bin.git"
+spotify_repo: "{{ aur_url }}/packages/spotify.git"
+slack_repo: "{{ aur_url }}/packages/slack-desktop.git"
+rambox_repo: "{{ aur_url }}/packages/rambox-bin.git"
+pycharm_repo: "{{ aur_url }}/packages/pycharm-community-eap.git"
+yay_repo: "{{ aur_url }}/packages/yay-bin.git"
+
+atom_package: atom-editor-bin
+dropbox_package: dropbox
+chrome_package: google-chrome
+code_package: visual-studio-code-bin
+skype_package: skypeforlinux-stable-bin
+ohmyzsh_package: oh-my-zsh-git
+cherrytree_package: cherrytree
+postman_package: postman-bin
+teamviewer_package: teamviewer
+keepass_package: keepassxc-git
+buttercup_package: buttercup-desktop
+virtualbox_package: virtualbox-bin
+tlp_package: tlp-git
+telegram_package: telegram-desktop
+spotify_package: spotify
+slack_package: slack-desktop
+rambox_package: rambox-bin
+pycharm_package: pycharm-community-eap
+yay_package: yay-bin

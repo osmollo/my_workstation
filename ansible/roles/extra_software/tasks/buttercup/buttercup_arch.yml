@@ -1,0 +1,7 @@
+---
+
+- name: "[ARCH] Install Buttercup"
+  yay:
+    name: "{{ buttercup_package }}"
+    state: present
+    update_cache: true
