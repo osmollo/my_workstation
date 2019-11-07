@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.9](#19)
   - [1.8.7](#187)
   - [1.8.6](#186)
   - [1.8.5.2](#1852)
@@ -36,6 +37,13 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.9
+
+- Soporte para **Arch Linux**
+- Módulo `yay` para instalar paquetes de **Arch**
+- Separación de paquetes de entorno gráfico de los propios de la distribución
+- Corrección de errores
 
 ## 1.8.7
 

@@ -1,0 +1,15 @@
+---
+
+- name: "[ARCH] Install virtualbox"
+  yay:
+    name: "{{ virtualbox_package }}"
+    state: present
+    update_cache: true
+
+- name: "[ARCH] Install vagrant"
+  yay:
+    name: "{{ vagrant_package }}"
+    state: present
+    update_cache: true
+  tags:
+    - install_vagrant

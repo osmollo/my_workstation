@@ -1,6 +1,8 @@
 ---
 
-- name: "[ARCH] Install Visual Studio Code"
-  pacman:
-    name: code
+- name: "[ARCH] install code"
+  become: false
+  yay:
+    name: "{{ code_package }}"
     state: latest
+    update_cache: true

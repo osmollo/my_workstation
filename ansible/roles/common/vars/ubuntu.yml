@@ -7,7 +7,6 @@ distro_packages:
   - network-manager-openvpn
   - apt-transport-https
   - openvpn
-  - libsecret-tools
   - dnsutils
   - python-dev
   - python3-dev

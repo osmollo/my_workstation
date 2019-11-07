@@ -1,0 +1,7 @@
+---
+
+- name: "[ARCH] Install sublime"
+  yay:
+    name: "{{ sublime_package }}"
+    state: present
+    update_cache: true

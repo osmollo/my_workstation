@@ -1,0 +1,7 @@
+---
+
+- name: "[ARCH] Install pycharm"
+  yay:
+    name: "{{ pycharm_package }}"
+    state: present
+    update_cache: true

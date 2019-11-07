@@ -1,0 +1,7 @@
+---
+
+- name: "[ARCH] Install gitkraken"
+  yay:
+    name: "{{ gitkraken_package }}"
+    state: present
+    update_cache: true

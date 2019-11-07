@@ -3,9 +3,9 @@
 - include_vars:
     file: "{{ linux_distribution }}.yml"
 
-- name: "[ARCH] install atom"
+- name: "[ARCH] install skype"
   become: false
   yay:
-    name: "{{ atom_package }}"
+    name: "{{ skype_package }}"
     state: latest
     update_cache: true

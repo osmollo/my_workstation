@@ -1,10 +1,8 @@
 ---
 
-- name: "[ARCH] Install Dropbox"
+- name: "[ARCH] install dropbox"
   become: false
-  become_user
-  aur:
-    name: dropbox
-    use: makepkg
-    skip_installed: true
-    skip_pgp_check: false
+  yay:
+    name: "{{ dropbox_package }}"
+    state: latest
+    update_cache: true
