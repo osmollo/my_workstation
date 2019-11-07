@@ -1,0 +1,7 @@
+---
+
+- name: "[ARCH] Install rambox"
+  yay:
+    name: "{{ rambox_package }}"
+    state: present
+    update_cache: true

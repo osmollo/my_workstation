@@ -21,6 +21,15 @@ slack_repo: "{{ aur_url }}/slack-desktop.git"
 rambox_repo: "{{ aur_url }}/rambox-bin.git"
 pycharm_repo: "{{ aur_url }}/pycharm-community-eap.git"
 yay_repo: "{{ aur_url }}/yay-bin.git"
+vagrant_repo: "{{ aur_url }}/vagrant-git.git"
+nomachine_repo: "{{ aur_url }}/nomachine.git"
+gitkraken_repo: "{{ aur_url }}/gitkraken.git"
+sublime_repo: "{{ aur_url }}/sublime-text-nightly.git"
+franz_repo: "{{ aur_url }}/franz-bin.git"
+forticlient_repo: "{{ aur_url }}/forticlientsslvpn.git"
+windscribe_repo: "{{ aur_url }}/windscribe-cli.git"
+apachedirectory_repo: "{{ aur_url }}/apachedirectorystudio.git"
+java_repo: "{{ aur_url }}/java-openjdk-bin.git"
 
 atom_package: atom-editor-bin
 dropbox_package: dropbox
@@ -41,3 +50,13 @@ slack_package: slack-desktop
 rambox_package: rambox-bin
 pycharm_package: pycharm-community-eap
 yay_package: yay-bin
+vagrant_package: vagrant-git
+nomachine_package: nomachine
+gitkraken_package: gitkraken
+sublime_package: sublime-text-nightly
+franz_package: franz-bin
+forticlient_package: forticlientsslvpn
+deluge_package: deluge-git
+windscribe_package: windscribe-cli
+apachedirectory_package: apachedirectorystudio
+java_package: java-openjdk-bin
