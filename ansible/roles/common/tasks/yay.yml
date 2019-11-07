@@ -1,0 +1,17 @@
+---
+
+- include_vars:
+    file: "{{ linux_distribution }}.yml"
+
+- name: "[ARCH] clone yay repository"
+  become: false
+  git:
+    repo: "{{ yay_repo }}"
+    dest: "{{ yay_dir }}"
+    clone: yes
+
+- name: "[ARCH] install yay package"
+  become: false
+  shell: makepkg -si --noconfirm
+  args:
+    chdir: "{{ yay_dir }}"

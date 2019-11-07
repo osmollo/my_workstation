@@ -15,6 +15,7 @@
   tags:
     - common
     - install_packages
+    - yay
 
 - include_vars:
     file: "{{ desktop_environment | lower }}.yml"
@@ -54,6 +55,13 @@
   tags:
     - common
     - delete_snap
+
+- name: "[ARCH] install yay package"
+  import_tasks: yay.yml
+  when: linux_distribution == "arch"
+  tags:
+    - common
+    - yay
 
 - name: "Configure /etc/hosts"
   lineinfile:
