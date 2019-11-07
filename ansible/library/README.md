@@ -5,6 +5,8 @@
     - [INPUT](#input)
     - [OUTPUT](#output)
   - [Ejemplo de uso](#ejemplo-de-uso)
+  - [yay](#yay)
+  - [aur](#aur)
 
 ## dconf_to_list
 
@@ -20,7 +22,7 @@ dconf dump / > gnome_config.txt
 
 Y tiene el siguiente formato:
 
-```
+```text
 [system/proxy]
 autoconfig-url='http://bbvapac.igrupobbva/accelerated_pac_base.pac'
 mode='auto'
@@ -78,3 +80,11 @@ Un ejemplo de salida de `dconf_to_list` sería:
     value: "{{ item.value }}"
   loop: "{{ response.message }}"
 ```
+
+## yay
+
+**Documentación**: [Official Repo](https://github.com/mnussbaum/ansible-yay)
+
+## aur
+
+**Documentación**: [Oficial Repo](https://github.com/kewlfft/ansible-aur)
