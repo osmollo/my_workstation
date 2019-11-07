@@ -15,42 +15,41 @@
     ansible_user: "{{ lookup('env', 'USER') }}"
     ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
   tasks:
-    - name: "[FEDORA] upgrade all packages to the latest version"
-      yum:
-        name: '*'
-        state: latest
-        update_cache: true
+    - block:
+        - name: "[FEDORA] upgrade all packages to the latest version"
+          yum:
+            name: '*'
+            state: latest
+            update_cache: true
+
+        - name: "[FEDORA] Install ansible"
+          yum:
+            name: ansible
+            state: latest
+            update_cache: true
       when: linux_distribution == "fedora"
 
-    - name: "[FEDORA] Install ansible"
-      yum:
-        name: ansible
-        state: latest
-        update_cache: true
-      when: linux_distribution == "fedora"
+    - block:
+        - name: "[UBUNTU] Upgrade all packages to the latest version"
+          apt:
+            name: "*"
+            state: latest
+            update_cache: true
+            force_apt_get: true
 
-    - name: "[UBUNTU] Upgrade all packages to the latest version"
-      apt:
-        name: "*"
-        state: latest
-        update_cache: true
-        force_apt_get: true
-      when: linux_distribution == "ubuntu"
+        - name: "[UBUNTU] add ansible ppa repository"
+          apt_repository:
+            validate_certs: no
+            repo: 'ppa:ansible/ansible'
+            state: present
+            codename: "{{ ubuntu_codename }}"
 
-    - name: "[UBUNTU] add ansible ppa repository"
-      apt_repository:
-        validate_certs: no
-        repo: 'ppa:ansible/ansible'
-        state: present
-        codename: "{{ ubuntu_codename }}"
-      when: linux_distribution == "ubuntu"
-
-    - name: "[UBUNTU] Update ansible"
-      apt:
-        name:
-          - ansible
-          - python-apt
-        update_cache: true
-        state: latest
-        force_apt_get: true
+        - name: "[UBUNTU] Update ansible"
+          apt:
+            name:
+              - ansible
+              - python-apt
+            update_cache: true
+            state: latest
+            force_apt_get: true
       when: linux_distribution == "ubuntu"
