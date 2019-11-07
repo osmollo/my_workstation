@@ -7,8 +7,6 @@ common_packages:
   - git
   - curl
   - wget
-  - gimp
-  - zeal
   - colordiff
   - htop
   - zip

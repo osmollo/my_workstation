@@ -16,7 +16,6 @@ distro_packages:
   - gcc
   - gcc-c++
   - kernel-devel
-  - wireshark
   - firewall-config
 
 gnome_fedora_packages:
@@ -28,5 +27,6 @@ gnome_fedora_packages:
   - gnome-tweaks
   - python2-psutil
   - python3-psutil
+  - wireshark
 
 kde_fedora_packages: []
