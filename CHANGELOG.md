@@ -43,6 +43,7 @@
 - Soporte para **Arch Linux**
 - Módulo `yay` para instalar paquetes de **Arch**
 - Separación de paquetes de entorno gráfico de los propios de la distribución
+- Nuevo role `tools/install_arch_pkg` para instalar paquetes de **Arch**
 - Corrección de errores
 
 ## 1.8.7
