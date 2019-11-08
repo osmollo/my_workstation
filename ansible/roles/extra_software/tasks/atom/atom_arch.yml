@@ -1,11 +1,7 @@
 ---
 
-- include_vars:
-    file: "{{ linux_distribution }}.yml"
-
-- name: "[ARCH] install atom"
-  become: false
-  yay:
-    name: "{{ atom_package }}"
-    state: latest
-    update_cache: true
+- name: "[ARCH] install yay"
+  import_role:
+    name: tools/install_arch_pkg
+  vars:
+    arch_package: "{{ atom_package }}"

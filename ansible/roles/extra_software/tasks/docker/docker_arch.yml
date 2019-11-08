@@ -1,11 +1,9 @@
 ---
 
-- name: "[ARCH] Install Docker"
-  pacman:
+- name: "[ARCH] Install docker"
+  yay:
     name:
-      - docker
-      - docker-compose
-    state: latest
+      - "{{ docker_package }}"
+      - "{{ dockercompose_package }}"
+    state: present
     update_cache: true
-  tags:
-    - install_dockercompose

@@ -30,6 +30,8 @@ forticlient_repo: "{{ aur_url }}/forticlientsslvpn.git"
 windscribe_repo: "{{ aur_url }}/windscribe-cli.git"
 apachedirectory_repo: "{{ aur_url }}/apachedirectorystudio.git"
 java_repo: "{{ aur_url }}/java-openjdk-bin.git"
+docker_repo: "{{ aur_url }}/docker-bin.git"
+dockercompose_repo: "{{ aur_url }}/docker-compose-bin.git"
 
 atom_package: atom-editor-bin
 dropbox_package: dropbox
@@ -60,3 +62,5 @@ deluge_package: deluge-git
 windscribe_package: windscribe-cli
 apachedirectory_package: apachedirectorystudio
 java_package: java-openjdk-bin
+docker_package: docker-bin
+dockercompose_package: docker-compose-bin.git

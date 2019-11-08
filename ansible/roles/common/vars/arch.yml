@@ -13,7 +13,3 @@ gnome_arch_packages:
   - vlc
 
 kde_arch_packages: []
-
-aur_url: https://aur.archlinux.org
-yay_repo: "{{ aur_url }}/yay-bin.git"
-yay_dir: "/tmp/yay"

@@ -1,0 +1,4 @@
+---
+
+aur_url: https://aur.archlinux.org
+arch_pkg_dir: "/var/tmp/{{ ansible_user }}/arck_pkgs"
