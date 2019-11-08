@@ -3,6 +3,13 @@
 - include_vars:
     file: "{{ linux_distribution }}.yml"
 
+- name: "[ARCH] uninstall yay and yay-bin"
+  pacman:
+    name:
+      - yay
+      - yay-bin
+    state: absent
+
 - name: "[ARCH] clone yay repository"
   become: false
   git:
