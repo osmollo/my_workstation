@@ -1,6 +1,7 @@
 ---
 
 - name: "[ARCH] Install slack"
+  become: false
   yay:
     name: "{{ slack_package }}"
     state: present

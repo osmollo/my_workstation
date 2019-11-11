@@ -1,7 +1,8 @@
 ---
 
-- name: "[ARCH] install yay"
-  import_role:
-    name: tools/install_arch_pkg
-  vars:
-    arch_package: "{{ atom_package }}"
+- name: "[ARCH] Install Atom"
+  become: false
+  yay:
+    name: "{{ atom_package }}"
+    state: present
+    update_cache: true

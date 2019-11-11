@@ -1,6 +1,7 @@
 ---
 
 - name: "[ARCH] Install tlp"
+  become: false
   yay:
     name: "{{ tlp_package }}"
     state: present

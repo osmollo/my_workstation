@@ -1,6 +1,7 @@
 ---
 
 - name: "[ARCH] Install rambox"
+  become: false
   yay:
     name: "{{ rambox_package }}"
     state: present

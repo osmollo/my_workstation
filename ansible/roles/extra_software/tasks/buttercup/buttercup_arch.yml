@@ -1,6 +1,7 @@
 ---
 
 - name: "[ARCH] Install Buttercup"
+  become: false
   yay:
     name: "{{ buttercup_package }}"
     state: present

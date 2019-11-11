@@ -1,8 +1,5 @@
 ---
 
-- include_vars:
-    file: "{{ linux_distribution }}.yml"
-
 - name: "[ARCH] install skype"
   become: false
   yay:

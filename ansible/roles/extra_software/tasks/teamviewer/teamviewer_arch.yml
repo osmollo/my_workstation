@@ -1,6 +1,7 @@
 ---
 
 - name: "[ARCH] Install teamviewer"
+  become: false
   yay:
     name: "{{ teamviewer_package }}"
     state: present
