@@ -1,7 +1,6 @@
 # Ansible
 
 - [Ansible](#ansible)
-  - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
   - [Distribuciones soportadas](#distribuciones-soportadas)
   - [Software extra instalado](#software-extra-instalado)
   - [Prerequisitos](#prerequisitos)
@@ -15,20 +14,8 @@
         - [Contraseñas cifradas](#contraseñas-cifradas)
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
   - [Uso de Vagrant](#uso-de-vagrant)
+  - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
 
-## Actualización de CHANGELOG.md
-
-Para poder actualizar el [CHANGELOG.md](CHANGELOG.md) con los cambios que se han realizado entre 2 tags hay que ejecutar el siguiente comando:
-
-```bash
-git log --pretty=oneline <tag_antiguo> <tag_nuevo>
-```
-
-Y entre el último tag y el último commit:
-
-```bash
-git log --pretty=oneline HEAD...tag
-```
 
 ## Distribuciones soportadas
 
@@ -320,4 +307,18 @@ Y para destruir las máquinas:
 
 ```bash
 vagrant destroy -f
+```
+
+## Actualización de CHANGELOG.md
+
+Para poder actualizar el [CHANGELOG.md](CHANGELOG.md) con los cambios que se han realizado entre 2 tags hay que ejecutar el siguiente comando:
+
+```bash
+git log --pretty=oneline <tag_antiguo> <tag_nuevo>
+```
+
+Y entre el último tag y el último commit:
+
+```bash
+git log --pretty=oneline HEAD...tag
 ```
