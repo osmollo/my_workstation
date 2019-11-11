@@ -1,0 +1,17 @@
+---
+
+- include_vars:
+    file: "{{ linux_distribution }}.yml"
+
+- name: "[ARCH] clone {{ arch_package }} repository"
+  become: false
+  git:
+    repo: "{{ aur_url }}/{{ arch_package }}.git"
+    dest: "{{ arch_pkg_dir }}/{{ arch_package }}"
+    clone: yes
+
+- name: "[ARCH] install {{ arch_package }} package"
+  become: false
+  shell: makepkg -si --noconfirm
+  args:
+    chdir: "{{ arch_pkg_dir }}/{{ arch_package }}"

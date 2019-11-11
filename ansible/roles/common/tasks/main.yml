@@ -3,7 +3,6 @@
 - import_tasks: update_packages.yml
   tags:
     - always
-  ignore_errors: true
 
 - import_tasks: selinux.yml
   when: linux_distribution == "fedora"
@@ -12,10 +11,15 @@
     - disable_selinux
 
 - include_vars:
-    file: "{{ item }}"
-  loop:
-    - "{{ linux_distribution | lower }}.yml"
-    - "{{ desktop_environment | lower }}.yml"
+    file: "{{ linux_distribution | lower }}.yml"
+  tags:
+    - common
+    - install_packages
+    - yay
+
+- include_vars:
+    file: "{{ desktop_environment | lower }}.yml"
+  when: desktop_environment is defined
   tags:
     - common
     - install_packages
@@ -51,6 +55,13 @@
   tags:
     - common
     - delete_snap
+
+- name: "[ARCH] install yay package"
+  import_tasks: yay.yml
+  when: linux_distribution == "arch"
+  tags:
+    - common
+    - yay
 
 - name: "Configure /etc/hosts"
   lineinfile:

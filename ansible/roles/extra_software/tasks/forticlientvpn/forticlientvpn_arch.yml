@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install forticient"
+  become: false
+  yay:
+    name: "{{ forticient_package }}"
+    state: present
+    update_cache: true

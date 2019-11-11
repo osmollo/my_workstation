@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install telegram"
+  become: false
+  yay:
+    name: "{{ telegram_package }}"
+    state: present
+    update_cache: true

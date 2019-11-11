@@ -1,0 +1,14 @@
+---
+
+- name: "[ARCH] uninstall yay and yay-bin"
+  pacman:
+    name:
+      - yay
+      - yay-bin
+    state: absent
+
+- name: "[ARCH] install yay"
+  import_role:
+    name: tools/install_arch_pkg
+  vars:
+    arch_package: yay-bin

@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] install chrome"
+  become: false
+  yay:
+    name: "{{ chrome_package }}"
+    state: latest
+    update_cache: true

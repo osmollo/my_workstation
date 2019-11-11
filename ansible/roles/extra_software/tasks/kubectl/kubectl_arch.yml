@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install kubectl"
+  become: false
+  pacman:
+    name: "{{ kubectl_package }}"
+    state: present
+    update_cache: true

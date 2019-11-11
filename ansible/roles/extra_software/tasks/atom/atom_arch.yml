@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install Atom"
+  become: false
+  yay:
+    name: "{{ atom_package }}"
+    state: present
+    update_cache: true

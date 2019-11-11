@@ -6,6 +6,7 @@
     follow_redirects: safe
     body_format: raw
   register: rambox_latest
+  when: linux_distribution != "arch"
 
 - name: "Set urls for rambox packages"
   vars:
@@ -13,5 +14,6 @@
   set_fact:
     rambox_fedora_package: "https://github.com/ramboxapp/community-edition/releases/download/{{ rambox_version }}/Rambox-{{ rambox_version }}-linux-x86_64.rpm"
     rambox_ubuntu_package: "https://github.com/ramboxapp/community-edition/releases/download/{{ rambox_version }}/Rambox-{{ rambox_version }}-linux-amd64.deb"
+  when: linux_distribution != "arch"
 
 - include_tasks: "rambox_{{ linux_distribution }}.yml"

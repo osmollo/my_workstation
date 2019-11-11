@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install postman"
+  become: false
+  yay:
+    name: "{{ postman_package }}"
+    state: present
+    update_cache: true
