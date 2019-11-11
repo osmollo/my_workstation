@@ -3,8 +3,16 @@
 - name: "[ARCH] Install docker"
   become: false
   yay:
-    name:
-      - "{{ docker_package }}"
-      - "{{ dockercompose_package }}"
+    name: "{{ docker_package }}"
     state: present
     update_cache: true
+
+- name: "[ARCH] Install docker-compose"
+  become: false
+  yay:
+    name: "{{ dockercompose_package }}"
+    state: present
+    update_cache: true
+  ignore_errors: true
+  tags:
+    - install_dockercompose
