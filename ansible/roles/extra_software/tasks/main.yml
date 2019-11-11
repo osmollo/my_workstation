@@ -64,7 +64,7 @@
         update_cache: true
       when:
         - install_ohmyzsh
-        - linux_distribution = "arch"
+        - linux_distribution == "arch"
   tags:
     - extra_software
     - install_ohmyzsh
