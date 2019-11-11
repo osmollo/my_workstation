@@ -1,6 +1,7 @@
 ---
 
 - name: "[ARCH] Install docker"
+  become: false
   yay:
     name:
       - "{{ docker_package }}"

@@ -1,6 +1,7 @@
 ---
 
 - name: "[ARCH] Install keepass"
+  become: false
   yay:
     name: "{{ keepass_package }}"
     state: present

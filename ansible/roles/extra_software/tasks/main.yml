@@ -221,6 +221,7 @@
         - linux_distribution != "arch"
 
     - name: "[ARCH] Install apache directory studio"
+      become: false
       yay:
         name: "{{ apachedirectory_package }}"
         state: present

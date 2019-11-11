@@ -1,6 +1,7 @@
 ---
 
 - name: "[ARCH] Install deluge"
+  become: false
   yay:
     name: "{{ deluge_package }}"
     state: present

@@ -1,6 +1,7 @@
 ---
 
 - name: "[ARCH] Install windscribe"
+  become: false
   yay:
     name: "{{ windscribe_package }}"
     state: present
