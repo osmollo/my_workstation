@@ -3,19 +3,15 @@
 common_packages:
   - jq
   - vim
-  - wireshark
   - sshpass
   - git
   - curl
   - wget
-  - gimp
-  - zeal
   - colordiff
   - htop
   - zip
   - unzip
   - ipcalc
-  - firewall-config
 
 bad_snap_packages:
   - gnome-calculator

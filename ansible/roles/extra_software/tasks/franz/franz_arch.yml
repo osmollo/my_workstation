@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install franz"
+  become: false
+  yay:
+    name: "{{ franz_package }}"
+    state: present
+    update_cache: true

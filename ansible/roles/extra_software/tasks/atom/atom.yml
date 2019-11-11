@@ -6,6 +6,7 @@
     follow_redirects: safe
     body_format: raw
   register: atom_latest
+  when: linux_distribution != "arch"
 
 - name: "Set urls for Atom packages"
   vars:
@@ -13,6 +14,7 @@
   set_fact:
     atom_fedora_package: "https://github.com/atom/atom/releases/download/{{ atom_version }}/atom.x86_64.rpm"
     atom_ubuntu_package: "https://github.com/atom/atom/releases/download/{{ atom_version }}/atom-amd64.deb"
+  when: linux_distribution != "arch"
 
 - include_tasks: "atom_{{ linux_distribution }}.yml"
 

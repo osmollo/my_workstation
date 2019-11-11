@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] install code"
+  become: false
+  yay:
+    name: "{{ code_package }}"
+    state: latest
+    update_cache: true

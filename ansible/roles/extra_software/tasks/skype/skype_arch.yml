@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] install skype"
+  become: false
+  yay:
+    name: "{{ skype_package }}"
+    state: latest
+    update_cache: true

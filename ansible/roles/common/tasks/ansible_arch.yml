@@ -1,0 +1,7 @@
+---
+
+- name: "[ARCH] Install ansible"
+  pacman:
+    name: ansible
+    state: latest
+    update_cache: true

@@ -29,3 +29,10 @@
         update_cache: true
         force_apt_get: true
       when: linux_distribution == "ubuntu"
+
+    - name: "[ARCH] upgrade all packages to the latest version"
+      pacman:
+        update_cache: yes
+        upgrade: yes
+      ignore_errors: true
+      when: linux_distribution == "arch"

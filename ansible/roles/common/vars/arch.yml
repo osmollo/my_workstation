@@ -1,0 +1,16 @@
+---
+
+distro_packages:
+  - openvpn
+  - networkmanager-openvpn
+  - libsecret
+  - bind-tools
+  - net-tools
+  - python-libevdev
+  - bridge-utils
+
+gnome_arch_packages:
+  - wireshark-cli
+  - vlc
+
+kde_arch_packages: []

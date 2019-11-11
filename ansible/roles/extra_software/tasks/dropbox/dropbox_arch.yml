@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] install dropbox"
+  become: false
+  yay:
+    name: "{{ dropbox_package }}"
+    state: latest
+    update_cache: true

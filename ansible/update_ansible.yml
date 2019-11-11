@@ -53,3 +53,11 @@
             state: latest
             force_apt_get: true
       when: linux_distribution == "ubuntu"
+
+    - block:
+        - name: "[ARCH] Update ansible"
+          pacman:
+            name: ansible
+            update_cache: true
+            state: latest
+      when: linux_distribution == "arch"

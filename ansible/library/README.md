@@ -4,7 +4,9 @@
   - [dconf_to_list](#dconf_to_list)
     - [INPUT](#input)
     - [OUTPUT](#output)
-  - [Ejemplo de uso](#ejemplo-de-uso)
+    - [Ejemplo de uso](#ejemplo-de-uso)
+  - [yay](#yay)
+    - [Ejemplo de uso](#ejemplo-de-uso-1)
 
 ## dconf_to_list
 
@@ -20,7 +22,7 @@ dconf dump / > gnome_config.txt
 
 Y tiene el siguiente formato:
 
-```
+```text
 [system/proxy]
 autoconfig-url='http://bbvapac.igrupobbva/accelerated_pac_base.pac'
 mode='auto'
@@ -63,7 +65,7 @@ Un ejemplo de salida de `dconf_to_list` sería:
     ]
 ```
 
-## Ejemplo de uso
+### Ejemplo de uso
 
 ```yaml
 - name: "Parse dconf dump"
@@ -77,4 +79,19 @@ Un ejemplo de salida de `dconf_to_list` sería:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
   loop: "{{ response.message }}"
+```
+
+## yay
+
+**Documentación**: [Official Repo](https://github.com/mnussbaum/ansible-yay)
+
+### Ejemplo de uso
+
+```yaml
+- name: "[ARCH] Install virtualbox"
+  become: false
+  yay:
+    name: "{{ virtualbox_package }}"
+    state: present
+    update_cache: true
 ```

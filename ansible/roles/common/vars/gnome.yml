@@ -7,3 +7,5 @@ gnome_packages:
   - meld
   - dconf-editor
   - terminator
+  - gimp
+  - zeal

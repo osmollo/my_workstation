@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install java"
+  become: false
+  yay:
+    name: "{{ java_package }}"
+    state: present
+    update_cache: true
