@@ -56,10 +56,10 @@
         - install_ohmyzsh
         - linux_distribution != "arch"
 
-    - name: "[ARCH] install atom"
+    - name: "[ARCH] install oh my zsh"
       become: false
       yay:
-        name: "{{ atom_package }}"
+        name: "{{ ohmyzsh_package }}"
         state: latest
         update_cache: true
       when:
