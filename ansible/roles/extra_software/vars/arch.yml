@@ -63,4 +63,4 @@ windscribe_package: windscribe-cli
 apachedirectory_package: apachedirectorystudio
 java_package: java-openjdk-bin
 docker_package: docker-bin
-dockercompose_package: docker-compose-bin.git
+dockercompose_package: docker-compose-bin
