@@ -63,15 +63,6 @@
     - common
     - yay
 
-- name: "Configure /etc/hosts"
-  lineinfile:
-    path: /etc/hosts
-    line: "{{ item.ip }}\t{{ item.host }}"
-  loop: "{{ etc_hosts }}"
-  tags:
-    - common
-    - resolv
-
 - name: "Configure size of bash history"
   lineinfile:
     path: /etc/profile

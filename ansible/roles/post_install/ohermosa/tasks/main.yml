@@ -1,5 +1,16 @@
 ---
 
+- name: "Configure /etc/hosts"
+  become_method: sudo
+  become_user: "{{ ansible_user }}"
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item.ip }}\t{{ item.host }}"
+  loop: "{{ etc_hosts }}"
+  tags:
+    - post_install
+    - post_resolv
+
 - name: "Delete default directories in /home/{{ ansible_user }}"
   file:
     path: "/home/{{ ansible_user }}/{{ item }}"
