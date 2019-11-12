@@ -14,7 +14,7 @@
 
 - name: "[ARCH] Install Gnome packages"
   pacman:
-    name: "{{ gnome_packages }} + {{ gnome_fedora_packages }}"
+    name: "{{ gnome_packages }} + {{ gnome_arch_packages }}"
     state: latest
     update_cache: true
   when:
@@ -23,7 +23,7 @@
 
 - name: "[ARCH] Install KDE packages"
   pacman:
-    name: "{{ kde_packages }} + {{ kde_fedora_packages }}"
+    name: "{{ kde_packages }} + {{ kde_arch_packages }}"
     state: latest
     update_cache: true
   when:
