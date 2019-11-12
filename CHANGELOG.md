@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.9.1](#191)
   - [1.9.0.1](#1901)
   - [1.9](#19)
   - [1.8.7](#187)
@@ -38,6 +39,11 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.9.1
+
+- Las entradas de `/etc/hosts` se mueven del role `common` al `post_install` y se incluyen registros para la red local de **ohermosa**
+- Corrección de error en instalación de paquetes **KDE** para **ArchLinux**
 
 ## 1.9.0.1
 
