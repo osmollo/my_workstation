@@ -1,5 +1,60 @@
 ---
 
+etc_hosts:
+  - host: salon
+    ip: 192.168.0.30
+  - host: router
+    ip: 192.68.0.1
+  - host: dashboard.mx.iaas.igrupobbva vnc.es.iaas.igrupobbva
+    ip: 127.0.0.1
+  - host: pepi
+    ip: 172.16.24.49
+  - host: monkeyops
+    ip: 172.16.25.84
+  - host: dashboard.internal.kubernetes
+    ip: 172.16.14.75
+  - host: idev2
+    ip: 172.16.48.147
+  - host: id2
+    ip: 10.48.238.129
+  - host: id2pro
+    ip: 10.48.195.95
+  - host: bastion
+    ip: 10.48.230.26
+  - host: jenkins.daas.live.mx.ether.igrupobbva
+    ip: 10.52.195.37
+  - host: jenkins.daas.work.mx.ether.igrupobbva
+    ip: 10.52.228.6
+  - host: daas.work.mx.ether.igrupobbva
+    ip: 10.52.228.159
+  - host: mproxy.daas-es-priv-03.ext.es.iaas.igrupobbva
+    ip: 10.48.227.73
+  - host: ldap.secaas.play.es.ether.igrupobbva
+    ip: 10.48.224.154
+  - host: ldap.secaas.work.es.ether.igrupobbva
+    ip: 10.48.236.136
+  - host: ldap.secaas.live.es.ether.igrupobbva
+    ip: 10.48.195.34
+  - host: daas.live.mx.nextgen.igrupobbva
+    ip: 10.55.39.203
+  - host: tie.secaas-live-mx.ext.mx.iaas.igrupobbva
+    ip: 10.52.193.129
+  - host: isaas.live.mx.nextgen.igrupobbva
+    ip: 10.55.39.203
+  - host: atenea.live.es.ether.igrupobbva
+    ip: 10.48.195.36
+  - host: kappa.live.es.ether.igrupobbva
+    ip: 10.48.195.36
+  - host: atenea.live.mx.ether.igrupobbva
+    ip: 10.52.193.48
+  - host: kappa.live.mx.ether.igrupobbva
+    ip: 10.52.193.48
+  - host: daas.work.eu.cld.nextgen.igrupobbva
+    ip: 100.88.66.33
+  - host: jenkins.datio-work-01.work.eu.cld.nextgen.igrupobbva
+    ip: 100.88.69.9
+
+
 dropbox_dir: "/home/{{ ansible_user }}/Dropbox"
 git_dir: "/home/{{ ansible_user }}/git"
 git_repositories:
