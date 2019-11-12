@@ -16,7 +16,6 @@
   - [Uso de Vagrant](#uso-de-vagrant)
   - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
 
-
 ## Distribuciones soportadas
 
 Las distribuciones en las que se han probado estas configuraciones son las siguientes:
@@ -29,6 +28,7 @@ Las distribuciones en las que se han probado estas configuraciones son las sigui
 | Linux Mint 19 | https://mirror.dogecloud.org/Linux/Mint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso |
 | KDE Neon | https://files.kde.org/neon/images/user/20191024-1119/neon-user-20191024-1119.iso |
 | Arch Linux | https://www.archlinux.org/releng/releases/2019.10.01/torrent/ |
+| Manjaro | https://osdn.net/dl/manjaro/manjaro-kde-18.1.2-191028-linux53.iso |
 
 ## Software extra instalado
 

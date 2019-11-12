@@ -1,6 +1,10 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+<<<<<<< HEAD
+  - [1.9.2](#192)
+=======
+>>>>>>> origin/master
   - [1.9.1](#191)
   - [1.9.0.1](#1901)
   - [1.9](#19)
@@ -40,6 +44,11 @@
   - [1.0.1](#101)
   - [1.0](#10)
 
+## 1.9.2
+
+- Tests sobre **Manjaro** para comprobar que está soportado correctamente
+- Nuevas instancias de **Vagrant** para **Manjaro**, **Xubuntu** y **Fedora 31**
+
 ## 1.9.1
 
 - Las entradas de `/etc/hosts` se mueven del role `common` al `post_install` y se incluyen registros para la red local de **ohermosa**
@@ -47,7 +56,7 @@
 
 ## 1.9.0.1
 
- - fix en el README de ansible
+- fix en el README de ansible
 
 ## 1.9
 
