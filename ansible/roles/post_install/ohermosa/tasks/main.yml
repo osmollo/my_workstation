@@ -41,18 +41,6 @@
     - post_gnome_conf
     - post_gnome
 
-- name: "Check if dropbox is synchronized"
-  shell: dropbox status
-  register: dropbox_response
-  tags:
-    - post_install
-    - post_docker
-    - post_crontab
-    - post_environment
-    - post_sublime
-    - post_git
-    - post_apachedirectory
-
 - name: "Check if private ssh key exists"
   stat:
     path: "/home/{{ ansible_user }}/.ssh/id_rsa"
@@ -62,33 +50,27 @@
     - post_git
 
 - import_tasks: docker.yml
-  when: dropbox_response.stdout == "Actualizado" or dropbox_response.stdout == "Up to date"
   tags:
     - post_install
     - post_docker
 
 - import_tasks: crontab.yml
-  when: dropbox_response.stdout == "Actualizado" or dropbox_response.stdout == "Up to date"
   tags:
     - post_install
     - post_crontab
 
 - import_tasks: environment.yml
-  when: dropbox_response.stdout == "Actualizado" or dropbox_response.stdout == "Up to date"
   tags:
     - post_install
     - post_environment
 
 - import_tasks: git.yml
-  when:
-    - dropbox_response.stdout == "Actualizado" or dropbox_response.stdout == "Up to date"
     - private_key_exists.stat.exists
   tags:
     - post_install
     - post_git
 
 - import_tasks: sublime.yml
-  when: dropbox_response.stdout == "Actualizado" or dropbox_response.stdout == "Up to date"
   tags:
     - post_install
     - post_sublime
@@ -101,7 +83,6 @@
     - post_network
 
 - import_tasks: apachedirectory.yml
-  when: dropbox_response.stdout == "Actualizado" or dropbox_response.stdout == "Up to date"
   tags:
     - post_install
     - post_apachedirectory
