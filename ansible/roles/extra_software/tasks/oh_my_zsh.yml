@@ -12,6 +12,12 @@
     state: latest
   when: linux_distribution == "ubuntu"
 
+- name: "[ARCH] Install zsh"
+  pacman:
+    name: zsh
+    state: latest
+  when: linux_distribution == "arc"
+
 - name: "Download installation script"
   get_url:
     url: "{{ ohmyzsh_installer }}"
