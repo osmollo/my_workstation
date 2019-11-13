@@ -8,9 +8,8 @@
     update_cache: true
 
 - name: "[ARCH] Install vagrant"
-  become: false
-  yay:
-    name: "{{ vagrant_package }}"
+  pacman:
+    name: vagrant
     state: present
     update_cache: true
   tags:
