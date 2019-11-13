@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.9.3](#193)
   - [1.9.2](#192)
   - [1.9.1](#191)
   - [1.9.0.1](#1901)
@@ -40,6 +41,16 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.9.3
+
+- Correcciones para la instalación sobre **Manjaro**:
+  - Cambio de repositorio de `ohmyzsh` (ahora apunta a gitlab) por problema con el enlace de descarga
+  - Instalación de `ohmyzsh` de la forma tradicional en lugar de usar `yay`
+  - instalación de `vagrant` usando `pacman`
+  - nuevo tag `install_ohermosa` para mis mierdas
+  - instala `zsh` en **arch**
+  - quita el check de `dropbox` de `post_install/ohermosa`
 
 ## 1.9.2
 
