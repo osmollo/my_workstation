@@ -36,26 +36,26 @@ Por defecto se instala el siguiente software:
 
 | **APLICACIÓN** | **TAG/VARIABLE** | **GRUPO** |
 |----------------|------------------|-----------|
-| [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | |
+| [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | install_ohermosa |
 | [Chromium Browser](https://chromium.woolyss.com/download/es/) | install_chromium | |
-| [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker | |
-| [Dropbox](https://www.dropbox.com/) | install_dropbox | |
-| [Visual Studio Code](https://code.visualstudio.com/) | install_code | install_editors |
-| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | install_spotify | |
-| [Oh my ZSH!](https://ohmyz.sh/) | install_ohmyzsh | |
+| [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker | install_ohermosa |
+| [Dropbox](https://www.dropbox.com/) | install_dropbox | install_ohermosa |
+| [Visual Studio Code](https://code.visualstudio.com/) | install_code | install_editors, install_ohermosa |
+| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | install_spotify | install_ohermosa |
+| [Oh my ZSH!](https://ohmyz.sh/) | install_ohmyzsh | install_ohermosa |
 | [Sublime Text](https://www.sublimetext.com/) | install_sublime | install_editors |
 | [Atom](https://atom.io/) | install_atom | |
-| [Gitkraken](https://www.gitkraken.com/git-client) | install_gitkraken | |
-| [Telegram Desktop](https://telegram.org/) | install_telegram | install_socials |
+| [Gitkraken](https://www.gitkraken.com/git-client) | install_gitkraken | install_ohermosa |
+| [Telegram Desktop](https://telegram.org/) | install_telegram | install_socials, install_ohermosa |
 | [Slack](https://datiodevelopers.slack.com/) | install_slack | install_socials |
 | [Forticlient VPN](https://www.fortinet.com/lat) | install_forticlientvpn | |
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | install_tlp | |
-| [Virtualbox](https://www.virtualbox.org/) | install_virtualbox | |
+| [Virtualbox](https://www.virtualbox.org/) | install_virtualbox | install_ohermosa |
 | [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | install_pycharm | install_editors |
 | [KeepassXC](https://keepassxc.org/download/) | install_keepass | install_pass_managers |
 | [Buttercup](https://buttercup.pw/) | install_buttercup | install_pass_managers |
 | [Windscribe](https://windscribe.com/) | install_windscribe | |
-| [Teamviewer](https://www.teamviewer.com/es/) | install_teamviewer | install_remotes |
+| [Teamviewer](https://www.teamviewer.com/es/) | install_teamviewer | install_remotes, install_ohermosa |
 | [NoMachine](https://www.nomachine.com/es/) | install_nomachine | install_remotes |
 | [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | install_ecs | |
 | [Postman](https://www.getpostman.com) | install_postman | |
@@ -66,7 +66,7 @@ Por defecto se instala el siguiente software:
 | [Franz](https://meetfranz.com/) | install_franz | |
 | [Deluge Torrent](https://deluge-torrent.org/) | install_deluge | |
 | [Cherrytree](https://www.giuspen.com/cherrytree/) | install_cherrytree | install_editors |
-| [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-kubectl) | install_kubectl | |
+| [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-kubectl) | install_kubectl | install_ohermosa |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
