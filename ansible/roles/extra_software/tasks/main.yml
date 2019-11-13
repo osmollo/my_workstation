@@ -55,21 +55,9 @@
     - install_ohermosa
 
 - name: "---[INSTALL]--- Oh My ZSH!"
-  block:
-    - import_tasks: oh_my_zsh.yml
-      when:
-        - install_ohmyzsh
-        - linux_distribution != "arch"
-
-    - name: "[ARCH] install oh my zsh"
-      become: false
-      yay:
-        name: "{{ ohmyzsh_package }}"
-        state: latest
-        update_cache: true
-      when:
-        - install_ohmyzsh
-        - linux_distribution == "arch"
+  import_tasks: oh_my_zsh.yml
+  when:
+    - install_ohmyzsh
   tags:
     - extra_software
     - install_ohmyzsh
