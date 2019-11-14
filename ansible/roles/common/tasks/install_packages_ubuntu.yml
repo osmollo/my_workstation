@@ -29,3 +29,12 @@
   when:
     - desktop_environment is defined
     - desktop_environment == "kde"
+
+- name: "[UBUNTU] Install XFCE packages"
+  yum:
+    name: "{{ xfce_packages }} + {{ xfce_ubuntu_packages }}"
+    state: latest
+    update_cache: true
+  when:
+    - desktop_environment is defined
+    - desktop_environment == "xfce"

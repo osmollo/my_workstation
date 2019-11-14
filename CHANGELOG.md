@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.9.4](#194)
   - [1.9.3](#193)
   - [1.9.2](#192)
   - [1.9.1](#191)
@@ -41,6 +42,11 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.9.4
+
+- Soporte para **XFCE**
+- Simplificada la tabla de [Distribuciones soportadas](ansible/README.md#distribuciones-soportadas) en la [documentación](ansible/README.md)
 
 ## 1.9.3
 
