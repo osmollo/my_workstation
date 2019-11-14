@@ -19,6 +19,7 @@
     - install_postman
     - install_skype
     - install_franz
+    - install_ohermosa
 
 - name: "---[INSTALL]--- docker"
   import_tasks: docker/docker.yml
@@ -26,6 +27,7 @@
   tags:
     - extra_software
     - install_docker
+    - install_ohermosa
 
 - name: "---[INSTALL]--- dropbox"
   import_tasks: dropbox/dropbox.yml
@@ -33,6 +35,7 @@
   tags:
     - extra_software
     - install_dropbox
+    - install_ohermosa
 
 - name: "---[INSTALL]--- Visual Studio Code"
   import_tasks: code/code.yml
@@ -41,6 +44,7 @@
     - extra_software
     - install_code
     - install_editors
+    - install_ohermosa
 
 - name: "---[INSTALL]--- Spotify"
   import_tasks: spotify/spotify.yml
@@ -48,26 +52,16 @@
   tags:
     - extra_software
     - install_spotify
+    - install_ohermosa
 
 - name: "---[INSTALL]--- Oh My ZSH!"
-  block:
-    - import_tasks: oh_my_zsh.yml
-      when:
-        - install_ohmyzsh
-        - linux_distribution != "arch"
-
-    - name: "[ARCH] install oh my zsh"
-      become: false
-      yay:
-        name: "{{ ohmyzsh_package }}"
-        state: latest
-        update_cache: true
-      when:
-        - install_ohmyzsh
-        - linux_distribution == "arch"
+  import_tasks: oh_my_zsh.yml
+  when:
+    - install_ohmyzsh
   tags:
     - extra_software
     - install_ohmyzsh
+    - install_ohermosa
 
 - name: "---[INSTALL]--- Sublime Text"
   import_tasks: sublime/sublime.yml
@@ -91,6 +85,7 @@
   tags:
     - extra_software
     - install_gitkraken
+    - install_ohermosa
 
 - name: "---[INSTALL]--- Telegram"
   import_tasks: telegram/telegram.yml
@@ -99,6 +94,7 @@
     - extra_software
     - install_telegram
     - install_socials
+    - install_ohermosa
 
 - name: "---[INSTALL]--- Slack"
   import_tasks: slack/slack.yml
@@ -129,6 +125,7 @@
   tags:
     - extra_software
     - install_virtualbox
+    - install_ohermosa
 
 - name: "---[INSTALL]--- PyCharm"
   import_tasks: pycharm/pycharm.yml
@@ -168,6 +165,7 @@
   tags:
     - extra_software
     - install_chrome
+    - install_ohermosa
 
 - name: "---[INSTALL]--- Teamviewer"
   import_tasks: teamviewer/teamviewer.yml
@@ -175,6 +173,7 @@
   tags:
     - extra_software
     - install_teamviewer
+    - install_ohermosa
 
 - name: "---[INSTALL]--- No Machine"
   import_tasks: nomachine/nomachine.yml
@@ -277,3 +276,4 @@
   tags:
     - extra_software
     - install_kubectl
+    - install_ohermosa

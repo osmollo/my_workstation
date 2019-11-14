@@ -1,6 +1,8 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.9.3](#193)
+  - [1.9.2](#192)
   - [1.9.1](#191)
   - [1.9.0.1](#1901)
   - [1.9](#19)
@@ -40,6 +42,21 @@
   - [1.0.1](#101)
   - [1.0](#10)
 
+## 1.9.3
+
+- Correcciones para la instalación sobre **Manjaro**:
+  - Cambio de repositorio de `ohmyzsh` (ahora apunta a gitlab) por problema con el enlace de descarga
+  - Instalación de `ohmyzsh` de la forma tradicional en lugar de usar `yay`
+  - instalación de `vagrant` usando `pacman`
+  - nuevo tag `install_ohermosa` para mis mierdas
+  - instala `zsh` en **arch**
+  - quita el check de `dropbox` de `post_install/ohermosa`
+
+## 1.9.2
+
+- Tests sobre **Manjaro** para comprobar que está soportado correctamente
+- Nuevas instancias de **Vagrant** para **Manjaro**, **Xubuntu** y **Fedora 31**
+
 ## 1.9.1
 
 - Las entradas de `/etc/hosts` se mueven del role `common` al `post_install` y se incluyen registros para la red local de **ohermosa**
@@ -47,7 +64,7 @@
 
 ## 1.9.0.1
 
- - fix en el README de ansible
+- fix en el README de ansible
 
 ## 1.9
 
