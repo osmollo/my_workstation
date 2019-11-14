@@ -87,7 +87,10 @@ ansible-playbook install.yml --ask-become-pass -t "install_code,install_dropbox_
 sudo dnf install git ansible
 
 # Para Ubuntu
-sudo apt install git fedora
+sudo apt install git ansible
+
+# Para Arch
+sudo pacman -S git ansible
 ```
 
 A continuación habrá que clonar este repositorio (da igual el directorio de destino):
