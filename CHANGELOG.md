@@ -46,6 +46,7 @@
 ## 1.9.4
 
 - Soporte para **XFCE**
+- Simplificada la tabla de [Distribuciones soportadas](ansible/README.md#distribuciones-soportadas) en la [documentación](ansible/README.md)
 
 ## 1.9.3
 
