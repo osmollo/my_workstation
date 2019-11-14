@@ -30,3 +30,5 @@ gnome_fedora_packages:
   - wireshark
 
 kde_fedora_packages: []
+
+xfce_fedora_packages: []

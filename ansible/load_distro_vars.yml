@@ -71,3 +71,10 @@
   when:
     - ansible_env.XDG_CURRENT_DESKTOP is defined
     - "'GNOME' in ansible_env.XDG_CURRENT_DESKTOP or 'Cinnamon' in ansible_env.XDG_CURRENT_DESKTOP"
+
+- name: "[XFCE] Set DESKTOP_ENVIRONMENT variable"
+  set_fact:
+    desktop_environment: "xfce"
+  when:
+    - ansible_env.XDG_CURRENT_DESKTOP is defined
+    - "'XFCE' in ansible_env.XDG_CURRENT_DESKTOP"

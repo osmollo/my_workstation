@@ -29,3 +29,12 @@
   when:
     - desktop_environment is defined
     - desktop_environment == "kde"
+
+- name: "[ARCH] Install XFCE packages"
+  pacman:
+    name: "{{ xfce_packages }} + {{ xfce_arch_packages }}"
+    state: latest
+    update_cache: true
+  when:
+    - desktop_environment is defined
+    - desktop_environment == "xfce"

@@ -30,6 +30,15 @@
     - desktop_environment is defined
     - desktop_environment == "kde"
 
+- name: "[FEDORA] Install XFCE packages"
+  yum:
+    name: "{{ xfce_packages }} + {{ xfce_fedora_packages }}"
+    state: latest
+    update_cache: true
+  when:
+    - desktop_environment is defined
+    - desktop_environment == "xfce"
+
 - include_tasks:
     file: vlc_fedora.yml
     apply:
