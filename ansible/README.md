@@ -37,13 +37,13 @@ Por defecto se instala el siguiente software:
 | [Chromium Browser](https://chromium.woolyss.com/download/es/) | install_chromium | |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker | install_ohermosa |
 | [Dropbox](https://www.dropbox.com/) | install_dropbox | install_ohermosa |
-| [Visual Studio Code](https://code.visualstudio.com/) | install_code | install_editors, install_ohermosa |
+| [Visual Studio Code](https://code.visualstudio.com/) | install_code | install_editors <br> install_ohermosa |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | install_spotify | install_ohermosa |
 | [Oh my ZSH!](https://ohmyz.sh/) | install_ohmyzsh | install_ohermosa |
 | [Sublime Text](https://www.sublimetext.com/) | install_sublime | install_editors |
 | [Atom](https://atom.io/) | install_atom | |
 | [Gitkraken](https://www.gitkraken.com/git-client) | install_gitkraken | install_ohermosa |
-| [Telegram Desktop](https://telegram.org/) | install_telegram | install_socials, install_ohermosa |
+| [Telegram Desktop](https://telegram.org/) | install_telegram | install_socials <br> install_ohermosa |
 | [Slack](https://datiodevelopers.slack.com/) | install_slack | install_socials |
 | [Forticlient VPN](https://www.fortinet.com/lat) | install_forticlientvpn | |
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | install_tlp | |
@@ -52,7 +52,7 @@ Por defecto se instala el siguiente software:
 | [KeepassXC](https://keepassxc.org/download/) | install_keepass | install_pass_managers |
 | [Buttercup](https://buttercup.pw/) | install_buttercup | install_pass_managers |
 | [Windscribe](https://windscribe.com/) | install_windscribe | |
-| [Teamviewer](https://www.teamviewer.com/es/) | install_teamviewer | install_remotes, install_ohermosa |
+| [Teamviewer](https://www.teamviewer.com/es/) | install_teamviewer | install_remotes <br> install_ohermosa |
 | [NoMachine](https://www.nomachine.com/es/) | install_nomachine | install_remotes |
 | [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | install_ecs | |
 | [Postman](https://www.getpostman.com) | install_postman | |
