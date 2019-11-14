@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.9.5](#195)
   - [1.9.4](#194)
   - [1.9.3](#193)
   - [1.9.2](#192)
@@ -42,6 +43,11 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.9.5
+
+- El tag `install_ohermosa` ha sido renombrado a `ohermosa` y se ha extendido a los roles `common`, `extra_software` y `post_install`
+- Corregido el bug que no asignaba los permisos correctos (600) a todos los ficheros de `/home/ohermosa/.ssh/`
 
 ## 1.9.4
 
