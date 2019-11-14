@@ -6,10 +6,13 @@ Usar `docker-compose` para desplegar una instancia de `vault` con backend de `co
 
 ![Vault UI](https://www.marcolancini.it/images/posts/blog_vault_2.jpg)
 
-
 ## Uso
 
-#### Primera Ejecución
+### Prerequisitos
+
+Para generar el certificado de **Vault**: `openssl req -newkey rsa:2048 -nodes -keyout vault.key -x509 -days 365 -out vault.pem`
+
+### Primera Ejecución
 
 1. Levantar servicios: `docker-compose up`
 2. Iniciar Vault:     `./_scripts/setup.sh`
@@ -17,20 +20,17 @@ Usar `docker-compose` para desplegar una instancia de `vault` con backend de `co
 
 Los datos serán persistidos en el direcotrio `_data`
 
-
-#### Siguientes ejecuciones
+### Siguientes ejecuciones
 
 1. Iniciar Servicios: `docker-compose up`
 2. Unseal vault:   `_scripts/unseal.sh`
 
-
-#### Backup
+### Backup
 
 1. Iniciar servicios: `docker-compose up`
 2. Ejecutar backup:     `_scripts/backup.sh`
 
-
-#### Borrar todos los datos
+### Borrar todos los datos
 
 1. Parar servicios: `docker-compose down --volumes`
 2. Limpiar persistencias: `_scripts/clean.sh`

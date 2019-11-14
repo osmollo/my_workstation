@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [1.9.5](#195)
   - [1.9.4](#194)
   - [1.9.3](#193)
   - [1.9.2](#192)
@@ -42,6 +43,10 @@
   - [1.0.2](#102)
   - [1.0.1](#101)
   - [1.0](#10)
+
+## 1.9.5
+
+- Corrección de errores en `docker_deploys/vault` para que funcione correctamente. Vault sobre HTTPS
 
 ## 1.9.4
 
