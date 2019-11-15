@@ -16,7 +16,7 @@
 - name: "Wait until crontab file exist in Dropbox"
   wait_for:
     path: "{{ dropbox_dir }}/datio/crontab.ohermosa"
-    timeout: {{ wait_dropbox_sync }}
+    timeout: "{{ wait_dropbox_sync }}"
 
 - name: "Create link to user crontab"
   file:

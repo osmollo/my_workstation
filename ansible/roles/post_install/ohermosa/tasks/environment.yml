@@ -38,9 +38,10 @@
 
 - name: "Configure environment"
   block:
-    - wait_for:
+    - name: "Wait until dropbox files exist"
+      wait_for:
         path: "{{ item.src }}"
-        timeout: {{ wait_dropbox_sync }}
+        timeout: "{{ wait_dropbox_sync }}"
       loop: "{{ links_to_create }}"
 
     - name: "Create links from Dropbox"

@@ -10,7 +10,7 @@
 - name: "Wait until files exist in Dropbox"
   wait_for:
     path: "{{ item }}"
-    timeout: {{ wait_dropbox_sync }}
+    timeout: "{{ wait_dropbox_sync }}"
   loop:
     - "{{ dropbox_dir }}/datio/docker.config.json"
     - "{{ dropbox_dir }}/datio/etc.docker.daemon.json"

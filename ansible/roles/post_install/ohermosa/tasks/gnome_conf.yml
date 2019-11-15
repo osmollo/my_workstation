@@ -3,7 +3,7 @@
 - name: "Wait until file exist in Dropbox"
   wait_for:
     path: "{{ dropbox_dir }}/datio/gnome_config"
-    timeout: {{ wait_dropbox_sync }}
+    timeout: "{{ wait_dropbox_sync }}"
 
 - name: "Parse dconf dump for general"
   dconf_to_list:
