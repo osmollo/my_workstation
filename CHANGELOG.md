@@ -1,44 +1,29 @@
 # CHANGELOG
 
-- [CHANGELOG](#changelog)
-  - [1.9.1](#191)
-  - [1.9.0.1](#1901)
-  - [1.9](#19)
-  - [1.8.7](#187)
-  - [1.8.6](#186)
-  - [1.8.5.2](#1852)
-  - [1.8.5.1](#1851)
-  - [1.8.5](#185)
-  - [1.8.4](#184)
-  - [1.8.3](#183)
-  - [1.8.2](#182)
-  - [1.8.1](#181)
-  - [1.8](#18)
-  - [1.7.2](#172)
-  - [1.7.1](#171)
-  - [1.7](#17)
-  - [1.6.4.3](#1643)
-  - [1.6.4.2](#1642)
-  - [1.6.4.1](#1641)
-  - [1.6.4](#164)
-  - [1.6.3](#163)
-  - [1.6.2](#162)
-  - [1.6.1](#161)
-  - [1.6](#16)
-  - [1.5](#15)
-  - [1.4.2](#142)
-  - [1.4.1](#141)
-  - [1.4](#14)
-  - [1.3.1](#131)
-  - [1.3](#13)
-  - [1.2.1](#121)
-  - [1.2](#12)
-  - [1.1](#11)
-  - [1.0.4](#104)
-  - [1.0.3](#103)
-  - [1.0.2](#102)
-  - [1.0.1](#101)
-  - [1.0](#10)
+## 1.9.5
+
+- El tag `install_ohermosa` ha sido renombrado a `ohermosa` y se ha extendido a los roles `common`, `extra_software` y `post_install`
+- Corregido el bug que no asignaba los permisos correctos (600) a todos los ficheros de `/home/ohermosa/.ssh/`
+
+## 1.9.4
+
+- Soporte para **XFCE**
+- Simplificada la tabla de [Distribuciones soportadas](ansible/README.md#distribuciones-soportadas) en la [documentación](ansible/README.md)
+
+## 1.9.3
+
+- Correcciones para la instalación sobre **Manjaro**:
+  - Cambio de repositorio de `ohmyzsh` (ahora apunta a gitlab) por problema con el enlace de descarga
+  - Instalación de `ohmyzsh` de la forma tradicional en lugar de usar `yay`
+  - instalación de `vagrant` usando `pacman`
+  - nuevo tag `install_ohermosa` para mis mierdas
+  - instala `zsh` en **arch**
+  - quita el check de `dropbox` de `post_install/ohermosa`
+
+## 1.9.2
+
+- Tests sobre **Manjaro** para comprobar que está soportado correctamente
+- Nuevas instancias de **Vagrant** para **Manjaro**, **Xubuntu** y **Fedora 31**
 
 ## 1.9.1
 
@@ -47,7 +32,7 @@
 
 ## 1.9.0.1
 
- - fix en el README de ansible
+- fix en el README de ansible
 
 ## 1.9
 

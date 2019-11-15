@@ -14,3 +14,5 @@ gnome_arch_packages:
   - vlc
 
 kde_arch_packages: []
+
+xfce_arch_packages: []
