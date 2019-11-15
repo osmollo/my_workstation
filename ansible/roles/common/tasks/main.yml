@@ -9,6 +9,7 @@
   tags:
     - common
     - disable_selinux
+    - ohermosa
 
 - include_vars:
     file: "{{ linux_distribution | lower }}.yml"
@@ -16,6 +17,7 @@
     - common
     - install_packages
     - yay
+    - ohermosa
 
 - include_vars:
     file: "{{ desktop_environment | lower }}.yml"
@@ -23,6 +25,7 @@
   tags:
     - common
     - install_packages
+    - ohermosa
 
 - include_tasks:
     file: "install_packages_{{ linux_distribution }}.yml"
@@ -30,9 +33,11 @@
       tags:
         - common
         - install_packages
+        - ohermosa
   tags:
     - common
     - install_packages
+    - ohermosa
 
 - include_tasks:
     file: "ansible_{{ linux_distribution }}.yml"
@@ -40,21 +45,25 @@
       tags:
         - common
         - ansible
+        - ohermosa
   tags:
     - common
     - ansible
+    - ohermosa
 
 - import_tasks: python.yml
   tags:
     - common
     - python
     - python3
+    - ohermosa
 
 - import_tasks: delete_snap.yml
   when: ansible_distribution == "ubuntu" and ansible_distribution_major_version >= "18"
   tags:
     - common
     - delete_snap
+    - ohermosa
 
 - name: "[ARCH] install yay package"
   import_tasks: yay.yml
@@ -62,6 +71,7 @@
   tags:
     - common
     - yay
+    - ohermosa
 
 - name: "Configure size of bash history"
   lineinfile:
@@ -73,3 +83,4 @@
   tags:
     - common
     - bash_history_size
+    - ohermosa
