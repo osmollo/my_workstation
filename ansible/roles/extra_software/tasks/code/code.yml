@@ -5,4 +5,4 @@
 - name: "Install 'Sync settings' for Visual Studio Code"
   become: false
   become_user: "{{ ansible_user }}"
-  shell: code --install-extension Shan.code-settings-sync
+  shell: code --install-extension shan.code-settings-sync
