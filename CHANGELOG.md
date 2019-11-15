@@ -10,6 +10,7 @@
 - Entrada en `.gitignore` para el playbook `test.yml` para poder hacer pruebas de desarrollo
 - Ya no es obligatoria la definición de la variable `post_install_user` para la post instalación si el usuario que ejecuta el playbook (se obtiene de la variable de entorno `$USER`), tiene un subdirectorio de configuración en `roles/post_install`
 - Corrección de errores
+- Eliminado el índide del [CHANGELOG](CHANGELOG.md)
 - Actualización de la [documentación](ansible/README.md)
 
 ## 1.9.5
