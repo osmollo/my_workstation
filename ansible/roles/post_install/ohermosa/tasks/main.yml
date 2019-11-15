@@ -43,15 +43,6 @@
     - post_gnome_conf
     - post_gnome
 
-- name: "Check if private ssh key exists"
-  stat:
-    path: "/home/{{ ansible_user }}/.ssh/id_rsa"
-  register: private_key_exists
-  tags:
-    - post_install
-    - post_git
-    - ohermosa
-
 - import_tasks: docker.yml
   tags:
     - post_install
@@ -87,11 +78,6 @@
   tags:
     - post_install
     - post_network
-
-- import_tasks: apachedirectory.yml
-  tags:
-    - post_install
-    - post_apachedirectory
 
 - import_tasks: gpg.yml
   tags:

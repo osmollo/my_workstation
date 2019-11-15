@@ -1,5 +1,10 @@
 ---
 
+- name: "Wait until file exist in Dropbox"
+  wait_for:
+    path: "{{ dropbox_dir }}/datio/gnome_config"
+    state: present
+
 - name: "Parse dconf dump for general"
   dconf_to_list:
     paths_to_restore: "{{ dconf_paths_to_restore_general }}"

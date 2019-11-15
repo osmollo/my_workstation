@@ -7,6 +7,14 @@
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
 
+- name: "Wait until files exist in Dropbox"
+  wait_for:
+    path: "{{ item }}"
+    state: present
+  loop:
+    - "{{ dropbox_dir }}/datio/docker.config.json"
+    - "{{ dropbox_dir }}/datio/etc.docker.daemon.json"
+
 - name: "Create link to config.json"
   become_user: "{{ ansible_user }}"
   file:

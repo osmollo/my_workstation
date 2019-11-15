@@ -13,6 +13,11 @@
   become: true
   become_method: sudo
 
+- name: "Wait until crontab file exist in Dropbox"
+  wait_for:
+    path: "{{ dropbox_dir }}/datio/crontab.ohermosa"
+    state: present
+
 - name: "Create link to user crontab"
   file:
     src: "{{ dropbox_dir }}/datio/crontab.ohermosa"

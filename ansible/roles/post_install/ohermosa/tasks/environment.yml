@@ -38,6 +38,11 @@
 
 - name: "Configure environment"
   block:
+    - wait_for:
+        path: "{{ item.src }}"
+        state: present
+      loop: "{{ links_to_create }}"
+
     - name: "Create links from Dropbox"
       file:
         src: "{{ item.src }}"
@@ -45,22 +50,20 @@
         state: link
       loop: "{{ links_to_create }}"
 
-    - name: "Change permissions to files in {{ ansible_user_dir }}.ssh"
-      block:
-        - name: "find files in {{ ansible_user_dir }}/.ssh"
-          find:
-            recurse: true
-            file_type: file
-            paths: /home/ohermosa/.ssh/
-          register: find_response
+    - name: "find files in {{ ansible_user_dir }}/.ssh"
+      find:
+        recurse: true
+        file_type: file
+        paths: /home/ohermosa/.ssh/
+      register: find_response
 
-        - name: "change permissions to files"
-          vars:
-            id_query: "[].path"
-          file:
-            dest: "{{ item }}"
-            mode: 0600
-          loop: "{{ find_response.files | json_query(id_query) }}"
+    - name: "change permissions to files"
+      vars:
+        id_query: "[].path"
+      file:
+        dest: "{{ item }}"
+        mode: 0600
+      loop: "{{ find_response.files | json_query(id_query) }}"
 
     - name: "Create link to Oh my zsh! theme directory in Dropbox"
       file:
