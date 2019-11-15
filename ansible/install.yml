@@ -31,29 +31,6 @@
       register: stat_response
 
     - name: "Continue with post install if exists configuration for {{ post_user}}"
-      block:
-        - name: "[FEDORA] upgrade all packages to the latest version"
-          yum:
-            name: '*'
-            state: latest
-            update_cache: true
-          when: linux_distribution == "fedora"
-
-        - name: "[UBUNTU] Upgrade all packages to the latest version"
-          apt:
-            name: "*"
-            state: latest
-            update_cache: true
-            force_apt_get: true
-          when: linux_distribution == "ubuntu"
-
-        - name: "[ARCH] upgrade all packages to the latest version"
-          pacman:
-            update_cache: yes
-            upgrade: yes
-          ignore_errors: true
-          when: linux_distribution == "arch"
-
-        - import_role:
-            name: "post_install/{{ post_install_user }}"
+      import_role:
+        name: "post_install/{{ post_user }}"
       when: stat_response.stat.exists

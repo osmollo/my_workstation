@@ -2,11 +2,14 @@
 
 ## 2.0
 
-- Se han unificado los playbooks `install.yml` y `post_install.yml`
+- Se han unificado los playbooks `install.yml` y `post_install.yml` (también los de **vagrant**)
   - Se han adaptado los playbooks del role `post_install/ohermosa` para que queden a la espera de que existan los ficheros que esperan encontrar en **Dropbox**
+  - Ya no se actualizan paquetes en post instalación puesto que se ejecuta en el role `common`
 - Se ha eliminado el playbook `post_install/ohermosa/tasks/apachedirectory.yml` porque se instala en `extra_software`
-- Corrección de errores
 - Entrada en `.gitignore` para el playbook `test.yml` para poder hacer pruebas de desarrollo
+- Ya no es obligatoria la definición de la variable `post_install_user` para la post instalación si el usuario que ejecuta el playbook (se obtiene de la variable de entorno `$USER`), tiene un subdirectorio de configuración en `roles/post_install`
+- Corrección de errores
+- Actualización de la [documentación](ansible/README.md)
 
 ## 1.9.5
 
