@@ -1,48 +1,17 @@
 # CHANGELOG
 
-- [CHANGELOG](#changelog)
-  - [1.9.5](#195)
-  - [1.9.4](#194)
-  - [1.9.3](#193)
-  - [1.9.2](#192)
-  - [1.9.1](#191)
-  - [1.9.0.1](#1901)
-  - [1.9](#19)
-  - [1.8.7](#187)
-  - [1.8.6](#186)
-  - [1.8.5.2](#1852)
-  - [1.8.5.1](#1851)
-  - [1.8.5](#185)
-  - [1.8.4](#184)
-  - [1.8.3](#183)
-  - [1.8.2](#182)
-  - [1.8.1](#181)
-  - [1.8](#18)
-  - [1.7.2](#172)
-  - [1.7.1](#171)
-  - [1.7](#17)
-  - [1.6.4.3](#1643)
-  - [1.6.4.2](#1642)
-  - [1.6.4.1](#1641)
-  - [1.6.4](#164)
-  - [1.6.3](#163)
-  - [1.6.2](#162)
-  - [1.6.1](#161)
-  - [1.6](#16)
-  - [1.5](#15)
-  - [1.4.2](#142)
-  - [1.4.1](#141)
-  - [1.4](#14)
-  - [1.3.1](#131)
-  - [1.3](#13)
-  - [1.2.1](#121)
-  - [1.2](#12)
-  - [1.1](#11)
-  - [1.0.4](#104)
-  - [1.0.3](#103)
-  - [1.0.2](#102)
-  - [1.0.1](#101)
-  - [1.0](#10)
+## 2.0
+
+- Se han unificado los playbooks `install.yml` y `post_install.yml` (también los de **vagrant**)
+  - Se han adaptado los playbooks del role `post_install/ohermosa` para que queden a la espera de que existan los ficheros que esperan encontrar en **Dropbox**. El tiempo máximo de espera está definido en la variable `wait_dropbox_sync` y está configurado en **1800 minutos**
+  - Ya no se actualizan paquetes en post instalación puesto que se ejecuta en el role `common`
+  - Se definie la variable `post_install_user` en `Vagrantfile` para que use la configuración `post_install/ohermosa`
+- Se ha eliminado el playbook `post_install/ohermosa/tasks/apachedirectory.yml` porque se instala en `extra_software`
+- Entrada en `.gitignore` para el playbook `test.yml` para poder hacer pruebas de desarrollo
+- Ya no es obligatoria la definición de la variable `post_install_user` para la post instalación si el usuario que ejecuta el playbook (se obtiene de la variable de entorno `$USER`), tiene un subdirectorio de configuración en `roles/post_install`
+- Corrección de errores
+- Eliminado el índide del [CHANGELOG](CHANGELOG.md)
+- Actualización de la [documentación](ansible/README.md)
 
 ## 1.9.5
 
