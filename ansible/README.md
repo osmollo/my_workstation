@@ -16,19 +16,16 @@
   - [Uso de Vagrant](#uso-de-vagrant)
   - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
 
-
 ## Distribuciones soportadas
 
-Las distribuciones en las que se han probado estas configuraciones son las siguientes:
-
-| **DISTRIBUCIÓN** | **DESCARGA** |
+| **DISTRIBUCIÓN** | **LINKS DE DESCARGA** |
 |------------------|--------------|
-| Ubuntu 18.04 | http://releases.ubuntu.com/18.04.3/ubuntu-18.04.3-desktop-amd64.iso |
-| Kubuntu 18.04 | http://cdimage.ubuntu.com/kubuntu/releases/18.04/release/kubuntu-18.04.3-desktop-amd64.iso |
-| Fedora 30/31 | https://download.fedoraproject.org/pub/fedora/linux/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso |
-| Linux Mint 19 | https://mirror.dogecloud.org/Linux/Mint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso |
-| KDE Neon | https://files.kde.org/neon/images/user/20191024-1119/neon-user-20191024-1119.iso |
-| Arch Linux | https://www.archlinux.org/releng/releases/2019.10.01/torrent/ |
+| Ubuntu 18.04 | **UBUNTU**: [Enlace](http://releases.ubuntu.com/18.04.3/ubuntu-18.04.3-desktop-amd64.iso) <br> **KUBUNTU**: [Enlace](http://cdimage.ubuntu.com/kubuntu/releases/18.04/release/kubuntu-18.04.3-desktop-amd64.iso) <br> **XUBUNTU**: [Enlace](http://ftp.uni-kl.de/pub/linux/ubuntu-dvd/xubuntu/releases/18.04.3/release/xubuntu-18.04.3-desktop-amd64.iso) |
+| Fedora | **30**: [Enlace](http://mirror.uv.es/mirror/fedora/linux/releases/30/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-30-1.2.iso) <br> **31**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso) |
+| Linux Mint 19 | **CINNAMON**: [Enlace](https://mirror.dogecloud.org/Linux/Mint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso) |
+| KDE Neon | [Enlace](https://files.kde.org/neon/images/user/20191024-1119/neon-user-20191024-1119.iso) |
+| Arch Linux | **TORRENT**: [Enlace](https://www.archlinux.org/releng/releases/2019.10.01/torrent/) |
+| Manjaro | **GNOME**: [Enlace](https://osdn.net/frs/redir.php?m=dotsrc&f=%2Fstorage%2Fg%2Fm%2Fma%2Fmanjaro%2Fgnome%2F18.1.2%2Fmanjaro-gnome-18.1.2-191028-linux53.iso) <br> **KDE**: [Enlace](https://osdn.net/frs/redir.php?m=dotsrc&f=%2Fstorage%2Fg%2Fm%2Fma%2Fmanjaro%2Fkde%2F18.1.2%2Fmanjaro-kde-18.1.2-191028-linux53.iso) <br> **XFCE**: [Enlace](https://osdn.net/frs/redir.php?m=dotsrc&f=%2Fstorage%2Fg%2Fm%2Fma%2Fmanjaro%2Fxfce%2F18.1.2%2Fmanjaro-xfce-18.1.2-191028-linux53.iso) |
 
 ## Software extra instalado
 
@@ -36,26 +33,26 @@ Por defecto se instala el siguiente software:
 
 | **APLICACIÓN** | **TAG/VARIABLE** | **GRUPO** |
 |----------------|------------------|-----------|
-| [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | |
+| [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | ohermosa |
 | [Chromium Browser](https://chromium.woolyss.com/download/es/) | install_chromium | |
-| [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker | |
-| [Dropbox](https://www.dropbox.com/) | install_dropbox | |
-| [Visual Studio Code](https://code.visualstudio.com/) | install_code | install_editors |
-| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | install_spotify | |
-| [Oh my ZSH!](https://ohmyz.sh/) | install_ohmyzsh | |
+| [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker | ohermosa |
+| [Dropbox](https://www.dropbox.com/) | install_dropbox | ohermosa |
+| [Visual Studio Code](https://code.visualstudio.com/) | install_code | install_editors <br> ohermosa |
+| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | install_spotify | ohermosa |
+| [Oh my ZSH!](https://ohmyz.sh/) | install_ohmyzsh | ohermosa |
 | [Sublime Text](https://www.sublimetext.com/) | install_sublime | install_editors |
 | [Atom](https://atom.io/) | install_atom | |
-| [Gitkraken](https://www.gitkraken.com/git-client) | install_gitkraken | |
-| [Telegram Desktop](https://telegram.org/) | install_telegram | install_socials |
+| [Gitkraken](https://www.gitkraken.com/git-client) | install_gitkraken | ohermosa |
+| [Telegram Desktop](https://telegram.org/) | install_telegram | install_socials <br> ohermosa |
 | [Slack](https://datiodevelopers.slack.com/) | install_slack | install_socials |
 | [Forticlient VPN](https://www.fortinet.com/lat) | install_forticlientvpn | |
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | install_tlp | |
-| [Virtualbox](https://www.virtualbox.org/) | install_virtualbox | |
+| [Virtualbox](https://www.virtualbox.org/) | install_virtualbox | ohermosa |
 | [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | install_pycharm | install_editors |
 | [KeepassXC](https://keepassxc.org/download/) | install_keepass | install_pass_managers |
 | [Buttercup](https://buttercup.pw/) | install_buttercup | install_pass_managers |
 | [Windscribe](https://windscribe.com/) | install_windscribe | |
-| [Teamviewer](https://www.teamviewer.com/es/) | install_teamviewer | install_remotes |
+| [Teamviewer](https://www.teamviewer.com/es/) | install_teamviewer | install_remotes <br> ohermosa |
 | [NoMachine](https://www.nomachine.com/es/) | install_nomachine | install_remotes |
 | [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | install_ecs | |
 | [Postman](https://www.getpostman.com) | install_postman | |
@@ -66,7 +63,7 @@ Por defecto se instala el siguiente software:
 | [Franz](https://meetfranz.com/) | install_franz | |
 | [Deluge Torrent](https://deluge-torrent.org/) | install_deluge | |
 | [Cherrytree](https://www.giuspen.com/cherrytree/) | install_cherrytree | install_editors |
-| [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-kubectl) | install_kubectl | |
+| [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-kubectl) | install_kubectl | ohermosa |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

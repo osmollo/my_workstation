@@ -45,16 +45,22 @@
         state: link
       loop: "{{ links_to_create }}"
 
-    - name: "Change permissions to files in .ssh"
-      file:
-        dest: "*"
-        mode: 0600
-      loop:
-        - "{{ ansible_user_dir }}/.ssh/id_rsa*"
-        - "{{ ansible_user_dir }}/.ssh/thinkpad*"
-        - "{{ ansible_user_dir }}/.ssh/ccr/*"
-        - "{{ ansible_user_dir }}/.ssh/aws/*"
-        - "{{ ansible_user_dir }}/.ssh/config"
+    - name: "Change permissions to files in {{ ansible_user_dir }}.ssh"
+      block:
+        - name: "find files in {{ ansible_user_dir }}/.ssh"
+          find:
+            recurse: true
+            file_type: file
+            paths: /home/ohermosa/.ssh/
+          register: find_response
+
+        - name: "change permissions to files"
+          vars:
+            id_query: "[].path"
+          file:
+            dest: "{{ item }}"
+            mode: 0600
+          loop: "{{ find_response.files | json_query(id_query) }}"
 
     - name: "Create link to Oh my zsh! theme directory in Dropbox"
       file:
