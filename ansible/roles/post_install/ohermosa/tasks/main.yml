@@ -61,7 +61,6 @@
     - ohermosa
 
 - import_tasks: git.yml
-  when: private_key_exists.stat.exists
   tags:
     - post_install
     - post_git

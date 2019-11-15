@@ -40,7 +40,7 @@
   block:
     - wait_for:
         path: "{{ item.src }}"
-        state: present
+        timeout: {{ wait_dropbox_sync }}
       loop: "{{ links_to_create }}"
 
     - name: "Create links from Dropbox"

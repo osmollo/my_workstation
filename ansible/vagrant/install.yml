@@ -25,12 +25,6 @@
   vars:
     post_user: "{{ post_install_user | default(ansible_user) }}"
   tasks:
-    - name: "Check if there is any config for {{ post_user }}"
-      stat:
-        path: "post_install/{{ post_user }}"
-      register: stat_response
-
     - name: "Continue with post install if exists configuration for {{ post_user}}"
       import_role:
         name: "post_install/{{ post_user }}"
-      when: stat_response.stat.exists

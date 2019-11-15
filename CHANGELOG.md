@@ -3,7 +3,7 @@
 ## 2.0
 
 - Se han unificado los playbooks `install.yml` y `post_install.yml` (también los de **vagrant**)
-  - Se han adaptado los playbooks del role `post_install/ohermosa` para que queden a la espera de que existan los ficheros que esperan encontrar en **Dropbox**
+  - Se han adaptado los playbooks del role `post_install/ohermosa` para que queden a la espera de que existan los ficheros que esperan encontrar en **Dropbox**. El tiempo máximo de espera está definido en la variable `wait_dropbox_sync` y está configurado en **1800 minutos**
   - Ya no se actualizan paquetes en post instalación puesto que se ejecuta en el role `common`
   - Se definie la variable `post_install_user` en `Vagrantfile` para que use la configuración `post_install/ohermosa`
 - Se ha eliminado el playbook `post_install/ohermosa/tasks/apachedirectory.yml` porque se instala en `extra_software`
