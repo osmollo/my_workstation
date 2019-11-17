@@ -29,6 +29,12 @@
     - post_del_default_dirs
     - ohermosa
 
+- import_tasks: kde_restore.yml
+  when: desktop_environment == "kde"
+  tags:
+    - post_install
+    - post_kde_restore
+
 - import_tasks: gnome_extensions.yml
   when: desktop_environment == "gnome"
   tags:
