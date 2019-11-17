@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2.1
+
+- Restauración del backup de la configuración de **KDE** (guardada en **Dropbox**) en el role `post_install/ohermosa`
+  - Nuevo tag `post_kde_restore` para restaurar la configuración de **KDE** almacenada en **Dropbox**
+  - Borrado de los ficheros originales y creación del link a la copia de seguridad
+- Playbook `kde_backup.yml` (dentro de `post_install/ohermosa`) para realizar copia de seguridad de los ficheros de configuración de **KDE**
+  - Nuevo tag `pre_kde_backup` para ejecutar un backup de los ficheros de configuración de **KDE**. Por defecto se almacenarán en `$DROPBOX/backups/kde`
+  - Copia de los ficheros que no tengan backup (que no sean enlaces) al directorio de **Dropbox**
+
 ## 2.0
 
 - Se han unificado los playbooks `install.yml` y `post_install.yml` (también los de **vagrant**)
