@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.2
+
+- Corrección de errores en el despliegue de Consul y Vault
+
+
 ## 2.1
 
 - Restauración del backup de la configuración de **KDE** (guardada en **Dropbox**) en el role `post_install/ohermosa`

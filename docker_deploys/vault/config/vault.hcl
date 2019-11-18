@@ -5,7 +5,7 @@ backend "consul" {
 }
 listener "tcp" {
   	address = "0.0.0.0:8200"
-    tls_cert_file = "/config/ssl/server.crt"
-    tls_key_file = "/config/ssl/server.key"
+    tls_cert_file = "/config/ssl/vault.pem"
+    tls_key_file = "/config/ssl/vault.key"
 }
 disable_mlock = true
