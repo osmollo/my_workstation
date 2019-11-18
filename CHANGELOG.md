@@ -1,8 +1,26 @@
 # CHANGELOG
 
-## 1.9.6
+## 2.1
 
-- Corrección de errores en `docker_deploys/vault` para que funcione correctamente. Vault sobre HTTPS
+- Restauración del backup de la configuración de **KDE** (guardada en **Dropbox**) en el role `post_install/ohermosa`
+  - Nuevo tag `post_kde_restore` para restaurar la configuración de **KDE** almacenada en **Dropbox**
+  - Borrado de los ficheros originales y creación del link a la copia de seguridad
+- Playbook `kde_backup.yml` (dentro de `post_install/ohermosa`) para realizar copia de seguridad de los ficheros de configuración de **KDE**
+  - Nuevo tag `pre_kde_backup` para ejecutar un backup de los ficheros de configuración de **KDE**. Por defecto se almacenarán en `$DROPBOX/backups/kde`
+  - Copia de los ficheros que no tengan backup (que no sean enlaces) al directorio de **Dropbox**
+
+## 2.0
+
+- Se han unificado los playbooks `install.yml` y `post_install.yml` (también los de **vagrant**)
+  - Se han adaptado los playbooks del role `post_install/ohermosa` para que queden a la espera de que existan los ficheros que esperan encontrar en **Dropbox**. El tiempo máximo de espera está definido en la variable `wait_dropbox_sync` y está configurado en **1800 minutos**
+  - Ya no se actualizan paquetes en post instalación puesto que se ejecuta en el role `common`
+  - Se definie la variable `post_install_user` en `Vagrantfile` para que use la configuración `post_install/ohermosa`
+- Se ha eliminado el playbook `post_install/ohermosa/tasks/apachedirectory.yml` porque se instala en `extra_software`
+- Entrada en `.gitignore` para el playbook `test.yml` para poder hacer pruebas de desarrollo
+- Ya no es obligatoria la definición de la variable `post_install_user` para la post instalación si el usuario que ejecuta el playbook (se obtiene de la variable de entorno `$USER`), tiene un subdirectorio de configuración en `roles/post_install`
+- Corrección de errores
+- Eliminado el índide del [CHANGELOG](CHANGELOG.md)
+- Actualización de la [documentación](ansible/README.md)
 
 ## 1.9.5
 

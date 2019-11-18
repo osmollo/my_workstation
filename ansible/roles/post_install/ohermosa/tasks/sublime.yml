@@ -1,5 +1,10 @@
 ---
 
+- name: "Wait until directory exist in Dropbox"
+  wait_for:
+    path: "{{ dropbox_dir }}/backups/Sublime/User"
+    timeout: "{{ wait_dropbox_sync }}"
+
 - name: "Delete local directory for Sublime configuration"
   file:
     path: "/home/{{ ansible_user }}/.config/sublime-text-3/Packages/User"

@@ -1,5 +1,10 @@
 ---
 
+- name: "Wait until private ssh key exists"
+  wait_for:
+    path: "/home/{{ ansible_user }}/.ssh/id_rsa"
+    timeout: "{{ wait_dropbox_sync }}"
+
 - name: "Create {{ git_dir }}"
   file:
     path: "{{ git_dir }}"

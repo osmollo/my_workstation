@@ -29,6 +29,17 @@
     - post_del_default_dirs
     - ohermosa
 
+- import_tasks: kde_restore.yml
+  when: desktop_environment == "kde"
+  tags:
+    - post_install
+    - post_kde_restore
+
+- import_tasks: kde_backup.yml
+  when: desktop_environment == "kde"
+  tags:
+    - pre_kde_backup
+
 - import_tasks: gnome_extensions.yml
   when: desktop_environment == "gnome"
   tags:
@@ -42,15 +53,6 @@
     - post_install
     - post_gnome_conf
     - post_gnome
-
-- name: "Check if private ssh key exists"
-  stat:
-    path: "/home/{{ ansible_user }}/.ssh/id_rsa"
-  register: private_key_exists
-  tags:
-    - post_install
-    - post_git
-    - ohermosa
 
 - import_tasks: docker.yml
   tags:
@@ -70,7 +72,6 @@
     - ohermosa
 
 - import_tasks: git.yml
-  when: private_key_exists.stat.exists
   tags:
     - post_install
     - post_git
@@ -87,11 +88,6 @@
   tags:
     - post_install
     - post_network
-
-- import_tasks: apachedirectory.yml
-  tags:
-    - post_install
-    - post_apachedirectory
 
 - import_tasks: gpg.yml
   tags:
