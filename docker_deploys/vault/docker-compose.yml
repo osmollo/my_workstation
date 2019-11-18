@@ -1,6 +1,6 @@
 version: '2'
 
-services:    
+services:
     consul:
         container_name: consul
         image: consul:latest
@@ -14,7 +14,7 @@ services:
 
     vault:
         container_name: vault
-        image: vault
+        image: vault:latest
         links:
             - consul:consul
         depends_on:
