@@ -4,3 +4,4 @@ ansible/.vagrant
 ansible/.vscode
 ansible/.inventory_cache
 ansible/*.log
+ansible/test.yml

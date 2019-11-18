@@ -5,8 +5,7 @@
   - [Software extra instalado](#software-extra-instalado)
   - [Prerequisitos](#prerequisitos)
   - [Actualización de paquetes](#actualización-de-paquetes)
-  - [Instalación](#instalación)
-  - [Post Instalación](#post-instalación)
+  - [Instalación y post configuración](#instalación-y-post-configuración)
     - [Gestión de contraseñas](#gestión-de-contraseñas)
       - [Ficheros locales](#ficheros-locales)
       - [Ansible Vault](#ansible-vault)
@@ -116,49 +115,24 @@ ansible-playbook update_packages.yml --ask-become-pass
 
 Es recomemdable ejecutar este playbook nada más instalar el ordenador y antes de lanzar el resto de playbooks para que todos los paquetes se encuentren actualizados y no haya problema con dependencias
 
-## Instalación
+## Instalación y post configuración
 
-La primera tarea que ejecuta este playbook es actualizar los paquetes de la distribución que se esté usando dentro de la misma rama, nunca se actualiza la distribución a la siguiente versión disponible
+Para ejecutar la instalación y posterior post configuración según la personalización de cada usuario, hay que ejecutar el playbook:
 
 ```bash
 ansible-playbook install.yml --ask-become-pass
 ```
 
-Esto instalará todo el software extra definido en el role `extra_software`. Para especificar cuál se quiere o no instalar, ver los comandos definidos [en esta sección](#software-extra-instalado)
-
-## Post Instalación
-
-El role `post_install` tiene como objetivo terminar de configurar el entorno personalizándolo como prefiera el usuario. Dentro del directorio del role, debe ir un subdirectorio con el nombre del usuario que también se pasará como variable a través de `extravars` con la variable `post_install_user`:
+En caso de querer instalar únicamente alguna de las [aplicaciones de terceros disponibles](#software-extra-instalado), hay que usar el tag correspondiente:
 
 ```bash
-ansible-playbook post_install.yml -e "post_install_user=ohermosa" --ask-become-pass [--ask-vault-pass]
+ansible-playbook install.yml --ask-become-pass -t install_atom
 ```
 
-Un ejemplo de cómo debe ser la jerarquía de directorios del role `post_install` es el siguiente:
+Por último, en caso de que el usuario del sistema que lanzaz el playbook sea distinto del subdirectorio `roles/post_install/` donde se encuentra la personalización que se desee aplicar, hay que ejecutar el playbook indicando en *extra_vars* la variable `post_install_user`:
 
-```text
-post_install
-├── dsamaniego
-│   ├── defaults
-│   │   └── main.yml
-│   ├── tasks
-│   │   ├── main.yml
-│   │   └── maki.yml
-│   └── templates
-│       └── burrito.j2
-└── ohermosa
-    ├── defaults
-    │   └── main.yml
-    ├── tasks
-    │   ├── crontab.yml
-    │   ├── docker.yml
-    │   ├── environment.yml
-    │   ├── git.yml
-    │   ├── main.yml
-    │   └── openvpn.yml
-    └── templates
-        ├── bbva_vpn.j2
-        └── datio_mx_vpn.j2
+```bash
+ansible-playbook install.yml --ask-become-pass -e post_install_user=genaro
 ```
 
 ### Gestión de contraseñas
