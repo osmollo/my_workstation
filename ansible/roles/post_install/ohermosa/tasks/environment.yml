@@ -55,7 +55,7 @@
       find:
         recurse: true
         file_type: file
-        paths: /home/ohermosa/.ssh/
+        paths: "{{ ansible_user_dir }}/.ssh/"
       register: find_response
 
     - name: "change permissions to files"

@@ -13,6 +13,8 @@
 | **post_gnome_extensions** | Instala extensiones de Gnome disponibles en el repositorio |
 | **post_gnome_conf** | Restaura la configuración de gnome guardada en **Dropbox** y obtenida con `dconf dump /` |
 | **post_gnome** | Ejecuta todas las tareas relacionadas con gnome (`post_gnome_packages`, `post_gnome_extensions` y `post_gnome_conf`) |
+| **post_kde_restore** | Restaura la copia de seguridad los ficheros de configuración de **KDE** almacenados en **Dropbox**. Borra el original y crea un enlace simbólico al backup |
+| **pre_kde_backup** | Realiza una copia de seguridad de los ficheros de `$HOME/.config/*rc` en **Dropbox** |
 | **post_docker** | Restaura de **Dropbox** los login en repositorios de Docker y la configuración del demonio `docker` |
 | **post_crontab** | Restaura de **Dropbox** el crontab del usuario |
 | **post_environment** | Restaura de **Dropbox** los ficheros de configuración del entorno (`.bashrc`, `.bash_history`, `.zshrc`,...) |
