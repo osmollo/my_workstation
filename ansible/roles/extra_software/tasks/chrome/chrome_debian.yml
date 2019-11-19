@@ -1,0 +1,13 @@
+---
+
+- name: "[DEBIAN] Install Google Chrome"
+  apt:
+    deb: "{{ chrome_package }}"
+    state: present
+    update_cache: true
+
+- name: "[DEBIAN] Install gnome extension for chrome"
+  apt:
+    name: chrome-gnome-shell
+    state: present
+  when: desktop_environment == "gnome"

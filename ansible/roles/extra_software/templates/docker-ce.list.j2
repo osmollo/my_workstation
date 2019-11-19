@@ -1,1 +1,5 @@
-deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_codename }} stable
+{% if ubuntu_codename is defined %}
+deb [arch=amd64] https://download.docker.com/linux/{{ linux_distribution }} {{ ubuntu_codename }} stable
+{% elif debian_codename is defined %}
+deb [arch=amd64] https://download.docker.com/linux/{{ linux_distribution }} {{ debian_codename }} stable
+{% endif %}

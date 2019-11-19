@@ -1,0 +1,7 @@
+---
+
+- name: "[DEB] install KeepassXC"
+  apt:
+    name: keepassxc
+    state: latest
+    update_cache: true

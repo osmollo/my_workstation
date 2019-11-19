@@ -178,3 +178,11 @@ wifi_password_1: !vault |
   35623538363565313237353962613139363730386264363138376365383263643934343835306362
   3333343031626565630a623763623732363065633535323161313161336564373763343037653437
   30653266343830343838313732323335396663373533626461333732373530353166
+
+firefox_dir: "{{ ansible_user_dir }}/.mozilla/firefox"
+
+firefox_customizations:
+  - regex: '^.*(browser.tabs.drawInTitlebar)'
+    line: 'user_pref("browser.tabs.drawInTitlebar", true);'
+  - regex: '^.*(browser.uiCustomization.state)'
+    line: 'user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"home-button\",\"urlbar-container\",\"downloads-button\",\"library-button\",\"sidebar-button\",\"fxa-toolbar-menu-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\"],\"currentVersion\":16,\"newElementCount\":3}");'

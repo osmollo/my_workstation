@@ -1,19 +1,19 @@
 ---
 
-- name: "Get latest version of franz"
+- name: "[DEB] Get latest version of franz"
   uri:
     url: "{{ franz_latest_url }}"
     follow_redirects: safe
     body_format: raw
   register: franz_latest
 
-- name: "Set urls for franz packages"
+- name: "[DEB] Set urls for franz packages"
   vars:
     franz_version: "{{ franz_latest.url | urlsplit('path') | basename }}"
   set_fact:
     franz_ubuntu_package: "https://github.com/meetfranz/franz/releases/download/{{ franz_version }}/franz_{{ franz_version[1:] }}_amd64.deb"
 
-- name: "[UBUNTU] Install franz"
+- name: "[DEB] Install franz"
   apt:
     deb: "{{ franz_ubuntu_package }}"
     state: present
