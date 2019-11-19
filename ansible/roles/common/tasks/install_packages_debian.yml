@@ -1,0 +1,40 @@
+---
+
+- name: "[DEBIAN] Install common packages"
+  apt:
+    name: "{{ common_packages }}"
+    state: latest
+    update_cache: true
+
+- name: "[DEBIAN] Install Debian packages"
+  apt:
+    name: "{{ distro_packages }}"
+    state: latest
+    update_cache: true
+
+- name: "[DEBIAN] Install Gnome packages"
+  yum:
+    name: "{{ gnome_packages }} + {{ gnome_debian_packages }}"
+    state: latest
+    update_cache: true
+  when:
+    - desktop_environment is defined
+    - desktop_environment == "gnome"
+
+- name: "[DEBIAN] Install KDE packages"
+  yum:
+    name: "{{ kde_packages }} + {{ kde_debian_packages }}"
+    state: latest
+    update_cache: true
+  when:
+    - desktop_environment is defined
+    - desktop_environment == "kde"
+
+- name: "[DEBIAN] Install XFCE packages"
+  yum:
+    name: "{{ xfce_packages }} + {{ xfce_debian_packages }}"
+    state: latest
+    update_cache: true
+  when:
+    - desktop_environment is defined
+    - desktop_environment == "xfce"
