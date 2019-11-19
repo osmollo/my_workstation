@@ -18,6 +18,8 @@
     - install_packages
     - yay
     - ohermosa
+    - python
+    - python3
 
 - include_vars:
     file: "{{ desktop_environment | lower }}.yml"
