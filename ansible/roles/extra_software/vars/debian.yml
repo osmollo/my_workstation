@@ -6,3 +6,5 @@ dropbox_package: "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_20
 gitkraken_package: "https://release.axocdn.com/linux/gitkraken-amd64.deb"
 teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 vagrant_package: vagrant
+virtualbox_packages:
+  - virtualbox-6.0
