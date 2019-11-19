@@ -1,0 +1,27 @@
+---
+
+- name: "check if {{ ansible_user_dir }}/.mozilla/firefox exists"
+  stat:
+    path: "{{ firefox_dir }}"
+  register: stat_response
+
+- name: "customize firefox if {{ ansible_user_dir }}/.mozilla/firefox exists"
+  block:
+    - name: "get the firefox profile config"
+      find:
+        path: "{{ firefox_dir }}"
+        patterns: "^.*(default-).*$"
+        use_regex: true
+        file_type: directory
+      register: find_response
+
+    - set_fact:
+        firefox_profile_dir: "{{ (find_response.files | json_query('[].path'))[0] }}"
+
+    - name: "customize firefox profile for {{ ansible_user }}"
+      lineinfile:
+        path: "{{ firefox_profile_dir }}/prefs.js"
+        regexp: '{{ item.regex }}'
+        line: '{{ item.line }}'
+      loop: "{{ firefox_customizations }}"
+  when: stat_response.stat.exists

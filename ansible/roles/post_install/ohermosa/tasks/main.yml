@@ -17,6 +17,7 @@
   tags:
     - post_install
     - post_firefox
+    - ohermosa
 
 - name: "Delete default directories in /home/{{ ansible_user }}"
   file:
