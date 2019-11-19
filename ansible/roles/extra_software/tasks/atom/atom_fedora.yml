@@ -1,6 +1,6 @@
 ---
 
-- name: "[FEDORA] Install Atom"
+- name: "[RPM] Install Atom"
   yum:
-    name: "{{ atom_fedora_package }}"
+    name: "{{ atom_rpm_package }}"
     state: present

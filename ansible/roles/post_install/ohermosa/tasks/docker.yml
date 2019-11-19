@@ -16,7 +16,8 @@
     - "{{ dropbox_dir }}/datio/etc.docker.daemon.json"
 
 - name: "Create link to config.json"
-  become_user: "{{ ansible_user }}"
+  become: true
+  become_method: sudo
   file:
     src: "{{ dropbox_dir }}/datio/docker.config.json"
     dest: "/home/{{ ansible_user }}/.docker/config.json"

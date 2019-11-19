@@ -14,11 +14,13 @@
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
   - [Uso de Vagrant](#uso-de-vagrant)
   - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
+  - [Emoji Cheat Sheet](#emoji-cheat-sheet)
 
 ## Distribuciones soportadas
 
 | **DISTRIBUCIÓN** | **LINKS DE DESCARGA** |
 |------------------|--------------|
+| Debian | **STABLE (10)**: [Enlace](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.2.0-amd64-netinst.iso) <br> **TESTING (11)**: [Enlace](https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/debian-testing-amd64-netinst.iso) |
 | Ubuntu 18.04 | **UBUNTU**: [Enlace](http://releases.ubuntu.com/18.04.3/ubuntu-18.04.3-desktop-amd64.iso) <br> **KUBUNTU**: [Enlace](http://cdimage.ubuntu.com/kubuntu/releases/18.04/release/kubuntu-18.04.3-desktop-amd64.iso) <br> **XUBUNTU**: [Enlace](http://ftp.uni-kl.de/pub/linux/ubuntu-dvd/xubuntu/releases/18.04.3/release/xubuntu-18.04.3-desktop-amd64.iso) |
 | Fedora | **30**: [Enlace](http://mirror.uv.es/mirror/fedora/linux/releases/30/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-30-1.2.iso) <br> **31**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso) |
 | Linux Mint 19 | **CINNAMON**: [Enlace](https://mirror.dogecloud.org/Linux/Mint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso) |
@@ -99,11 +101,19 @@ git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
 ```
 
-Y actualizamos `Ansible` a la última versión:
+:information_source: Únicamente para **Debian** y **Ubuntu**, tendremos que actualizar `Ansible` a la última versión ya que la que viene incluída en sus repositorios oficiales es antigua:
 
 ```bash
 ansible-playbook update_ansible.yml --ask-become-pass
 ```
+
+:information_source: En el caso de **Debian**, habrá que ejecutar el siguiente playbook para configurar `sudo` para el usuario del sistema:
+
+```bash
+ansible-playbook config_sudo.yml --ask-become-pass
+```
+
+La contraseña que pedirá este comando es la contraseña de `root`
 
 ## Actualización de paquetes
 
@@ -296,3 +306,7 @@ Y entre el último tag y el último commit:
 ```bash
 git log --pretty=oneline HEAD...tag
 ```
+
+## Emoji Cheat Sheet
+
+[Aquí](https://www.webfx.com/tools/emoji-cheat-sheet/) se puede encontrar la lista de emojis disponibles para **markdown**

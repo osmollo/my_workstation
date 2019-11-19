@@ -1,8 +1,8 @@
 ---
 
 - name: "Configure /etc/hosts"
+  become: true
   become_method: sudo
-  become_user: "{{ ansible_user }}"
   lineinfile:
     path: /etc/hosts
     line: "{{ item.ip }}\t{{ item.host }}"
@@ -10,6 +10,13 @@
   tags:
     - post_install
     - post_resolv
+    - ohermosa
+
+- name: "Customize firefox"
+  import_tasks: firefox.yml
+  tags:
+    - post_install
+    - post_firefox
     - ohermosa
 
 - name: "Delete default directories in /home/{{ ansible_user }}"
