@@ -39,3 +39,24 @@
             state: latest
             force_apt_get: true
       when: linux_distribution == "ubuntu"
+
+    - block:
+        - name: "[DEBIAN] Import ansible repository key"
+          apt_key:
+            keyserver: keyserver.ubuntu.com
+            id: 6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
+            state: present
+            validate_certs: false
+
+        - name: "[DEBIAN] Create ansible repository file"
+          lineinfile:
+            path: /etc/apt/sources.list.d/ansible.list
+            line: deb http://ppa.launchpad.net/ansible/ansible-2.9/ubuntu trusty main
+            create: true
+
+        - name: "[DEBIAN] Update ansible"
+          apt:
+            name: ansible
+            update_cache: true
+            state: latest
+      when: linux_distribution == "debian"
