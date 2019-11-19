@@ -18,6 +18,11 @@
           name: sudo
           state: present
 
+      - name: "Add {{ ansible_user}} to sudoers files"
+        lineinfile:
+          path: /etc/sudoers
+          line: "{{ ansible_user }}	ALL=(ALL:ALL) ALL"
+
       - name: "Add {{ ansible_user }} to group sudo"
         user:
           name: "{{ ansible_user }}"
