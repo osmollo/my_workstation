@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.2.1
+
+- Simplificado el proceso para obtener el fichero de preferencias de `firefox`
+
 ## 2.2
 
 - Soporte para distribuciones basadas en **Debian**
