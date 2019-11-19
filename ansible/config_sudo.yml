@@ -1,0 +1,29 @@
+---
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - import_tasks: load_distro_vars.yml
+      tags:
+        - always
+
+- hosts: localhost
+  connection: local
+  become: true
+  become_method: su
+  tasks:
+    - block:
+      - name: "Ensure sudo package is installed"
+        apt:
+          name: sudo
+          state: present
+
+      - name: "Add {{ ansible_user }} to group sudo"
+        user:
+          name: "{{ ansible_user }}"
+          groups: sudo
+          append: true
+
+      - debug:
+          msg: "Debes cerrar sesión para que se apliquen los cambios"
+      when: linux_distribution == "debian"

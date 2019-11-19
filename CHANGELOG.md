@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.2
+
+- Soporte para distribuciones basadas en **Debian**
+
 ## 2.1
 
 - Restauración del backup de la configuración de **KDE** (guardada en **Dropbox**) en el role `post_install/ohermosa`

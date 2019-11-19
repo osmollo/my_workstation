@@ -14,6 +14,7 @@
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
   - [Uso de Vagrant](#uso-de-vagrant)
   - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
+  - [Emoji Cheat Sheet](#emoji-cheat-sheet)
 
 ## Distribuciones soportadas
 
@@ -78,8 +79,8 @@ ansible-playbook install.yml --ask-become-pass -t "install_code,install_dropbox_
 
 ## Prerequisitos
 
-* El usuario que ejecute los playbooks debe tener `sudo` activado e incluír `--ask-become-pass` para ejecutar el playbook con permisos de administrador
-* Las tareas de este repositorio se ejecutan en local, por lo que para poder ejecutar los playbooks es necesario tener instalado `git` y `ansible`:
+- El usuario que ejecute los playbooks debe tener `sudo` activado e incluír `--ask-become-pass` para ejecutar el playbook con permisos de administrador
+- Las tareas de este repositorio se ejecutan en local, por lo que para poder ejecutar los playbooks es necesario tener instalado `git` y `ansible`:
 
 ```bash
 # Para Fedora
@@ -96,11 +97,19 @@ git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
 ```
 
-Y actualizamos `Ansible` a la última versión:
+:information_source: Únicamente para **Debian** y **Ubuntu**, tendremos que actualizar `Ansible` a la última versión ya que la que viene incluída en sus repositorios oficiales es antigua:
 
 ```bash
 ansible-playbook update_ansible.yml --ask-become-pass
 ```
+
+:information_source: En el caso de **Debian**, habrá que ejecutar el siguiente playbook para configurar `sudo` para el usuario del sistema:
+
+```bash
+ansible-playbook config_sudo.yml --ask-become-pass
+```
+
+La contraseña que pedirá este comando es la contraseña de `root`
 
 ## Actualización de paquetes
 
@@ -293,3 +302,7 @@ Y entre el último tag y el último commit:
 ```bash
 git log --pretty=oneline HEAD...tag
 ```
+
+## Emoji Cheat Sheet
+
+[Aquí](https://www.webfx.com/tools/emoji-cheat-sheet/) se puede encontrar la lista de emojis disponibles para **markdown**
