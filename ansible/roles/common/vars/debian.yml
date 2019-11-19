@@ -1,0 +1,34 @@
+---
+
+distro_packages:
+  - libsecret-tools
+  - aptitude
+  - software-properties-common
+  - network-manager-openvpn
+  - apt-transport-https
+  - openvpn
+  - dnsutils
+  - python-dev
+  - python3-dev
+  - build-essential
+  - snap
+  - snapd
+  - firewall-config
+  - net-tools
+  - python3-jmespath
+  - python-jmespath
+
+gnome_debian_packages:
+  - network-manager-openvpn-gnome
+  - arc-theme
+  - deepin-icon-theme
+  - papirus-icon-theme
+  - gnome-tweaks
+  - python-psutil
+  - python3-psutil
+  - wireshark
+  - vlc
+
+kde_debian_packages: []
+
+xfce_debian_packages: []
