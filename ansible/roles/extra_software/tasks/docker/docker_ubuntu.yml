@@ -20,7 +20,7 @@
 
 - name: "[DEB] Import repository key"
   apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
+    url: "https://download.docker.com/linux/{{ linux_distribution }}/gpg"
     state: present
 
 - name: "[DEB] Install Docker-CE"
