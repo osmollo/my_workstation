@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.2.3
+
+- En `post_kde_backup`, después de crear las copias de seguridad, se borran los originales y se crean enlaces a los backups
+
 ## 2.2.2
 
 - Correcciones en la [documentación](README.md)
