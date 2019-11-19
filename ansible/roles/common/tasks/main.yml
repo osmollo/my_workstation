@@ -39,18 +39,6 @@
     - install_packages
     - ohermosa
 
-- include_tasks:
-    file: "ansible_{{ linux_distribution }}.yml"
-    apply:
-      tags:
-        - common
-        - ansible
-        - ohermosa
-  tags:
-    - common
-    - ansible
-    - ohermosa
-
 - import_tasks: python.yml
   tags:
     - common
