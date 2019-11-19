@@ -1,7 +1,0 @@
----
-
-- name: "[FEDORA] Install ansible"
-  yum:
-    name: ansible
-    state: latest
-    update_cache: true
