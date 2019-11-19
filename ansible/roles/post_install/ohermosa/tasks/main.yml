@@ -2,6 +2,7 @@
 
 - name: "Configure /etc/hosts"
   become: true
+  become_method: sudo
   lineinfile:
     path: /etc/hosts
     line: "{{ item.ip }}\t{{ item.host }}"
