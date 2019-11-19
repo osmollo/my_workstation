@@ -1,6 +1,6 @@
 ---
 
-- name: "[UBUNTU] Install rambox"
+- name: "[DEB] Install rambox"
   apt:
-    deb: "{{ rambox_ubuntu_package }}"
+    deb: "{{ rambox_deb_package }}"
     state: present
