@@ -12,8 +12,8 @@
   vars:
     rambox_version: "{{ rambox_latest.url | urlsplit('path') | basename }}"
   set_fact:
-    rambox_fedora_package: "https://github.com/ramboxapp/community-edition/releases/download/{{ rambox_version }}/Rambox-{{ rambox_version }}-linux-x86_64.rpm"
-    rambox_ubuntu_package: "https://github.com/ramboxapp/community-edition/releases/download/{{ rambox_version }}/Rambox-{{ rambox_version }}-linux-amd64.deb"
+    rambox_rpm_package: "https://github.com/ramboxapp/community-edition/releases/download/{{ rambox_version }}/Rambox-{{ rambox_version }}-linux-x86_64.rpm"
+    rambox_deb_package: "https://github.com/ramboxapp/community-edition/releases/download/{{ rambox_version }}/Rambox-{{ rambox_version }}-linux-amd64.deb"
   when: linux_distribution != "arch"
 
 - include_tasks: "rambox_{{ linux_distribution }}.yml"

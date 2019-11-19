@@ -1,6 +1,6 @@
 ---
 
-- name: "[UBUNTU] Copy repository file"
+- name: "[DEB] Copy repository file"
   copy:
     src: code.list
     dest: /etc/apt/sources.list.d/code.list
@@ -8,12 +8,12 @@
     owner: root
     group: root
 
-- name: "[UBUNTU] Import repository key"
+- name: "[DEB] Import repository key"
   apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc
     state: present
 
-- name: "[UBUNTU] Install code package"
+- name: "[DEB] Install code package"
   apt:
     name: code
     state: latest

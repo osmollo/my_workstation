@@ -1,6 +1,6 @@
 ---
 
-- name: "[UBUNTU] Install Atom"
+- name: "[DEB] Install Atom"
   apt:
-    deb: "{{ atom_ubuntu_package }}"
+    deb: "{{ atom_deb_package }}"
     state: present
