@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 2.2
+
+- Soporte para distribuciones basadas en **Debian**
+  - Nuevo playbook `config_sudo.yml` para configurar `sudo` en distribuciones basadas en **Debian**
+  - Se ha incluído las tasks necesarias en el playbook `update_ansible.yml` para actualizarlo
+  - Se han adaptado los roles `common` y `extra_software` a **Debian**, creando enlaces en los ficheros comunes a **Ubuntu**
+- Corrección de errores
+- Documentación
+- Se ha eliminado la instalación de `ansible` del role `common` puesto que ya es necesario tenerlo instalado para ejecutar los playbooks
+- Personalización de **Firefox** en `post_install/ohermosa`
+- Nuevo tag `post_firefox` para ejecutar la personalización de `firefox`
+
 ## 2.1
 
 - Restauración del backup de la configuración de **KDE** (guardada en **Dropbox**) en el role `post_install/ohermosa`

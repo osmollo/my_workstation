@@ -1,6 +1,6 @@
 ---
 
-- name: "[FEDORA] Install buttercup"
+- name: "[RPM] Install buttercup"
   yum:
-    name: "{{ buttercup_fedora_package }}"
+    name: "{{ buttercup_rpm_package }}"
     state: present

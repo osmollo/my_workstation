@@ -12,8 +12,8 @@
   vars:
     atom_version: "{{ atom_latest.url | urlsplit('path') | basename }}"
   set_fact:
-    atom_fedora_package: "https://github.com/atom/atom/releases/download/{{ atom_version }}/atom.x86_64.rpm"
-    atom_ubuntu_package: "https://github.com/atom/atom/releases/download/{{ atom_version }}/atom-amd64.deb"
+    atom_rpm_package: "https://github.com/atom/atom/releases/download/{{ atom_version }}/atom.x86_64.rpm"
+    atom_deb_package: "https://github.com/atom/atom/releases/download/{{ atom_version }}/atom-amd64.deb"
   when: linux_distribution != "arch"
 
 - include_tasks: "atom_{{ linux_distribution }}.yml"

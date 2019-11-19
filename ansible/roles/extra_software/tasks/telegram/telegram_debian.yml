@@ -1,0 +1,7 @@
+---
+
+- name: "[DEBIAN] install telegram"
+  apt:
+    name: telegram-desktop
+    state: latest
+    update_cache: true

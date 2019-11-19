@@ -61,6 +61,10 @@ Vagrant.configure("2") do |config|
     node.vm.network :private_network, ip: "192.168.56.207"
   end
 
+  config.vm.define 'debian' do |node|
+    node.vm.box = "debian/buster64"
+    node.vm.network :private_network, ip: "192.168.56.208"
+  end
 
   ################################################################
   #                          RUN ANSIBLE                         #
