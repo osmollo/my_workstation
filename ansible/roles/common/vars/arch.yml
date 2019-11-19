@@ -16,3 +16,9 @@ gnome_arch_packages:
 kde_arch_packages: []
 
 xfce_arch_packages: []
+
+python_packages:
+  - python3
+  - python-pip
+  - ipython
+  - python-virtualenv

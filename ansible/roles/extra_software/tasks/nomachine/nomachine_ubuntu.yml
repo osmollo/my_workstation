@@ -1,6 +1,6 @@
 ---
 
-- name: "[UBUNTU] Install no machine"
+- name: "[DEB] Install no machine"
   apt:
     deb: "{{ nomachine_package }}"
     state: present

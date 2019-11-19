@@ -1,6 +1,6 @@
 ---
 
-- name: "[UBUNTU] Uninstall old docker packages"
+- name: "[DEB] Uninstall old docker packages"
   apt:
     name:
       - docker
@@ -10,7 +10,7 @@
       - runc
     state: absent
 
-- name: "[UBUNTU] Copy repository file"
+- name: "[DEB] Copy repository file"
   template:
     src: docker-ce.list.j2
     dest: /etc/apt/sources.list.d/docker-ce.list
@@ -18,12 +18,12 @@
     owner: root
     group: root
 
-- name: "[UBUNTU] Import repository key"
+- name: "[DEB] Import repository key"
   apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
+    url: "https://download.docker.com/linux/{{ linux_distribution }}/gpg"
     state: present
 
-- name: "[UBUNTU] Install Docker-CE"
+- name: "[DEB] Install Docker-CE"
   apt:
     name:
       - docker-ce

@@ -1,0 +1,7 @@
+---
+
+- name: "[DEBIAN] install java package"
+  apt:
+    name: openjdk-11-jdk
+    status: present
+    update_cache: true
