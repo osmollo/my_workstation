@@ -19,7 +19,7 @@
 
 - name: "[DEBIAN] Install vagrant"
   apt:
-    deb: "{{ vagrant_package }}"
+    name: "{{ vagrant_package }}"
     state: present
   tags:
     - install_vagrant
