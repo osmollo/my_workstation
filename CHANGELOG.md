@@ -1,6 +1,10 @@
 # CHANGELOG
 
-# 2.2.1
+## 2.2.2
+
+- Correcciones en la [documentación](README.md)
+
+## 2.2.1
 
 - Simplificado el proceso para obtener el fichero de preferencias de `firefox`
 

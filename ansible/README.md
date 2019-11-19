@@ -87,8 +87,11 @@ ansible-playbook install.yml --ask-become-pass -t "install_code,install_dropbox_
 # Para Fedora
 sudo dnf install git ansible
 
-# Para Ubuntu
-sudo apt install git fedora
+# Para Debian/Ubuntu
+sudo apt install git ansible
+
+# Para Arch
+pacman -S git ansible
 ```
 
 A continuación habrá que clonar este repositorio (da igual el directorio de destino):
@@ -265,7 +268,7 @@ ansible localhost -m shell -a "df -h"
 
 ## Uso de Vagrant
 
-Para probar el código, se puede levantar una máquina con **Ubuntu** o **Fedora** usando [Vagrant](https://www.vagrantup.com/) y [Virtualbox](https://www.virtualbox.org/). Para ello, será necesario instalar *Virtualbox* usando el tag `--install_virtualbox`:
+Para probar el código, se puede levantar una máquina virtual usando [Vagrant](https://www.vagrantup.com/) y [Virtualbox](https://www.virtualbox.org/). Para ello, será necesario instalar *Virtualbox* usando el tag `--install_virtualbox`:
 
 ```bash
 ansible-playbook install.yml --ask-become-pass -t install_virtualbox
@@ -274,7 +277,7 @@ ansible-playbook install.yml --ask-become-pass -t install_virtualbox
 A continuación, dentro del directorio del repo, hay que ejecutar el siguiente comando para levntar la máquina virtual:
 
 ```bash
-vagrant up [ubuntu|fedora]
+vagrant up [mint|kubuntu|ubuntu|xubuntu|fedora30|fedora31|arch|manjaro|debian]
 ```
 
 Cuando se inicie la máquina, se lanzará automáticamente el playbook `vagrant.yml` que instala el role `common` y `extra_software`. Si se quiere lanzar *ansible* desde el anfitrión, habrá que ejecutar el playbook correspondiente usando el inventario de la máquina vagrant que hayamos levantado:
