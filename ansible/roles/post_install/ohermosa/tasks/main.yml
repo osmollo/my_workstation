@@ -1,8 +1,7 @@
 ---
 
 - name: "Configure /etc/hosts"
-  become_method: sudo
-  become_user: "{{ ansible_user }}"
+  become: true
   lineinfile:
     path: /etc/hosts
     line: "{{ item.ip }}\t{{ item.host }}"
