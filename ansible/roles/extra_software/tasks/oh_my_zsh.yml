@@ -23,6 +23,7 @@
     url: "{{ ohmyzsh_installer }}"
     dest: /tmp/install.sh
     mode: 0755
+    timeout: 60
 
 - name: "check if previous oh_my_zsh exists"
   stat:
