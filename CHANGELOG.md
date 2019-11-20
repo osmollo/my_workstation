@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.2.4
+
+- Export de variable `VAULT_TOKEN` en `/etc/profile`
+- Eliminación de tarea duplicada en `environment.yml`
+
 ## 2.2.3.1
 
 - Sólo se ejecuta `pre_kde_backup` cuando el entorno de escritorio sea **KDE**
