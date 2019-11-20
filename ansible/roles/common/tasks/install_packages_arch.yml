@@ -30,6 +30,13 @@
     - desktop_environment is defined
     - desktop_environment == "kde"
 
+- name: "[ARCH] install kwalletcli package"
+  become: false
+  yay:
+    name: "{{ kwalletcli_package }}"
+    state: present
+    update_cache: true
+
 - name: "[ARCH] Install XFCE packages"
   pacman:
     name: "{{ xfce_packages }} + {{ xfce_arch_packages }}"
