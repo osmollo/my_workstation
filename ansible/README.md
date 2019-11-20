@@ -130,7 +130,7 @@ Es recomemdable ejecutar este playbook nada más instalar el ordenador y antes d
 Para ejecutar la instalación y posterior post configuración según la personalización de cada usuario, hay que ejecutar el playbook:
 
 ```bash
-ansible-playbook install.yml --ask-become-pass
+ansible-playbook install.yml --ask-become-pass [--ask-vault-pass]
 ```
 
 En caso de querer instalar únicamente alguna de las [aplicaciones de terceros disponibles](#software-extra-instalado), hay que usar el tag correspondiente:

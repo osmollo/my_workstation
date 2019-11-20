@@ -68,8 +68,6 @@ git_repositories:
       dest: "{{ git_dir }}/msqlm_ops"
     - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_sshmagic.git
       dest: "{{ git_dir }}/ssh_magic"
-    # - repo: ssh://git@globaldevtools.bbva.com:7999/fkrva/fkrva_argos.git
-    #   dest: "{{ git_dir }}/argos"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_fsm.git
       dest: "{{ git_dir }}/fsm"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar.git
@@ -186,3 +184,36 @@ firefox_customizations:
     line: 'user_pref("browser.tabs.drawInTitlebar", true);'
   - regex: '^.*(browser.uiCustomization.state)'
     line: 'user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"home-button\",\"urlbar-container\",\"downloads-button\",\"library-button\",\"sidebar-button\",\"fxa-toolbar-menu-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"developer-button\"],\"dirtyAreaCache\":[\"nav-bar\"],\"currentVersion\":16,\"newElementCount\":3}");'
+
+secrets:
+  - label: "{{ bbva_user }}"
+    secret_key: "{{ bbva_user }}"
+    secret_value: PASSWORD
+    secret: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          36383064323862396433346561343137303861616163376261363261656339616461346464313939
+          3334656635386130306466353165316265343437623838660a336165633332306137613835376532
+          66346133663061373732363334396134383337323165303061613337653638646339383961316432
+          6333316462626230630a323136646262366438363037313939646365666431366236326464363038
+          3462
+  - label: "root token"
+    secret_key: vault_sistemas
+    secret_value: TOKEN
+    secret: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          32393566333865363832633837343832663137336533616663666366613266653035613964356364
+          3937376637303435633834396562623231316565343338660a316366643936393865643562373532
+          31323939613563303534663536373462313037363762336135623136666663376363353830373037
+          6639346361306539650a616665616235666162396666633832623534363862616365613161383036
+          37616163623666306331376630663737326362303435373838666262343665616631313661636230
+          3363623135653431366661666436333466643435653662626331
+  - label: "{{ ansible_user }}"
+    secret_key: "{{ ansible_user }}"
+    secret_value: PASSWORD
+    secret: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          30376662326631663761353538303163303930343265393932393931653032313361383664616333
+          3639313237643334373730323964666136336435333364390a383734396236373962653361323330
+          37373036346637373062623437616535316432623037626566376239383662666431346663666436
+          6230616435656231390a353131646661333532623236383332356165393934346434333939656236
+          3534
