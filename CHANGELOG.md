@@ -5,6 +5,7 @@
 - Export de variable `VAULT_TOKEN` en `/etc/profile`
 - Eliminación de tarea duplicada en `environment.yml`
 - Creación de secretos para _ohermosa_
+- Corrección en backup/restore de **KDE** para esperar a que el directorio `{{ kde_backup_dir }}` esté sincronizado con **Dropbox**
 
 ## 2.2.3.1
 
