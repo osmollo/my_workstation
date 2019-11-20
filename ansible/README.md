@@ -101,13 +101,13 @@ git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
 ```
 
-:information_source: Únicamente para **Debian** y **Ubuntu**, tendremos que actualizar `Ansible` a la última versión ya que la que viene incluída en sus repositorios oficiales es antigua:
+:information_source: Únicamente para **Debian** y **Ubuntu**, tendremos que actualizar **obligatoriamente** `Ansible` a la última versión ya que la que viene incluída en sus repositorios oficiales es antigua:
 
 ```bash
 ansible-playbook update_ansible.yml --ask-become-pass
 ```
 
-:information_source: En el caso de **Debian**, habrá que ejecutar el siguiente playbook para configurar `sudo` para el usuario del sistema:
+:information_source: En el caso de **Debian**, habrá que ejecutar también el siguiente playbook para configurar `sudo` para el usuario del sistema:
 
 ```bash
 ansible-playbook config_sudo.yml --ask-become-pass
@@ -130,7 +130,7 @@ Es recomemdable ejecutar este playbook nada más instalar el ordenador y antes d
 Para ejecutar la instalación y posterior post configuración según la personalización de cada usuario, hay que ejecutar el playbook:
 
 ```bash
-ansible-playbook install.yml --ask-become-pass
+ansible-playbook install.yml --ask-become-pass [--ask-vault-pass]
 ```
 
 En caso de querer instalar únicamente alguna de las [aplicaciones de terceros disponibles](#software-extra-instalado), hay que usar el tag correspondiente:

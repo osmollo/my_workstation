@@ -1,5 +1,12 @@
 ---
 
+- name: "Configure /etc/profile"
+  lineinfile:
+    path: /etc/profile
+    line: "{{ item }}"
+  loop:
+    - 'export VAULT_TOKEN=$(secret-tool lookup vault_sistemas TOKEN)'
+
 - name: "Create python-venv directory"
   file:
     path: "{{ ansible_user_dir }}/python-venv"
@@ -17,13 +24,15 @@
     - "{{ ansible_user_dir }}/.vault_pass*txt"
     - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
 
-- name: "create empty vault_pass files"
-  file:
-    path: "{{ ansible_user_dir}}/{{ item }}"
-    state: touch
+- name: "create vault_pass files"
+  lineinfile:
+    path: "{{ ansible_user_dir}}/{{ item.name }}"
+    line: "{{ item.content }}"
   loop:
-    - .vault_pass_personal.txt
-    - .vault_pass_datio.txt
+    - name: .vault_pass_personal.txt
+      content: "{{ vault_personal_pass }}"
+    - name: .vault_pass_datio.txt
+      content: "{{ vault_datio_pass }}"
 
 - name: "create link to vault_pass file"
   file:
@@ -65,9 +74,3 @@
         dest: "{{ item }}"
         mode: 0600
       loop: "{{ find_response.files | json_query(id_query) }}"
-
-    - name: "Create link to Oh my zsh! theme directory in Dropbox"
-      file:
-        src: "{{ dropbox_dir }}/backups/oh-my-zsh_custom_themes"
-        dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
-        state: link

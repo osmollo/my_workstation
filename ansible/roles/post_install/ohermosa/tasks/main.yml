@@ -12,6 +12,13 @@
     - post_resolv
     - ohermosa
 
+- name: "create secrets"
+  import_tasks: secrets.yml
+  tags:
+    - post_install
+    - post_secrets
+    - ohermosa
+
 - name: "Customize firefox"
   import_tasks: firefox.yml
   tags:

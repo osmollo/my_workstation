@@ -32,6 +32,7 @@ gnome_ubuntu_packages:
 
 kde_ubuntu_packages:
   - kubuntu-restricted-extras
+  - kwalletcli
 
 xfce_ubuntu_packages:
   - xubuntu-restricted-extras

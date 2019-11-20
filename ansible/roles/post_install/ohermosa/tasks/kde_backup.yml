@@ -1,6 +1,11 @@
 ---
 
 - block:
+    - name: "[KDE] Wait until dropbox files exist"
+      wait_for:
+        path: "{{ kde_backup_dir }}"
+        timeout: "{{ wait_dropbox_sync }}"
+
     - name: "[KDE] search kde config files not backed up yet"
       find:
         path: "{{ ansible_user_dir }}/.config"

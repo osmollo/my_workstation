@@ -1,35 +1,31 @@
 # post_install/ohermosa
 
-- [post_install/ohermosa](#post_installohermosa)
-  - [Acciones disponibles](#acciones-disponibles)
-  - [Ejemplo de uso](#ejemplo-de-uso)
-
 ## Acciones disponibles
 
-| **TAG** | **DESCRIPCIÓN** |
-|------------|--------------|
-| **post_install** | Ejecuta el role completo |
-| **post_del_default_dirs** | Borra los directorios predeterminados en `$HOME` que se crean en la instalación |
-| **post_gnome_extensions** | Instala extensiones de Gnome disponibles en el repositorio |
-| **post_gnome_conf** | Restaura la configuración de gnome guardada en **Dropbox** y obtenida con `dconf dump /` |
-| **post_gnome** | Ejecuta todas las tareas relacionadas con gnome (`post_gnome_packages`, `post_gnome_extensions` y `post_gnome_conf`) |
-| **post_kde_restore** | Restaura la copia de seguridad los ficheros de configuración de **KDE** almacenados en **Dropbox**. Borra el original y crea un enlace simbólico al backup |
-| **pre_kde_backup** | Realiza una copia de seguridad de los ficheros de `$HOME/.config/*rc` en **Dropbox** |
-| **post_docker** | Restaura de **Dropbox** los login en repositorios de Docker y la configuración del demonio `docker` |
-| **post_crontab** | Restaura de **Dropbox** el crontab del usuario |
-| **post_environment** | Restaura de **Dropbox** los ficheros de configuración del entorno (`.bashrc`, `.bash_history`, `.zshrc`,...) |
-| **post_git** | Clona los repositorios indicados en el fichero de variables y configura el `user.email` y `user.name` en cada uno de ellos |
-| **post_network** | Genera las configuraciones para las conexiones de red |
-| **post_sublime** | Restaura la configuración de `Sublime Text` almacenada en **Dropbox** |
-| **post_apachedirectory** | Restaura el lanzador de `Apache Directory Studio` para que apunte a la copia de **Dropbox** |
-| **post_gpg** | Importa llaves públicas GPG del keyserver |
-| **post_firefox** | Personaliza `Firefox` |
+| **TAG** | **DESCRIPCIÓN** | **REQUIERE Dropbox** | **REQUIERE `ask-vault-pass`** |
+|------------|--------------|----------------------|-------------------------------|
+| **post_install** | Ejecuta el role completo | :cloud: | :lock: |
+| **post_del_default_dirs** | Borra los directorios predeterminados en `$HOME` que se crean en la instalación | | |
+| **post_gnome_extensions** | Instala extensiones de Gnome disponibles en el repositorio | | |
+| **post_gnome_conf** | Restaura la configuración de gnome guardada en **Dropbox** y obtenida con `dconf dump /` | | |
+| **post_gnome** | Ejecuta todas las tareas relacionadas con gnome (`post_gnome_packages`, `post_gnome_extensions` y `post_gnome_conf`) | | |
+| **post_kde_restore** | Restaura la copia de seguridad los ficheros de configuración de **KDE** almacenados en **Dropbox**. Borra el original y crea un enlace simbólico al backup | :cloud: | |
+| **pre_kde_backup** | Realiza una copia de seguridad de los ficheros de `$HOME/.config/*rc` en **Dropbox** | :cloud: | |
+| **post_docker** | Restaura de **Dropbox** los login en repositorios de Docker y la configuración del demonio `docker` | :cloud: | |
+| **post_crontab** | Restaura de **Dropbox** el crontab del usuario | :cloud: | |
+| **post_environment** | Restaura de **Dropbox** los ficheros de configuración del entorno (`.bashrc`, `.bash_history`, `.zshrc`,...) | :cloud: | |
+| **post_git** | Clona los repositorios indicados en el fichero de variables y configura el `user.email` y `user.name` en cada uno de ellos | :cloud: |
+| **post_network** | Genera las configuraciones para las conexiones de red | | :lock: |
+| **post_sublime** | Restaura la configuración de `Sublime Text` almacenada en **Dropbox** | :cloud: | |
+| **post_gpg** | Importa llaves públicas GPG del keyserver | | |
+| **post_firefox** | Personaliza `Firefox` | | |
+| **post_secrets** | Crea los secretos específicos para el usuario _ohermosa_ | | :lock: |
 
-| **WARNING**: algunos de los tags anteriores requieren que **Dropbox** esté totalmente sincronizado antes de ejecutarse |
+| :information_source: **WARNING**: algunos de los tags anteriores requieren que **Dropbox** esté totalmente sincronizado antes de ejecutarse |
 | --- |
 
 ## Ejemplo de uso
 
 ```bash
-ansible-playbook post_install.yml --ask-become-pass -t post_apachedirectory -e post_install_user=ohermosa
+ansible-playbook install.yml --ask-become-pass [--ask-vault-pass] -t post_git [-e post_install_user=ohermosa]
 ```
