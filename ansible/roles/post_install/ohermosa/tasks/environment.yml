@@ -1,5 +1,12 @@
 ---
 
+- name: "Configure /etc/profile"
+  lineinfile:
+    path: /etc/profile
+    line: "{{ item }}"
+  loop:
+    - 'export VAULT_TOKEN=$(secret-tool lookup vault_sistemas TOKEN)'
+
 - name: "Create python-venv directory"
   file:
     path: "{{ ansible_user_dir }}/python-venv"
