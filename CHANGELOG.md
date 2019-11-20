@@ -4,6 +4,7 @@
 
 - Export de variable `VAULT_TOKEN` en `/etc/profile`
 - Eliminación de tarea duplicada en `environment.yml`
+- Creación de secretos para _ohermosa_
 
 ## 2.2.3.1
 
