@@ -1,11 +1,3 @@
-- [Configuración de estación de trabajo con Ansible](#configuración-de-estación-de-trabajo-con-ansible)
-  - [Ejecución](#ejecución)
-  - [Documentación](#documentación)
-- [Despliegue de aplicaciones con Docker](#despliegue-de-aplicaciones-con-docker)
-  - [Lanzar un deploy](#lanzar-un-deploy)
-  - [Documentación](#documentación-1)
-
-
 # Configuración de estación de trabajo con Ansible
 
 ## Ejecución

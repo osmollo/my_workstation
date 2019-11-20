@@ -29,7 +29,8 @@ gnome_fedora_packages:
   - python3-psutil
   - wireshark
 
-kde_fedora_packages: []
+kde_fedora_packages:
+  - kwalletcli
 
 xfce_fedora_packages: []
 
