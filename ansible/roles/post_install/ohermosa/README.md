@@ -1,9 +1,5 @@
 # post_install/ohermosa
 
-- [post_install/ohermosa](#post_installohermosa)
-  - [Acciones disponibles](#acciones-disponibles)
-  - [Ejemplo de uso](#ejemplo-de-uso)
-
 ## Acciones disponibles
 
 | **TAG** | **DESCRIPCIÓN** | **REQUIERE Dropbox** | **REQUIERE `ask-vault-pass`** |
@@ -31,5 +27,5 @@
 ## Ejemplo de uso
 
 ```bash
-ansible-playbook post_install.yml --ask-become-pass -t post_apachedirectory -e post_install_user=ohermosa
+ansible-playbook install.yml --ask-become-pass [--ask-vault-pass] -t post_git [-e post_install_user=ohermosa]
 ```
