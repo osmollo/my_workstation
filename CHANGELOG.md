@@ -4,8 +4,11 @@
 
 - Export de variable `VAULT_TOKEN` en `/etc/profile`
 - Eliminación de tarea duplicada en `environment.yml`
-- Creación de secretos para _ohermosa_
+- Creación de secretos para _ohermosa_:
+  - Secretos del _gnome-keyring_
+  - Contraseñas de _ansible-vault_
 - Corrección en backup/restore de **KDE** para esperar a que el directorio `{{ kde_backup_dir }}` esté sincronizado con **Dropbox**
+- Instalación de `kwalletcli`
 
 ## 2.2.3.1
 
