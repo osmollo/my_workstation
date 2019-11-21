@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.3
+
+- Se configura `become_ask_pass` en el fichero `ansible.cfg` para que no sea necesario pasar la opción `--ask-become-pass` al ejecutar los playbooks
+
 ## 2.2.4.1
 
 - Nuevo secreto para autenticación de artifactory
