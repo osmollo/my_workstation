@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.2.4.1
+
+- Nuevo secreto para autenticación de artifactory
+
 ## 2.2.4
 
 - Export de variable `VAULT_TOKEN` en `/etc/profile`
