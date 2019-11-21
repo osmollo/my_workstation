@@ -69,18 +69,18 @@ Por defecto se instala el siguiente software:
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
 ```bash
-ansible-playbook install.yml --ask-become-pass -e "install_spotify=false install_ohmyzsh=false"
+ansible-playbook install.yml -e "install_spotify=false install_ohmyzsh=false"
 ```
 
 En caso contrario, si lo único que se quiere hacer es instalar alguna de las aplicaciones, hay que usar el **tag** correspondiente, que coincide con las variables anteriores. Por ejemplo, para instalar *Visual Studio Code*:
 
 ```bash
-ansible-playbook install.yml --ask-become-pass -t "install_code,install_dropbox_install_spotify"
+ansible-playbook install.yml -t "install_code,install_dropbox_install_spotify"
 ```
 
 ## Prerequisitos
 
-- El usuario que ejecute los playbooks debe tener `sudo` activado e incluír `--ask-become-pass` para ejecutar el playbook con permisos de administrador
+- El usuario que ejecute los playbooks debe tener `sudo` activado e incluír `` para ejecutar el playbook con permisos de administrador
 - Las tareas de este repositorio se ejecutan en local, por lo que para poder ejecutar los playbooks es necesario tener instalado `git` y `ansible`:
 
 ```bash
@@ -101,26 +101,26 @@ git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
 ```
 
-:information_source: Únicamente para **Debian** y **Ubuntu**, tendremos que actualizar `Ansible` a la última versión ya que la que viene incluída en sus repositorios oficiales es antigua:
+:information_source: Únicamente para **Debian** y **Ubuntu**, tendremos que actualizar **obligatoriamente** `Ansible` a la última versión ya que la que viene incluída en sus repositorios oficiales es antigua:
 
 ```bash
-ansible-playbook update_ansible.yml --ask-become-pass
+ansible-playbook update_ansible.yml
 ```
 
-:information_source: En el caso de **Debian**, habrá que ejecutar el siguiente playbook para configurar `sudo` para el usuario del sistema:
+:information_source: En el caso de **Debian**, habrá que ejecutar también el siguiente playbook para configurar `sudo` para el usuario del sistema:
 
 ```bash
-ansible-playbook config_sudo.yml --ask-become-pass
+ansible-playbook config_sudo.yml
 ```
 
 La contraseña que pedirá este comando es la contraseña de `root`
 
 ## Actualización de paquetes
 
-Tanto si se ejecuta el playbook en **Ubuntu** como en **Fedora**, se pueden actualizar todos los paquetes con el siguiente playbook:
+Se pueden actualizar todos los paquetes con el siguiente playbook:
 
 ```bash
-ansible-playbook update_packages.yml --ask-become-pass
+ansible-playbook update_packages.yml
 ```
 
 Es recomemdable ejecutar este playbook nada más instalar el ordenador y antes de lanzar el resto de playbooks para que todos los paquetes se encuentren actualizados y no haya problema con dependencias
@@ -130,19 +130,19 @@ Es recomemdable ejecutar este playbook nada más instalar el ordenador y antes d
 Para ejecutar la instalación y posterior post configuración según la personalización de cada usuario, hay que ejecutar el playbook:
 
 ```bash
-ansible-playbook install.yml --ask-become-pass
+ansible-playbook install.yml [--ask-vault-pass]
 ```
 
 En caso de querer instalar únicamente alguna de las [aplicaciones de terceros disponibles](#software-extra-instalado), hay que usar el tag correspondiente:
 
 ```bash
-ansible-playbook install.yml --ask-become-pass -t install_atom
+ansible-playbook install.yml -t install_atom
 ```
 
 Por último, en caso de que el usuario del sistema que lanzaz el playbook sea distinto del subdirectorio `roles/post_install/` donde se encuentra la personalización que se desee aplicar, hay que ejecutar el playbook indicando en *extra_vars* la variable `post_install_user`:
 
 ```bash
-ansible-playbook install.yml --ask-become-pass -e post_install_user=genaro
+ansible-playbook install.yml -e post_install_user=genaro
 ```
 
 ### Gestión de contraseñas
@@ -212,7 +212,7 @@ Para usar este fichero de variables, habría que usar la misma tarea de Ansible 
 Y para ejecutar el playbook hay que agregar el parámetro `--ask-vault-pass` para que pueda descrifrar el fichero de contraseñas:
 
 ```bash
-ansible-playbook post_install.yml -e "post_install_user=dsamaniego" --ask-become-pass --ask-vault-pass
+ansible-playbook post_install.yml -e "post_install_user=dsamaniego"  --ask-vault-pass
 ```
 
 Para editar el fichero habría que usar el siguiente comando (o bien instalar alguna extensión en el editor de textos que permita trabajar con estos ficheros)
@@ -268,16 +268,16 @@ ansible localhost -m shell -a "df -h"
 
 ## Uso de Vagrant
 
-Para probar el código, se puede levantar una máquina con **Ubuntu** o **Fedora** usando [Vagrant](https://www.vagrantup.com/) y [Virtualbox](https://www.virtualbox.org/). Para ello, será necesario instalar *Virtualbox* usando el tag `--install_virtualbox`:
+Para probar el código, se puede levantar una máquina virtual usando [Vagrant](https://www.vagrantup.com/) y [Virtualbox](https://www.virtualbox.org/). Para ello, será necesario instalar *Virtualbox* usando el tag `--install_virtualbox`:
 
 ```bash
-ansible-playbook install.yml --ask-become-pass -t install_virtualbox
+ansible-playbook install.yml  -t install_virtualbox
 ```
 
 A continuación, dentro del directorio del repo, hay que ejecutar el siguiente comando para levntar la máquina virtual:
 
 ```bash
-vagrant up [ubuntu|fedora]
+vagrant up [mint|kubuntu|ubuntu|xubuntu|fedora30|fedora31|arch|manjaro|debian]
 ```
 
 Cuando se inicie la máquina, se lanzará automáticamente el playbook `vagrant.yml` que instala el role `common` y `extra_software`. Si se quiere lanzar *ansible* desde el anfitrión, habrá que ejecutar el playbook correspondiente usando el inventario de la máquina vagrant que hayamos levantado:
