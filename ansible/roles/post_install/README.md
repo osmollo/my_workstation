@@ -3,7 +3,7 @@
 El role `post_install` tiene como objetivo terminar de configurar el entorno personalizándolo como prefiera el usuario. Dentro del directorio del role, debe ir un subdirectorio con el nombre del usuario que también se pasará como variable a través de `extravars` con la variable `post_install_user`:
 
 ```bash
-ansible-playbook post_install.yml -e "post_install_user=ohermosa" --ask-become-pass
+ansible-playbook post_install.yml -e "post_install_user=ohermosa"
 ```
 
 Un ejemplo de cómo debe ser la jerarquía de directorios del role `post_install` es el siguiente:
