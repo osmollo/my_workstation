@@ -27,5 +27,5 @@
 ## Ejemplo de uso
 
 ```bash
-ansible-playbook install.yml --ask-become-pass [--ask-vault-pass] -t post_git [-e post_install_user=ohermosa]
+ansible-playbook install.yml  [--ask-vault-pass] -t post_git [-e post_install_user=ohermosa]
 ```

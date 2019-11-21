@@ -8,7 +8,7 @@ Un ejemplo de ejecución de ansible para instalar todo el software disponible es
 
 ```bash
 cd ansible
-ansible-playbook install.yml --ask-become-pass
+ansible-playbook install.yml
 ```
 
 Si el fichero `docker-compose.yml` tuviera otro nombre:
