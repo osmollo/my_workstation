@@ -6,7 +6,7 @@
     state: latest
     update_cache: true
     force_apt_get: true
-  when: linux_distribution == "ubuntu"
+  when: linux_distribution == "ubuntu" or linux_distribution == "debian"
 
 - name: "[FEDORA] upgrade all packages to the latest version"
   yum:

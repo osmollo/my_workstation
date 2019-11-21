@@ -1,5 +1,11 @@
 # CHANGELOG
 
+# 2.4
+
+- Posibilidad de deshabilitar la actualizacion de paquetes mediante...
+  - pasar por extravars la variable `disable_updates`
+  - exportar la variable de entorno `REPO_DISABLE_UPDATES` a _1_
+
 ## 2.3.1
 
 - Más personalizaciones para **firefox** en `post_install/ohermosa`:
