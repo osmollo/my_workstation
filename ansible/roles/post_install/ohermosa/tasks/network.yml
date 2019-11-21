@@ -7,6 +7,7 @@
     mode: 0600
     owner: root
     group: root
+  no_log: true
   loop:
     - src: bbva_vpn.j2
       dest: /etc/NetworkManager/system-connections/BBVA
@@ -20,6 +21,7 @@
     mode: 0600
     owner: root
     group: root
+  no_log: true
   loop:
     - src: movistar_8033.j2
       dest: /etc/NetworkManager/system-connections/MOVISTAR_8033

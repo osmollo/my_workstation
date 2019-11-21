@@ -5,3 +5,6 @@ ansible/.vscode
 ansible/.inventory_cache
 ansible/*.log
 ansible/test.yml
+
+docker_deploys/vault/_data/consul/
+docker_deploys/vault/_data/keys.txt

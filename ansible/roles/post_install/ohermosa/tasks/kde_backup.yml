@@ -1,18 +1,42 @@
 ---
 
-- name: "[KDE] search kde config files not backed up yet"
-  find:
-    path: "{{ ansible_user_dir }}/.config"
-    use_regex: true
-    pattern: "^.*rc$"
-    file_type: file
-  register: find_response
+- block:
+    - name: "[KDE] Wait until dropbox files exist"
+      wait_for:
+        path: "{{ kde_backup_dir }}"
+        timeout: "{{ wait_dropbox_sync }}"
 
-- name: "[KDE] backing up KDE config"
-  vars:
-    id_query: "[].path"
-  copy:
-    remote_src: true
-    src: "{{ item }}"
-    dest: "{{ kde_backup_dir }}/{{ item | basename }}"
-  loop: "{{ find_response.files | json_query(id_query) }}"
+    - name: "[KDE] search kde config files not backed up yet"
+      find:
+        path: "{{ ansible_user_dir }}/.config"
+        use_regex: true
+        pattern: "^.*rc$"
+        file_type: file
+      register: find_response
+
+    - name: "[KDE] backing up KDE config"
+      vars:
+        id_query: "[].path"
+      copy:
+        remote_src: true
+        src: "{{ item }}"
+        dest: "{{ kde_backup_dir }}/{{ item | basename }}"
+      loop: "{{ find_response.files | json_query(id_query) }}"
+
+    - name: "[KDE] removing original files"
+      vars:
+        id_query: "[].path"
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop: "{{ find_response.files | json_query(id_query) }}"
+
+    - name: "[KDE] creating links to backup files"
+      vars:
+        id_query: "[].path"
+      file:
+        src: "{{ kde_backup_dir }}/{{ item | basename }}"
+        path: "{{ item }}"
+        state: link
+      loop: "{{ find_response.files | json_query(id_query) }}"
+  when: desktop_environment == "kde"

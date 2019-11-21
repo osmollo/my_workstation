@@ -1,11 +1,3 @@
-- [Configuración de estación de trabajo con Ansible](#configuración-de-estación-de-trabajo-con-ansible)
-  - [Ejecución](#ejecución)
-  - [Documentación](#documentación)
-- [Despliegue de aplicaciones con Docker](#despliegue-de-aplicaciones-con-docker)
-  - [Lanzar un deploy](#lanzar-un-deploy)
-  - [Documentación](#documentación-1)
-
-
 # Configuración de estación de trabajo con Ansible
 
 ## Ejecución
@@ -16,7 +8,7 @@ Un ejemplo de ejecución de ansible para instalar todo el software disponible es
 
 ```bash
 cd ansible
-ansible-playbook install.yml --ask-become-pass
+ansible-playbook install.yml [--ask-vault-pass]
 ```
 
 Si el fichero `docker-compose.yml` tuviera otro nombre:

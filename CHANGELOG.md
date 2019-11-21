@@ -1,8 +1,43 @@
 # CHANGELOG
 
-## 2.3
+## 2.4
 
 - Corrección de errores en el despliegue de Consul y Vault
+
+## 2.3
+
+- Se configura `become_ask_pass` en el fichero `ansible.cfg` para que no sea necesario pasar la opción `--ask-become-pass` al ejecutar los playbooks
+
+## 2.2.4.1
+
+- Nuevo secreto para autenticación de artifactory
+
+## 2.2.4
+
+- Export de variable `VAULT_TOKEN` en `/etc/profile`
+- Eliminación de tarea duplicada en `environment.yml`
+- Creación de secretos para _ohermosa_:
+  - Secretos del _gnome-keyring_ con `secret-tools`
+  - Secretos de _kwallet_ con `kwalletcli`
+  - Contraseñas de _ansible-vault_
+- Corrección en backup/restore de **KDE** para esperar a que el directorio `{{ kde_backup_dir }}` esté sincronizado con **Dropbox**
+- Instalación de `kwalletcli`
+
+## 2.2.3.1
+
+- Sólo se ejecuta `pre_kde_backup` cuando el entorno de escritorio sea **KDE**
+
+## 2.2.3
+
+- En `pre_kde_backup`, después de crear las copias de seguridad, se borran los originales y se crean enlaces a los backups
+
+## 2.2.2
+
+- Correcciones en la [documentación](README.md)
+
+## 2.2.1
+
+- Simplificado el proceso para obtener el fichero de preferencias de `firefox`
 
 ## 2.2
 
