@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2.3.1
+
+- Más personalizaciones para **firefox** en `post_install/ohermosa`:
+  - Preguntar directorio de descarga
+  - No guardar contraseñas
+
 ## 2.3
 
 - Se configura `become_ask_pass` en el fichero `ansible.cfg` para que no sea necesario pasar la opción `--ask-become-pass` al ejecutar los playbooks
