@@ -1,6 +1,7 @@
 ---
 
 - import_tasks: update_packages.yml
+  when: not disable_updates
   tags:
     - always
 
