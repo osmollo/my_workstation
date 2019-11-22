@@ -21,3 +21,8 @@
     upgrade: yes
   ignore_errors: true
   when: linux_distribution == "arch"
+
+- name: "Create {{ last_update_file }}"
+  file:
+    path: "{{ last_update_file }}"
+    state: touch

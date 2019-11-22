@@ -1,6 +1,10 @@
 # CHANGELOG
 
-# 2.4
+## 2.4.1
+
+- En el role `common` no se actualizarán los paquetes si hace menos de una semana que se ha ejecutado la actualización por última vez.
+
+## 2.4
 
 - Posibilidad de deshabilitar la actualizacion de paquetes mediante...
   - pasar por extravars la variable `disable_updates`
