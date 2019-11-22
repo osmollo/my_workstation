@@ -148,7 +148,7 @@ ansible-playbook install.yml -e post_install_user=genaro
 
 ### Deshabilitar actualizaciones
 
-Una de las primeras tareas que se ejecutan es la actualización de los paquetes del sistema. Es posible deshabilitar de las siguientes formas:
+Una de las primeras tareas que se ejecutan es la actualización de los paquetes del sistema. Esta tarea no se lanzará si hace menos de una semana que se ha ejecutado pero también es posible deshabilitarla de las siguientes formas:
 
 - Variable de entorno
 
