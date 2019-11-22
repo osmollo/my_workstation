@@ -1,7 +1,26 @@
 ---
 
-- import_tasks: update_packages.yml
-  when: not disable_updates
+- name: "Update packages"
+  block:
+    - name: "Check if {{ last_update_file }} exists"
+      stat:
+        path: "{{ last_update_file }}"
+      register: stat_response
+
+    - name: "Check if last update was 1 week ago or later"
+      find:
+        path: "{{ last_update_file | dirname }}"
+        hidden: true
+        patterns: "^({{ last_update_file | basename }})$"
+        use_regex: true
+        age: 1w
+        file_type: file
+      register: lastupdate
+
+    - import_tasks: update_packages.yml
+      when:
+        - not disable_updates
+        - (not stat_response.stat.exists) or (lastupdate.files | length == 1)
   tags:
     - always
 
