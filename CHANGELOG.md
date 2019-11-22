@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 2.4.2
+
+- Cambios en `post_install/ohermosa`:
+  - Fix entrada dashboard openstack
+  - Nuevos repositorios git:
+    - [pi-hole](https://github.com/pi-hole/pi-hole)
+    - [docker-pi-hole](https://github.com/pi-hole/docker-pi-hole)
+    - [awesome-sysadmin](https://github.com/kahun/awesome-sysadmin)
+    - [quotes-simple-web](https://github.com/pando85/quotes-simple-web.git)
+    - [oh my bash](https://gitlab.com/ohermosa/oh-my-bash)
+    - [oh my zsh](https://gitlab.com/ohermosa/oh-my-zsh)
+
 ## 2.4.1
 
 - En el role `common` no se actualizarán los paquetes si hace menos de una semana que se ha ejecutado la actualización por última vez.
