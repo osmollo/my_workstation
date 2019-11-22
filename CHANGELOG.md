@@ -11,6 +11,7 @@
     - [quotes-simple-web](https://github.com/pando85/quotes-simple-web.git)
     - [oh my bash](https://gitlab.com/ohermosa/oh-my-bash)
     - [oh my zsh](https://gitlab.com/ohermosa/oh-my-zsh)
+    - [docker compose cookbooks](https://github.com/robcowart/docker_compose_cookbook)
 - Nuevo despliegue `docker_deploys/pihole`
 
 ## 2.4.1

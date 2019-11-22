@@ -121,6 +121,8 @@ git_repositories:
       dest: "{{ git_dir }}/oh-my-bash"
     - repo: git@gitlab.com:ohermosa/oh-my-zsh.git
       dest: "{{ git_dir }}/oh-my-zsh"
+    - repo: https://github.com/robcowart/docker_compose_cookbook.git
+      dest: "{{ git_dir }}/docker_compose_cookbook"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/zshrc"
