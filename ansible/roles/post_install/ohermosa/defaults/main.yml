@@ -7,7 +7,7 @@ etc_hosts:
     ip: 192.168.0.30
   - host: router
     ip: 192.68.0.1
-  - host: dashboard.mx.iaas.igrupobbva vnc.es.iaas.igrupobbva
+  - host: dashboard.es.iaas.igrupobbva dashboard.mx.iaas.igrupobbva vnc.es.iaas.igrupobbva vnc.mx.iaas.igrupobbva
     ip: 127.0.0.1
   - host: pepi
     ip: 172.16.24.49
@@ -109,6 +109,18 @@ git_repositories:
       dest: "{{ git_dir }}/pykata-scorer"
     - repo: git@github.com:pysto/openapi-ranker-spec.git
       dest: "{{ git_dir }}/openapi-ranker-spec"
+    - repo: https://github.com/pi-hole/pi-hole.git
+      dest: "{{ git_dir }}/pi-hole"
+    - repo: https://github.com/pi-hole/docker-pi-hole.git
+      dest: "{{ git_dir }}/docker-pi-hole"
+    - repo: https://github.com/kahun/awesome-sysadmin.git
+      dest: "{{ git_dir }}/awesome-sysadmin"
+    - repo: https://github.com/pando85/quotes-simple-web.git
+      dest: "{{ git_dir }}/quotes-simple-web"
+    - repo: git@gitlab.com:ohermosa/oh-my-bash.git
+      dest: "{{ git_dir }}/oh-my-bash"
+    - repo: git@gitlab.com:ohermosa/oh-my-zsh.git
+      dest: "{{ git_dir }}/oh-my-zsh"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/zshrc"
