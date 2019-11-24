@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.4.3
+
+- Nuevo `docker-compose.yml` para **Vault**+**Consul**
+
 ## 2.4.2
 
 - Cambios en `post_install/ohermosa`:

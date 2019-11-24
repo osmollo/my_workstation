@@ -1,48 +1,43 @@
-version: '2'
+version: '3.6'
 
-services:    
-    consul:
-        container_name: consul
-        image: consul:latest
-        ports:
-            - "8500:8500"
-            - "8300:8300"
-        volumes:
-            - ./config:/config
-            - ./_data/consul:/data
-        command: agent -server -data-dir=/data -bind 0.0.0.0 -client 0.0.0.0 -bootstrap-expect=1
+services:
 
-    vault:
-        container_name: vault
-        image: vault
-        links:
-            - consul:consul
-        depends_on:
-            - consul
-        ports:
-            - "8200:8200"
-        volumes_from:
-            - consul
-        cap_add:
-            - IPC_LOCK
-        command: server -config=/config/vault.hcl
+  vault:
+    build:
+      context: ./vault
+      dockerfile: Dockerfile
+    ports:
+      - 8200:8200
+    volumes:
+      - ./vault/config:/vault/config
+      - ./vault/policies:/vault/policies
+      - ./vault/data:/vault/data
+      - ./vault/logs:/vault/logs
+    environment:
+      - VAULT_ADDR=http://127.0.0.1:8200
+    command: server -config=/vault/config/vault-config.json
+    cap_add:
+      - IPC_LOCK
+    depends_on:
+      - consul
 
-    webui:
-        container_name: webui
-        image: djenriquez/vault-ui
-        ports:
-            - "8000:8000"
-        links:
-            - vault:vault
-        environment:
-            NODE_TLS_REJECT_UNAUTHORIZED: 0
-            VAULT_URL_DEFAULT: https://vault:8200
+  consul:
+    build:
+      context: ./consul
+      dockerfile: Dockerfile
+    ports:
+      - 8500:8500
+    command: agent -server -bind 0.0.0.0 -client 0.0.0.0 -bootstrap-expect 1 -config-file=/consul/config/config.json
+    volumes:
+      - ./consul/config/consul-config.json:/consul/config/config.json
+      - ./consul/data:/consul/data
 
-    backup:
-        container_name: backup
-        build: backup/
-        links:
-            - consul:consul
-        volumes:
-            - ./_data/backup:/backup/
-        command: consul-backup
+  consul-worker:
+    build:
+      context: ./consul
+      dockerfile: Dockerfile
+    command: agent -server -join consul -config-file=/consul/config/config.json
+    volumes:
+      - ./consul/config/consul-config.json:/consul/config/config.json
+    depends_on:
+      - consul
