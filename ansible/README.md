@@ -88,11 +88,11 @@ ansible-playbook install.yml -t "install_code,install_dropbox_install_spotify"
 # Para Fedora
 sudo dnf install git ansible
 
-# Para Debian/Ubuntu
+# Para Ubuntu
 sudo apt install git ansible
 
 # Para Arch
-pacman -S git ansible
+sudo pacman -S git ansible
 ```
 
 A continuación habrá que clonar este repositorio (da igual el directorio de destino):
