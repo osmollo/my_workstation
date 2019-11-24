@@ -6,5 +6,6 @@ ansible/.inventory_cache
 ansible/*.log
 ansible/test.yml
 
-docker_deploys/vault/_data/consul/
-docker_deploys/vault/_data/keys.txt
+docker_deploys/vault/vault/data/*
+docker_deploys/vault/vault/logs/*
+docker_deploys/vault/consul/data/*

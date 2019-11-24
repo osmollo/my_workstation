@@ -1,8 +1,8 @@
 # CHANGELOG
 
-## 2.5
+## 2.4.3
 
-- Corrección de errores en el despliegue de Consul y Vault
+- Nuevo `docker-compose.yml` para **Vault**+**Consul**
 
 ## 2.4.2
 
