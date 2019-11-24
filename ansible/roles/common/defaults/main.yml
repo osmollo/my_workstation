@@ -17,3 +17,5 @@ bad_snap_packages:
   - gnome-calculator
   - gnome-system-monitor
   - gnome-logs
+
+last_update_file: "/var/tmp/.update"

@@ -1,8 +1,38 @@
 # CHANGELOG
 
-## 2.4
+## 2.5
 
 - Corrección de errores en el despliegue de Consul y Vault
+
+## 2.4.2
+
+- Cambios en `post_install/ohermosa`:
+  - Fix entrada dashboard openstack
+  - Nuevos repositorios git:
+    - [pi-hole](https://github.com/pi-hole/pi-hole)
+    - [docker-pi-hole](https://github.com/pi-hole/docker-pi-hole)
+    - [awesome-sysadmin](https://github.com/kahun/awesome-sysadmin)
+    - [quotes-simple-web](https://github.com/pando85/quotes-simple-web.git)
+    - [oh my bash](https://gitlab.com/ohermosa/oh-my-bash)
+    - [oh my zsh](https://gitlab.com/ohermosa/oh-my-zsh)
+    - [docker compose cookbooks](https://github.com/robcowart/docker_compose_cookbook)
+- Nuevo despliegue `docker_deploys/pihole`
+
+## 2.4.1
+
+- En el role `common` no se actualizarán los paquetes si hace menos de una semana que se ha ejecutado la actualización por última vez.
+
+## 2.4
+
+- Posibilidad de deshabilitar la actualizacion de paquetes mediante...
+  - pasar por extravars la variable `disable_updates`
+  - exportar la variable de entorno `REPO_DISABLE_UPDATES` a _1_
+
+## 2.3.1
+
+- Más personalizaciones para **firefox** en `post_install/ohermosa`:
+  - Preguntar directorio de descarga
+  - No guardar contraseñas
 
 ## 2.3
 

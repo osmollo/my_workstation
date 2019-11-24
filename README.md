@@ -20,7 +20,7 @@ docker-compose -f vault.yml up -d
 
 ## Documentación
 
-| **WARNING**: [La documentación de esta sección está disponible aquí](ansible/README.md) |
+| :information_source: [La documentación de esta sección está disponible aquí](ansible/README.md) |
 | --- |
 
 # Despliegue de aplicaciones con Docker
@@ -43,5 +43,5 @@ docker-compose -f vault.yml up -d
 
 ## Documentación
 
-| **WARNING**: [La documentación de esta sección está disponible aquí](docker_deploys/README.md) |
+| :information_source: [La documentación de esta sección está disponible aquí](docker_deploys/README.md) |
 | --- |
