@@ -6,6 +6,7 @@
   - [Prerequisitos](#prerequisitos)
   - [Actualización de paquetes](#actualización-de-paquetes)
   - [Instalación y post configuración](#instalación-y-post-configuración)
+    - [Deshabilitar actualizaciones](#deshabilitar-actualizaciones)
     - [Gestión de contraseñas](#gestión-de-contraseñas)
       - [Ficheros locales](#ficheros-locales)
       - [Ansible Vault](#ansible-vault)
@@ -143,6 +144,24 @@ Por último, en caso de que el usuario del sistema que lanzaz el playbook sea di
 
 ```bash
 ansible-playbook install.yml -e post_install_user=genaro
+```
+
+### Deshabilitar actualizaciones
+
+Una de las primeras tareas que se ejecutan es la actualización de los paquetes del sistema. Esta tarea no se lanzará si hace menos de una semana que se ha ejecutado pero también es posible deshabilitarla de las siguientes formas:
+
+- Variable de entorno
+
+Hay que exportar la variable `REPO_DISABLE_UPDATES` con valor _1_. Cualquier otro valor se considerará _false_ y se actualizarán los paquetes
+
+```bash
+export REPO_DISABLE_UPDATES=1
+```
+
+- Extravars
+
+```bash
+ansible-playbook install.yml -e disable_updates=true
 ```
 
 ### Gestión de contraseñas

@@ -6,7 +6,7 @@
     state: latest
     update_cache: true
     force_apt_get: true
-  when: linux_distribution == "ubuntu"
+  when: linux_distribution == "ubuntu" or linux_distribution == "debian"
 
 - name: "[FEDORA] upgrade all packages to the latest version"
   yum:
@@ -21,3 +21,8 @@
     upgrade: yes
   ignore_errors: true
   when: linux_distribution == "arch"
+
+- name: "Create {{ last_update_file }}"
+  file:
+    path: "{{ last_update_file }}"
+    state: touch
