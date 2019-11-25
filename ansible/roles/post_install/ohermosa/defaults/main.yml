@@ -80,6 +80,18 @@ git_repositories:
       dest: "{{ git_dir }}/docker_stratio_to_artifactory"
     - repo: ssh://git@globaldevtools.bbva.com:7999/usoup/usoup_vault_dockerized.git
       dest: "{{ git_dir }}/usoup_vault_dockerized"
+    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_athens_lb.git
+      dest: "{{ git_dir }}/mlyid_athens_lb"
+    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_dnsbased_ha.git
+      dest: "{{ git_dir }}/mlyid_dnsbased_ha"
+    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker-gc.git
+      dest: "{{ git_dir }}/mlyid_docker-gc"
+    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_gerrit.git
+      dest: "{{ git_dir }}/mlyid_gerrit"
+    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_pgbackup.git
+      dest: "{{ git_dir }}/mlyid_pgbackup"
+    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_postgresha.git
+      dest: "{{ git_dir }}/mlyid_postgresha"
   home:
     - repo: git@gitlab.com:ohermosa/AmazonPy.git
       dest: "{{ git_dir }}/AmazonPy"
