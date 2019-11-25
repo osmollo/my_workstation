@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 2.4.4
+
+- El backup de **KDE** se hace de todos los ficheros del directorio `$HOME/.config`, no sólo de los _*rc_
+- Nuevos repositorios git:
+  - [mlyid_athens_lb](https://globaldevtools.bbva.com/bitbucket/projects/MLYID/repos/mlyid_athens_lb/browse)
+  - [mlyid_dnsbased_ha](https://globaldevtools.bbva.com/bitbucket/projects/MLYID/repos/mlyid_dnsbased_ha/browse)
+  - [mlyid_docker-gc](https://globaldevtools.bbva.com/bitbucket/projects/MLYID/repos/mlyid_docker-gc/browse)
+  - [mlyid_gerrit](https://globaldevtools.bbva.com/bitbucket/projects/MLYID/repos/mlyid_gerrit/browse)
+  - [mlyid_pgbackup](https://globaldevtools.bbva.com/bitbucket/projects/MLYID/repos/mlyid_pgbackup/browse)
+  - [mlyid_postgresha](https://globaldevtools.bbva.com/bitbucket/projects/MLYID/repos/mlyid_postgresha/browse)
+
 ## 2.4.3
 
 - Nuevo `docker-compose.yml` para **Vault**+**Consul**
