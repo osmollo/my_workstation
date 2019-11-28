@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.4.4.1
+
+- Nuevo repo git:
+  - [pepi](https://gitlab.com/ohermosa/pepi)
+
 ## 2.4.4
 
 - El backup de **KDE** se hace de todos los ficheros del directorio `$HOME/.config`, no sólo de los _*rc_
