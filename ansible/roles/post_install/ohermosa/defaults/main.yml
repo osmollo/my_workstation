@@ -15,14 +15,6 @@ etc_hosts:
     ip: 172.16.25.84
   - host: dashboard.internal.kubernetes
     ip: 172.16.14.75
-  - host: idev2
-    ip: 172.16.48.147
-  - host: id2
-    ip: 10.48.238.129
-  - host: id2pro
-    ip: 10.48.195.95
-  - host: bastion
-    ip: 10.48.230.26
   - host: jenkins.daas.live.mx.ether.igrupobbva
     ip: 10.52.195.37
   - host: jenkins.daas.work.mx.ether.igrupobbva
@@ -56,11 +48,9 @@ etc_hosts:
   - host: jenkins.datio-work-01.work.eu.cld.nextgen.igrupobbva
     ip: 100.88.69.9
 
-
 dropbox_dir: "{{ ansible_user_dir }}/Dropbox"
 git_dir: "{{ ansible_user_dir }}/git"
 kde_backup_dir: "{{ dropbox_dir }}/backups/kde"
-
 
 git_repositories:
   work:
