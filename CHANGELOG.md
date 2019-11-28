@@ -1,9 +1,10 @@
 # CHANGELOG
 
-## 2.4.4.1
+## 2.4.5
 
 - Nuevo repo git:
   - [pepi](https://gitlab.com/ohermosa/pepi)
+- Fix importando gpg keys para que solo muestre _CHANGED_ cuando se haya importado una llave nueva
 
 ## 2.4.4
 
