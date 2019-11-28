@@ -2,9 +2,10 @@
 
 ## 2.4.5
 
-- Nuevo repo git:
+- Nuevo repo git para **ohermosa**:
   - [pepi](https://gitlab.com/ohermosa/pepi)
 - Fix importando gpg keys para que solo muestre _CHANGED_ cuando se haya importado una llave nueva
+- Quitadas entradas de _id2_ de `/etc/hosts` porque ahora está configurado en el `.ssh/config` guardado en **Dropbox**
 
 ## 2.4.4
 
