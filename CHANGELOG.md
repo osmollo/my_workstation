@@ -7,6 +7,8 @@
 - Fix importando gpg keys para que solo muestre _CHANGED_ cuando se haya importado una llave nueva
 - Quitadas entradas de _id2_ de `/etc/hosts` porque ahora está configurado en el `.ssh/config` guardado en **Dropbox**
 - Se configura `changed_when` en tareas con `shell` cuando aplica
+- `update_packages.yml` también actualiza el fichero `/var/tmp/.update` para no volver a actualizar paquetes si ya se hizo en la última semana
+  - Actualizado el playbook `vagrant/update_packages.yml` para incluir actualización de **Arch** y el flag de actualización
 
 ## 2.4.4
 
