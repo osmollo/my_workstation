@@ -9,6 +9,7 @@
 - Se configura `changed_when` en tareas con `shell` cuando aplica
 - `update_packages.yml` también actualiza el fichero `/var/tmp/.update` para no volver a actualizar paquetes si ya se hizo en la última semana
   - Actualizado el playbook `vagrant/update_packages.yml` para incluir actualización de **Arch** y el flag de actualización
+- Eliminado play duplicado en `vagrant/install.yml` y eliminada definición de `ansible_user` porque ya está en el inventario dinámico
 
 ## 2.4.4
 

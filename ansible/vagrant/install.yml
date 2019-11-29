@@ -7,25 +7,14 @@
         - always
 
 - hosts: all
-  vars:
-    ansible_user: vagrant
-  tasks:
-    - import_tasks: load_distro_vars.yml
-      tags:
-        - always
-
-- hosts: all
   become: true
   become_user: root
-  vars:
-    ansible_user: vagrant
   roles:
     - common
     - extra_software
 
 - hosts: all
   vars:
-    ansible_user: vagrant
     post_user: "{{ post_install_user | default(ansible_user) }}"
   tasks:
     - name: "Continue with post install if exists configuration for {{ post_user}}"
