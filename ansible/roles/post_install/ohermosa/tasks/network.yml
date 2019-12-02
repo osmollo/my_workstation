@@ -13,21 +13,3 @@
       dest: /etc/NetworkManager/system-connections/BBVA
     - src: datio_mx_vpn.j2
       dest: /etc/NetworkManager/system-connections/Datio_CCR
-
-- name: "Copy network configuration files to NetworkManager"
-  template:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    mode: 0600
-    owner: root
-    group: root
-  no_log: true
-  loop:
-    - src: movistar_8033.j2
-      dest: /etc/NetworkManager/system-connections/MOVISTAR_8033
-    - src: movistar_plus_8033.j2
-      dest: /etc/NetworkManager/system-connections/MOVISTAR_PLUS_8033
-    - src: lexdefensa.j2
-      dest: /etc/NetworkManager/system-connections/LEXDEFENSA
-    - src: lexdefensa_clientes.j2
-      dest: /etc/NetworkManager/system-connections/LEXDEFENSA_CLIENTES_5G

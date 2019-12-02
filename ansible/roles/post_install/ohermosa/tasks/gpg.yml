@@ -2,9 +2,11 @@
 
 - name: "Import gpg keys from keyserver"
   shell: "gpg --keyserver {{ gpg_keyserver }} --recv-keys  {{ item }}"
+  changed_when: "'sin cambios' not in gpg_response.stderr"
+  register: gpg_response
   loop: "{{ gpg_pub_keys }}"
 
-- name: "Show GPG keyring"
+- name: "Get GPG keys"
   shell: "gpg -k"
   register: gpg_response
 
