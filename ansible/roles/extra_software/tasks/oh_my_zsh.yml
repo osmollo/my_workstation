@@ -16,7 +16,7 @@
   pacman:
     name: zsh
     state: latest
-  when: linux_distribution == "arc"
+  when: linux_distribution == "arch"
 
 - name: "Download installation script"
   get_url:

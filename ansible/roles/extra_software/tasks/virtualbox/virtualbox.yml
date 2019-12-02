@@ -21,6 +21,7 @@
 
 - name: "Check if extension pack is already installed"
   shell: "VBoxManage list extpacks"
+  changed_when: false
   register: extpack_list
 
 - name: "Download VirtualBox extension pack"
@@ -32,7 +33,10 @@
   when: 'extpack_list.stdout == "Extension Packs: 0"'
 
 - name: "Install VirtualBox extension pack"
-  shell: "echo 'y' |VBoxManage extpack install --replace {{ download_result.dest }}"
+  shell: "VBoxManage extpack install --replace {{ download_result.dest }}"
+  args:
+    stdin: "y"
+    stdin_add_newline: false
   when: 'extpack_list.stdout == "Extension Packs: 0"'
 
 - name: "Delete Virtualbox Extension pack"
