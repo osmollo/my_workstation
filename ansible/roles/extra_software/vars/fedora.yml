@@ -6,10 +6,10 @@
 #   - NetworkManager-fortisslvpn-gnome
 
 gitkraken_package: "https://release.axocdn.com/linux/gitkraken-amd64.rpm"
-dropbox_package: "https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2019.02.14-1.fedora.x86_64.rpm"
-chrome_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"
-teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm"
-nomachine_package: "https://download.nomachine.com/download/6.8/Linux/nomachine_6.8.1_1_x86_64.rpm"
+dropbox_package: "https://www.dropbox.com/download?dl=packages/{{ linux_distribution }}/nautilus-dropbox-2019.02.14-1.{{ linux_distribution }}.{{ ansible_architecture }}.rpm"
+chrome_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_{{ ansible_architecture }}.rpm"
+teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer.{{ ansible_architecture }}.rpm"
+nomachine_package: "https://download.nomachine.com/download/6.8/Linux/nomachine_6.8.1_1_{{ ansible_architecture }}.rpm"
 
 virtualbox_packages:
   - VirtualBox-6.0
@@ -24,3 +24,4 @@ vagrant_package:
   - vagrant
 
 chromium_package: chromium
+megacmd_package: "https://mega.nz/linux/MEGAsync/{{ ansible_distribution }}_{{ ansible_distribution_version }}/{{ ansible_architecture }}/megacmd-{{ ansible_distribution }}_{{ ansible_distribution_version }}.{{ ansible_architecture }}.rpm"

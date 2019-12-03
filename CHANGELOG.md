@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.5
+
+- Instalación del cliente `MEGAcmd`
+- Configuración de `MEGAcmd` en el role `post_install/ohermosa`
+
 ## 2.4.5.1
 
 - Correcciones de errores

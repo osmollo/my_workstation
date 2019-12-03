@@ -277,3 +277,11 @@
     - extra_software
     - install_kubectl
     - ohermosa
+
+- name: "---[INSTALL]--- MEGAcmd"
+  import_tasks: megacmd/megacmd.yml
+  when: install_megacmd
+  tags:
+    - extra_software
+    - install_megacmd
+    - ohermosa

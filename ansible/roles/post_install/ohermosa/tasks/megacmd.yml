@@ -1,0 +1,4 @@
+---
+
+- name: "Configure megacmd client"
+  shell: "mega-login {{ mega_user }} {{ mega_password }}"
