@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.4.6
+
+- El role `post_install` termina correctamente si no existe el directorio `roles/post_install/{{ user }}`
+
 ## 2.4.5
 
 - Nuevo repo git para **ohermosa**:
