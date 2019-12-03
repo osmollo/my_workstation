@@ -16,14 +16,14 @@
     key: "{{ item.key }}"
     value: "{{ item.value }}"
   loop: "{{ response_general.message }}"
-  when: restore_path in item.key
+  when: restore_path | default("") in item.key
 
 - name: "Parse dconf dump for ubuntu"
   dconf_to_list:
     paths_to_restore: "{{ dconf_paths_to_restore_ubuntu }}"
     dconf_file: "{{ dropbox_dir }}/datio/gnome_config"
   register: response_ubuntu
-  when: ansible_distribution == "Linux Mint"
+  when: ansible_distribution == "Ubuntu"
 
 - name: "Import ubuntu gnome config"
   dconf:
@@ -31,4 +31,4 @@
     value: "{{ item.value }}"
   loop: "{{ response_ubuntu.message }}"
   when:
-    - (ansible_distribution == "Linux Mint") or (restore_path | default("") in item.key)
+    - (ansible_distribution == "Ubuntu") or (restore_path | default("") in item.key)

@@ -8,6 +8,7 @@
 
 - name: "Get GPG keys"
   shell: "gpg -k"
+  changed_when: false
   register: gpg_response
 
 - debug:

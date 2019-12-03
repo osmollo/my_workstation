@@ -140,10 +140,10 @@ En caso de querer instalar únicamente alguna de las [aplicaciones de terceros d
 ansible-playbook install.yml -t install_atom
 ```
 
-Por último, en caso de que el usuario del sistema que lanzaz el playbook sea distinto del subdirectorio `roles/post_install/` donde se encuentra la personalización que se desee aplicar, hay que ejecutar el playbook indicando en *extra_vars* la variable `post_install_user`:
+Por último, en caso de que el usuario del sistema que lanza el playbook sea distinto del subdirectorio `roles/post_install/` donde se encuentra la personalización que se desee aplicar, hay que ejecutar el playbook indicando en *extra_vars* la variable `post_install_user`:
 
 ```bash
-ansible-playbook install.yml -e post_install_user=genaro
+ansible-playbook install.yml -e post_install_user=genaro -t post_gpg
 ```
 
 ### Deshabilitar actualizaciones
