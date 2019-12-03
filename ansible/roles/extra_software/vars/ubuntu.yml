@@ -6,7 +6,7 @@
 #   - network-manager-fortisslvpn-gnome
 
 gitkraken_package: "https://release.axocdn.com/linux/gitkraken-amd64.deb"
-dropbox_package: "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.02.14_amd64.deb"
+dropbox_package: "https://www.dropbox.com/download?dl=packages/{{ ansible_distribution }}/dropbox_2019.02.14_amd64.deb"
 chrome_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 nomachine_package: "https://download.nomachine.com/download/6.8/Linux/nomachine_6.8.1_1_amd64.deb"
@@ -15,4 +15,13 @@ virtualbox_packages:
   - virtualbox-6.0
 
 chromium_package: chromium-browser
-vagrant_package: https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.deb
+vagrant_package: "https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_{{ ansible_architecture }}.deb"
+
+megacmd_package: "https://mega.nz/linux/MEGAsync/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/megacmd-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb"
+megacmd_dependencies:
+  - libmediainfo0v5
+  - libpcrecpp0v5
+  - libzen0v5
+  - libcrypto++6
+  - libmms0
+  - libtinyxml2-6

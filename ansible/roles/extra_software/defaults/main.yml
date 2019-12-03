@@ -32,6 +32,7 @@ install_deluge: true
 install_cherrytree: true
 install_kubectl: true
 install_flatpak: true
+install_megacmd: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
