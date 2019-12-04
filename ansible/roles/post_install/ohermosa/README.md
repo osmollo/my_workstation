@@ -21,6 +21,7 @@
 | **post_firefox** | Personaliza `Firefox` | | |
 | **post_secrets** | Crea los secretos específicos para el usuario _ohermosa_ | | :lock: |
 | **post_megacmd** | Configura el cliente **MEGAcmd** | | :lock: |
+| **post_megasync** | Configura el cliente **MEGAsync** | | |
 
 | :information_source: **WARNING**: algunos de los tags anteriores requieren que **Dropbox** esté totalmente sincronizado antes de ejecutarse |
 | --- |

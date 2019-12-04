@@ -25,3 +25,4 @@ vagrant_package:
 
 chromium_package: chromium
 megacmd_package: "https://mega.nz/linux/MEGAsync/{{ ansible_distribution }}_{{ ansible_distribution_version }}/{{ ansible_architecture }}/megacmd-{{ ansible_distribution }}_{{ ansible_distribution_version }}.{{ ansible_architecture }}.rpm"
+megasync_package: "https://mega.nz/linux/MEGAsync/{{ ansible_distribution }}_{{ ansible_distribution_version }}/{{ ansible_architecture }}/megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.{{ ansible_architecture }}.rpm"

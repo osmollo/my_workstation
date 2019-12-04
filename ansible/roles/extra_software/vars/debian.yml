@@ -16,3 +16,5 @@ megacmd_dependencies:
   - libcrypto++6
   - libmms0
   - libtinyxml2-6
+
+megasync_package: "https://mega.nz/linux/MEGAsync/{{ ansible_distribution }}_{{ ansible_distribution_version }}.0/amd64/megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.0_amd64.deb"

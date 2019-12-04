@@ -1,0 +1,26 @@
+---
+
+- name: "[ARCH] Install megasync"
+  become: false
+  yay:
+    name: "{{ megasync_package }}"
+    state: present
+    update_cache: true
+
+- set_fact:
+    file_manager_plugin: "https://mega.nz/linux/MEGAsync/Arch_Extra/{{ ansible_architecture }}/thunar-megasync-{{ ansible_architecture }}.pkg.tar.xz"
+  when: desktop_environment == "xfce"
+
+- set_fact:
+    file_manager_plugin: "https://mega.nz/linux/MEGAsync/Arch_Extra/{{ ansible_architecture }}/nautilus-megasync-{{ ansible_architecture }}.pkg.tar.xz"
+  when: desktop_environment == "gnome"
+
+- set_fact:
+    file_manager_plugin: "https://mega.nz/linux/MEGAsync/Arch_Extra/{{ ansible_architecture }}/dolphin-megasync-{{ ansible_architecture }}.pkg.tar.xz"
+  when: desktop_environment == "kde"
+
+- name: "[ARCH] Install megasync for file manager"
+  pacman:
+    name: "{{ file_manager_plugin }}"
+    state: present
+  when: file_manager_plugin is defined

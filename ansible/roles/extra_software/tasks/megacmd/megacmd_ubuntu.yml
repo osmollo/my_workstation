@@ -11,3 +11,4 @@
   apt:
     deb: "{{ megacmd_package }}"
     state: present
+    update_cache: true

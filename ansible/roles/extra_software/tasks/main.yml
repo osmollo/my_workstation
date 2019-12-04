@@ -285,3 +285,11 @@
     - extra_software
     - install_megacmd
     - ohermosa
+
+- name: "---[INSTALL]--- MEGAsync"
+  import_tasks: megasync/megasync.yml
+  when: install_megasync
+  tags:
+    - extra_software
+    - install_megasync
+    - install_mega
