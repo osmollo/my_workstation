@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install megacmd"
+  become: false
+  yay:
+    name: "{{ megacmd_package }}"
+    state: present
+    update_cache: true

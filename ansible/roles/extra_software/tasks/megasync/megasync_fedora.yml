@@ -1,0 +1,25 @@
+---
+
+- name: "[FEDORA] install megacmd package"
+  yum:
+    name: "{{ megasync_package }}"
+    state: present
+    update_cache: true
+
+- set_fact:
+    file_manager_plugin: "https://mega.nz/linux/MEGAsync/{{ ansible_distribution }}_{{ ansible_distribution_version }}/{{ ansible_architecture }}/nemo-megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.{{ ansible_architecture }}.rpm"
+  when: ansible_distribution == "Linux Mint"
+
+- set_fact:
+    file_manager_plugin: "https://mega.nz/linux/MEGAsync/{{ ansible_distribution }}_{{ ansible_distribution_version }}/{{ ansible_architecture }}/nautilus-megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.{{ ansible_architecture }}.rpm"
+  when: desktop_environment == "gnome"
+
+- set_fact:
+    file_manager_plugin: "https://mega.nz/linux/MEGAsync/{{ ansible_distribution }}_{{ ansible_distribution_version }}/{{ ansible_architecture }}/dolphin-megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.{{ ansible_architecture }}.rpm"
+  when: desktop_environment == "kde"
+
+- name: "[FEDORA] Install megasync for file manager"
+  yum:
+    name: "{{ file_manager_plugin }}"
+    state: present
+  when: file_manager_plugin is defined
