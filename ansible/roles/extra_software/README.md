@@ -46,9 +46,12 @@
 | **install_deluge** | Instala `Deluge` |
 | **install_cherrytree** | Instala `Cherry Tree` |
 | **install_kubectl** | Instala `Kubectl` |
+| **install_megacmd** | Instala `MEGAcmd` |
+| **install_megasync** | Instala `MEGA sync` |
 | **install_flatpak** | |
 | **install_vagrant** | |
 | **install_dockercompose** | |
+
 
 ## Documentación
 

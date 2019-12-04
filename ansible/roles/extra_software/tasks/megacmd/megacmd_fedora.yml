@@ -1,0 +1,7 @@
+---
+
+- name: "[FEDORA] install megacmd package"
+  yum:
+    name: "{{ megacmd_package }}"
+    state: present
+    update_cache: true
