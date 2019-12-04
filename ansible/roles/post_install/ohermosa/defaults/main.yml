@@ -166,7 +166,7 @@ dconf_paths_to_restore_general:
   - /com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d
   - /com/gexperts/Tilix/keybindings
 
-dconf_paths_to_restore_ubuntu:
+dconf_paths_to_restore_gnome:
   - /org/gnome/shell
   - /org/gnome/settings-daemon/peripherals/keyboard
   - /org/gtk/settings/file-chooser

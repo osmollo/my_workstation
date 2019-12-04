@@ -20,15 +20,15 @@
 
 - name: "Parse dconf dump for ubuntu"
   dconf_to_list:
-    paths_to_restore: "{{ dconf_paths_to_restore_ubuntu }}"
+    paths_to_restore: "{{ dconf_paths_to_restore_gnome }}"
     dconf_file: "{{ dropbox_dir }}/datio/gnome_config"
-  register: response_ubuntu
-  when: ansible_distribution == "Ubuntu"
+  register: response_gnome
+  when: desktop_environment == "gnome"
 
 - name: "Import ubuntu gnome config"
   dconf:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
-  loop: "{{ response_ubuntu.message }}"
+  loop: "{{ response_gnome.message }}"
   when:
-    - (ansible_distribution == "Ubuntu") or (restore_path | default("") in item.key)
+    - (desktop_environment == "gnome") or (restore_path | default("") in item.key)
