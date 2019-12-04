@@ -6,22 +6,6 @@
     state: present
     update_cache: true
 
-- set_fact:
-    file_manager_plugin: "https://mega.nz/linux/MEGAsync/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/thunar-megasync-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb"
-  when: desktop_environment == "xfce"
-
-- set_fact:
-    file_manager_plugin: "https://mega.nz/linux/MEGAsync/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/nemo-megasync-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb"
-  when: ansible_distribution == "Linux Mint"
-
-- set_fact:
-    file_manager_plugin: "https://mega.nz/linux/MEGAsync/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/nautilus-megasync-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb"
-  when: desktop_environment == "gnome"
-
-- set_fact:
-    file_manager_plugin: "https://mega.nz/linux/MEGAsync/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/dolphin-megasync-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb"
-  when: desktop_environment == "kde"
-
 - name: "[UBUNTU] Install megasync for file manager"
   apt:
     deb: "{{ file_manager_plugin }}"

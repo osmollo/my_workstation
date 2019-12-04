@@ -63,3 +63,5 @@ deluge_package: deluge
 cherrytree_package: cherrytree
 
 virtualbox_extpack_version: "6.0.14"
+
+mega_url_base: "https://mega.nz/linux/MEGAsync"

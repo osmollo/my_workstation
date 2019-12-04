@@ -68,3 +68,5 @@ docker_package: docker-bin
 dockercompose_package: docker-compose-bin
 megacmd_package: megacmd-bin
 megasync_package: megasync
+
+file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"
