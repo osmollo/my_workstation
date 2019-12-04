@@ -1,43 +1,43 @@
 {% if linux_distribution == "arch"%}
 
-  {% if desktop_environment == "xfce" %}
+{% if desktop_environment == "xfce" %}
 {{ mega_url_base }}/Arch_Extra/{{ ansible_architecture }}/thunar-megasync-{{ ansible_architecture }}.pkg.tar.xz
-  {% elif desktop_environment == "gnome" %}
+{% elif desktop_environment == "gnome" %}
 {{ mega_url_base }}/Arch_Extra/{{ ansible_architecture }}/nautilus-megasync-{{ ansible_architecture }}.pkg.tar.xz
-  {% elif desktop_environment == "kde" %}
+{% elif desktop_environment == "kde" %}
 {{ mega_url_base }}/Arch_Extra/{{ ansible_architecture }}/dolphin-megasync-{{ ansible_architecture }}.pkg.tar.xz
-  {% endif %}
+{% endif %}
 
 {% elif linux_distribution == "debian" %}
 
-  {% if desktop_environment == "cinnamon" %}
+{% if desktop_environment == "cinnamon" %}
 {{ mega_url_base }}/{{ ansible_distribution }}_{{ ansible_distribution_version }}.0/amd64/nemo-megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.0_amd64.deb
-  {% elif desktop_environment == "gnome" %}
+{% elif desktop_environment == "gnome" %}
 {{ mega_url_base }}/{{ ansible_distribution }}_{{ ansible_distribution_version }}.0/amd64/nautilus-megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.0_amd64.deb
-  {% elif desktop_environment == "kde" %}
+{% elif desktop_environment == "kde" %}
 {{ mega_url_base }}/{{ ansible_distribution }}_{{ ansible_distribution_version }}.0/amd64/nemo-megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.0_amd64.deb
-  {% endif %}
+{% endif %}
 
 {% elif linux_distribution == "fedora" %}
 
-  {% if desktop_environment == "cinnamon" %}
+{% if desktop_environment == "cinnamon" %}
 {{ mega_url_base }}/{{ ansible_distribution }}_{{ ansible_distribution_version }}/{{ ansible_architecture }}/nemo-megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.{{ ansible_architecture }}.rpm
-  {% elif desktop_environment == "gnome" %}
+{% elif desktop_environment == "gnome" %}
 {{ mega_url_base }}/{{ ansible_distribution }}_{{ ansible_distribution_version }}/{{ ansible_architecture }}/nautilus-megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.{{ ansible_architecture }}.rpm
-  {% elif desktop_environment == "kde" %}
+{% elif desktop_environment == "kde" %}
 {{ mega_url_base }}/{{ ansible_distribution }}_{{ ansible_distribution_version }}/{{ ansible_architecture }}/dolphin-megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.{{ ansible_architecture }}.rpm
-  {% endif %}
+{% endif %}
 
 {% elif linux_distribution == "ubuntu" %}
 
-  {% if desktop_environment == "cinnamon" %}
+{% if desktop_environment == "cinnamon" %}
 {{ mega_url_base }}/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/nemo-megasync-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb
-  {% elif desktop_environment == "gnome" %}
+{% elif desktop_environment == "gnome" %}
 {{ mega_url_base }}/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/nautilus-megasync-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb
-  {% elif desktop_environment == "kde" %}
+{% elif desktop_environment == "kde" %}
 {{ mega_url_base }}/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/dolphin-megasync-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb
-  {% elif desktop_environment == "xfce" %}
+{% elif desktop_environment == "xfce" %}
 {{ mega_url_base }}/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/thunar-megasync-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb
-  {% endif %}
+{% endif %}
 
 {% endif %}

@@ -4,6 +4,7 @@
 
 - Soporte para `Cinnamon` en el playbook `load_distro_vars.yml`
 - Se ha templatizado la lógica para obtener el paquete de `MEGAsync` necesario en base al entorno de escritorio
+- Fix al restaurar la configuración de **dconf**, diferenciando entre **Gnome** y **Cinnamon**
 
 ## 2.5
 
