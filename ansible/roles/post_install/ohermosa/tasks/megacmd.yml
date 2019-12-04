@@ -2,3 +2,6 @@
 
 - name: "Configure megacmd client"
   shell: "mega-login {{ mega.user }} {{ mega.password }}"
+  no_log: true
+  register: login_response
+  changed_when: "'Already logged in' not in login_response.stdout"
