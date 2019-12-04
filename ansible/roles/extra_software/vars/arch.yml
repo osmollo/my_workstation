@@ -33,6 +33,7 @@ java_repo: "{{ aur_url }}/java-openjdk-bin.git"
 docker_repo: "{{ aur_url }}/docker-bin.git"
 dockercompose_repo: "{{ aur_url }}/docker-compose-bin.git"
 megacmd_repo: "{{ aur_url }}/megacmd-bin.git"
+megasync_repo: "{{ aur_url }}/megasync.git"
 
 atom_package: atom-editor-bin
 dropbox_package: dropbox
@@ -66,3 +67,4 @@ java_package: java-openjdk-bin
 docker_package: docker-bin
 dockercompose_package: docker-compose-bin
 megacmd_package: megacmd-bin
+megasync_package: megasync

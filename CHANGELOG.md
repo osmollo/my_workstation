@@ -2,8 +2,9 @@
 
 ## 2.5
 
+- Instalación del cliente de escritorio `MEGA sync`
 - Instalación del cliente `MEGAcmd`
-- Configuración de `MEGAcmd` en el role `post_install/ohermosa`
+  - Configuración de `MEGAcmd` en el role `post_install/ohermosa` con el tag `post_megacmd`
 
 ## 2.4.5.1
 
