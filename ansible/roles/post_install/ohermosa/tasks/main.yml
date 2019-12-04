@@ -70,7 +70,7 @@
     - post_gnome
 
 - import_tasks: gnome_conf.yml
-  when: desktop_environment == "gnome"
+  when: desktop_environment == "gnome" or desktop_environment == "cinnamon"
   tags:
     - post_install
     - post_gnome_conf
