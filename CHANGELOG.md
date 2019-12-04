@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.5.1
+
+- Soporte para `Cinnamon` en el playbook `load_distro_vars.yml`
+- Se ha templatizado la lógica para obtener el paquete de `MEGAsync` necesario en base al entorno de escritorio
+
 ## 2.5
 
 - Instalación del cliente de escritorio `MEGA sync`
