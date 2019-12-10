@@ -21,6 +21,7 @@
 | **post_firefox** | Personaliza `Firefox` | | |
 | **post_secrets** | Crea los secretos específicos para el usuario _ohermosa_ | | :lock: |
 | **post_megacmd** | Configura el cliente **MEGAcmd** | | :lock: |
+| **ohermosa** | Ejecuta los post instalación de **ohermosa** | :cloud: | :lock: |
 
 | :information_source: **WARNING**: algunos de los tags anteriores requieren que **Dropbox** esté totalmente sincronizado antes de ejecutarse |
 | --- |
@@ -28,5 +29,5 @@
 ## Ejemplo de uso
 
 ```bash
-ansible-playbook install.yml  [--ask-vault-pass] -t post_git [-e post_install_user=ohermosa]
+ansible-playbook post_install.yml -t post_git [-e post_install_user=ohermosa]
 ```

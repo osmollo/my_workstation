@@ -83,7 +83,7 @@ ansible-playbook install.yml -t "install_code,install_dropbox_install_spotify"
 
 ## Prerequisitos
 
-- El usuario que ejecute los playbooks debe tener `sudo` activado e incluír `` para ejecutar el playbook con permisos de administrador
+- El usuario que ejecute los playbooks debe tener `sudo` activado (se puede configurar con el playbook `config_sudo.yml`)
 - Las tareas de este repositorio se ejecutan en local, por lo que para poder ejecutar los playbooks es necesario tener instalado `git` y `ansible`:
 
 ```bash
@@ -130,7 +130,10 @@ Es recomemdable ejecutar este playbook nada más instalar el ordenador y antes d
 
 ## Instalación y post configuración
 
-Para ejecutar la instalación y posterior post configuración según la personalización de cada usuario, hay que ejecutar el playbook:
+La instalación y post configuración se realiza en dos pasos:
+
+1. Instalación con el playbook `install.yml` de paquetes y software de terceros
+2. Post instalación con el playbook `post_install.yml` para aplicar la configuración personalizada de cada usuario
 
 ```bash
 ansible-playbook install.yml [--ask-vault-pass]
