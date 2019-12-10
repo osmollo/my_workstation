@@ -1,0 +1,9 @@
+---
+
+- name: "Install HP packages"
+  apt:
+    name:
+      - hpijs-ppds
+      - printer-driver-hpijs
+    state: latest
+    update_cache: true

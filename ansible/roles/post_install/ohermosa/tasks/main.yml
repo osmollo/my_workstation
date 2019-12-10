@@ -1,5 +1,10 @@
 ---
 
+- import_tasks: hp.yml
+  tags:
+    - post_install
+    - post_hp
+
 - name: "Configure /etc/hosts"
   become: true
   become_method: sudo
