@@ -4,6 +4,7 @@
 
 - Se han vuelto a separar las tareas de post instalación del playbook principal a `post_install.yml`
   - Documentación
+- Instalación navegador `Vivaldi`
 
 ## 2.5.1
 
