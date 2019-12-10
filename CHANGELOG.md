@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.6
+
+- Se han vuelto a separar las tareas de post instalación del playbook principal a `post_install.yml`
+  - Documentación
+
 ## 2.5.1
 
 - Soporte para `Cinnamon` en el playbook `load_distro_vars.yml`
