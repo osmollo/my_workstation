@@ -48,6 +48,7 @@
 | **install_kubectl** | Instala `Kubectl` |
 | **install_megacmd** | Instala `MEGAcmd` |
 | **install_megasync** | Instala `MEGA sync` |
+| **install_vivaldi** | Instala `Vivaldi` |
 | **install_flatpak** | |
 | **install_vagrant** | |
 | **install_dockercompose** | |

@@ -24,8 +24,7 @@
   tags:
     - post_install
     - post_megacmd
-    - install_megacmd
-    - install_mega
+    - ohermosa
 
 - name: "Customize firefox"
   import_tasks: firefox.yml

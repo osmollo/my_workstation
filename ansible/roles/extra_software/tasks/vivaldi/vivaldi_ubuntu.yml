@@ -1,0 +1,7 @@
+---
+
+- name: "[DEB] Install vivaldi"
+  apt:
+    deb: "{{ vivaldi_package }}"
+    state: present
+    update_cache: true

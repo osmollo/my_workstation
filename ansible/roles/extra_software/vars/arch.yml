@@ -34,6 +34,7 @@ docker_repo: "{{ aur_url }}/docker-bin.git"
 dockercompose_repo: "{{ aur_url }}/docker-compose-bin.git"
 megacmd_repo: "{{ aur_url }}/megacmd-bin.git"
 megasync_repo: "{{ aur_url }}/megasync.git"
+vivaldi_repo: "{{ aur_url }}/vivaldi.git"
 
 atom_package: atom-editor-bin
 dropbox_package: dropbox
@@ -68,5 +69,6 @@ docker_package: docker-bin
 dockercompose_package: docker-compose-bin
 megacmd_package: megacmd-bin
 megasync_package: megasync
+vivaldi_package: vivaldi
 
 file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"

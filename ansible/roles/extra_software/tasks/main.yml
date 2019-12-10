@@ -293,3 +293,10 @@
     - extra_software
     - install_megasync
     - install_mega
+
+- name: "---[INSTALL]--- Vivaldi"
+  import_tasks: vivaldi/vivaldi.yml
+  when: install_vivaldi
+  tags:
+    - extra_software
+    - install_vivaldi

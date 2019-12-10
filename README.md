@@ -2,20 +2,20 @@
 
 ## Ejecución
 
-Dentro del directorio [ansible](ansible) se encuentran todas las herramientas necesarias para configurar una estación de trabajo con  **Ansible**. Allí se podrá encontrar toda la documentación necesaria para su ejecución.
+Dentro del directorio [ansible](ansible) se encuentran todas las herramientas necesarias para configurar una estación de trabajo con  **Ansible**, así como la documentación del mismo
 
-Un ejemplo de ejecución de ansible para instalar todo el software disponible es el siguiente:
+Un ejemplo de ejecución de `ansible` para instalar todo el software disponible es el siguiente:
 
 ```bash
 cd ansible
-ansible-playbook install.yml [--ask-vault-pass]
+ansible-playbook install.yml -t extra_software
 ```
 
-Si el fichero `docker-compose.yml` tuviera otro nombre:
+Y para ejecutar las tareas de post instalación de `docker` para el usuario _ohermosa_:
 
 ```bash
-cd <directory>
-docker-compose -f vault.yml up -d
+cd ansible
+ansible-playbook post_install.yml -t post_docker -e post_install_user=ohermosa --ask-vault-pass
 ```
 
 ## Documentación
