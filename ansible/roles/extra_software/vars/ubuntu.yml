@@ -28,3 +28,5 @@ megacmd_dependencies:
 
 megasync_package: "https://mega.nz/linux/MEGAsync/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/megasync-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb"
 file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"
+
+vivaldi_package: https://downloads.vivaldi.com/stable/vivaldi-stable_{{ vivaldi_version }}_amd64.deb

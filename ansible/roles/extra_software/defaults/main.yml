@@ -34,6 +34,7 @@ install_kubectl: true
 install_flatpak: true
 install_megacmd: true
 install_megasync: true
+install_vivaldi: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -65,3 +66,5 @@ cherrytree_package: cherrytree
 virtualbox_extpack_version: "6.0.14"
 
 mega_url_base: "https://mega.nz/linux/MEGAsync"
+
+vivaldi_version: 2.9.1705.41-1
