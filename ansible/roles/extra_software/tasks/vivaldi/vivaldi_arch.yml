@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install vivaldi"
+  become: false
+  yay:
+    name: "{{ vivaldi_package }}"
+    state: present
+    update_cache: true
