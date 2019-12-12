@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2.6.1
+
+- Cambios en el role `post_install/ohermosa`:
+  - Nuevo repositorio git
+    - [onetimesecret](https://gitlab.com:ohermosa/onetimesecret)
+  - Instalación de paquetes HP
+  - Configuración de VIM
+
 ## 2.6
 
 - Se han vuelto a separar las tareas de post instalación del playbook principal a `post_install.yml`

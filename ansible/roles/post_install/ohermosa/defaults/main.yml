@@ -127,6 +127,8 @@ git_repositories:
       dest: "{{ git_dir }}/docker_compose_cookbook"
     - repo: git@gitlab.com:ohermosa/pepi.git
       dest: "{{ git_dir }}/pepi"
+    - repo: git@gitlab.com:ohermosa/onetimesecret.git
+      dest: "{{ git_dir }}/onetimesecret"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/zshrc"
