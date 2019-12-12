@@ -1,0 +1,10 @@
+---
+
+- name: "[UBUNTU] Configure VIM editor"
+  lineinfile:
+    path: "/etc/vim/vimrc"
+    line: "{{ item }}"
+    state: present
+  loop: "{{ vim_config }}"
+  when: linux_distribution == "ubuntu" or linux_distribution == "debian"
+

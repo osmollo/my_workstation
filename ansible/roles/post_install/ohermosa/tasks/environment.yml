@@ -1,5 +1,8 @@
 ---
 
+- name: "Configure VIM editor"
+  import_tasks: vim.yml
+
 - name: "Configure /etc/profile"
   lineinfile:
     path: /etc/profile
