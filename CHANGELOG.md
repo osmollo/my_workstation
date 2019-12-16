@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.7.1
+
+- Se ha replicado el __brexit__ en el playbook `vagrant/install.yml`
+
 ## 2.7
 
 - Más personalizaciones en role `post_install/ohermosa`:
