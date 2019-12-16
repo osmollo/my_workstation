@@ -35,8 +35,8 @@ Por defecto se instala el siguiente software:
 
 | **APLICACIÓN** | **TAG/VARIABLE** | **GRUPO** |
 |----------------|------------------|-----------|
-| [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | ohermosa |
-| [Chromium Browser](https://chromium.woolyss.com/download/es/) | install_chromium | |
+| [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | install_browsers <br> ohermosa |
+| [Chromium Browser](https://chromium.woolyss.com/download/es/) | install_chromium | install_browsers |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker | ohermosa |
 | [Dropbox](https://www.dropbox.com/) | install_dropbox | ohermosa |
 | [Visual Studio Code](https://code.visualstudio.com/) | install_code | install_editors <br> ohermosa |
@@ -68,7 +68,8 @@ Por defecto se instala el siguiente software:
 | [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-kubectl) | install_kubectl | ohermosa |
 | [MEGAcmd](https://mega.nz/cmd) | install_megacmd | install_mega <br> ohermosa |
 | [MEGA sync](https://mega.nz/sync) | install_megasync | install_mega |
-| [Vivaldi](https://vivaldi.com/es/) | install_vivaldi | |
+| [Vivaldi](https://vivaldi.com/es/) | install_vivaldi | install_browsers |
+| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | install_brave | install_browsers |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
