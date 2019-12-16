@@ -7,7 +7,7 @@
   - Configuración de `VIM`
   - Configuración de `Gimp`
   - Nuevo repositorio git:
-    - [onetimesecret](https://gitlab.com:ohermosa/onetimesecret)
+    - [onetimesecret](https://gitlab.com/ohermosa/onetimesecret)
 - Instalación navegador `Brave`, tag  `install_brave`
 - Nuevo tag `install_browsers` para instalar todos los navegadores disponibles
 
