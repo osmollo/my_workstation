@@ -115,3 +115,23 @@
     - post_install
     - post_gpg
     - ohermosa
+
+- name: "Configure VIM"
+  import_tasks: vim.yml
+  tags:
+    - post_install
+    - post_vim
+    - ohermosa
+
+- name: "Configure Gimp"
+  import_tasks: gimp.yml
+  tags:
+    - post_install
+    - post_gimp
+    - ohermosa
+
+- name: "install HP packages"
+  import_tasks: hp.yml
+  tags:
+    - post_install
+    - post_hp

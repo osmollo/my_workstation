@@ -35,6 +35,7 @@ install_flatpak: true
 install_megacmd: true
 install_megasync: true
 install_vivaldi: true
+install_brave: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85

@@ -1,0 +1,53 @@
+---
+
+- name: "Find gimp configuration files"
+  find:
+    path: "{{ ansible_user_dir }}"
+    patterns: "^(.gimp)"
+    use_regex: true
+    file_type: directory
+    hidden: true
+    recurse: true
+  register: find_response
+
+- name: "Get gimp directory"
+  set_fact:
+    gimp_dir: "{{ (find_response.files | first).path }}"
+  when: find_response.files | length > 0
+
+- name: "Generate gimp directory"
+  block:
+    - name: "Execute gimp with no UI for generate its directory"
+      shell: "{{ item }}"
+      loop:
+        - "gimp -dif > /dev/null &"
+        - "sleep 1"
+        - "pkill -9 gimp"
+
+    - name: "Find gimp configuration files"
+      find:
+        path: "{{ ansible_user_dir }}"
+        patterns: "^(.gimp)"
+        use_regex: true
+        file_type: directory
+        hidden: true
+        recurse: true
+      register: find_response_bis
+
+    - name: "Get gimp directory"
+      set_fact:
+        gimp_dir: "{{ (find_response_bis.files | first).path }}"
+  when: find_response.files | length == 0
+
+- name: "Configure single window mode for gimp"
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+  loop:
+    - src: "gimp_menurc"
+      dest: "{{ gimp_dir }}/menurc"
+      mode: "0644"
+    - src: "gimp_sessionrc"
+      dest: "{{ gimp_dir }}/sessionrc"
+      mode: "0600"

@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install brave"
+  become: false
+  yay:
+    name: "{{ brave_package }}"
+    state: present
+    update_cache: true

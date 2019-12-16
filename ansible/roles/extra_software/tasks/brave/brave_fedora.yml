@@ -1,0 +1,18 @@
+---
+
+- name: "[FEDORA] Add Brave repository"
+  yum_repository:
+    name: brave-browser
+    baseurl: "https://brave-browser-rpm-release.s3.brave.com/{{ ansible_architecture }}/"
+    enabled: true
+
+- name: "[FEDORA] Import Brave key"
+  rpm_key:
+    key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+    state: present
+
+- name: "[FEDORA] Install Brave"
+  yum:
+    name: brave-browser
+    state: latest
+    update_cache: true
