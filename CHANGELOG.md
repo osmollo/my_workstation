@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 2.7
+
+- Más personalizaciones en role `post_install/ohermosa`:
+  - Instalación de paquetes para impresoras HP
+  - Configuración de `VIM`
+  - Configuración de `Gimp`
+  - Nuevo repositorio git:
+    - [onetimesecret](https://gitlab.com:ohermosa/onetimesecret)
+- Instalación navegador `Brave`, tag  `install_brave`
+- Nuevo tag `install_browsers` para instalar todos los navegadores disponibles
+
+## 2.6.1
+
+- Cambios en el role `post_install/ohermosa`:
+  - Nuevo repositorio git
+    - [onetimesecret](https://gitlab.com:ohermosa/onetimesecret)
+  - Instalación de paquetes HP
+  - Configuración de VIM
+
 ## 2.6
 
 - Se han vuelto a separar las tareas de post instalación del playbook principal a `post_install.yml`

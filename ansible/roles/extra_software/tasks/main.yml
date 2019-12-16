@@ -165,6 +165,7 @@
   tags:
     - extra_software
     - install_chrome
+    - install_browsers
     - ohermosa
 
 - name: "---[INSTALL]--- Teamviewer"
@@ -252,6 +253,7 @@
   tags:
     - extra_software
     - install_chromium
+    - install_browsers
 
 - name: "---[INSTALL]--- Deluge"
   import_tasks: deluge/deluge.yml
@@ -300,3 +302,12 @@
   tags:
     - extra_software
     - install_vivaldi
+    - install_browsers
+
+- name: "---[INSTALL]--- Brave"
+  import_tasks: brave/brave.yml
+  when: install_brave
+  tags:
+    - extra_software
+    - install_brave
+    - install_browsers
