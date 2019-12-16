@@ -22,6 +22,7 @@
 | **post_secrets** | Crea los secretos específicos para el usuario _ohermosa_ | | :lock: |
 | **post_megacmd** | Configura el cliente **MEGAcmd** | | :lock: |
 | **post_hp** | Instala packetes para impresora **HP** | | |
+| **post_vim** | Configura **Vim** | | |
 | **ohermosa** | Ejecuta los post instalación de **ohermosa** | :cloud: | :lock: |
 
 | :information_source: **WARNING**: algunos de los tags anteriores requieren que **Dropbox** esté totalmente sincronizado antes de ejecutarse |

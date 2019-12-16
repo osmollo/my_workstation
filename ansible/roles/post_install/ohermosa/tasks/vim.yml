@@ -1,10 +1,9 @@
 ---
 
-- name: "[UBUNTU] Configure VIM editor"
+- name: "Configure VIM editor"
   lineinfile:
-    path: "/etc/vim/vimrc"
+    path: "{{ ansible_user_dir }}/.vimrc"
     line: "{{ item }}"
     state: present
+    create: true
   loop: "{{ vim_config }}"
-  when: linux_distribution == "ubuntu" or linux_distribution == "debian"
-
