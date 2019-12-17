@@ -1,6 +1,11 @@
 # CHANGELOG
 
-# 2.7.1
+## 2.8
+
+- Nuevo role `post_install/datio` para realizar una configuración generalizada para un pc de trabajo de [Datio](www.datio.com)
+  - Documentación
+
+## 2.7.1
 
 - Se ha replicado el __brexit__ en el playbook `vagrant/install.yml`
 
