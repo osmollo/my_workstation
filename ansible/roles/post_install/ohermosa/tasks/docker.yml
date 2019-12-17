@@ -16,8 +16,6 @@
     - "{{ dropbox_dir }}/datio/etc.docker.daemon.json"
 
 - name: "Create link to config.json"
-  become: true
-  become_method: sudo
   file:
     src: "{{ dropbox_dir }}/datio/docker.config.json"
     dest: "/home/{{ ansible_user }}/.docker/config.json"
@@ -26,12 +24,12 @@
     group: "{{ ansible_user }}"
 
 - name: "Create link for docker daemon.json"
+  become: true
+  become_method: sudo
   file:
     src: "{{ dropbox_dir }}/datio/etc.docker.daemon.json"
     dest: /etc/docker/daemon.json
     state: link
-  become: true
-  become_method: sudo
 
 - name: "Restart docker"
   systemd:

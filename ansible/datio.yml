@@ -1,0 +1,65 @@
+---
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - import_tasks: load_distro_vars.yml
+      tags:
+        - always
+
+- hosts: localhost
+  connection: local
+  become: true
+  become_method: sudo
+  vars:
+    disable_updates: "{{ lookup('env', 'REPO_DISABLE_UPDATES') | default(false) | bool }}"
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+    install_docker: true
+    install_dropbox: false
+    install_code: true
+    install_spotify: false
+    install_ohmyzsh: false
+    install_sublime: false
+    install_atom: false
+    install_gitkraken: false
+    install_telegram: false
+    install_slack: true
+    install_forticlientvpn: true
+    install_tlp: false
+    install_virtualbox: false
+    install_pycharm: false
+    install_keepass: true
+    install_buttercup: false
+    install_windscribe: false
+    install_chrome: true
+    install_teamviewer: false
+    install_nomachine: false
+    install_ecs: true
+    install_postman: true
+    install_skype: false
+    install_java: true
+    install_apachedirectory: true
+    install_rambox: false
+    install_franz: false
+    install_chromium: false
+    install_deluge: false
+    install_cherrytree: false
+    install_kubectl: false
+    install_flatpak: true
+    install_megacmd: false
+    install_megasync: false
+    install_vivaldi: false
+    install_brave: false
+  roles:
+    - common
+    - extra_software
+
+- hosts: localhost
+  connection: local
+  vars:
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+    post_user: "datio"
+  roles:
+    - "post_install/{{ post_user }}"

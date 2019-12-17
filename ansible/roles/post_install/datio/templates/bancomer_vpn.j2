@@ -1,0 +1,32 @@
+[connection]
+id=Datio MX
+uuid={{ 999999999999999999999 | random | to_uuid }}
+type=vpn
+permissions=
+
+[vpn]
+auth=SHA1
+ca={{ ansible_user_dir }}/.openvpn/bancomer/bancomer.p12
+cert={{ ansible_user_dir }}/.openvpn/bancomer/bancomer.p12
+cert-pass-flags=1
+cipher=AES-128-CBC
+connection-type=password-tls
+dev=tun
+key={{ ansible_user_dir }}/.openvpn/bancomer/bancomer.p12
+password-flags=1
+remote={{ bancomer_vpn_config.host }}:{{ bancomer_vpn_config.port }}:udp
+remote-cert-tls=server
+ta={{ ansible_user_dir }}/.openvpn/bancomer/bancomer.key
+ta-dir=1
+username={{ ansible_user }}
+verify-x509-name=name:pfsense1.mx.datio
+service-type=org.freedesktop.NetworkManager.openvpn
+
+[ipv4]
+dns-search=
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+dns-search=
+method=auto

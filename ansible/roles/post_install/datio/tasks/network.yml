@@ -1,0 +1,48 @@
+---
+
+- name: "include secrets file"
+  include_vars:
+    file: "secrets.yml"
+
+- name: "Create openvpn directory"
+  file:
+    path: "{{ ansible_user_dir }}/.openvpn/{{ item }}"
+    state: directory
+  loop: "{{ datio_vpns }}"
+
+- name: "Copy p12 files"
+  copy:
+    src: "{{ item }}.p12"
+    dest: "{{ ansible_user_dir }}/.openvpn/{{ item }}/{{ item }}.p12"
+    mode: 0600
+  loop: "{{ datio_vpns }}"
+
+- name: "Generate key files"
+  copy:
+    content: "{{ openvpn.item.key }}"
+    dest: "{{ ansible_user_dir }}/.openvpn/{{ item }}/{{ item }}.key"
+    mode: 0400
+  loop: "{{ datio_vpns }}"
+
+- name: "Generate ovpn files"
+  template:
+    src: "{{ item }}.ovpn.j2"
+    dest: "{{ ansible_user_dir }}/.openvpn/{{ item }}/{{ item }}.ovpn"
+    mode: 0644
+  loop: "{{ datio_vpns }}"
+
+- name: "Copy vpn configurations files to NetworkManager"
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: 0600
+    owner: root
+    group: root
+  no_log: true
+  loop:
+    - src: bbva_vpn.j2
+      dest: /etc/NetworkManager/system-connections/BBVA
+    - src: bancomer_vpn.j2
+      dest: /etc/NetworkManager/system-connections/Datio_CCR
+    - src: datio_vpn.j2
+      dest: /etc/NetworkManager/system-connections/Datio
