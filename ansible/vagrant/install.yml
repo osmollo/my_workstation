@@ -12,11 +12,3 @@
   roles:
     - common
     - extra_software
-
-- hosts: all
-  vars:
-    post_user: "{{ post_install_user | default(ansible_user) }}"
-  tasks:
-    - name: "Continue with post install if exists configuration for {{ post_user}}"
-      import_role:
-        name: "post_install/{{ post_user }}"

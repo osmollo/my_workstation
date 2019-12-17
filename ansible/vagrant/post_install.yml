@@ -1,0 +1,15 @@
+---
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - import_tasks: load_distro_vars.yml
+      tags:
+        - always
+
+- hosts: localhost
+  connection: local
+  vars:
+    post_user: "{{ post_install_user | default(ansible_user) }}"
+  roles:
+    - "post_install/{{ post_user }}"
