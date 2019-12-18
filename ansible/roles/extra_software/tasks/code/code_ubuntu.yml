@@ -15,6 +15,9 @@
 
 - name: "[DEB] Install code package"
   apt:
-    name: code
+    name:
+      - libx11-xcb-dev
+      - libasound2
+      - code
     state: latest
     update_cache: true

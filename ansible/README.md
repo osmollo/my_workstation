@@ -302,6 +302,8 @@ ansible localhost -m shell -a "df -h"
 
 ## Uso de Vagrant
 
+:information_source: El __usuario/contraseña__ de las máquinas virtuales es `vagrant/vagrant`
+
 Para probar el código, se puede levantar una máquina virtual usando [Vagrant](https://www.vagrantup.com/) y [Virtualbox](https://www.virtualbox.org/). Para ello, será necesario instalar *Virtualbox* usando el tag `--install_virtualbox`:
 
 ```bash

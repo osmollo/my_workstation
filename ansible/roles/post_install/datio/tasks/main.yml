@@ -1,5 +1,16 @@
 ---
 
+- name: "Configure /etc/hosts"
+  become: true
+  become_method: sudo
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item.ip }}\t{{ item.host }}"
+  loop: "{{ etc_hosts }}"
+  tags:
+    - post_install
+    - post_resolv
+
 - name: "Create {{ git_dir }}"
   file:
     path: "{{ git_dir }}"
@@ -33,3 +44,20 @@
   tags:
     - post_install
     - post_docker
+
+- import_tasks: code.yml
+  tags:
+    - post_install
+    - post_code
+
+- import_tasks: network.yml
+  tags:
+    - post_install
+    - post_network
+    - post_vpn
+
+- import_tasks: environment.yml
+  tags:
+    - post_install
+    - post_env
+    - post_environment

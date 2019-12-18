@@ -12,8 +12,8 @@ lport 0
 verify-x509-name "pfsense1.mx.datio" name
 auth-user-pass
 auth-nocache
-pkcs12 {{ ansible_user_dir }}/.openvpn/bancomer/bancomer.p12
-tls-auth {{ ansible_user_dir }}/.openvpn/bancomer/bancomer.key 1
+pkcs12 {{ openvpn_user_dir }}/bancomer/bancomer.p12
+tls-auth {{ openvpn_user_dir }}/bancomer/bancomer.key 1
 remote-cert-tls server
 up /etc/openvpn/update-resolv-conf
 down /etc/openvpn/update-resolv-conf

@@ -14,8 +14,8 @@ remote {{ datio_vpn_config.host }} {{ datio_vpn_config.port }} udp
 lport 0
 verify-x509-name "pfsenseCA" name
 auth-user-pass
-pkcs12 {{ ansible_user_dir }}/.openvpn/datio/datio.p12
-tls-auth {{ ansible_user_dir }}/.openvpn/datio/datio.key 1
+pkcs12 {{ openvpn_user_dir }}/datio/datio.p12
+tls-auth {{ openvpn_user_dir }}/datio/datio.key 1
 ns-cert-type server
 #up /etc/openvpn/update-resolv-conf
 #down /etc/openvpn/update-resolv-conf

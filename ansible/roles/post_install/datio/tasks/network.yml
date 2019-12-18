@@ -6,39 +6,46 @@
 
 - name: "Create openvpn directory"
   file:
-    path: "{{ ansible_user_dir }}/.openvpn/{{ item }}"
+    path: "{{ openvpn_user_dir }}/{{ item.name }}"
     state: directory
-  loop: "{{ datio_vpns }}"
+  loop: "{{ openvpn }}"
+  no_log: true
 
 - name: "Copy p12 files"
   copy:
-    src: "{{ item }}.p12"
-    dest: "{{ ansible_user_dir }}/.openvpn/{{ item }}/{{ item }}.p12"
+    src: "{{ item.name }}.p12"
+    dest: "{{ openvpn_user_dir }}/{{ item.name }}/{{ item.name }}.p12"
     mode: 0600
-  loop: "{{ datio_vpns }}"
+  loop: "{{ openvpn }}"
+  no_log: true
 
 - name: "Generate key files"
   copy:
-    content: "{{ openvpn.item.key }}"
-    dest: "{{ ansible_user_dir }}/.openvpn/{{ item }}/{{ item }}.key"
+    content: "{{ item.key }}"
+    dest: "{{ openvpn_user_dir }}/{{ item.name }}/{{ item.name }}.key"
     mode: 0400
-  loop: "{{ datio_vpns }}"
+    remote_src: true
+  loop: "{{ openvpn }}"
+  no_log: true
 
 - name: "Generate ovpn files"
   template:
-    src: "{{ item }}.ovpn.j2"
-    dest: "{{ ansible_user_dir }}/.openvpn/{{ item }}/{{ item }}.ovpn"
+    src: "{{ item.name }}.ovpn.j2"
+    dest: "{{ openvpn_user_dir }}/{{ item.name }}/{{ item.name }}.ovpn"
     mode: 0644
-  loop: "{{ datio_vpns }}"
+  loop: "{{ openvpn }}"
+  no_log: true
 
 - name: "Copy vpn configurations files to NetworkManager"
+  become: true
+  become_method: sudo
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: 0600
     owner: root
     group: root
-  no_log: true
+  # no_log: true
   loop:
     - src: bbva_vpn.j2
       dest: /etc/NetworkManager/system-connections/BBVA

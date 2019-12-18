@@ -2,8 +2,12 @@
 
 ## 2.8
 
-- Nuevo role `post_install/datio` para realizar una configuración generalizada para un pc de trabajo de [Datio](www.datio.com)
+- Nuevo role `post_install/datio` para realizar una configuración general para un pc de trabajo de [Datio](www.datio.com)
   - Documentación
+  - Nuevos playbooks `datio.yml` y `vagrant/datio.yml` para realizar todo el proceso de instalación (`common`, `extra_software` y `post_install`)
+- Fixes:
+  - `vagrant/install.yml` no tenía definida la variable `disable_updates`
+  - Resueltas dependencias en **Ubuntu** para instalar extensiones de `Visual Code Studio`
 
 ## 2.7.1
 
