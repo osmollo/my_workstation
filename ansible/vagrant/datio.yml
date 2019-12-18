@@ -1,20 +1,16 @@
 ---
 
-- hosts: localhost
-  connection: local
+- hosts: all
   tasks:
     - import_tasks: load_distro_vars.yml
       tags:
         - always
 
-- hosts: localhost
-  connection: local
+- hosts: all
   become: true
   become_method: sudo
   vars:
     disable_updates: "{{ lookup('env', 'REPO_DISABLE_UPDATES') | default(false) | bool }}"
-    ansible_user: "{{ lookup('env', 'USER') }}"
-    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
     install_docker: true
     install_dropbox: false
     install_code: true
@@ -55,10 +51,9 @@
     - common
     - extra_software
 
-- hosts: localhost
-  connection: local
+- hosts: all
   vars_prompt:
-    - name: bbvausr
+    - name: bbva_user
       prompt: "What is your BBVA username?"
       private: no
   tasks:
@@ -73,12 +68,8 @@
         - post_env
         - post_environment
 
-
-- hosts: localhost
-  connection: local
+- hosts: all
   vars:
-    ansible_user: "{{ lookup('env', 'USER') }}"
-    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
     post_user: "datio"
   roles:
     - "post_install/{{ post_user }}"

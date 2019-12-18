@@ -9,6 +9,8 @@
 - hosts: all
   become: true
   become_user: root
+  vars:
+    disable_updates: "{{ lookup('env', 'REPO_DISABLE_UPDATES') | default(false) | bool }}"
   roles:
     - common
     - extra_software
