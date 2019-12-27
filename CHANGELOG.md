@@ -1,8 +1,18 @@
 # CHANGELOG
 
+## 2.9
+
+- Instalación del gestor de contraseñas `Bitwarden`
+
 ## 2.8
 
-- Instalación de `Bitwarden` 
+- Nuevo role `post_install/datio` para realizar una configuración general para un pc de trabajo de [Datio](www.datio.com)
+  - Documentación
+  - Nuevos playbooks `datio.yml` y `vagrant/datio.yml` para realizar todo el proceso de instalación (`common`, `extra_software` y `post_install`)
+- Fixes:
+  - `vagrant/install.yml` no tenía definida la variable `disable_updates`
+  - Resueltas dependencias en **Ubuntu** para instalar extensiones de `Visual Code Studio`
+- Instalación de `Bitwarden`
 
 ## 2.7.1
 

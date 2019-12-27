@@ -153,6 +153,14 @@ Por último, en caso de que el usuario del sistema que lanza el playbook sea dis
 ansible-playbook install.yml -e post_install_user=genaro -t post_gpg
 ```
 
+### Post instalación **DATIO**
+
+Para realizar una configuración general para un pc de trabajo en [Datio](www.datio.com). hay que ejecutar el siguiente playbook:
+
+```bash
+ansible-playbook datio.yml --ask-vault-pass
+```
+
 ### Deshabilitar actualizaciones
 
 Una de las primeras tareas que se ejecutan es la actualización de los paquetes del sistema. Esta tarea no se lanzará si hace menos de una semana que se ha ejecutado pero también es posible deshabilitarla de las siguientes formas:
@@ -293,6 +301,8 @@ ansible localhost -m shell -a "df -h"
 ```
 
 ## Uso de Vagrant
+
+:information_source: El __usuario/contraseña__ de las máquinas virtuales es `vagrant/vagrant`
 
 Para probar el código, se puede levantar una máquina virtual usando [Vagrant](https://www.vagrantup.com/) y [Virtualbox](https://www.virtualbox.org/). Para ello, será necesario instalar *Virtualbox* usando el tag `--install_virtualbox`:
 
