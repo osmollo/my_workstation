@@ -1,6 +1,10 @@
 # CHANGELOG
 
-# 2.7.1
+## 2.8
+
+- Instalación de `Bitwarden` 
+
+## 2.7.1
 
 - Se ha replicado el __brexit__ en el playbook `vagrant/install.yml`
 
