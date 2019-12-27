@@ -8,7 +8,7 @@
 | **post_del_default_dirs** | Borra los directorios predeterminados en `$HOME` que se crean en la instalación | | |
 | **post_gnome_extensions** | Instala extensiones de Gnome disponibles en el repositorio | | |
 | **post_gnome_conf** | Restaura la configuración de gnome guardada en **Dropbox** y obtenida con `dconf dump /` | | |
-| **post_gnome** | Ejecuta todas las tareas relacionadas con gnome (`post_gnome_packages`, `post_gnome_extensions` y `post_gnome_conf`) | | |
+| **post_gnome** | Ejecuta todas las tareas relacionadas con gnome (`post_gnome_extensions` y `post_gnome_conf`) | | |
 | **post_kde_restore** | Restaura la copia de seguridad los ficheros de configuración de **KDE** almacenados en **Dropbox**. Borra el original y crea un enlace simbólico al backup | :cloud: | |
 | **pre_kde_backup** | Realiza una copia de seguridad de los ficheros de `$HOME/.config/*rc` en **Dropbox** | :cloud: | |
 | **post_docker** | Restaura de **Dropbox** los login en repositorios de Docker y la configuración del demonio `docker` | :cloud: | |

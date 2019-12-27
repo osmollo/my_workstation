@@ -1,0 +1,22 @@
+# datio1.0 - 25/10/2016 - sistemas@datiobd.com
+script-security 2
+dev tun
+persist-tun
+persist-key
+cipher AES-256-CBC
+auth SHA1
+tls-client
+client
+hand-window 10
+keepalive 10 120
+resolv-retry infinite
+remote {{ bbva_vpn_config.host }} {{ bbva_vpn_config.port }} udp
+lport 0
+verify-x509-name "VPNDatioBBVA-Cert" name
+auth-user-pass
+pkcs12 {{ openvpn_user_dir }}/bbva/bbva.p12
+tls-auth {{ openvpn_user_dir }}/bbva/bbva.key 1
+ns-cert-type server
+#remote-cert-tls server
+#up /etc/openvpn/update-resolv-conf
+#down /etc/openvpn/update-resolv-conf

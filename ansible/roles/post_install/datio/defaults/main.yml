@@ -1,0 +1,73 @@
+---
+
+etc_hosts:
+  - host: dashboard.es.iaas.igrupobbva dashboard.mx.iaas.igrupobbva vnc.es.iaas.igrupobbva vnc.mx.iaas.igrupobbva
+    ip: 127.0.0.1
+  - host: jenkins.daas.live.mx.ether.igrupobbva
+    ip: 10.52.195.37
+  - host: jenkins.daas.work.mx.ether.igrupobbva
+    ip: 10.52.228.6
+  - host: daas.work.mx.ether.igrupobbva
+    ip: 10.52.228.159
+  - host: ldap.secaas.play.es.ether.igrupobbva
+    ip: 10.48.224.154
+  - host: ldap.secaas.work.es.ether.igrupobbva
+    ip: 10.48.236.136
+  - host: ldap.secaas.live.es.ether.igrupobbva
+    ip: 10.48.195.34
+  - host: daas.live.mx.nextgen.igrupobbva
+    ip: 10.55.39.203
+  - host: tie.secaas-live-mx.ext.mx.iaas.igrupobbva
+    ip: 10.52.193.129
+  - host: isaas.live.mx.nextgen.igrupobbva
+    ip: 10.55.39.203
+  - host: atenea.live.es.ether.igrupobbva
+    ip: 10.48.195.36
+  - host: kappa.live.es.ether.igrupobbva
+    ip: 10.48.195.36
+  - host: atenea.live.mx.ether.igrupobbva
+    ip: 10.52.193.48
+  - host: kappa.live.mx.ether.igrupobbva
+    ip: 10.52.193.48
+  - host: daas.work.eu.cld.nextgen.igrupobbva
+    ip: 100.88.66.33
+  - host: jenkins.datio-work-01.work.eu.cld.nextgen.igrupobbva
+    ip: 100.88.69.9
+
+git_dir: "{{ ansible_user_dir }}/git"
+ssh_user_dir: "{{ ansible_user_dir }}/.ssh"
+
+docker:
+  insecure_registries:
+    - "10.48.193.182"
+    - "10.48.228.157"
+    - "idev2:5000"
+    - "172.16.48.147:5000"
+    - "10.48.238.129:5000"
+    - "10.142.248.49:443"
+    - "10.48.235.188:443"
+    - "172.16.50.69:443"
+    - "nonexus.asgard.es.datio"
+    - "nonexus.aws.es.datio"
+    - "nexus.atlantis.es.datio"
+    - "nexus.daas.work.es.ether.igrupobbva"
+    - "nexus.daas.live.es.ether.igrupobbva"
+    - "localhost:5000"
+    - "nexus.daas-mx-dpy-02.ext.mx.iaas.igrupobbva"
+    - "nexus.daas-mx-dpy-01.ext.mx.iaas.igrupobbva"
+
+openvpn_user_dir: "{{ ansible_user_dir }}/.openvpn"
+
+datio_vpn_config:
+  host: spain.datio.com
+  port: 1194
+
+bbva_vpn_config:
+  host: spain.datio.com
+  port: 1195
+
+bancomer_vpn_config:
+  host: 200.66.87.82
+  port: 1195
+
+code_extensions_urls: https://gist.githubusercontent.com/ohermosa/a2b55c8a488b2a45e8626e75ca35c7c4/raw/e647bfa074c16982c533c3ffaa38dffa83c392a8/extensions.json
