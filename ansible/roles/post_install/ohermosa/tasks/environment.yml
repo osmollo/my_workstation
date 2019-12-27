@@ -4,6 +4,8 @@
   import_tasks: vim.yml
 
 - name: "Configure /etc/profile"
+  become: true
+  become_method: sudo
   lineinfile:
     path: /etc/profile
     line: "{{ item }}"

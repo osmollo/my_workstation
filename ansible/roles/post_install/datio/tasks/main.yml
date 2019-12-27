@@ -1,0 +1,63 @@
+---
+
+- name: "Configure /etc/hosts"
+  become: true
+  become_method: sudo
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item.ip }}\t{{ item.host }}"
+  loop: "{{ etc_hosts }}"
+  tags:
+    - post_install
+    - post_resolv
+
+- name: "Create {{ git_dir }}"
+  file:
+    path: "{{ git_dir }}"
+    state: directory
+  tags:
+    - post_install
+    - post_git
+
+- name: "Delete default directories in /home/{{ ansible_user }}"
+  file:
+    path: "/home/{{ ansible_user }}/{{ item }}"
+    state: absent
+  loop:
+    - Documentos
+    - Imágenes
+    - Libros
+    - Música
+    - Plantillas
+    - Público
+    - Vídeos
+  tags:
+    - post_install
+    - post_del_default_dirs
+
+- import_tasks: gnome_extensions.yml
+  tags:
+    - post_install
+    - post_gnome_extensions
+
+- import_tasks: docker.yml
+  tags:
+    - post_install
+    - post_docker
+
+- import_tasks: code.yml
+  tags:
+    - post_install
+    - post_code
+
+- import_tasks: network.yml
+  tags:
+    - post_install
+    - post_network
+    - post_vpn
+
+- import_tasks: environment.yml
+  tags:
+    - post_install
+    - post_env
+    - post_environment
