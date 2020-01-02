@@ -46,10 +46,12 @@
   pip:
     name:
       - setuptools
+    extra_args: --user
 
 - name: "Install python modules"
   pip:
     name:
+      - mega.py
       - telepot
       - matplotlib
       - numpy
@@ -60,3 +62,4 @@
       - dnspython
       - docker-py
       - virtualenvwrapper
+    extra_args: --user
