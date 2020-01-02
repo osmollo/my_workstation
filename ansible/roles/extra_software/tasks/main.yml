@@ -311,3 +311,11 @@
     - extra_software
     - install_brave
     - install_browsers
+
+- name: "---[INSTALL]--- Bitwarden"
+  import_tasks: bitwarden/bitwarden.yml
+  when: install_bitwarden
+  tags:
+    - extra_software
+    - install_bitwarden
+    - install_pass_managers
