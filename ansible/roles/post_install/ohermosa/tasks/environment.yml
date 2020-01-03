@@ -6,11 +6,16 @@
 - name: "Configure /etc/profile"
   become: true
   become_method: sudo
-  lineinfile:
-    path: /etc/profile
-    line: "{{ item }}"
-  loop:
-    - 'export VAULT_TOKEN=$(secret-tool lookup vault_sistemas TOKEN)'
+  block:
+    - lineinfile:
+        path: /etc/profile
+        line: 'export VAULT_TOKEN=$(secret-tool lookup vault_sistemas TOKEN)'
+      when: desktop_environment != 'kde'
+
+    - lineinfile:
+        path: /etc/profile
+        line: 'export VAULT_TOKEN=$(kwalletcli -f Passwords -e TOKEN)'
+      when: desktop_environment == 'kde'
 
 - name: "Create python-venv directory"
   file:
