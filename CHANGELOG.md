@@ -6,7 +6,7 @@
 - Corrección de errores:
   - Fix en `/etc/profile` al cargar la variable `VAULT_TOKEN`. Se usa __kwalletcli__ o __secret-tool__ en función del entorno de escritorio
   - Fix en la tarea de actualización de paquetes
-- Instalación del módulo de python `mega.py`
+- Instalación de los módulos de python `mega.py` y `netaddr`
 - Instalación de módulos de python como usuario sin privilegios
 
 ## 2.8

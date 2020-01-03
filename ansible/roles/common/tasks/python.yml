@@ -50,16 +50,5 @@
 
 - name: "Install python modules"
   pip:
-    name:
-      - mega.py
-      - telepot
-      - matplotlib
-      - numpy
-      - beautifulsoup4
-      - bs4
-      - openstacksdk
-      - molecule
-      - dnspython
-      - docker-py
-      - virtualenvwrapper
+    name: "{{ python_modules }}"
     extra_args: --user
