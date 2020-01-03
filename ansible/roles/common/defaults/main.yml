@@ -13,6 +13,21 @@ common_packages:
   - unzip
   - ipcalc
 
+python_modules:
+  - mega.py
+  - netaddr
+  - telepot
+  - matplotlib
+  - numpy
+  - beautifulsoup4
+  - bs4
+  - openstacksdk
+  - molecule
+  - dnspython
+  - docker-py
+  - virtualenvwrapper
+
+
 bad_snap_packages:
   - gnome-calculator
   - gnome-system-monitor
