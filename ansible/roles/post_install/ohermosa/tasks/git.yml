@@ -22,6 +22,16 @@
     - "{{ git_repositories.home }}"
   ignore_errors: true
 
+- name: "Create new remote for repository"
+  shell: "git remote add gitlab {{ item.remote }}"
+  loop: "{{ git_repositories.work }}"
+  when: item.remote is defined
+  register: remote_response
+  failed_when: false
+  changed_when: "'exist' in remote_response.stdout"
+  tags:
+    - create_remotes
+
 - name: "Configure name and user of BBVA repositories"
   git_config:
     name: user.name

@@ -8,6 +8,8 @@
   - Fix en la tarea de actualización de paquetes
 - Instalación de los módulos de python `mega.py` y `netaddr`
 - Instalación de módulos de python como usuario sin privilegios
+- Cambios en `post_install/ohermosa`:
+  - Creación de `remote` en repositorios de trabajo
 
 ## 2.8
 
