@@ -56,12 +56,15 @@ git_repositories:
   work:
     - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_ops.git
       dest: "{{ git_dir }}/msqlm_ops"
+      remote: git@gitlab.com:ohermosa/msqlm_ops.git
     - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_sshmagic.git
       dest: "{{ git_dir }}/ssh_magic"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_fsm.git
       dest: "{{ git_dir }}/fsm"
+      remote: git@gitlab.com:ohermosa/fsm.git
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar.git
       dest: "{{ git_dir }}/iluvatar"
+      remote: git@gitlab.com:ohermosa/iluvatar.git
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar_base_image.git
       dest: "{{ git_dir }}/iluvatar_base_image"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker_nexus_to_artifactory.git

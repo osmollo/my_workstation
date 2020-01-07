@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 2.9
+
+- Instalación del gestor de contraseñas `Bitwarden`
+- Corrección de errores:
+  - Fix en `/etc/profile` al cargar la variable `VAULT_TOKEN`. Se usa __kwalletcli__ o __secret-tool__ en función del entorno de escritorio
+  - Fix en la tarea de actualización de paquetes
+- Instalación de los módulos de python `mega.py` y `netaddr`
+- Instalación de módulos de python como usuario sin privilegios
+- Cambios en `post_install/ohermosa`:
+  - Creación de `remote` en repositorios de trabajo
+
 ## 2.8
 
 - Nuevo role `post_install/datio` para realizar una configuración general para un pc de trabajo de [Datio](www.datio.com)
@@ -8,6 +19,7 @@
 - Fixes:
   - `vagrant/install.yml` no tenía definida la variable `disable_updates`
   - Resueltas dependencias en **Ubuntu** para instalar extensiones de `Visual Code Studio`
+- Instalación de `Bitwarden`
 
 ## 2.7.1
 

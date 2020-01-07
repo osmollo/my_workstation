@@ -4,7 +4,7 @@
   apt:
     name: "*"
     state: latest
-    update_cache: true
+    # update_cache: true
     force_apt_get: true
   when: linux_distribution == "ubuntu" or linux_distribution == "debian"
 

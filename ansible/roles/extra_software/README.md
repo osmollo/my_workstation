@@ -50,10 +50,10 @@
 | **install_megasync** | Instala `MEGA sync` |
 | **install_vivaldi** | Instala `Vivaldi` |
 | **install_brave** | Instala `Brave` |
+| **install_bitwarden** | Instala `Bitwarden` |
 | **install_flatpak** | |
 | **install_vagrant** | |
 | **install_dockercompose** | |
-
 
 ## Documentación
 

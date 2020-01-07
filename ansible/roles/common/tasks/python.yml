@@ -46,17 +46,9 @@
   pip:
     name:
       - setuptools
+    extra_args: --user
 
 - name: "Install python modules"
   pip:
-    name:
-      - telepot
-      - matplotlib
-      - numpy
-      - beautifulsoup4
-      - bs4
-      - openstacksdk
-      - molecule
-      - dnspython
-      - docker-py
-      - virtualenvwrapper
+    name: "{{ python_modules }}"
+    extra_args: --user
