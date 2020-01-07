@@ -1,0 +1,6 @@
+---
+
+- name: "[DEB] Install Bitwarden"
+  apt:
+    deb: "{{ bitwarden_deb_package }}"
+    state: present

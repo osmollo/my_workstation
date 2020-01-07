@@ -1,0 +1,6 @@
+---
+
+- name: "[RPM] Install Bitwarden"
+  yum:
+    name: "{{ bitwarden_rpm_package }}"
+    state: present

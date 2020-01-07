@@ -1,0 +1,19 @@
+---
+
+- name: "Get latest version of Bitwarden"
+  uri:
+    url: "{{ bitwarden_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: bitwarden_latest
+  when: linux_distribution != "arch"
+
+- name: "Set urls for Bitwarden packages"
+  vars:
+    bitwarden_version: "{{ bitwarden_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    bitwarden_rpm_package: "https://github.com/bitwarden/desktop/releases/download/{{ bitwarden_version }}/Bitwarden-{{ bitwarden_version[1:] }}-x86_64.rpm"
+    bitwarden_deb_package: "https://github.com/bitwarden/desktop/releases/download/{{ bitwarden_version }}/Bitwarden-{{ bitwarden_version[1:] }}-amd64.deb"
+  when: linux_distribution != "arch"
+
+- include_tasks: "bitwarden_{{ linux_distribution }}.yml"
