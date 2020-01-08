@@ -1,0 +1,14 @@
+---
+
+- name: "include secrets"
+  include_vars:
+    file: "secrets.yml"
+
+- name: "send telegram message"
+  telegram:
+    token: "{{ token_telegram }}"
+    msg: "{{ text_telegram}}"
+    chat_id: "{{ destination_telegram }}"
+  when:
+    - destination_telegram is defined
+    - text_telegram

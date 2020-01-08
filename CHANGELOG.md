@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.10
+
+- Nuevo role `tools/telegram` para enviar mensajes de telegram
+
 ## 2.9
 
 - Instalación del gestor de contraseñas `Bitwarden`
