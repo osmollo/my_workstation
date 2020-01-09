@@ -3,6 +3,7 @@
 ## 2.10
 
 - Nuevo role `tools/telegram` para enviar mensajes de telegram
+- Refactor en playbook `datio.yml` para pedir al usuario su XE
 
 ## 2.9
 
