@@ -4,6 +4,7 @@
 
 - Nuevo role `tools/telegram` para enviar mensajes de telegram
 - Refactor en playbook `datio.yml` para pedir al usuario su XE
+- Configuración de autocompletado de `kubectl` tras su instalación
 
 ## 2.9
 
