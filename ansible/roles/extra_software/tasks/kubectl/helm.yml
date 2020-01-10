@@ -1,0 +1,37 @@
+---
+
+
+
+
+- name: "Get latest version of helm"
+  uri:
+    url: "{{ helm_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: helm_latest
+
+- name: "Set urls for helm packages"
+  vars:
+    helm_version: "{{ helm_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    helm_package: https://get.helm.sh/helm-{{ helm_version }}-linux-amd64.tar.gz
+
+- name: "Download Helm"
+  unarchive:
+    src: "{{ helm_package }}"
+    dest: /tmp/
+    remote_src: true
+
+- name: "Copy Helm binary"
+  copy:
+    src: "/tmp/linux-amd64/helm"
+    dest: /usr/local/bin/helm
+    remote_src: true
+    mode: 0755
+    owner: root
+    group: root
+
+- name: "Delete temporal directory"
+  file:
+    path: /tmp/linux-amd64
+    state: absent

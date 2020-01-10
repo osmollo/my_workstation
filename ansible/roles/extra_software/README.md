@@ -54,6 +54,7 @@
 | **install_flatpak** | |
 | **install_vagrant** | |
 | **install_dockercompose** | |
+| **install_helm** | |
 
 ## Documentación
 

@@ -27,3 +27,7 @@
         state: present
       when: zshrc_exists.stat.exists
   become: false
+
+- import_tasks: helm.yml
+  tags:
+    - install_helm
