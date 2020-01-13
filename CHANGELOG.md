@@ -7,7 +7,8 @@
 - Configuración de autocompletado de `kubectl` tras su instalación
 - Cuando se instala `kubectl`, también se descarga `Helm` (disponible el tag `--install_helm`)
 - Cambios en `post_install/ohermosa`:
-  - Nuevo repositorio para `argos`
+  - Nuevo repositorio [Argos](https://gitlab.com/ohermosa/argos)
+  - Nuevo repositorio [Hetzner K8S](https://gitlab.com/ohermosa/hetzner_k8s)
   - Fix al crear los `remote` en los repositorios
 - Instalación del módulo python `hcloud`
 

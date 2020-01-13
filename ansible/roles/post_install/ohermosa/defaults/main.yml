@@ -135,6 +135,8 @@ git_repositories:
       dest: "{{ git_dir }}/pepi"
     - repo: git@gitlab.com:ohermosa/onetimesecret.git
       dest: "{{ git_dir }}/onetimesecret"
+    - repo: git@gitlab.com:ohermosa/hetzner_k8s.git
+      dest: "{{ git_dir }}/hetzner_k8s"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/zshrc"
