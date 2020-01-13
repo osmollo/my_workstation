@@ -6,6 +6,8 @@
 - Refactor en playbook `datio.yml` para pedir al usuario su XE
 - Configuración de autocompletado de `kubectl` tras su instalación
 - Cuando se instala `kubectl`, también se descarga `Helm` (disponible el tag `--install_helm`)
+- Cambios en `post_install/ohermosa`:
+  - Nuevo repositorio para `argos`
 
 ## 2.9
 
