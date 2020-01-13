@@ -65,6 +65,9 @@ git_repositories:
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar.git
       dest: "{{ git_dir }}/iluvatar"
       remote: git@gitlab.com:ohermosa/iluvatar.git
+    - repo: ssh://git@globaldevtools.bbva.com:7999/fkrva/fkrva_argos.git
+      dest: "{{ git_dir }}/argos"
+      remote: git@gitlab.com:ohermosa/argos.git
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar_base_image.git
       dest: "{{ git_dir }}/iluvatar_base_image"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker_nexus_to_artifactory.git
