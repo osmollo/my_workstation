@@ -24,11 +24,12 @@
 
 - name: "Create new remote for repository"
   shell: "git remote add gitlab {{ item.remote }}"
+  args:
+    chdir: "{{ item.dest }}"
   loop: "{{ git_repositories.work }}"
   when: item.remote is defined
   register: remote_response
   failed_when: false
-  changed_when: "'exist' in remote_response.stdout"
   tags:
     - create_remotes
 
