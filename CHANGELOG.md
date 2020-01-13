@@ -8,6 +8,7 @@
 - Cuando se instala `kubectl`, también se descarga `Helm` (disponible el tag `--install_helm`)
 - Cambios en `post_install/ohermosa`:
   - Nuevo repositorio para `argos`
+  - Fix al crear los `remote` en los repositorios
 - Instalación del módulo python `hcloud`
 
 ## 2.9
