@@ -26,6 +26,7 @@ python_modules:
   - dnspython
   - docker-py
   - virtualenvwrapper
+  - hcloud
 
 
 bad_snap_packages:

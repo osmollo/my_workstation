@@ -47,6 +47,7 @@ buttercup_latest_url: "https://github.com/buttercup/buttercup-desktop/releases/l
 franz_latest_url: "https://github.com/meetfranz/franz/releases/latest"
 dockercompose_latest_url: "https://github.com/docker/compose/releases/latest"
 bitwarden_latest_url: "https://github.com/bitwarden/desktop/releases/latest"
+helm_latest_url: "https://github.com/helm/helm/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
 

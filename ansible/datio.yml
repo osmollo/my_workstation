@@ -45,24 +45,6 @@
     - common
     - extra_software
 
-- hosts: localhost
-  connection: local
-  vars_prompt:
-    - name: bbvausr
-      prompt: "What is your BBVA username?"
-      private: no
-  tasks:
-    - block:
-        - name: "Configure BBVA user"
-          lineinfile:
-            path: "{{ ansible_user_dir }}/.bashrc"
-            line: 'export XEUSER={{ bbva_user }}'
-            state: present
-      tags:
-        - post_install
-        - post_env
-        - post_environment
-
 
 - hosts: localhost
   connection: local
@@ -70,5 +52,22 @@
     ansible_user: "{{ lookup('env', 'USER') }}"
     ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
     post_user: "datio"
+  pre_tasks:
+    - block:
+        - name: Create A Password
+          pause:
+            prompt: "What is your BBVA username?:"
+            echo: no
+          register: bbva_user
+
+        - name: "Configure BBVA user"
+          lineinfile:
+            path: "{{ ansible_user_dir }}/.bashrc"
+            line: 'export XEUSER={{ bbva_user.user_input }}'
+            state: present
+      tags:
+        - post_install
+        - post_env
+        - post_environment
   roles:
     - "post_install/{{ post_user }}"
