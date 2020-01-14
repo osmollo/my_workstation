@@ -23,10 +23,12 @@
   ignore_errors: true
 
 - name: "Create new remote for repository"
-  shell: "git remote add gitlab {{ item.remote }}"
+  shell: "git remote add {{ item.remote.name }} {{ item.remote.url }}"
   args:
     chdir: "{{ item.dest }}"
-  loop: "{{ git_repositories.work }}"
+  with_items:
+    - "{{ git_repositories.work }}"
+    - "{{ git_repositories.home }}"
   when: item.remote is defined
   register: remote_response
   failed_when: false

@@ -56,18 +56,26 @@ git_repositories:
   work:
     - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_ops.git
       dest: "{{ git_dir }}/msqlm_ops"
-      remote: git@gitlab.com:ohermosa/msqlm_ops.git
+      remote:
+        name: gitlab
+        url: git@gitlab.com:ohermosa/msqlm_ops.git
     - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_sshmagic.git
       dest: "{{ git_dir }}/ssh_magic"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_fsm.git
       dest: "{{ git_dir }}/fsm"
-      remote: git@gitlab.com:ohermosa/fsm.git
+      remote:
+        name: gitlab
+        url: git@gitlab.com:ohermosa/fsm.git
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar.git
       dest: "{{ git_dir }}/iluvatar"
-      remote: git@gitlab.com:ohermosa/iluvatar.git
+      remote:
+        name: gitlab
+        url: git@gitlab.com:ohermosa/iluvatar.git
     - repo: ssh://git@globaldevtools.bbva.com:7999/fkrva/fkrva_argos.git
       dest: "{{ git_dir }}/argos"
-      remote: git@gitlab.com:ohermosa/argos.git
+      remote:
+        name: gitlab
+        url: git@gitlab.com:ohermosa/argos.git
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar_base_image.git
       dest: "{{ git_dir }}/iluvatar_base_image"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker_nexus_to_artifactory.git
@@ -103,6 +111,9 @@ git_repositories:
       dest: "{{ git_dir }}/whopper_bot"
     - repo: git@gitlab.com:ohermosa/my_workstation.git
       dest: "{{ git_dir }}/my_workstation"
+      remote:
+        name: github
+        url: git@github.com:ohermosa/my_workstation.git
     - repo: git@gitlab.com:ohermosa/my_k8s.git
       dest: "{{ git_dir }}/my_k8s"
     - repo: git@gitlab.com:ohermosa/kubespray.git
