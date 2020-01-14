@@ -9,7 +9,9 @@
 - Cambios en `post_install/ohermosa`:
   - Nuevo repositorio [Argos](https://gitlab.com/ohermosa/argos)
   - Nuevo repositorio [Hetzner K8S](https://gitlab.com/ohermosa/hetzner_k8s)
-  - Fix al crear los `remote` en los repositorios
+  - Fixes:
+    - Corregido error al crear remotes en los repositorios
+    - También se pueden crear remotes en los repositorios personales
 - Instalación del módulo python `hcloud`
 
 ## 2.9
