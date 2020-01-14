@@ -1,3 +1,33 @@
 ---
 
 - include_tasks: "kubectl_{{ linux_distribution }}.yml"
+
+- block:
+    - name: "check if .bashrc exists"
+      stat:
+        path: "{{ ansible_user_dir }}/.bashrc"
+      register: bashrc_exists
+
+    - name: "insert line in .bashrc"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.bashrc"
+        line: "source <(kubectl completion bash)"
+        state: present
+      when: bashrc_exists.stat.exists
+
+    - name: "check if .zshrc exists"
+      stat:
+        path: "{{ ansible_user_dir }}/.zshrc"
+      register: zshrc_exists
+
+    - name: "insert line in .zshrc"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.zshrc"
+        line: "source <(kubectl completion bash)"
+        state: present
+      when: zshrc_exists.stat.exists
+  become: false
+
+- import_tasks: helm.yml
+  tags:
+    - install_helm

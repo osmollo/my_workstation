@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 2.10
+
+- Nuevo role `tools/telegram` para enviar mensajes de telegram
+- Refactor en playbook `datio.yml` para pedir al usuario su XE
+- Configuración de autocompletado de `kubectl` tras su instalación
+- Cuando se instala `kubectl`, también se descarga `Helm` (disponible el tag `--install_helm`)
+- Cambios en `post_install/ohermosa`:
+  - Nuevo repositorio [Argos](https://gitlab.com/ohermosa/argos)
+  - Nuevo repositorio [Hetzner K8S](https://gitlab.com/ohermosa/hetzner_k8s)
+  - Fixes:
+    - Corregido error al crear remotes en los repositorios
+    - También se pueden crear remotes en los repositorios personales
+- Instalación del módulo python `hcloud`
+
 ## 2.9
 
 - Instalación del gestor de contraseñas `Bitwarden`
