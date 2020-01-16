@@ -37,6 +37,7 @@ install_megasync: true
 install_vivaldi: true
 install_brave: true
 install_bitwarden: true
+install_firefox_lexnet: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -72,3 +73,5 @@ virtualbox_extpack_version: "6.0.14"
 mega_url_base: "https://mega.nz/linux/MEGAsync"
 
 vivaldi_version: 2.9.1705.41-1
+
+firefox_url: "https://download-installer.cdn.mozilla.net/pub/firefox/releases/50.1.0/linux-x86_64/es-ES/firefox-50.1.0.tar.bz2"
