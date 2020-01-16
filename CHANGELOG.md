@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.11
+
+- Se modifican los permisos de los *$HOME* de usuario a 750
+- Instalación de [Firefox ESR](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr)
+
 ## 2.10
 
 - Nuevo role `tools/telegram` para enviar mensajes de telegram

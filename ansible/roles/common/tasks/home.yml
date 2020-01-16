@@ -1,0 +1,20 @@
+---
+
+- name: "Find /home subdirectories"
+  find:
+    paths: /home
+    recurse: false
+    file_type: directory
+  register: find_response
+
+- set_fact:
+    home_subdirs: "{{ find_response.files | json_query(id_query) }}"
+  vars:
+    id_query: "[].path"
+
+- name: "Set 750 permissions to /home subdirectories"
+  file:
+    path: "{{ item }}"
+    mode: 0750
+    recurse: false
+  loop: "{{ home_subdirs }}"
