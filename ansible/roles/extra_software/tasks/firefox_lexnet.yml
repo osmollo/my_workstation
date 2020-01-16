@@ -1,0 +1,10 @@
+---
+
+- name: "Uncompress firefox 'lexnet edition'"
+  unarchive:
+    src: "{{ firefox_url }}"
+    dest: "/var/tmp"
+    remote_src: true
+
+- name: "Install java"
+  import_tasks: java/java.yml

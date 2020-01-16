@@ -319,3 +319,11 @@
     - extra_software
     - install_bitwarden
     - install_pass_managers
+
+- name: "---[INSTALL]--- Firefox 'Lexnet Edition'"
+  import_tasks: firefox_lexnet.yml
+  when: install_firefox_lexnet
+  tags:
+    - extra_software
+    - install_firefox_lexnet
+    - install_browsers
