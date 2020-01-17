@@ -4,6 +4,10 @@
 
 - Se modifican los permisos de los *$HOME* de usuario a 750
 - Instalación de [Firefox ESR](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr)
+- Cambios en `post_install/ohermosa`:
+  - Nuevos repositorios git:
+    - [hetzner-kube](https://github.com/xetys/hetzner-kube))
+    - [awesome-hcloud](https://github.com/hetznercloud/awesome-hcloud)
 
 ## 2.10
 
