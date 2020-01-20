@@ -73,6 +73,7 @@ Por defecto se instala el siguiente software:
 | [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | install_brave | install_browsers |
 | [Bitwarden](https://bitwarden.com/) | install_bitwarden | install_pass_managers |
 | [Firefox 'Lexnet Edition'](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr) | install_firefox_lexnet | install_browsers |
+| [Pass](https://www.passwordstore.org/) | install_pass | install_pass_managers |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

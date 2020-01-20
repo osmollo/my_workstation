@@ -24,6 +24,7 @@
 | **post_hp** | Instala packetes para impresora **HP** | | |
 | **post_vim** | Configura **Vim** | | |
 | **post_gimp** | Configura **Gimp** | | |
+| **post_pass** | Configura el gestor de secretos **Pass** | | |
 | **ohermosa** | Ejecuta los post instalación de **ohermosa** | :cloud: | :lock: |
 
 | :information_source: **WARNING**: algunos de los tags anteriores requieren que **Dropbox** esté totalmente sincronizado antes de ejecutarse |
