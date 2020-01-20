@@ -10,6 +10,7 @@
     - [hetzner-kube](https://github.com/xetys/hetzner-kube))
     - [awesome-hcloud](https://github.com/hetznercloud/awesome-hcloud)
   - Configuración de `Pass`
+  - Nuevo tag `post_env` como abreviatura de `post_environment`
 
 ## 2.10
 
