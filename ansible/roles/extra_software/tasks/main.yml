@@ -327,3 +327,11 @@
     - extra_software
     - install_firefox_lexnet
     - install_browsers
+
+- name: "---[INSTALL]--- Pass"
+  import_tasks: pass/pass.yml
+  when: install_pass
+  tags:
+    - extra_software
+    - install_pass
+    - install_pass_managers

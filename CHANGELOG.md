@@ -4,10 +4,12 @@
 
 - Se modifican los permisos de los *$HOME* de usuario a 750
 - Instalación de [Firefox ESR](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr)
+- Instalación del gestor de contraseñas [Pass](https://www.passwordstore.org/)
 - Cambios en `post_install/ohermosa`:
   - Nuevos repositorios git:
     - [hetzner-kube](https://github.com/xetys/hetzner-kube))
     - [awesome-hcloud](https://github.com/hetznercloud/awesome-hcloud)
+  - Configuración de `Pass`
 
 ## 2.10
 
