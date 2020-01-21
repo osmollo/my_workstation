@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.12
+
+- Corrección de errores
+  - Fixes en la instalación de `Pass`
+
 ## 2.11
 
 - Se modifican los permisos de los *$HOME* de usuario a 750
