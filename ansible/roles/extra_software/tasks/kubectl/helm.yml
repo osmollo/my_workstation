@@ -1,5 +1,10 @@
 ---
 
+- name: "delete helm binary if exists"
+  file:
+    path: /usr/local/bin/helm
+    state: absent
+
 - name: "Get latest version of helm"
   uri:
     url: "{{ helm_latest_url }}"

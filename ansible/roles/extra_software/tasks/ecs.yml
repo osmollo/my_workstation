@@ -1,5 +1,10 @@
 ---
 
+- name: "delete ecs-cli binary if exists"
+  file:
+    path: /usr/local/bin/ecs-cli
+    state: absent
+
 - name: "Unarchive ecs-cli"
   unarchive:
     src: "{{ ecs_cli_package }}"
