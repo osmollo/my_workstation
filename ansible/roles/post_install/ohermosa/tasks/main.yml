@@ -115,6 +115,7 @@
   tags:
     - post_install
     - post_gpg
+    - post_pass
     - ohermosa
 
 - name: "Configure VIM"
@@ -142,3 +143,4 @@
   tags:
     - post_install
     - post_pass
+    - ohermosa
