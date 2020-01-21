@@ -148,6 +148,11 @@ git_repositories:
       dest: "{{ git_dir }}/onetimesecret"
     - repo: git@gitlab.com:ohermosa/hetzner_k8s.git
       dest: "{{ git_dir }}/hetzner_k8s"
+    - repo: git@github.com:xetys/hetzner-kube.git
+      dest: "{{ git_dir }}/hetzner-kube"
+    - repo: git@github.com:hetznercloud/awesome-hcloud.git
+      dest: "{{ git_dir }}/awesome-hcloud"
+
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/zshrc"
@@ -310,7 +315,8 @@ mega:
     30646535663530363262613463326535303139303439636433336363623366373162386164306138
     3666636137386231313266626133656162363334653834633036
 
-
 vim_config:
   - "set tabstop=2"
   - "set expandtab"
+
+pass_remote: git@gitlab.com:ohermosa/secrets.git

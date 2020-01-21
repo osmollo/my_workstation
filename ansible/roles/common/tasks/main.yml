@@ -94,3 +94,10 @@
     - common
     - bash_history_size
     - ohermosa
+
+- name: "Configure $HOME directories"
+  import_tasks: home.yml
+  tags:
+    - common
+    - home
+    - ohermosa

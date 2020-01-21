@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 2.11
+
+- Se modifican los permisos de los *$HOME* de usuario a 750
+- Instalación de [Firefox ESR](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr)
+- Instalación del gestor de contraseñas [Pass](https://www.passwordstore.org/)
+- Instalación de `bucklespring` (tag `install_bucklespring`) para **Debian** y **Ubuntu**
+- Cuando se instala `kubectl`, también se descarga `Hetzner-kube` (disponible el tag `--install_hetznerkube`)
+- Cambios en `post_install/ohermosa`:
+  - Nuevos repositorios git:
+    - [hetzner-kube](https://github.com/xetys/hetzner-kube))
+    - [awesome-hcloud](https://github.com/hetznercloud/awesome-hcloud)
+  - Configuración de `Pass`
+  - Nuevo tag `post_env` como abreviatura de `post_environment`
+- Corrección de errores:
+  - Se eliminan los binarios de la ruta `/usr/local/bin` antes de descargarlos para que se puedan actualizar
+
 ## 2.10
 
 - Nuevo role `tools/telegram` para enviar mensajes de telegram

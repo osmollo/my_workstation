@@ -90,6 +90,7 @@
   tags:
     - post_install
     - post_environment
+    - post_env
     - ohermosa
 
 - import_tasks: git.yml
@@ -135,3 +136,9 @@
   tags:
     - post_install
     - post_hp
+
+- name: "configure pass secrets manager"
+  import_tasks: pass.yml
+  tags:
+    - post_install
+    - post_pass

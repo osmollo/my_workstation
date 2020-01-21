@@ -16,3 +16,4 @@
 | **delete_snap** | En **Ubuntu**, desinstala paquetes del sistema instalados con snap y los instala desde los repositorios |
 | **resolv** | Añade a `/etc/hosts` las entradas definidas en las variables |
 | **bash_history_size** | Añade a `/etc/profile` la configuración de historial de Bash |
+| **home** | Configura los $HOME de los usuarios |

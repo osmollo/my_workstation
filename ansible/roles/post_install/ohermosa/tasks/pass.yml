@@ -1,0 +1,14 @@
+---
+
+- name: "initialize pass"
+  shell: "pass init {{ gpg_pub_keys[0] }}"
+
+- name: "initialize pass repository"
+  shell: pass git init
+
+- name: "create git remote for pass"
+  shell: "pass git remote add origin {{ pass_remote }}"
+  failed_when: false
+
+- name: "pass git pull"
+  shell: pass git pull

@@ -13,7 +13,7 @@
 | **pre_kde_backup** | Realiza una copia de seguridad de los ficheros de `$HOME/.config/*rc` en **Dropbox** | :cloud: | |
 | **post_docker** | Restaura de **Dropbox** los login en repositorios de Docker y la configuración del demonio `docker` | :cloud: | |
 | **post_crontab** | Restaura de **Dropbox** el crontab del usuario | :cloud: | |
-| **post_environment** | Restaura de **Dropbox** los ficheros de configuración del entorno (`.bashrc`, `.bash_history`, `.zshrc`,...) | :cloud: | |
+| **post_environment** <br> **post_env**| Restaura de **Dropbox** los ficheros de configuración del entorno (`.bashrc`, `.bash_history`, `.zshrc`,...) | :cloud: | |
 | **post_git** | Clona los repositorios indicados en el fichero de variables y configura el `user.email` y `user.name` en cada uno de ellos | :cloud: |
 | **post_network** | Genera las configuraciones para las conexiones de red | | :lock: |
 | **post_sublime** | Restaura la configuración de `Sublime Text` almacenada en **Dropbox** | :cloud: | |
@@ -24,6 +24,7 @@
 | **post_hp** | Instala packetes para impresora **HP** | | |
 | **post_vim** | Configura **Vim** | | |
 | **post_gimp** | Configura **Gimp** | | |
+| **post_pass** | Configura el gestor de secretos **Pass** | | |
 | **ohermosa** | Ejecuta los post instalación de **ohermosa** | :cloud: | :lock: |
 
 | :information_source: **WARNING**: algunos de los tags anteriores requieren que **Dropbox** esté totalmente sincronizado antes de ejecutarse |

@@ -51,10 +51,14 @@
 | **install_vivaldi** | Instala `Vivaldi` |
 | **install_brave** | Instala `Brave` |
 | **install_bitwarden** | Instala `Bitwarden` |
+| **install_firefox_lexnet** | Instala `Firefox 'Lexnet Edition'` |
+| **install_pass** | Instala gestor de secretos `Pass` |
+| **install_bucklespring** | Instala `bucklespring` |
 | **install_flatpak** | |
 | **install_vagrant** | |
 | **install_dockercompose** | |
 | **install_helm** | |
+| **install_hetznerkube** | |
 
 ## Documentación
 

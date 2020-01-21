@@ -1,0 +1,6 @@
+---
+
+- name: "[RPM] Install Pass"
+  yum:
+    name: pass
+    state: present
