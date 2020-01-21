@@ -13,6 +13,8 @@
     - [awesome-hcloud](https://github.com/hetznercloud/awesome-hcloud)
   - Configuración de `Pass`
   - Nuevo tag `post_env` como abreviatura de `post_environment`
+- Corrección de errores:
+  - Se eliminan los binarios de la ruta `/usr/local/bin` antes de descargarlos para que se puedan actualizar
 
 ## 2.10
 

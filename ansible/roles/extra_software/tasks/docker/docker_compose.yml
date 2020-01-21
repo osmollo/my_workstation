@@ -1,0 +1,12 @@
+---
+
+- name: "Delete docker-compose binary if exists"
+  file:
+    path: /usr/local/bin/docker-compose
+    state: absent
+
+- name: "Download Docker Compose binary"
+  get_url:
+    url: "{{ dockercompose_package }}"
+    dest: /usr/local/bin/docker-compose
+    mode: 0755

@@ -34,10 +34,7 @@
     - install_dockercompose
 
 - name: "Download Docker Compose binary"
-  get_url:
-    url: "{{ dockercompose_package }}"
-    dest: /usr/local/bin/docker-compose
-    mode: 0755
+  import_tasks: docker_compose.yml
   when: linux_distribution != "arch"
   tags:
     - install_dockercompose

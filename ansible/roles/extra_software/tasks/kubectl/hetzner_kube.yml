@@ -1,5 +1,10 @@
 ---
 
+- name: "delete hetzner-kube binary if exists"
+  file:
+    path: /usr/local/bin/hetzner-kube
+    state: absent
+
 - name: "Get latest version of hetzner kube"
   uri:
     url: "{{ hetznerkube_latest_url }}"
