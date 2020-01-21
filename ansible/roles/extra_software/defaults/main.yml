@@ -37,6 +37,9 @@ install_megasync: true
 install_vivaldi: true
 install_brave: true
 install_bitwarden: true
+install_firefox_lexnet: false
+install_pass: true
+install_bucklespring: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -48,6 +51,7 @@ franz_latest_url: "https://github.com/meetfranz/franz/releases/latest"
 dockercompose_latest_url: "https://github.com/docker/compose/releases/latest"
 bitwarden_latest_url: "https://github.com/bitwarden/desktop/releases/latest"
 helm_latest_url: "https://github.com/helm/helm/releases/latest"
+hetznerkube_latest_url: "https://github.com/xetys/hetzner-kube/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
 
@@ -72,3 +76,5 @@ virtualbox_extpack_version: "6.0.14"
 mega_url_base: "https://mega.nz/linux/MEGAsync"
 
 vivaldi_version: 2.9.1705.41-1
+
+firefox_url: "https://download-installer.cdn.mozilla.net/pub/firefox/releases/50.1.0/linux-x86_64/es-ES/firefox-50.1.0.tar.bz2"

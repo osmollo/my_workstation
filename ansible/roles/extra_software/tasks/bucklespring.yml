@@ -1,0 +1,23 @@
+---
+
+- block:
+    - name: "[UBUNTU] Install bucklespring using snap"
+      snap:
+        name:
+          - telegram-desktop
+        state: present
+
+    - name: "[UBUNTU] run bucklespring.buckle"
+      shell: bucklespring.buckle &
+  when: linux_distribution == "ubuntu"
+
+- block:
+    - name: "[DEBIAN] Install bucklespring using apt"
+      apt:
+        name: bucklespring
+        update_cache: true
+        state: present
+
+    - name: "[DEBIAN] run buckle"
+      shell: buckle &
+  when: linux_distribution == "debian"

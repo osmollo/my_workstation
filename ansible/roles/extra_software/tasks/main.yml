@@ -319,3 +319,28 @@
     - extra_software
     - install_bitwarden
     - install_pass_managers
+
+- name: "---[INSTALL]--- Firefox 'Lexnet Edition'"
+  import_tasks: firefox_lexnet.yml
+  when: install_firefox_lexnet
+  tags:
+    - extra_software
+    - install_firefox_lexnet
+    - install_browsers
+
+- name: "---[INSTALL]--- Pass"
+  import_tasks: pass/pass.yml
+  when: install_pass
+  tags:
+    - extra_software
+    - install_pass
+    - install_pass_managers
+
+- name: "---[INSTALL]--- Bucklespring"
+  import_tasks: bucklespring.yml
+  when:
+    - linux_distribution == "ubuntu" or linux_distribution == "debian"
+    - install_bucklespring
+  tags:
+    - extra_software
+    - install_bucklespring

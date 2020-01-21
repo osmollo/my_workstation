@@ -6,6 +6,7 @@
   - [Prerequisitos](#prerequisitos)
   - [Actualización de paquetes](#actualización-de-paquetes)
   - [Instalación y post configuración](#instalación-y-post-configuración)
+    - [Post instalación **DATIO**](#post-instalación-datio)
     - [Deshabilitar actualizaciones](#deshabilitar-actualizaciones)
     - [Gestión de contraseñas](#gestión-de-contraseñas)
       - [Ficheros locales](#ficheros-locales)
@@ -70,7 +71,10 @@ Por defecto se instala el siguiente software:
 | [MEGA sync](https://mega.nz/sync) | install_megasync | install_mega |
 | [Vivaldi](https://vivaldi.com/es/) | install_vivaldi | install_browsers |
 | [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | install_brave | install_browsers |
-| [Bitwarden](https://bitwarden.com/) | install_bitwarden | install_pass_managers
+| [Bitwarden](https://bitwarden.com/) | install_bitwarden | install_pass_managers |
+| [Firefox 'Lexnet Edition'](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr) | install_firefox_lexnet | install_browsers |
+| [Pass](https://www.passwordstore.org/) | install_pass | install_pass_managers |
+| [Bucklespring](https://github.com/zevv/bucklespring) | install_bucklespring | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

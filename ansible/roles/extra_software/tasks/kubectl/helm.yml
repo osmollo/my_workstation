@@ -1,7 +1,9 @@
 ---
 
-
-
+- name: "delete helm binary if exists"
+  file:
+    path: /usr/local/bin/helm
+    state: absent
 
 - name: "Get latest version of helm"
   uri:
@@ -10,7 +12,7 @@
     body_format: raw
   register: helm_latest
 
-- name: "Set urls for helm packages"
+- name: "Set urls for helm package"
   vars:
     helm_version: "{{ helm_latest.url | urlsplit('path') | basename }}"
   set_fact:

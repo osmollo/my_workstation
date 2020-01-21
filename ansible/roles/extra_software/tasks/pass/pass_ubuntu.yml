@@ -1,0 +1,6 @@
+---
+
+- name: "[DEB] Install Atom"
+  apt:
+    name: pass
+    state: present
