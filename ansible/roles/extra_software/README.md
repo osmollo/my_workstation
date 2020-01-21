@@ -58,6 +58,7 @@
 | **install_vagrant** | |
 | **install_dockercompose** | |
 | **install_helm** | |
+| **install_hetznerkube** | |
 
 ## Documentación
 

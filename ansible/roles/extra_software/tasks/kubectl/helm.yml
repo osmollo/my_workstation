@@ -1,8 +1,5 @@
 ---
 
-
-
-
 - name: "Get latest version of helm"
   uri:
     url: "{{ helm_latest_url }}"
@@ -10,7 +7,7 @@
     body_format: raw
   register: helm_latest
 
-- name: "Set urls for helm packages"
+- name: "Set urls for helm package"
   vars:
     helm_version: "{{ helm_latest.url | urlsplit('path') | basename }}"
   set_fact:
