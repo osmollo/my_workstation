@@ -51,6 +51,7 @@ franz_latest_url: "https://github.com/meetfranz/franz/releases/latest"
 dockercompose_latest_url: "https://github.com/docker/compose/releases/latest"
 bitwarden_latest_url: "https://github.com/bitwarden/desktop/releases/latest"
 helm_latest_url: "https://github.com/helm/helm/releases/latest"
+hetznerkube_latest_url: "https://github.com/xetys/hetzner-kube/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
 

@@ -6,6 +6,7 @@
 - Instalación de [Firefox ESR](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr)
 - Instalación del gestor de contraseñas [Pass](https://www.passwordstore.org/)
 - Instalación de `bucklespring` (tag `install_bucklespring`) para **Debian** y **Ubuntu**
+- Cuando se instala `kubectl`, también se descarga `Hetzner-kube` (disponible el tag `--install_hetznerkube`)
 - Cambios en `post_install/ohermosa`:
   - Nuevos repositorios git:
     - [hetzner-kube](https://github.com/xetys/hetzner-kube))
