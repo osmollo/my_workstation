@@ -39,6 +39,7 @@ install_brave: true
 install_bitwarden: true
 install_firefox_lexnet: false
 install_pass: true
+install_bucklespring: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85

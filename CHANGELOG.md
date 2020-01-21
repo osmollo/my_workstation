@@ -5,6 +5,7 @@
 - Se modifican los permisos de los *$HOME* de usuario a 750
 - Instalación de [Firefox ESR](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr)
 - Instalación del gestor de contraseñas [Pass](https://www.passwordstore.org/)
+- Instalación de `bucklespring` (tag `install_bucklespring`) para **Debian** y **Ubuntu**
 - Cambios en `post_install/ohermosa`:
   - Nuevos repositorios git:
     - [hetzner-kube](https://github.com/xetys/hetzner-kube))

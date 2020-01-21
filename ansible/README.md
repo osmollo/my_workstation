@@ -74,6 +74,7 @@ Por defecto se instala el siguiente software:
 | [Bitwarden](https://bitwarden.com/) | install_bitwarden | install_pass_managers |
 | [Firefox 'Lexnet Edition'](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr) | install_firefox_lexnet | install_browsers |
 | [Pass](https://www.passwordstore.org/) | install_pass | install_pass_managers |
+| [Bucklespring](https://github.com/zevv/bucklespring) | install_bucklespring | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

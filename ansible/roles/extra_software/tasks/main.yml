@@ -335,3 +335,12 @@
     - extra_software
     - install_pass
     - install_pass_managers
+
+- name: "---[INSTALL]--- Bucklespring"
+  import_tasks: bucklespring.yml
+  when:
+    - linux_distribution == "ubuntu" or linux_distribution == "debian"
+    - install_bucklespring
+  tags:
+    - extra_software
+    - install_bucklespring
