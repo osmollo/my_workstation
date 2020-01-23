@@ -4,6 +4,7 @@
 
 - Cambios en  `post_install/ohermosa`:
   - instalación cliente `protonvpn`
+  - creación de virtualenvs de python para los repositorios git existentes
 - Corrección de errores
   - Fixes en la instalación de `Pass`
 

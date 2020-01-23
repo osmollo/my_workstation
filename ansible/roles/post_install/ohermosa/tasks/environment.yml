@@ -17,11 +17,6 @@
         line: 'export VAULT_TOKEN=$(kwalletcli -f Passwords -e TOKEN)'
       when: desktop_environment == 'kde'
 
-- name: "Create python-venv directory"
-  file:
-    path: "{{ ansible_user_dir }}/python-venv"
-    state: directory
-
 - name: "Delete bash files"
   file:
     path: "{{ item }}"
@@ -49,11 +44,6 @@
     src: "{{ ansible_user_dir }}/.vault_pass_datio.txt"
     dest: "{{ ansible_user_dir }}/.vault_pass.txt"
     state: link
-
-- name: "create python-venv directory"
-  file:
-    path: "{{ ansible_user_dir }}/python-venv"
-    state: directory
 
 - name: "Configure environment"
   block:

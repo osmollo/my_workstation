@@ -320,3 +320,4 @@ vim_config:
   - "set expandtab"
 
 pass_remote: git@gitlab.com:ohermosa/secrets.git
+python_venv_dir: "{{ ansible_user_dir }}/python-venv"
