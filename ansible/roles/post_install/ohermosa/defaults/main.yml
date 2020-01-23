@@ -56,26 +56,18 @@ git_repositories:
   work:
     - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_ops.git
       dest: "{{ git_dir }}/msqlm_ops"
-      remote:
-        name: gitlab
-        url: git@gitlab.com:ohermosa/msqlm_ops.git
+      remote: github
     - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_sshmagic.git
       dest: "{{ git_dir }}/ssh_magic"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_fsm.git
       dest: "{{ git_dir }}/fsm"
-      remote:
-        name: gitlab
-        url: git@gitlab.com:ohermosa/fsm.git
+      remote: github
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar.git
       dest: "{{ git_dir }}/iluvatar"
-      remote:
-        name: gitlab
-        url: git@gitlab.com:ohermosa/iluvatar.git
+      remote: github
     - repo: ssh://git@globaldevtools.bbva.com:7999/fkrva/fkrva_argos.git
       dest: "{{ git_dir }}/argos"
-      remote:
-        name: gitlab
-        url: git@gitlab.com:ohermosa/argos.git
+      remote: github
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar_base_image.git
       dest: "{{ git_dir }}/iluvatar_base_image"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker_nexus_to_artifactory.git
@@ -111,9 +103,7 @@ git_repositories:
       dest: "{{ git_dir }}/whopper_bot"
     - repo: git@gitlab.com:ohermosa/my_workstation.git
       dest: "{{ git_dir }}/my_workstation"
-      remote:
-        name: github
-        url: git@github.com:ohermosa/my_workstation.git
+      remote: github
     - repo: git@gitlab.com:ohermosa/my_k8s.git
       dest: "{{ git_dir }}/my_k8s"
     - repo: git@gitlab.com:ohermosa/kubespray.git
@@ -321,3 +311,20 @@ vim_config:
 
 pass_remote: git@gitlab.com:ohermosa/secrets.git
 python_venv_dir: "{{ ansible_user_dir }}/python-venv"
+
+gitlab_token_access: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  33333864643338333337653333373932613831383936326432633737356163363039366466376265
+  6631343034666361323863386161616362633363366333320a313030313938306464363563313062
+  65656638383461393664323235393832626639623063656331323733353164616331333261613662
+  3166666264383638310a633662643133313133333663616665626438386136636232393565343062
+  37613830383937306236356338356665656238373464633530646436383865383862
+
+github_token_access: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  33633535326365663430346663306238373631326365316231356536373363626332343131326163
+  6362383831636166333339356430333963343238303438660a343963653861376465656639636237
+  37303830363736306363393637363964623536306337396566376137343435356630333831666539
+  3937663630636230310a356366623338616638396338316164636438666139303238306437643430
+  34363634306266653164616164653032383338396433626639383030396339363537323630656161
+  6237346438653035333337623737336236343535323439666139

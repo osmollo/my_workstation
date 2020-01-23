@@ -22,16 +22,81 @@
     - "{{ git_repositories.home }}"
   ignore_errors: true
 
-- name: "Create new remote for repository"
-  shell: "git remote add {{ item.remote.name }} {{ item.remote.url }}"
-  args:
-    chdir: "{{ item.dest }}"
-  with_items:
-    - "{{ git_repositories.work }}"
-    - "{{ git_repositories.home }}"
-  when: item.remote is defined
-  register: remote_response
-  failed_when: false
+- name: "Create remotes for repositories"
+  block:
+    - name: "Create github repositories"
+      include_role:
+        name: tools/github_repo
+      vars:
+        github_token: "{{ github_token_access }}"
+        repo_name: "{{ item.repo.replace('ssh://', '').split('/')[2].split('.')[0] }}"
+        repo_private: true
+        repo_action: present
+      when:
+        - item.remote is defined
+        - item.remote == "github"
+      with_items: "{{ git_repositories.work }}"
+
+    - name: "Create gitlab repositories"
+      include_role:
+        name: tools/gitlab_repo
+      vars:
+        github_token: "{{ gitlab_token_access }}"
+        repo_name: "{{ item.repo.replace('ssh://', '').split('/')[2].split('.')[0] }}"
+        repo_private: true
+        repo_action: present
+      when:
+        - item.remote is defined
+        - item.remote == "gitlab"
+      with_items: "{{ git_repositories.work }}"
+
+    - name: "Create new remote for work repositories"
+      shell: "git remote add {{ item.remote }} {{ remote_url }}"
+      args:
+        chdir: "{{ item.dest }}"
+      with_items: "{{ git_repositories.work }}"
+      when: item.remote is defined
+      register: remote_response
+      failed_when: false
+      vars:
+        remote_url: "git@{{ item.remote }}.com:ohermosa/{{ item.repo.replace('ssh://', '').split('/')[2].split('.')[0] }}.git"
+
+    - name: "Create github repositories"
+      include_role:
+        name: tools/github_repo
+      vars:
+        github_token: "{{ github_token_access }}"
+        repo_name: "{{ item.repo.replace('https://', '').split('/')[1].split('.')[0] }}"
+        repo_private: true
+        repo_action: present
+      when:
+        - item.remote is defined
+        - item.remote == "github"
+      with_items: "{{ git_repositories.home }}"
+
+    - name: "Create gitlab repositories"
+      include_role:
+        name: tools/gitlab_repo
+      vars:
+        github_token: "{{ github_token_access }}"
+        repo_name: "{{ item.repo.replace('https://', '').split('/')[1].split('.')[0] }}"
+        repo_private: true
+        repo_action: present
+      when:
+        - item.remote is defined
+        - item.remote == "gitlab"
+      with_items: "{{ git_repositories.home }}"
+
+    - name: "Create new remote for home repositories"
+      shell: "git remote add {{ item.remote }} {{ remote_url }}"
+      args:
+        chdir: "{{ item.dest }}"
+      with_items: "{{ git_repositories.home }}"
+      when: item.remote is defined
+      register: remote_response
+      failed_when: false
+      vars:
+        remote_url: "git@{{ item.remote }}.com:ohermosa/{{ item.repo.replace('https://', '').split('/')[1].split('.')[0] }}.git"
   tags:
     - create_remotes
 

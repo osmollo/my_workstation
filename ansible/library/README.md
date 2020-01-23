@@ -5,8 +5,12 @@
     - [INPUT](#input)
     - [OUTPUT](#output)
     - [Ejemplo de uso](#ejemplo-de-uso)
-  - [yay](#yay)
+  - [github_repo](#github_repo)
     - [Ejemplo de uso](#ejemplo-de-uso-1)
+  - [gitlab_repo](#gitlab_repo)
+    - [Ejemplo de uso](#ejemplo-de-uso-2)
+  - [yay](#yay)
+    - [Ejemplo de uso](#ejemplo-de-uso-3)
 
 ## dconf_to_list
 
@@ -79,6 +83,42 @@ Un ejemplo de salida de `dconf_to_list` sería:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
   loop: "{{ response.message }}"
+```
+
+## github_repo
+
+Este módulo crea o elimina un repositorio en [Github](https://www.github.com)
+
+### Ejemplo de uso
+
+```yaml
+- github_repo:
+    github_auth_key: "{{ github_token }}"
+    name: "{{ repo_name }}"
+    private: "{{ repo_private | default(true) }}"
+    has_issues: "{{ has_issues | default(false) }}"
+    has_wiki: "{{ has_wiki | default(false) }}"
+    has_downloads: "{{ has_downloads | default(false) }}"
+    state: "{{ repo_action | default(present) }}"
+  register: result
+```
+
+## gitlab_repo
+
+Este módulo crea o elimina un repositorio en [Gitlab](https://www.gitlab.com)
+
+### Ejemplo de uso
+
+```yaml
+- gitlab_repo:
+    gitlab_auth_key: "{{ gitlab_token }}"
+    name: "{{ repo_name }}"
+    private: "{{ repo_private | default(true) }}"
+    has_issues: "{{ has_issues | default(false) }}"
+    has_wiki: "{{ has_wiki | default(false) }}"
+    has_downloads: "{{ has_downloads | default(false) }}"
+    state: "{{ repo_action | default(present) }}"
+  register: result
 ```
 
 ## yay

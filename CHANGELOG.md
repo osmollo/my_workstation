@@ -2,9 +2,12 @@
 
 ## 2.12
 
+- Nuevas tools `tools/github_repo` y `tools/gitlab_repo` para crear repositorios en **github** y **gitlab** correspondientemente
 - Cambios en  `post_install/ohermosa`:
   - instalación cliente `protonvpn`
   - creación de virtualenvs de python para los repositorios git existentes
+  - si se define la creación de un remote en un repositorio de gitlab que no existe, se crea
+  - refactor de la variable `git_repositories` para simplificar la creación de __remotes__ de **git**. Ahora si alguno de los repositorios tiene una variable `remote` (con valores posibles __"gitlab"__ o __"github"__), se creará un repositorio con el mismo nombre en la plataforma correspondiente y se configurará como __remote__ del repositorio original
 - Corrección de errores
   - Fixes en la instalación de `Pass`
 

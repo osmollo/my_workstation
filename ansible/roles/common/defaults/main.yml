@@ -28,7 +28,6 @@ python_modules:
   - virtualenvwrapper
   - hcloud
 
-
 bad_snap_packages:
   - gnome-calculator
   - gnome-system-monitor
