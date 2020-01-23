@@ -2,6 +2,8 @@
 
 ## 2.12
 
+- Cambios en  `post_install/ohermosa`:
+  - instalación cliente `protonvpn`
 - Corrección de errores
   - Fixes en la instalación de `Pass`
 
