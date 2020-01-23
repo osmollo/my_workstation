@@ -53,8 +53,3 @@
       dest: /etc/NetworkManager/system-connections/Datio_CCR
     - src: datio_vpn.j2
       dest: /etc/NetworkManager/system-connections/Datio
-
-- name: "Install protonvpn-cli"
-  pip:
-    name:
-      - protonvpn-cli
