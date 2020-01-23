@@ -1,0 +1,14 @@
+---
+
+- name: "Update Github Repository {{ repo_name }} status"
+  github_repo:
+    github_auth_key: "{{ github_token }}"
+    name: "{{ repo_name }}"
+    private: "{{ repo_private }}"
+    has_issues: "{{ has_issues }}"
+    has_wiki: "{{ has_wiki }}"
+    has_downloads: "{{ has_downloads }}"
+    state: "{{ repo_action }}"
+  register: result
+
+- debug: var=result
