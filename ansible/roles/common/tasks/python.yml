@@ -46,9 +46,7 @@
   pip:
     name:
       - setuptools
-    extra_args: --user
 
 - name: "Install python modules"
   pip:
     name: "{{ python_modules }}"
-    extra_args: --user
