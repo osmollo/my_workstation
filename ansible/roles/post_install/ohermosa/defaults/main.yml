@@ -49,25 +49,25 @@ etc_hosts:
     ip: 100.88.69.9
 
 dropbox_dir: "{{ ansible_user_dir }}/Dropbox"
-git_dir: "{{ ansible_user_dir }}/git2"
+git_dir: "{{ ansible_user_dir }}/git"
 kde_backup_dir: "{{ dropbox_dir }}/backups/kde"
 
 git_repositories:
   work:
     - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_ops.git
       dest: "{{ git_dir }}/msqlm_ops"
-      remote: github
+      remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_sshmagic.git
       dest: "{{ git_dir }}/ssh_magic"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_fsm.git
       dest: "{{ git_dir }}/fsm"
-      remote: github
+      remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar.git
       dest: "{{ git_dir }}/iluvatar"
-      remote: github
+      remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/fkrva/fkrva_argos.git
       dest: "{{ git_dir }}/argos"
-      remote: github
+      remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar_base_image.git
       dest: "{{ git_dir }}/iluvatar_base_image"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker_nexus_to_artifactory.git

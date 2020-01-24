@@ -1,0 +1,42 @@
+---
+
+- hosts: localhost
+  connection: local
+  vars:
+    git_target: "{{ target | default('all') }}"
+  tasks:
+    - assert:
+        that:
+          - secrets is defined
+          - git_target in ['all', 'gitlab', 'github']
+        fail_msg: "'secrets' variable must be the path of file with access tokens and 'target' variable must be one of these values: all, gitlab or github"
+
+    - include_vars: "{{ secrets }}"
+
+    - include_role:
+        name: tools/gitlab_repo
+      vars:
+        repo_name: "{{ item }}"
+        repo_state: absent
+        gitlab_token: "{{ gitlab_token_access }}"
+      loop:
+        - fkrva_argos
+        - mlyid_iluvatar
+        - mlyid_fsm
+        - argos
+        - iluvatar
+        - msqlm_ops
+      when: git_target in ["all", "gitlab"]
+
+    - include_role:
+        name: tools/github_repo
+      vars:
+        repo_name: "{{ item }}"
+        repo_state: absent
+        github_token: "{{ github_token_access }}"
+      loop:
+        - fkrva_argos
+        - mlyid_iluvatar
+        - mlyid_fsm
+        - msqlm_ops
+      when: git_target in ["all", "github"]

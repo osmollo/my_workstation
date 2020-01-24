@@ -2,6 +2,7 @@
 
 from ansible.module_utils.basic import *
 import requests
+import json
 
 DOCUMENTATION = '''
 ---
@@ -33,9 +34,7 @@ api_url = "https://api.github.com"
 
 
 def github_repo_present(data):
-
     api_key = data['github_auth_key']
-
     del data['state']
     del data['github_auth_key']
 
@@ -114,7 +113,7 @@ def main():
     if not is_error:
         module.exit_json(changed=has_changed, meta=result)
     else:
-        module.fail_json(msg="Error deleting repo", meta=result)
+        module.fail_json(msg="Error", meta=result)
 
 
 if __name__ == '__main__':

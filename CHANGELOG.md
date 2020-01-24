@@ -3,7 +3,13 @@
 ## 2.12
 
 - Nuevo `docker_deploy/gitea` para probar `Gitea`
-- Nuevas tools `tools/github_repo` y `tools/gitlab_repo` para crear repositorios en **github** y **gitlab** correspondientemente
+- Nuevas tools `tools/github_repo` y `tools/gitlab_repo` para crear/eliminar repositorios en **github** y **gitlab** correspondientemente
+- Nuevo playbook `delete_repos.yml` para eliminar repositorios de **github** y **gitlab**. Coge los token del fichero pasado por `extravars` con el nombre `secrets`
+
+```bash
+ansible-playbook delete_repos.yml -e secrets=roles/post_install/ohermosa/defaults/main.yml [-e target=[all|gitlab|github]]
+```
+
 - Cambios en  `post_install/ohermosa`:
   - instalación cliente `protonvpn`
   - creación de virtualenvs de python para los repositorios git existentes
