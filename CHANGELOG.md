@@ -2,6 +2,7 @@
 
 ## 2.12
 
+- Nuevo `docker_deploy/gitea` para probar `Gitea`
 - Nuevas tools `tools/github_repo` y `tools/gitlab_repo` para crear repositorios en **github** y **gitlab** correspondientemente
 - Cambios en  `post_install/ohermosa`:
   - instalación cliente `protonvpn`

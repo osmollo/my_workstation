@@ -15,3 +15,4 @@ ansible-playbook install.yml -t install_docker --ask-bacome-pass
 | [nextcloud](docker_deploys/nextcloud) | Despliegue de `Nextcloud` con `MariaDB` como base de datos |
 | [pi-hole](docker_deploys/pihole) | Despliegue de `PiHole` |
 | [Jenkins](docker_deploys/jenkins) | Despliegue de `Jenkins` |
+| [Gitea](docker_deploys/gitea) | Despliegue de `Gitea` con `MySQL` |
