@@ -99,7 +99,7 @@ Este módulo crea o elimina un repositorio en [Github](https://www.github.com)
     has_issues: "{{ has_issues | default(false) }}"
     has_wiki: "{{ has_wiki | default(false) }}"
     has_downloads: "{{ has_downloads | default(false) }}"
-    state: "{{ repo_action | default(present) }}"
+    state: "{{ repo_state | default(present) }}"
   register: result
 ```
 
@@ -113,11 +113,10 @@ Este módulo crea o elimina un repositorio en [Gitlab](https://www.gitlab.com)
 - gitlab_repo:
     gitlab_auth_key: "{{ gitlab_token }}"
     name: "{{ repo_name }}"
-    private: "{{ repo_private | default(true) }}"
-    has_issues: "{{ has_issues | default(false) }}"
-    has_wiki: "{{ has_wiki | default(false) }}"
-    has_downloads: "{{ has_downloads | default(false) }}"
-    state: "{{ repo_action | default(present) }}"
+    visibility: "{{ visibility | default(private) }}"
+    issues_enabled: "{{ issues_enabled | default(false) }}"
+    wiki_enabled: "{{ wiki_enabled | default(false) }}"
+    state: "{{ repo_state | default(present) }}"
   register: result
 ```
 

@@ -2,6 +2,7 @@
 
 from ansible.module_utils.basic import *
 import requests
+import json
 
 DOCUMENTATION = '''
 ---
@@ -33,9 +34,8 @@ api_url = "https://gitlab.com/api/v4"
 
 
 def gitlab_repo_present(data):
-
     api_key = data['gitlab_auth_key']
-
+    data["path"] = data["name"]
     del data['state']
     del data['gitlab_auth_key']
 
@@ -43,7 +43,7 @@ def gitlab_repo_present(data):
         "PRIVATE-TOKEN": "{}" . format(api_key)
     }
     url = "{}{}" . format(api_url, '/projects')
-    result = requests.post(url, json.dumps(data), headers=headers)
+    result = requests.post(url, data=data, headers=headers)
 
     if result.status_code == 201:
         return False, True, result.json()
@@ -55,14 +55,44 @@ def gitlab_repo_present(data):
     return True, False, meta
 
 
+def gitlab_get_user_id(data=None):
+    headers = {
+        "PRIVATE-TOKEN": "{}" . format(data['gitlab_auth_key'])
+    }
+    url = "{}/user" . format(api_url)
+    result = requests.get(url, headers=headers)
+
+    if result.status_code == 200:
+        return result.json()["username"]
+    else:
+        return None
+
+
+def gitlab_get_project_id(data=None):
+    headers = {
+        "PRIVATE-TOKEN": "{}" . format(data['gitlab_auth_key'])
+    }
+    url = "{}/users/{}/projects?pagination=keyset&per_page=99&order_by=id" . format(api_url, gitlab_get_user_id(data))
+    result = requests.get(url, headers=headers)
+
+    if result.status_code == 200:
+        for i in result.json():
+            if i["name"] == data["name"]:
+                return i["id"]
+        return None
+    else:
+        return None
+
+
+
 def gitlab_repo_absent(data=None):
     headers = {
         "PRIVATE-TOKEN": "{}" . format(data['gitlab_auth_key'])
     }
-    url = "{}/projects/{}" . format(api_url, data['name'])
+    url = "{}/projects/{}" . format(api_url, gitlab_get_project_id(data))
     result = requests.delete(url, headers=headers)
 
-    if result.status_code == 204:
+    if result.status_code == 202:
         return False, True, {"status": "SUCCESS"}
     if result.status_code == 404:
         result = {"status": result.status_code, "data": result.json()}
@@ -81,7 +111,6 @@ def main():
         "visibility": {"default": "private", "type": "str"},
         "issues_enabled": {"default": True, "type": "bool"},
         "wiki_enabled": {"default": True, "type": "bool"},
-        "repository_storage": {"default": True, "type": "bool"},
         "state": {
             "default": "present",
             "choices": ['present', 'absent'],
@@ -101,7 +130,7 @@ def main():
     if not is_error:
         module.exit_json(changed=has_changed, meta=result)
     else:
-        module.fail_json(msg="Error deleting repo", meta=result)
+        module.fail_json(msg="Error", meta=result)
 
 
 if __name__ == '__main__':
