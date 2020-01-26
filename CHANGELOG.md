@@ -10,6 +10,7 @@
 ansible-playbook delete_repos.yml -e secrets=roles/post_install/ohermosa/defaults/main.yml [-e target=[all|gitlab|github]]
 ```
 
+- Se instala el módulo de python `gitpython`
 - Cambios en  `post_install/ohermosa`:
   - instalación cliente `protonvpn`
   - creación de virtualenvs de python para los repositorios git existentes
