@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEB] Install Atom"
+- name: "[DEB] Install Pass"
   apt:
     name: pass
     state: present

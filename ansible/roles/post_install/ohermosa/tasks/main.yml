@@ -99,6 +99,13 @@
     - post_git
     - ohermosa
 
+- import_tasks: python.yml
+  tags:
+    - post_install
+    - post_git
+    - post_python
+    - ohermosa
+
 - import_tasks: sublime.yml
   tags:
     - post_install
@@ -115,6 +122,7 @@
   tags:
     - post_install
     - post_gpg
+    - post_pass
     - ohermosa
 
 - name: "Configure VIM"
@@ -142,3 +150,4 @@
   tags:
     - post_install
     - post_pass
+    - ohermosa

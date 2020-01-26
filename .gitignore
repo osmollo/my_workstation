@@ -9,3 +9,7 @@ ansible/test.yml
 docker_deploys/vault/vault/data/*
 docker_deploys/vault/vault/logs/*
 docker_deploys/vault/consul/data/*
+
+docker_deploys/gitea/mysql
+docker_deploys/gitea/gitea
+

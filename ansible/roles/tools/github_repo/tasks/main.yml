@@ -1,0 +1,12 @@
+---
+
+- name: "working with '{{ repo_name }}' repository"
+  github_repo:
+    github_auth_key: "{{ github_token }}"
+    name: "{{ repo_name }}"
+    private: "{{ repo_private | default(true) }}"
+    has_issues: "{{ has_issues | default(false) }}"
+    has_wiki: "{{ has_wiki | default(false) }}"
+    has_downloads: "{{ has_downloads | default(false) }}"
+    state: "{{ repo_state | default('present') }}"
+  register: result
