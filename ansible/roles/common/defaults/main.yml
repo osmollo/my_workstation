@@ -27,6 +27,7 @@ python_modules:
   - docker-py
   - virtualenvwrapper
   - hcloud
+  - gitpython
 
 bad_snap_packages:
   - gnome-calculator
