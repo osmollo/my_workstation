@@ -1,0 +1,11 @@
+---
+
+- name: "working with '{{ repo_name }}' repository"
+  gitlab_repo:
+    gitlab_auth_key: "{{ gitlab_token }}"
+    name: "{{ repo_name }}"
+    visibility: "{{ visibility | default('private') }}"
+    issues_enabled: "{{ issues_enabled | default(false) }}"
+    wiki_enabled: "{{ wiki_enabled | default(false) }}"
+    state: "{{ repo_state | default('present') }}"
+  register: result
