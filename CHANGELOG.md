@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.13
+
+- Cambios en `post_install/ohermosa`:
+  - Actualizada la contraseña de **Mega**
+
 ## 2.12.1
 
 - Se ha simplificado la forma de obtener el nombre de repositorio al crear los remotes de git en `post_install/ohermosa` para que sea independiente de la ruta
