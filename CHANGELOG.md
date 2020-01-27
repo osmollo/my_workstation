@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.12.1
+
+- Se ha simplificado la forma de obtener el nombre de repositorio al crear los remotes de git en `post_install/ohermosa` para que sea independiente de la ruta
+
 ## 2.12
 
 - Nuevo `docker_deploy/gitea` para probar `Gitea`
