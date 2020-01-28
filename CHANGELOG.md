@@ -4,6 +4,7 @@
 
 - Cambios en `post_install/ohermosa`:
   - Actualizada la contraseña de **Mega**
+  - Correciones de errores
 
 ## 2.12.1
 

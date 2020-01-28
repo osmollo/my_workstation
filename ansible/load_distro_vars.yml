@@ -6,7 +6,6 @@
       - "Debian"
     ubuntu_based:
       - "Ubuntu"
-      - "Fedora"
       - "Linux Mint"
       - "KDE neon"
     fedora_based:
