@@ -13,3 +13,4 @@ docker_deploys/vault/consul/data/*
 docker_deploys/gitea/mysql
 docker_deploys/gitea/gitea
 
+hetzner.log
