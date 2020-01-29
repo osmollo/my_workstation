@@ -40,6 +40,7 @@ install_bitwarden: true
 install_firefox_lexnet: false
 install_pass: true
 install_bucklespring: false
+install_protonvpn: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
