@@ -21,3 +21,9 @@ megasync_package: "https://mega.nz/linux/MEGAsync/{{ ansible_distribution }}_{{ 
 file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"
 
 vivaldi_package: https://downloads.vivaldi.com/stable/vivaldi-stable_{{ vivaldi_version }}_amd64.deb
+
+protonvpn_dependencies:
+  - openvpn
+  - dialog
+  - python3-pip
+  - python3-setuptools
