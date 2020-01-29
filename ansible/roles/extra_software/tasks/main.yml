@@ -344,3 +344,11 @@
   tags:
     - extra_software
     - install_bucklespring
+
+- name: "---[INSTALL]--- ProtonVPN"
+  import_tasks: protonvpn.yml
+  when: install_protonvpn
+  tags:
+    - extra_software
+    - install_protonvpn
+    - ohermosa
