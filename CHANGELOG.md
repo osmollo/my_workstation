@@ -3,9 +3,11 @@
 ## 2.13
 
 - Instalación del cliente `Proton VPN`
+- Instalación de `Prezto`
 - Cambios en `post_install/ohermosa`:
   - Actualizada la contraseña de **Mega**
   - Correciones de errores
+  - Configuración `prezto` tras migrar de `oh my zsh` si estuviera instalado
 
 ## 2.12.1
 
