@@ -55,6 +55,7 @@
 | **install_pass** | Instala gestor de secretos `Pass` |
 | **install_bucklespring** | Instala `bucklespring` |
 | **install_protonvpn** | Instala `ProtonVPN` |
+| **install_prezto** | Instala `Prezto` |
 | **install_flatpak** | |
 | **install_vagrant** | |
 | **install_dockercompose** | |

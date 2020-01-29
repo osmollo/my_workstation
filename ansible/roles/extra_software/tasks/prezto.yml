@@ -1,0 +1,67 @@
+---
+
+- import_role:
+    name: common
+    tasks_from: zsh.yml
+
+- name: "check if previous oh_my_zsh installation exists"
+  stat:
+    path: "{{ ansible_env.HOME }}/.oh-my-zsh"
+  register: ohmyzshdir_exists
+
+- name: "install prezto"
+  become: false
+  become_user: "{{ ansible_user }}"
+  block:
+    - name: "creating backups"
+      copy:
+        src: "{{ item }}"
+        dest: "{{ item }}.bkp"
+        remote_src: true
+      loop:
+        - "{{ ansible_env.HOME }}/.oh-my-zsh"
+        - "{{ ansible_user_dir }}/.zshrc"
+
+    - name: "delete old files/directories"
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - "{{ ansible_env.HOME }}/.oh-my-zsh"
+        - "{{ ansible_user_dir }}/.zshrc"
+  when: ohmyzshdir_exists.stat.exists
+
+- name: "install prezto"
+  become: false
+  become_user: "{{ ansible_user }}"
+  block:
+    - name: "Clone prezto repository"
+      git:
+        repo: "https://github.com/sorin-ionescu/prezto.git"
+        dest: "{{ ansible_user_dir }}/.zprezto"
+        clone: yes
+        key_file: "/home/{{ ansible_user }}/.ssh/id_rsa"
+        accept_hostkey: true
+        recursive: true
+
+    - name: "find prezto config files"
+      find:
+        paths: "{{ ansible_user_dir }}/.zprezto/runcoms"
+        patterns: "^(?!README).*$"
+        use_regex: true
+        file_type: file
+      register: find_response
+
+    - name: "create links to config files"
+      vars:
+        id_query: "[].path"
+      file:
+        src: "{{ item }}"
+        dest: "{{ ansible_user_dir }}/.{{ item | basename }}"
+        state: link
+      loop: "{{ find_response.files | json_query(id_query) }}"
+
+- name: "Change $SHELL variable for {{ ansible_user }}"
+  user:
+    name: "{{ ansible_user }}"
+    shell: /usr/bin/zsh
