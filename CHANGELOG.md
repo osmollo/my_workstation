@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2.14
+
+- Cambios en `post_install/ohermosa`:
+  - Corrección de errores:
+    - Se mostraba por pantalla las contraseñas de `ansible-vault` al crear los ficheros `.vault_pass*.txt`
+
 ## 2.13
 
 - Instalación del cliente `Proton VPN`
