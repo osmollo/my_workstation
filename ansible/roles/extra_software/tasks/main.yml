@@ -61,7 +61,6 @@
   tags:
     - extra_software
     - install_ohmyzsh
-    - ohermosa
 
 - name: "---[INSTALL]--- Sublime Text"
   import_tasks: sublime/sublime.yml
@@ -344,3 +343,19 @@
   tags:
     - extra_software
     - install_bucklespring
+
+- name: "---[INSTALL]--- ProtonVPN"
+  import_tasks: protonvpn.yml
+  when: install_protonvpn
+  tags:
+    - extra_software
+    - install_protonvpn
+    - ohermosa
+
+- name: "---[INSTALL]--- Prezto"
+  import_tasks: prezto.yml
+  when: install_prezto
+  tags:
+    - extra_software
+    - install_prezto
+    - ohermosa

@@ -7,19 +7,12 @@
     update_cache: true
   when: linux_distribution == "fedora"
 
-- name: "[UBUNTU] Install Python3"
+- name: "[DEB] Install Python3"
   apt:
     name: "{{ python_packages }}"
     state: latest
     update_cache: true
-  when: linux_distribution == "ubuntu"
-
-- name: "[DEBIAN] Install Python3"
-  apt:
-    name: "{{ python_packages }}"
-    state: latest
-    update_cache: true
-  when: linux_distribution == "debian"
+  when: linux_distribution in ["ubuntu", "debian"]
 
 - name: "[ARCH] Install Python3"
   pacman:
