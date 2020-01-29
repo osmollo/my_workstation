@@ -1,22 +1,9 @@
 ---
 
-- name: "[FEDORA] Install zsh"
-  yum:
-    name: zsh
-    state: latest
-  when: linux_distribution == "fedora"
-
-- name: "[UBUNTU] Install zsh"
-  apt:
-    name: zsh
-    state: latest
-  when: linux_distribution == "ubuntu" or linux_distribution == "debian"
-
-- name: "[ARCH] Install zsh"
-  pacman:
-    name: zsh
-    state: latest
-  when: linux_distribution == "arch"
+- name: "Install zsh"
+  import_role:
+    name: common
+    tasks_from: zsh.yml
 
 - name: "Download installation script"
   get_url:

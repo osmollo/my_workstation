@@ -75,6 +75,13 @@
     - delete_snap
     - ohermosa
 
+- name: "install zsh"
+  import_tasks: zsh.yml
+  tags:
+    - common
+    - zsh
+    - ohermosa
+
 - name: "[ARCH] install yay package"
   import_tasks: yay.yml
   when: linux_distribution == "arch"

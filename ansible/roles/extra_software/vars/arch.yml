@@ -75,4 +75,10 @@ vivaldi_package: vivaldi
 brave_package: brave-bin
 bitwarden_package: bitwarden-bin
 
+protonvpn_dependencies:
+  - openvpn
+  - dialog
+  - python-pip
+  - python-setuptools
+
 file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"
