@@ -163,8 +163,8 @@ links_to_create:
       dest: "{{ ansible_user_dir}}/.bash_history"
     - src: "{{ dropbox_dir }}/datio/ohermosa_molecule-openrc.sh"
       dest: "{{ ansible_user_dir }}/ohermosa_molecule-openrc.sh"
-    - src: "{{ dropbox_dir }}/backups/oh-my-zsh_custom_themes"
-      dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
+    - src: "{{ dropbox_dir }}/backups/zprezto"
+      dest: "{{ ansible_user_dir }}/.zprezto"
 
 git_user_name: "Oscar Hermosa"
 git_user_mail_work: "oscar.hermosa@datiobbva.com"

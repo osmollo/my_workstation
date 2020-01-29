@@ -44,6 +44,11 @@
         accept_hostkey: true
         recursive: true
 
+    - name: "copy zprezto configuration"
+      copy:
+        src: zpreztorc
+        dest: "{{ ansible_user_dir }}/.zprezto/runcoms"
+
     - name: "find prezto config files"
       find:
         paths: "{{ ansible_user_dir }}/.zprezto/runcoms"

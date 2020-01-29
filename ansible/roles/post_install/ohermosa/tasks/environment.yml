@@ -53,6 +53,15 @@
         timeout: "{{ wait_dropbox_sync }}"
       loop: "{{ links_to_create }}"
 
+    - name: "delete zsh configuration files"
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - "{{ ansible_user_dir }}/.oh-my-zsh"
+        - "{{ ansible_user_dir }}/.zshrc"
+        - "{{ ansible_user_dir }}/.zprezto"
+
     - name: "Create links from Dropbox"
       file:
         src: "{{ item.src }}"
@@ -62,9 +71,9 @@
 
     - name: "find files in {{ ansible_user_dir }}/.ssh"
       find:
+        paths: "{{ ansible_user_dir }}/.ssh/"
         recurse: true
         file_type: file
-        paths: "{{ ansible_user_dir }}/.ssh/"
       register: find_response
 
     - name: "change permissions to files"
@@ -73,4 +82,21 @@
       file:
         dest: "{{ item }}"
         mode: 0600
+      loop: "{{ find_response.files | json_query(id_query) }}"
+
+    - name: "find prezto config files"
+      find:
+        paths: "{{ dropbox_dir }}/backups/zprezto/runcoms"
+        patterns: "^(?!README).*$"
+        use_regex: true
+        file_type: file
+      register: find_response
+
+    - name: "create links to config files"
+      vars:
+        id_query: "[].path"
+      file:
+        src: "{{ item }}"
+        dest: "{{ ansible_user_dir }}/.{{ item | basename }}"
+        state: link
       loop: "{{ find_response.files | json_query(id_query) }}"

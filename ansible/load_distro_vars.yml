@@ -103,7 +103,7 @@
     desktop_environment: "gnome"
   when:
     - ansible_env.XDG_CURRENT_DESKTOP is defined
-    - "'GNOME' in ansible_env.XDG_CURRENT_DESKTOP or 'Cinnamon' in ansible_env.XDG_CURRENT_DESKTOP"
+    - "'GNOME' in ansible_env.XDG_CURRENT_DESKTOP or 'Unity' in ansible_env.XDG_CURRENT_DESKTOP"
 
 - name: "[CINNAMON] Set DESKTOP_ENVIRONMENT variable"
   set_fact:
