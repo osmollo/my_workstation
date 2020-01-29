@@ -2,7 +2,10 @@
 
 ## 2.14
 
+- Corrección de errores
 - Cambios en `post_install/ohermosa`:
+  - nuevos repositorios git:
+    - [prezto](https://github.com/sorin-ionescu/prezto)
   - Corrección de errores:
     - Se mostraba por pantalla las contraseñas de `ansible-vault` al crear los ficheros `.vault_pass*.txt`
 

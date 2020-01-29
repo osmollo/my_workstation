@@ -142,7 +142,8 @@ git_repositories:
       dest: "{{ git_dir }}/hetzner-kube"
     - repo: git@github.com:hetznercloud/awesome-hcloud.git
       dest: "{{ git_dir }}/awesome-hcloud"
-
+    - repo: git@github.com:sorin-ionescu/prezto.git
+      dest: "{{ git_dir }}/prezto"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/zshrc"
