@@ -146,8 +146,6 @@ git_repositories:
       dest: "{{ git_dir }}/prezto"
 
 links_to_create:
-    - src: "{{ dropbox_dir }}/datio/zshrc"
-      dest: "/home/{{ ansible_user }}/.zshrc"
     - src: "{{ dropbox_dir }}/datio/bash_aliases"
       dest: "/home/{{ ansible_user }}/.bash_aliases"
     - src: "{{ dropbox_dir }}/datio/ssh"
@@ -166,6 +164,8 @@ links_to_create:
       dest: "{{ ansible_user_dir }}/ohermosa_molecule-openrc.sh"
     - src: "{{ dropbox_dir }}/backups/zprezto"
       dest: "{{ ansible_user_dir }}/.zprezto"
+    - src: "{{ dropbox_dir }}/backups/zshrc"
+      dest: "{{ ansible_user_dir }}/.zshrc"
 
 git_user_name: "Oscar Hermosa"
 git_user_mail_work: "oscar.hermosa@datiobbva.com"
