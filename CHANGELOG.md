@@ -3,11 +3,14 @@
 ## 2.14
 
 - Corrección de errores
+  - se ha modificado la config de `prezto` para que funcione el autocompletado al ejecutar `cd ../`
+  - se configura la carga del fichero `/etc/profile.d/apps-bin-path.sh` cada tras la instalación de `prezto` para **qKDE**
 - Cambios en `post_install/ohermosa`:
   - nuevos repositorios git:
     - [prezto](https://github.com/sorin-ionescu/prezto)
   - Corrección de errores:
     - Se mostraba por pantalla las contraseñas de `ansible-vault` al crear los ficheros `.vault_pass*.txt`
+    - Se cambia el destino del enlace `$HOME/.zshrc`
 
 ## 2.13
 
