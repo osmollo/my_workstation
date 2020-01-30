@@ -6,6 +6,7 @@
   - se ha modificado la config de `prezto` para que funcione el autocompletado al ejecutar `cd ../`
   - se configura la carga del fichero `/etc/profile.d/apps-bin-path.sh` cada tras la instalación de `prezto` para **qKDE**
 - Cambios en `post_install/ohermosa`:
+  - despliegue de las tipografías powerline para ver correctamente el prompt de zsh en la terminal de **code**
   - nuevos repositorios git:
     - [prezto](https://github.com/sorin-ionescu/prezto)
   - Corrección de errores:
