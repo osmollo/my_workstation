@@ -2,6 +2,7 @@
 
 ## 2.14
 
+- Corrección de errores
 - Cambios en `post_install/ohermosa`:
   - nuevos repositorios git:
     - [prezto](https://github.com/sorin-ionescu/prezto)
