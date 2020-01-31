@@ -20,6 +20,15 @@
   vars:
     prezto_repo: git@github.com:ohermosa/prezto.git
 
+- name: "Create new remote for presto original source"
+  shell: "git remote add source {{ prezto_repo }}"
+  args:
+    chdir: "{{ ansible_user_dir }}/.zprezto"
+  failed_when: false
+  vars:
+    prezto_repo: git@github.com:sorin-ionescu/prezto.git
+
+
 - name: "copy powerline truetype fonts"
   vars:
     font_dir: "{{ ansible_user_dir }}/.local/share/fonts"
