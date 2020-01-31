@@ -26,6 +26,7 @@
 | **post_gimp** | Configura **Gimp** | | |
 | **post_pass** | Configura el gestor de secretos **Pass** | | |
 | **post_python** | Crea virtualenvs para repositorios git que tengan el fichero `requirements.txt` | :cloud: | |
+| **post_prezto** | Personaliza la configuración de `prezto` | | |
 | **ohermosa** | Ejecuta los post instalación de **ohermosa** | :cloud: | :lock: |
 
 | :information_source: **WARNING**: algunos de los tags anteriores requieren que **Dropbox** esté totalmente sincronizado antes de ejecutarse |

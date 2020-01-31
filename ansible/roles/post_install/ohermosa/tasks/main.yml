@@ -151,3 +151,10 @@
     - post_install
     - post_pass
     - ohermosa
+
+- name: "configure prezto"
+  import_tasks: prezto.yml
+  tags:
+    - post_install
+    - post_prezto
+    - ohermosa

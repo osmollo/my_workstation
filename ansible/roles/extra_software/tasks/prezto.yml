@@ -37,17 +37,18 @@
   block:
     - name: "Clone prezto repository"
       git:
-        repo: "https://github.com/sorin-ionescu/prezto.git"
+        repo: "{{ prezto_repo }}"
         dest: "{{ ansible_user_dir }}/.zprezto"
         clone: yes
         key_file: "/home/{{ ansible_user }}/.ssh/id_rsa"
         accept_hostkey: true
         recursive: true
 
-    - name: "copy zprezto configuration"
-      copy:
-        src: zpreztorc
-        dest: "{{ ansible_user_dir }}/.zprezto/runcoms"
+    - name: "set autocomplete special directories in prezto config"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.zprezto/runcoms/zpreztorc"
+        line: "zstyle ':completion:*' special-dirs true"
+        state: present
 
     - name: "find prezto config files"
       find:

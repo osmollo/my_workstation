@@ -101,20 +101,3 @@
         dest: "{{ ansible_user_dir }}/.{{ item | basename }}"
         state: link
       loop: "{{ find_response.files | json_query(id_query) }}"
-
-- name: "copy powerline truetype fonts"
-  vars:
-    font_dir: "{{ ansible_user_dir }}/.local/share/fonts"
-  block:
-    - name: "create {{ font_dir }}"
-      file:
-        path: "{{ font_dir }}"
-        state: directory
-
-    - name: "copy fonts"
-      copy:
-        src: "NerdFonts/*ttf"
-        dest: "{{ ansible_user_dir }}/.local/share/fonts"
-
-    - name: "refresh font cache"
-      shell: fc-cache -f {{ font_dir }}"
