@@ -6,9 +6,8 @@
   - se ha modificado la config de `prezto` para que funcione el autocompletado al ejecutar `cd ../`
   - se configura la carga del fichero `/etc/profile.d/apps-bin-path.sh` cada tras la instalación de `prezto` para **qKDE**
 - Cambios en `post_install/ohermosa`:
-  - despliegue de las tipografías powerline para ver correctamente el prompt de zsh en la terminal de **code**
+  - refactor de la personalización de la configuración de `prezto`
   - nuevos repositorios git:
-    - [prezto](https://github.com/sorin-ionescu/prezto)
     - [fonts](https://github.com/powerline/fonts)
   - Corrección de errores:
     - Se mostraba por pantalla las contraseñas de `ansible-vault` al crear los ficheros `.vault_pass*.txt`
