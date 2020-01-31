@@ -4,7 +4,8 @@
 
 - Corrección de errores
   - se ha modificado la config de `prezto` para que funcione el autocompletado al ejecutar `cd ../`
-  - se configura la carga del fichero `/etc/profile.d/apps-bin-path.sh` cada tras la instalación de `prezto` para **qKDE**
+  - se configura la carga del fichero `/etc/profile.d/apps-bin-path.sh` cada tras la instalación de `prezto` para **KDE**
+  - actualización de las apps a instalar en los playbooks `datio.yml` y `vagrant/datio.yml`
 - Cambios en `post_install/ohermosa`:
   - refactor de la personalización de la configuración de `prezto`
   - nuevos repositorios git:
