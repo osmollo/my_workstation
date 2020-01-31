@@ -142,11 +142,10 @@ git_repositories:
       dest: "{{ git_dir }}/hetzner-kube"
     - repo: git@github.com:hetznercloud/awesome-hcloud.git
       dest: "{{ git_dir }}/awesome-hcloud"
-
+    - repo: git@github.com:powerline/fonts.git
+      dest: "{{ git_dir }}/fonts"
 
 links_to_create:
-    - src: "{{ dropbox_dir }}/datio/zshrc"
-      dest: "/home/{{ ansible_user }}/.zshrc"
     - src: "{{ dropbox_dir }}/datio/bash_aliases"
       dest: "/home/{{ ansible_user }}/.bash_aliases"
     - src: "{{ dropbox_dir }}/datio/ssh"
@@ -163,8 +162,6 @@ links_to_create:
       dest: "{{ ansible_user_dir}}/.bash_history"
     - src: "{{ dropbox_dir }}/datio/ohermosa_molecule-openrc.sh"
       dest: "{{ ansible_user_dir }}/ohermosa_molecule-openrc.sh"
-    - src: "{{ dropbox_dir }}/backups/zprezto"
-      dest: "{{ ansible_user_dir }}/.zprezto"
 
 git_user_name: "Oscar Hermosa"
 git_user_mail_work: "oscar.hermosa@datiobbva.com"
@@ -337,3 +334,9 @@ gitea_token: !vault |
   3063383163646563310a353933316537333539383165336266323765626630666363333438316231
   65623237393063663735616563396637656233333632376639366238303432356165663364343933
   3233623166633038303730306261656238633430373531633839
+
+powerline_fonts:
+  - https://github.com/romkatv/dotfiles-public/blob/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Bold%20Italic.ttf
+  - https://github.com/romkatv/dotfiles-public/blob/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Bold.ttf
+  - https://github.com/romkatv/dotfiles-public/blob/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Italic.ttf
+  - https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf
