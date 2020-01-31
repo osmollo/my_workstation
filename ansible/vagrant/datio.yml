@@ -37,6 +37,9 @@
     install_vivaldi: false
     install_brave: false
     install_bitwarden: false
+    install_pass: false
+    install_protonvpn: false
+    install_prezto: false
   roles:
     - common
     - extra_software

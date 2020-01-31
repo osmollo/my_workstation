@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 2.14
+
+- Corrección de errores
+  - se ha modificado la config de `prezto` para que funcione el autocompletado al ejecutar `cd ../`
+  - se configura la carga del fichero `/etc/profile.d/apps-bin-path.sh` cada tras la instalación de `prezto` para **KDE**
+  - actualización de las apps a instalar en los playbooks `datio.yml` y `vagrant/datio.yml`
+- Cambios en `post_install/ohermosa`:
+  - refactor de la personalización de la configuración de `prezto`
+  - nuevo tag `deploy_fonts` para instalar las fuentes powerline para **Code**
+  - nuevos repositorios git:
+    - [fonts](https://github.com/powerline/fonts)
+  - Corrección de errores:
+    - Se mostraba por pantalla las contraseñas de `ansible-vault` al crear los ficheros `.vault_pass*.txt`
+
 ## 2.13
 
 - Instalación del cliente `Proton VPN`
