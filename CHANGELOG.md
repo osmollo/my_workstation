@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2.15
+
+- Nuevo playbook `get_secret.yml` para obtener el valor de variables cifradas
+
+```bash
+ansible-playbook get_secret.yml -e secret=github_token_access --ask-vault-pass
+```
+
 ## 2.14
 
 - Corrección de errores
