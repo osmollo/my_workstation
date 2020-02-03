@@ -13,6 +13,11 @@
       - [Ansible Vault](#ansible-vault)
         - [Fichero de contraseñas](#fichero-de-contraseñas)
         - [Contraseñas cifradas](#contraseñas-cifradas)
+  - [Otros playbooks](#otros-playbooks)
+    - [get_secret.yml](#get_secretyml)
+    - [delete_repos.yml](#delete_reposyml)
+    - [update_packages.yml](#update_packagesyml)
+    - [update_ansible.yml](#update_ansibleyml)
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
   - [Uso de Vagrant](#uso-de-vagrant)
   - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
@@ -220,6 +225,17 @@ La ventaja de este método es que mantenemos las contraseñas fuera de **git** p
 
 #### Ansible Vault
 
+Para las siguientes opciones, es necesario indicar que se pida la contraseña de descifrado al ejecutar el playbook usando el flag `--ask-vault-pass`.
+
+Es posible evitar esta incomodidad (hay que teclear la contraseña en cada ejecución del playbook), creando un fichero `$HOME/.vault_pass.txt` con la contraseña en texto plano (hay que dar permisos 600 al fichero para más seguridad) y declarando la variable `ANSIBLE_VAULT_PASSWORD_FILE` con la ruta de ese fichero:
+
+```bash
+echo "mi_contraseña" > $HOME/.vault_pass.txt
+export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.vault_pass.txt
+```
+
+Con esto, ya no sería necesario incluir el flag `--ask-vault-pass`. Al finalizar la ejecución del playbook puede borrarse el fichero sin problema
+
 ##### Fichero de contraseñas
 
 Vault tiene una herramienta `ansible-vault` que permite cifrar ficheros (con AES256) donde almacenar contraseñas. El formato de estos ficheros es exactamente el mismo que otros donde se almacenan variables solo que hay que cifrarlo/descifrarlo para su uso con una contraseña que se establece en el momento de su creación.
@@ -299,6 +315,40 @@ Para poder descrifrar esta contraseña al ejecutar el playbook, habrá que inclu
 
 ```bash
 ansible-playbook post_install -e post_install_user=ohermosa --ask-vault-pass
+```
+
+## Otros playbooks
+
+### get_secret.yml
+
+Para obtener el valor de una variable que esté encriptada en cualquiera de los subdirectorios `defaults` o `vars` del repositorio
+
+```bash
+ansible-playbook get_secret.yml -e secret=github_token_access --ask-vault-pass
+```
+
+### delete_repos.yml
+
+Elimina los repositorios en **github**, **gitlab** o ambos que hay definidos en el playbook
+
+```bash
+ansible-playbook delete_repos.yml -e secrets=roles/post_install/ohermosa/default/main.yml -e git_target=github
+```
+
+### update_packages.yml
+
+Actualiza los paquetes del sistema operativo. [(Documentado aquí)](#actualización-de-paquetes)
+
+```bash
+ansible-playbook update_packages.yml
+```
+
+### update_ansible.yml
+
+Actualiza la versión de **Ansible** usando los repositorios oficiales
+
+```bash
+ansible-playbook update_ansible.yml
 ```
 
 ## Ejecución de comandos ansible ad-hoc
