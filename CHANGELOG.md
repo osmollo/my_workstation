@@ -2,6 +2,7 @@
 
 ## 2.15
 
+- Nuevo directorio `playbooks`
 - Ya no es necesario pasarle el fichero donde se encuentra el token de acceso al playbook `delete_repos.yml`
 - Nuevo playbook `get_secret.yml` para obtener el valor de variables cifradas
 

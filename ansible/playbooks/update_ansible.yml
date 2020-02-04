@@ -1,11 +1,6 @@
 ---
 
-- hosts: localhost
-  connection: local
-  tasks:
-    - import_tasks: load_distro_vars.yml
-      tags:
-        - always
+- import_playbook: load_distro_vars.yml
 
 - hosts: localhost
   connection: local
