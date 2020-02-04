@@ -1,0 +1,17 @@
+---
+
+- import_playbook: load_distro_vars.yml
+
+- hosts: localhost
+  connection: local
+  vars:
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+    post_user: "{{ post_install_user | default(ansible_user) }}"
+  tasks:
+    - meta: end_play
+      when: desktop_environment != "kde"
+
+    - include_role:
+        name: "post_install/{{ post_user }}"
+        tasks_from: kde_backup.yml
