@@ -7,11 +7,27 @@
   tasks:
     - assert:
         that:
-          - secrets is defined
           - git_target in ['all', 'gitlab', 'github']
         fail_msg: "'secrets' variable must be the path of file with access tokens and 'target' variable must be one of these values: all, gitlab or github"
 
-    - include_vars: "{{ secrets }}"
+    - name: "find variables files"
+      find:
+        paths: "."
+        patterns: "^.*(yml)$"
+        use_regex: true
+        recurse: true
+        file_type: file
+      register: find_response
+
+    - set_fact:
+        vars_files: "{{ find_response.files | json_query(id_query) | select('match', '^(roles).*(?:defaults|vars).*(yml)$') | list }}"
+      vars:
+        id_query: "[].path"
+
+    - include_vars: "{{ item }}"
+      vars:
+        id_query: "[].path"
+      loop: "{{ vars_files }}"
 
     - include_role:
         name: tools/gitlab_repo
