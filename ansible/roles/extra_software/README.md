@@ -56,6 +56,7 @@
 | **install_bucklespring** | Instala `bucklespring` |
 | **install_protonvpn** | Instala `ProtonVPN` |
 | **install_prezto** | Instala `Prezto` |
+| **install_etcher** | Instala `Balena Etcher` |
 | **install_flatpak** | |
 | **install_vagrant** | |
 | **install_dockercompose** | |
