@@ -332,7 +332,7 @@ ansible-playbook get_secret.yml -e secret=github_token_access --ask-vault-pass
 Elimina los repositorios en **github**, **gitlab** o ambos que hay definidos en el playbook
 
 ```bash
-ansible-playbook delete_repos.yml -e secrets=roles/post_install/ohermosa/default/main.yml -e git_target=github
+ansible-playbook delete_repos.yml -e git_target=github
 ```
 
 ### update_packages.yml

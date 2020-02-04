@@ -2,11 +2,8 @@
 
 ## 2.15
 
+- Ya no es necesario pasarle el fichero donde se encuentra el token de acceso al playbook `delete_repos.yml`
 - Nuevo playbook `get_secret.yml` para obtener el valor de variables cifradas
-
-```bash
-ansible-playbook get_secret.yml -e secret=github_token_access --ask-vault-pass
-```
 
 ## 2.14
 
