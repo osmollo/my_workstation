@@ -6,6 +6,7 @@
   - [update_packages.yml](#update_packagesyml)
   - [update_ansible.yml](#update_ansibleyml)
   - [load_distro_vars.yml](#load_distro_varsyml)
+  - [kde_backup.yml](#kde_backupyml)
 
 ## get_secret.yml
 
@@ -45,4 +46,12 @@ Define las variables `linux_distribution` y `desktop_environment` que se usan en
 
 ```bash
 ansible-playbook playbooks/load_distro_vars.yml
+```
+
+## kde_backup.yml
+
+Realiza una copia de seguridad de la configuración de **KDE**. Ejecuta las tareas del fichero `post_install/$USER/tasks/kde_backup.yml`
+
+```bash
+ansible-playbook playbooks/kde_backup.yml
 ```
