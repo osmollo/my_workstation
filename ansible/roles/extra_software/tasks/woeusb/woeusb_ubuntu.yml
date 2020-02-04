@@ -1,0 +1,11 @@
+---
+
+- name: "[UBUNTU] install woeusb repository"
+  apt_repository:
+    repo: ppa:nilarimogard/webupd8
+
+- name: "[UBUNTU] install woeusb package"
+  apt:
+    name: woeusb
+    state: present
+    update_cache: true

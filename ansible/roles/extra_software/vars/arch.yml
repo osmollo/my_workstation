@@ -37,6 +37,7 @@ megasync_repo: "{{ aur_url }}/megasync.git"
 vivaldi_repo: "{{ aur_url }}/vivaldi.git"
 brave_repo: "{{ aur_url }}/brave-bin.git"
 bitwarden_repo: "{{ aur_url }}/bitwarden-bin"
+woeusb_repo: "{{ aur_url }}/woeusb.git"
 
 atom_package: atom-editor-bin
 dropbox_package: dropbox
@@ -74,6 +75,7 @@ megasync_package: megasync
 vivaldi_package: vivaldi
 brave_package: brave-bin
 bitwarden_package: bitwarden-bin
+woeusb_package: woeusb
 
 protonvpn_dependencies:
   - openvpn
