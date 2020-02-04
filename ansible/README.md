@@ -76,8 +76,9 @@ Por defecto se instala el siguiente software:
 | [Firefox 'Lexnet Edition'](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr) | install_firefox_lexnet | install_browsers |
 | [Pass](https://www.passwordstore.org/) | install_pass | install_pass_managers |
 | [Bucklespring](https://github.com/zevv/bucklespring) | install_bucklespring | |
-| [ProtonVPN](https://protonvpn.com/) | install_protonvpn | |
-| [Prezto](https://github.com/sorin-ionescu/prezto) | install_prezto | |
+| [ProtonVPN](https://protonvpn.com/) | install_protonvpn | ohermosa |
+| [Prezto](https://github.com/sorin-ionescu/prezto) | install_prezto | ohermosa |
+| [Balena Etcher](https://www.balena.io/etcher/) | install_etcher | ohermosa |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

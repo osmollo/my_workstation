@@ -359,3 +359,11 @@
     - extra_software
     - install_prezto
     - ohermosa
+
+- name: "---[INSTALL]--- Etcher"
+  import_tasks: etcher.yml
+  when: install_etcher
+  tags:
+    - extra_software
+    - install_etcher
+    - ohermosa
