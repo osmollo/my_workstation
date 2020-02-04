@@ -43,6 +43,7 @@ install_bucklespring: false
 install_protonvpn: true
 install_prezto: true
 install_etcher: true
+install_woeusb: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85

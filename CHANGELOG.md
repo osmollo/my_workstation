@@ -2,7 +2,8 @@
 
 ## 2.15
 
-- Instalación de `Balena Etcher`
+- Instalación de `Balena Etcher` para quemar imágenes iso en USB
+- Instalación de `WoeUSB` para quemar imágenes de windows en USB
 - Nuevo `docker_deploy/bitwarden` para probar `Bitwarden`
 - Nuevo directorio `playbooks`
   - Ya no es necesario pasarle el fichero donde se encuentra el token de acceso al playbook `delete_repos.yml`

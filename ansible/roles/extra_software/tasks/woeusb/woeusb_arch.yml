@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install arch"
+  become: false
+  yay:
+    name: "{{ arch_package }}"
+    state: present
+    update_cache: true

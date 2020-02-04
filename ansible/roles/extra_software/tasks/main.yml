@@ -367,3 +367,11 @@
     - extra_software
     - install_etcher
     - ohermosa
+
+- name: "---[INSTALL]--- WoeUSB"
+  import_tasks: woeusb/woeusb.yml
+  when: install_woeusb
+  tags:
+    - extra_software
+    - install_woeusb
+    - ohermosa

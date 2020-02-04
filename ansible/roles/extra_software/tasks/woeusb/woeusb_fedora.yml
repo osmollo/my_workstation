@@ -1,0 +1,6 @@
+---
+
+- name: "[FEDORA] install woeusb"
+  yum:
+    name: "http://download-ib01.fedoraproject.org/pub/fedora/linux/updates/testing/{{ fedora_version }}/Everything/{{ ansible_architecture }}/Packages/w/WoeUSB-3.3.0-2.fc{{ fedora_version }}.{{ ansible_architecture }}.rpm"
+    state: present
