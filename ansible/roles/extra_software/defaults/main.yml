@@ -42,6 +42,8 @@ install_pass: true
 install_bucklespring: false
 install_protonvpn: true
 install_prezto: true
+install_etcher: true
+install_woeusb: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -54,6 +56,7 @@ dockercompose_latest_url: "https://github.com/docker/compose/releases/latest"
 bitwarden_latest_url: "https://github.com/bitwarden/desktop/releases/latest"
 helm_latest_url: "https://github.com/helm/helm/releases/latest"
 hetznerkube_latest_url: "https://github.com/xetys/hetzner-kube/releases/latest"
+etcher_latest_url: "https://github.com/balena-io/etcher/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
 

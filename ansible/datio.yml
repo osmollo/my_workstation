@@ -1,11 +1,8 @@
 ---
 
-- hosts: localhost
-  connection: local
-  tasks:
-    - import_tasks: load_distro_vars.yml
-      tags:
-        - always
+- import_playbook: playbooks/load_distro_vars.yml
+  tags:
+    - always
 
 - hosts: localhost
   connection: local
@@ -44,6 +41,8 @@
     install_pass: false
     install_protonvpn: false
     install_prezto: false
+    install_etcher: false
+    install_woeusb: false
   roles:
     - common
     - extra_software
