@@ -16,3 +16,4 @@ ansible-playbook install.yml -t install_docker --ask-bacome-pass
 | [pi-hole](docker_deploys/pihole) | Despliegue de `PiHole` |
 | [Jenkins](docker_deploys/jenkins) | Despliegue de `Jenkins` |
 | [Gitea](docker_deploys/gitea) | Despliegue de `Gitea` con `MySQL` |
+| [Bitwarden](docker_deploys/bitwarden) | Despliegue de `Bitwarden` |
