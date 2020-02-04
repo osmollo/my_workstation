@@ -13,4 +13,14 @@ docker_deploys/vault/consul/data/*
 docker_deploys/gitea/mysql
 docker_deploys/gitea/gitea
 
+docker_deploys/bitwarden/ca-certificates
+docker_deploys/bitwarden/core
+docker_deploys/bitwarden/identity
+docker_deploys/bitwarden/letsencrypt
+docker_deploys/bitwarden/logs
+docker_deploys/bitwarden/mssql
+docker_deploys/bitwarden/nginx
+docker_deploys/bitwarden/ssl
+docker_deploys/bitwarden/web
+
 hetzner.log
