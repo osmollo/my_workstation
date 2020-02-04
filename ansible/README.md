@@ -14,10 +14,6 @@
         - [Fichero de contraseñas](#fichero-de-contraseñas)
         - [Contraseñas cifradas](#contraseñas-cifradas)
   - [Otros playbooks](#otros-playbooks)
-    - [get_secret.yml](#get_secretyml)
-    - [delete_repos.yml](#delete_reposyml)
-    - [update_packages.yml](#update_packagesyml)
-    - [update_ansible.yml](#update_ansibleyml)
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
   - [Uso de Vagrant](#uso-de-vagrant)
   - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
@@ -41,7 +37,7 @@ Por defecto se instala el siguiente software:
 
 | **APLICACIÓN** | **TAG/VARIABLE** | **GRUPO** |
 |----------------|------------------|-----------|
-| [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | install_browsers <br> ohermosa |
+| [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | install_browsers |
 | [Chromium Browser](https://chromium.woolyss.com/download/es/) | install_chromium | install_browsers |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker | ohermosa |
 | [Dropbox](https://www.dropbox.com/) | install_dropbox | ohermosa |
@@ -75,12 +71,12 @@ Por defecto se instala el siguiente software:
 | [MEGAcmd](https://mega.nz/cmd) | install_megacmd | install_mega <br> ohermosa |
 | [MEGA sync](https://mega.nz/sync) | install_megasync | install_mega |
 | [Vivaldi](https://vivaldi.com/es/) | install_vivaldi | install_browsers |
-| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | install_brave | install_browsers |
+| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | install_brave | install_browsers <br> ohermosa |
 | [Bitwarden](https://bitwarden.com/) | install_bitwarden | install_pass_managers |
 | [Firefox 'Lexnet Edition'](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr) | install_firefox_lexnet | install_browsers |
 | [Pass](https://www.passwordstore.org/) | install_pass | install_pass_managers |
 | [Bucklespring](https://github.com/zevv/bucklespring) | install_bucklespring | |
-| [ProtonVPN](com) | install_protonvpn | |
+| [ProtonVPN](https://protonvpn.com/) | install_protonvpn | |
 | [Prezto](https://github.com/sorin-ionescu/prezto) | install_prezto | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
@@ -121,13 +117,13 @@ cd /tmp/repo/ansible
 :information_source: Únicamente para **Debian** y **Ubuntu**, tendremos que actualizar **obligatoriamente** `Ansible` a la última versión ya que la que viene incluída en sus repositorios oficiales es antigua:
 
 ```bash
-ansible-playbook update_ansible.yml
+ansible-playbook playbooks/update_ansible.yml
 ```
 
 :information_source: En el caso de **Debian**, habrá que ejecutar también el siguiente playbook para configurar `sudo` para el usuario del sistema:
 
 ```bash
-ansible-playbook config_sudo.yml
+ansible-playbook playbooks/config_sudo.yml
 ```
 
 La contraseña que pedirá este comando es la contraseña de `root`
@@ -137,10 +133,10 @@ La contraseña que pedirá este comando es la contraseña de `root`
 Se pueden actualizar todos los paquetes con el siguiente playbook:
 
 ```bash
-ansible-playbook update_packages.yml
+ansible-playbook playbooks/update_packages.yml
 ```
 
-Es recomemdable ejecutar este playbook nada más instalar el ordenador y antes de lanzar el resto de playbooks para que todos los paquetes se encuentren actualizados y no haya problema con dependencias
+Es recomemdable ejecutar este playbook nada más instalar el ordenador y antes de lanzar el resto de playbooks para que todos los paquetes se encuentren actualizados y no haya problemas con dependencias
 
 ## Instalación y post configuración
 
@@ -319,37 +315,7 @@ ansible-playbook post_install -e post_install_user=ohermosa --ask-vault-pass
 
 ## Otros playbooks
 
-### get_secret.yml
-
-Para obtener el valor de una variable que esté encriptada en cualquiera de los subdirectorios `defaults` o `vars` del repositorio
-
-```bash
-ansible-playbook get_secret.yml -e secret=github_token_access --ask-vault-pass
-```
-
-### delete_repos.yml
-
-Elimina los repositorios en **github**, **gitlab** o ambos que hay definidos en el playbook
-
-```bash
-ansible-playbook delete_repos.yml -e git_target=github
-```
-
-### update_packages.yml
-
-Actualiza los paquetes del sistema operativo. [(Documentado aquí)](#actualización-de-paquetes)
-
-```bash
-ansible-playbook update_packages.yml
-```
-
-### update_ansible.yml
-
-Actualiza la versión de **Ansible** usando los repositorios oficiales
-
-```bash
-ansible-playbook update_ansible.yml
-```
+[Documentado aquí](playbooks/README.md)
 
 ## Ejecución de comandos ansible ad-hoc
 
