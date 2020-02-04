@@ -13,6 +13,7 @@
       - [Ansible Vault](#ansible-vault)
         - [Fichero de contraseñas](#fichero-de-contraseñas)
         - [Contraseñas cifradas](#contraseñas-cifradas)
+  - [Otros playbooks](#otros-playbooks)
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
   - [Uso de Vagrant](#uso-de-vagrant)
   - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
@@ -36,7 +37,7 @@ Por defecto se instala el siguiente software:
 
 | **APLICACIÓN** | **TAG/VARIABLE** | **GRUPO** |
 |----------------|------------------|-----------|
-| [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | install_browsers <br> ohermosa |
+| [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | install_browsers |
 | [Chromium Browser](https://chromium.woolyss.com/download/es/) | install_chromium | install_browsers |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker | ohermosa |
 | [Dropbox](https://www.dropbox.com/) | install_dropbox | ohermosa |
@@ -70,13 +71,15 @@ Por defecto se instala el siguiente software:
 | [MEGAcmd](https://mega.nz/cmd) | install_megacmd | install_mega <br> ohermosa |
 | [MEGA sync](https://mega.nz/sync) | install_megasync | install_mega |
 | [Vivaldi](https://vivaldi.com/es/) | install_vivaldi | install_browsers |
-| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | install_brave | install_browsers |
+| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | install_brave | install_browsers <br> ohermosa |
 | [Bitwarden](https://bitwarden.com/) | install_bitwarden | install_pass_managers |
 | [Firefox 'Lexnet Edition'](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr) | install_firefox_lexnet | install_browsers |
 | [Pass](https://www.passwordstore.org/) | install_pass | install_pass_managers |
 | [Bucklespring](https://github.com/zevv/bucklespring) | install_bucklespring | |
-| [ProtonVPN](com) | install_protonvpn | |
-| [Prezto](https://github.com/sorin-ionescu/prezto) | install_prezto | |
+| [ProtonVPN](https://protonvpn.com/) | install_protonvpn | ohermosa |
+| [Prezto](https://github.com/sorin-ionescu/prezto) | install_prezto | ohermosa |
+| [Balena Etcher](https://www.balena.io/etcher/) | install_etcher | ohermosa |
+| [WoeUSB](https://github.com/slacka/WoeUSB) | install_woeusb | ohermosa |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
@@ -116,13 +119,13 @@ cd /tmp/repo/ansible
 :information_source: Únicamente para **Debian** y **Ubuntu**, tendremos que actualizar **obligatoriamente** `Ansible` a la última versión ya que la que viene incluída en sus repositorios oficiales es antigua:
 
 ```bash
-ansible-playbook update_ansible.yml
+ansible-playbook playbooks/update_ansible.yml
 ```
 
 :information_source: En el caso de **Debian**, habrá que ejecutar también el siguiente playbook para configurar `sudo` para el usuario del sistema:
 
 ```bash
-ansible-playbook config_sudo.yml
+ansible-playbook playbooks/config_sudo.yml
 ```
 
 La contraseña que pedirá este comando es la contraseña de `root`
@@ -132,10 +135,10 @@ La contraseña que pedirá este comando es la contraseña de `root`
 Se pueden actualizar todos los paquetes con el siguiente playbook:
 
 ```bash
-ansible-playbook update_packages.yml
+ansible-playbook playbooks/update_packages.yml
 ```
 
-Es recomemdable ejecutar este playbook nada más instalar el ordenador y antes de lanzar el resto de playbooks para que todos los paquetes se encuentren actualizados y no haya problema con dependencias
+Es recomemdable ejecutar este playbook nada más instalar el ordenador y antes de lanzar el resto de playbooks para que todos los paquetes se encuentren actualizados y no haya problemas con dependencias
 
 ## Instalación y post configuración
 
@@ -220,6 +223,17 @@ La ventaja de este método es que mantenemos las contraseñas fuera de **git** p
 
 #### Ansible Vault
 
+Para las siguientes opciones, es necesario indicar que se pida la contraseña de descifrado al ejecutar el playbook usando el flag `--ask-vault-pass`.
+
+Es posible evitar esta incomodidad (hay que teclear la contraseña en cada ejecución del playbook), creando un fichero `$HOME/.vault_pass.txt` con la contraseña en texto plano (hay que dar permisos 600 al fichero para más seguridad) y declarando la variable `ANSIBLE_VAULT_PASSWORD_FILE` con la ruta de ese fichero:
+
+```bash
+echo "mi_contraseña" > $HOME/.vault_pass.txt
+export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.vault_pass.txt
+```
+
+Con esto, ya no sería necesario incluir el flag `--ask-vault-pass`. Al finalizar la ejecución del playbook puede borrarse el fichero sin problema
+
 ##### Fichero de contraseñas
 
 Vault tiene una herramienta `ansible-vault` que permite cifrar ficheros (con AES256) donde almacenar contraseñas. El formato de estos ficheros es exactamente el mismo que otros donde se almacenan variables solo que hay que cifrarlo/descifrarlo para su uso con una contraseña que se establece en el momento de su creación.
@@ -300,6 +314,10 @@ Para poder descrifrar esta contraseña al ejecutar el playbook, habrá que inclu
 ```bash
 ansible-playbook post_install -e post_install_user=ohermosa --ask-vault-pass
 ```
+
+## Otros playbooks
+
+[Documentado aquí](playbooks/README.md)
 
 ## Ejecución de comandos ansible ad-hoc
 

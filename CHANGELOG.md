@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 2.15
+
+- Instalación de `Balena Etcher` para quemar imágenes iso en USB
+- Instalación de `WoeUSB` para quemar imágenes de windows en USB
+- Nuevo `docker_deploy/bitwarden` para probar `Bitwarden`
+- Nuevo directorio `playbooks`
+  - Ya no es necesario pasarle el fichero donde se encuentra el token de acceso al playbook `delete_repos.yml`
+  - Nuevo playbook `get_secret.yml` para obtener el valor de variables cifradas
+  - Nuevo playbook `kde_backup.yml` para hacer copia de seguridad de **KDE**. Ejecuta las tareas de `post_install/$USER/tasks/kde_backup.yml`
+
 ## 2.14
 
 - Corrección de errores
