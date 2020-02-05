@@ -5,12 +5,14 @@
     - [INPUT](#input)
     - [OUTPUT](#output)
     - [Ejemplo de uso](#ejemplo-de-uso)
-  - [github_repo](#github_repo)
+  - [get_go_latest](#get_go_latest)
     - [Ejemplo de uso](#ejemplo-de-uso-1)
-  - [gitlab_repo](#gitlab_repo)
+  - [github_repo](#github_repo)
     - [Ejemplo de uso](#ejemplo-de-uso-2)
-  - [yay](#yay)
+  - [gitlab_repo](#gitlab_repo)
     - [Ejemplo de uso](#ejemplo-de-uso-3)
+  - [yay](#yay)
+    - [Ejemplo de uso](#ejemplo-de-uso-4)
 
 ## dconf_to_list
 
@@ -83,6 +85,20 @@ Un ejemplo de salida de `dconf_to_list` sería:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
   loop: "{{ response.message }}"
+```
+
+## get_go_latest
+
+Este módulo parsea la [web de `GO`](https://golang.org/dl) para devolver cuál es la última versión estable de `GO`
+
+### Ejemplo de uso
+
+```yaml
+- name: "get go version"
+  get_go_latest:
+  register: go_response
+
+- debug: var=go_response.version
 ```
 
 ## github_repo

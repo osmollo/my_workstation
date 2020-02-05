@@ -40,6 +40,9 @@
     install_pass: false
     install_protonvpn: false
     install_prezto: false
+    install_etcher: false
+    install_woeusb: false
+    install_go: false
   roles:
     - common
     - extra_software

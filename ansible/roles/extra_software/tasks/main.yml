@@ -375,3 +375,10 @@
     - extra_software
     - install_woeusb
     - ohermosa
+
+- name: "---[INSTALL]--- GO"
+  import_tasks: go.yml
+  when: install_go
+  tags:
+    - extra_software
+    - install_go
