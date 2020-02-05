@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.16
+
+- Nuevo módulo `get_go_latest` para obtener la última versión disponible de `GO`
+- Instalación de `GO`. Nuevo tag `--install_go`
+
 ## 2.15
 
 - Instalación de `Balena Etcher` para quemar imágenes iso en USB
