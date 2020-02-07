@@ -4,6 +4,7 @@
 
 - Nuevo módulo `get_go_latest` para obtener la última versión disponible de `GO`
 - Instalación de `GO`. Nuevo tag `--install_go`
+- Instalación de `secure-delete` en el role `common`
 
 ## 2.15
 
