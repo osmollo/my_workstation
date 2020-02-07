@@ -17,6 +17,7 @@ distro_packages:
   - net-tools
   - python3-jmespath
   - python-jmespath
+  - secure-delete
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras
