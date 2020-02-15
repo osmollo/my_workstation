@@ -6,6 +6,7 @@
 - Instalación de `GO`. Nuevo tag `--install_go`
 - Instalación de `secure-delete` en el role `common`
 - Refactor de la instalación de `Firefox Lexnet Edition`
+- Instalación por defecto de varios paquetes de `Atom`
 
 ## 2.15
 
