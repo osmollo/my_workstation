@@ -321,7 +321,9 @@
 
 - name: "---[INSTALL]--- Firefox 'Lexnet Edition'"
   import_tasks: firefox_lexnet.yml
-  when: install_firefox_lexnet
+  when:
+    - install_firefox_lexnet
+    - linux_distribution == "ubuntu"
   tags:
     - extra_software
     - install_firefox_lexnet
@@ -375,3 +377,10 @@
     - extra_software
     - install_woeusb
     - ohermosa
+
+- name: "---[INSTALL]--- GO"
+  import_tasks: go.yml
+  when: install_go
+  tags:
+    - extra_software
+    - install_go

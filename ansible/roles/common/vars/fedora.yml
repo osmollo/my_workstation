@@ -17,6 +17,7 @@ distro_packages:
   - gcc-c++
   - kernel-devel
   - firewall-config
+  - srm
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome

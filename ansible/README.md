@@ -80,6 +80,7 @@ Por defecto se instala el siguiente software:
 | [Prezto](https://github.com/sorin-ionescu/prezto) | install_prezto | ohermosa |
 | [Balena Etcher](https://www.balena.io/etcher/) | install_etcher | ohermosa |
 | [WoeUSB](https://github.com/slacka/WoeUSB) | install_woeusb | ohermosa |
+| [GO](https://golang.org/doc/install/source) | install_go | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

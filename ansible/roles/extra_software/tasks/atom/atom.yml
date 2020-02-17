@@ -18,7 +18,20 @@
 
 - include_tasks: "atom_{{ linux_distribution }}.yml"
 
-- name: "Install 'sync-settings' package for Atom"
-  become: false
-  become_user: "{{ ansible_user }}"
-  shell: apm install sync-settings
+- block:
+    - name: "Copy package.list"
+      copy:
+        src: package.list
+        dest: /tmp/package.list
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+
+    - name: "Install packages for Atom"
+      become: false
+      become_user: "{{ ansible_user }}"
+      shell: apm install --packages-file /tmp/package.list
+
+    - name: "Delete package.list"
+      file:
+        path: /tmp/package.list
+        state: absent
