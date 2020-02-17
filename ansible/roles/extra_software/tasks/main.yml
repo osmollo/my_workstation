@@ -321,7 +321,9 @@
 
 - name: "---[INSTALL]--- Firefox 'Lexnet Edition'"
   import_tasks: firefox_lexnet.yml
-  when: install_firefox_lexnet
+  when:
+    - install_firefox_lexnet
+    - linux_distribution == "ubuntu"
   tags:
     - extra_software
     - install_firefox_lexnet
