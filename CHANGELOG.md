@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2.16
+
+- Nuevo módulo `get_go_latest` para obtener la última versión disponible de `GO`
+- Instalación de `GO`. Nuevo tag `--install_go`
+- Instalación de `secure-delete` en el role `common`
+- Refactor de la instalación de `Firefox Lexnet Edition`
+- Instalación por defecto de varios paquetes de `Atom`
+
 ## 2.15
 
 - Instalación de `Balena Etcher` para quemar imágenes iso en USB
