@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2.17
+
+- Cambios en `post_install/ohermosa`:
+  - Configuración de **ProtonVPN** con el nuevo tag `--post_protonvpn`
+  - Nuevo repositorio git:
+    - [protonvpn-cli-ng](https://github.com/ProtonVPN/protonvpn-cli-ng)
+
 ## 2.16
 
 - Nuevo módulo `get_go_latest` para obtener la última versión disponible de `GO`
