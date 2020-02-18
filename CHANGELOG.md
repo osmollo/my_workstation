@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2.16.2
+
+- Nuevo módulo de ansible `protonvpn_fastest` para obtener la lista de los servidores de **protonvpn** más rápidos
+- Cambios en `post_install/ohermosa`:
+  - Creación de un perfil para **protonvpn** en el network manager del sistema
+
 ## 2.16.1
 
 - Cambios en `post_install/ohermosa`:
