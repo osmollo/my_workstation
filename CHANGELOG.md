@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 2.17
+## 2.16.1
 
 - Cambios en `post_install/ohermosa`:
   - Configuración de **ProtonVPN** con el nuevo tag `--post_protonvpn`
