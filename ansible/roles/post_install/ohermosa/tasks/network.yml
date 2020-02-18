@@ -23,13 +23,18 @@
 
 - name: "configure protonvpn if is instaled"
   block:
-    - name: "create directory"
+    - name: "create directories"
       file:
-        path: "{{ protonvpn_dir }}"
+        path: "{{ item.name }}"
         state: directory
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
-        mode: 0775
+        mode: "{{ item.mode }}"
+      loop:
+        - name: "{{ protonvpn_dir }}"
+          mode: "0775"
+        - name: "{{ ansible_user_dir }}/.cert/nm-openvpn"
+          mode: "0755"
 
     - name: "get serverinfo.json"
       uri:
@@ -63,6 +68,27 @@
         - "^up /etc/openvpn/update-resolv-conf$"
         - "^down /etc/openvpn/update-resolv-conf$"
 
+    - name: "copy ovpn template"
+      copy:
+        src: "{{ protonvpn_dir }}/template.ovpn"
+        dest: "{{ protonvpn_dir }}/connect.ovpn"
+        remote_src: true
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+
+    - name: "get fastest protonvpn servers"
+      protonvpn_fastest:
+        servers: '{{ uri_response.json["LogicalServers"] }}'
+        tier: '{{ protonvpn.tier }}'
+      register: fastest_response
+
+    - name: "add remotes to connect.ovpn"
+      lineinfile:
+        path: "{{ protonvpn_dir }}/connect.ovpn"
+        line: "{{ item }}"
+        state: present
+      loop: '{{["proto " + protonvpn.protocol] | union(fastest_response.fastest | map("regex_replace", "(.*)", "remote \1 1194") | list) }}'
+
     - name: "generate protonvpn config"
       template:
         src: "{{ item.name }}.j2"
@@ -80,17 +106,41 @@
           owner: root
           group: root
 
-    - name: "Create systemd unit"
+    - name: "Generate protonvpn configuration for NetworkManager"
+      vars:
+        remotes: '{{ fastest_response.fastest | map("regex_replace", "(.*)", "\1:1194") | join(", ") }}'
       template:
-        src: protonvpn.service.j2
-        dest: /etc/systemd/system/protonvpn.service
+        src: "protonvpn.j2"
+        dest: /etc/NetworkManager/system-connections/ProtonVPN
+        mode: 0600
+        owner: root
+        group: root
+      no_log: true
 
-    - name: "reload systemd configuration"
-      systemd:
-        daemon_reload: true
-        name: protonvpn
-        enabled: false
-        state: stopped
+    - name: "Extract CA from template"
+      shell: |
+        "sed -n '/<ca>/,/</ca>/p' {{ protonvpn_dir}}/template.ovpn | grep -v 'ca>'"
+      register: ca_response
+      changed_when: false
+
+    - name: "Extract tls cert from template"
+      shell: |
+        "sed -n '/<tls-auth>/,/</tls-auth>/p' {{ protonvpn_dir}}/template.ovpn | grep -v 'tls-auth>'"
+      register: tls_response
+      changed_when: false
+
+    - name: "save certs to files"
+      copy:
+        content: "{{ item.content }}"
+        dest: "{{ item.dest }}"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: 0600
+      loop:
+        - content: "{{ ca_response.stdout }}"
+          dest: "{{ ansible_user_dir }}/.cert/nm-openvpn/connect-ca.pem"
+        - content: "{{ tls_response.stdout }}"
+          dest: "{{ ansible_user_dir }}/.cert/nm-openvpn/connect-tls-auth.pem"
   when: stat_response.stat.exists
   tags:
     - post_protonvpn

@@ -1,7 +1,7 @@
 [USER]
 username = {{ protonvpn.user }}
-tier = 0
-default_protocol = udp
+tier = {{ protonvpn.tier }}
+default_protocol = {{ protonvpn.protocol }}
 initialized = 1
 dns_leak_protection = 1
 custom_dns = None
