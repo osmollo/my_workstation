@@ -13,3 +13,84 @@
       dest: /etc/NetworkManager/system-connections/BBVA
     - src: datio_mx_vpn.j2
       dest: /etc/NetworkManager/system-connections/Datio_CCR
+
+- name: "check if protonvpn is installed"
+  stat:
+    path: /usr/local/bin/protonvpn
+  register: stat_response
+  tags:
+    - post_protonvpn
+
+- name: "configure protonvpn if is instaled"
+  block:
+    - name: "create directory"
+      file:
+        path: "{{ protonvpn_dir }}"
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: 0775
+
+    - name: "get serverinfo.json"
+      uri:
+        url: https://api.protonvpn.ch/vpn/logicals
+      register: uri_response
+
+    - name: "save serverinfo to file"
+      copy:
+        content: "{{ uri_response.json }}"
+        dest: "{{ protonvpn_dir }}/serverinfo.json"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: 0644
+
+    - name: "get template.ovpn"
+      get_url:
+        url: 'https://api.protonvpn.ch/vpn/config?Platform=linux&LogicalID={{ uri_response.json["LogicalServers"][0]["ID"] }}&Protocol=tcp'
+        dest: "{{ protonvpn_dir }}/template.ovpn"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: 0644
+
+    - name: "delete lines from template.ovpn"
+      lineinfile:
+        path: "{{ protonvpn_dir }}/template.ovpn"
+        regexp: "{{ item }}"
+        state: absent
+      loop:
+        - "^remote .*$"
+        - "^script-security.*$"
+        - "^up /etc/openvpn/update-resolv-conf$"
+        - "^down /etc/openvpn/update-resolv-conf$"
+
+    - name: "generate protonvpn config"
+      template:
+        src: "{{ item.name }}.j2"
+        dest: "{{ protonvpn_dir }}/{{ item.name }}"
+        mode: "{{ item.mode }}"
+        owner: "{{ item.owner }}"
+        group: "{{ item.group }}"
+      loop:
+        - name: pvpn-cli.cfg
+          mode: "0644"
+          owner: "{{ ansible_user }}"
+          group: "{{ ansible_user }}"
+        - name: pvpnpass
+          mode: "0600"
+          owner: root
+          group: root
+
+    - name: "Create systemd unit"
+      template:
+        src: protonvpn.service.j2
+        dest: /etc/systemd/system/protonvpn.service
+
+    - name: "reload systemd configuration"
+      systemd:
+        daemon_reload: true
+        name: protonvpn
+        enabled: false
+        state: stopped
+  when: stat_response.stat.exists
+  tags:
+    - post_protonvpn

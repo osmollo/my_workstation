@@ -1,0 +1,13 @@
+[Unit]
+Description=ProtonVPN-CLI auto-connect
+Wants=network-online.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/protonvpn connect -f
+Environment=PVPN_WAIT=300
+Environment=PVPN_DEBUG=1
+Environment=SUDO_USER={{ ansible_user }}
+
+[Install]
+WantedBy=multi-user.target
