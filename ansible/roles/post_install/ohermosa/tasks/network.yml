@@ -119,13 +119,13 @@
 
     - name: "Extract CA from template"
       shell: |
-        "sed -n '/<ca>/,/</ca>/p' {{ protonvpn_dir}}/template.ovpn | grep -v 'ca>'"
+        sed -n '/<ca>/,/<\/ca>/p' {{ protonvpn_dir}}/template.ovpn | grep -v 'ca>'
       register: ca_response
       changed_when: false
 
     - name: "Extract tls cert from template"
       shell: |
-        "sed -n '/<tls-auth>/,/</tls-auth>/p' {{ protonvpn_dir}}/template.ovpn | grep -v 'tls-auth>'"
+        sed -n '/<tls-auth>/,/<\/tls-auth>/p' {{ protonvpn_dir}}/template.ovpn | grep -v 'tls-auth>'
       register: tls_response
       changed_when: false
 
