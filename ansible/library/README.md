@@ -13,6 +13,8 @@
     - [Ejemplo de uso](#ejemplo-de-uso-3)
   - [yay](#yay)
     - [Ejemplo de uso](#ejemplo-de-uso-4)
+  - [protonvpn_fastest](#protonvpn_fastest)
+    - [Ejemplo de uso](#ejemplo-de-uso-5)
 
 ## dconf_to_list
 
@@ -149,4 +151,21 @@ Este módulo crea o elimina un repositorio en [Gitlab](https://www.gitlab.com)
     name: "{{ virtualbox_package }}"
     state: present
     update_cache: true
+```
+
+## protonvpn_fastest
+
+### Ejemplo de uso
+
+```yaml
+- uri:
+    url: https://api.protonvpn.ch/vpn/logicals
+    register: uri_response
+
+- protonvpn_fastest:
+    servers: '{{ uri_response.json["LogicalServers"] }}'
+    tier: 0
+    register: fastest_response
+
+- debug: var=fastest_response.fastest
 ```
