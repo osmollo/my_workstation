@@ -146,6 +146,8 @@ git_repositories:
       dest: "{{ git_dir }}/fonts"
     - repo: git@github.com:ProtonVPN/protonvpn-cli-ng.git
       dest: "{{ git_dir }}/protonvpn-cli-ng"
+    - repo: git@github.com:ohermosa/cock_ansible.git
+      dest: "{{ git_dir }}/cock_ansible"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/bash_aliases"
