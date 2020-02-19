@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.17
+
+- Instalación de `FZF` con el tag `--install_fzf`
+
 ## 2.16.2
 
 - Nuevo módulo de ansible `protonvpn_fastest` para obtener la lista de los servidores de **protonvpn** más rápidos
