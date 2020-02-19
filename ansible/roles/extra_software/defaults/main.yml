@@ -45,6 +45,7 @@ install_prezto: true
 install_etcher: true
 install_woeusb: true
 install_go: true
+install_fzf: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -58,6 +59,7 @@ bitwarden_latest_url: "https://github.com/bitwarden/desktop/releases/latest"
 helm_latest_url: "https://github.com/helm/helm/releases/latest"
 hetznerkube_latest_url: "https://github.com/xetys/hetzner-kube/releases/latest"
 etcher_latest_url: "https://github.com/balena-io/etcher/releases/latest"
+fzf_latest_url: "https://github.com/junegunn/fzf-bin/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
 

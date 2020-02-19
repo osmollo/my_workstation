@@ -384,3 +384,10 @@
   tags:
     - extra_software
     - install_go
+
+- name: "---[INSTALL]--- FZF"
+  import_tasks: fzf.yml
+  when: install_fzf
+  tags:
+    - extra_software
+    - install_fzf
