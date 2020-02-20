@@ -45,6 +45,8 @@ install_prezto: true
 install_etcher: true
 install_woeusb: true
 install_go: true
+install_fzf: true
+install_vimplugins: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -58,6 +60,7 @@ bitwarden_latest_url: "https://github.com/bitwarden/desktop/releases/latest"
 helm_latest_url: "https://github.com/helm/helm/releases/latest"
 hetznerkube_latest_url: "https://github.com/xetys/hetzner-kube/releases/latest"
 etcher_latest_url: "https://github.com/balena-io/etcher/releases/latest"
+fzf_latest_url: "https://github.com/junegunn/fzf-bin/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
 
@@ -88,3 +91,16 @@ firefox_url: "https://download-installer.cdn.mozilla.net/pub/firefox/releases/50
 prezto_repo: https://github.com/sorin-ionescu/prezto.git
 
 go_dir: /usr/local/go
+
+vim_plugins:
+  - 'VundleVim/Vundle.vim'
+  - 'itchyny/lightline.vim'
+  - 'preservim/nerdtree'
+  - 'altercation/vim-colors-solarized'
+  - 'pearofducks/ansible-vim'
+  - 'frazrepo/vim-rainbow'
+  - 'junegunn/fzf.vim'
+  # - 'lokaltog/vim-powerline'
+  - 'airblade/vim-gitgutter'
+  - 'terryma/vim-multiple-cursors'
+  - 'mileszs/ack.vim'

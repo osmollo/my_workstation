@@ -7,14 +7,16 @@
     - [Ejemplo de uso](#ejemplo-de-uso)
   - [get_go_latest](#get_go_latest)
     - [Ejemplo de uso](#ejemplo-de-uso-1)
-  - [github_repo](#github_repo)
+  - [get_nomachine_latest](#get_nomachine_latest)
     - [Ejemplo de uso](#ejemplo-de-uso-2)
-  - [gitlab_repo](#gitlab_repo)
+  - [github_repo](#github_repo)
     - [Ejemplo de uso](#ejemplo-de-uso-3)
-  - [yay](#yay)
+  - [gitlab_repo](#gitlab_repo)
     - [Ejemplo de uso](#ejemplo-de-uso-4)
-  - [protonvpn_fastest](#protonvpn_fastest)
+  - [yay](#yay)
     - [Ejemplo de uso](#ejemplo-de-uso-5)
+  - [protonvpn_fastest](#protonvpn_fastest)
+    - [Ejemplo de uso](#ejemplo-de-uso-6)
 
 ## dconf_to_list
 
@@ -102,6 +104,21 @@ Este módulo parsea la [web de `GO`](https://golang.org/dl) para devolver cuál 
 
 - debug: var=go_response.version
 ```
+
+## get_nomachine_latest
+
+Este módulo parsea la [web de `NoMachine`](https://www.nomachine.com/download/download&id=5) para devolver cuál es la última versión estable de `NoMachine`
+
+### Ejemplo de uso
+
+```yaml
+- name: "get nomachine version"
+  get_nomachine_latest:
+  register: nomachine_response
+
+- debug: var=nomachine_response.version
+```
+
 
 ## github_repo
 
