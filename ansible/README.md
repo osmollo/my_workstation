@@ -82,6 +82,7 @@ Por defecto se instala el siguiente software:
 | [WoeUSB](https://github.com/slacka/WoeUSB) | install_woeusb | ohermosa |
 | [GO](https://golang.org/doc/install/source) | install_go | |
 | [FZF](https://github.com/junegunn/fzf) | install_fzf ||
+| [Vim plugins]() | install_vimplugins | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
