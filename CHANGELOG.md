@@ -4,6 +4,8 @@
 
 - Instalación de `FZF` con el tag `--install_fzf`
 - Instalación de plugins de `vim`
+- Fix en la instalación de `NoMachine` para obtener la última versión
+  - Nuevo módulo de ansible `get_nomachine_latest.py`
 - Cambios en `post_install/ohermosa`:
   - Nuevos repositorios:
     - [cock_ansible](https://github.com/ohermosa/cock_ansible)
