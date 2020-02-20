@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## 2.17
+
+- Instalación de `FZF` con el tag `--install_fzf`
+- Instalación de plugins de `vim`:
+  - [vundle](https://github.com/VundleVim/Vundle.vim)
+  - [lightline](https://github.com/itchyny/lightline.vim)
+  - [nerdtree](https://github.com/preservim/nerdtree)
+  - [colors solarized](https://github.com/altercation/vim-colors-solarized)
+  - [ansibe](https://github.com/pearofducks/ansible-vim)
+  - [vim](https://github.com/frazrepo/vim-rainbow)
+  - [fzf](https://github.com/junegunn/fzf.vim)
+  - [gitgutter](https://github.com/airblade/vim-gitgutter)
+  - [multiple cursors](https://github.com/terryma/vim-multiple-cursors)
+  - [ack](https://github.com/mileszs/ack.vim)
+- Fix en la instalación de `NoMachine` para obtener la última versión
+  - Nuevo módulo de ansible `get_nomachine_latest.py`
+- Cambios en `post_install/ohermosa`:
+  - Nuevos repositorios:
+    - [cock_ansible](https://github.com/ohermosa/cock_ansible)
+    - [fzf](https://github.com/junegunn/fzf)
+
 ## 2.16.2
 
 - Nuevo módulo de ansible `protonvpn_fastest` para obtener la lista de los servidores de **protonvpn** más rápidos
