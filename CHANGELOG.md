@@ -3,6 +3,7 @@
 ## 2.17
 
 - Instalación de `FZF` con el tag `--install_fzf`
+- Instalación de plugins de `vim`
 - Cambios en `post_install/ohermosa`:
   - Nuevos repositorios:
     - [cock_ansible](https://github.com/ohermosa/cock_ansible)

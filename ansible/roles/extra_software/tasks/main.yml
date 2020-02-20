@@ -391,3 +391,10 @@
   tags:
     - extra_software
     - install_fzf
+
+- name: "---[INSTALL]--- VIM PLUGINS"
+  import_tasks: vim_plugins/vim_plugins.yml
+  when: install_vimplugins
+  tags:
+    - extra_software
+    - install_vimplugins
