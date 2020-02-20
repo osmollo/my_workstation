@@ -1,7 +1,5 @@
 ---
 
-- debug: var=nomachine_package
-
 - name: "[DEB] Install no machine"
   apt:
     deb: "{{ nomachine_package }}"

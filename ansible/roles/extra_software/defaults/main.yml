@@ -91,3 +91,16 @@ firefox_url: "https://download-installer.cdn.mozilla.net/pub/firefox/releases/50
 prezto_repo: https://github.com/sorin-ionescu/prezto.git
 
 go_dir: /usr/local/go
+
+vim_plugins:
+  - 'VundleVim/Vundle.vim'
+  - 'itchyny/lightline.vim'
+  - 'preservim/nerdtree'
+  - 'altercation/vim-colors-solarized'
+  - 'pearofducks/ansible-vim'
+  - 'frazrepo/vim-rainbow'
+  - 'junegunn/fzf.vim'
+  # - 'lokaltog/vim-powerline'
+  - 'airblade/vim-gitgutter'
+  - 'terryma/vim-multiple-cursors'
+  - 'mileszs/ack.vim'
