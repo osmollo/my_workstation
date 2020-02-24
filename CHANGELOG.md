@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.18
+
+- Cambios en `post_install/ohermosa`:
+  - Wallpaper dinánimo [Mojave](https://www.omgubuntu.co.uk/2018/06/macos-mojave-dynamic-background-linux) para **ubuntu**
+
 ## 2.17
 
 - Instalación de `FZF` con el tag `--install_fzf`
