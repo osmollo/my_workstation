@@ -43,7 +43,7 @@ Por defecto se instala el siguiente software:
 | [Dropbox](https://www.dropbox.com/) | install_dropbox | ohermosa |
 | [Visual Studio Code](https://code.visualstudio.com/) | install_code | install_editors <br> ohermosa |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | install_spotify | ohermosa |
-| [Oh my ZSH!](https://ohmyz.sh/) | install_ohmyzsh | ohermosa |
+| [Oh my ZSH!](https://ohmyz.sh/) | install_ohmyzsh | |
 | [Sublime Text](https://www.sublimetext.com/) | install_sublime | install_editors |
 | [Atom](https://atom.io/) | install_atom | |
 | [Gitkraken](https://www.gitkraken.com/git-client) | install_gitkraken | ohermosa |

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.18.1
+
+- Corrección de errores
+
 ## 2.18
 
 - Instalación de cliente [**Spotify TUI**](https://www.genbeta.com/multimedia/alguien-ha-creado-cliente-spotify-para-terminal-linux-windows-macos-maravilla) por consola con tag `--install_spotify_cli`
