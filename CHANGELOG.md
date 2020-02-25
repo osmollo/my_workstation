@@ -4,6 +4,9 @@
 
 - Instalación de cliente [**Spotify TUI**](https://www.genbeta.com/multimedia/alguien-ha-creado-cliente-spotify-para-terminal-linux-windows-macos-maravilla) por consola con tag `--install_spotify_cli`
 - `requirements.txt` con todos los paquetes instalados en el repositorio para hacer pruebas
+- Nuevos plugins de vim:
+  - [AutoComplPop](https://github.com/vim-scripts/AutoComplPop)
+  - [ctrlp](https://github.com/kien/ctrlp.vim)
 - Cambios en `post_install/ohermosa`:
   - Wallpaper dinánimo [Mojave](https://www.omgubuntu.co.uk/2018/06/macos-mojave-dynamic-background-linux) para **ubuntu**
   - Configuración de **Spotify Tui**
