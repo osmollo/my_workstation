@@ -19,6 +19,7 @@
 | **install_dropbox** | Instala `Dropbox` |
 | **install_code** | Instala `Visual Studio Code` |
 | **install_spotify** | Instala `Spotify` |
+| **install_spotify_cli** | Instala cliente `Spotify TUI` |
 | **install_ohmyzsh** | Instala `Oh my ZSH!` |
 | **install_sublime** | Instala `Sublime Text` |
 | **install_atom** | Instala `Atom` |

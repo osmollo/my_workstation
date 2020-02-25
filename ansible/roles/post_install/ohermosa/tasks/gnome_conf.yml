@@ -32,3 +32,42 @@
   loop: "{{ response_gnome.message }}"
   when:
     - (desktop_environment == "gnome") or (restore_path | default("") in item.key)
+
+- name: "Import mojave wallpaper config"
+  vars:
+    wallpaper_dir: "{{ ansible_user_dir }}/.wallpaper/mojave-dynamic"
+    dconf_wallpaper_path: "/org/gnome/desktop/background"
+  block:
+    - name: "create wallpaper directory"
+      file:
+        path: "{{ wallpaper_dir }}"
+        state: directory
+
+    - name: "download wallpaper files"
+      unarchive:
+        src: https://descargas.osmollo.es/files/mojave_dynamic.zip
+        dest: "{{ wallpaper_dir }}"
+        remote_src: true
+
+    - name: "generate wallpaper xml"
+      template:
+        src: mojave.xml.j2
+        dest: "{{ wallpaper_dir }}/mojave.xml"
+
+    - name: "import wallpaper config"
+      dconf:
+        key: "{{ item.key }}"
+        value: "{{ item.value }}"
+      loop:
+        - key: "{{ dconf_wallpaper_path }}/picture-uri"
+          value: "'file://{{ wallpaper_dir }}/mojave.xml'"
+        - key: "{{ dconf_wallpaper_path }}/show-desktop-icons"
+          value: "false"
+        - key: "{{ dconf_wallpaper_path }}/primary-color"
+          value: "'#000000000000'"
+        - key: "{{ dconf_wallpaper_path }}/picture-options"
+          value: "'zoom'"
+        - key: "{{ dconf_wallpaper_path }}/secondary-color"
+          value: "'#000000000000'"
+  tags:
+    - post_wallpaper

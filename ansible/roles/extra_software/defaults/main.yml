@@ -104,3 +104,5 @@ vim_plugins:
   - 'airblade/vim-gitgutter'
   - 'terryma/vim-multiple-cursors'
   - 'mileszs/ack.vim'
+  - 'kien/ctrlp.vim'
+  - 'vim-scripts/AutoComplPop'
