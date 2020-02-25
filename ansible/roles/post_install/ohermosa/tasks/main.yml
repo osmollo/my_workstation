@@ -153,3 +153,10 @@
     - post_install
     - post_prezto
     - ohermosa
+
+- name: "configure spotify tui"
+  import_tasks: spotify.yml
+  tags:
+    - post_install
+    - post_spotify
+    - ohermosa
