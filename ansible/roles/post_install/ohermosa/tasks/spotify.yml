@@ -1,5 +1,10 @@
 ---
 
+- name: "create spotify-tui directory"
+  file:
+    path: "{{ ansible_user_dir }}/.config/spotify-tui"
+    state: directory
+
 - name: "configure spotify tui"
   template:
     src: spotify_tui_config.j2
