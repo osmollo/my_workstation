@@ -2,6 +2,7 @@
 
 ## 2.18
 
+- `requirements.txt` con todos los paquetes instalados en el repositorio para hacer pruebas
 - Cambios en `post_install/ohermosa`:
   - Wallpaper dinánimo [Mojave](https://www.omgubuntu.co.uk/2018/06/macos-mojave-dynamic-background-linux) para **ubuntu**
 
