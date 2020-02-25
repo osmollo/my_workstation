@@ -148,6 +148,8 @@ git_repositories:
       dest: "{{ git_dir }}/protonvpn-cli-ng"
     - repo: git@github.com:ohermosa/cock_ansible.git
       dest: "{{ git_dir }}/cock_ansible"
+    - repo: git@github.com:Rigellute/spotify-tui.git
+      dest: "{{ git_dir }}/spotify-tui"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/bash_aliases"

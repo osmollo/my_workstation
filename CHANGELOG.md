@@ -7,6 +7,8 @@
 - Cambios en `post_install/ohermosa`:
   - Wallpaper dinánimo [Mojave](https://www.omgubuntu.co.uk/2018/06/macos-mojave-dynamic-background-linux) para **ubuntu**
   - Configuración de **Spotify Tui**
+  - Nuevos repositorios git:
+    - [spotify-tui](https://github.com/Rigellute/spotify-tui/)
 
 ## 2.17
 
