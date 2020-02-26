@@ -3,6 +3,9 @@
 ## 3.0
 
 - Unificación de los playbooks `install.yml` y `post_install.yml`
+- Corrección de errores:
+  - Se estaba usando `yum` para instalar algunos paquetes en **debian** y derivados
+  - Se elimina la caché de yum/apt después de instalar paquetes del sistema
 
 ## 2.18.1
 
