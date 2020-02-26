@@ -3,6 +3,7 @@
 ## 3.0
 
 - Unificación de los playbooks `install.yml` y `post_install.yml`
+- Unificación de los playbooks `config_sudo.yml`, `update_ansible.yml` y `update_packages.yml` en el playbook `prepare.yml`
 - Corrección de errores:
   - Se estaba usando `yum` para instalar algunos paquetes en **debian** y derivados
   - Se elimina la caché de yum/apt después de instalar paquetes del sistema

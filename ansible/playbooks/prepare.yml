@@ -1,0 +1,108 @@
+---
+
+- import_playbook: load_distro_vars.yml
+
+- hosts: localhost
+  connection: local
+  become: true
+  become_method: su
+  tasks:
+    - block:
+        - name: "[DEBIAN] Import ansible repository key"
+          apt_key:
+            keyserver: keyserver.ubuntu.com
+            id: 6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
+            state: present
+            validate_certs: false
+
+        - name: "[DEBIAN] Create ansible repository file"
+          lineinfile:
+            path: /etc/apt/sources.list.d/ansible.list
+            line: deb http://ppa.launchpad.net/ansible/ansible-2.9/ubuntu trusty main
+            create: true
+
+        - name: "[DEBIAN] Update ansible"
+          apt:
+            name: ansible
+            update_cache: true
+            state: latest
+            autoclean: true
+
+        - name: "[DEBIAN] Update packages"
+          import_role:
+            name: common
+            tasks_from: update_packages
+
+        - name: "[DEBIAN] Install python"
+          import_role:
+            name: common
+            tasks_from: python
+
+        - name: "[DEBIAN] Ensure sudo package is installed"
+          apt:
+            name: sudo
+            state: present
+
+        - name: "[DEBIAN] Add {{ ansible_user}} to sudoers files"
+          lineinfile:
+            path: /etc/sudoers
+            line: "{{ ansible_user }}	ALL=(ALL:ALL) ALL"
+
+        - name: "[DEBIAN] Add {{ ansible_user }} to group sudo"
+          user:
+            name: "{{ ansible_user }}"
+            groups: sudo
+            append: true
+
+        - debug:
+            msg: "Debes cerrar sesión para que se apliquen los cambios"
+
+        - meta: end_play
+      when: linux_distribution == "debian"
+
+
+- hosts: localhost
+  connection: local
+  become: true
+  become_method: sudo
+  vars:
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+  tasks:
+    - name: "Install python"
+      import_role:
+        name: common
+        tasks_from: python
+
+    - name: "[UBUNTU] Update ansible"
+      block:
+        - name: "[UBUNTU] Upgrade all packages to the latest version"
+          apt:
+            name: "*"
+            state: latest
+            update_cache: true
+            force_apt_get: true
+            autoclean: true
+
+        - name: "[UBUNTU] add ansible ppa repository"
+          apt_repository:
+            validate_certs: no
+            repo: 'ppa:ansible/ansible'
+            state: present
+            codename: "{{ ubuntu_codename }}"
+
+        - name: "[UBUNTU] Update ansible"
+          apt:
+            name:
+              - ansible
+              - python-apt
+            update_cache: true
+            state: latest
+            autoclean: true
+            force_apt_get: true
+      when: linux_distribution == "ubuntu"
+
+    - name: "Update packages"
+      import_role:
+        name: common
+        tasks_from: update_packages
