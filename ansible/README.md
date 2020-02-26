@@ -4,7 +4,6 @@
   - [Distribuciones soportadas](#distribuciones-soportadas)
   - [Software extra instalado](#software-extra-instalado)
   - [Prerequisitos](#prerequisitos)
-  - [Actualización de paquetes](#actualización-de-paquetes)
   - [Instalación y configuración](#instalación-y-configuración)
     - [Instalación **DATIO**](#instalación-datio)
     - [Deshabilitar actualizaciones](#deshabilitar-actualizaciones)
@@ -119,29 +118,18 @@ git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
 ```
 
-:information_source: Únicamente para **Debian** y **Ubuntu**, tendremos que actualizar **obligatoriamente** `Ansible` a la última versión ya que la que viene incluída en sus repositorios oficiales es antigua:
+Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar `prepare.yml` para instalar todos los requisitos previos:
 
 ```bash
-ansible-playbook playbooks/update_ansible.yml
+ansible-playbook playbooks/prepare.yml
 ```
 
-:information_source: En el caso de **Debian**, habrá que ejecutar también el siguiente playbook para configurar `sudo` para el usuario del sistema:
+Esto realiza las siguientes tareas:
 
-```bash
-ansible-playbook playbooks/config_sudo.yml
-```
-
-La contraseña que pedirá este comando es la contraseña de `root`
-
-## Actualización de paquetes
-
-Se pueden actualizar todos los paquetes con el siguiente playbook:
-
-```bash
-ansible-playbook playbooks/update_packages.yml
-```
-
-Es recomemdable ejecutar este playbook nada más instalar el ordenador y antes de lanzar el resto de playbooks para que todos los paquetes se encuentren actualizados y no haya problemas con dependencias
+- Instalación de **Python3** y sus módulos correspondientes
+- Configuración de `sudo` para sistemas **Debian**
+- Actualización de `ansible` para sistemas **Debian** y **Ubuntu**
+- Actualización de paquetes
 
 ## Instalación y configuración
 
