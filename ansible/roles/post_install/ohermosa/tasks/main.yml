@@ -55,6 +55,7 @@
   tags:
     - post_install
     - post_kde_restore
+    - ohermosa
 
 - import_tasks: gnome_extensions.yml
   when: desktop_environment == "gnome"
@@ -62,6 +63,7 @@
     - post_install
     - post_gnome_extensions
     - post_gnome
+    - ohermosa
 
 - import_tasks: gnome_conf.yml
   when: desktop_environment == "gnome" or desktop_environment == "cinnamon"
@@ -69,6 +71,7 @@
     - post_install
     - post_gnome_conf
     - post_gnome
+    - ohermosa
 
 - import_tasks: docker.yml
   tags:
@@ -112,6 +115,7 @@
   tags:
     - post_install
     - post_network
+    - ohermosa
 
 - import_tasks: gpg.yml
   tags:
@@ -139,6 +143,7 @@
   tags:
     - post_install
     - post_hp
+    - ohermosa
 
 - name: "configure pass secrets manager"
   import_tasks: pass.yml

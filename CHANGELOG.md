@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0
+
+- Unificación de los playbooks `install.yml` y `post_install.yml`
+
 ## 2.18.1
 
 - Corrección de errores
