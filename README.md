@@ -11,13 +11,6 @@ cd ansible
 ansible-playbook install.yml -t extra_software
 ```
 
-Y para ejecutar las tareas de post instalación de `docker` para el usuario _ohermosa_:
-
-```bash
-cd ansible
-ansible-playbook post_install.yml -t post_docker -e post_install_user=ohermosa --ask-vault-pass
-```
-
 ## Documentación
 
 | :information_source: [La documentación de esta sección está disponible aquí](ansible/README.md) |
