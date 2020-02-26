@@ -124,6 +124,8 @@ Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar 
 ansible-playbook playbooks/prepare.yml
 ```
 
+:information_source: Para sistemas **Debian** será necesario introducir la contraseña de `su`, para el resto de sistemas será la de `sudo`
+
 Esto realiza las siguientes tareas:
 
 - Instalación de **Python3** y sus módulos correspondientes
