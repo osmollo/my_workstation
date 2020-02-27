@@ -7,6 +7,9 @@
 - Corrección de errores:
   - Se estaba usando `yum` para instalar algunos paquetes en **debian** y derivados
   - Se elimina la caché de yum/apt después de instalar paquetes del sistema
+  - Se incluye el fichero de variables correspondiente para instalar paquetes de python
+  - Corregido error en instalación de prezto
+  - Documentación actualizada
 
 ## 2.18.1
 
