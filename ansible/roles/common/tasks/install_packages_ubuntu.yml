@@ -5,36 +5,41 @@
     name: "{{ common_packages }}"
     state: latest
     update_cache: true
+    autoclean: true
 
 - name: "[UBUNTU] Install Ubuntu packages"
   apt:
     name: "{{ distro_packages }}"
     state: latest
     update_cache: true
+    autoclean: true
 
 - name: "[UBUNTU] Install Gnome packages"
-  yum:
+  apt:
     name: "{{ gnome_packages }} + {{ gnome_ubuntu_packages }}"
     state: latest
     update_cache: true
+    autoclean: true
   when:
     - desktop_environment is defined
     - desktop_environment == "gnome"
 
 - name: "[UBUNTU] Install KDE packages"
-  yum:
+  apt:
     name: "{{ kde_packages }} + {{ kde_ubuntu_packages }}"
     state: latest
     update_cache: true
+    autoclean: true
   when:
     - desktop_environment is defined
     - desktop_environment == "kde"
 
 - name: "[UBUNTU] Install XFCE packages"
-  yum:
+  apt:
     name: "{{ xfce_packages }} + {{ xfce_ubuntu_packages }}"
     state: latest
     update_cache: true
+    autoclean: true
   when:
     - desktop_environment is defined
     - desktop_environment == "xfce"

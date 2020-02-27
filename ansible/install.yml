@@ -15,3 +15,12 @@
   roles:
     - common
     - extra_software
+
+- hosts: localhost
+  connection: local
+  vars:
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+    post_user: "{{ post_install_user | default(ansible_user) }}"
+  roles:
+    - "post_install/{{ post_user }}"
