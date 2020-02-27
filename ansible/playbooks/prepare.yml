@@ -69,40 +69,42 @@
     ansible_user: "{{ lookup('env', 'USER') }}"
     ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
   tasks:
-    - name: "Install python"
-      import_role:
-        name: common
-        tasks_from: python
-
-    - name: "[UBUNTU] Update ansible"
+    - when: linux_distribution != "debian"
       block:
-        - name: "[UBUNTU] Upgrade all packages to the latest version"
-          apt:
-            name: "*"
-            state: latest
-            update_cache: true
-            force_apt_get: true
-            autoclean: true
-
-        - name: "[UBUNTU] add ansible ppa repository"
-          apt_repository:
-            validate_certs: no
-            repo: 'ppa:ansible/ansible'
-            state: present
-            codename: "{{ ubuntu_codename }}"
+        - name: "Install python"
+          import_role:
+            name: common
+            tasks_from: python
 
         - name: "[UBUNTU] Update ansible"
-          apt:
-            name:
-              - ansible
-              - python-apt
-            update_cache: true
-            state: latest
-            autoclean: true
-            force_apt_get: true
-      when: linux_distribution == "ubuntu"
+          block:
+            - name: "[UBUNTU] Upgrade all packages to the latest version"
+              apt:
+                name: "*"
+                state: latest
+                update_cache: true
+                force_apt_get: true
+                autoclean: true
 
-    - name: "Update packages"
-      import_role:
-        name: common
-        tasks_from: update_packages
+            - name: "[UBUNTU] add ansible ppa repository"
+              apt_repository:
+                validate_certs: no
+                repo: 'ppa:ansible/ansible'
+                state: present
+                codename: "{{ ubuntu_codename }}"
+
+            - name: "[UBUNTU] Update ansible"
+              apt:
+                name:
+                  - ansible
+                  - python-apt
+                update_cache: true
+                state: latest
+                autoclean: true
+                force_apt_get: true
+          when: linux_distribution == "ubuntu"
+
+        - name: "Update packages"
+          import_role:
+            name: common
+            tasks_from: update_packages
