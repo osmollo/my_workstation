@@ -15,6 +15,7 @@ common_packages:
 
 python_modules:
   - mega.py
+  - 'requests==2.22.0'
   - netaddr
   - telepot
   - matplotlib
@@ -28,6 +29,7 @@ python_modules:
   - virtualenvwrapper
   - hcloud
   - gitpython
+  - jmespath
 
 bad_snap_packages:
   - gnome-calculator

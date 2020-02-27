@@ -1,20 +1,25 @@
 ---
 
-- name: "[FEDORA] Install Python3"
+- include_vars:
+    file: "{{ linux_distribution | lower }}.yml"
+
+- name: "[FEDORA] Install Python3 packages"
   yum:
     name: "{{ python_packages }}"
     state: latest
     update_cache: true
+    autoremove: true
   when: linux_distribution == "fedora"
 
-- name: "[DEB] Install Python3"
+- name: "[DEB] Install Python3 packages"
   apt:
     name: "{{ python_packages }}"
     state: latest
     update_cache: true
+    autoclean: true
   when: linux_distribution in ["ubuntu", "debian"]
 
-- name: "[ARCH] Install Python3"
+- name: "[ARCH] Install Python3 packages"
   pacman:
     name: "{{ python_packages }}"
     state: latest

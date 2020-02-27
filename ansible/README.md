@@ -4,9 +4,8 @@
   - [Distribuciones soportadas](#distribuciones-soportadas)
   - [Software extra instalado](#software-extra-instalado)
   - [Prerequisitos](#prerequisitos)
-  - [Actualización de paquetes](#actualización-de-paquetes)
-  - [Instalación y post configuración](#instalación-y-post-configuración)
-    - [Post instalación **DATIO**](#post-instalación-datio)
+  - [Instalación y configuración](#instalación-y-configuración)
+    - [Instalación **DATIO**](#instalación-datio)
     - [Deshabilitar actualizaciones](#deshabilitar-actualizaciones)
     - [Gestión de contraseñas](#gestión-de-contraseñas)
       - [Ficheros locales](#ficheros-locales)
@@ -39,24 +38,24 @@ Por defecto se instala el siguiente software:
 |----------------|------------------|-----------|
 | [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | install_browsers |
 | [Chromium Browser](https://chromium.woolyss.com/download/es/) | install_chromium | install_browsers |
-| [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker | ohermosa |
-| [Dropbox](https://www.dropbox.com/) | install_dropbox | ohermosa |
-| [Visual Studio Code](https://code.visualstudio.com/) | install_code | install_editors <br> ohermosa |
-| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | install_spotify | ohermosa |
+| [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker | |
+| [Dropbox](https://www.dropbox.com/) | install_dropbox | |
+| [Visual Studio Code](https://code.visualstudio.com/) | install_code | install_editors |
+| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | install_spotify | |
 | [Oh my ZSH!](https://ohmyz.sh/) | install_ohmyzsh | |
 | [Sublime Text](https://www.sublimetext.com/) | install_sublime | install_editors |
 | [Atom](https://atom.io/) | install_atom | |
-| [Gitkraken](https://www.gitkraken.com/git-client) | install_gitkraken | ohermosa |
-| [Telegram Desktop](https://telegram.org/) | install_telegram | install_socials <br> ohermosa |
+| [Gitkraken](https://www.gitkraken.com/git-client) | install_gitkraken | |
+| [Telegram Desktop](https://telegram.org/) | install_telegram | install_socials |
 | [Slack](https://datiodevelopers.slack.com/) | install_slack | install_socials |
 | [Forticlient VPN](https://www.fortinet.com/lat) | install_forticlientvpn | |
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | install_tlp | |
-| [Virtualbox](https://www.virtualbox.org/) | install_virtualbox | ohermosa |
+| [Virtualbox](https://www.virtualbox.org/) | install_virtualbox | |
 | [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | install_pycharm | install_editors |
 | [KeepassXC](https://keepassxc.org/download/) | install_keepass | install_pass_managers |
 | [Buttercup](https://buttercup.pw/) | install_buttercup | install_pass_managers |
 | [Windscribe](https://windscribe.com/) | install_windscribe | |
-| [Teamviewer](https://www.teamviewer.com/es/) | install_teamviewer | install_remotes <br> ohermosa |
+| [Teamviewer](https://www.teamviewer.com/es/) | install_teamviewer | install_remotes |
 | [NoMachine](https://www.nomachine.com/es/) | install_nomachine | install_remotes |
 | [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | install_ecs | |
 | [Postman](https://www.getpostman.com) | install_postman | |
@@ -67,22 +66,22 @@ Por defecto se instala el siguiente software:
 | [Franz](https://meetfranz.com/) | install_franz | |
 | [Deluge Torrent](https://deluge-torrent.org/) | install_deluge | |
 | [Cherrytree](https://www.giuspen.com/cherrytree/) | install_cherrytree | install_editors |
-| [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-kubectl) | install_kubectl | ohermosa |
-| [MEGAcmd](https://mega.nz/cmd) | install_megacmd | install_mega <br> ohermosa |
+| [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-kubectl) | install_kubectl | |
+| [MEGAcmd](https://mega.nz/cmd) | install_megacmd | install_mega |
 | [MEGA sync](https://mega.nz/sync) | install_megasync | install_mega |
 | [Vivaldi](https://vivaldi.com/es/) | install_vivaldi | install_browsers |
-| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | install_brave | install_browsers <br> ohermosa |
+| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | install_brave | install_browsers |
 | [Bitwarden](https://bitwarden.com/) | install_bitwarden | install_pass_managers |
 | [Firefox 'Lexnet Edition'](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr) | install_firefox_lexnet | install_browsers |
 | [Pass](https://www.passwordstore.org/) | install_pass | install_pass_managers |
 | [Bucklespring](https://github.com/zevv/bucklespring) | install_bucklespring | |
-| [ProtonVPN](https://protonvpn.com/) | install_protonvpn | ohermosa |
-| [Prezto](https://github.com/sorin-ionescu/prezto) | install_prezto | ohermosa |
-| [Balena Etcher](https://www.balena.io/etcher/) | install_etcher | ohermosa |
-| [WoeUSB](https://github.com/slacka/WoeUSB) | install_woeusb | ohermosa |
-| [GO](https://golang.org/doc/install/source) | install_go | ohermosa |
-| [FZF](https://github.com/junegunn/fzf) | install_fzf | ohermosa |
-| [Vim plugins]() | install_vimplugins | ohermosa |
+| [ProtonVPN](https://protonvpn.com/) | install_protonvpn | |
+| [Prezto](https://github.com/sorin-ionescu/prezto) | install_prezto | |
+| [Balena Etcher](https://www.balena.io/etcher/) | install_etcher | |
+| [WoeUSB](https://github.com/slacka/WoeUSB) | install_woeusb | |
+| [GO](https://golang.org/doc/install/source) | install_go | |
+| [FZF](https://github.com/junegunn/fzf) | install_fzf | |
+| [Vim plugins]() | install_vimplugins | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
@@ -119,56 +118,50 @@ git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
 ```
 
-:information_source: Únicamente para **Debian** y **Ubuntu**, tendremos que actualizar **obligatoriamente** `Ansible` a la última versión ya que la que viene incluída en sus repositorios oficiales es antigua:
+Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar `prepare.yml` para instalar todos los requisitos previos:
 
 ```bash
-ansible-playbook playbooks/update_ansible.yml
+ansible-playbook playbooks/prepare.yml
 ```
 
-:information_source: En el caso de **Debian**, habrá que ejecutar también el siguiente playbook para configurar `sudo` para el usuario del sistema:
+:information_source: Para sistemas **Debian** será necesario introducir la contraseña de `su`, para el resto de sistemas será la de `sudo`
+
+Esto realiza las siguientes tareas:
+
+- Instalación de **Python3** y sus módulos correspondientes
+- Configuración de `sudo` para sistemas **Debian**
+- Actualización de `ansible` para sistemas **Debian** y **Ubuntu**
+- Actualización de paquetes
+
+## Instalación y configuración
+
+Hay que ejecutar el siguiente comando:
 
 ```bash
-ansible-playbook playbooks/config_sudo.yml
+ansible-playbook install.yml --ask-vault-pass
 ```
 
-La contraseña que pedirá este comando es la contraseña de `root`
-
-## Actualización de paquetes
-
-Se pueden actualizar todos los paquetes con el siguiente playbook:
+En caso de querer instalar únicamente alguna de las [aplicaciones de terceros disponibles](#software-extra-instalado), hay que usar los tags correspondientes:
 
 ```bash
-ansible-playbook playbooks/update_packages.yml
+ansible-playbook install.yml -t install_atom,install_code
 ```
 
-Es recomemdable ejecutar este playbook nada más instalar el ordenador y antes de lanzar el resto de playbooks para que todos los paquetes se encuentren actualizados y no haya problemas con dependencias
-
-## Instalación y post configuración
-
-La instalación y post configuración se realiza en dos pasos:
-
-1. Instalación con el playbook `install.yml` de paquetes y software de terceros
-2. Post instalación con el playbook `post_install.yml` para aplicar la configuración personalizada de cada usuario
+Si, por el contrario, se quiere instalar todo el software excepto alguno en concreto, hay que usar el siguiente comando:
 
 ```bash
-ansible-playbook install.yml [--ask-vault-pass]
+ansible-playbook install.yml -e install_atom=false -e install_code=false
 ```
 
-En caso de querer instalar únicamente alguna de las [aplicaciones de terceros disponibles](#software-extra-instalado), hay que usar el tag correspondiente:
+Igualmente, se pueden usar los tags específicos que cada usuario haya puesto en su role `post_install/$USER`
 
 ```bash
-ansible-playbook install.yml -t install_atom
+ansible-playbook install-yml -t post_env --ask-vault-pass
 ```
 
-Por último, en caso de que el usuario del sistema que lanza el playbook sea distinto del subdirectorio `roles/post_install/` donde se encuentra la personalización que se desee aplicar, hay que ejecutar el playbook indicando en *extra_vars* la variable `post_install_user`:
+### Instalación **DATIO**
 
-```bash
-ansible-playbook install.yml -e post_install_user=genaro -t post_gpg
-```
-
-### Post instalación **DATIO**
-
-Para realizar una configuración general para un pc de trabajo en [Datio](www.datio.com). hay que ejecutar el siguiente playbook:
+Para realizar una configuración general para un pc de trabajo en [Datio](www.datio.com), hay que ejecutar el siguiente playbook:
 
 ```bash
 ansible-playbook datio.yml --ask-vault-pass
@@ -315,7 +308,7 @@ ceporro: !vault |
 Para poder descrifrar esta contraseña al ejecutar el playbook, habrá que incluír el argumento `--ask-vault-pass` e indicar la contraseña que se usó en el paso anterior para cifrar la password:
 
 ```bash
-ansible-playbook post_install -e post_install_user=ohermosa --ask-vault-pass
+ansible-playbook post_install -e post_install_user=--ask-vault-pass
 ```
 
 ## Otros playbooks
