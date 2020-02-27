@@ -141,10 +141,22 @@ Hay que ejecutar el siguiente comando:
 ansible-playbook install.yml --ask-vault-pass
 ```
 
-En caso de querer instalar únicamente alguna de las [aplicaciones de terceros disponibles](#software-extra-instalado), hay que usar el tag correspondiente:
+En caso de querer instalar únicamente alguna de las [aplicaciones de terceros disponibles](#software-extra-instalado), hay que usar los tags correspondientes:
 
 ```bash
-ansible-playbook install.yml -t install_atom
+ansible-playbook install.yml -t install_atom,install_code
+```
+
+Si, por el contrario, se quiere instalar todo el software excepto alguno en concreto, hay que usar el siguiente comando:
+
+```bash
+ansible-playbook install.yml -e install_atom=false -e install_code=false
+```
+
+Igualmente, se pueden usar los tags específicos que cada usuario haya puesto en su role `post_install/$USER`
+
+```bash
+ansible-playbook install-yml -t post_env --ask-vault-pass
 ```
 
 ### Instalación **DATIO**

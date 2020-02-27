@@ -43,6 +43,7 @@
         key_file: "/home/{{ ansible_user }}/.ssh/id_rsa"
         accept_hostkey: true
         recursive: true
+        ignore_errors: true
 
     - name: "set autocomplete special directories in prezto config"
       lineinfile:
