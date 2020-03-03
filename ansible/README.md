@@ -72,7 +72,7 @@ Por defecto se instala el siguiente software:
 | [Vivaldi](https://vivaldi.com/es/) | install_vivaldi | install_browsers |
 | [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | install_brave | install_browsers |
 | [Bitwarden](https://bitwarden.com/) | install_bitwarden | install_pass_managers |
-| [Firefox 'Lexnet Edition'](https://www.mozilla.org/es-ES/firefox/all/#product-desktop-esr) | install_firefox_lexnet | install_browsers |
+| [Lexnet](https://lexnet.justicia.es) | install_lexnet | |
 | [Pass](https://www.passwordstore.org/) | install_pass | install_pass_managers |
 | [Bucklespring](https://github.com/zevv/bucklespring) | install_bucklespring | |
 | [ProtonVPN](https://protonvpn.com/) | install_protonvpn | |

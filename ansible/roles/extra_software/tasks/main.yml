@@ -319,15 +319,14 @@
     - install_bitwarden
     - install_pass_managers
 
-- name: "---[INSTALL]--- Firefox 'Lexnet Edition'"
-  import_tasks: firefox_lexnet.yml
+- name: "---[INSTALL]--- Lexnet"
+  import_tasks: lexnet.yml
   when:
-    - install_firefox_lexnet
+    - install_lexnet
     - linux_distribution == "ubuntu"
   tags:
     - extra_software
-    - install_firefox_lexnet
-    - install_browsers
+    - install_lexnet
 
 - name: "---[INSTALL]--- Pass"
   import_tasks: pass/pass.yml

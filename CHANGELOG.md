@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.1
+
+- Cambios en instalación [Lexnet](https://lexnet.justicia.es/)
+  - Instalación del certificado ACA
+  - Renombrado del tag `install_firefox_lexnet` por `install_lexnet`
+
 ## 3.0
 
 - Unificación de los playbooks `install.yml` y `post_install.yml`
