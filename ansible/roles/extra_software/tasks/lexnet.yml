@@ -1,5 +1,12 @@
 ---
 
+- name: "install lexnet dependencies"
+  apt:
+    name: "{{ lexnet_packages }}"
+    state: present
+    update_cache: true
+    autoclean: true
+
 - name: "delete firefox and java directories"
   file:
     path: "{{ item }}"
@@ -62,9 +69,16 @@
 
 - name: "customize firefox if {{ ansible_user_dir }}/.mozilla/firefox exists"
   block:
+    - name: "generate new profile {{ lexnet_firefox_profile }}"
+      shell: "{{ item }}"
+      loop:
+        - "firefox -CreateProfile {{ lexnet_firefox_profile }}"
+        - "firefox -P {{ lexnet_firefox_profile }} &"
+        - "killall firefox"
+
     - name: "get the firefox preferences file"
       find:
-        path: "{{ ansible_user_dir }}/.mozilla/firefox"
+        path: "{{ ansible_user_dir }}/.mozilla/firefox/*{{ lexnet_firefox_profile }}"
         patterns: "^prefs.js$"
         use_regex: true
         file_type: file

@@ -37,7 +37,7 @@ install_megasync: true
 install_vivaldi: true
 install_brave: true
 install_bitwarden: true
-install_firefox_lexnet: false
+install_lexnet: false
 install_pass: true
 install_bucklespring: false
 install_protonvpn: true
@@ -106,3 +106,11 @@ vim_plugins:
   - 'mileszs/ack.vim'
   - 'kien/ctrlp.vim'
   - 'vim-scripts/AutoComplPop'
+
+lexnet_firefox_profile: lexnet
+lexnet_packages:
+  - libccid
+  - libpcsclite1
+  - pcscd
+  - pcsc-tools
+  - libglade2-dev

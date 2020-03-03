@@ -52,7 +52,7 @@
 | **install_vivaldi** | Instala `Vivaldi` |
 | **install_brave** | Instala `Brave` |
 | **install_bitwarden** | Instala `Bitwarden` |
-| **install_firefox_lexnet** | Instala `Firefox 'Lexnet Edition'` |
+| **install_lexnet** | Instala `Lexnet` |
 | **install_pass** | Instala gestor de secretos `Pass` |
 | **install_bucklespring** | Instala `bucklespring` |
 | **install_protonvpn** | Instala `ProtonVPN` |
