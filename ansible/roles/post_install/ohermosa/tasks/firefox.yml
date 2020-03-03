@@ -19,7 +19,7 @@
     - set_fact:
         find_response: "{{ find_response_round_1 }}"
 
-    - name: "launch firefox if there isn't matches'"
+    - name: "launch firefox if there aren't matches'"
       block:
         - name: "launch and kill firefox"
           shell: "{{ item }}"
