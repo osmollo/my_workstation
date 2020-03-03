@@ -107,6 +107,8 @@ vim_plugins:
   - 'kien/ctrlp.vim'
   - 'vim-scripts/AutoComplPop'
 
+firefox_esr_dir: /opt/firefox
+firefox_esr_binary: "{{ firefox_esr_dir }}/firefox"
 lexnet_firefox_profile: lexnet
 lexnet_packages:
   - libccid

@@ -13,20 +13,17 @@
     state: absent
   loop:
     - /opt/jdk
-    - /opt/firefox
+    - "{{ firefox_esr_dir }}"
 
-- name: "create directories"
+- name: "create java directory"
   file:
-    path: "{{ item }}"
+    path: /opt/jdk
     state: directory
-  loop:
-    - /opt/jdk
-    - /opt/firefox
 
-- name: "Uncompress firefox 'lexnet edition'"
+- name: "Uncompress firefox ESR 50"
   unarchive:
     src: "{{ firefox_url }}"
-    dest: "/opt/firefox"
+    dest: "/opt"
     remote_src: true
 
 - name: "uncompress java"
@@ -53,13 +50,13 @@
 
 - name: "create firefox plugins directory"
   file:
-    path: /opt/firefox/firefox/browser/plugins
+    path: "{{ firefox_esr_dir }}/browser/plugins"
     state: directory
 
 - name: "create link to java plugin"
   file:
     src: /opt/jdk/jdk1.8.0_241/jre/lib/amd64/libnpjp2.so
-    dest: /opt/firefox/firefox/browser/plugins/libnpjp2.so
+    dest: "{{ firefox_esr_dir }}/browser/plugins/libnpjp2.so"
     state: link
 
 - name: "check if {{ ansible_user_dir }}/.mozilla/firefox exists"
@@ -68,17 +65,19 @@
   register: stat_response
 
 - name: "customize firefox if {{ ansible_user_dir }}/.mozilla/firefox exists"
+  become: false
+  become_user: "{{ ansible_user }}"
   block:
     - name: "generate new profile {{ lexnet_firefox_profile }}"
       shell: "{{ item }}"
       loop:
-        - "firefox -CreateProfile {{ lexnet_firefox_profile }}"
-        - "firefox -P {{ lexnet_firefox_profile }} &"
+        - "{{ firefox_esr_binary }} -CreateProfile {{ lexnet_firefox_profile }}"
+        - "{{ firefox_esr_binary }} -P {{ lexnet_firefox_profile }} &"
         - "killall firefox"
 
     - name: "get the firefox preferences file"
       find:
-        path: "{{ ansible_user_dir }}/.mozilla/firefox/*{{ lexnet_firefox_profile }}"
+        path: "{{ ansible_user_dir }}/.mozilla/firefox"
         patterns: "^prefs.js$"
         use_regex: true
         file_type: file
@@ -87,6 +86,8 @@
 
     - name: "customize firefox profile for {{ ansible_user }}"
       lineinfile:
-        path: "{{ (find_response.files | json_query('[].path'))[0] }}"
+        path: "{{ item }}"
         line: 'user_pref("plugin.load_flash_only", false);'
+      when: lexnet_firefox_profile in item
+      loop: "{{ find_response.files | json_query('[].path') }}"
   when: stat_response.stat.exists
