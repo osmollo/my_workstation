@@ -10,63 +10,63 @@
 | **TAG** | **DESCRIPCIÓN** |
 |---------|-----------------|
 | **extra_software** | Ejecuta el role completo |
-| **install_editors** | Instala los editores de texto `Visual Studio Code`, `Atom`, `Sublime Text` y `PyCharm` |
-| **install_pass_managers** | Instala `KeepassXC` y `Buttercup` |
-| **install_remotes** | Instala `Teamviewer` y `No Machine` |
-| **install_socials** | Instala los clientes de mensajería `Telegram Desktop`, `Slack` y `Skype` |
-| **install_windscribe** | Instala los clientes de VPN `Forti Client VPN` y `Windscribe` |
-| **install_docker** | Instala `Docker Community Edition` |
-| **install_dropbox** | Instala `Dropbox` |
-| **install_code** | Instala `Visual Studio Code` |
-| **install_spotify** | Instala `Spotify` |
-| **install_spotify_cli** | Instala cliente `Spotify TUI` |
-| **install_ohmyzsh** | Instala `Oh my ZSH!` |
-| **install_sublime** | Instala `Sublime Text` |
-| **install_atom** | Instala `Atom` |
-| **install_gitkraken** | Instala `Gitkraken` |
-| **install_telegram** | Instala `Telegram Desktop` |
-| **install_slack** | Instala `Slack` |
-| **install_forticlientvpn** | Instala `Forti Client VPN` |
-| **install_tlp** | Instala `TLP` |
-| **install_virtualbox** | Instala `Virtualbox` |
-| **install_pycharm** | Instala `PyCharm` |
-| **install_keepass** | Instala `KeepassXD` |
-| **install_buttercap** | Instala `Buttercup` |
-| **install_windscribe** | Instala `Windscribe Client VPN` |
-| **install_chrome** | Instala `Google Chrome` |
-| **install_chromium** | Instala `Chromium` |
-| **install_teamviewer** | Instala `Teamviewer` |
-| **install_nomachine** | Instala `No Machine` |
-| **install_ecs** | Instala `Ether Cloud Services Client` |
-| **install_postman** | Instala `Postman` |
-| **install_skype** | Instala `Skype` |
-| **install_java** | Instala `Java OpenJDK` |
-| **install_apachedirectory** | Instala `Apache Directory Studio` |
-| **install_rambox** | Instala `Rambox` |
-| **install_franz** | Instala `Franz` |
-| **install_deluge** | Instala `Deluge` |
-| **install_cherrytree** | Instala `Cherry Tree` |
-| **install_kubectl** | Instala `Kubectl` |
-| **install_megacmd** | Instala `MEGAcmd` |
-| **install_megasync** | Instala `MEGA sync` |
-| **install_vivaldi** | Instala `Vivaldi` |
-| **install_brave** | Instala `Brave` |
-| **install_bitwarden** | Instala `Bitwarden` |
-| **install_firefox_lexnet** | Instala `Firefox 'Lexnet Edition'` |
-| **install_pass** | Instala gestor de secretos `Pass` |
-| **install_bucklespring** | Instala `bucklespring` |
-| **install_protonvpn** | Instala `ProtonVPN` |
-| **install_prezto** | Instala `Prezto` |
-| **install_etcher** | Instala `Balena Etcher` |
-| **install_woeusb** | Instala `WoeUSB` |
-| **install_go** | Instala `GO` |
-| **install_fzf** | Instala `FZF` |
+| **editors** | Instala los editores de texto `Visual Studio Code`, `Atom`, `Sublime Text` y `PyCharm` |
+| **pass_managers** | Instala `KeepassXC` y `Buttercup` |
+| **remotes** | Instala `Teamviewer` y `No Machine` |
+| **socials** | Instala los clientes de mensajería `Telegram Desktop`, `Slack` y `Skype` |
+| **windscribe** | Instala los clientes de VPN `Forti Client VPN` y `Windscribe` |
+| **docker** | Instala `Docker Community Edition` |
+| **dropbox** | Instala `Dropbox` |
+| **code** | Instala `Visual Studio Code` |
+| **spotify** | Instala `Spotify` |
+| **spotify_cli** | Instala cliente `Spotify TUI` |
+| **ohmyzsh** | Instala `Oh my ZSH!` |
+| **sublime** | Instala `Sublime Text` |
+| **atom** | Instala `Atom` |
+| **gitkraken** | Instala `Gitkraken` |
+| **telegram** | Instala `Telegram Desktop` |
+| **slack** | Instala `Slack` |
+| **forticlientvpn** | Instala `Forti Client VPN` |
+| **tlp** | Instala `TLP` |
+| **virtualbox** | Instala `Virtualbox` |
+| **pycharm** | Instala `PyCharm` |
+| **keepass** | Instala `KeepassXD` |
+| **buttercap** | Instala `Buttercup` |
+| **windscribe** | Instala `Windscribe Client VPN` |
+| **chrome** | Instala `Google Chrome` |
+| **chromium** | Instala `Chromium` |
+| **teamviewer** | Instala `Teamviewer` |
+| **nomachine** | Instala `No Machine` |
+| **ecs** | Instala `Ether Cloud Services Client` |
+| **postman** | Instala `Postman` |
+| **skype** | Instala `Skype` |
+| **java** | Instala `Java OpenJDK` |
+| **apachedirectory** | Instala `Apache Directory Studio` |
+| **rambox** | Instala `Rambox` |
+| **franz** | Instala `Franz` |
+| **deluge** | Instala `Deluge` |
+| **cherrytree** | Instala `Cherry Tree` |
+| **kubectl** | Instala `Kubectl` |
+| **megacmd** | Instala `MEGAcmd` |
+| **megasync** | Instala `MEGA sync` |
+| **vivaldi** | Instala `Vivaldi` |
+| **brave** | Instala `Brave` |
+| **bitwarden** | Instala `Bitwarden` |
+| **lexnet** | Instala `Lexnet` |
+| **pass** | Instala gestor de secretos `Pass` |
+| **bucklespring** | Instala `bucklespring` |
+| **protonvpn** | Instala `ProtonVPN` |
+| **prezto** | Instala `Prezto` |
+| **etcher** | Instala `Balena Etcher` |
+| **woeusb** | Instala `WoeUSB` |
+| **go** | Instala `GO` |
+| **fzf** | Instala `FZF` |
 | **vim_plugins** | Instala plugins de `vim` |
-| **install_flatpak** | |
-| **install_vagrant** | |
-| **install_dockercompose** | |
-| **install_helm** | |
-| **install_hetznerkube** | |
+| **flatpak** | |
+| **vagrant** | |
+| **dockercompose** | |
+| **helm** | |
+| **hetznerkube** | |
 
 ## Documentación
 

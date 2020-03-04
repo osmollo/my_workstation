@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 3.1
+
+- Renombrado de los tags para quitar el `install_` y `post_`
+- Cambios en instalación [Lexnet](https://lexnet.justicia.es/)
+  - Instalación de certificados ACA
+  - Instalación librerías
+  - Renombrado del tag `install_firefox_lexnet` por `install_lexnet`
+
 ## 3.0
 
 - Unificación de los playbooks `install.yml` y `post_install.yml`

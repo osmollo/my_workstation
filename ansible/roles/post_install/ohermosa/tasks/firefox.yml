@@ -14,7 +14,31 @@
         use_regex: true
         file_type: file
         recurse: true
-      register: find_response
+      register: find_response_round_1
+
+    - set_fact:
+        find_response: "{{ find_response_round_1 }}"
+
+    - name: "launch firefox if there aren't matches'"
+      block:
+        - name: "launch and kill firefox"
+          shell: "{{ item }}"
+          loop:
+            - "firefox &"
+            - "killall firefox"
+
+        - name: "get the firefox preferences file"
+          find:
+            path: "{{ firefox_dir }}"
+            patterns: "^prefs.js$"
+            use_regex: true
+            file_type: file
+            recurse: true
+          register: find_response_round_2
+
+        - set_fact:
+            find_response: "{{ find_response_round_2 }}"
+      when: (find_response_round_1.matched | int) == 0
 
     - name: "customize firefox profile for {{ ansible_user }}"
       lineinfile:

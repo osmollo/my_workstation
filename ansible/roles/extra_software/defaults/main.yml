@@ -37,7 +37,7 @@ install_megasync: true
 install_vivaldi: true
 install_brave: true
 install_bitwarden: true
-install_firefox_lexnet: false
+install_lexnet: false
 install_pass: true
 install_bucklespring: false
 install_protonvpn: true
@@ -86,8 +86,6 @@ mega_url_base: "https://mega.nz/linux/MEGAsync"
 
 vivaldi_version: 2.9.1705.41-1
 
-firefox_url: "https://download-installer.cdn.mozilla.net/pub/firefox/releases/50.1.0/linux-x86_64/es-ES/firefox-50.1.0.tar.bz2"
-
 prezto_repo: https://github.com/sorin-ionescu/prezto.git
 
 go_dir: /usr/local/go
@@ -106,3 +104,16 @@ vim_plugins:
   - 'mileszs/ack.vim'
   - 'kien/ctrlp.vim'
   - 'vim-scripts/AutoComplPop'
+
+firefox_esr_version: 50.1.0
+firefox_esr_url: "https://download-installer.cdn.mozilla.net/pub/firefox/releases/{{ firefox_esr_version }}/linux-x86_64/es-ES/firefox-{{ firefox_esr_version }}.tar.bz2"
+firefox_esr_dir: /opt/firefox
+firefox_esr_binary: "{{ firefox_esr_dir }}/firefox"
+java_lexnet_package: "https://descargas.lexdefensa.es/jdk-8u241-linux-x64.tar.gz"
+lexnet_firefox_profile: lexnet
+lexnet_packages:
+  - libccid
+  - libpcsclite1
+  - pcscd
+  - pcsc-tools
+  - libglade2-dev
