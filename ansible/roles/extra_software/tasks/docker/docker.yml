@@ -14,27 +14,25 @@
     enabled: true
     state: restarted
 
-- name: "Get latest version of Docker Compose"
-  uri:
-    url: "{{ dockercompose_latest_url }}"
-    follow_redirects: safe
-    body_format: raw
-  register: dockercompose_latest
-  when: linux_distribution != "arch"
-  tags:
-    - install_dockercompose
+- name: "Install docker compose"
+  block:
+    - name: "Get latest version of Docker Compose"
+      uri:
+        url: "{{ dockercompose_latest_url }}"
+        follow_redirects: safe
+        body_format: raw
+      register: dockercompose_latest
+      when: linux_distribution != "arch"
 
-- name: "Set urls for Docker Compose packages"
-  vars:
-    dockercompose_version: "{{ dockercompose_latest.url | urlsplit('path') | basename }}"
-  set_fact:
-    dockercompose_package: "https://github.com/docker/compose/releases/download/{{ dockercompose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
-  when: linux_distribution != "arch"
-  tags:
-    - install_dockercompose
+    - name: "Set urls for Docker Compose packages"
+      vars:
+        dockercompose_version: "{{ dockercompose_latest.url | urlsplit('path') | basename }}"
+      set_fact:
+        dockercompose_package: "https://github.com/docker/compose/releases/download/{{ dockercompose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+      when: linux_distribution != "arch"
 
-- name: "Download Docker Compose binary"
-  import_tasks: docker_compose.yml
-  when: linux_distribution != "arch"
+    - name: "Download Docker Compose binary"
+      import_tasks: docker_compose.yml
+      when: linux_distribution != "arch"
   tags:
-    - install_dockercompose
+    - dockercompose

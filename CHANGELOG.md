@@ -2,6 +2,7 @@
 
 ## 3.1
 
+- Renombrado de los tags para quitar el `install_` y `post_`
 - Cambios en instalación [Lexnet](https://lexnet.justicia.es/)
   - Instalación de certificados ACA
   - Instalación librerías

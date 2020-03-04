@@ -13,4 +13,4 @@
     state: present
     update_cache: true
   tags:
-    - install_vagrant
+    - vagrant

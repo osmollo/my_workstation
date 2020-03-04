@@ -22,4 +22,4 @@
     name: "{{ vagrant_package }}"
     state: present
   tags:
-    - install_vagrant
+    - vagrant
