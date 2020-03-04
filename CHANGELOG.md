@@ -3,7 +3,8 @@
 ## 3.1
 
 - Cambios en instalación [Lexnet](https://lexnet.justicia.es/)
-  - Instalación del certificado ACA
+  - Instalación de certificados ACA
+  - Instalación librerías
   - Renombrado del tag `install_firefox_lexnet` por `install_lexnet`
 
 ## 3.0
