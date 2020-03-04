@@ -1,0 +1,144 @@
+---
+
+- name: "install lexnet dependencies"
+  apt:
+    name: "{{ lexnet_packages }}"
+    state: present
+    update_cache: true
+    autoclean: true
+
+- name: "delete firefox and java directories"
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - /opt/jdk
+    - "{{ firefox_esr_dir }}"
+
+- name: "create directories"
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - /opt/jdk
+    - /tmp/lexnet
+
+- name: "Uncompress Firefox ESR {{ firefox_esr_version }}"
+  unarchive:
+    src: "{{ firefox_esr_url }}"
+    dest: "/opt"
+    remote_src: true
+
+- name: "uncompress Java"
+  unarchive:
+    src: "{{ java_lexnet_package }}"
+    dest: /opt/jdk
+    remote_src: true
+
+- name: "update Java alternatives"
+  alternatives:
+    name: "{{ item.name }}"
+    link: "{{ item.link }}"
+    path: "{{ item.path }}"
+    priority: "{{ item.priority }}"
+  loop:
+    - name: java
+      link: /usr/bin/java
+      path: /opt/jdk/jdk1.8.0_241/bin/java
+      priority: 100
+    - name: javac
+      link: /usr/bin/javac
+      path: /opt/jdk/jdk1.8.0_241/bin/javac
+      priority: 100
+
+- name: "create firefox plugins directory"
+  file:
+    path: "{{ firefox_esr_dir }}/browser/plugins"
+    state: directory
+
+- name: "create link to java plugin"
+  file:
+    src: /opt/jdk/jdk1.8.0_241/jre/lib/amd64/libnpjp2.so
+    dest: "{{ firefox_esr_dir }}/browser/plugins/libnpjp2.so"
+    state: link
+
+- name: "Unarchive files"
+  unarchive:
+    src: TS2048_Linux.zip
+    dest: /tmp/lexnet
+
+- name: "Move libraries to /usr/lib"
+  copy:
+    src: "{{ item }}"
+    dest: /usr/lib/
+    remote_src: true
+  with_fileglob:
+    - "/tmp/lexnet/TS2048_Linux/Linux_4.0.0.5/linux64/*"
+
+- name: "Execute ldconfig"
+  shell: ldconfig
+
+- name: "check if {{ ansible_user_dir }}/.mozilla/firefox exists"
+  stat:
+    path: "{{ ansible_user_dir }}/.mozilla/firefox"
+  register: stat_response
+
+- name: "customize firefox if {{ ansible_user_dir }}/.mozilla/firefox exists"
+  become: false
+  become_user: "{{ ansible_user }}"
+  block:
+    - name: "generate new profile {{ lexnet_firefox_profile }}"
+      shell: "{{ item }}"
+      loop:
+        - "{{ firefox_esr_binary }} -CreateProfile {{ lexnet_firefox_profile }}"
+        - "{{ firefox_esr_binary }} -P {{ lexnet_firefox_profile }} &"
+        - "killall firefox"
+
+    - name: "get the firefox preferences file"
+      find:
+        path: "{{ ansible_user_dir }}/.mozilla/firefox"
+        patterns: "^prefs.js$"
+        use_regex: true
+        file_type: file
+        recurse: true
+      register: find_response
+
+    - name: "customize firefox profile for {{ ansible_user }}"
+      vars:
+        firefox_config:
+          - 'user_pref("plugin.load_flash_only", false);'
+          - 'user_pref("plugin.importedState", true);'
+          - 'user_pref("security.disable_button.openCertManager", false);'
+          - 'user_pref("security.disable_button.openDeviceManager", false);'
+      lineinfile:
+        path: "{{ item[0] }}"
+        line: "{{ item[1] }}"
+        state: present
+      when: lexnet_firefox_profile in item[0]
+      with_nested:
+        - "{{ find_response.files | json_query('[].path') }}"
+        - "{{ firefox_config }}"
+
+    - name: "overwrite *db files"
+      vars:
+        db_files:
+          - cert8.db
+          - key3.db
+          - secmod.db
+      copy:
+        src: "{{ item [1] }}"
+        dest: "{{ item[0] | dirname }}/{{ item[1] }}"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: 0600
+        backup: true
+      when: lexnet_firefox_profile in item[0]
+      with_nested:
+        - "{{ find_response.files | json_query('[].path') }}"
+        - "{{ db_files }}"
+  when: stat_response.stat.exists
+
+- name: "Delete temporal directory"
+  file:
+    path: /tmp/lexnet
+    state: absent
