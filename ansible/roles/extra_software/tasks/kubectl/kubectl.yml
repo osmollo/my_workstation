@@ -30,8 +30,8 @@
 
 - import_tasks: helm.yml
   tags:
-    - install_helm
+    - helm
 
 - import_tasks: hetzner_kube.yml
   tags:
-    - install_hetznerkube
+    - hetznerkube

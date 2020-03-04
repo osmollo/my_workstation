@@ -22,10 +22,11 @@
     state: latest
     update_cache: true
   tags:
-    - install_vagrant
-
+    - vagrant
 
 - name: "[FEDORA] Uninstall vagrant-libvirt if is installed"
   yum:
     name: vagrant-libvirt
     state: absent
+  tags:
+    - vagrant

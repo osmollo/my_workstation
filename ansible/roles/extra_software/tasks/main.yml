@@ -12,13 +12,13 @@
     - install_flatpak
   tags:
     - extra_software
-    - install_flatpak
-    - install_telegram
-    - install_slack
-    - install_pycharm
-    - install_postman
-    - install_skype
-    - install_franz
+    - flatpak
+    - telegram
+    - slack
+    - pycharm
+    - postman
+    - skype
+    - franz
     - ohermosa
 
 - name: "---[INSTALL]--- docker"
@@ -26,7 +26,7 @@
   when: install_docker
   tags:
     - extra_software
-    - install_docker
+    - docker
     - ohermosa
 
 - name: "---[INSTALL]--- dropbox"
@@ -34,7 +34,7 @@
   when: install_dropbox
   tags:
     - extra_software
-    - install_dropbox
+    - dropbox
     - ohermosa
 
 - name: "---[INSTALL]--- Visual Studio Code"
@@ -42,8 +42,8 @@
   when: install_code
   tags:
     - extra_software
-    - install_code
-    - install_editors
+    - code
+    - editors
     - ohermosa
 
 - name: "---[INSTALL]--- Spotify"
@@ -51,7 +51,7 @@
   when: install_spotify
   tags:
     - extra_software
-    - install_spotify
+    - spotify
     - ohermosa
 
 - name: "---[INSTALL]--- Oh My ZSH!"
@@ -60,30 +60,30 @@
     - install_ohmyzsh
   tags:
     - extra_software
-    - install_ohmyzsh
+    - ohmyzsh
 
 - name: "---[INSTALL]--- Sublime Text"
   import_tasks: sublime/sublime.yml
   when: install_sublime
   tags:
     - extra_software
-    - install_sublime
-    - install_editors
+    - sublime
+    - editors
 
 - name: "---[INSTALL]--- Atom"
   import_tasks: atom/atom.yml
   when: install_atom
   tags:
     - extra_software
-    - install_atom
-    - install_editors
+    - atom
+    - editors
 
 - name: "---[INSTALL]--- Gitkraken"
   import_tasks: gitkraken/gitkraken.yml
   when: install_gitkraken
   tags:
     - extra_software
-    - install_gitkraken
+    - gitkraken
     - ohermosa
 
 - name: "---[INSTALL]--- Telegram"
@@ -91,8 +91,8 @@
   when: install_telegram
   tags:
     - extra_software
-    - install_telegram
-    - install_socials
+    - telegram
+    - socials
     - ohermosa
 
 - name: "---[INSTALL]--- Slack"
@@ -100,30 +100,30 @@
   when: install_slack
   tags:
     - extra_software
-    - install_slack
-    - install_socials
+    - slack
+    - socials
 
 - name: "---[INSTALL]--- Forticlient VPN"
   import_tasks: forticlientvpn/forticlientvpn.yml
   when: install_forticlientvpn
   tags:
     - extra_software
-    - install_forticlientvpn
-    - install_vpnclient
+    - forticlientvpn
+    - vpnclient
 
 - name: "---[INSTALL]--- TLP"
   import_tasks: tlp/tlp.yml
   when: install_tlp
   tags:
     - extra_software
-    - install_tlp
+    - tlp
 
 - name: "---[INSTALL]--- Virtualbox"
   import_tasks: virtualbox/virtualbox.yml
   when: install_virtualbox
   tags:
     - extra_software
-    - install_virtualbox
+    - virtualbox
     - ohermosa
 
 - name: "---[INSTALL]--- PyCharm"
@@ -131,40 +131,40 @@
   when: install_pycharm
   tags:
     - extra_software
-    - install_pycharm
-    - install_editors
+    - pycharm
+    - editors
 
 - name: "---[INSTALL]--- Keepass"
   import_tasks: keepass/keepass.yml
   when: install_keepass
   tags:
     - extra_software
-    - install_keepass
-    - install_pass_managers
+    - keepass
+    - pass_managers
 
 - name: "---[INSTALL]--- Buttercup"
   import_tasks: buttercup/buttercup.yml
   when: install_buttercup
   tags:
     - extra_software
-    - install_buttercup
-    - install_pass_managers
+    - buttercup
+    - pass_managers
 
 - name: "---[INSTALL]--- Windscribe client"
   import_tasks: windscribe/windscribe.yml
   when: install_windscribe
   tags:
     - extra_software
-    - install_windscribe
-    - install_vpnclient
+    - windscribe
+    - vpnclient
 
 - name: "---[INSTALL]--- Google Chrome"
   import_tasks: chrome/chrome.yml
   when: install_chrome
   tags:
     - extra_software
-    - install_chrome
-    - install_browsers
+    - chrome
+    - browsers
     - ohermosa
 
 - name: "---[INSTALL]--- Teamviewer"
@@ -172,7 +172,7 @@
   when: install_teamviewer
   tags:
     - extra_software
-    - install_teamviewer
+    - teamviewer
     - ohermosa
 
 - name: "---[INSTALL]--- No Machine"
@@ -180,37 +180,37 @@
   when: install_nomachine
   tags:
     - extra_software
-    - install_nomachine
-    - install_remotes
+    - nomachine
+    - remotes
 
 - name: "---[INSTALL]--- Ether Cloud Services Client"
   import_tasks: ecs.yml
   when: install_ecs
   tags:
     - extra_software
-    - install_ecs
+    - ecs
 
 - name: "---[INSTALL]--- Postman"
   import_tasks: postman/postman.yml
   when: install_postman
   tags:
     - extra_software
-    - install_postman
+    - postman
 
 - name: "---[INSTALL]--- Skype"
   import_tasks: skype/skype.yml
   when: install_skype
   tags:
     - extra_software
-    - install_skype
+    - skype
 
 - name: "---[INSTALL]--- Java"
   import_tasks: java/java.yml
   when: install_java
   tags:
     - extra_software
-    - install_java
-    - install_apachedirectory
+    - java
+    - apachedirectory
 
 - name: "---[INSTALL]--- Apache Directory"
   block:
@@ -230,29 +230,29 @@
         - linux_distribution == "arch"
   tags:
     - extra_software
-    - install_apachedirectory
+    - apachedirectory
 
 - name: "---[INSTALL]--- Rambox"
   import_tasks: rambox/rambox.yml
   when: install_rambox
   tags:
     - extra_software
-    - install_rambox
+    - rambox
 
 - name: "---[INSTALL]--- Franz"
   import_tasks: franz/franz.yml
   when: install_franz
   tags:
     - extra_software
-    - install_franz
+    - franz
 
 - name: "---[INSTALL]--- Chromium Browser"
   import_tasks: chromium/chromium.yml
   when: install_chromium
   tags:
     - extra_software
-    - install_chromium
-    - install_browsers
+    - chromium
+    - browsers
 
 - name: "---[INSTALL]--- Deluge"
   import_tasks: deluge/deluge.yml
@@ -261,22 +261,22 @@
     - desktop_environment == "gnome"
   tags:
     - extra_software
-    - install_deluge
+    - deluge
 
 - name: "---[INSTALL]--- Cherrytree"
   import_tasks: cherrytree/cherrytree.yml
   when: install_cherrytree
   tags:
     - extra_software
-    - install_cherrytree
-    - install_editors
+    - cherrytree
+    - editors
 
 - name: "---[INSTALL]--- Kubectl"
   import_tasks: kubectl/kubectl.yml
   when: install_kubectl
   tags:
     - extra_software
-    - install_kubectl
+    - kubectl
     - ohermosa
 
 - name: "---[INSTALL]--- MEGAcmd"
@@ -284,7 +284,7 @@
   when: install_megacmd
   tags:
     - extra_software
-    - install_megacmd
+    - megacmd
     - ohermosa
 
 - name: "---[INSTALL]--- MEGAsync"
@@ -292,32 +292,33 @@
   when: install_megasync
   tags:
     - extra_software
-    - install_megasync
-    - install_mega
+    - megasync
+    - megacmd
+    - mega
 
 - name: "---[INSTALL]--- Vivaldi"
   import_tasks: vivaldi/vivaldi.yml
   when: install_vivaldi
   tags:
     - extra_software
-    - install_vivaldi
-    - install_browsers
+    - vivaldi
+    - browsers
 
 - name: "---[INSTALL]--- Brave"
   import_tasks: brave/brave.yml
   when: install_brave
   tags:
     - extra_software
-    - install_brave
-    - install_browsers
+    - brave
+    - browsers
 
 - name: "---[INSTALL]--- Bitwarden"
   import_tasks: bitwarden/bitwarden.yml
   when: install_bitwarden
   tags:
     - extra_software
-    - install_bitwarden
-    - install_pass_managers
+    - bitwarden
+    - pass_managers
 
 - name: "---[INSTALL]--- Lexnet"
   import_tasks: lexnet.yml
@@ -326,15 +327,15 @@
     - linux_distribution == "ubuntu"
   tags:
     - extra_software
-    - install_lexnet
+    - lexnet
 
 - name: "---[INSTALL]--- Pass"
   import_tasks: pass/pass.yml
   when: install_pass
   tags:
     - extra_software
-    - install_pass
-    - install_pass_managers
+    - pass
+    - pass_managers
 
 - name: "---[INSTALL]--- Bucklespring"
   import_tasks: bucklespring.yml
@@ -343,14 +344,14 @@
     - install_bucklespring
   tags:
     - extra_software
-    - install_bucklespring
+    - bucklespring
 
 - name: "---[INSTALL]--- ProtonVPN"
   import_tasks: protonvpn.yml
   when: install_protonvpn
   tags:
     - extra_software
-    - install_protonvpn
+    - protonvpn
     - ohermosa
 
 - name: "---[INSTALL]--- Prezto"
@@ -358,7 +359,7 @@
   when: install_prezto
   tags:
     - extra_software
-    - install_prezto
+    - prezto
     - ohermosa
 
 - name: "---[INSTALL]--- Etcher"
@@ -366,7 +367,7 @@
   when: install_etcher
   tags:
     - extra_software
-    - install_etcher
+    - etcher
     - ohermosa
 
 - name: "---[INSTALL]--- WoeUSB"
@@ -374,7 +375,7 @@
   when: install_woeusb
   tags:
     - extra_software
-    - install_woeusb
+    - woeusb
     - ohermosa
 
 - name: "---[INSTALL]--- GO"
@@ -382,7 +383,7 @@
   when: install_go
   tags:
     - extra_software
-    - install_go
+    - go
     - ohermosa
 
 - name: "---[INSTALL]--- FZF"
@@ -390,7 +391,7 @@
   when: install_fzf
   tags:
     - extra_software
-    - install_fzf
+    - fzf
     - ohermosa
 
 - name: "---[INSTALL]--- VIM PLUGINS"
@@ -398,5 +399,6 @@
   when: install_vimplugins
   tags:
     - extra_software
-    - install_vimplugins
+    - vim
+    - vimplugins
     - ohermosa

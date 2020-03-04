@@ -34,54 +34,54 @@
 
 Por defecto se instala el siguiente software:
 
-| **APLICACIÓN** | **TAG/VARIABLE** | **GRUPO** |
-|----------------|------------------|-----------|
-| [Google Chrome](https://www.google.com/intl/es/chrome/) | install_chrome | install_browsers |
-| [Chromium Browser](https://chromium.woolyss.com/download/es/) | install_chromium | install_browsers |
-| [Docker](https://docs.docker.com/install/linux/docker-ce/) | install_docker | |
-| [Dropbox](https://www.dropbox.com/) | install_dropbox | |
-| [Visual Studio Code](https://code.visualstudio.com/) | install_code | install_editors |
-| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | install_spotify | |
-| [Oh my ZSH!](https://ohmyz.sh/) | install_ohmyzsh | |
-| [Sublime Text](https://www.sublimetext.com/) | install_sublime | install_editors |
-| [Atom](https://atom.io/) | install_atom | |
-| [Gitkraken](https://www.gitkraken.com/git-client) | install_gitkraken | |
-| [Telegram Desktop](https://telegram.org/) | install_telegram | install_socials |
-| [Slack](https://datiodevelopers.slack.com/) | install_slack | install_socials |
-| [Forticlient VPN](https://www.fortinet.com/lat) | install_forticlientvpn | |
-| [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | install_tlp | |
-| [Virtualbox](https://www.virtualbox.org/) | install_virtualbox | |
-| [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | install_pycharm | install_editors |
-| [KeepassXC](https://keepassxc.org/download/) | install_keepass | install_pass_managers |
-| [Buttercup](https://buttercup.pw/) | install_buttercup | install_pass_managers |
-| [Windscribe](https://windscribe.com/) | install_windscribe | |
-| [Teamviewer](https://www.teamviewer.com/es/) | install_teamviewer | install_remotes |
-| [NoMachine](https://www.nomachine.com/es/) | install_nomachine | install_remotes |
-| [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | install_ecs | |
-| [Postman](https://www.getpostman.com) | install_postman | |
-| [Skype](https://www.skype.com/es/) | install_skype | install_socials |
-| [Java](https://openjdk.java.net/) | install_java | |
-| [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) | install_apachedirectory | |
-| [Rambox](https://rambox.pro/#home) | install_rambox | |
-| [Franz](https://meetfranz.com/) | install_franz | |
-| [Deluge Torrent](https://deluge-torrent.org/) | install_deluge | |
-| [Cherrytree](https://www.giuspen.com/cherrytree/) | install_cherrytree | install_editors |
-| [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-kubectl) | install_kubectl | |
-| [MEGAcmd](https://mega.nz/cmd) | install_megacmd | install_mega |
-| [MEGA sync](https://mega.nz/sync) | install_megasync | install_mega |
-| [Vivaldi](https://vivaldi.com/es/) | install_vivaldi | install_browsers |
-| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | install_brave | install_browsers |
-| [Bitwarden](https://bitwarden.com/) | install_bitwarden | install_pass_managers |
-| [Lexnet](https://lexnet.justicia.es) | install_lexnet | |
-| [Pass](https://www.passwordstore.org/) | install_pass | install_pass_managers |
-| [Bucklespring](https://github.com/zevv/bucklespring) | install_bucklespring | |
-| [ProtonVPN](https://protonvpn.com/) | install_protonvpn | |
-| [Prezto](https://github.com/sorin-ionescu/prezto) | install_prezto | |
-| [Balena Etcher](https://www.balena.io/etcher/) | install_etcher | |
-| [WoeUSB](https://github.com/slacka/WoeUSB) | install_woeusb | |
-| [GO](https://golang.org/doc/install/source) | install_go | |
-| [FZF](https://github.com/junegunn/fzf) | install_fzf | |
-| [Vim plugins]() | install_vimplugins | |
+| **APLICACIÓN** | **TAG** | **VARIABLE** | **GRUPO** |
+|--|--|--|--|
+| [Google Chrome](https://www.google.com/intl/es/chrome/) | chrome | install_chrome | browsers |
+| [Chromium Browser](https://chromium.woolyss.com/download/es/) | chromium | install_chromium| browsers |
+| [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | |
+| [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | |
+| [Visual Studio Code](https://code.visualstudio.com/) | code | install_code | editors |
+| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | |
+| [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | |
+| [Sublime Text](https://www.sublimetext.com/) | sublime | install_sublime | editors |
+| [Atom](https://atom.io/) | atom | install_atom | editors |
+| [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | |
+| [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | socials |
+| [Slack](https://datiodevelopers.slack.com/) | slack | install_slack | socials |
+| [Forticlient VPN](https://www.fortinet.com/lat) | forticlientvpn | install_forticlientvpn | |
+| [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | |
+| [Virtualbox](https://www.virtualbox.org/) | virtualbox | install_virtualbox | |
+| [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | pycharm | install_pycharm | editors |
+| [KeepassXC](https://keepassxc.org/download/) | keepass | install_keepass | pass_managers |
+| [Buttercup](https://buttercup.pw/) | buttercup | install_buttercup | pass_managers |
+| [Windscribe](https://windscribe.com/) | windscribe | install_windscribe | |
+| [Teamviewer](https://www.teamviewer.com/es/) | teamviewer | install_teamviewer | remotes |
+| [NoMachine](https://www.nomachine.com/es/) | nomachine | install_nomachine | remotes |
+| [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | ecs | install_ecs | |
+| [Postman](https://www.getpostman.com) | postman | install_postman | |
+| [Skype](https://www.skype.com/es/) | skype | install_skype | socials |
+| [Java](https://openjdk.java.net/) | java | install_java | |
+| [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) | apachedirectory | install_apachedirectory | |
+| [Rambox](https://rambox.pro/#home) | rambox | install_rambox | |
+| [Franz](https://meetfranz.com/) | franz | install_franz | |
+| [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | |
+| [Cherrytree](https://www.giuspen.com/cherrytree/) | cherrytree | install_cherrytree | editors |
+| [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-kubectl) | kubectl | install_kubectl | |
+| [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | mega |
+| [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | mega |
+| [Vivaldi](https://vivaldi.com/es/) | vivaldi | install_vivaldi | browsers |
+| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | brave | install_brave | browsers |
+| [Bitwarden](https://bitwarden.com/) | bitwarden | install_bitwarden | pass_managers |
+| [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | |
+| [Pass](https://www.passwordstore.org/) | pass | install_pass | pass_managers |
+| [Bucklespring](https://github.com/zevv/bucklespring) | bucklespring | install_bucklespring | |
+| [ProtonVPN](https://protonvpn.com/) | protonvpn | install_protonvpn | |
+| [Prezto](https://github.com/sorin-ionescu/prezto) | prezto | install_prezto | |
+| [Balena Etcher](https://www.balena.io/etcher/) | etcher | install_etcher | |
+| [WoeUSB](https://github.com/slacka/WoeUSB) | woeusb | install_woeusb | |
+| [GO](https://golang.org/doc/install/source) | go | install_go | |
+| [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | |
+| [Vim plugins]() | vimplugins | install_vimplugins | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
@@ -92,7 +92,7 @@ ansible-playbook install.yml -e "install_spotify=false install_ohmyzsh=false"
 En caso contrario, si lo único que se quiere hacer es instalar alguna de las aplicaciones, hay que usar el **tag** correspondiente, que coincide con las variables anteriores. Por ejemplo, para instalar *Visual Studio Code*:
 
 ```bash
-ansible-playbook install.yml -t "install_code,install_dropbox_install_spotify"
+ansible-playbook install.yml -t "code,dropbox,spotify"
 ```
 
 ## Prerequisitos
@@ -144,7 +144,7 @@ ansible-playbook install.yml --ask-vault-pass
 En caso de querer instalar únicamente alguna de las [aplicaciones de terceros disponibles](#software-extra-instalado), hay que usar los tags correspondientes:
 
 ```bash
-ansible-playbook install.yml -t install_atom,install_code
+ansible-playbook install.yml -t atom,code
 ```
 
 Si, por el contrario, se quiere instalar todo el software excepto alguno en concreto, hay que usar el siguiente comando:
@@ -156,7 +156,7 @@ ansible-playbook install.yml -e install_atom=false -e install_code=false
 Igualmente, se pueden usar los tags específicos que cada usuario haya puesto en su role `post_install/$USER`
 
 ```bash
-ansible-playbook install-yml -t post_env --ask-vault-pass
+ansible-playbook install-yml -t env --ask-vault-pass
 ```
 
 ### Instalación **DATIO**
@@ -263,7 +263,7 @@ Para usar este fichero de variables, habría que usar la misma tarea de Ansible 
 Y para ejecutar el playbook hay que agregar el parámetro `--ask-vault-pass` para que pueda descrifrar el fichero de contraseñas:
 
 ```bash
-ansible-playbook post_install.yml -e "post_install_user=dsamaniego"  --ask-vault-pass
+ansible-playbook install.yml -e "post_user=dsamaniego"  --ask-vault-pass
 ```
 
 Para editar el fichero habría que usar el siguiente comando (o bien instalar alguna extensión en el editor de textos que permita trabajar con estos ficheros)
@@ -308,7 +308,7 @@ ceporro: !vault |
 Para poder descrifrar esta contraseña al ejecutar el playbook, habrá que incluír el argumento `--ask-vault-pass` e indicar la contraseña que se usó en el paso anterior para cifrar la password:
 
 ```bash
-ansible-playbook post_install -e post_install_user=--ask-vault-pass
+ansible-playbook install --ask-vault-pass
 ```
 
 ## Otros playbooks
@@ -325,10 +325,10 @@ ansible localhost -m shell -a "df -h"
 
 :information_source: El __usuario/contraseña__ de las máquinas virtuales es `vagrant/vagrant`
 
-Para probar el código, se puede levantar una máquina virtual usando [Vagrant](https://www.vagrantup.com/) y [Virtualbox](https://www.virtualbox.org/). Para ello, será necesario instalar *Virtualbox* usando el tag `--install_virtualbox`:
+Para probar el código, se puede levantar una máquina virtual usando [Vagrant](https://www.vagrantup.com/) y [Virtualbox](https://www.virtualbox.org/). Para ello, será necesario instalar *Virtualbox* usando el tag `--virtualbox`:
 
 ```bash
-ansible-playbook install.yml  -t install_virtualbox
+ansible-playbook install.yml  -t virtualbox
 ```
 
 A continuación, dentro del directorio del repo, hay que ejecutar el siguiente comando para levntar la máquina virtual:
@@ -341,7 +341,7 @@ Cuando se inicie la máquina, se lanzará automáticamente el playbook `vagrant.
 
 ```bash
 ansible-playbook -i ansible_hosts vagrant/install.yml
-ansible-playbook -i ansible_hosts vagrant/post_install.yml -e post_install_user=ohermosa
+ansible-playbook -i ansible_hosts vagrant/post_install.yml -e post_user=ohermosa
 ```
 
 Y para destruir las máquinas:
