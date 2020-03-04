@@ -20,6 +20,7 @@
     src: "{{ dropbox_dir }}/datio/docker.config.json"
     dest: "/home/{{ ansible_user }}/.docker/config.json"
     state: link
+    force: true
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
 
@@ -30,6 +31,7 @@
     src: "{{ dropbox_dir }}/datio/etc.docker.daemon.json"
     dest: /etc/docker/daemon.json
     state: link
+    force: true
 
 - name: "Restart docker"
   systemd:
