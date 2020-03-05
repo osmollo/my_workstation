@@ -3,6 +3,7 @@
 ## 3.2
 
 - Eliminación del tag `ohermosa`
+- Configuración del software instalado para cada usuario en `roles/extra_vars/vars/$USER.yml`
 - Corrección de errores
 
 ## 3.1
