@@ -1,7 +1,10 @@
 ---
 
 - include_vars:
-    file: "{{ linux_distribution }}.yml"
+    file: "{{ item }}"
+  loop:
+    - "{{ linux_distribution }}.yml"
+    - "{{ ansible_user }}.yml"
   tags:
     - always
 
