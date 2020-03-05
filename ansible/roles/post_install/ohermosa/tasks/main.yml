@@ -10,28 +10,24 @@
   tags:
     - post_install
     - resolv
-    - ohermosa
 
 - name: "create secrets"
   import_tasks: secrets.yml
   tags:
     - post_install
     - secrets
-    - ohermosa
 
 - name: "configure megacmd client"
   import_tasks: megacmd.yml
   tags:
     - post_install
     - megacmd
-    - ohermosa
 
 - name: "Customize firefox"
   import_tasks: firefox.yml
   tags:
     - post_install
     - firefox
-    - ohermosa
 
 - name: "Delete default directories in /home/{{ ansible_user }}"
   file:
@@ -48,14 +44,12 @@
   tags:
     - post_install
     - del_default_dirs
-    - ohermosa
 
 - import_tasks: kde_restore.yml
   when: desktop_environment == "kde"
   tags:
     - post_install
     - kde_restore
-    - ohermosa
 
 - import_tasks: gnome_extensions.yml
   when: desktop_environment == "gnome"
@@ -63,7 +57,6 @@
     - post_install
     - gnome_extensions
     - gnome
-    - ohermosa
 
 - import_tasks: gnome_conf.yml
   when: desktop_environment == "gnome" or desktop_environment == "cinnamon"
@@ -71,13 +64,11 @@
     - post_install
     - gnome_conf
     - gnome
-    - ohermosa
 
 - import_tasks: docker.yml
   tags:
     - post_install
     - docker
-    - ohermosa
 
 - import_tasks: crontab.yml
   tags:
@@ -89,20 +80,17 @@
     - post_install
     - environment
     - env
-    - ohermosa
 
 - import_tasks: git.yml
   tags:
     - post_install
     - git
-    - ohermosa
 
 - import_tasks: python.yml
   tags:
     - post_install
     - git
     - python
-    - ohermosa
 
 - import_tasks: sublime.yml
   tags:
@@ -115,53 +103,45 @@
   tags:
     - post_install
     - network
-    - ohermosa
 
 - import_tasks: gpg.yml
   tags:
     - post_install
     - gpg
     - pass
-    - ohermosa
 
 - name: "Configure VIM"
   import_tasks: vim.yml
   tags:
     - post_install
     - vim
-    - ohermosa
 
 - name: "Configure Gimp"
   import_tasks: gimp.yml
   tags:
     - post_install
     - gimp
-    - ohermosa
 
 - name: "install HP packages"
   import_tasks: hp.yml
   tags:
     - post_install
     - hp
-    - ohermosa
 
 - name: "configure pass secrets manager"
   import_tasks: pass.yml
   tags:
     - post_install
     - pass
-    - ohermosa
 
 - name: "configure prezto"
   import_tasks: prezto.yml
   tags:
     - post_install
     - prezto
-    - ohermosa
 
 - name: "configure spotify tui"
   import_tasks: spotify.yml
   tags:
     - post_install
     - spotify
-    - ohermosa

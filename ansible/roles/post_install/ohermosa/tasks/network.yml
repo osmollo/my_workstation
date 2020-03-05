@@ -19,7 +19,7 @@
     path: /usr/local/bin/protonvpn
   register: stat_response
   tags:
-    - post_protonvpn
+    - protonvpn
 
 - name: "configure protonvpn if is instaled"
   block:
@@ -143,4 +143,4 @@
           dest: "{{ ansible_user_dir }}/.cert/nm-openvpn/connect-tls-auth.pem"
   when: stat_response.stat.exists
   tags:
-    - post_protonvpn
+    - protonvpn

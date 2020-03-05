@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.2
+
+- Eliminación del tag `ohermosa`
+- Corrección de errores
+
 ## 3.1
 
 - Renombrado de los tags para quitar el `install_` y `post_`
