@@ -1,0 +1,7 @@
+---
+
+- name: "Create remote"
+  shell: "git remote add {{ remote.name }} {{ remote.url }}"
+  args:
+    chdir: "{{ remote.directory }}"
+  failed_when: false
