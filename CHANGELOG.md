@@ -6,6 +6,7 @@
 - Configuración del software instalado para cada usuario en `roles/extra_vars/vars/$USER.yml`
 - Instalación de extensiones de **Code** en el role `extra_software` en vez de en `post_install/datio`
 - Corrección de errores
+- Nuevo módulo para obtener los forks de un repositorio de **gitlab**
 
 ## 3.1
 
