@@ -5,6 +5,7 @@
   loop:
     - "{{ linux_distribution }}.yml"
     - "{{ ansible_user }}.yml"
+  ignore_errors: true
   tags:
     - always
 
