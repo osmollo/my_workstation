@@ -118,7 +118,7 @@ git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
 ```
 
-Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar `prepare.yml` para instalar todos los requisitos previos:
+Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar `playbooks/prepare.yml` para instalar todos los requisitos previos:
 
 ```bash
 ansible-playbook playbooks/prepare.yml
