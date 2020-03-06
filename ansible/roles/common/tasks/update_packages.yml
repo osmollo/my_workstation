@@ -14,7 +14,6 @@
     name: '*'
     state: latest
     update_cache: true
-    autoremove: true
   when: linux_distribution == "fedora"
 
 - name: "[ARCH] upgrade all packages to the latest version"

@@ -5,21 +5,18 @@
     name: "{{ common_packages }}"
     state: latest
     update_cache: true
-    autoremove: true
 
 - name: "[FEDORA] Install Fedora packages"
   yum:
     name: "{{ distro_packages }}"
     state: latest
     update_cache: true
-    autoremove: true
 
 - name: "[FEDORA] Install Gnome packages"
   yum:
     name: "{{ gnome_packages }} + {{ gnome_fedora_packages }}"
     state: latest
     update_cache: true
-    autoremove: true
   when:
     - desktop_environment is defined
     - desktop_environment == "gnome"
@@ -29,7 +26,6 @@
     name: "{{ kde_packages }} + {{ kde_fedora_packages }}"
     state: latest
     update_cache: true
-    autoremove: true
   when:
     - desktop_environment is defined
     - desktop_environment == "kde"
@@ -39,7 +35,6 @@
     name: "{{ xfce_packages }} + {{ xfce_fedora_packages }}"
     state: latest
     update_cache: true
-    autoremove: true
   when:
     - desktop_environment is defined
     - desktop_environment == "xfce"

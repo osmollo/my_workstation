@@ -8,7 +8,6 @@
     name: "{{ python_packages }}"
     state: latest
     update_cache: true
-    autoremove: true
   when: linux_distribution == "fedora"
 
 - name: "[DEB] Install Python3 packages"
