@@ -4,6 +4,137 @@
   tags:
     - always
 
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - block:
+        - name: "check if prepare flag exists"
+          stat:
+            path: /var/tmp/.prepare
+          register: flag_response
+
+        - set_fact:
+            flag_is_on: flag_response.stat.exists
+      when: linux_distribution in ["debian", "ubuntu"]
+      tags:
+        - always
+
+
+- hosts: localhost
+  connection: local
+  become: true
+  become_method: su
+  vars:
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+  tasks:
+    - block:
+        - name: "create post_install/{{ ansible_user }}/tasks"
+          file:
+            path: "../roles/post_install/{{ ansible_user }}/tasks"
+            state: directory
+
+        - name: "[DEBIAN] Import ansible repository key"
+          apt_key:
+            keyserver: keyserver.ubuntu.com
+            id: 6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
+            state: present
+            validate_certs: false
+
+        - name: "[DEBIAN] Create ansible repository file"
+          lineinfile:
+            path: /etc/apt/sources.list.d/ansible.list
+            line: deb http://ppa.launchpad.net/ansible/ansible-2.9/ubuntu trusty main
+            create: true
+
+        - name: "[DEBIAN] Update ansible"
+          apt:
+            name: ansible
+            update_cache: true
+            state: latest
+
+        - name: "[DEBIAN] Ensure sudo package is installed"
+          apt:
+            name: sudo
+            state: present
+
+        - name: "[DEBIAN] Add {{ ansible_user}} to sudoers files"
+          lineinfile:
+            path: /etc/sudoers
+            line: "{{ ansible_user }}	ALL=(ALL:ALL) ALL"
+
+        - name: "[DEBIAN] Add {{ ansible_user }} to group sudo"
+          user:
+            name: "{{ ansible_user }}"
+            groups: sudo
+            append: true
+
+        - name: "Activating prepare flag"
+          file:
+            path: /var/tmp/.prepare
+            state: touch
+
+        - debug:
+            msg: "Debes cerrar sesión para que se apliquen los cambios"
+
+        - meta: end_play
+      when:
+        - linux_distribution == "debian"
+        - hostvars['localhost']['flag_is_on'] | bool
+      tags:
+        - always
+
+
+- hosts: localhost
+  connection: local
+  become: true
+  become_method: sudo
+  vars:
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+  tasks:
+    - block:
+        - name: "create post_install/{{ ansible_user }}/tasks"
+          file:
+            path: "../roles/post_install/{{ ansible_user }}/tasks"
+            state: directory
+      tags:
+        - always
+
+    - block:
+        - name: "[UBUNTU] add ansible ppa repository"
+          apt_repository:
+            validate_certs: no
+            repo: 'ppa:ansible/ansible'
+            state: present
+            codename: "{{ ubuntu_codename }}"
+
+        - name: "[UBUNTU] Update ansible"
+          apt:
+            name:
+              - ansible
+              - python-apt
+            update_cache: true
+            state: latest
+            force_apt_get: true
+
+        - name: "Activating prepare flag"
+          file:
+            path: /var/tmp/.prepare
+            state: touch
+
+        - debug:
+            msg: "Por favor, vuelve a ejecutar el playbook para usar la nueva version de Ansible"
+
+        - meta: end_play
+      when:
+        - linux_distribution == "ubuntu"
+        - hostvars['localhost']['flag_is_on'] | bool
+      tags:
+        - always
+
+
 - hosts: localhost
   connection: local
   become: true
@@ -16,11 +147,13 @@
     - common
     - extra_software
 
+
 - hosts: localhost
   connection: local
   vars:
     ansible_user: "{{ lookup('env', 'USER') }}"
     ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
     post_user: "{{ post_install_user | default(ansible_user) }}"
-  roles:
-    - "post_install/{{ post_user }}"
+  tasks:
+    - include_role:
+        name: "post_install/{{ post_user }}"
