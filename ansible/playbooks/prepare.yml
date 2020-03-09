@@ -16,16 +16,6 @@
             path: "../roles/post_install/{{ ansible_user }}/tasks"
             state: directory
 
-            #        - name: "create empty post_install/{{ ansible_user }}/tasks"
-            #          lineinfile:
-            #            path: "../roles/post_install/{{ ansible_user }}/tasks/main.yml"
-            #            line: |
-            #              ---
-            #
-            #              - debug: msg="NO TASKS FOR POST INSTALL"
-            #            state: present
-            #            create: true
-
     - block:
         - name: "[DEBIAN] Import ansible repository key"
           apt_key:
@@ -72,6 +62,11 @@
             name: "{{ ansible_user }}"
             groups: sudo
             append: true
+
+        - name: "Activating prepare flag"
+          file:
+            path: /var/tmp/.prepare
+            state: touch
 
         - debug:
             msg: "Debes cerrar sesión para que se apliquen los cambios"
@@ -127,3 +122,8 @@
           import_role:
             name: common
             tasks_from: update_packages
+
+        - name: "Activating prepare flag"
+          file:
+            path: /var/tmp/.prepare
+            state: touch

@@ -3,8 +3,7 @@
 - [Ansible](#ansible)
   - [Distribuciones soportadas](#distribuciones-soportadas)
   - [Software extra instalado](#software-extra-instalado)
-  - [Prerequisitos](#prerequisitos)
-  - [Instalación y configuración](#instalación-y-configuración)
+  - [¿Cómo se usa?](#cómo-se-usa)
     - [Instalación **DATIO**](#instalación-datio)
     - [Deshabilitar actualizaciones](#deshabilitar-actualizaciones)
     - [Gestión de contraseñas](#gestión-de-contraseñas)
@@ -95,7 +94,7 @@ En caso contrario, si lo único que se quiere hacer es instalar alguna de las ap
 ansible-playbook install.yml -t "code,dropbox,spotify"
 ```
 
-## Prerequisitos
+## ¿Cómo se usa?
 
 - El usuario que ejecute los playbooks debe tener `sudo` activado (se puede configurar con el playbook `config_sudo.yml`)
 - Las tareas de este repositorio se ejecutan en local, por lo que para poder ejecutar los playbooks es necesario tener instalado `git` y `ansible`:
@@ -118,24 +117,15 @@ git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
 ```
 
-Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar `playbooks/prepare.yml` para instalar todos los requisitos previos:
-
-```bash
-ansible-playbook playbooks/prepare.yml
-```
-
-:information_source: Para sistemas **Debian** será necesario introducir la contraseña de `su`, para el resto de sistemas será la de `sudo`
-
-Esto realiza las siguientes tareas:
+En la primera ejecución, si se trata de sistemas **Debian** o **Ubuntu**, se realizarán una serie de tareas de preparación del entorno y el playbook finalizará tras la ejecución de las mismas:
 
 - Instalación de **Python3** y sus módulos correspondientes
 - Configuración de `sudo` para sistemas **Debian**
 - Actualización de `ansible` para sistemas **Debian** y **Ubuntu**
-- Actualización de paquetes
 
-## Instalación y configuración
+:information_source: Para sistemas **Debian** será necesario introducir la contraseña de `su`, para el resto de sistemas será la de `sudo`
 
-Hay que ejecutar el siguiente comando:
+Para comenzar con la configuración, hay que ejecutar el siguiente comando:
 
 ```bash
 ansible-playbook install.yml --ask-vault-pass
