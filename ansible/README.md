@@ -117,15 +117,20 @@ git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
 ```
 
-En la primera ejecución, si se trata de sistemas **Debian** o **Ubuntu**, se realizarán una serie de tareas de preparación del entorno y el playbook finalizará tras la ejecución de las mismas:
+:warning: Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar `prepare.yml` para instalar todos los requisitos previos:
+:information_source: Para sistemas **Debian** será necesario introducir la contraseña de `su`, para el resto de sistemas será la de `sudo`
+
+```bash
+ansible-playbook playbooks/prepare.yml
+```
+
+Esto realiza las siguientes tareas:
 
 - Instalación de **Python3** y sus módulos correspondientes
 - Configuración de `sudo` para sistemas **Debian**
 - Actualización de `ansible` para sistemas **Debian** y **Ubuntu**
 
-:information_source: Para sistemas **Debian** será necesario introducir la contraseña de `su`, para el resto de sistemas será la de `sudo`
-
-Para comenzar con la configuración, hay que ejecutar el siguiente comando:
+A continuación, hay que ejecutar el siguiente comando:
 
 ```bash
 ansible-playbook install.yml --ask-vault-pass
