@@ -18,6 +18,7 @@ distro_packages:
   - kernel-devel
   - firewall-config
   - srm
+  - nss-tools
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome
