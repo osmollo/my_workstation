@@ -8,6 +8,7 @@
 - Corrección de errores
 - Se puede ejecutar el playbook `install.yml` sin que el usuario disponga de un subrole debajo de `post_install`
 - Nuevo módulo para obtener los forks de un repositorio de **gitlab**
+- Instalación de `certutil`
 
 ## 3.1
 
