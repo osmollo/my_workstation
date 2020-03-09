@@ -7,7 +7,7 @@
 - Instalación de extensiones de **Code** en el role `extra_software` en vez de en `post_install/datio`
 - Corrección de errores
 - Se puede ejecutar el playbook `install.yml` sin que el usuario disponga de un subrole debajo de `post_install`
-- Se han incluído todas las tareas del playbook `playbooks/prepare.yml` dentro de `install.yml`
+- Ahora `install.yml` falla si no se ha ejecutado previamente `playbooks/prepare.yml`
 - Nuevo módulo para obtener los forks de un repositorio de **gitlab**
 - Instalación de `certutil`
 
