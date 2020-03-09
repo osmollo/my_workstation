@@ -36,7 +36,7 @@ install_megacmd: true
 install_megasync: false
 install_vivaldi: false
 install_brave: false
-install_bitwarden: false
+install_bitwarden: true
 install_lexnet: false
 install_pass: false
 install_bucklespring: false
