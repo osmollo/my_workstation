@@ -91,12 +91,16 @@ git_repositories:
   home:
     - repo: git@gitlab.com:ohermosa/AmazonPy.git
       dest: "{{ git_dir }}/AmazonPy"
+      forks: true
     - repo: git@gitlab.com:ohermosa/BingoPy.git
       dest: "{{ git_dir }}/BingoPy"
+      forks: true
     - repo: git@gitlab.com:ohermosa/PiOPs.git
       dest: "{{ git_dir }}/PiOPs"
+      forks: true
     - repo: git@gitlab.com:ohermosa/PuedoCircular.git
       dest: "{{ git_dir }}/PuedoCircular"
+      forks: true
     - repo: git@gitlab.com:ohermosa/rootnerds.git
       dest: "{{ git_dir }}/rootnerds"
     - repo: git@gitlab.com:ohermosa/whopper_bot.git
@@ -104,6 +108,7 @@ git_repositories:
     - repo: git@gitlab.com:ohermosa/my_workstation.git
       dest: "{{ git_dir }}/my_workstation"
       remote: github
+      forks: true
     - repo: git@gitlab.com:ohermosa/my_k8s.git
       dest: "{{ git_dir }}/my_k8s"
     - repo: git@gitlab.com:ohermosa/kubespray.git

@@ -15,10 +15,12 @@
     - [Ejemplo de uso](#ejemplo-de-uso-4)
   - [gitlab_get_forks](#gitlab_get_forks)
     - [Ejemplo de uso](#ejemplo-de-uso-5)
-  - [yay](#yay)
+  - [gitlab_get_repos](#gitlab_get_repos)
     - [Ejemplo de uso](#ejemplo-de-uso-6)
-  - [protonvpn_fastest](#protonvpn_fastest)
+  - [yay](#yay)
     - [Ejemplo de uso](#ejemplo-de-uso-7)
+  - [protonvpn_fastest](#protonvpn_fastest)
+    - [Ejemplo de uso](#ejemplo-de-uso-8)
 
 ## dconf_to_list
 
@@ -167,6 +169,18 @@ Este módulo devuelve los forks existentes para el repositorio indicado
 - gitlab_get_forks:
     gitlab_auth_key: "{{ gitlab_token }}"
     name: "{{ repo_name}}"
+  register: result
+```
+
+## gitlab_get_repos
+
+Este módulo devuelve los repositorios existentes para el repositorio autenticado
+
+### Ejemplo de uso
+
+```yaml
+- gitlab_get_repos:
+    gitlab_auth_key: "{{ gitlab_token }}"
   register: result
 ```
 

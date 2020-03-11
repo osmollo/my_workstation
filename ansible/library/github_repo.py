@@ -39,9 +39,9 @@ def github_repo_present(data):
     del data['github_auth_key']
 
     headers = {
-        "Authorization": "token {}" . format(api_key)
+        "Authorization": "token {}".format(api_key)
     }
-    url = "{}{}" . format(api_url, '/user/repos')
+    url = "{}{}".format(api_url, '/user/repos')
     result = requests.post(url, json.dumps(data), headers=headers)
 
     if result.status_code == 201:
@@ -56,9 +56,9 @@ def github_repo_present(data):
 
 def github_get_owner(data=None):
     headers = {
-        "Authorization": "token {}" . format(data['github_auth_key'])
+        "Authorization": "token {}".format(data['github_auth_key'])
     }
-    url = "{}/user/repos" . format(api_url)
+    url = "{}/user/repos".format(api_url)
     result = requests.get(url, headers=headers)
 
     if result.status_code == 200:
@@ -69,9 +69,9 @@ def github_get_owner(data=None):
 
 def github_repo_absent(data=None):
     headers = {
-        "Authorization": "token {}" . format(data['github_auth_key'])
+        "Authorization": "token {}".format(data['github_auth_key'])
     }
-    url = "{}/repos/{}/{}" . format(api_url, github_get_owner(data), data['name'])
+    url = "{}/repos/{}/{}".format(api_url, github_get_owner(data), data['name'])
     result = requests.delete(url, headers=headers)
 
     if result.status_code == 204:

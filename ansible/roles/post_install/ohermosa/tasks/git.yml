@@ -24,6 +24,8 @@
 
 - name: "Create remotes for repositories"
   block:
+    # create remotes for repositories copied in other platforms
+
     - name: "Create github repositories for WORK"
       include_role:
         name: tools/github_repo
@@ -97,8 +99,39 @@
       failed_when: false
       vars:
         remote_url: "git@{{ item.remote }}.com:ohermosa/{{ (item.repo | basename).split('.')[0] }}.git"
+
+    # Create remotes for repositories that have forks
+
+    - name: "get repositories to check if have forks"
+      set_fact:
+        repos_to_check: "{{ repos_to_check | default([]) | union([repository_name]) }}"
+      with_items: "{{ git_repositories.home }}"
+      when:
+        - item.forks is defined
+        - item.forks | bool
+      vars:
+        repository_name: "{{ (item.repo | basename).split('.')[0] }}"
+
+    - debug: var=repos_to_check
+
+    - gitlab_get_forks:
+        gitlab_auth_key: "{{ gitlab_token_access }}"
+        name: "{{ item }}"
+      loop: "{{ repos_to_check }}"
+      register: forks_response
+
+    - debug:
+        msg: "{{ forks_response | json_query('results[].forks[]') }}"
+
+    - shell: "git remote add {{ item.user }} {{ item.remote }}"
+      args:
+        chdir: "{{ git_dir }}/{{ repo_name }}"
+      loop: "{{ forks_response | json_query('results[].forks[]') }}"
+      vars:
+        repo_name: "{{ (item.remote | basename).split('.')[0] }}"
   tags:
     - create_remotes
+
 
 - name: "Configure name and user of BBVA repositories"
   git_config:
