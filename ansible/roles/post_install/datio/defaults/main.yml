@@ -69,5 +69,3 @@ bbva_vpn_config:
 bancomer_vpn_config:
   host: 200.66.87.82
   port: 1195
-
-code_extensions_urls: https://gist.githubusercontent.com/ohermosa/a2b55c8a488b2a45e8626e75ca35c7c4/raw/e647bfa074c16982c533c3ffaa38dffa83c392a8/extensions.json

@@ -70,4 +70,4 @@
         - key: "{{ dconf_wallpaper_path }}/secondary-color"
           value: "'#000000000000'"
   tags:
-    - post_wallpaper
+    - wallpaper

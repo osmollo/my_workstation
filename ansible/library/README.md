@@ -13,10 +13,14 @@
     - [Ejemplo de uso](#ejemplo-de-uso-3)
   - [gitlab_repo](#gitlab_repo)
     - [Ejemplo de uso](#ejemplo-de-uso-4)
-  - [yay](#yay)
+  - [gitlab_get_forks](#gitlab_get_forks)
     - [Ejemplo de uso](#ejemplo-de-uso-5)
-  - [protonvpn_fastest](#protonvpn_fastest)
+  - [gitlab_get_repos](#gitlab_get_repos)
     - [Ejemplo de uso](#ejemplo-de-uso-6)
+  - [yay](#yay)
+    - [Ejemplo de uso](#ejemplo-de-uso-7)
+  - [protonvpn_fastest](#protonvpn_fastest)
+    - [Ejemplo de uso](#ejemplo-de-uso-8)
 
 ## dconf_to_list
 
@@ -152,6 +156,31 @@ Este módulo crea o elimina un repositorio en [Gitlab](https://www.gitlab.com)
     issues_enabled: "{{ issues_enabled | default(false) }}"
     wiki_enabled: "{{ wiki_enabled | default(false) }}"
     state: "{{ repo_state | default(present) }}"
+  register: result
+```
+
+## gitlab_get_forks
+
+Este módulo devuelve los forks existentes para el repositorio indicado
+
+### Ejemplo de uso
+
+```yaml
+- gitlab_get_forks:
+    gitlab_auth_key: "{{ gitlab_token }}"
+    name: "{{ repo_name}}"
+  register: result
+```
+
+## gitlab_get_repos
+
+Este módulo devuelve los repositorios existentes para el repositorio autenticado
+
+### Ejemplo de uso
+
+```yaml
+- gitlab_get_repos:
+    gitlab_auth_key: "{{ gitlab_token }}"
   register: result
 ```
 

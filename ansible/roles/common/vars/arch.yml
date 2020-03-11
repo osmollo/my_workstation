@@ -9,6 +9,7 @@ distro_packages:
   - python-libevdev
   - bridge-utils
   - secure-delete
+  - nss
 
 gnome_arch_packages:
   - wireshark-cli
