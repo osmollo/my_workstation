@@ -1,7 +1,11 @@
 ---
 
 - include_vars:
-    file: "{{ linux_distribution }}.yml"
+    file: "{{ item }}"
+  loop:
+    - "{{ linux_distribution }}.yml"
+    - "{{ ansible_user }}.yml"
+  ignore_errors: true
   tags:
     - always
 
@@ -19,7 +23,6 @@
     - postman
     - skype
     - franz
-    - ohermosa
 
 - name: "---[INSTALL]--- docker"
   import_tasks: docker/docker.yml
@@ -27,7 +30,6 @@
   tags:
     - extra_software
     - docker
-    - ohermosa
 
 - name: "---[INSTALL]--- dropbox"
   import_tasks: dropbox/dropbox.yml
@@ -35,7 +37,6 @@
   tags:
     - extra_software
     - dropbox
-    - ohermosa
 
 - name: "---[INSTALL]--- Visual Studio Code"
   import_tasks: code/code.yml
@@ -44,7 +45,6 @@
     - extra_software
     - code
     - editors
-    - ohermosa
 
 - name: "---[INSTALL]--- Spotify"
   import_tasks: spotify/spotify.yml
@@ -52,7 +52,6 @@
   tags:
     - extra_software
     - spotify
-    - ohermosa
 
 - name: "---[INSTALL]--- Oh My ZSH!"
   import_tasks: oh_my_zsh.yml
@@ -84,7 +83,6 @@
   tags:
     - extra_software
     - gitkraken
-    - ohermosa
 
 - name: "---[INSTALL]--- Telegram"
   import_tasks: telegram/telegram.yml
@@ -93,7 +91,6 @@
     - extra_software
     - telegram
     - socials
-    - ohermosa
 
 - name: "---[INSTALL]--- Slack"
   import_tasks: slack/slack.yml
@@ -124,7 +121,6 @@
   tags:
     - extra_software
     - virtualbox
-    - ohermosa
 
 - name: "---[INSTALL]--- PyCharm"
   import_tasks: pycharm/pycharm.yml
@@ -165,7 +161,6 @@
     - extra_software
     - chrome
     - browsers
-    - ohermosa
 
 - name: "---[INSTALL]--- Teamviewer"
   import_tasks: teamviewer/teamviewer.yml
@@ -173,7 +168,6 @@
   tags:
     - extra_software
     - teamviewer
-    - ohermosa
 
 - name: "---[INSTALL]--- No Machine"
   import_tasks: nomachine/nomachine.yml
@@ -277,7 +271,6 @@
   tags:
     - extra_software
     - kubectl
-    - ohermosa
 
 - name: "---[INSTALL]--- MEGAcmd"
   import_tasks: megacmd/megacmd.yml
@@ -285,7 +278,7 @@
   tags:
     - extra_software
     - megacmd
-    - ohermosa
+    - mega
 
 - name: "---[INSTALL]--- MEGAsync"
   import_tasks: megasync/megasync.yml
@@ -351,7 +344,6 @@
   tags:
     - extra_software
     - protonvpn
-    - ohermosa
 
 - name: "---[INSTALL]--- Prezto"
   import_tasks: prezto.yml
@@ -359,7 +351,6 @@
   tags:
     - extra_software
     - prezto
-    - ohermosa
 
 - name: "---[INSTALL]--- Etcher"
   import_tasks: etcher.yml
@@ -367,7 +358,6 @@
   tags:
     - extra_software
     - etcher
-    - ohermosa
 
 - name: "---[INSTALL]--- WoeUSB"
   import_tasks: woeusb/woeusb.yml
@@ -375,7 +365,6 @@
   tags:
     - extra_software
     - woeusb
-    - ohermosa
 
 - name: "---[INSTALL]--- GO"
   import_tasks: go.yml
@@ -383,7 +372,6 @@
   tags:
     - extra_software
     - go
-    - ohermosa
 
 - name: "---[INSTALL]--- FZF"
   import_tasks: fzf.yml
@@ -391,7 +379,6 @@
   tags:
     - extra_software
     - fzf
-    - ohermosa
 
 - name: "---[INSTALL]--- VIM PLUGINS"
   import_tasks: vim_plugins.yml
@@ -400,4 +387,3 @@
     - extra_software
     - vim
     - vimplugins
-    - ohermosa

@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 3.2
+
+- Eliminación del tag `ohermosa`
+- Configuración del software instalado para cada usuario en `roles/extra_vars/vars/$USER.yml`
+- Instalación de extensiones de **Code** en el role `extra_software` en vez de en `post_install/datio`
+- Corrección de errores
+- Se puede ejecutar el playbook `install.yml` sin que el usuario disponga de un subrole debajo de `post_install`
+- Ahora `install.yml` falla si no se ha ejecutado previamente `playbooks/prepare.yml`
+- Nuevo módulo para obtener los forks de un repositorio de **gitlab**
+- Nuevo módulo para obtener los repositorios de la propia cuenta de **gitlab**
+- Instalación de `certutil`
+- Cambios en `post_install/ohermosa:
+  - Se crean __remotes__ para repositorios de **gitlab** que tengan forks
+
 ## 3.1
 
 - Renombrado de los tags para quitar el `install_` y `post_`

@@ -2,12 +2,26 @@
 
 - import_playbook: load_distro_vars.yml
 
+
 - hosts: localhost
   connection: local
   become: true
   become_method: su
+  vars:
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
   tasks:
     - block:
+        - name: "create post_install/{{ ansible_user }}/tasks"
+          file:
+            path: "../roles/post_install/{{ ansible_user }}/tasks"
+            state: directory
+
+        - name: "Install python"
+          import_role:
+            name: common
+            tasks_from: python
+
         - name: "[DEBIAN] Import ansible repository key"
           apt_key:
             keyserver: keyserver.ubuntu.com
@@ -18,7 +32,7 @@
         - name: "[DEBIAN] Create ansible repository file"
           lineinfile:
             path: /etc/apt/sources.list.d/ansible.list
-            line: deb http://ppa.launchpad.net/ansible/ansible-2.9/ubuntu trusty main
+            line: deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main
             create: true
 
         - name: "[DEBIAN] Update ansible"
@@ -26,17 +40,6 @@
             name: ansible
             update_cache: true
             state: latest
-            autoclean: true
-
-        - name: "[DEBIAN] Update packages"
-          import_role:
-            name: common
-            tasks_from: update_packages
-
-        - name: "[DEBIAN] Install python"
-          import_role:
-            name: common
-            tasks_from: python
 
         - name: "[DEBIAN] Ensure sudo package is installed"
           apt:
@@ -54,11 +57,19 @@
             groups: sudo
             append: true
 
+        - name: "Activating prepare flag"
+          file:
+            path: /var/tmp/.prepare
+            state: touch
+
         - debug:
             msg: "Debes cerrar sesión para que se apliquen los cambios"
 
         - meta: end_play
-      when: linux_distribution == "debian"
+      when:
+        - linux_distribution == "debian"
+      tags:
+        - always
 
 
 - hosts: localhost
@@ -69,42 +80,48 @@
     ansible_user: "{{ lookup('env', 'USER') }}"
     ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
   tasks:
-    - when: linux_distribution != "debian"
-      block:
+    - block:
+        - name: "create post_install/{{ ansible_user }}/tasks"
+          file:
+            path: "../roles/post_install/{{ ansible_user }}/tasks"
+            state: directory
+
         - name: "Install python"
           import_role:
             name: common
             tasks_from: python
+      when:
+        - linux_distribution != "debian"
+      tags:
+        - always
+
+    - block:
+        - name: "[UBUNTU] add ansible ppa repository"
+          apt_repository:
+            validate_certs: no
+            repo: 'ppa:ansible/ansible'
+            state: present
+            codename: "{{ ubuntu_codename }}"
 
         - name: "[UBUNTU] Update ansible"
-          block:
-            - name: "[UBUNTU] Upgrade all packages to the latest version"
-              apt:
-                name: "*"
-                state: latest
-                update_cache: true
-                force_apt_get: true
-                autoclean: true
+          apt:
+            name:
+              - ansible
+              - python-apt
+            update_cache: true
+            state: latest
+            force_apt_get: true
 
-            - name: "[UBUNTU] add ansible ppa repository"
-              apt_repository:
-                validate_certs: no
-                repo: 'ppa:ansible/ansible'
-                state: present
-                codename: "{{ ubuntu_codename }}"
+        - name: "Activating prepare flag"
+          file:
+            path: /var/tmp/.prepare
+            state: touch
 
-            - name: "[UBUNTU] Update ansible"
-              apt:
-                name:
-                  - ansible
-                  - python-apt
-                update_cache: true
-                state: latest
-                autoclean: true
-                force_apt_get: true
-          when: linux_distribution == "ubuntu"
+        - debug:
+            msg: "Por favor, vuelve a ejecutar el playbook para usar la nueva version de Ansible"
 
-        - name: "Update packages"
-          import_role:
-            name: common
-            tasks_from: update_packages
+        - meta: end_play
+      when:
+        - linux_distribution == "ubuntu"
+      tags:
+        - always

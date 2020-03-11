@@ -18,6 +18,7 @@ distro_packages:
   - python3-jmespath
   - python-jmespath
   - secure-delete
+  - libnss3-tools
 
 gnome_debian_packages:
   - network-manager-openvpn-gnome
