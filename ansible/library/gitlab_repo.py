@@ -40,9 +40,9 @@ def gitlab_repo_present(data):
     del data['gitlab_auth_key']
 
     headers = {
-        "PRIVATE-TOKEN": "{}" . format(api_key)
+        "PRIVATE-TOKEN": "{}".format(api_key)
     }
-    url = "{}{}" . format(api_url, '/projects')
+    url = "{}{}".format(api_url, '/projects')
     result = requests.post(url, data=data, headers=headers)
 
     if result.status_code == 201:
@@ -57,9 +57,9 @@ def gitlab_repo_present(data):
 
 def gitlab_get_user_id(data=None):
     headers = {
-        "PRIVATE-TOKEN": "{}" . format(data['gitlab_auth_key'])
+        "PRIVATE-TOKEN": "{}".format(data['gitlab_auth_key'])
     }
-    url = "{}/user" . format(api_url)
+    url = "{}/user".format(api_url)
     result = requests.get(url, headers=headers)
 
     if result.status_code == 200:
@@ -70,9 +70,9 @@ def gitlab_get_user_id(data=None):
 
 def gitlab_get_project_id(data=None):
     headers = {
-        "PRIVATE-TOKEN": "{}" . format(data['gitlab_auth_key'])
+        "PRIVATE-TOKEN": "{}".format(data['gitlab_auth_key'])
     }
-    url = "{}/users/{}/projects?pagination=keyset&per_page=99&order_by=id" . format(api_url, gitlab_get_user_id(data))
+    url = "{}/users/{}/projects?pagination=keyset&per_page=99&order_by=id".format(api_url, gitlab_get_user_id(data))
     result = requests.get(url, headers=headers)
 
     if result.status_code == 200:
@@ -87,9 +87,9 @@ def gitlab_get_project_id(data=None):
 
 def gitlab_repo_absent(data=None):
     headers = {
-        "PRIVATE-TOKEN": "{}" . format(data['gitlab_auth_key'])
+        "PRIVATE-TOKEN": "{}".format(data['gitlab_auth_key'])
     }
-    url = "{}/projects/{}" . format(api_url, gitlab_get_project_id(data))
+    url = "{}/projects/{}".format(api_url, gitlab_get_project_id(data))
     result = requests.delete(url, headers=headers)
 
     if result.status_code == 202:

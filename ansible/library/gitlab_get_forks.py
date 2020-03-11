@@ -26,9 +26,9 @@ api_url = "https://gitlab.com/api/v4"
 
 def gitlab_get_user_id(data=None):
     headers = {
-        "PRIVATE-TOKEN": "{}" . format(data['gitlab_auth_key'])
+        "PRIVATE-TOKEN": "{}".format(data['gitlab_auth_key'])
     }
-    url = "{}/user" . format(api_url)
+    url = "{}/user".format(api_url)
     result = requests.get(url, headers=headers)
 
     if result.status_code == 200:
@@ -39,9 +39,9 @@ def gitlab_get_user_id(data=None):
 
 def gitlab_get_project_id(data=None):
     headers = {
-        "PRIVATE-TOKEN": "{}" . format(data['gitlab_auth_key'])
+        "PRIVATE-TOKEN": "{}".format(data['gitlab_auth_key'])
     }
-    url = "{}/users/{}/projects?pagination=keyset&per_page=99&order_by=id" . format(api_url, gitlab_get_user_id(data))
+    url = "{}/users/{}/projects?pagination=keyset&per_page=99&order_by=id".format(api_url, gitlab_get_user_id(data))
     result = requests.get(url, headers=headers)
 
     if result.status_code == 200:
@@ -60,9 +60,9 @@ def get_forks(token, repository):
     }
 
     headers = {
-        "PRIVATE-TOKEN": "{}" . format(token)
+        "PRIVATE-TOKEN": "{}".format(token)
     }
-    url = "{}/projects/{}/forks" . format(api_url, gitlab_get_project_id(data))
+    url = "{}/projects/{}/forks".format(api_url, gitlab_get_project_id(data))
     result = requests.get(url, headers=headers)
 
     list = []
