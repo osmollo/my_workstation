@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.3
+
+- Cambios en `post_install/ohermosa`:
+  - Nuevos repositorios git:
+    - [mkcert](https://github.com/FiloSottile/mkcert)
+
 ## 3.2
 
 - Eliminación del tag `ohermosa`
