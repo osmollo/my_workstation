@@ -11,7 +11,7 @@
 - Nuevo módulo para obtener los forks de un repositorio de **gitlab**
 - Nuevo módulo para obtener los repositorios de la propia cuenta de **gitlab**
 - Instalación de `certutil`
-- Cambios en `post_install/ohermosa:
+- Cambios en `post_install/ohermosa`:
   - Se crean __remotes__ para repositorios de **gitlab** que tengan forks
 
 ## 3.1
