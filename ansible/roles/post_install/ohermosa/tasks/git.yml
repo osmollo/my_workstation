@@ -21,6 +21,8 @@
     - "{{ git_repositories.work }}"
     - "{{ git_repositories.home }}"
   ignore_errors: true
+  tags:
+    - clone_repos
 
 - name: "Create remotes for repositories"
   block:
