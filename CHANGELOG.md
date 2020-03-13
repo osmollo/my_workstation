@@ -2,9 +2,13 @@
 
 ## 3.3
 
+- Corrección de errores:
+  - No se propagaban correctamente los tags de `post_install`
+- Cambios en [README](README.md)
 - Cambios en `post_install/ohermosa`:
   - Nuevos repositorios git:
     - [mkcert](https://github.com/FiloSottile/mkcert)
+  - Corrección de errores al configurar `prezto`
 
 ## 3.2
 
