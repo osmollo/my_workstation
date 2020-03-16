@@ -2,6 +2,7 @@
 
 ## 3.3
 
+- Configuración básica de cliente ssh
 - Corrección de errores:
   - No se propagaban correctamente los tags de `post_install`
 - Cambios en [README](README.md)

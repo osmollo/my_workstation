@@ -97,3 +97,9 @@
   tags:
     - common
     - home
+
+- name: "Configure SSH client"
+  import_tasks: ssh_config.yml
+  tags:
+    - common
+    - ssh_config
