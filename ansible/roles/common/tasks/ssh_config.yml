@@ -1,0 +1,20 @@
+---
+
+- name: "Create .ssh directory"
+  file:
+    path: "{{ ansible_user_dir }}/.ssh"
+    state: directory
+
+- name: "Configure ssh client"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.ssh/config"
+    line: |
+      Host *
+        ServerAliveInterval 30
+        ServerAliveCountMax 5
+        StrictHostKeyChecking no
+        UserKnownHostsFile /dev/null
+    insertbefore: BOF
+    state: present
+    create: true
+    mode: 0600
