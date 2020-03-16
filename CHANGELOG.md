@@ -5,6 +5,7 @@
 - Corrección de errores:
   - No se propagaban correctamente los tags de `post_install`
 - Cambios en [README](README.md)
+- Nuevos paquetes instalados en **ubuntu**
 - Cambios en `post_install/ohermosa`:
   - Nuevos repositorios git:
     - [mkcert](https://github.com/FiloSottile/mkcert)
