@@ -19,6 +19,7 @@ distro_packages:
   - python-jmespath
   - secure-delete
   - libnss3-tools
+  - libzookeeper-mt-dev
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras

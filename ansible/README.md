@@ -136,16 +136,16 @@ A continuación, hay que ejecutar el siguiente comando:
 ansible-playbook install.yml --ask-vault-pass
 ```
 
-En caso de querer instalar únicamente alguna de las [aplicaciones de terceros disponibles](#software-extra-instalado), hay que usar los tags correspondientes:
+Un usuario puede personalizar las aplicaciones que desea instalar creando el fichero `ansible/roles/extra_software/vars/${USER}.yml`, se pueden usar los valores por defecto para generarlo y luego personalizarlo a su gusto:
 
 ```bash
-ansible-playbook install.yml -t atom,code
+grep "install_" ansible/roles/extra_software/defaults/main.yml > ansible/roles/extra_software/vars/${USER}.yml
 ```
 
-Si, por el contrario, se quiere instalar todo el software excepto alguno en concreto, hay que usar el siguiente comando:
+Para instalar una aplicación que en este fichero se haya definido a `false`, es posible modificar el valor mediante `--extra-vars`:
 
 ```bash
-ansible-playbook install.yml -e install_atom=false -e install_code=false
+ansible-playbook install.yml -t code -e install_code=true
 ```
 
 Igualmente, se pueden usar los tags específicos que cada usuario haya puesto en su role `post_install/$USER`

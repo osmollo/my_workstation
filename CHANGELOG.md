@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 3.3
+
+- Configuración básica de cliente ssh
+- Instalación de `Bitwarden CLI`
+- Corrección de errores:
+  - No se propagaban correctamente los tags de `post_install`
+- Cambios en [README](README.md)
+- Nuevos paquetes instalados en **ubuntu**
+- Cambios en `post_install/ohermosa`:
+  - Nuevos repositorios git:
+    - [mkcert](https://github.com/FiloSottile/mkcert)
+  - Corrección de errores al configurar `prezto`
+
 ## 3.2
 
 - Eliminación del tag `ohermosa`
