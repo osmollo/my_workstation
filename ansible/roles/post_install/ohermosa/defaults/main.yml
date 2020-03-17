@@ -155,6 +155,8 @@ git_repositories:
       dest: "{{ git_dir }}/cock_ansible"
     - repo: git@github.com:Rigellute/spotify-tui.git
       dest: "{{ git_dir }}/spotify-tui"
+    - repo: git@github.com:FiloSottile/mkcert.git
+      dest: "{{ git_dir }}/mkcert"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/bash_aliases"

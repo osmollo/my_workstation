@@ -43,3 +43,5 @@
   tasks:
     - include_role:
         name: "post_install/{{ post_user }}"
+      tags:
+        - always
