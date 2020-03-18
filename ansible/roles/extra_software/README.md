@@ -63,6 +63,7 @@
 | **fzf** | Instala `FZF` |
 | **vim_plugins** | Instala plugins de `vim` |
 | **authy** | Instala `Authy` |
+| **yakyak** | Instala `YakYak` |
 | **flatpak** | |
 | **vagrant** | |
 | **dockercompose** | |
