@@ -47,3 +47,4 @@ install_woeusb: true
 install_go: true
 install_fzf: true
 install_vimplugins: true
+install_authy: false
