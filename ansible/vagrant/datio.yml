@@ -43,8 +43,8 @@
     install_etcher: false
     install_woeusb: false
     install_go: false
-    install_go: false
     install_fzf: false
+    install_authy: false
   roles:
     - common
     - extra_software

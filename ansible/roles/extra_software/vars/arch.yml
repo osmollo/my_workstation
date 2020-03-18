@@ -38,6 +38,7 @@ vivaldi_repo: "{{ aur_url }}/vivaldi.git"
 brave_repo: "{{ aur_url }}/brave-bin.git"
 bitwarden_repo: "{{ aur_url }}/bitwarden-bin"
 woeusb_repo: "{{ aur_url }}/woeusb.git"
+authy_repo: "{{ aur_url }}/authy"
 
 atom_package: atom-editor-bin
 dropbox_package: dropbox
@@ -76,6 +77,7 @@ vivaldi_package: vivaldi
 brave_package: brave-bin
 bitwarden_package: bitwarden-bin
 woeusb_package: woeusb
+authy_package: authy
 
 protonvpn_dependencies:
   - openvpn

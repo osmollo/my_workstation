@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.4
+
+- Instalación de `Authy` para segundo factor de autenticación
+
 ## 3.3
 
 - Configuración básica de cliente ssh

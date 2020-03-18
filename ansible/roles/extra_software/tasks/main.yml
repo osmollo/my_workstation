@@ -387,3 +387,10 @@
     - extra_software
     - vim
     - vimplugins
+
+- name: "---[INSTALL]--- AUTHY"
+  import_tasks: authy/authy.yml
+  when: install_authy
+  tags:
+    - extra_software
+    - authy

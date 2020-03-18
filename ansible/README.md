@@ -81,6 +81,7 @@ Por defecto se instala el siguiente software:
 | [GO](https://golang.org/doc/install/source) | go | install_go | |
 | [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | |
 | [Vim plugins]() | vimplugins | install_vimplugins | |
+| [Authy](https://authy.com/) | authy | install_authy | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
