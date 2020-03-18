@@ -3,6 +3,7 @@
 ## 3.4
 
 - Instalación de `Authy` para segundo factor de autenticación
+- Instalación de `rsync` en el role `common`
 
 ## 3.3
 
