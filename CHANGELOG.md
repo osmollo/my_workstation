@@ -4,6 +4,7 @@
 
 - Instalación de `Authy` para segundo factor de autenticación
 - Instalación de `rsync` en el role `common`
+- Instalación de `YakYak`
 
 ## 3.3
 

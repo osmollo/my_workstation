@@ -39,6 +39,7 @@ brave_repo: "{{ aur_url }}/brave-bin.git"
 bitwarden_repo: "{{ aur_url }}/bitwarden-bin"
 woeusb_repo: "{{ aur_url }}/woeusb.git"
 authy_repo: "{{ aur_url }}/authy"
+yakyak_repo: "{{ aur_url }}/yakyak"
 
 atom_package: atom-editor-bin
 dropbox_package: dropbox
@@ -78,6 +79,7 @@ brave_package: brave-bin
 bitwarden_package: bitwarden-bin
 woeusb_package: woeusb
 authy_package: authy
+yakyak_package: yakyak
 
 protonvpn_dependencies:
   - openvpn

@@ -394,3 +394,10 @@
   tags:
     - extra_software
     - authy
+
+- name: "---[INSTALL]--- YAKYAK"
+  import_tasks: yakyak/yakyak.yml
+  when: install_yakyak
+  tags:
+    - extra_software
+    - yakyak
