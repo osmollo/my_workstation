@@ -40,6 +40,7 @@ bitwarden_repo: "{{ aur_url }}/bitwarden-bin"
 woeusb_repo: "{{ aur_url }}/woeusb.git"
 authy_repo: "{{ aur_url }}/authy"
 yakyak_repo: "{{ aur_url }}/yakyak"
+hiri_repo: "{{ aur_url }}/hiri"
 
 atom_package: atom-editor-bin
 dropbox_package: dropbox
@@ -80,6 +81,7 @@ bitwarden_package: bitwarden-bin
 woeusb_package: woeusb
 authy_package: authy
 yakyak_package: yakyak
+hiri_package: hiri
 
 protonvpn_dependencies:
   - openvpn

@@ -47,8 +47,9 @@ install_woeusb: true
 install_go: true
 install_fzf: true
 install_vimplugins: true
-install_authy: true
+install_authy: false
 install_yakyak: true
+install_hiri: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85

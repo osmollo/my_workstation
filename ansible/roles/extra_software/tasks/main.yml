@@ -401,3 +401,10 @@
   tags:
     - extra_software
     - yakyak
+
+- name: "---[INSTALL]--- HIRI"
+  import_tasks: hiri/hiri.yml
+  when: install_hiri
+  tags:
+    - extra_software
+    - hiri
