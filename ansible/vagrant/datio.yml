@@ -45,6 +45,7 @@
     install_go: false
     install_fzf: false
     install_authy: false
+    install_hiri: false
   roles:
     - common
     - extra_software

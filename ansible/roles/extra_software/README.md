@@ -64,6 +64,7 @@
 | **vim_plugins** | Instala plugins de `vim` |
 | **authy** | Instala `Authy` |
 | **yakyak** | Instala `YakYak` |
+| **hiri** | Instala `Hiri` |
 | **flatpak** | |
 | **vagrant** | |
 | **dockercompose** | |

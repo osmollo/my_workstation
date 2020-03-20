@@ -4,7 +4,8 @@
 
 - Instalación de `Authy` para segundo factor de autenticación
 - Instalación de `rsync` en el role `common`
-- Instalación de `YakYak`
+- Instalación de `YakYak` para cliente de **Hangouts**
+- Instalación de `Hiri` para cliente de correo **Outlook**
 
 ## 3.3
 

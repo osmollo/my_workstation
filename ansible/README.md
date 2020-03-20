@@ -33,56 +33,57 @@
 
 Por defecto se instala el siguiente software:
 
-| **APLICACIÓN** | **TAG** | **VARIABLE** | **GRUPO** |
+| **APLICACIÓN** | **TAG** | **VARIABLE** | **POR DEFECTO** | **GRUPO** |
 |--|--|--|--|
-| [Google Chrome](https://www.google.com/intl/es/chrome/) | chrome | install_chrome | browsers |
-| [Chromium Browser](https://chromium.woolyss.com/download/es/) | chromium | install_chromium| browsers |
-| [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | |
-| [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | |
-| [Visual Studio Code](https://code.visualstudio.com/) | code | install_code | editors |
-| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | |
-| [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | |
-| [Sublime Text](https://www.sublimetext.com/) | sublime | install_sublime | editors |
-| [Atom](https://atom.io/) | atom | install_atom | editors |
-| [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | |
-| [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | socials |
-| [Slack](https://datiodevelopers.slack.com/) | slack | install_slack | socials |
-| [Forticlient VPN](https://www.fortinet.com/lat) | forticlientvpn | install_forticlientvpn | |
-| [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | |
-| [Virtualbox](https://www.virtualbox.org/) | virtualbox | install_virtualbox | |
-| [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | pycharm | install_pycharm | editors |
-| [KeepassXC](https://keepassxc.org/download/) | keepass | install_keepass | pass_managers |
-| [Buttercup](https://buttercup.pw/) | buttercup | install_buttercup | pass_managers |
-| [Windscribe](https://windscribe.com/) | windscribe | install_windscribe | |
-| [Teamviewer](https://www.teamviewer.com/es/) | teamviewer | install_teamviewer | remotes |
-| [NoMachine](https://www.nomachine.com/es/) | nomachine | install_nomachine | remotes |
-| [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | ecs | install_ecs | |
-| [Postman](https://www.getpostman.com) | postman | install_postman | |
-| [Skype](https://www.skype.com/es/) | skype | install_skype | socials |
-| [Java](https://openjdk.java.net/) | java | install_java | |
-| [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) | apachedirectory | install_apachedirectory | |
-| [Rambox](https://rambox.pro/#home) | rambox | install_rambox | |
-| [Franz](https://meetfranz.com/) | franz | install_franz | |
-| [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | |
-| [Cherrytree](https://www.giuspen.com/cherrytree/) | cherrytree | install_cherrytree | editors |
-| [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-kubectl) | kubectl | install_kubectl | |
-| [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | mega |
-| [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | mega |
-| [Vivaldi](https://vivaldi.com/es/) | vivaldi | install_vivaldi | browsers |
-| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | brave | install_brave | browsers |
-| [Bitwarden](https://bitwarden.com/) | bitwarden | install_bitwarden | pass_managers |
-| [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | |
-| [Pass](https://www.passwordstore.org/) | pass | install_pass | pass_managers |
-| [Bucklespring](https://github.com/zevv/bucklespring) | bucklespring | install_bucklespring | |
-| [ProtonVPN](https://protonvpn.com/) | protonvpn | install_protonvpn | |
-| [Prezto](https://github.com/sorin-ionescu/prezto) | prezto | install_prezto | |
-| [Balena Etcher](https://www.balena.io/etcher/) | etcher | install_etcher | |
-| [WoeUSB](https://github.com/slacka/WoeUSB) | woeusb | install_woeusb | |
-| [GO](https://golang.org/doc/install/source) | go | install_go | |
-| [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | |
-| [Vim plugins]() | vimplugins | install_vimplugins | |
-| [Authy](https://authy.com/) | authy | install_authy | |
-| [YakYak](https://github.com/yakyak/yakyak) | yakyak | install_yakyak | |
+| [Google Chrome](https://www.google.com/intl/es/chrome/) | chrome | install_chrome | SI | browsers |
+| [Chromium Browser](https://chromium.woolyss.com/download/es/) | chromium | install_chromium| SI | browsers |
+| [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | SI | |
+| [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | SI | |
+| [Visual Studio Code](https://code.visualstudio.com/) | code | install_code | SI | editors |
+| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | SI | install_spotify | |
+| [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | SI | |
+| [Sublime Text](https://www.sublimetext.com/) | sublime | install_sublime | SI | editors |
+| [Atom](https://atom.io/) | atom | install_atom | SI | editors |
+| [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | SI | install_gitkraken | |
+| [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | SI | socials |
+| [Slack](https://datiodevelopers.slack.com/) | slack | install_slack | SI | socials |
+| [Forticlient VPN](https://www.fortinet.com/lat) | forticlientvpn | install_forticlientvpn | SI | |
+| [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | SI | |
+| [Virtualbox](https://www.virtualbox.org/) | virtualbox | install_virtualbox | SI | |
+| [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | pycharm | install_pycharm | SI | editors |
+| [KeepassXC](https://keepassxc.org/download/) | keepass | install_keepass | SI | pass_managers |
+| [Buttercup](https://buttercup.pw/) | buttercup | install_buttercup | SI | pass_managers |
+| [Windscribe](https://windscribe.com/) | windscribe | install_windscribe | SI | |
+| [Teamviewer](https://www.teamviewer.com/es/) | teamviewer | install_teamviewer | SI | remotes |
+| [NoMachine](https://www.nomachine.com/es/) | nomachine | install_nomachine | SI | remotes |
+| [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | ecs | install_ecs | SI | |
+| [Postman](https://www.getpostman.com) | postman | install_postman | SI | |
+| [Skype](https://www.skype.com/es/) | skype | install_skype | SI | socials |
+| [Java](https://openjdk.java.net/) | java | install_java | SI | |
+| [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) | apachedirectory | install_apachedirectory | SI | |
+| [Rambox](https://rambox.pro/#home) | rambox | install_rambox | SI | |
+| [Franz](https://meetfranz.com/) | franz | install_franz | SI | |
+| [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | SI | |
+| [Cherrytree](https://www.giuspen.com/cherrytree/) | cherrytree | install_cherrytree | SI | editors |
+| [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-kubectl) | kubectl | install_kubectl | SI | |
+| [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | SI | mega |
+| [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | SI | mega |
+| [Vivaldi](https://vivaldi.com/es/) | vivaldi | install_vivaldi | SI | browsers |
+| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | brave | install_brave | browsers | SI |
+| [Bitwarden](https://bitwarden.com/) | bitwarden | install_bitwarden | pass_managers | SI |
+| [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | NO | |
+| [Pass](https://www.passwordstore.org/) | pass | install_pass | SI | pass_managers |
+| [Bucklespring](https://github.com/zevv/bucklespring) | bucklespring | install_bucklespring | NO | |
+| [ProtonVPN](https://protonvpn.com/) | protonvpn | install_protonvpn | SI | |
+| [Prezto](https://github.com/sorin-ionescu/prezto) | prezto | install_prezto | SI | |
+| [Balena Etcher](https://www.balena.io/etcher/) | etcher | install_etcher | SI | |
+| [WoeUSB](https://github.com/slacka/WoeUSB) | woeusb | install_woeusb | SI | |
+| [GO](https://golang.org/doc/install/source) | go | install_go | SI | |
+| [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | SI | |
+| [Vim plugins]() | vimplugins | install_vimplugins | SI | |
+| [Authy](https://authy.com/) | authy | install_authy | NO | |
+| [YakYak](https://github.com/yakyak/yakyak) | yakyak | install_yakyak | SI | |
+| [Hiri](https://www.hiri.com/) | hiri | install_hiri | NO | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
