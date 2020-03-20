@@ -99,7 +99,7 @@ ansible-playbook install.yml -t "code,dropbox,spotify"
 
 ## ¿Cómo se usa?
 
-- El usuario que ejecute los playbooks debe tener `sudo` activado (se puede configurar con el playbook `config_sudo.yml`)
+- El usuario que ejecute los playbooks debe tener `sudo` activado (se configura con el playbook `playbooks/prepare.yml`)
 - Las tareas de este repositorio se ejecutan en local, por lo que para poder ejecutar los playbooks es necesario tener instalado `git` y `ansible`:
 
 ```bash
@@ -120,8 +120,7 @@ git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
 ```
 
-:warning: Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar `prepare.yml` para instalar todos los requisitos previos:
-:information_source: Para sistemas **Debian** será necesario introducir la contraseña de `su`, para el resto de sistemas será la de `sudo`
+:warning: Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar `prepare.yml` para instalar todos los requisitos previos. Para sistemas **Debian** será necesario introducir la contraseña de `su`, para el resto de sistemas será la de `sudo`
 
 ```bash
 ansible-playbook playbooks/prepare.yml
@@ -181,6 +180,12 @@ export REPO_DISABLE_UPDATES=1
 
 ```bash
 ansible-playbook install.yml -e disable_updates=true
+```
+
+- Fichero
+
+```bash
+sudo touch /var/tmp/.update
 ```
 
 ### Gestión de contraseñas

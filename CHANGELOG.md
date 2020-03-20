@@ -2,8 +2,9 @@
 
 ## 3.4
 
-- Instalación de `Authy` para segundo factor de autenticación
+- Mejora de la documentación [README](ansible/README.md)
 - Instalación de `rsync` en el role `common`
+- Instalación de `Authy` para segundo factor de autenticación
 - Instalación de `YakYak` para cliente de **Hangouts**
 - Instalación de `Hiri` para cliente de correo **Outlook**
 
