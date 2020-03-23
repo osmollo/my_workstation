@@ -7,6 +7,7 @@
 - Instalación de `Authy` para segundo factor de autenticación
 - Instalación de `YakYak` para cliente de **Hangouts**
 - Instalación de `Hiri` para cliente de correo **Outlook**
+- Instalación de `Steam` para **Ubuntu**
 
 ## 3.3
 
