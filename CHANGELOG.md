@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 3.4
+
+- Mejora de la documentación [README](ansible/README.md)
+- Instalación de `rsync` en el role `common`
+- Instalación de `Authy` para segundo factor de autenticación
+- Instalación de `YakYak` para cliente de **Hangouts**
+- Instalación de `Hiri` para cliente de correo **Outlook**
+- Instalación de `Steam` para **Ubuntu**
+
 ## 3.3
 
 - Configuración básica de cliente ssh

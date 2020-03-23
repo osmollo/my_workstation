@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install yakyak"
+  become: false
+  yay:
+    name: "{{ yakyak_package }}"
+    state: present
+    update_cache: true
