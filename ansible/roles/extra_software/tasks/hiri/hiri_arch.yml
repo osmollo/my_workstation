@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install hiri"
+  become: false
+  yay:
+    name: "{{ hiri_package }}"
+    state: present
+    update_cache: true

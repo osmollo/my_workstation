@@ -1,0 +1,8 @@
+---
+
+- name: "[ARCH] Install Authy"
+  become: false
+  yay:
+    name: "{{ authy_package }}"
+    state: present
+    update_cache: true

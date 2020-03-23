@@ -12,6 +12,7 @@ common_packages:
   - zip
   - unzip
   - ipcalc
+  - rsync
 
 python_modules:
   - mega.py

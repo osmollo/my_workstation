@@ -387,3 +387,33 @@
     - extra_software
     - vim
     - vimplugins
+
+- name: "---[INSTALL]--- AUTHY"
+  import_tasks: authy/authy.yml
+  when: install_authy
+  tags:
+    - extra_software
+    - authy
+
+- name: "---[INSTALL]--- YAKYAK"
+  import_tasks: yakyak/yakyak.yml
+  when: install_yakyak
+  tags:
+    - extra_software
+    - yakyak
+
+- name: "---[INSTALL]--- HIRI"
+  import_tasks: hiri/hiri.yml
+  when: install_hiri
+  tags:
+    - extra_software
+    - hiri
+
+- name: "---[INSTALL]--- STEAM"
+  import_tasks: steam.yml
+  when:
+    - install_steam
+    - linux_distribution == "ubuntu"
+  tags:
+    - extra_software
+    - steam

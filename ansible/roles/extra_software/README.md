@@ -62,6 +62,10 @@
 | **go** | Instala `GO` |
 | **fzf** | Instala `FZF` |
 | **vim_plugins** | Instala plugins de `vim` |
+| **authy** | Instala `Authy` |
+| **yakyak** | Instala `YakYak` |
+| **hiri** | Instala `Hiri` |
+| **Steam** | Instala `Steam` |
 | **flatpak** | |
 | **vagrant** | |
 | **dockercompose** | |

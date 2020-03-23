@@ -1,0 +1,7 @@
+---
+
+- name: "[DEB] install yakyak"
+  apt:
+    deb: "{{ yakyak_deb_package }}"
+    state: present
+    update_cache: true

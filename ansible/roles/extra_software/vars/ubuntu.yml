@@ -36,3 +36,5 @@ protonvpn_dependencies:
   - dialog
   - python3-pip
   - python3-setuptools
+
+steam_package: http://repo.steampowered.com/steam/archive/precise/steam_latest.deb
