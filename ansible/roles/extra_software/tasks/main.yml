@@ -408,3 +408,12 @@
   tags:
     - extra_software
     - hiri
+
+- name: "---[INSTALL]--- STEAM"
+  import_tasks: steam.yml
+  when:
+    - install_steam
+    - linux_distribution == "ubuntu"
+  tags:
+    - extra_software
+    - steam

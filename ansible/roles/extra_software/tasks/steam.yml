@@ -1,0 +1,14 @@
+---
+
+- name: "install steam dependencies"
+  apt:
+    name:
+      - libwebkit2gtk-4.0-37
+      - zenity
+      - zenity-common
+    state: present
+    update_cache: true
+
+- name: "Install Steam"
+  apt:
+    deb: "{{ steam_package }}"

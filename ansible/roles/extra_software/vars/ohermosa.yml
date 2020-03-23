@@ -50,3 +50,4 @@ install_vimplugins: true
 install_authy: false
 install_yakyak: true
 install_hiri: false
+install_steam: false
