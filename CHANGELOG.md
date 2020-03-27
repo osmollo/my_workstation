@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.5
+
+- Cambios en `post_install/ohermosa`:
+  - Nuevos repositorios git:
+    - [hetzner](https://gitlab.com:ohermosa/hetzner)
+
 ## 3.4
 
 - Mejora de la documentación [README](ansible/README.md)

@@ -157,6 +157,8 @@ git_repositories:
       dest: "{{ git_dir }}/spotify-tui"
     - repo: git@github.com:FiloSottile/mkcert.git
       dest: "{{ git_dir }}/mkcert"
+    - repo: git@gitlab.com:ohermosa/hetzner.git
+      dest: "{{ git_dir }}/hetzner"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/bash_aliases"
