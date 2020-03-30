@@ -1,0 +1,18 @@
+---
+
+- when: ansible_distribution_major_version <=31
+  block:
+    - name: "[FEDORA] install wireguard repositoy"
+      shell: dnf copr enable jdoss/wireguard
+
+    - name: "[FEDORA] install wireguard"
+      yum:
+        name: "{{ wireguard_packages }}"
+        state: present
+        update_cache: true
+
+- name: "[FEDORA] install wireguard"
+  yum:
+    name: wireguard-tools
+    state: present
+    update_cache: true

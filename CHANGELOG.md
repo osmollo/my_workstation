@@ -3,6 +3,7 @@
 ## 3.5
 
 - Instalación de `kdenlive` dentro del role `common`
+- Instalación de `wireguard`
 - Cambios en `post_install/ohermosa`:
   - Nuevos repositorios git:
     - [hetzner](https://gitlab.com:ohermosa/hetzner)

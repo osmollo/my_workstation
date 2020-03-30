@@ -90,3 +90,7 @@ protonvpn_dependencies:
   - python-setuptools
 
 file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"
+
+wireguard_packages:
+  - wireguard-tools
+  - wireguard-arch
