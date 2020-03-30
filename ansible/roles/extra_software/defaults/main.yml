@@ -51,6 +51,7 @@ install_authy: false
 install_yakyak: true
 install_hiri: false
 install_steam: false
+install_wireguard: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85

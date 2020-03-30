@@ -51,3 +51,4 @@ install_authy: false
 install_yakyak: true
 install_hiri: false
 install_steam: false
+install_wireguard: true

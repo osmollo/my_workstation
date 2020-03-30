@@ -46,6 +46,7 @@
     install_fzf: false
     install_authy: false
     install_steam: false
+    install_wireguard: false
   roles:
     - common
     - extra_software
