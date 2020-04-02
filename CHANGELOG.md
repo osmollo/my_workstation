@@ -2,6 +2,7 @@
 
 ## 3.5
 
+- Instalación de `Lens`
 - Instalación de `kdenlive` dentro del role `common`
 - Instalación de `wireguard`
 - Cambios en `post_install/ohermosa`:
