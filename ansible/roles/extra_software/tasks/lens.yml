@@ -1,0 +1,28 @@
+---
+
+- name: "create {{ ansible_user_dir }}/AppImage directory"
+  file:
+    path: "{{ appimage_dir }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: "Get latest version of lens"
+  uri:
+    url: "{{ lens_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: lens_latest
+
+- name: "download lens appimage"
+  vars:
+    lens_version: "{{ lens_latest.url | urlsplit('path') | basename }}"
+  get_url:
+    url: "https://github.com/lensapp/lens/releases/download/{{ lens_version }}/Lens-{{ lens_version[1:] }}.AppImage"
+    dest: "{{ appimage_dir }}/Lens.AppImage"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+
+- debug:
+    msg: "Puedes ejecutar Lens con el comando: '{{ appimage_dir }}/Lens.AppImage'"
