@@ -34,7 +34,7 @@
 Por defecto se instala el siguiente software:
 
 | **APLICACIÓN** | **TAG** | **VARIABLE** | **POR DEFECTO** | **GRUPO** |
-|--|--|--|--|
+|--|--|--|--|--|
 | [Google Chrome](https://www.google.com/intl/es/chrome/) | chrome | install_chrome | SI | browsers |
 | [Chromium Browser](https://chromium.woolyss.com/download/es/) | chromium | install_chromium| SI | browsers |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | SI | |
