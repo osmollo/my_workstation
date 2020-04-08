@@ -1,0 +1,7 @@
+---
+
+- name: "[DEBIAN] install wireguard packages"
+  apt:
+    name: "{{ wireguard_packages }}"
+    state: present
+    update_cache: true

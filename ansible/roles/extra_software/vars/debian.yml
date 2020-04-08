@@ -28,3 +28,6 @@ protonvpn_dependencies:
   - dialog
   - python3-pip
   - python3-setuptools
+
+wireguard_packages:
+  - wireguard

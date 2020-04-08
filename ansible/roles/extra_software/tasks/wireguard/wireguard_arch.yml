@@ -1,0 +1,7 @@
+---
+
+- name: "[ARCH] Install wireguard"
+  pacman:
+    name: "{{ wireguard_packages }}"
+    state: latest
+    update_cache: true

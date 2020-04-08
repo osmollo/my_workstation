@@ -51,6 +51,8 @@ install_authy: false
 install_yakyak: true
 install_hiri: false
 install_steam: false
+install_wireguard: true
+install_lens: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -67,6 +69,7 @@ hetznerkube_latest_url: "https://github.com/xetys/hetzner-kube/releases/latest"
 etcher_latest_url: "https://github.com/balena-io/etcher/releases/latest"
 fzf_latest_url: "https://github.com/junegunn/fzf-bin/releases/latest"
 yakyak_latest_url: "https://github.com/yakyak/yakyak/releases/latest"
+lens_latest_url: "https://github.com/lensapp/lens/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
 
@@ -125,3 +128,5 @@ lexnet_packages:
   - libglade2-dev
 
 code_extensions_urls: https://gist.githubusercontent.com/ohermosa/a2b55c8a488b2a45e8626e75ca35c7c4/raw/e647bfa074c16982c533c3ffaa38dffa83c392a8/extensions.json
+
+appimage_dir: "{{ ansible_user_dir }}/AppImage"
