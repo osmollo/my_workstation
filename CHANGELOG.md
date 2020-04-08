@@ -2,12 +2,14 @@
 
 ## 3.5
 
-- Instalación de `Lens`
+- Instalación de `Lens` con AppImage
 - Instalación de `kdenlive` dentro del role `common`
 - Instalación de `wireguard`
 - Cambios en `post_install/ohermosa`:
   - Nuevos repositorios git:
     - [hetzner](https://gitlab.com:ohermosa/hetzner)
+- Corrección de errores:
+  - En configuración `OpenVPN` se elimina que todo el tráfico se redirija por la VPN
 
 ## 3.4
 
