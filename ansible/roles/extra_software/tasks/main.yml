@@ -417,3 +417,19 @@
   tags:
     - extra_software
     - steam
+
+- name: "---[INSTALL]--- WIREGUARD"
+  import_tasks: wireguard/wireguard.yml
+  when:
+    - install_wireguard
+  tags:
+    - extra_software
+    - wireguard
+
+- name: "---[INSTALL]--- LENS"
+  import_tasks: lens.yml
+  when:
+    - install_lens
+  tags:
+    - extra_software
+    - lens

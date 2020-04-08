@@ -66,6 +66,8 @@
 | **yakyak** | Instala `YakYak` |
 | **hiri** | Instala `Hiri` |
 | **Steam** | Instala `Steam` |
+| **Wireguard** | Instala `Wireguard` |
+| **Lens** | Instala `Lens` |
 | **flatpak** | |
 | **vagrant** | |
 | **dockercompose** | |
