@@ -3,6 +3,7 @@
 ## 3.6
 
 - Corrección de errores en [ansible/README.md](ansible/README.md)
+- Nuevo tag `code_extensions` para instalar extensiones en **Code**
 
 ## 3.5
 
