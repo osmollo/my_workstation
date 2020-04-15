@@ -2,7 +2,9 @@
 
 ## 3.6
 
-- Corrección de errores en [ansible/README.md](ansible/README.md)
+- Correcciones de errores:
+  - Tabla [ansible/README.md](ansible/README.md)
+  - Enlace a la última versión del gist `extensions.json` de **Code**
 - Nuevo tag `code_extensions` para instalar extensiones en **Code**
 
 ## 3.5
