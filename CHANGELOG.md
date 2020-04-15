@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.6
+
+- Corrección de errores en [ansible/README.md](ansible/README.md)
+
 ## 3.5
 
 - Instalación de `Lens` con AppImage

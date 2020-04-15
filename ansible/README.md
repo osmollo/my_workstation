@@ -40,11 +40,11 @@ Por defecto se instala el siguiente software:
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | SI | |
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | SI | |
 | [Visual Studio Code](https://code.visualstudio.com/) | code | install_code | SI | editors |
-| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | SI | install_spotify | |
+| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | SI | |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | SI | |
 | [Sublime Text](https://www.sublimetext.com/) | sublime | install_sublime | SI | editors |
 | [Atom](https://atom.io/) | atom | install_atom | SI | editors |
-| [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | SI | install_gitkraken | |
+| [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | SI | |
 | [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | SI | socials |
 | [Slack](https://datiodevelopers.slack.com/) | slack | install_slack | SI | socials |
 | [Forticlient VPN](https://www.fortinet.com/lat) | forticlientvpn | install_forticlientvpn | SI | |
@@ -69,8 +69,8 @@ Por defecto se instala el siguiente software:
 | [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | SI | mega |
 | [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | SI | mega |
 | [Vivaldi](https://vivaldi.com/es/) | vivaldi | install_vivaldi | SI | browsers |
-| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | brave | install_brave | browsers | SI |
-| [Bitwarden](https://bitwarden.com/) | bitwarden | install_bitwarden | pass_managers | SI |
+| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | brave | install_brave | SI | browsers |
+| [Bitwarden](https://bitwarden.com/) | bitwarden | install_bitwarden | SI | pass_managers |
 | [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | NO | |
 | [Pass](https://www.passwordstore.org/) | pass | install_pass | SI | pass_managers |
 | [Bucklespring](https://github.com/zevv/bucklespring) | bucklespring | install_bucklespring | NO | |
