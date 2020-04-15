@@ -6,6 +6,7 @@
   - Tabla [ansible/README.md](ansible/README.md)
   - Enlace a la última versión del gist `extensions.json` de **Code**
 - Nuevo tag `code_extensions` para instalar extensiones en **Code**
+- Nuevo tag `atom_extensions` para instalar paquetes de **Atom**
 
 ## 3.5
 
