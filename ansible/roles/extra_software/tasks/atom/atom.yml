@@ -35,3 +35,5 @@
       file:
         path: /tmp/package.list
         state: absent
+  tags:
+    - atom_extensions
