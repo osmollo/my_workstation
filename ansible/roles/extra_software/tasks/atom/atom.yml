@@ -19,21 +19,17 @@
 - include_tasks: "atom_{{ linux_distribution }}.yml"
 
 - block:
-    - name: "Copy package.list"
-      copy:
-        src: package.list
-        dest: /tmp/package.list
-        owner: "{{ ansible_user }}"
-        group: "{{ ansible_user }}"
+    - name: "get json with packages"
+      uri:
+        url: "{{ atom_packages_url }}"
+      register: packages_response
 
-    - name: "Install packages for Atom"
+    - name: "Install packages for Visual Studio Code"
       become: false
       become_user: "{{ ansible_user }}"
-      shell: apm install --packages-file /tmp/package.list
-
-    - name: "Delete package.list"
-      file:
-        path: /tmp/package.list
-        state: absent
+      vars:
+        id_query: "[].name"
+      shell: "code --install-extension {{ item }}"
+      loop: "{{ packages_response.json | json_query(id_query)| list }}"
   tags:
-    - atom_extensions
+    - atom_packages

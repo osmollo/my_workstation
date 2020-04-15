@@ -7,6 +7,8 @@
   - Enlace a la última versión del gist `extensions.json` de **Code**
 - Nuevo tag `code_extensions` para instalar extensiones en **Code**
 - Nuevo tag `atom_extensions` para instalar paquetes de **Atom**
+- Paquetes de **Atom** se obtienen de [gist de ohermosa](https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json) en lugar de fichero local
+- Simplificación en instalación de extensiones de **Code**
 
 ## 3.5
 

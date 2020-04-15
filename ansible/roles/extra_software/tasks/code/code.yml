@@ -5,19 +5,15 @@
 - block:
     - name: "get json with extensions"
       uri:
-        url: "{{ code_extensions_urls }}"
+        url: "{{ code_extensions_url }}"
       register: extensions_response
-
-    - name: "get list of extensions"
-      set_fact:
-        extensions: "{{ extensions_response.json | json_query(id_query) | map('lower') | list }}"
-      vars:
-        id_query: "[].metadata.publisherId"
 
     - name: "Install extensions for Visual Studio Code"
       become: false
       become_user: "{{ ansible_user }}"
+      vars:
+        id_query: "[].name"
       shell: "code --install-extension {{ item }}"
-      loop: "{{ extensions }}"
+      loop: "{{ extensions_response.json | json_query(id_query) | list }}"
   tags:
     - code_extensions
