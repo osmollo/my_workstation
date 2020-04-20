@@ -114,21 +114,20 @@
       vars:
         repository_name: "{{ (item.repo | basename).split('.')[0] }}"
 
-    - debug: var=repos_to_check
-
     - gitlab_get_forks:
         gitlab_auth_key: "{{ gitlab_token_access }}"
         name: "{{ item }}"
       loop: "{{ repos_to_check }}"
       register: forks_response
 
-    - debug:
-        msg: "{{ forks_response | json_query('results[].forks[]') }}"
-
-    - shell: "git remote add {{ item.user }} {{ item.remote }}"
+    - name: "create new remote for fork repositories"
+      shell: "git remote add {{ item.user }} {{ item.remote }}"
       args:
         chdir: "{{ git_dir }}/{{ repo_name }}"
+      changed_when: "'ya existe' not in remote_response.stdout or 'already exists' not in remote_response.stdout"
+      failed_when: false
       loop: "{{ forks_response | json_query('results[].forks[]') }}"
+      register: remote_response
       vars:
         repo_name: "{{ (item.remote | basename).split('.')[0] }}"
   tags:

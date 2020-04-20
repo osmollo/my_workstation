@@ -59,6 +59,7 @@ git_repositories:
       remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_sshmagic.git
       dest: "{{ git_dir }}/ssh_magic"
+      remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_fsm.git
       dest: "{{ git_dir }}/fsm"
       remote: gitlab
@@ -70,6 +71,7 @@ git_repositories:
       remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_iluvatar_base_image.git
       dest: "{{ git_dir }}/iluvatar_base_image"
+      remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker_nexus_to_artifactory.git
       dest: "{{ git_dir }}/docker_nexus_to_artifactory"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker_stratio_to_artifactory.git
@@ -78,16 +80,22 @@ git_repositories:
       dest: "{{ git_dir }}/usoup_vault_dockerized"
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_athens_lb.git
       dest: "{{ git_dir }}/mlyid_athens_lb"
+      remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_dnsbased_ha.git
       dest: "{{ git_dir }}/mlyid_dnsbased_ha"
+      remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_docker-gc.git
       dest: "{{ git_dir }}/mlyid_docker-gc"
+      remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_gerrit.git
       dest: "{{ git_dir }}/mlyid_gerrit"
+      remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_pgbackup.git
       dest: "{{ git_dir }}/mlyid_pgbackup"
+      remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_postgresha.git
       dest: "{{ git_dir }}/mlyid_postgresha"
+      remote: gitlab
   home:
     - repo: git@gitlab.com:ohermosa/AmazonPy.git
       dest: "{{ git_dir }}/AmazonPy"
