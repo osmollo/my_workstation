@@ -29,7 +29,7 @@
       become_user: "{{ ansible_user }}"
       vars:
         id_query: "[].name"
-      shell: "code --install-extension {{ item }}"
+      shell: "apm install package-name {{ item }}"
       loop: "{{ packages_response.json | json_query(id_query)| list }}"
   tags:
-    - atom_packages
+    - atom_extensions
