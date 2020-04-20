@@ -19,6 +19,7 @@ distro_packages:
   - firewall-config
   - srm
   - nss-tools
+  - fira-code-fonts
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome
