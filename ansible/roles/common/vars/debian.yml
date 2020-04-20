@@ -19,6 +19,7 @@ distro_packages:
   - python-jmespath
   - secure-delete
   - libnss3-tools
+  - fonts-firacode
 
 gnome_debian_packages:
   - network-manager-openvpn-gnome

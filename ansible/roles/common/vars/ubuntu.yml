@@ -20,6 +20,7 @@ distro_packages:
   - secure-delete
   - libnss3-tools
   - libzookeeper-mt-dev
+  - fonts-firacode
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras

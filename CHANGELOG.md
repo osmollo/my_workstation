@@ -9,6 +9,7 @@
 - Nuevo tag `atom_extensions` para instalar paquetes de **Atom**
 - Paquetes de **Atom** se obtienen de [gist de ohermosa](https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json) en lugar de fichero local
 - Simplificación en instalación de extensiones de **Code**
+- Instalación de tipografía [Fira code](https://github.com/tonsky/FiraCode/)
 
 ## 3.5
 
