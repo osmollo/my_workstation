@@ -13,6 +13,8 @@
 - Instalación de tipografía [Fira code](https://github.com/tonsky/FiraCode/)
 - Nuevos repositorios git en `post_install/ohermosa`:
   - [Docker Image Generator](git@github.com:tuxotron/docker-image-generator.git)
+- Nuevo despliegue con `Docker`:
+  - [Kafka](docker_deploys/kafka)
 
 ## 3.5
 
