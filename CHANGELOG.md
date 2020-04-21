@@ -12,9 +12,10 @@
 - Simplificación en instalación de extensiones de **Code**
 - Instalación de tipografía [Fira code](https://github.com/tonsky/FiraCode/)
 - Nuevos repositorios git en `post_install/ohermosa`:
-  - [Docker Image Generator](git@github.com:tuxotron/docker-image-generator.git)
-- Nuevo despliegue con `Docker`:
+  - [Docker Image Generator](https://github.com/tuxotron/docker-image-generator)
+- Nuevos despliegues con `Docker`:
   - [Kafka](docker_deploys/kafka)
+  - [Consul](docker_deploys/consul)
 
 ## 3.5
 
