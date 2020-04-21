@@ -73,7 +73,7 @@ def github_repo_absent(data=None):
     if result.status_code == 204:
         return False, True, result.json()
     else:
-        return True, False, result
+        return True, False, result.json()
 
 
 def main():
