@@ -1,26 +1,27 @@
 ---
 
-- name: "Wait until private ssh key exists"
-  wait_for:
-    path: "/home/{{ ansible_user }}/.ssh/id_rsa"
-    timeout: "{{ wait_dropbox_sync }}"
+- block:
+    - name: "Wait until private ssh key exists"
+      wait_for:
+        path: "/home/{{ ansible_user }}/.ssh/id_rsa"
+        timeout: "{{ wait_dropbox_sync }}"
 
-- name: "Create {{ git_dir }}"
-  file:
-    path: "{{ git_dir }}"
-    state: directory
+    - name: "Create {{ git_dir }}"
+      file:
+        path: "{{ git_dir }}"
+        state: directory
 
-- name: "Clone git repositories"
-  git:
-    repo: "{{ item.repo }}"
-    dest: "{{ item.dest}}"
-    clone: true
-    key_file: "/home/{{ ansible_user }}/.ssh/id_rsa"
-    accept_hostkey: true
-  with_items:
-    - "{{ git_repositories.work }}"
-    - "{{ git_repositories.home }}"
-  ignore_errors: true
+    - name: "Clone git repositories"
+      git:
+        repo: "{{ item.repo }}"
+        dest: "{{ item.dest}}"
+        clone: true
+        key_file: "/home/{{ ansible_user }}/.ssh/id_rsa"
+        accept_hostkey: true
+      with_items:
+        - "{{ git_repositories.work }}"
+        - "{{ git_repositories.home }}"
+      ignore_errors: true
   tags:
     - clone_repos
 
