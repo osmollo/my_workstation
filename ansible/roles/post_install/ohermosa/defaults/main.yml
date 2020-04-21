@@ -167,6 +167,8 @@ git_repositories:
       dest: "{{ git_dir }}/mkcert"
     - repo: git@gitlab.com:ohermosa/hetzner.git
       dest: "{{ git_dir }}/hetzner"
+    - repo: git@github.com:tuxotron/docker-image-generator.git
+      dest: "{{ git_dir }}/docker-image-generator"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/bash_aliases"
