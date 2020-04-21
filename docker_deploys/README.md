@@ -18,3 +18,4 @@ ansible-playbook install.yml -t install_docker --ask-bacome-pass
 | [Gitea](gitea/) | Despliegue de `Gitea` con `MySQL` |
 | [Bitwarden](bitwarden/) | Despliegue de `Bitwarden` |
 | [Kafka](kafka/) | Despliegue de `Kafka` usando `Zookeeper` como backend |
+| [Consul](consul/) | Despliegue de `Consul` |
