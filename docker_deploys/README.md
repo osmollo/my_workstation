@@ -11,9 +11,10 @@ ansible-playbook install.yml -t install_docker --ask-bacome-pass
 
 | **SUBDIRECTORIO** | **DESCRIPCIÓN** |
 |-------------------|-----------------|
-| [vault](docker_deploys/vault) | Despliegue de `Vault` usando `Consul` como backend |
-| [nextcloud](docker_deploys/nextcloud) | Despliegue de `Nextcloud` con `MariaDB` como base de datos |
-| [pi-hole](docker_deploys/pihole) | Despliegue de `PiHole` |
-| [Jenkins](docker_deploys/jenkins) | Despliegue de `Jenkins` |
-| [Gitea](docker_deploys/gitea) | Despliegue de `Gitea` con `MySQL` |
-| [Bitwarden](docker_deploys/bitwarden) | Despliegue de `Bitwarden` |
+| [vault](vault/) | Despliegue de `Vault` usando `Consul` como backend |
+| [nextcloud](nextcloud/) | Despliegue de `Nextcloud` con `MariaDB` como base de datos |
+| [pi-hole](pihole/) | Despliegue de `PiHole` |
+| [Jenkins](jenkins/) | Despliegue de `Jenkins` |
+| [Gitea](gitea/) | Despliegue de `Gitea` con `MySQL` |
+| [Bitwarden](bitwarden/) | Despliegue de `Bitwarden` |
+| [Kafka](kafka/) | Despliegue de `Kafka` usando `Zookeeper` como backend |
