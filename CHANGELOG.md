@@ -16,6 +16,7 @@
 - Nuevos despliegues con `Docker`:
   - [Kafka](docker_deploys/kafka)
   - [Consul](docker_deploys/consul)
+- Instalación de [Typora](https://typora.io)
 
 ## 3.5
 
