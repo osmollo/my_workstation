@@ -433,3 +433,11 @@
   tags:
     - extra_software
     - lens
+
+- name: "---[INSTALL]--- TYPORA"
+  import_tasks: typora/typora.yml
+  when:
+    - install_typora
+  tags:
+    - extra_software
+    - typora

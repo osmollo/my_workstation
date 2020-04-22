@@ -53,3 +53,4 @@ install_hiri: false
 install_steam: false
 install_wireguard: true
 install_lens: true
+install_typora: true

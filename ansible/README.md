@@ -87,6 +87,7 @@ Por defecto se instala el siguiente software:
 | [Steam](https://store.steampowered.com/?l=spanish) | steam | install_steam | NO | |
 | [Wireguard](https://www.wireguard.com/) | wireguard | install_wireguard | SI | |
 | [Lens](https://k8slens.dev) | lens | install_lens | SI | |
+| [Typora](https://typora.io) | typora | install_typora | SI | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
