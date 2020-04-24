@@ -13,7 +13,7 @@
 - name: "Get gimp directory"
   set_fact:
     gimp_dir: "{{ (find_response.files | first).path }}"
-  when: find_response.files | length > 0
+  when: find_response.matched > 0
 
 - name: "Generate gimp directory"
   block:
@@ -37,7 +37,8 @@
     - name: "Get gimp directory"
       set_fact:
         gimp_dir: "{{ (find_response_bis.files | first).path }}"
-  when: find_response.files | length == 0
+      when: find_response_bis.matched > 0
+  when: find_response.matched == 0
 
 - name: "Configure single window mode for gimp"
   copy:
@@ -51,3 +52,4 @@
     - src: "gimp_sessionrc"
       dest: "{{ gimp_dir }}/sessionrc"
       mode: "0600"
+  when: gimp_dir is defined

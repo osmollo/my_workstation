@@ -33,6 +33,7 @@
   lineinfile:
     path: "{{ ansible_user_dir}}/{{ item.name }}"
     line: "{{ item.content }}"
+    create: true
   no_log: true
   loop:
     - name: .vault_pass_personal.txt

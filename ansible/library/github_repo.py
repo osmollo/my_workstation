@@ -59,6 +59,8 @@ def github_repo_present(data):
 
     if result.status_code == 201:
         return False, True, result.json()
+    elif result.status_code == 422:
+        return False, False, result.json()
     else:
         return True, False, result.json()
 
@@ -72,6 +74,8 @@ def github_repo_absent(data=None):
 
     if result.status_code == 204:
         return False, True, result.json()
+    elif result.status_code == 404:
+        return False, False, result.json()
     else:
         return True, False, result.json()
 

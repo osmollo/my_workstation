@@ -3,7 +3,7 @@
 - name: "[DEB] Copy repository file"
   copy:
     src: code.list
-    dest: /etc/apt/sources.list.d/code.list
+    dest: /etc/apt/sources.list.d/vscode.list
     mode: 0644
     owner: root
     group: root
