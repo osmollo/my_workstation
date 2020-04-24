@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEBIAN] install wireguard packages"
+- name: "[WIREGUARD] [DEBIAN] install wireguard packages"
   apt:
     name: "{{ wireguard_packages }}"
     state: present

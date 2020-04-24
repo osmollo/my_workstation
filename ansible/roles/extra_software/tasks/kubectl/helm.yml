@@ -1,30 +1,30 @@
 ---
 
-- name: "delete helm binary if exists"
+- name: "[HELM] delete helm binary if exists"
   file:
     path: /usr/local/bin/helm
     state: absent
 
-- name: "Get latest version of helm"
+- name: "[HELM] Get latest version of helm"
   uri:
     url: "{{ helm_latest_url }}"
     follow_redirects: safe
     body_format: raw
   register: helm_latest
 
-- name: "Set urls for helm package"
+- name: "[HELM] Set urls for helm package"
   vars:
     helm_version: "{{ helm_latest.url | urlsplit('path') | basename }}"
   set_fact:
     helm_package: https://get.helm.sh/helm-{{ helm_version }}-linux-amd64.tar.gz
 
-- name: "Download Helm"
+- name: "[HELM] Download Helm"
   unarchive:
     src: "{{ helm_package }}"
     dest: /tmp/
     remote_src: true
 
-- name: "Copy Helm binary"
+- name: "[HELM] Copy Helm binary"
   copy:
     src: "/tmp/linux-amd64/helm"
     dest: /usr/local/bin/helm
@@ -33,7 +33,7 @@
     owner: root
     group: root
 
-- name: "Delete temporal directory"
+- name: "[HELM] Delete temporal directory"
   file:
     path: /tmp/linux-amd64
     state: absent

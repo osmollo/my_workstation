@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEBIAN] Install chromium browser"
+- name: "[CHROMIUM] [DEBIAN] Install chromium browser"
   apt:
     name: "{{ chromium_package }}"
     state: latest

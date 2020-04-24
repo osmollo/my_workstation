@@ -1,13 +1,13 @@
 ---
 
-- name: "[FEDORA] Uncompress Forticlient package"
+- name: "[FORTICLIENTVPN] [FEDORA] Uncompress Forticlient package"
   unarchive:
     src: forticlientsslvpn.tar.gz
     dest: "/home/{{ ansible_user }}"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
 
-- name: "Create /usr/share/applications/forticlient.desktop"
+- name: "[FORTICLIENTVPN] Create /usr/share/applications/forticlient.desktop"
   template:
     src: forticlientvpn.desktop.j2
     dest: /usr/share/applications/forticlientvpn.desktop

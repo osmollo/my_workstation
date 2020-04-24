@@ -1,12 +1,12 @@
 ---
 
-- name: "[UBUNTU] install megasync package"
+- name: "[MEGASYNC] [UBUNTU] install megasync package"
   apt:
     deb: "{{ megasync_package }}"
     state: present
     update_cache: true
 
-- name: "[UBUNTU] Install megasync for file manager"
+- name: "[MEGASYNC] [UBUNTU] Install megasync for file manager"
   apt:
     deb: "{{ file_manager_plugin }}"
     state: present

@@ -6,17 +6,17 @@
   register: subl_response
 
 - block:
-    - name: "Wait until directory exist in Dropbox"
+    - name: "[SUBLIME] Wait until directory exist in Dropbox"
       wait_for:
         path: "{{ dropbox_dir }}/backups/Sublime/User"
         timeout: "{{ wait_dropbox_sync }}"
 
-    - name: "Delete local directory for Sublime configuration"
+    - name: "[SUBLIME] Delete local directory for Sublime configuration"
       file:
         path: "/home/{{ ansible_user }}/.config/sublime-text-3/Packages/User"
         state: absent
 
-    - name: "Create the symlink to Sublime config in Dropbox"
+    - name: "[SUBLIME] Create the symlink to Sublime config in Dropbox"
       file:
         src: "{{ dropbox_dir }}/backups/Sublime/User"
         dest: "/home/{{ ansible_user }}/.config/sublime-text-3/Packages/User"

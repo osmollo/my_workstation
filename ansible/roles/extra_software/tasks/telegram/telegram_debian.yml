@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEBIAN] install telegram"
+- name: "[TELEGRAM] [DEBIAN] install telegram"
   apt:
     name: telegram-desktop
     state: latest

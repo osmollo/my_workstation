@@ -1,13 +1,13 @@
 ---
 
-- name: "check if {{ ansible_user_dir }}/.mozilla/firefox exists"
+- name: "[FIREFOX] check if {{ ansible_user_dir }}/.mozilla/firefox exists"
   stat:
     path: "{{ firefox_dir }}"
   register: stat_response
 
-- name: "customize firefox if {{ ansible_user_dir }}/.mozilla/firefox exists"
+- name: "[FIREFOX] customize firefox if {{ ansible_user_dir }}/.mozilla/firefox exists"
   block:
-    - name: "get the firefox preferences file"
+    - name: "[FIREFOX] get the firefox preferences file"
       find:
         path: "{{ firefox_dir }}"
         patterns: "^prefs.js$"
@@ -19,15 +19,15 @@
     - set_fact:
         find_response: "{{ find_response_round_1 }}"
 
-    - name: "launch firefox if there aren't matches'"
+    - name: "[FIREFOX] launch firefox if there aren't matches'"
       block:
-        - name: "launch and kill firefox"
+        - name: "[FIREFOX] launch and kill firefox"
           shell: "{{ item }}"
           loop:
             - "firefox &"
             - "killall firefox"
 
-        - name: "get the firefox preferences file"
+        - name: "[FIREFOX] get the firefox preferences file"
           find:
             path: "{{ firefox_dir }}"
             patterns: "^prefs.js$"
@@ -40,7 +40,7 @@
             find_response: "{{ find_response_round_2 }}"
       when: (find_response_round_1.matched | int) == 0
 
-    - name: "customize firefox profile for {{ ansible_user }}"
+    - name: "[FIREFOX] customize firefox profile for {{ ansible_user }}"
       lineinfile:
         path: "{{ (find_response.files | json_query('[].path'))[0] }}"
         regexp: '{{ item.regex }}'

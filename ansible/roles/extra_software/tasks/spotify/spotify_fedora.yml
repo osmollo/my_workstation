@@ -1,6 +1,6 @@
 ---
 
-- name: "[FEDORA] Copy repository file"
+- name: "[SPOTIFY] [FEDORA] Copy repository file"
   copy:
     src: spotify.repo
     dest: /etc/yum.repos.d/fedora-spotify.repo
@@ -8,7 +8,7 @@
     owner: root
     group: root
 
-- name: "[FEDORA] Install Spotify"
+- name: "[SPOTIFY] [FEDORA] Install Spotify"
   yum:
     name: spotify-client
     state: latest

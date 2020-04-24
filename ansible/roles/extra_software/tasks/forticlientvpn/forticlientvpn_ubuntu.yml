@@ -1,16 +1,16 @@
 ---
 
-- name: "[DEB] Copy Forticlient VPN package"
+- name: "[FORTICLIENTVPN] [DEB] Copy Forticlient VPN package"
   copy:
     src: forticlient-sslvpn_4.4.2333-1_amd64.deb
     dest: /tmp/forticlientvpn.deb
 
-- name: "[DEB] Install Forticlient VPN package"
+- name: "[FORTICLIENTVPN] [DEB] Install Forticlient VPN package"
   apt:
     deb: /tmp/forticlientvpn.deb
     state: present
 
-- name: "[DEB] Delete temporal file"
+- name: "[FORTICLIENTVPN] [DEB] Delete temporal file"
   file:
     path: /tmp/forticlientvpn.deb
     state: absent

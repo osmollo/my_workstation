@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] install chrome"
+- name: "[CHROME] [ARCH] install chrome"
   become: false
   yay:
     name: "{{ chrome_package }}"

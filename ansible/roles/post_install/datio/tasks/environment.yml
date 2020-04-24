@@ -1,10 +1,10 @@
 ---
 
-- name: "include secrets file"
+- name: "[ENVIRONMENT] include secrets file"
   include_vars:
     file: "secrets.yml"
 
-- name: "Configure ssh"
+- name: "[ENVIRONMENT] Configure ssh"
   template:
     src: ssh_config.j2
     dest: "{{ ssh_user_dir }}/config"
@@ -12,7 +12,7 @@
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
 
-- name: "Create ssh keypair"
+- name: "[ENVIRONMENT] Create ssh keypair"
   openssh_keypair:
     path: "{{ ssh_user_dir }}/id_rsa"
     type: rsa
@@ -23,9 +23,9 @@
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
 
-- name: "Create ssh keys"
+- name: "[ENVIRONMENT] Create ssh keys"
   block:
-    - name: "Create subdirectories"
+    - name: "[ENVIRONMENT] Create subdirectories"
       file:
         path: "{{ ssh_user_dir }}/{{ item }}"
         state: directory
@@ -35,7 +35,7 @@
         - aws
         - ccr
 
-    - name: "Generate files"
+    - name: "[ENVIRONMENT] Generate files"
       copy:
         content: "{{ item.key }}"
         dest: "{{ ssh_user_dir }}/{{ item.file }}"

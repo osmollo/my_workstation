@@ -1,33 +1,33 @@
 ---
 
-- name: "check if previous version is installed"
+- name: "[GO] check if previous version is installed"
   stat:
     path: "{{ go_dir }}"
   register: go_response
 
-- name: "delete previous version if exists"
+- name: "[GO] delete previous version if exists"
   file:
     path: "{{ go_dir }}"
     state: absent
   when: go_response.stat.exists
 
-- name: "get latest go version"
+- name: "[GO] get latest go version"
   get_go_latest:
   register: go_response
 
-- name: "download go {{ go_response.version }}"
+- name: "[GO] download go {{ go_response.version }}"
   unarchive:
     src: "https://dl.google.com/go/go{{ go_response.version }}.linux-amd64.tar.gz"
     dest: "/usr/local"
     remote_src: true
 
-- name: "get the default shell for {{ ansible_user }}"
+- name: "[GO] get the default shell for {{ ansible_user }}"
   become: false
   shell: "basename $(echo $SHELL)"
   register: shell_response
   changed_when: false
 
-- name: "modify PATH variable"
+- name: "[GO] modify PATH variable"
   become: false
   lineinfile:
     path: "{{ ansible_user_dir }}/.{{ shell_response.stdout }}rc"

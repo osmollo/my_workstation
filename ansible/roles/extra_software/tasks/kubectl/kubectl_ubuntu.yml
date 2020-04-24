@@ -1,22 +1,22 @@
 ---
 
-- name: "[DEB] install apt-transport-https"
+- name: "[KUBECTL] [DEB] install apt-transport-https"
   apt:
     name: apt-transport-https
     state: latest
     update_cache: true
 
-- name: "[DEB] Import repository key"
+- name: "[KUBECTL] [DEB] Import repository key"
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     state: present
 
-- name: "[DEB] copy repository file"
+- name: "[KUBECTL] [DEB] copy repository file"
   copy:
     src: kubectl.list
     dest: /etc/apt/sources.list.d/kubernetes.list
 
-- name: "[DEB] install kubectl package"
+- name: "[KUBECTL] [DEB] install kubectl package"
   apt:
     name: kubectl
     state: latest

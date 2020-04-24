@@ -1,20 +1,20 @@
 ---
 
-- name: "create {{ ansible_user_dir }}/AppImage directory"
+- name: "[LENS] create {{ ansible_user_dir }}/AppImage directory"
   file:
     path: "{{ appimage_dir }}"
     state: directory
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
 
-- name: "Get latest version of lens"
+- name: "[LENS] Get latest version of lens"
   uri:
     url: "{{ lens_latest_url }}"
     follow_redirects: safe
     body_format: raw
   register: lens_latest
 
-- name: "download lens appimage"
+- name: "[LENS] download lens appimage"
   vars:
     lens_version: "{{ lens_latest.url | urlsplit('path') | basename }}"
   get_url:

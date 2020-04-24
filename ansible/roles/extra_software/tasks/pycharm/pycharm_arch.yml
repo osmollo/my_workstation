@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install pycharm"
+- name: "[PYCHARM] [ARCH] Install pycharm"
   become: false
   yay:
     name: "{{ pycharm_package }}"

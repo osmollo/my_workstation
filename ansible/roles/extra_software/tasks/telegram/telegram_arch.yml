@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install telegram"
+- name: "[TELEGRAM] [ARCH] Install telegram"
   become: false
   yay:
     name: "{{ telegram_package }}"

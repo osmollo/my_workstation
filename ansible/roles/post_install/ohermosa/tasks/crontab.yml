@@ -1,11 +1,11 @@
 ---
 
-- name: "Check if /var/spool/cron/crontabs exists"
+- name: "[CRONTAB] Check if /var/spool/cron/crontabs exists"
   stat:
     path: /var/spool/cron/crontabs
   register: crontabs_exists
 
-- name: "Create directory /var/spool/cron/crontabs if not exists"
+- name: "[CRONTAB] Create directory /var/spool/cron/crontabs if not exists"
   file:
     path: /var/spool/cron/crontabs
     state: directory
@@ -13,12 +13,12 @@
   become: true
   become_method: sudo
 
-- name: "Wait until crontab file exist in Dropbox"
+- name: "[CRONTAB] Wait until crontab file exist in Dropbox"
   wait_for:
     path: "{{ dropbox_dir }}/datio/crontab.ohermosa"
     timeout: "{{ wait_dropbox_sync }}"
 
-- name: "Create link to user crontab"
+- name: "[CRONTAB] Create link to user crontab"
   file:
     src: "{{ dropbox_dir }}/datio/crontab.ohermosa"
     dest: "/var/spool/cron/crontabs/{{ ansible_user}}"

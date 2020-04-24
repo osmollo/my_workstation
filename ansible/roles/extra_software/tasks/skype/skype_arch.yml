@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] install skype"
+- name: "[SKYPE] [ARCH] install skype"
   become: false
   yay:
     name: "{{ skype_package }}"

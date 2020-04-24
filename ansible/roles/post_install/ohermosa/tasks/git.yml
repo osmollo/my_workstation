@@ -1,17 +1,17 @@
 ---
 
 - block:
-    - name: "Wait until private ssh key exists"
+    - name: "[GIT] Wait until private ssh key exists"
       wait_for:
         path: "/home/{{ ansible_user }}/.ssh/id_rsa"
         timeout: "{{ wait_dropbox_sync }}"
 
-    - name: "Create {{ git_dir }}"
+    - name: "[GIT] Create {{ git_dir }}"
       file:
         path: "{{ git_dir }}"
         state: directory
 
-    - name: "Clone git repositories"
+    - name: "[GIT] Clone git repositories"
       git:
         repo: "{{ item.repo }}"
         dest: "{{ item.dest}}"
@@ -25,11 +25,11 @@
   tags:
     - clone_repos
 
-- name: "Create remotes for repositories"
+- name: "[GIT] Create remotes for repositories"
   block:
     # create remotes for repositories copied in other platforms
 
-    - name: "Create github repositories for WORK"
+    - name: "[GIT] Create github repositories for WORK"
       include_role:
         name: tools/github_repo
       vars:
@@ -42,7 +42,7 @@
         - item.remote == "github"
       with_items: "{{ git_repositories.work }}"
 
-    - name: "Create gitlab repositories for WORK"
+    - name: "[GIT] Create gitlab repositories for WORK"
       include_role:
         name: tools/gitlab_repo
       vars:
@@ -55,7 +55,7 @@
         - item.remote == "gitlab"
       with_items: "{{ git_repositories.work }}"
 
-    - name: "Create new remote for work repositories"
+    - name: "[GIT] Create new remote for work repositories"
       shell: "git remote add {{ item.remote }} {{ remote_url }}"
       args:
         chdir: "{{ item.dest }}"
@@ -66,7 +66,7 @@
       vars:
         remote_url: "git@{{ item.remote }}.com:ohermosa/{{ (item.repo | basename).split('.')[0] }}.git"
 
-    - name: "Create github repositories for HOME"
+    - name: "[GIT] Create github repositories for HOME"
       include_role:
         name: tools/github_repo
       vars:
@@ -79,7 +79,7 @@
         - item.remote == "github"
       with_items: "{{ git_repositories.home }}"
 
-    - name: "Create gitlab repositories for HOME"
+    - name: "[GIT] Create gitlab repositories for HOME"
       include_role:
         name: tools/gitlab_repo
       vars:
@@ -92,7 +92,7 @@
         - item.remote == "gitlab"
       with_items: "{{ git_repositories.home }}"
 
-    - name: "Create new remote for home repositories"
+    - name: "[GIT] Create new remote for home repositories"
       shell: "git remote add {{ item.remote }} {{ remote_url }}"
       args:
         chdir: "{{ item.dest }}"
@@ -105,7 +105,7 @@
 
     # Create remotes for repositories that have forks
 
-    - name: "get repositories to check if have forks"
+    - name: "[GIT] get repositories to check if have forks"
       set_fact:
         repos_to_check: "{{ repos_to_check | default([]) | union([repository_name]) }}"
       with_items: "{{ git_repositories.home }}"
@@ -121,7 +121,7 @@
       loop: "{{ repos_to_check }}"
       register: forks_response
 
-    - name: "create new remote for fork repositories"
+    - name: "[GIT] create new remote for fork repositories"
       shell: "git remote add {{ item.user }} {{ item.remote }}"
       args:
         chdir: "{{ git_dir }}/{{ repo_name }}"
@@ -135,7 +135,7 @@
     - create_remotes
 
 
-- name: "Configure name and user of BBVA repositories"
+- name: "[GIT] Configure name and user of BBVA repositories"
   git_config:
     name: user.name
     repo: "{{ item }}"
@@ -143,7 +143,7 @@
     value: "{{ git_user_name }}"
   loop: "{{ git_repositories.work | json_query('[].dest') }}"
 
-- name: "Configure name and user of BBVA repositories"
+- name: "[GIT] Configure name and user of BBVA repositories"
   git_config:
     name: user.email
     repo: "{{ item }}"
@@ -151,7 +151,7 @@
     value: "{{ git_user_mail_work }}"
   loop: "{{ git_repositories.work | json_query('[].dest') }}"
 
-- name: "Configure name and user of personal repositories"
+- name: "[GIT] Configure name and user of personal repositories"
   git_config:
     name: user.name
     repo: "{{ item }}"
@@ -159,7 +159,7 @@
     value: "{{ git_user_name }}"
   loop: "{{ git_repositories.home | json_query('[].dest') }}"
 
-- name: "Configure name and user of personal repositories"
+- name: "[GIT] Configure name and user of personal repositories"
   git_config:
     name: user.email
     repo: "{{ item }}"

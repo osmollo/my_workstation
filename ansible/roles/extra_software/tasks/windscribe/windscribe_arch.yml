@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install windscribe"
+- name: "[WINDSCRIBE] [ARCH] Install windscribe"
   become: false
   yay:
     name: "{{ windscribe_package }}"

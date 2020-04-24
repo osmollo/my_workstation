@@ -1,27 +1,28 @@
 ---
 
-- name: "[KDE] Wait until dropbox files exist"
+- name: "[KDE_RESTORE] [KDE] Wait until dropbox files exist"
   wait_for:
     path: "{{ kde_backup_dir }}"
     timeout: "{{ wait_dropbox_sync }}"
 
-- name: "[KDE] get list of kde files in backup directory"
+- name: "[KDE_RESTORE] [KDE] get list of kde files in backup directory"
   find:
     path: "{{ kde_backup_dir }}"
   register: find_response
 
-- set_fact:
+- name: "[KDE_RESTORE] [KDE] set kde config files"
+  set_fact:
     kde_files: "{{ find_response.files | json_query(id_query) }}"
   vars:
     id_query: "[].path"
 
-- name: "[KDE] delete original backuped files "
+- name: "[KDE_RESTORE] [KDE] delete original backuped files "
   file:
     path: "{{ ansible_user_dir }}/.config/{{ item | basename }}"
     state: absent
   loop: "{{ kde_files }}"
 
-- name: "[KDE] create links"
+- name: "[KDE_RESTORE] [KDE] create links"
   file:
     src: "{{ item }}"
     dest: "{{ ansible_user_dir }}/.config/{{ item | basename }}"

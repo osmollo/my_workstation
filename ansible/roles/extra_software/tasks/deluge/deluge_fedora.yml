@@ -1,6 +1,6 @@
 ---
 
-- name: "[FEDORA] Install deluge"
+- name: "[DELUGE] [FEDORA] Install deluge"
   yum:
     name: "{{ deluge_package }}"
     state: latest

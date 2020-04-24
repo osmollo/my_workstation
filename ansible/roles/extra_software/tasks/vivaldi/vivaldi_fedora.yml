@@ -1,6 +1,6 @@
 ---
 
-- name: "[FEDORA] Install vivaldi"
+- name: "[VIVALDI] [FEDORA] Install vivaldi"
   yum:
     name: "{{ vivaldi_package }}"
     state: present

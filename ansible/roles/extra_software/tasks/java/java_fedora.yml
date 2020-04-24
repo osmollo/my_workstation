@@ -1,6 +1,6 @@
 ---
 
-- name: "[FEDORA]: install java package"
+- name: "[JAVA] [FEDORA]: install java package"
   yum:
     name: java-11-openjdk
     state: latest

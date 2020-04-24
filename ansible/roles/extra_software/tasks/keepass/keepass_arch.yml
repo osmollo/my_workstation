@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install keepass"
+- name: "[KEEPASS] [ARCH] Install keepass"
   become: false
   yay:
     name: "{{ keepass_package }}"

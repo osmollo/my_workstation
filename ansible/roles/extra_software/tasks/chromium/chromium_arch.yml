@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install chromium browser"
+- name: "[CHROMIUM] [ARCH] Install chromium browser"
   pacman:
     name: chromium
     state: latest

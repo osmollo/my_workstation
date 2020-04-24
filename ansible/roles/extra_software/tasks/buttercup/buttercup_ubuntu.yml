@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEB] Install buttercup"
+- name: "[BUTTERCUP] [DEB] Install buttercup"
   apt:
     deb: "{{ buttercup_deb_package }}"
     state: present

@@ -1,6 +1,6 @@
 ---
 
-- name: "Find gimp configuration files"
+- name: "[GIMP] Find gimp configuration files"
   find:
     path: "{{ ansible_user_dir }}"
     patterns: "^(.gimp)"
@@ -10,21 +10,21 @@
     recurse: true
   register: find_response
 
-- name: "Get gimp directory"
+- name: "[GIMP] Get gimp directory"
   set_fact:
     gimp_dir: "{{ (find_response.files | first).path }}"
   when: find_response.matched > 0
 
-- name: "Generate gimp directory"
+- name: "[GIMP] Generate gimp directory"
   block:
-    - name: "Execute gimp with no UI for generate its directory"
+    - name: "[GIMP] Execute gimp with no UI for generate its directory"
       shell: "{{ item }}"
       loop:
         - "gimp -dif > /dev/null &"
         - "sleep 1"
         - "pkill -9 gimp"
 
-    - name: "Find gimp configuration files"
+    - name: "[GIMP] Find gimp configuration files"
       find:
         path: "{{ ansible_user_dir }}"
         patterns: "^(.gimp)"
@@ -34,13 +34,13 @@
         recurse: true
       register: find_response_bis
 
-    - name: "Get gimp directory"
+    - name: "[GIMP] Get gimp directory"
       set_fact:
         gimp_dir: "{{ (find_response_bis.files | first).path }}"
       when: find_response_bis.matched > 0
   when: find_response.matched == 0
 
-- name: "Configure single window mode for gimp"
+- name: "[GIMP] Configure single window mode for gimp"
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"

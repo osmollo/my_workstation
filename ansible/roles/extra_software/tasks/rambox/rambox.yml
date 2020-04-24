@@ -1,6 +1,6 @@
 ---
 
-- name: "Get latest version of rambox"
+- name: "[PYCHARM] Get latest version of rambox"
   uri:
     url: "{{ rambox_latest_url }}"
     follow_redirects: safe
@@ -8,7 +8,7 @@
   register: rambox_latest
   when: linux_distribution != "arch"
 
-- name: "Set urls for rambox packages"
+- name: "[PYCHARM] Set urls for rambox packages"
   vars:
     rambox_version: "{{ rambox_latest.url | urlsplit('path') | basename }}"
   set_fact:
