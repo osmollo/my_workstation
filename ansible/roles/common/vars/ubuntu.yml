@@ -8,7 +8,7 @@ distro_packages:
   - apt-transport-https
   - openvpn
   - dnsutils
-  - "{{ 'python-dev' if ubuntu_codename not in ['focal'] else omit }}"
+  - "{{ 'python-dev' if ubuntu_codename not in ['focal'] else '' }}"
   - python3-dev
   - build-essential
   - snap
@@ -16,11 +16,12 @@ distro_packages:
   - firewall-config
   - net-tools
   - python3-jmespath
-  - "{{ 'python-jmespath' if ubuntu_codename not in ['focal'] else omit }}"
+  - "{{ 'python-jmespath' if ubuntu_codename not in ['focal'] else '' }}"
   - secure-delete
   - libnss3-tools
   - libzookeeper-mt-dev
   - fonts-firacode
+  - virtualenvwrapper
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras
@@ -29,7 +30,7 @@ gnome_ubuntu_packages:
   - elementary-icon-theme
   - papirus-icon-theme
   - gnome-tweaks
-  - "{{ 'python-psutil' if ubuntu_codename not in ['focal'] else omit }}"
+  - "{{ 'python-psutil' if ubuntu_codename not in ['focal'] else '' }}"
   - python3-psutil
   - wireshark
   - vlc

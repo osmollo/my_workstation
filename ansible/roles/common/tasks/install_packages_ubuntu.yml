@@ -9,7 +9,7 @@
 
 - name: "[UBUNTU] Install Ubuntu packages"
   apt:
-    name: "{{ distro_packages }}"
+    name: "{{ distro_packages | reject('equalto', '') | list }}"
     state: latest
     update_cache: true
     autoclean: true
