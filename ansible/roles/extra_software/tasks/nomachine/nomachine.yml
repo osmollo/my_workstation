@@ -3,13 +3,13 @@
 - include_vars:
     file: "{{ linux_distribution }}.yml"
 
-- name: "get lastest version of nomachine"
+- name: "[NOMACHINE] get lastest version of nomachine"
   block:
-    - name: "get latest version of no machine"
+    - name: "[NOMACHINE] get latest version of no machine"
       get_nomachine_latest:
       register: nomachine_response
 
-    - name: "set variable with latest version of nomachine"
+    - name: "[NOMACHINE] set variable with latest version of nomachine"
       set_fact:
         nomachine_version: "{{ nomachine_response.version }}"
 

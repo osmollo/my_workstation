@@ -1,6 +1,6 @@
 ---
 
-- name: "Get latest version of yakyak"
+- name: "[YAKYAK] Get latest version of yakyak"
   uri:
     url: "{{ yakyak_latest_url }}"
     follow_redirects: safe
@@ -8,7 +8,7 @@
   register: yakyak_latest
   when: linux_distribution != "arch"
 
-- name: "Set urls for yakyak packages"
+- name: "[YAKYAK] Set urls for yakyak packages"
   vars:
     yakyak_version: "{{ yakyak_latest.url | urlsplit('path') | basename }}"
   set_fact:

@@ -7,24 +7,24 @@
 
 - include_tasks: "virtualbox_{{ linux_distribution }}.yml"
 
-- name: "Adding {{ ansible_user }} to group vboxusers"
+- name: "[VIRTUALBOX] Adding {{ ansible_user }} to group vboxusers"
   user:
     name: "{{ ansible_user }}"
     groups: vboxusers
     append: true
 
-- name: "Add VAGRANT_DEFAULT_PROVIDER to /etc/profile"
+- name: "[VIRTUALBOX] Add VAGRANT_DEFAULT_PROVIDER to /etc/profile"
   lineinfile:
     path: /etc/profile
     line: export VAGRANT_DEFAULT_PROVIDER=virtualbox
     state: present
 
-- name: "Check if extension pack is already installed"
+- name: "[VIRTUALBOX] Check if extension pack is already installed"
   shell: "VBoxManage list extpacks"
   changed_when: false
   register: extpack_list
 
-- name: "Download VirtualBox extension pack"
+- name: "[VIRTUALBOX] Download VirtualBox extension pack"
   get_url:
     url: "https://download.virtualbox.org/virtualbox/{{ virtualbox_extpack_version }}/Oracle_VM_VirtualBox_Extension_Pack-{{ virtualbox_extpack_version }}.vbox-extpack"
     dest: /tmp/
@@ -32,14 +32,14 @@
   register: download_result
   when: 'extpack_list.stdout == "Extension Packs: 0"'
 
-- name: "Install VirtualBox extension pack"
+- name: "[VIRTUALBOX] Install VirtualBox extension pack"
   shell: "VBoxManage extpack install --replace {{ download_result.dest }}"
   args:
     stdin: "y"
     stdin_add_newline: false
   when: 'extpack_list.stdout == "Extension Packs: 0"'
 
-- name: "Delete Virtualbox Extension pack"
+- name: "[VIRTUALBOX] Delete Virtualbox Extension pack"
   file:
     path: "{{ download_result.dest }}"
     state: absent

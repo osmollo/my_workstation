@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install typora"
+- name: "[TYPORA] [ARCH] Install typora"
   become: false
   yay:
     name: "{{ typora_package }}"

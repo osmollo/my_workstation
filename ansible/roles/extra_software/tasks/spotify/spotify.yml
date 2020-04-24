@@ -3,14 +3,14 @@
 - include_tasks: "spotify_{{ linux_distribution }}.yml"
 
 - block:
-    - name: "Get latest version of spotify-tui"
+    - name: "[SPOTIFY] Get latest version of spotify-tui"
       uri:
         url: https://github.com/Rigellute/spotify-tui/releases/latest
         follow_redirects: safe
         body_format: raw
       register: spotifytui_latest
 
-    - name: "download spotify-tui package"
+    - name: "[SPOTIFY] download spotify-tui package"
       vars:
         spotifytui_version: "{{ spotifytui_latest.url | urlsplit('path') | basename }}"
       unarchive:

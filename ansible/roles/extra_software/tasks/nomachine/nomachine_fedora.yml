@@ -1,6 +1,6 @@
 ---
 
-- name: "[FEDORA] install no machine"
+- name: "[NOMACHINE] [FEDORA] install no machine"
   yum:
     name: "{{ nomachine_package }}"
     state: present

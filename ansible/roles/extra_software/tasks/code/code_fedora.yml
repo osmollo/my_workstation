@@ -1,6 +1,6 @@
 ---
 
-- name: "[FEDORA] Copy repository file"
+- name: "[CODE] [FEDORA] Copy repository file"
   copy:
     src: code.repo
     dest: /etc/yum.repos.d/code.repo
@@ -8,12 +8,12 @@
     group: root
     mode: 0644
 
-- name: "[FEDORA] Import Microsoft key"
+- name: "[CODE] [FEDORA] Import Microsoft key"
   rpm_key:
     key: https://packages.microsoft.com/keys/microsoft.asc
     state: present
 
-- name: "[FEDORA] Install Code"
+- name: "[CODE] [FEDORA] Install Code"
   yum:
     name: code
     state: latest

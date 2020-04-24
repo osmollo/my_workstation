@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEB] Copy repository file"
+- name: "[WINDSCRIBE] [DEB] Copy repository file"
   copy:
     src: windscribe.list
     dest: /etc/apt/sources.list.d/windscribe.list
@@ -8,14 +8,14 @@
     group: root
     mode: 0644
 
-- name: "[DEB] Import windscribe repository key"
+- name: "[WINDSCRIBE] [DEB] Import windscribe repository key"
   apt_key:
     keyserver: keyserver.ubuntu.com
     id: FDC247B7
     state: present
     validate_certs: false
 
-- name: "[DEB] install windscribe package"
+- name: "[WINDSCRIBE] [DEB] install windscribe package"
   apt:
     name: windscribe-cli
     state: latest

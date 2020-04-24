@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEB] install KeepassXC"
+- name: "[KEEPASS] [DEB] install KeepassXC"
   apt:
     name: keepassxc
     state: latest

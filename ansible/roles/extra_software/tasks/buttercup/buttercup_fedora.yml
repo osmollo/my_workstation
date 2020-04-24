@@ -1,6 +1,6 @@
 ---
 
-- name: "[RPM] Install buttercup"
+- name: "[BUTTERCUP] [RPM] Install buttercup"
   yum:
     name: "{{ buttercup_rpm_package }}"
     state: present

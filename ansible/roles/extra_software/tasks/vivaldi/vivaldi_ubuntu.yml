@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEB] Install vivaldi"
+- name: "[VIVALDI] [DEB] Install vivaldi"
   apt:
     deb: "{{ vivaldi_package }}"
     state: present

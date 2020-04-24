@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install cherrytree"
+- name: "[CHERRYTREE] [ARCH] Install cherrytree"
   become: false
   yay:
     name: "{{ cherrytree_package }}"

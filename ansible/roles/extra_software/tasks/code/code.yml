@@ -3,12 +3,12 @@
 - include_tasks: "code_{{ linux_distribution }}.yml"
 
 - block:
-    - name: "get json with extensions"
+    - name: "[CODE] get json with extensions"
       uri:
         url: "{{ code_extensions_url }}"
       register: extensions_response
 
-    - name: "Install extensions for Visual Studio Code"
+    - name: "[CODE] Install extensions for Visual Studio Code"
       become: false
       become_user: "{{ ansible_user }}"
       vars:

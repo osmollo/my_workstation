@@ -2,21 +2,21 @@
 
 - include_tasks: "docker_{{ linux_distribution }}.yml"
 
-- name: "Adding {{ ansible_user }} to group docker"
+- name: "[DOCKER] Adding {{ ansible_user }} to group docker"
   user:
     name: "{{ ansible_user }}"
     groups: docker
     append: true
 
-- name: "Restart Docker"
+- name: "[DOCKER] Restart Docker"
   systemd:
     name: docker
     enabled: true
     state: restarted
 
-- name: "Install docker compose"
+- name: "[DOCKER] Install docker compose"
   block:
-    - name: "Get latest version of Docker Compose"
+    - name: "[DOCKER] Get latest version of Docker Compose"
       uri:
         url: "{{ dockercompose_latest_url }}"
         follow_redirects: safe
@@ -24,14 +24,14 @@
       register: dockercompose_latest
       when: linux_distribution != "arch"
 
-    - name: "Set urls for Docker Compose packages"
+    - name: "[DOCKER] Set urls for Docker Compose packages"
       vars:
         dockercompose_version: "{{ dockercompose_latest.url | urlsplit('path') | basename }}"
       set_fact:
         dockercompose_package: "https://github.com/docker/compose/releases/download/{{ dockercompose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
       when: linux_distribution != "arch"
 
-    - name: "Download Docker Compose binary"
+    - name: "[DOCKER] Download Docker Compose binary"
       import_tasks: docker_compose.yml
       when: linux_distribution != "arch"
   tags:

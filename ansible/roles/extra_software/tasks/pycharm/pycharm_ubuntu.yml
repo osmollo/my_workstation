@@ -1,13 +1,13 @@
 ---
 
-- name: "[DEB] Check if ansible_version >= 2.8"
+- name: "[PYCHARM] [DEB] Check if ansible_version >= 2.8"
   assert:
     that:
       - ansible_version.full >= "2.8"
     fail_msg: "Ansible version must be >= 2.8. Please, ejecute 'ansible-playbook update_ansible.yml '"
     success_msg: "OK, your ansible version is {{ ansible_version.full }}"
 
-- name: "[DEB] Install PyCharm using snap"
+- name: "[PYCHARM] [DEB] Install PyCharm using snap"
   snap:
     name:
       - pycharm-community

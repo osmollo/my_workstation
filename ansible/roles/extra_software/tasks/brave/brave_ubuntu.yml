@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEB] install prerequisites"
+- name: "[BRAVE] [DEB] install prerequisites"
   apt:
     name:
       - apt-transport-https
@@ -8,19 +8,19 @@
     state: present
     update_cache: true
 
-- name: "[DEB] install gpg key"
+- name: "[BRAVE] [DEB] install gpg key"
   apt_key:
     id: D8BAD4DE7EE17AF52A834B2D0BB75829C2D4E821
     url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
     keyring: /etc/apt/trusted.gpg.d/brave-browser-release.gpg
 
-- name: "[DEB] install brave repository"
+- name: "[BRAVE] [DEB] install brave repository"
   lineinfile:
     path: /etc/apt/sources.list.d/brave-browser-release.list
     line: "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"
     create: true
 
-- name: "[DEB] install brave browser"
+- name: "[BRAVE] [DEB] install brave browser"
   apt:
     name: brave-browser
     state: latest

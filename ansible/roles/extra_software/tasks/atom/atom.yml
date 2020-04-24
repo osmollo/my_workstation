@@ -1,6 +1,6 @@
 ---
 
-- name: "Get latest version of Atom"
+- name: "[ATOM] Get latest version of Atom"
   uri:
     url: "{{ atom_latest_url }}"
     follow_redirects: safe
@@ -8,7 +8,7 @@
   register: atom_latest
   when: linux_distribution != "arch"
 
-- name: "Set urls for Atom packages"
+- name: "[ATOM] Set urls for Atom packages"
   vars:
     atom_version: "{{ atom_latest.url | urlsplit('path') | basename }}"
   set_fact:
@@ -19,12 +19,12 @@
 - include_tasks: "atom_{{ linux_distribution }}.yml"
 
 - block:
-    - name: "get json with packages"
+    - name: "[ATOM] get json with packages"
       uri:
         url: "{{ atom_packages_url }}"
       register: packages_response
 
-    - name: "Install packages for Atom"
+    - name: "[ATOM] Install packages for Atom"
       become: false
       become_user: "{{ ansible_user }}"
       vars:

@@ -1,26 +1,26 @@
 ---
 
-- name: "[ARCH] installing protonvpn dependencies"
+- name: "[PROTONVPN] [ARCH] installing protonvpn dependencies"
   pacman:
     name: "{{ protonvpn_dependencies }}"
     state: present
   when: linux_distribution == "arch"
 
-- name: "[DEB] installing protonvpn dependencies"
+- name: "[PROTONVPN] [DEB] installing protonvpn dependencies"
   apt:
     name: "{{ protonvpn_dependencies }}"
     update_cache: true
     state: present
   when: linux_distribution in ["debian", "ubuntu"]
 
-- name: "[FEDORA] installing protonvpn dependencies"
+- name: "[PROTONVPN] [FEDORA] installing protonvpn dependencies"
   yum:
     name: "{{ protonvpn_dependencies }}"
     update_cache: true
     state: present
   when: linux_distribution == "fedora"
 
-- name: "Install protonvpn-cli"
+- name: "[PROTONVPN] Install protonvpn-cli"
   pip:
     name:
       - protonvpn-cli

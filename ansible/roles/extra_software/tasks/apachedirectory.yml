@@ -1,6 +1,6 @@
 ---
 
-- name: "Download Apache Directory"
+- name: "[APACHEDIRECTORY] Download Apache Directory"
   unarchive:
     src: "{{ apachedirectory_url }}"
     dest: "/home/{{ ansible_user }}"
@@ -9,7 +9,7 @@
     group: "{{ ansible_user }}"
   become: false
 
-- name: "Create /usr/share/applications/apachedirectory.desktop"
+- name: "[APACHEDIRECTORY] Create /usr/share/applications/apachedirectory.desktop"
   template:
     src: apachedirectory.desktop.j2
     dest: /usr/share/applications/apachedirectory.desktop

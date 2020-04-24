@@ -1,12 +1,12 @@
 ---
 
-- name: "[FEDORA] install google chrome"
+- name: "[CHROME] [FEDORA] install google chrome"
   yum:
     name: "{{ chrome_package }}"
     state: present
     update_cache: true
 
-- name: "[UBUNTU] Install gnome extension for chrome"
+- name: "[CHROME] [UBUNTU] Install gnome extension for chrome"
   yum:
     name: chrome-gnome-shell
     state: present

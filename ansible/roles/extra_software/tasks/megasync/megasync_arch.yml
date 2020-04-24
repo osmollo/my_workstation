@@ -1,13 +1,13 @@
 ---
 
-- name: "[ARCH] Install megasync"
+- name: "[MEGASYNC] [ARCH] Install megasync"
   become: false
   yay:
     name: "{{ megasync_package }}"
     state: present
     update_cache: true
 
-- name: "[ARCH] Install megasync for file manager"
+- name: "[MEGASYNC] [ARCH] Install megasync for file manager"
   pacman:
     name: "{{ file_manager_plugin }}"
     state: present

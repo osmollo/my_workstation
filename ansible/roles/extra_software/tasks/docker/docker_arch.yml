@@ -1,13 +1,13 @@
 ---
 
-- name: "[ARCH] Install docker"
+- name: "[DOCKER] [ARCH] Install docker"
   become: false
   yay:
     name: "{{ docker_package }}"
     state: present
     update_cache: true
 
-- name: "[ARCH] Install docker-compose"
+- name: "[DOCKER] [ARCH] Install docker-compose"
   become: false
   yay:
     name: "{{ dockercompose_package }}"

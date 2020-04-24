@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install rambox"
+- name: "[RAMBOX] [ARCH] Install rambox"
   become: false
   yay:
     name: "{{ rambox_package }}"

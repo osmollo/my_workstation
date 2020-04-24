@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install Pass"
+- name: "[PASS] [ARCH] Install Pass"
   pacman:
     name: pass
     state: latest

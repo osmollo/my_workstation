@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install spotify"
+- name: "[SPOTIFY] [ARCH] Install spotify"
   become: false
   yay:
     name: "{{ spotify_package }}"

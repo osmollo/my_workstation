@@ -1,6 +1,6 @@
 ---
 
-- name: "Get latest version of buttercup"
+- name: "[BUTTERCUP] Get latest version of buttercup"
   uri:
     url: "{{ buttercup_latest_url }}"
     follow_redirects: safe
@@ -8,7 +8,7 @@
   register: buttercup_latest
   when: linux_distribution != "arch"
 
-- name: "Set urls for buttercup packages"
+- name: "[BUTTERCUP] Set urls for buttercup packages"
   vars:
     buttercup_version: "{{ buttercup_latest.url | urlsplit('path') | basename }}"
   set_fact:

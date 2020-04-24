@@ -1,23 +1,23 @@
 ---
 
-- name: "Install zsh"
+- name: "[OHMYZSH] Install zsh"
   import_role:
     name: common
     tasks_from: zsh.yml
 
-- name: "Download installation script"
+- name: "[OHMYZSH] Download installation script"
   get_url:
     url: "{{ ohmyzsh_installer }}"
     dest: /tmp/install.sh
     mode: 0755
     timeout: 60
 
-- name: "check if previous oh_my_zsh exists"
+- name: "[OHMYZSH] check if previous oh_my_zsh exists"
   stat:
     path: "{{ ansible_env.HOME }}/.oh-my-zsh"
   register: ohmyzshdir_exists
 
-- name: "Install oh_my_zsh"
+- name: "[OHMYZSH] Install oh_my_zsh"
   become: false
   become_user: "{{ ansible_user }}"
   environment:
@@ -26,12 +26,12 @@
   shell: /tmp/install.sh --unattended
   when: not ohmyzshdir_exists.stat.exists
 
-- name: "Change $SHELL variable for {{ ansible_user }}"
+- name: "[OHMYZSH] Change $SHELL variable for {{ ansible_user }}"
   user:
     name: "{{ ansible_user }}"
     shell: /usr/bin/zsh
 
-- name: "ZSH config for snap apps in KDE menu"
+- name: "[OHMYZSH] ZSH config for snap apps in KDE menu"
   lineinfile:
     path: /etc/zsh/zprofile
     line: "emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'"
