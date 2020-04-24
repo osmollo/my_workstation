@@ -48,7 +48,7 @@ install_go: true
 install_fzf: true
 install_vimplugins: true
 install_authy: false
-install_yakyak: true
+install_yakyak: false
 install_hiri: false
 install_steam: false
 install_wireguard: true

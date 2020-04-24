@@ -5,7 +5,7 @@
 - name: "[UBUNTU] Create repository file for Virtualbox"
   lineinfile:
     path: /etc/apt/sources.list.d/virtualbox.list
-    line: "deb https://download.virtualbox.org/virtualbox/debian {{ 'eoan' if ubuntu_codename == "focal" else ubuntu_codename }} contrib"
+    line: "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian {{ 'eoan' if ubuntu_codename == 'focal' else ubuntu_codename }} contrib"
     create: true
 
 - name: "[UBUNTU] Import repository key"
