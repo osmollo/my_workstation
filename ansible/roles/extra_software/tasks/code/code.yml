@@ -12,8 +12,8 @@
       become: false
       become_user: "{{ ansible_user }}"
       vars:
-        id_query: "[].name"
+        id_query: "[].metadata.publisherId"
       shell: "code --install-extension {{ item }}"
-      loop: "{{ extensions_response.json | json_query(id_query) | list }}"
+      loop: "{{ extensions_response.json | default([]) | json_query(id_query) | list }}"
   tags:
     - code_extensions

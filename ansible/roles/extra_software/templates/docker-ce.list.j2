@@ -1,5 +1,5 @@
 {% if ubuntu_codename is defined %}
-deb [arch=amd64] https://download.docker.com/linux/{{ linux_distribution }} {{ ubuntu_codename }} stable
+deb [arch=amd64] https://download.docker.com/linux/{{ linux_distribution }} {{ 'eoan' if ubuntu_codename == 'focal' else ubuntu_codename }} stable
 {% elif debian_codename is defined %}
 deb [arch=amd64] https://download.docker.com/linux/{{ linux_distribution }} {{ debian_codename }} stable
 {% endif %}

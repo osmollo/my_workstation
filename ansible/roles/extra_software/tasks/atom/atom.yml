@@ -24,12 +24,12 @@
         url: "{{ atom_packages_url }}"
       register: packages_response
 
-    - name: "Install packages for Visual Studio Code"
+    - name: "Install packages for Atom"
       become: false
       become_user: "{{ ansible_user }}"
       vars:
         id_query: "[].name"
       shell: "apm install package-name {{ item }}"
-      loop: "{{ packages_response.json | json_query(id_query)| list }}"
+      loop: "{{ packages_response.json | default([]) | json_query(id_query) | list }}"
   tags:
     - atom_extensions

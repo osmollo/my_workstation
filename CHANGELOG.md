@@ -2,6 +2,9 @@
 
 ## 3.6
 
+- Soporte para **Ubuntu 20.04**:
+  - Ñapas temporales para software de terceros que todavía no ha incorporado paquetes de __20.04__
+  - Ya no se instalan paquetes de python 2 (no viene instalado por defecto en __20.04__)
 - Correcciones de errores:
   - Tabla [ansible/README.md](ansible/README.md)
   - Enlace a la última versión del gist `extensions.json` de **Code**
