@@ -103,11 +103,24 @@
             state: present
             codename: "{{ ubuntu_codename }}"
 
+        - name: "[UBUNTU] install python3-apt"
+          apt:
+            name: python-apt
+            update_cache: true
+            state: present
+            force_apt_get: true
+      when:
+        - linux_distribution == "ubuntu"
+        - ubuntu_codename in ["focal"]
+      tags:
+        - always
+
+    - block:
         - name: "[UBUNTU] Update ansible"
           apt:
             name:
               - ansible
-              - python-apt
+              - python3-apt
             update_cache: true
             state: latest
             force_apt_get: true
