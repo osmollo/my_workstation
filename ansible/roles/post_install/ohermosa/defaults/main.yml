@@ -169,6 +169,8 @@ git_repositories:
       dest: "{{ git_dir }}/hetzner"
     - repo: git@github.com:tuxotron/docker-image-generator.git
       dest: "{{ git_dir }}/docker-image-generator"
+    - repo: git@github.com:gopasspw/gopass.git
+      dest: "{{ git_dir }}/gopass"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/bash_aliases"
