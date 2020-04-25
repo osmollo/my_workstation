@@ -20,6 +20,7 @@
 - Instalación de tipografía [Fira code](https://github.com/tonsky/FiraCode/)
 - Nuevos repositorios git en `post_install/ohermosa`:
   - [Docker Image Generator](https://github.com/tuxotron/docker-image-generator)
+  - [GoPass](https://github.com/gopasspw/gopass.git)
 - Nuevos despliegues con `Docker`:
   - [Kafka](docker_deploys/kafka)
   - [Consul](docker_deploys/consul)
