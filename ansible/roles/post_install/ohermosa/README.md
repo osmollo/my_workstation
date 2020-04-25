@@ -12,7 +12,7 @@
 | **kde_restore** | Restaura la copia de seguridad los ficheros de configuración de **KDE** almacenados en **Dropbox**. Borra el original y crea un enlace simbólico al backup | :cloud: | |
 | **pre_kde_backup** | Realiza una copia de seguridad de los ficheros de `$HOME/.config/*rc` en **Dropbox** | :cloud: | |
 | **docker** | Restaura de **Dropbox** los login en repositorios de Docker y la configuración del demonio `docker` | :cloud: | |
-| **crontab** | Restaura de **Dropbox** el crontab del usuario | :cloud: | |
+| **crontab** | Restaura de **Dropbox** el crontab del usuario | | |
 | **environment** <br> **env**| Restaura de **Dropbox** los ficheros de configuración del entorno (`.bashrc`, `.bash_history`, `.zshrc`,...) | :cloud: | |
 | **git** | Clona los repositorios indicados en el fichero de variables y configura el `user.email` y `user.name` en cada uno de ellos | :cloud: |
 | **network** | Genera las configuraciones para las conexiones de red | | :lock: |

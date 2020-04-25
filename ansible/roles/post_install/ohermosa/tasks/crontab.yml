@@ -1,27 +1,21 @@
 ---
 
-- name: "[CRONTAB] Check if /var/spool/cron/crontabs exists"
-  stat:
-    path: /var/spool/cron/crontabs
-  register: crontabs_exists
-
-- name: "[CRONTAB] Create directory /var/spool/cron/crontabs if not exists"
-  file:
-    path: /var/spool/cron/crontabs
-    state: directory
-  when: not crontabs_exists.stat.exists
-  become: true
-  become_method: sudo
-
-- name: "[CRONTAB] Wait until crontab file exist in Dropbox"
-  wait_for:
-    path: "{{ dropbox_dir }}/datio/crontab.ohermosa"
-    timeout: "{{ wait_dropbox_sync }}"
-
-- name: "[CRONTAB] Create link to user crontab"
-  file:
-    src: "{{ dropbox_dir }}/datio/crontab.ohermosa"
-    dest: "/var/spool/cron/crontabs/{{ ansible_user}}"
-    mode: 0600
-    owner: "{{ ansible_user }}"
-    group: crontab
+- name: "[CRONTAB] create crontab entries"
+  cron:
+    name: "{{ item.name }}"
+    job: "{{ item.job }}"
+    minute: "{{ item.minute }}"
+    hour: "{{ item.hour | default('*') }}"
+  loop:
+    - name: zhistory_tp_dropbox
+      job: "cat {{ ansible_user_dir }}/.zhistory > {{ dropbox_dir }}/datio/zhistory"
+      minute: "*/30"
+    - name: dconf_dump
+      job: "dconf dump / > {{ dropbox_dir }}/backups/gnome_config"
+      minute: "00"
+      hour: "12"
+    - name: bbva_to_gitlab
+      job: "{{ dropbox_dir }}/bin/bbva_to_gitlab.py >> {{ dropbox_dir }}/bin/datio/bbva_to_gitlab.$(date +'%Y%m%d').log"
+      minute: "00"
+      hour: "7,18"
+  

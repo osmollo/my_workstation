@@ -12,7 +12,9 @@
   - Enlace a la última versión del gist `extensions.json` de **Code**
   - Errores de creación/borrado de repositorios en **github**/**gitlab**
   - Errores en la instalación de extensiones de **Code**/**Atom** cuando no se realizaba la instalación de estos editores
-  - Errores en `post_install` de `gimp`, `hp` y `pass`
+  - Errores en `post_install/ohermosa`:
+    - Correcciones en `gimp.yml`, `hp.yml` y `pass.yml`
+    - `crontab.yml` configurado con ansible en lugar de ser restaurado de Dropbox
 - Nuevo tag `code_extensions` para instalar extensiones en **Code**
 - Nuevo tag `atom_extensions` para instalar paquetes de **Atom**
 - Paquetes de **Atom** se obtienen de [gist de ohermosa](https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json) en lugar de fichero local
