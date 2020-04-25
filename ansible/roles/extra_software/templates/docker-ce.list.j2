@@ -1,3 +1,4 @@
+# TODO: quitar cuando docker suba paquetes de focal a su repo
 {% if ubuntu_codename is defined %}
 deb [arch=amd64] https://download.docker.com/linux/{{ linux_distribution }} {{ 'eoan' if ubuntu_codename == 'focal' else ubuntu_codename }} stable
 {% elif debian_codename is defined %}
