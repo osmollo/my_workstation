@@ -96,6 +96,9 @@ git_repositories:
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_postgresha.git
       dest: "{{ git_dir }}/mlyid_postgresha"
       remote: gitlab
+    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_terraform_provider_openstack.git
+      dest: "{{ git_dir }}/mlyid_terraform_provider_openstack"
+      remote: gitlab
   home:
     - repo: git@gitlab.com:ohermosa/AmazonPy.git
       dest: "{{ git_dir }}/AmazonPy"
