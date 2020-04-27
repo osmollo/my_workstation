@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install Authy"
+- name: "[AUTHY] [ARCH] Install Authy"
   become: false
   yay:
     name: "{{ authy_package }}"

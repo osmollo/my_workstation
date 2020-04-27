@@ -1,12 +1,12 @@
 ---
 
-- name: "[UBUNTU] install wireguard repository"
+- name: "[WIREGUARD] [UBUNTU] install wireguard repository"
   apt_repository:
     repo: ppa:wireguard/wireguard
     state: present
-  when: "ansible_distribution_major_version <= 18 or ansible_distribution_version == '19.04'"
+  when: "(ansible_distribution_major_version | int) <= 18 or ansible_distribution_version == '19.04'"
 
-- name: "[UBUNTU] install wireguard packages"
+- name: "[WIREGUARD] [UBUNTU] install wireguard packages"
   apt:
     name: "{{ wireguard_packages }}"
     state: present

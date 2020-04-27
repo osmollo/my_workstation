@@ -1,13 +1,13 @@
 ---
 
-- name: "[ARCH] Install virtualbox"
+- name: "[VIRTUALBOX] [ARCH] Install virtualbox"
   become: false
   yay:
     name: "{{ virtualbox_package }}"
     state: present
     update_cache: true
 
-- name: "[ARCH] Install vagrant"
+- name: "[VIRTUALBOX] [ARCH] Install vagrant"
   pacman:
     name: vagrant
     state: present

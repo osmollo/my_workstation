@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEB] install yakyak"
+- name: "[YAKYAK] [DEB] install yakyak"
   apt:
     deb: "{{ yakyak_deb_package }}"
     state: present

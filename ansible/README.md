@@ -23,6 +23,7 @@
 |------------------|--------------|
 | Debian | **STABLE (10)**: [Enlace](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.2.0-amd64-netinst.iso) <br> **TESTING (11)**: [Enlace](https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/debian-testing-amd64-netinst.iso) |
 | Ubuntu 18.04 | **UBUNTU**: [Enlace](http://releases.ubuntu.com/18.04.3/ubuntu-18.04.3-desktop-amd64.iso) <br> **KUBUNTU**: [Enlace](http://cdimage.ubuntu.com/kubuntu/releases/18.04/release/kubuntu-18.04.3-desktop-amd64.iso) <br> **XUBUNTU**: [Enlace](http://ftp.uni-kl.de/pub/linux/ubuntu-dvd/xubuntu/releases/18.04.3/release/xubuntu-18.04.3-desktop-amd64.iso) |
+| Ubuntu 20.04 | **UBUNTU**: [Enlace](https://releases.ubuntu.com/20.04/ubuntu-20.04-desktop-amd64.iso) <br> **KUBUNTU**: [Enlace](http://cdimage.ubuntu.com/kubuntu/releases/20.04/release/kubuntu-20.04-desktop-amd64.iso) <br> **XUBUNTU**: [Enlace](https://torrent.ubuntu.com/xubuntu/releases/focal/release/desktop/xubuntu-20.04-desktop-amd64.iso.torrent) |
 | Fedora | **30**: [Enlace](http://mirror.uv.es/mirror/fedora/linux/releases/30/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-30-1.2.iso) <br> **31**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso) |
 | Linux Mint 19 | **CINNAMON**: [Enlace](https://mirror.dogecloud.org/Linux/Mint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso) |
 | KDE Neon | [Enlace](https://files.kde.org/neon/images/user/20191024-1119/neon-user-20191024-1119.iso) |
@@ -40,11 +41,11 @@ Por defecto se instala el siguiente software:
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | SI | |
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | SI | |
 | [Visual Studio Code](https://code.visualstudio.com/) | code | install_code | SI | editors |
-| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | SI | install_spotify | |
+| [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | SI | |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | SI | |
 | [Sublime Text](https://www.sublimetext.com/) | sublime | install_sublime | SI | editors |
 | [Atom](https://atom.io/) | atom | install_atom | SI | editors |
-| [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | SI | install_gitkraken | |
+| [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | SI | |
 | [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | SI | socials |
 | [Slack](https://datiodevelopers.slack.com/) | slack | install_slack | SI | socials |
 | [Forticlient VPN](https://www.fortinet.com/lat) | forticlientvpn | install_forticlientvpn | SI | |
@@ -69,8 +70,8 @@ Por defecto se instala el siguiente software:
 | [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | SI | mega |
 | [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | SI | mega |
 | [Vivaldi](https://vivaldi.com/es/) | vivaldi | install_vivaldi | SI | browsers |
-| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | brave | install_brave | browsers | SI |
-| [Bitwarden](https://bitwarden.com/) | bitwarden | install_bitwarden | pass_managers | SI |
+| [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | brave | install_brave | SI | browsers |
+| [Bitwarden](https://bitwarden.com/) | bitwarden | install_bitwarden | SI | pass_managers |
 | [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | NO | |
 | [Pass](https://www.passwordstore.org/) | pass | install_pass | SI | pass_managers |
 | [Bucklespring](https://github.com/zevv/bucklespring) | bucklespring | install_bucklespring | NO | |
@@ -87,6 +88,7 @@ Por defecto se instala el siguiente software:
 | [Steam](https://store.steampowered.com/?l=spanish) | steam | install_steam | NO | |
 | [Wireguard](https://www.wireguard.com/) | wireguard | install_wireguard | SI | |
 | [Lens](https://k8slens.dev) | lens | install_lens | SI | |
+| [Typora](https://typora.io) | typora | install_typora | SI | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

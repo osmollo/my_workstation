@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] install code"
+- name: "[CODE] [ARCH] install code"
   become: false
   yay:
     name: "{{ code_package }}"

@@ -41,3 +41,6 @@ protonvpn_dependencies:
 wireguard_packages:
   - wireguard-dkms
   - wireguard-tools
+
+typora_dir: /opt/typora
+typora_package: https://typora.io/linux/Typora-linux-x64.tar.gz

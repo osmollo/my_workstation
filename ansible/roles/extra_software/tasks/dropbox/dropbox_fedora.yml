@@ -1,6 +1,6 @@
 ---
 
-- name: "[FEDORA] Install Dropbox package"
+- name: "[DROPBOX] [FEDORA] Install Dropbox package"
   yum:
     name: "{{ dropbox_package }}"
     state: present

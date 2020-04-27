@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEBIAN] Install deluge"
+- name: "[DELUGE] [DEBIAN] Install deluge"
   apt:
     name: "{{ deluge_package }}"
     state: latest

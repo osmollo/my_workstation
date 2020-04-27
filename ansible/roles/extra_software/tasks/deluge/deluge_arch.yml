@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install deluge"
+- name: "[DELUGE] [ARCH] Install deluge"
   become: false
   yay:
     name: "{{ deluge_package }}"

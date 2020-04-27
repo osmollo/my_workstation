@@ -1,6 +1,6 @@
 ---
 
-- name: "[RPM] Install rambox"
+- name: "[PYCHARM] [RPM] Install rambox"
   yum:
     name: "{{ rambox_rpm_package }}"
     state: present

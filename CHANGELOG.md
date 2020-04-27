@@ -1,5 +1,35 @@
 # CHANGELOG
 
+## 3.6
+
+- Soporte para **Ubuntu 20.04**:
+  - Ñapas temporales para software de terceros que todavía no ha incorporado paquetes de __20.04__
+  - Ya no se instalan paquetes de `python2` (no viene instalado por defecto en __20.04__)
+  - `prepare.yml` adaptado
+  - `WoeUSB` sólo es instalable en __18.04__
+- Correcciones de errores:
+  - Tabla [ansible/README.md](ansible/README.md)
+  - Enlace a la última versión del gist `extensions.json` de **Code**
+  - Errores de creación/borrado de repositorios en **github**/**gitlab**
+  - Errores en la instalación de extensiones de **Code**/**Atom** cuando no se realizaba la instalación de estos editores
+  - Errores en `post_install/ohermosa`:
+    - Correcciones en `gimp.yml`, `hp.yml` y `pass.yml`
+    - `crontab.yml` configurado con ansible en lugar de ser restaurado de **Dropbox**
+    - `docker.yml` configuración de **docker** con ansible en lugar de ser restaurado de **Dropbox**
+- Nuevo tag `code_extensions` para instalar extensiones en **Code**
+- Nuevo tag `atom_extensions` para instalar paquetes de **Atom**
+- Paquetes de **Atom** se obtienen de [gist de ohermosa](https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json) en lugar de fichero local
+- Simplificación en instalación de extensiones de **Code**
+- Instalación de tipografía [Fira code](https://github.com/tonsky/FiraCode/)
+- Nuevos repositorios git en `post_install/ohermosa`:
+  - [Docker Image Generator](https://github.com/tuxotron/docker-image-generator)
+  - [GoPass](https://github.com/gopasspw/gopass.git)
+- Nuevos despliegues con `Docker`:
+  - [Kafka](docker_deploys/kafka)
+  - [Consul](docker_deploys/consul)
+- Instalación de [Typora](https://typora.io)
+- Identificación en el nombre de tareas de `extra_software` y `post_install`
+
 ## 3.5
 
 - Instalación de `Lens` con AppImage

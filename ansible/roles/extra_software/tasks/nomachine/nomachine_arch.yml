@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install nomachine"
+- name: "[NOMACHINE] [ARCH] Install nomachine"
   become: false
   yay:
     name: "{{ nomachine_package }}"

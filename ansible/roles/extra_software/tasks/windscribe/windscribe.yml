@@ -2,7 +2,7 @@
 
 - include_tasks: "windscribe_{{ linux_distribution }}.yml"
 
-- name: "Stop and disable windscribe daemon"
+- name: "[WINDSCRIBE] Stop and disable windscribe daemon"
   systemd:
     name: windscribe
     state: stopped

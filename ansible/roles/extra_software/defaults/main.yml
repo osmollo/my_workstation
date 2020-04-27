@@ -53,6 +53,7 @@ install_hiri: false
 install_steam: false
 install_wireguard: true
 install_lens: true
+install_typora: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -127,6 +128,7 @@ lexnet_packages:
   - pcsc-tools
   - libglade2-dev
 
-code_extensions_urls: https://gist.githubusercontent.com/ohermosa/a2b55c8a488b2a45e8626e75ca35c7c4/raw/e647bfa074c16982c533c3ffaa38dffa83c392a8/extensions.json
+code_extensions_url: https://gist.githubusercontent.com/ohermosa/a2b55c8a488b2a45e8626e75ca35c7c4/raw/extensions.json
+atom_packages_url: https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json
 
 appimage_dir: "{{ ansible_user_dir }}/AppImage"

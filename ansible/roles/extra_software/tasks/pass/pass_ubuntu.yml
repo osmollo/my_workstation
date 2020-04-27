@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEB] Install Pass"
+- name: "[PASS] [DEB] Install Pass"
   apt:
     name: pass
     state: present

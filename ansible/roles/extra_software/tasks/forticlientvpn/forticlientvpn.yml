@@ -2,7 +2,7 @@
 
 - include_tasks: "forticlientvpn_{{ linux_distribution }}.yml"
 
-- name: "Copy rutas.sh to /home/{{ ansible_user }}"
+- name: "[FORTICLIENTVPN] Copy rutas.sh to /home/{{ ansible_user }}"
   template:
     src: rutas.sh.j2
     dest: "/home/{{ ansible_user }}/rutas.sh"

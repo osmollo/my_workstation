@@ -1,0 +1,8 @@
+---
+
+- name: "[BITWARDEN] [ARCH] install bitwarden"
+  become: false
+  yay:
+    name: "{{ bitwarden_package }}"
+    state: latest
+    update_cache: true

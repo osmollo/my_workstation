@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install gitkraken"
+- name: "[GITKRAKEN] [ARCH] Install gitkraken"
   become: false
   yay:
     name: "{{ gitkraken_package }}"

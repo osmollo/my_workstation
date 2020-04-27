@@ -1,6 +1,6 @@
 ---
 
-- name: "Get latest version of Atom"
+- name: "[ATOM] Get latest version of Atom"
   uri:
     url: "{{ atom_latest_url }}"
     follow_redirects: safe
@@ -8,7 +8,7 @@
   register: atom_latest
   when: linux_distribution != "arch"
 
-- name: "Set urls for Atom packages"
+- name: "[ATOM] Set urls for Atom packages"
   vars:
     atom_version: "{{ atom_latest.url | urlsplit('path') | basename }}"
   set_fact:
@@ -19,19 +19,17 @@
 - include_tasks: "atom_{{ linux_distribution }}.yml"
 
 - block:
-    - name: "Copy package.list"
-      copy:
-        src: package.list
-        dest: /tmp/package.list
-        owner: "{{ ansible_user }}"
-        group: "{{ ansible_user }}"
+    - name: "[ATOM] get json with packages"
+      uri:
+        url: "{{ atom_packages_url }}"
+      register: packages_response
 
-    - name: "Install packages for Atom"
+    - name: "[ATOM] Install packages for Atom"
       become: false
       become_user: "{{ ansible_user }}"
-      shell: apm install --packages-file /tmp/package.list
-
-    - name: "Delete package.list"
-      file:
-        path: /tmp/package.list
-        state: absent
+      vars:
+        id_query: "[].name"
+      shell: "apm install {{ item }}"
+      loop: "{{ packages_response.json | default([]) | json_query(id_query) | list }}"
+  tags:
+    - atom_extensions

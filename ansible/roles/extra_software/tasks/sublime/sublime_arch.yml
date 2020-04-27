@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install sublime"
+- name: "[SUBLIME] [ARCH] Install sublime"
   become: false
   yay:
     name: "{{ sublime_package }}"

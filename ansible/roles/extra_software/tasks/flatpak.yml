@@ -1,6 +1,6 @@
 ---
 
-- name: "[FEDORA] install flatpak"
+- name: "[FLATPAK] [FEDORA] install flatpak"
   yum:
     name: flatpak
     state: latest

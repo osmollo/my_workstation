@@ -1,24 +1,24 @@
 ---
 
-- name: "delete hetzner-kube binary if exists"
+- name: "[HETZNERKUBE] delete hetzner-kube binary if exists"
   file:
     path: /usr/local/bin/hetzner-kube
     state: absent
 
-- name: "Get latest version of hetzner kube"
+- name: "[HETZNERKUBE] Get latest version of hetzner kube"
   uri:
     url: "{{ hetznerkube_latest_url }}"
     follow_redirects: safe
     body_format: raw
   register: hetznerkube_latest
 
-- name: "Set urls for hetzner kube package"
+- name: "[HETZNERKUBE] Set urls for hetzner kube package"
   vars:
     hetznerkube_version: "{{ hetznerkube_latest.url | urlsplit('path') | basename }}"
   set_fact:
     hetznerkube_package: "https://github.com/xetys/hetzner-kube/releases/download/{{ hetznerkube_version }}/hetzner-kube-{{ hetznerkube_version }}-linux-amd64"
 
-- name: "Copy hetznerkube binary"
+- name: "[HETZNERKUBE] Copy hetznerkube binary"
   get_url:
     url: "{{ hetznerkube_package }}"
     dest: /usr/local/bin/hetzner-kube

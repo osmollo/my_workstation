@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install hiri"
+- name: "[HIRI] [ARCH] Install hiri"
   become: false
   yay:
     name: "{{ hiri_package }}"

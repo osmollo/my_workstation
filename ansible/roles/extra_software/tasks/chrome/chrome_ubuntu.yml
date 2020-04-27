@@ -1,12 +1,12 @@
 ---
 
-- name: "[UBUNTU] Install Google Chrome"
+- name: "[CHROME] [UBUNTU] Install Google Chrome"
   apt:
     deb: "{{ chrome_package }}"
     state: present
     update_cache: true
 
-- name: "[UBUNTU] Install gnome extension for chrome"
+- name: "[CHROME] [UBUNTU] Install gnome extension for chrome"
   apt:
     name: chrome-gnome-shell
     state: present

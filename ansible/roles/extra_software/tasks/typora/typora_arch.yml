@@ -1,0 +1,8 @@
+---
+
+- name: "[TYPORA] [ARCH] Install typora"
+  become: false
+  yay:
+    name: "{{ typora_package }}"
+    state: present
+    update_cache: true

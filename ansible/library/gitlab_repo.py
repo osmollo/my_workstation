@@ -33,28 +33,6 @@ EXAMPLES = '''
 api_url = "https://gitlab.com/api/v4"
 
 
-def gitlab_repo_present(data):
-    api_key = data['gitlab_auth_key']
-    data["path"] = data["name"]
-    del data['state']
-    del data['gitlab_auth_key']
-
-    headers = {
-        "PRIVATE-TOKEN": "{}".format(api_key)
-    }
-    url = "{}{}".format(api_url, '/projects')
-    result = requests.post(url, data=data, headers=headers)
-
-    if result.status_code == 201:
-        return False, True, result.json()
-    if result.status_code == 422:
-        return False, False, result.json()
-
-    # default: something went wrong
-    meta = {"status": result.status_code, 'response': result.json()}
-    return True, False, meta
-
-
 def gitlab_get_user_id(data=None):
     headers = {
         "PRIVATE-TOKEN": "{}".format(data['gitlab_auth_key'])
@@ -84,22 +62,36 @@ def gitlab_get_project_id(data=None):
         return None
 
 
+def gitlab_repo_present(data):
+    if gitlab_get_project_id(data):
+        return False, False, {"status": "Repository already exists"}
+    else:
+        headers = {
+            "PRIVATE-TOKEN": "{}".format(data['gitlab_auth_key'])
+        }
+        url = "{}{}".format(api_url, '/projects')
+        result = requests.post(url, data=data, headers=headers)
+
+        if result.status_code == 201:
+            return False, True, result.json()
+        else:
+            return True, False, result.json()
+
 
 def gitlab_repo_absent(data=None):
-    headers = {
-        "PRIVATE-TOKEN": "{}".format(data['gitlab_auth_key'])
-    }
-    url = "{}/projects/{}".format(api_url, gitlab_get_project_id(data))
-    result = requests.delete(url, headers=headers)
+    if gitlab_get_project_id(data):
+        headers = {
+            "PRIVATE-TOKEN": "{}".format(data['gitlab_auth_key'])
+        }
+        url = "{}/projects/{}".format(api_url, gitlab_get_project_id(data))
+        result = requests.delete(url, headers=headers)
 
-    if result.status_code == 202:
-        return False, True, {"status": "SUCCESS"}
-    if result.status_code == 404:
-        result = {"status": result.status_code, "data": result.json()}
-        return False, False, result
+        if result.status_code == 202:
+            return False, True, result.json()
+        else:
+            return True, False, result.json()
     else:
-        result = {"status": result.status_code, "data": result.json()}
-        return True, False, result
+        return False, False, {"status": "Repository doesn't exist"}
 
 
 def main():
@@ -124,8 +116,7 @@ def main():
     }
 
     module = AnsibleModule(argument_spec=fields)
-    is_error, has_changed, result = choice_map.get(
-        module.params['state'])(module.params)
+    is_error, has_changed, result = choice_map.get(module.params['state'])(module.params)
 
     if not is_error:
         module.exit_json(changed=has_changed, meta=result)

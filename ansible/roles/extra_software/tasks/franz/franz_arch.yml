@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install franz"
+- name: "[FRANZ] [ARCH] Install franz"
   become: false
   yay:
     name: "{{ franz_package }}"

@@ -1,12 +1,12 @@
 ---
 
-- name: "[FEDORA] install megacmd package"
+- name: "[MEGASYNC] [FEDORA] install megacmd package"
   yum:
     name: "{{ megasync_package }}"
     state: present
     update_cache: true
 
-- name: "[FEDORA] Install megasync for file manager"
+- name: "[MEGASYNC] [FEDORA] Install megasync for file manager"
   yum:
     name: "{{ file_manager_plugin }}"
     state: present

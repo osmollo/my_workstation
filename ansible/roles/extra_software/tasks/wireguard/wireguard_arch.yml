@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install wireguard"
+- name: "[WIREGUARD] [ARCH] Install wireguard"
   pacman:
     name: "{{ wireguard_packages }}"
     state: latest

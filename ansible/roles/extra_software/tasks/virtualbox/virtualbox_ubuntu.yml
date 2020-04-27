@@ -1,23 +1,25 @@
 ---
 
-- name: "[UBUNTU] Create repository file for Virtualbox"
+# TODO: corregir chapuña para instalar en focal cuando virtualbox meta paquetes para esa version
+
+- name: "[VIRTUALBOX] [UBUNTU] Create repository file for Virtualbox"
   lineinfile:
     path: /etc/apt/sources.list.d/virtualbox.list
-    line: "deb https://download.virtualbox.org/virtualbox/debian {{ ubuntu_codename }} contrib"
+    line: "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian {{ 'eoan' if ubuntu_codename == 'focal' else ubuntu_codename }} contrib"
     create: true
 
-- name: "[UBUNTU] Import repository key"
+- name: "[VIRTUALBOX] [UBUNTU] Import repository key"
   apt_key:
     url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
     state: present
 
-- name: "[UBUNTU] Install Virtualbox and Vagrant packages"
+- name: "[VIRTUALBOX] [UBUNTU] Install Virtualbox and Vagrant packages"
   apt:
     name: "{{ virtualbox_packages }}"
     state: present
     update_cache: true
 
-- name: "[UBUNTU] Install vagrant"
+- name: "[VAGRANT] [UBUNTU] Install vagrant"
   apt:
     deb: "{{ vagrant_package }}"
     state: present

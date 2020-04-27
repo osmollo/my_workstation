@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install arch"
+- name: "[WOEUSB] [ARCH] Install arch"
   become: false
   yay:
     name: "{{ arch_package }}"

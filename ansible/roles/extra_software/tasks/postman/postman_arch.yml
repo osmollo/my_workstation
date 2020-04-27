@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install postman"
+- name: "[POSTMAN] [ARCH] Install postman"
   become: false
   yay:
     name: "{{ postman_package }}"

@@ -7,7 +7,7 @@ install_spotify: true
 install_ohmyzsh: false
 install_sublime: false
 install_atom: false
-install_gitkraken: true
+install_gitkraken: false
 install_telegram: true
 install_slack: false
 install_forticlientvpn: false
@@ -48,8 +48,9 @@ install_go: true
 install_fzf: true
 install_vimplugins: true
 install_authy: false
-install_yakyak: true
+install_yakyak: false
 install_hiri: false
 install_steam: false
 install_wireguard: true
 install_lens: true
+install_typora: true

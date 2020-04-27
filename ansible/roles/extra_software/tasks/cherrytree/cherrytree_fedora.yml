@@ -1,6 +1,6 @@
 ---
 
-- name: "[FEDORA] install cherrytree package"
+- name: "[CHERRYTREE] [FEDORA] install cherrytree package"
   yum:
     name: "{{ cherrytree_package }}"
     state: latest
