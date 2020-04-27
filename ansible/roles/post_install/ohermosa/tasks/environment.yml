@@ -30,6 +30,14 @@
     - "{{ ansible_user_dir }}/.ssh"
     - "{{ ansible_user_dir }}/.vault_pass*txt"
     - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
+    - "{{ ansible_user_dir }}/.zhistory"
+
+- name: "[ENVIRONMENT] copy .zhistory"
+  copy:
+    src: "{{ dropbox_dir }}/datio/zhistory"
+    dest: "{{ ansible_user_dir }}/.zhistory"
+    remote_src: true
+    mode: 0600
 
 - name: "[ENVIRONMENT] create vault_pass files"
   lineinfile:

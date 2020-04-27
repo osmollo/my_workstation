@@ -2,8 +2,10 @@
 
 ## 3.7
 
-- Nuevos repositorios git en `post_install/ohermosa`:
-  - [Terraform provider openstack flavors patch](https://globaldevtools.bbva.com/bitbucket/projects/MLYID/repos/mlyid_terraform_provider_openstack/browse)
+- Cambios en `post_install/ohermosa`:
+  - Restauración de `zhistory`
+  - Nuevos repositorios git en `post_install/ohermosa`:
+    - [Terraform provider openstack flavors patch](https://globaldevtools.bbva.com/bitbucket/projects/MLYID/repos/mlyid_terraform_provider_openstack/browse)
 
 ## 3.6
 
