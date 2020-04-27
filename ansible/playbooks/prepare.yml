@@ -112,7 +112,7 @@
             force_apt_get: true
       when:
         - linux_distribution == "ubuntu"
-        - ubuntu_codename in ["focal"]
+        - ubuntu_codename not in ["focal"]
       tags:
         - always
 

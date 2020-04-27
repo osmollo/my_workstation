@@ -129,6 +129,6 @@ lexnet_packages:
   - libglade2-dev
 
 code_extensions_url: https://gist.githubusercontent.com/ohermosa/a2b55c8a488b2a45e8626e75ca35c7c4/raw/extensions.json
-atom_extensions_url: https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json
+atom_packages_url: https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json
 
 appimage_dir: "{{ ansible_user_dir }}/AppImage"

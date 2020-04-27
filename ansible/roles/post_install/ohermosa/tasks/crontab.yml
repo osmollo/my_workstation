@@ -10,12 +10,20 @@
     - name: zhistory_tp_dropbox
       job: "cat {{ ansible_user_dir }}/.zhistory > {{ dropbox_dir }}/datio/zhistory"
       minute: "*/30"
+    - name: bbva_to_gitlab
+      job: "{{ dropbox_dir }}/bin/datio/bbva_to_gitlab.py"
+      minute: "00"
+      hour: "7,18"
+
+- name: "[CRONTAB] create crontab entries for gnome"
+  cron:
+    name: "{{ item.name }}"
+    job: "{{ item.job }}"
+    minute: "{{ item.minute }}"
+    hour: "{{ item.hour | default('*') }}"
+  loop:
     - name: dconf_dump
       job: "dconf dump / > {{ dropbox_dir }}/backups/gnome_config"
       minute: "00"
       hour: "12"
-    - name: bbva_to_gitlab
-      job: "{{ dropbox_dir }}/bin/bbva_to_gitlab.py >> {{ dropbox_dir }}/bin/datio/bbva_to_gitlab.$(date +'%Y%m%d').log"
-      minute: "00"
-      hour: "7,18"
-  
+  when: desktop_environment == 'gnome'

@@ -16,13 +16,15 @@
     mode: 0600
 
 - name: "[DOCKER] create daemon.json"
+  become: true
+  become_method: sudo
   copy:
     content: "{{ docker_daemon_json | to_json }}"
     dest: /etc/docker/daemon.json
 
 - name: "[DOCKER] Restart docker"
+  become: true
+  become_method: sudo
   systemd:
     name: docker
     state: restarted
-  become: true
-  become_method: sudo
