@@ -2,6 +2,10 @@
 
 ## 3.7
 
+- Instalación de nuevos módulos de python
+  - pylint
+  - flake8
+  - pep8
 - Cambios en `post_install/ohermosa`:
   - Restauración de `zhistory`
   - Nuevos repositorios git en `post_install/ohermosa`:
