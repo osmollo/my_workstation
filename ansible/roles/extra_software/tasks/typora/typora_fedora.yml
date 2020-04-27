@@ -1,0 +1,30 @@
+---
+
+- name: "[TYPORA] [FEDORA] check if {{ typora_dir }} exits"
+  stat:
+    path: "{{ typora_dir }}"
+  register: typora_response
+
+- name: "[TYPORA] [FEDORA] delete {{ typora_dir }} if exits"
+  file:
+    path: "{{ typora_dir }}"
+    state: absent
+  when: typora_response.stat.exists
+
+- name: "[TYPORA] [FEDORA] create {{ typora_dir }}"
+  file:
+    path: "{{ typora_dir }}"
+    state: directory
+
+- name: "[TYPORA] [FEDORA] uncompress typora"
+  unarchive:
+    src: "{{ typora_package }}"
+    dest: "{{ typora_dir }}"
+    remote_src: true
+    extra_opts:
+      - "--strip-components=2"
+
+- name: "[TYPORA] [FEDORA] copy typora icon fie"
+  copy:
+    src: typora_icon.png
+    dest: "{{ typora_dir }}"

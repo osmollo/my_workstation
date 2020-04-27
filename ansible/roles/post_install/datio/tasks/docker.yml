@@ -1,13 +1,13 @@
 ---
 
-- name: "Create user config directory"
+- name: "[DOCKER] Create user config directory"
   file:
     path: "/home/{{ ansible_user }}/.docker"
     state: directory
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
 
-- name: "Create config.json"
+- name: "[DOCKER] Create config.json"
   copy:
     src: "docker.config.json"
     dest: "/home/{{ ansible_user }}/.docker/config.json"
@@ -15,7 +15,7 @@
     group: "{{ ansible_user }}"
     mode: 0600
 
-- name: "Create daemon.json"
+- name: "[DOCKER] Create daemon.json"
   become: true
   become_method: sudo
   template:
@@ -25,7 +25,7 @@
     group: root
     mode: 0644
 
-- name: "Restart docker"
+- name: "[DOCKER] Restart docker"
   become: true
   become_method: sudo
   systemd:

@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEB] install teamviwer package"
+- name: "[TEAMVIEWER] [DEB] install teamviwer package"
   apt:
     deb: "{{ teamviewer_package }}"
     state: present

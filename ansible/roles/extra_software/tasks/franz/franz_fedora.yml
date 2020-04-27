@@ -1,13 +1,13 @@
 ---
 
-- name: "[FEDORA] Check if ansible_version >= 2.8"
+- name: "[FRANZ] [FEDORA] Check if ansible_version >= 2.8"
   assert:
     that:
       - ansible_version.full >= "2.6"
     fail_msg: "Ansible version must be >= 2.6. Please, ejecute 'ansible-playbook update_ansible.yml '"
     success_msg: "OK, your ansible version is {{ ansible_version.full }}"
 
-- name: "[FEDORA] Install the franz flatpak"
+- name: "[FRANZ] [FEDORA] Install the franz flatpak"
   flatpak:
     name:  "{{ franz_flatpak }}"
     state: present

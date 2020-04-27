@@ -1,6 +1,6 @@
 ---
 
-- name: "Configure VIM editor"
+- name: "[VIM] Configure VIM editor"
   lineinfile:
     path: "{{ ansible_user_dir }}/.vimrc"
     line: "{{ item }}"

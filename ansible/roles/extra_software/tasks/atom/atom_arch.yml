@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install Atom"
+- name: "[ATOM] [ARCH] Install Atom"
   become: false
   yay:
     name: "{{ atom_package }}"

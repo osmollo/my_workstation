@@ -2,14 +2,14 @@
 
 - include_tasks: "sublime_{{ linux_distribution }}.yml"
 
-- name: "Create path to sublime config directory"
+- name: "[SUBLIME] Create path to sublime config directory"
   become: false
   become_user: "{{ ansible_user }}"
   file:
     path: "/home/{{ ansible_user }}/.config/sublime-text-3/Packages/User"
     state: directory
 
-- name: "Configure Sublime"
+- name: "[SUBLIME] Configure Sublime"
   become: false
   become_user: "{{ ansible_user }}"
   copy:

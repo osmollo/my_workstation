@@ -1,7 +1,7 @@
 ---
 
 - block:
-    - name: "Get latest version of Bitwarden"
+    - name: "[BITWARDEN] Get latest version of Bitwarden"
       uri:
         url: "{{ bitwarden_latest_url }}"
         follow_redirects: safe
@@ -9,7 +9,7 @@
       register: bitwarden_latest
       when: linux_distribution != "arch"
 
-    - name: "Set urls for Bitwarden packages"
+    - name: "[BITWARDEN] Set urls for Bitwarden packages"
       vars:
         bitwarden_version: "{{ bitwarden_latest.url | urlsplit('path') | basename }}"
       set_fact:
@@ -23,20 +23,20 @@
 
 
 - block:
-    - name: "Get latest version of Bitwarden CLI"
+    - name: "[BITWARDEN] Get latest version of Bitwarden CLI"
       uri:
         url: "{{ bitwardencli_latest_url }}"
         follow_redirects: safe
         body_format: raw
       register: bitwardencli_latest
 
-    - name: "Set urls for Bitwarden CLI packages"
+    - name: "[BITWARDEN] Set urls for Bitwarden CLI packages"
       vars:
         bitwardencli_version: "{{ bitwardencli_latest.url | urlsplit('path') | basename }}"
       set_fact:
         bitwardencli_package: "https://github.com/bitwarden/cli/releases/download/{{ bitwardencli_version }}/bw-linux-{{ bitwardencli_version[1:] }}.zip"
 
-    - name: "uncompress bitwarden CLI package"
+    - name: "[BITWARDEN] uncompress bitwarden CLI package"
       unarchive:
         src: "{{ bitwardencli_package }}"
         dest: /usr/local/bin/

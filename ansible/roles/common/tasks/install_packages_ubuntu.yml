@@ -9,14 +9,14 @@
 
 - name: "[UBUNTU] Install Ubuntu packages"
   apt:
-    name: "{{ distro_packages }}"
+    name: "{{ distro_packages | reject('equalto', '') | list }}"
     state: latest
     update_cache: true
     autoclean: true
 
 - name: "[UBUNTU] Install Gnome packages"
   apt:
-    name: "{{ gnome_packages }} + {{ gnome_ubuntu_packages }}"
+    name: "{{ gnome_packages }} + {{ gnome_ubuntu_packages | reject('equalto', '') | list }}"
     state: latest
     update_cache: true
     autoclean: true

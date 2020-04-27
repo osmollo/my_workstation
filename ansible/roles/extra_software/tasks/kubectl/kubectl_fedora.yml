@@ -1,11 +1,11 @@
 ---
 
-- name: "[FEDORA] copy file repository"
+- name: "[KUBECTL] [FEDORA] copy file repository"
   copy:
     src: kubectl.repo
     dest: /etc/yum.repos.d/kubernetes.repo
 
-- name: "[FEDORA] install kubectl package"
+- name: "[KUBECTL] [FEDORA] install kubectl package"
   yum:
     name: kubectl
     state: latest

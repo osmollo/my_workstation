@@ -1,26 +1,26 @@
 ---
 
-- name: "get vim version"
+- name: "[VIMPLUGINS] get vim version"
   shell: vim --version
   changed_when: true
   register: vim_version
 
-- name: "set variable vim_version"
+- name: "[VIMPLUGINS] set variable vim_version"
   set_fact:
     vim_version: "{{ vim_version.stdout_lines[0].split(' ')[4].split('.')[0] }}"
 
-- name: "install vim plugins"
+- name: "[VIMPLUGINS] install vim plugins"
   become: false
   become_user: "{{ ansible_user }}"
   block:
-    - name: "create plugins directory"
+    - name: "[VIMPLUGINS] create plugins directory"
       file:
         path: "{{ ansible_user_dir }}/.vim/bundle"
         state: directory
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
 
-    - name: "clone plugin repository"
+    - name: "[VIMPLUGINS] clone plugin repository"
       git:
         repo: https://github.com/VundleVim/Vundle.vim.git
         dest: "{{ ansible_user_dir }}/.vim/bundle/Vundle.vim"
@@ -29,12 +29,12 @@
         accept_hostkey: true
       ignore_errors: true
 
-    - name: "generate vimrc"
+    - name: "[VIMPLUGINS] generate vimrc"
       template:
         src: vimrc.j2
         dest: "{{ ansible_user_dir }}/.vimrc"
         backup: true
 
-    - name: "install vim plugins"
+    - name: "[VIMPLUGINS] install vim plugins"
       shell: "vim +PluginInstall +qall"
   when: vim_version|int >= 8

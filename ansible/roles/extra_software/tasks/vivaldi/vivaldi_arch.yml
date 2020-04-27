@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install vivaldi"
+- name: "[VIVALDI] [ARCH] Install vivaldi"
   become: false
   yay:
     name: "{{ vivaldi_package }}"

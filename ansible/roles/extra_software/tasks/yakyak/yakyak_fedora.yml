@@ -1,6 +1,6 @@
 ---
 
-- name: "[FEDORA] Install vivaldi"
+- name: "[YAKYAK] [FEDORA] Install vivaldi"
   yum:
     name: "{{ yakyak_rpm_package }}"
     state: present

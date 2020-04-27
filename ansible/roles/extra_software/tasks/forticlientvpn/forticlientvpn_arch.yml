@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install forticient"
+- name: "[FORTICLIENTVPN] [ARCH] Install forticient"
   become: false
   yay:
     name: "{{ forticient_package }}"

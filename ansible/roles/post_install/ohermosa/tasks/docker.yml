@@ -1,41 +1,30 @@
 ---
 
-- name: "Create user config directory"
+- name: "[DOCKER] Create user config directory"
   file:
     path: "/home/{{ ansible_user }}/.docker"
     state: directory
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
 
-- name: "Wait until files exist in Dropbox"
-  wait_for:
-    path: "{{ item }}"
-    timeout: "{{ wait_dropbox_sync }}"
-  loop:
-    - "{{ dropbox_dir }}/datio/docker.config.json"
-    - "{{ dropbox_dir }}/datio/etc.docker.daemon.json"
-
-- name: "Create link to config.json"
-  file:
-    src: "{{ dropbox_dir }}/datio/docker.config.json"
+- name: "[DOCKER] create config.json"
+  copy:
+    content: "{{ docker_config_json | to_json }}"
     dest: "/home/{{ ansible_user }}/.docker/config.json"
-    state: link
-    force: true
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
+    mode: 0600
 
-- name: "Create link for docker daemon.json"
+- name: "[DOCKER] create daemon.json"
   become: true
   become_method: sudo
-  file:
-    src: "{{ dropbox_dir }}/datio/etc.docker.daemon.json"
+  copy:
+    content: "{{ docker_daemon_json | to_json }}"
     dest: /etc/docker/daemon.json
-    state: link
-    force: true
 
-- name: "Restart docker"
+- name: "[DOCKER] Restart docker"
+  become: true
+  become_method: sudo
   systemd:
     name: docker
     state: restarted
-  become: true
-  become_method: sudo

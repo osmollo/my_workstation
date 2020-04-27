@@ -1,27 +1,27 @@
 ---
 
-- name: "delete ecs-cli binary if exists"
+- name: "[ECS] delete ecs-cli binary if exists"
   file:
     path: /usr/local/bin/ecs-cli
     state: absent
 
-- name: "Unarchive ecs-cli"
+- name: "[ECS] Unarchive ecs-cli"
   unarchive:
     src: "{{ ecs_cli_package }}"
     dest: /tmp
 
-- name: "Move ecs binary to /usr/local/bin"
+- name: "[ECS] Move ecs binary to /usr/local/bin"
   copy:
     src: /tmp/ecs-cli.linux
     dest: /usr/local/bin/ecs-cli
     mode: 0755
     remote_src: true
 
-- name: "Delete temporal files"
+- name: "[ECS] Delete temporal files"
   file:
     path: /tmp/ecs-cli*
     state: absent
 
-- name: "Configure ecs-cli"
+- name: "[ECS] Configure ecs-cli"
   debug:
     msg: "Debes configurar ecs-cli siguiendo los siguientes pasos: {{ ecs_cli_doc_url }}"

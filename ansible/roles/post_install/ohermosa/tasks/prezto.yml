@@ -1,6 +1,6 @@
 ---
 
-- name: "delete previous prezto installation"
+- name: "[PREZTO] delete previous prezto installation"
   file:
     path: "{{ ansible_user_dir}}/.{{ item }}"
     state: absent
@@ -13,14 +13,14 @@
     - zshenv
     - zshrc
 
-- name: "install ohermosa's prezto fork'"
+- name: "[PREZTO] install ohermosa's prezto fork'"
   include_role:
     name: extra_software
     tasks_from: prezto.yml
   vars:
     prezto_repo: git@github.com:ohermosa/prezto.git
 
-- name: "Create new remote for presto original source"
+- name: "[PREZTO] Create new remote for presto original source"
   shell: "git remote add source {{ prezto_repo }}"
   args:
     chdir: "{{ ansible_user_dir }}/.zprezto"
@@ -29,22 +29,22 @@
     prezto_repo: git@github.com:sorin-ionescu/prezto.git
 
 
-- name: "copy powerline truetype fonts"
+- name: "[PREZTO] opy powerline truetype fonts"
   vars:
     font_dir: "{{ ansible_user_dir }}/.local/share/fonts"
   block:
-    - name: "create {{ font_dir }}"
+    - name: "[PREZTO] create {{ font_dir }}"
       file:
         path: "{{ font_dir }}"
         state: directory
 
-    - name: "download fonts"
+    - name: "[PREZTO] download fonts"
       get_url:
         url: "{{ item }}"
         dest: "{{ ansible_user_dir }}/.local/share/fonts/{{ (item | basename).replace('%20', ' ') }}"
       loop: "{{ powerline_fonts }}"
 
-    - name: "refresh font cache"
+    - name: "[PREZTO] refresh font cache"
       shell: "fc-cache -f {{ font_dir }}"
   tags:
     - deploy_fonts

@@ -41,6 +41,7 @@ woeusb_repo: "{{ aur_url }}/woeusb.git"
 authy_repo: "{{ aur_url }}/authy"
 yakyak_repo: "{{ aur_url }}/yakyak"
 hiri_repo: "{{ aur_url }}/hiri"
+typora_repo: "{{ aur_url }}/typora"
 
 atom_package: atom-editor-bin
 dropbox_package: dropbox
@@ -82,6 +83,7 @@ woeusb_package: woeusb
 authy_package: authy
 yakyak_package: yakyak
 hiri_package: hiri
+typora_package: typora
 
 protonvpn_dependencies:
   - openvpn

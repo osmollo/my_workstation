@@ -1,12 +1,12 @@
 ---
 
-- name: "[DEBIAN] install megasync package"
+- name: "[MEGASYNC] [DEBIAN] install megasync package"
   apt:
     deb: "{{ megasync_package }}"
     state: present
     update_cache: true
 
-- name: "[DEBIAN] Install megasync for file manager"
+- name: "[MEGASYNC] [DEBIAN] Install megasync for file manager"
   apt:
     deb: "{{ file_manager_plugin }}"
     state: present

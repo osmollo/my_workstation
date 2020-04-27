@@ -1,17 +1,17 @@
 ---
 
-- name: "include secrets file"
+- name: "[NETWORK] include secrets file"
   include_vars:
     file: "secrets.yml"
 
-- name: "Create openvpn directory"
+- name: "[NETWORK] Create openvpn directory"
   file:
     path: "{{ openvpn_user_dir }}/{{ item.name }}"
     state: directory
   loop: "{{ openvpn }}"
   no_log: true
 
-- name: "Copy p12 files"
+- name: "[NETWORK] Copy p12 files"
   copy:
     src: "{{ item.name }}.p12"
     dest: "{{ openvpn_user_dir }}/{{ item.name }}/{{ item.name }}.p12"
@@ -19,7 +19,7 @@
   loop: "{{ openvpn }}"
   no_log: true
 
-- name: "Generate key files"
+- name: "[NETWORK] Generate key files"
   copy:
     content: "{{ item.key }}"
     dest: "{{ openvpn_user_dir }}/{{ item.name }}/{{ item.name }}.key"
@@ -28,7 +28,7 @@
   loop: "{{ openvpn }}"
   no_log: true
 
-- name: "Generate ovpn files"
+- name: "[NETWORK] Generate ovpn files"
   template:
     src: "{{ item.name }}.ovpn.j2"
     dest: "{{ openvpn_user_dir }}/{{ item.name }}/{{ item.name }}.ovpn"
@@ -36,7 +36,7 @@
   loop: "{{ openvpn }}"
   no_log: true
 
-- name: "Copy vpn configurations files to NetworkManager"
+- name: "[NETWORK] Copy vpn configurations files to NetworkManager"
   become: true
   become_method: sudo
   template:

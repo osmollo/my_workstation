@@ -1,6 +1,6 @@
 ---
 
-- name: "install steam dependencies"
+- name: "[STEAM] install steam dependencies"
   apt:
     name:
       - libwebkit2gtk-4.0-37
@@ -9,6 +9,6 @@
     state: present
     update_cache: true
 
-- name: "Install Steam"
+- name: "[STEAM] Install Steam"
   apt:
     deb: "{{ steam_package }}"

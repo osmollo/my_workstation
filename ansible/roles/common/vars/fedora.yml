@@ -19,6 +19,7 @@ distro_packages:
   - firewall-config
   - srm
   - nss-tools
+  - fira-code-fonts
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome
@@ -30,6 +31,7 @@ gnome_fedora_packages:
   - python2-psutil
   - python3-psutil
   - wireshark
+  - liveusb-creator
 
 kde_fedora_packages:
   - kwalletcli

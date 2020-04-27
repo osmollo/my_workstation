@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] install dropbox"
+- name: "[DROPBOX] [ARCH] install dropbox"
   become: false
   yay:
     name: "{{ dropbox_package }}"

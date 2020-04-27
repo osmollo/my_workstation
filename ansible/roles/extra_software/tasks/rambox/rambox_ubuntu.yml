@@ -1,6 +1,6 @@
 ---
 
-- name: "[DEB] Install rambox"
+- name: "[PYCHARM] [DEB] Install rambox"
   apt:
     deb: "{{ rambox_deb_package }}"
     state: present

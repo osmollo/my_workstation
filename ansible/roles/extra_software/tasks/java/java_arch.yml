@@ -1,6 +1,6 @@
 ---
 
-- name: "[ARCH] Install java"
+- name: "[JAVA] [ARCH] Install java"
   become: false
   yay:
     name: "{{ java_package }}"

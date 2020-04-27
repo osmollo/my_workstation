@@ -1,6 +1,6 @@
 ---
 
-- name: "Copy vpn configurations files to NetworkManager"
+- name: "[NETWORK] Copy vpn configurations files to NetworkManager"
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -14,14 +14,14 @@
     - src: datio_mx_vpn.j2
       dest: /etc/NetworkManager/system-connections/Datio_CCR
 
-- name: "check if protonvpn is installed"
+- name: "[NETWORK] check if protonvpn is installed"
   stat:
     path: /usr/local/bin/protonvpn
   register: stat_response
   tags:
     - protonvpn
 
-- name: "configure protonvpn if is instaled"
+- name: "[NETWORK] configure protonvpn if is instaled"
   block:
     - name: "create directories"
       file:
@@ -36,12 +36,12 @@
         - name: "{{ ansible_user_dir }}/.cert/nm-openvpn"
           mode: "0755"
 
-    - name: "get serverinfo.json"
+    - name: "[NETWORK] get serverinfo.json"
       uri:
         url: https://api.protonvpn.ch/vpn/logicals
       register: uri_response
 
-    - name: "save serverinfo to file"
+    - name: "[NETWORK] save serverinfo to file"
       copy:
         content: "{{ uri_response.json }}"
         dest: "{{ protonvpn_dir }}/serverinfo.json"
@@ -49,7 +49,7 @@
         group: "{{ ansible_user }}"
         mode: 0644
 
-    - name: "get template.ovpn"
+    - name: "[NETWORK] get template.ovpn"
       get_url:
         url: 'https://api.protonvpn.ch/vpn/config?Platform=linux&LogicalID={{ uri_response.json["LogicalServers"][0]["ID"] }}&Protocol=tcp'
         dest: "{{ protonvpn_dir }}/template.ovpn"
@@ -57,7 +57,7 @@
         group: "{{ ansible_user }}"
         mode: 0644
 
-    - name: "delete lines from template.ovpn"
+    - name: "[NETWORK] delete lines from template.ovpn"
       lineinfile:
         path: "{{ protonvpn_dir }}/template.ovpn"
         regexp: "{{ item }}"
@@ -68,7 +68,7 @@
         - "^up /etc/openvpn/update-resolv-conf$"
         - "^down /etc/openvpn/update-resolv-conf$"
 
-    - name: "copy ovpn template"
+    - name: "[NETWORK] copy ovpn template"
       copy:
         src: "{{ protonvpn_dir }}/template.ovpn"
         dest: "{{ protonvpn_dir }}/connect.ovpn"
@@ -76,20 +76,20 @@
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
 
-    - name: "get fastest protonvpn servers"
+    - name: "[NETWORK] get fastest protonvpn servers"
       protonvpn_fastest:
         servers: '{{ uri_response.json["LogicalServers"] }}'
         tier: '{{ protonvpn.tier }}'
       register: fastest_response
 
-    - name: "add remotes to connect.ovpn"
+    - name: "[NETWORK] add remotes to connect.ovpn"
       lineinfile:
         path: "{{ protonvpn_dir }}/connect.ovpn"
         line: "{{ item }}"
         state: present
       loop: '{{["proto " + protonvpn.protocol] | union(fastest_response.fastest | map("regex_replace", "(.*)", "remote \1 1194") | list) }}'
 
-    - name: "generate protonvpn config"
+    - name: "[NETWORK] generate protonvpn config"
       template:
         src: "{{ item.name }}.j2"
         dest: "{{ protonvpn_dir }}/{{ item.name }}"
@@ -106,7 +106,7 @@
           owner: root
           group: root
 
-    - name: "Generate protonvpn configuration for NetworkManager"
+    - name: "[NETWORK] Generate protonvpn configuration for NetworkManager"
       vars:
         remotes: '{{ fastest_response.fastest | map("regex_replace", "(.*)", "\1:1194") | join(", ") }}'
       template:
@@ -117,19 +117,19 @@
         group: root
       no_log: true
 
-    - name: "Extract CA from template"
+    - name: "[NETWORK] Extract CA from template"
       shell: |
         sed -n '/<ca>/,/<\/ca>/p' {{ protonvpn_dir}}/template.ovpn | grep -v 'ca>'
       register: ca_response
       changed_when: false
 
-    - name: "Extract tls cert from template"
+    - name: "[NETWORK] Extract tls cert from template"
       shell: |
         sed -n '/<tls-auth>/,/<\/tls-auth>/p' {{ protonvpn_dir}}/template.ovpn | grep -v 'tls-auth>'
       register: tls_response
       changed_when: false
 
-    - name: "save certs to files"
+    - name: "[NETWORK] save certs to files"
       copy:
         content: "{{ item.content }}"
         dest: "{{ item.dest }}"

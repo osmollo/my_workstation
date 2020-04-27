@@ -1,6 +1,6 @@
 ---
 
-- name: "[RPM] Install Atom"
+- name: "[ATOM] [RPM] Install Atom"
   yum:
     name: "{{ atom_rpm_package }}"
     state: present
