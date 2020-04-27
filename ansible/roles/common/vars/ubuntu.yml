@@ -34,6 +34,7 @@ gnome_ubuntu_packages:
   - python3-psutil
   - wireshark
   - vlc
+  - gnome-software
 
 kde_ubuntu_packages:
   - kubuntu-restricted-extras
