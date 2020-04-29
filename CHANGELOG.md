@@ -2,6 +2,8 @@
 
 ## 3.7
 
+- Corrección de errores:
+  - La instalación de **Virtualbox** cambia la versión por defecto de **Python** a 2.7. Se corrige si la versión anterior a la instalación era **Python 3**
 - Instalación de nuevos módulos de python
   - pylint
   - flake8
