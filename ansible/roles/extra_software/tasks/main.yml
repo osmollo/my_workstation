@@ -265,12 +265,12 @@
     - cherrytree
     - editors
 
-- name: "---[INSTALL]--- Kubectl"
-  import_tasks: kubectl/kubectl.yml
-  when: install_kubectl
+- name: "---[INSTALL]--- k8s_tools"
+  import_tasks: k8s_tools/k8s_tools.yml
+  when: install_k8s_tools
   tags:
     - extra_software
-    - kubectl
+    - k8s_tools
 
 - name: "---[INSTALL]--- MEGAcmd"
   import_tasks: megacmd/megacmd.yml

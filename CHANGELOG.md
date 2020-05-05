@@ -10,6 +10,11 @@
   - pep8
   - numerizer
   - faker
+- `extra_software/kubectl` es renombrado a `extra_software/k8s_tools`, que instala:
+  - kubectl
+  - helm
+  - kops
+  - hetzner-kube
 - Cambios en `post_install/ohermosa`:
   - Restauración de `zhistory`
   - Nuevos repositorios git en `post_install/ohermosa`:

@@ -1,6 +1,8 @@
 ---
 
 - include_tasks: "kubectl_{{ linux_distribution }}.yml"
+  tags:
+    - kubectl
 
 - block:
     - name: "[KUBECTL] check if .bashrc exists"
@@ -27,6 +29,8 @@
         state: present
       when: zshrc_exists.stat.exists
   become: false
+  tags:
+    - kubectl
 
 - import_tasks: helm.yml
   tags:
@@ -35,3 +39,7 @@
 - import_tasks: hetzner_kube.yml
   tags:
     - hetznerkube
+
+- import_tasks: kops.yml
+  tags:
+    - kops

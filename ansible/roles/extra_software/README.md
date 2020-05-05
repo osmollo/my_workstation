@@ -46,7 +46,7 @@
 | **franz** | Instala `Franz` |
 | **deluge** | Instala `Deluge` |
 | **cherrytree** | Instala `Cherry Tree` |
-| **kubectl** | Instala `Kubectl` |
+| **k8s_tools** | Instala herramientas para `kubernetes` |
 | **megacmd** | Instala `MEGAcmd` |
 | **megasync** | Instala `MEGA sync` |
 | **vivaldi** | Instala `Vivaldi` |
@@ -71,8 +71,10 @@
 | **flatpak** | |
 | **vagrant** | |
 | **dockercompose** | |
+| **kubectl** | |
 | **helm** | |
 | **hetznerkube** | |
+| **kops** | |
 
 ## Documentación
 

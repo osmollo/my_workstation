@@ -66,7 +66,7 @@ Por defecto se instala el siguiente software:
 | [Franz](https://meetfranz.com/) | franz | install_franz | SI | |
 | [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | SI | |
 | [Cherrytree](https://www.giuspen.com/cherrytree/) | cherrytree | install_cherrytree | SI | editors |
-| [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-kubectl) | kubectl | install_kubectl | SI | |
+| [k8s_tools]() | k8s_tools | install_k8s_tools | SI | |
 | [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | SI | mega |
 | [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | SI | mega |
 | [Vivaldi](https://vivaldi.com/es/) | vivaldi | install_vivaldi | SI | browsers |
