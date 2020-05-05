@@ -16,6 +16,7 @@
   - kops
   - hetzner-kube
   - lens
+- Instalación de `dive` para análisis de layers de **docker**
 - Cambios en `post_install/ohermosa`:
   - Restauración de `zhistory`
   - Nuevos repositorios git en `post_install/ohermosa`:

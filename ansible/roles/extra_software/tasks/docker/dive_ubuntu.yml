@@ -1,0 +1,7 @@
+---
+
+- name: "[DIVE] [DEB] install dive package"
+  apt:
+    deb: "{{ dive_deb_package }}"
+    state: present
+    update_cache: true

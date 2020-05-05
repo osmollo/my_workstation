@@ -1,0 +1,8 @@
+---
+
+- name: "[DIVE] [ARCH] Install dive"
+  become: false
+  yay:
+    name: "{{ dive_package }}"
+    state: present
+    update_cache: true

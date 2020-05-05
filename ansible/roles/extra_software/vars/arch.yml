@@ -42,6 +42,7 @@ authy_repo: "{{ aur_url }}/authy"
 yakyak_repo: "{{ aur_url }}/yakyak"
 hiri_repo: "{{ aur_url }}/hiri"
 typora_repo: "{{ aur_url }}/typora"
+dive_repo: "{{ aur_url }}/dive"
 
 atom_package: atom-editor-bin
 dropbox_package: dropbox
@@ -84,6 +85,7 @@ authy_package: authy
 yakyak_package: yakyak
 hiri_package: hiri
 typora_package: typora
+dive_package: dive
 
 protonvpn_dependencies:
   - openvpn
