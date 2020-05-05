@@ -30,7 +30,7 @@ install_franz: true
 install_chromium: true
 install_deluge: true
 install_cherrytree: true
-install_kubectl: true
+install_k8s_tools: true
 install_flatpak: true
 install_megacmd: true
 install_megasync: true
@@ -71,6 +71,7 @@ etcher_latest_url: "https://github.com/balena-io/etcher/releases/latest"
 fzf_latest_url: "https://github.com/junegunn/fzf-bin/releases/latest"
 yakyak_latest_url: "https://github.com/yakyak/yakyak/releases/latest"
 lens_latest_url: "https://github.com/lensapp/lens/releases/latest"
+kops_latest_url: "https://github.com/kubernetes/kops/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
 
