@@ -14,4 +14,4 @@
     state: present
     update_cache: true
   tags:
-    - install_dockercompose
+    - dockercompose
