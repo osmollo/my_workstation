@@ -43,3 +43,7 @@
 - import_tasks: kops.yml
   tags:
     - kops
+
+- import_tasks: lens.yml
+  tags:
+    - lens

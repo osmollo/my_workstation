@@ -47,7 +47,6 @@
     install_authy: false
     install_steam: false
     install_wireguard: false
-    install_lens: false
     install_typora: false
   roles:
     - common

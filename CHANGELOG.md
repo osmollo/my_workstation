@@ -15,6 +15,7 @@
   - helm
   - kops
   - hetzner-kube
+  - lens
 - Cambios en `post_install/ohermosa`:
   - Restauración de `zhistory`
   - Nuevos repositorios git en `post_install/ohermosa`:
