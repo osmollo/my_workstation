@@ -19,6 +19,8 @@ python_modules:
   - pylint
   - flake8
   - pep8
+  - numerizer
+  - faker
   - 'requests==2.22.0'
   - netaddr
   - telepot

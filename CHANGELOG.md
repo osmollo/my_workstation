@@ -8,6 +8,8 @@
   - pylint
   - flake8
   - pep8
+  - numerizer
+  - faker
 - Cambios en `post_install/ohermosa`:
   - Restauración de `zhistory`
   - Nuevos repositorios git en `post_install/ohermosa`:
