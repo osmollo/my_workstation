@@ -52,7 +52,6 @@ install_yakyak: true
 install_hiri: false
 install_steam: false
 install_wireguard: true
-install_lens: true
 install_typora: true
 
 tlp_battery_min: 75

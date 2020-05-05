@@ -426,14 +426,6 @@
     - extra_software
     - wireguard
 
-- name: "---[INSTALL]--- LENS"
-  import_tasks: lens.yml
-  when:
-    - install_lens
-  tags:
-    - extra_software
-    - lens
-
 - name: "---[INSTALL]--- TYPORA"
   import_tasks: typora/typora.yml
   when:
