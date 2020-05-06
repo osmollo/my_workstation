@@ -1,7 +1,7 @@
 [User]
 Session=
 XSession=
-Icon={{ dropbox_dir }}/fotos/guarroman.png
+Icon=/var/lib/AccountsService/icons/ohermosa
 SystemAccount=false
 
 [InputSource0]

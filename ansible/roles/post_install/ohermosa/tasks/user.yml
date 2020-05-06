@@ -10,10 +10,15 @@
     - name: "[USER] Set profile photo for user '{{ ansible_user }}'"
       become: true
       become_method: sudo
-      template:
-        src: user.j2
-        dest: "/var/lib/AccountsService/users/{{ ansible_user }}"
+      copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest}}"
         mode: 0644
         owner: root
         group: root
+      loop:
+        - src: ohermosa.png
+          dest: /var/lib/AccountsService/icons/ohermosa
+        - src: ohermosa.file
+          dest: /var/lib/AccountsService/users/ohermosa
   when: desktop_environment == "gnome"
