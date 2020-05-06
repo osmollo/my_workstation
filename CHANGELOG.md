@@ -20,8 +20,11 @@
   - hetzner-kube
   - lens
 - Instalación de `dive` para análisis de layers de **docker**
+- Creación de `$GOPATH` y export de variables de entorno en la instalación de `go`
 - Cambios en `post_install/ohermosa`:
+  - Descarga de paquetes de `go`
   - Actualizada contraseña BBVA
+  - Descarga de paquetes de `go`
   - Cambio de la imagen de usuario en **gnome**
   - Restauración de `zhistory`
   - El tag `environment` lanza la reconfiguración de `prezto` en lugar de hacerlo desde el `main.yml`
