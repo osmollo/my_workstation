@@ -87,6 +87,13 @@
     - environment
     - env
 
+- name: "download go packages"
+  import_tasks: go.yml
+  tags:
+    - post_install
+    - go
+    - go_packages
+
 - name: "clone git repostitories"
   import_tasks: git.yml
   tags:

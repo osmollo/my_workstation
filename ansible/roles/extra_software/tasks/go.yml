@@ -21,15 +21,24 @@
     dest: "/usr/local"
     remote_src: true
 
-- name: "[GO] get the default shell for {{ ansible_user }}"
-  become: false
-  shell: "basename $(echo $SHELL)"
-  register: shell_response
-  changed_when: false
+- block:
+    - name: "[GO] create GOPATH directory"
+      file:
+        path: "{{ ansible_user_dir }}/go"
+        state: directory
 
-- name: "[GO] modify PATH variable"
+    - name: "[GO] get the default shell for {{ ansible_user }}"
+      shell: "basename $(echo $SHELL)"
+      register: shell_response
+      changed_when: false
+
+    - name: "[GO] export environment variables"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.{{ shell_response.stdout }}rc"
+        line: "{{ item }}"
+        state: present
+      loop:
+        - "export PATH=$PATH:/usr/local/go/bin"
+        - "export GOROOT={{ go_dir }}"
+        - "export GOPATH={{ ansible_user_dir }}/go"
   become: false
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.{{ shell_response.stdout }}rc"
-    line: "export PATH=$PATH:/usr/local/go/bin"
-    state: present

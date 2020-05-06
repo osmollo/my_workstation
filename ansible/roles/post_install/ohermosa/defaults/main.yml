@@ -500,3 +500,6 @@ docker_config_json:
       auth: "{{ docker_nexus_es | replace('\n', '')  }}"
   HttpHeaders:
     User-Agent: "Docker-Client/18.09.5 (linux)"
+
+go_packages:
+  - github.com/go-telegram-bot-api/telegram-bot-api
