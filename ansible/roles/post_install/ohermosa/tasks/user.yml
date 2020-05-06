@@ -1,0 +1,19 @@
+---
+
+- name: "[USER] Configure user"
+  block:
+    - name: "[USER] Wait until guarroman photo exists"
+      wait_for:
+        path: "{{ dropbox_dir }}/fotos/guarroman.png"
+        timeout: "{{ wait_dropbox_sync }}"
+
+    - name: "[USER] Set profile photo for user '{{ ansible_user }}'"
+      become: true
+      become_method: sudo
+      template:
+        src: user.j2
+        dest: "/var/lib/AccountsService/users/{{ ansible_user }}"
+        mode: 0644
+        owner: root
+        group: root
+  when: desktop_environment == "gnome"

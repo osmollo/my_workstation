@@ -150,3 +150,9 @@
   tags:
     - post_install
     - spotify
+
+- name: "configure user photo"
+  import_tasks: user.yml
+  tags:
+    - post_install
+    - user
