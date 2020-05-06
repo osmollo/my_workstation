@@ -27,6 +27,7 @@
   - El tag `environment` lanza la reconfiguración de `prezto` en lugar de hacerlo desde el `main.yml`
   - Nuevos repositorios git en `post_install/ohermosa`:
     - [Terraform provider openstack flavors patch](https://globaldevtools.bbva.com/bitbucket/projects/MLYID/repos/mlyid_terraform_provider_openstack/browse)
+    - [GO apps](https://gitlab.com/ohermosa/go_apps)
   - Configuración  `user.email` y `user.name` para el repo de `prezto`
 
 ## 3.6
