@@ -56,12 +56,16 @@
   register: post_response
 
 - block:
+    - name: "[VIRTUALBOX] delete python link"
+      file:
+        path: /usr/bin/python
+        state: absent
+
     - name: "[VIRTUALBOX] restore default python version"
       file:
-        src: /usr/bin/python
-        dest: "/usr/bin/{{ pre_response.stat.lnk_target }}"
+        src: "/usr/bin/{{ pre_response.stat.lnk_target }}"
+        dest: "/usr/bin/python"
         state: link
-        force: true
 
     - name: "Alternative link for python"
       alternatives:

@@ -17,6 +17,7 @@ distro_packages:
   - net-tools
   - python3-jmespath
   - "{{ 'python-jmespath' if ubuntu_codename not in ['focal'] else '' }}"
+  - python3-gpg
   - secure-delete
   - libnss3-tools
   - libzookeeper-mt-dev
@@ -34,7 +35,6 @@ gnome_ubuntu_packages:
   - python3-psutil
   - wireshark
   - vlc
-  - gnome-software
 
 kde_ubuntu_packages:
   - kubuntu-restricted-extras
