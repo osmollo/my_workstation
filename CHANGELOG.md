@@ -31,6 +31,7 @@
   - Nuevos repositorios git en `post_install/ohermosa`:
     - [Terraform provider openstack flavors patch](https://globaldevtools.bbva.com/bitbucket/projects/MLYID/repos/mlyid_terraform_provider_openstack/browse)
     - [GO apps](https://gitlab.com/ohermosa/go_apps)
+    - [msqlm_deploy_id2](https://globaldevtools.bbva.com/bitbucket/projects/MSQLM/repos/msqlm_deploy_id2/browse)
   - Configuración  `user.email` y `user.name` para el repo de `prezto`
 
 ## 3.6
