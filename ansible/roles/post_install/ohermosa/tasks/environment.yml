@@ -96,16 +96,7 @@
         mode: 0600
       loop: "{{ find_response.files | json_query(id_query) }}"
 
-    - name: "[ENVIRONMENT] clone zprezto configuration"
-      git:
-        repo: git@github.com:ohermosa/prezto.git
-        dest: "{{ ansible_user_dir }}/.zprezto"
-        clone: true
-        key_file: "/home/{{ ansible_user }}/.ssh/id_rsa"
-        accept_hostkey: true
-
-    - name: "[ENVIRONMENT] create link to zshrc"
-      file:
-        src: "{{ ansible_user_dir }}/.zprezto/runcoms/zshrc"
-        dest: "{{ ansible_user_dir }}/.zshrc"
-        state: link
+    - name: "[ENVIRONMENT] configure prezto"
+      import_tasks: prezto.yml
+      tags:
+        - prezto

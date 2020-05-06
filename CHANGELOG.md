@@ -4,6 +4,9 @@
 
 - Corrección de errores:
   - La instalación de **Virtualbox** cambia la versión por defecto de **Python** a 2.7. Se corrige si la versión anterior a la instalación era **Python 3**
+  - fix instalación `woeusb` para **ubuntu 18.04**
+  - instalación de `python3-gpg` como dependencia de `dropbox`
+  - corrección nombre tareas de `DOCKER_COMPOSE`, `HETZNER_KUBE` y `MEGA_CMD`
 - Instalación de nuevos módulos de python
   - pylint
   - flake8
@@ -19,6 +22,7 @@
 - Instalación de `dive` para análisis de layers de **docker**
 - Cambios en `post_install/ohermosa`:
   - Restauración de `zhistory`
+  - El tag `environment` lanza la reconfiguración de `prezto` en lugar de hacerlo desde el `main.yml`
   - Nuevos repositorios git en `post_install/ohermosa`:
     - [Terraform provider openstack flavors patch](https://globaldevtools.bbva.com/bitbucket/projects/MLYID/repos/mlyid_terraform_provider_openstack/browse)
   - Configuración  `user.email` y `user.name` para el repo de `prezto`

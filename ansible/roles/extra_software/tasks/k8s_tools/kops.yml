@@ -12,8 +12,6 @@
     body_format: raw
   register: kops_latest
 
-- debug: var=kops_latest
-
 - name: "[KOPS] Set urls for hetzner kube package"
   vars:
     kops_version: "{{ kops_latest.url | urlsplit('path') | basename }}"

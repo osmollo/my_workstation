@@ -1,13 +1,13 @@
 ---
 
-- name: "[MEGACMD] [DEB] install megacmd dependencies"
+- name: "[MEGA_CMD] [DEB] install megacmd dependencies"
   apt:
     name: "{{ item }}"
     state: present
     update_cache: true
   loop: "{{ megacmd_dependencies }}"
 
-- name: "[MEGACMD] [DEB] install megacmd package"
+- name: "[MEGA_CMD] [DEB] install megacmd package"
   apt:
     deb: "{{ megacmd_package }}"
     state: present
