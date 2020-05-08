@@ -109,7 +109,6 @@ vim_plugins:
   - 'pearofducks/ansible-vim'
   - 'frazrepo/vim-rainbow'
   - 'junegunn/fzf.vim'
-  # - 'lokaltog/vim-powerline'
   - 'airblade/vim-gitgutter'
   - 'terryma/vim-multiple-cursors'
   - 'mileszs/ack.vim'

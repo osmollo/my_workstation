@@ -133,6 +133,7 @@
   tags:
     - post_install
     - vim
+    - vimplugins
 
 - name: "Configure Gimp"
   import_tasks: gimp.yml
