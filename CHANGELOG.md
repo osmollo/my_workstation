@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.7.1
+
+- fix en el ciclo de CI
+
 ## 3.7
 
 - Corrección de errores:
