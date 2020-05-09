@@ -8,5 +8,5 @@
 - name: "[WINDSCRIBE] [FEDORA] install windscribe package"
   yum:
     name: windscribe-cli
-    state: latest
+    state: present
     update_cache: true

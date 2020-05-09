@@ -1,6 +1,7 @@
 ---
 
-- include_tasks: "sublime_{{ linux_distribution }}.yml"
+- name: "[SUBLIME] install for {{ linux_distribution }}"
+  include_tasks: "sublime_{{ linux_distribution }}.yml"
 
 - name: "[SUBLIME] Create path to sublime config directory"
   become: false

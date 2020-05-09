@@ -18,5 +18,5 @@
 - name: "[WINDSCRIBE] [DEB] install windscribe package"
   apt:
     name: windscribe-cli
-    state: latest
+    state: present
     update_cache: true

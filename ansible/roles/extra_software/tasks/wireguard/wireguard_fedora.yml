@@ -3,7 +3,7 @@
 - when: ansible_distribution_major_version <=31
   block:
     - name: "[WIREGUARD] [FEDORA] install wireguard repositoy"
-      shell: dnf copr enable jdoss/wireguard
+      command: dnf copr enable jdoss/wireguard
 
     - name: "[WIREGUARD] [FEDORA] install wireguard"
       yum:

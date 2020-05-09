@@ -1,7 +1,7 @@
 ---
 
 - name: "[VIMPLUGINS] get vim version"
-  shell: vim --version
+  command: vim --version
   changed_when: true
   register: vim_version
 
@@ -27,6 +27,7 @@
         clone: yes
         key_file: "/home/{{ ansible_user }}/.ssh/id_rsa"
         accept_hostkey: true
+        version: master
       ignore_errors: true
 
     - name: "[VIMPLUGINS] generate vimrc"
@@ -36,5 +37,5 @@
         backup: true
 
     - name: "[VIMPLUGINS] install vim plugins"
-      shell: "vim +PluginInstall +qall"
+      command: "vim +PluginInstall +qall"
   when: vim_version|int >= 8

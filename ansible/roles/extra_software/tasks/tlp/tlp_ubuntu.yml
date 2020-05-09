@@ -11,7 +11,7 @@
     name:
       - tlp
       - tlp-rdw
-    state: latest
+    state: present
     update_cache: true
 
 - name: "[TLP] [UBUNTU] Install TLP packages for ThinkPads"
@@ -19,6 +19,6 @@
     name:
       - tp-smapi-dkms
       - acpi-call-dkms
-    state: latest
+    state: present
     update_cache: true
   when: "'ThinkPad' in ansible_product_version"

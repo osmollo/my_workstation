@@ -10,6 +10,8 @@ dropbox_package: "https://www.dropbox.com/download?dl=packages/{{ linux_distribu
 chrome_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_{{ ansible_architecture }}.rpm"
 teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer.{{ ansible_architecture }}.rpm"
 nomachine_package: "https://download.nomachine.com/download/{{ nomachine_version.split('.')[0:2] | join('.') }}/Linux/nomachine_{{ nomachine_version }}_{{ ansible_architecture }}.rpm"
+woeusb_package: "http://download-ib01.fedoraproject.org/pub/fedora/linux/updates/testing/{{ fedora_version }}/Everything/{{ ansible_architecture }}/Packages/w/WoeUSB-3.3.0-2.fc{{ fedora_version }}.{{ ansible_architecture }}.rpm"
+buttercup_rpm_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop-{{ buttercup_version | replace('v', '') }}.x86_64.rpm"
 
 virtualbox_packages:
   - VirtualBox-6.0

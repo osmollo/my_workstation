@@ -16,9 +16,11 @@
     atom_deb_package: "https://github.com/atom/atom/releases/download/{{ atom_version }}/atom-amd64.deb"
   when: linux_distribution != "arch"
 
-- include_tasks: "atom_{{ linux_distribution }}.yml"
+- name: "[ATOM] install atom for {{ linux_distribution }}"
+  include_tasks: "atom_{{ linux_distribution }}.yml"
 
-- block:
+- name: "[ATOM] install packages"
+  block:
     - name: "[ATOM] get json with packages"
       uri:
         url: "{{ atom_packages_url }}"
@@ -29,7 +31,7 @@
       become_user: "{{ ansible_user }}"
       vars:
         id_query: "[].name"
-      shell: "apm install {{ item }}"
+      command: "apm install {{ item }}"
       loop: "{{ packages_response.json | default([]) | json_query(id_query) | list }}"
   tags:
     - atom_extensions

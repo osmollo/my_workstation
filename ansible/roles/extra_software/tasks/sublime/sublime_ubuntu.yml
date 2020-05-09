@@ -22,5 +22,5 @@
 - name: "[SUBLIME] [DEB] Install Sublime Text"
   apt:
     name: sublime-text
-    state: latest
+    state: present
     update_cache: true

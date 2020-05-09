@@ -1,6 +1,7 @@
 ---
 
-- include_vars:
+- name: "include vars file"
+  include_vars:
     file: "{{ item }}"
   loop:
     - "{{ linux_distribution }}.yml"

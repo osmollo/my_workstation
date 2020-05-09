@@ -23,7 +23,7 @@
   environment:
     CHSH: yes
     RUNZSH: yes
-  shell: /tmp/install.sh --unattended
+  command: /tmp/install.sh --unattended
   when: not ohmyzshdir_exists.stat.exists
 
 - name: "[OHMYZSH] Change $SHELL variable for {{ ansible_user }}"

@@ -92,7 +92,8 @@ deluge_package: deluge
 cherrytree_package: cherrytree
 
 virtualbox_extpack_version: "6.0.14"
-
+virtualbox_extension_package: "https://download.virtualbox.org/virtualbox/{{ virtualbox_extpack_version }}/Oracle_VM_VirtualBox_Extension_Pack-{{ virtualbox_extpack_version }}.vbox-extpack"
+dockercompose_package: "https://github.com/docker/compose/releases/download/{{ dockercompose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
 mega_url_base: "https://mega.nz/linux/MEGAsync"
 
 vivaldi_version: 2.9.1705.41-1
@@ -109,7 +110,6 @@ vim_plugins:
   - 'pearofducks/ansible-vim'
   - 'frazrepo/vim-rainbow'
   - 'junegunn/fzf.vim'
-  # - 'lokaltog/vim-powerline'
   - 'airblade/vim-gitgutter'
   - 'terryma/vim-multiple-cursors'
   - 'mileszs/ack.vim'

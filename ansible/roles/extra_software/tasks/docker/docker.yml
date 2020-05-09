@@ -1,6 +1,7 @@
 ---
 
-- include_tasks: "docker_{{ linux_distribution }}.yml"
+- name: "[DOCKER] install for {{ linux_distribution }}"
+  include_tasks: "docker_{{ linux_distribution }}.yml"
 
 - name: "[DOCKER] Adding {{ ansible_user }} to group docker"
   user:
@@ -24,11 +25,9 @@
       register: dockercompose_latest
       when: linux_distribution != "arch"
 
-    - name: "[DOCKER_COMPOSE] Set urls for Docker Compose packages"
-      vars:
-        dockercompose_version: "{{ dockercompose_latest.url | urlsplit('path') | basename }}"
+    - name: "[DOCKER_COMPOSE] Set docker compose version"
       set_fact:
-        dockercompose_package: "https://github.com/docker/compose/releases/download/{{ dockercompose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+        dockercompose_version: "{{ dockercompose_latest.url | urlsplit('path') | basename }}"
       when: linux_distribution != "arch"
 
     - name: "[DOCKER_COMPOSE] Download Docker Compose binary"

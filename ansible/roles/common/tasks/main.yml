@@ -17,20 +17,23 @@
         file_type: file
       register: lastupdate
 
-    - import_tasks: update_packages.yml
+    - name: "update packages"
+      import_tasks: update_packages.yml
       when:
         - not disable_updates
         - (not stat_response.stat.exists) or (lastupdate.files | length == 1)
   tags:
     - always
 
-- import_tasks: selinux.yml
+- name: "disable selinux"
+  import_tasks: selinux.yml
   when: linux_distribution == "fedora"
   tags:
     - common
     - disable_selinux
 
-- include_vars:
+- name: "include vars file for linux distribution"
+  include_vars:
     file: "{{ linux_distribution | lower }}.yml"
   tags:
     - common
@@ -39,14 +42,16 @@
     - python
     - python3
 
-- include_vars:
+- name: "include vars file for desktop environment"
+  include_vars:
     file: "{{ desktop_environment | lower }}.yml"
   when: desktop_environment is defined
   tags:
     - common
     - install_packages
 
-- include_tasks:
+- name: "install packages"
+  include_tasks:
     file: "install_packages_{{ linux_distribution }}.yml"
     apply:
       tags:
@@ -56,13 +61,15 @@
     - common
     - install_packages
 
-- import_tasks: python.yml
+- name: "install and configure python"
+  import_tasks: python.yml
   tags:
     - common
     - python
     - python3
 
-- import_tasks: delete_snap.yml
+- name: "delete snap packages"
+  import_tasks: delete_snap.yml
   when: ansible_distribution == "ubuntu" and ansible_distribution_major_version >= "18"
   tags:
     - common

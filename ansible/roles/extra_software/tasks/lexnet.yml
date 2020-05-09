@@ -76,7 +76,8 @@
     - "/tmp/lexnet/TS2048_Linux/Linux_4.0.0.5/linux64/*"
 
 - name: "[LEXNET] Execute ldconfig"
-  shell: ldconfig
+  command: ldconfig
+  changed_when: true
 
 - name: "[LEXNET] check if {{ ansible_user_dir }}/.mozilla/firefox exists"
   stat:
@@ -88,7 +89,7 @@
   become_user: "{{ ansible_user }}"
   block:
     - name: "[LEXNET] generate new profile {{ lexnet_firefox_profile }}"
-      shell: "{{ item }}"
+      command: "{{ item }}"
       loop:
         - "{{ firefox_esr_binary }} -CreateProfile {{ lexnet_firefox_profile }}"
         - "{{ firefox_esr_binary }} -P {{ lexnet_firefox_profile }} &"

@@ -37,7 +37,7 @@
       when: ansible_distribution in arch_based
 
     - name: "Get Debian CODENAME"
-      shell: grep VERSION_CODENAME /etc/os-release | awk -F\= '{ print $2 }'
+      shell: set -o pipefail && grep VERSION_CODENAME /etc/os-release | awk -F\= '{ print $2 }'
       register: debian_response
       changed_when: false
       when: linux_distribution == "debian"
@@ -63,7 +63,7 @@
       when: linux_distribution == "debian"
 
     - name: "Get Ubuntu CODENAME"
-      shell: grep UBUNTU_CODENAME /etc/os-release | awk -F\= '{ print $2 }'
+      shell: set -o pipefail && grep UBUNTU_CODENAME /etc/os-release | awk -F\= '{ print $2 }'
       register: response_codename
       changed_when: false
       when: linux_distribution == "ubuntu"

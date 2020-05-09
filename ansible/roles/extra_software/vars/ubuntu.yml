@@ -16,7 +16,7 @@ virtualbox_packages:
 
 chromium_package: chromium-browser
 vagrant_package: "https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_{{ ansible_architecture }}.deb"
-
+buttercup_deb_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop_{{ buttercup_version | replace('v', '') }}_amd64.deb"
 megacmd_package: "https://mega.nz/linux/MEGAsync/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/megacmd-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb"
 megacmd_dependencies:
   - libmediainfo0v5

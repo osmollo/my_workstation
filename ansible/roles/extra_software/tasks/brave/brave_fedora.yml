@@ -14,5 +14,5 @@
 - name: "[BRAVE] [FEDORA] Install Brave"
   yum:
     name: brave-browser
-    state: latest
+    state: present
     update_cache: true
