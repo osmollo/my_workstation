@@ -16,4 +16,5 @@
     yakyak_deb_package: "https://github.com/yakyak/yakyak/releases/download/{{ yakyak_version }}/yakyak-{{ yakyak_version[1:] }}-linux-amd64.deb"
   when: linux_distribution != "arch"
 
-- include_tasks: "yakyak_{{ linux_distribution }}.yml"
+- name: "[YAKYAK] install for {{ linux_distribution }}"
+  include_tasks: "yakyak_{{ linux_distribution }}.yml"

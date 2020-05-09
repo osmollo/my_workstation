@@ -3,7 +3,7 @@
 - name: "[UBUNTU] Upgrade all packages to the latest version"
   apt:
     name: "*"
-    state: latest
+    state: present
     # update_cache: true
     force_apt_get: true
     autoclean: true
@@ -12,7 +12,7 @@
 - name: "[FEDORA] upgrade all packages to the latest version"
   yum:
     name: '*'
-    state: latest
+    state: present
     update_cache: true
   when: linux_distribution == "fedora"
 

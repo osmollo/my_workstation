@@ -1,9 +1,11 @@
 ---
 
-- include_vars:
+- name: "[DELUGE] include vars file"
+  include_vars:
     file: "{{ linux_distribution }}.yml"
 
-- include_tasks: "deluge_{{ linux_distribution }}.yml"
+- name: "[DELUGE] install for {{ linux_distribution }}"
+  include_tasks: "deluge_{{ linux_distribution }}.yml"
 
 - name: "[DELUGE] Create deluge config directory"
   file:

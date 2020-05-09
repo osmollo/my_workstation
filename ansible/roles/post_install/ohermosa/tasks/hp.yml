@@ -7,5 +7,5 @@
     name:
       - hpijs-ppds
       - printer-driver-hpijs
-    state: latest
+    state: present
     update_cache: true

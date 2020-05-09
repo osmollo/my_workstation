@@ -39,7 +39,7 @@
           apt:
             name: ansible
             update_cache: true
-            state: latest
+            state: present
 
         - name: "[DEBIAN] Ensure sudo package is installed"
           apt:
@@ -123,7 +123,7 @@
               - ansible
               - python3-apt
             update_cache: true
-            state: latest
+            state: present
             force_apt_get: true
 
         - name: "Activating prepare flag"

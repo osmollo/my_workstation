@@ -9,5 +9,5 @@
 - name: "[CHERRYTREE] [UBUNTU] install cherrytree package"
   apt:
     name: "{{ cherrytree_package }}"
-    state: latest
+    state: present
     update_cache: true

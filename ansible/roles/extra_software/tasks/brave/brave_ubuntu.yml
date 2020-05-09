@@ -23,5 +23,5 @@
 - name: "[BRAVE] [DEB] install brave browser"
   apt:
     name: brave-browser
-    state: latest
+    state: present
     update_cache: true

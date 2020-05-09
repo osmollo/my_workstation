@@ -1,3 +1,4 @@
 ---
 
-- include_tasks: "brave_{{ linux_distribution }}.yml"
+- name: "[BRAVE] install for {{ linux_distribution }}"
+  include_tasks: "brave_{{ linux_distribution }}.yml"

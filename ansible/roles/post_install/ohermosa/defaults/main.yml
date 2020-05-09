@@ -101,6 +101,7 @@ git_repositories:
       remote: gitlab
     - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_deploy_id2.git
       dest: "{{ git_dir }}/msqlm_deploy_id2"
+      remote: gitlab
   home:
     - repo: git@gitlab.com:ohermosa/AmazonPy.git
       dest: "{{ git_dir }}/AmazonPy"

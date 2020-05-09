@@ -1,6 +1,8 @@
 ---
 
-- include_vars:
+- name: "[DROPBOX] include vars file"
+  include_vars:
     file: "{{ linux_distribution }}.yml"
 
-- include_tasks: "dropbox_{{ linux_distribution }}.yml"
+- name: "[DROPBOX] install for {{ linux_distribution }}"
+  include_tasks: "dropbox_{{ linux_distribution }}.yml"

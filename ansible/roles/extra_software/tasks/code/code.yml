@@ -1,8 +1,10 @@
 ---
 
-- include_tasks: "code_{{ linux_distribution }}.yml"
+- name: "[CODE] install for {{ linux_distribution }}"
+  include_tasks: "code_{{ linux_distribution }}.yml"
 
-- block:
+- name: "[CODE] install extensions"
+  block:
     - name: "[CODE] get json with extensions"
       uri:
         url: "{{ code_extensions_url }}"
@@ -13,7 +15,7 @@
       become_user: "{{ ansible_user }}"
       vars:
         id_query: "[].metadata.publisherId"
-      shell: "code --install-extension {{ item }}"
+      command: "code --install-extension {{ item }}"
       loop: "{{ extensions_response.json | default([]) | json_query(id_query) | list }}"
   tags:
     - code_extensions

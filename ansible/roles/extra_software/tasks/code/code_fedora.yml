@@ -16,5 +16,5 @@
 - name: "[CODE] [FEDORA] Install Code"
   yum:
     name: code
-    state: latest
+    state: present
     update_cache: true

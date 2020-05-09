@@ -24,5 +24,6 @@
     group: "{{ ansible_user }}"
     mode: 0755
 
-- debug:
+- name: "[LENS] how to run"
+  debug:
     msg: "Puedes ejecutar Lens con el comando: '{{ appimage_dir }}/Lens.AppImage'"

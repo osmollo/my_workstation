@@ -1,3 +1,4 @@
 ---
 
-- include_tasks: "megasync_{{ linux_distribution }}.yml"
+- name: "[MEGA_SYNC] install for {{ linux_distribution }}"
+  include_tasks: "megasync_{{ linux_distribution }}.yml"
