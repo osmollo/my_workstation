@@ -17,7 +17,7 @@ release:
   script:
     - git config --global user.email "${CI_EMAIL}"
     - git config --global user.name "${CI_USERNAME}"
-    - if ! $(git remote show github 2&>1 /dev/null); then git remote add github https://${GITLAB_USER_LOGIN}:${GITHUB_TOKEN}@gitlab.com/ohermosa/my_workstation.git; fi
+    - if ! $(git remote show github 2&>1 /dev/null); then git remote add github https://${GITLAB_USER_LOGIN}:${GITHUB_TOKEN}@github.com/ohermosa/my_workstation.git; fi
     - if ! $(git remote show gitea 2&>1 /dev/null); then git remote add gitea https://${GITLAB_USER_LOGIN}:${GITEA_TOKEN}@gitea.com/ohermosa/my_workstation.git; fi
     - git push github --tags
     - git push gitea --tags
