@@ -3,5 +3,5 @@
 - name: "[WIREGUARD] [ARCH] Install wireguard"
   pacman:
     name: "{{ wireguard_packages }}"
-    state: latest
+    state: present
     update_cache: true

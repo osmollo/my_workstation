@@ -8,12 +8,10 @@
   register: buttercup_latest
   when: linux_distribution != "arch"
 
-- name: "[BUTTERCUP] Set urls for buttercup packages"
-  vars:
-    buttercup_version: "{{ buttercup_latest.url | urlsplit('path') | basename }}"
+- name: "[BUTTERCUP] Set buttercup version"
   set_fact:
-    buttercup_rpm_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop-{{ buttercup_version | replace('v', '') }}.x86_64.rpm"
-    buttercup_deb_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop_{{ buttercup_version | replace('v', '') }}_amd64.deb"
+    buttercup_version: "{{ buttercup_latest.url | urlsplit('path') | basename }}"
   when: linux_distribution != "arch"
 
-- include_tasks: "buttercup_{{ linux_distribution }}.yml"
+- name: "[BUTTERCUP] install for {{ linux_distribution }}"
+  include_tasks: "buttercup_{{ linux_distribution }}.yml"

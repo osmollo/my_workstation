@@ -1,4 +1,5 @@
 ---
 
-- include_tasks: "hiri_{{ linux_distribution }}.yml"
+- name: "[HIRI] install for {{ linux_distribution }}"
+  include_tasks: "hiri_{{ linux_distribution }}.yml"
   when: linux_distribution != "fedora"

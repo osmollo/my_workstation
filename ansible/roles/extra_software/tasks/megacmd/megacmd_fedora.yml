@@ -1,6 +1,6 @@
 ---
 
-- name: "[MEGACMD] [FEDORA] install megacmd package"
+- name: "[MEGA_CMD] [FEDORA] install megacmd package"
   yum:
     name: "{{ megacmd_package }}"
     state: present

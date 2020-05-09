@@ -10,4 +10,4 @@
 - name: "[DELUGE] [UBUNTU] Install deluge"
   apt:
     name: "{{ deluge_package }}"
-    state: latest
+    state: present

@@ -1,8 +1,8 @@
 ---
 
-- name: "[CODE] [ARCH] install code"
+- name: "[DIVE] [ARCH] Install dive"
   become: false
   yay:
-    name: "{{ code_package }}"
+    name: "{{ dive_package }}"
     state: present
     update_cache: true

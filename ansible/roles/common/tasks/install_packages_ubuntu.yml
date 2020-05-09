@@ -3,21 +3,21 @@
 - name: "[UBUNTU] Install common packages"
   apt:
     name: "{{ common_packages }}"
-    state: latest
+    state: present
     update_cache: true
     autoclean: true
 
 - name: "[UBUNTU] Install Ubuntu packages"
   apt:
     name: "{{ distro_packages | reject('equalto', '') | list }}"
-    state: latest
+    state: present
     update_cache: true
     autoclean: true
 
 - name: "[UBUNTU] Install Gnome packages"
   apt:
     name: "{{ gnome_packages }} + {{ gnome_ubuntu_packages | reject('equalto', '') | list }}"
-    state: latest
+    state: present
     update_cache: true
     autoclean: true
   when:
@@ -27,7 +27,7 @@
 - name: "[UBUNTU] Install KDE packages"
   apt:
     name: "{{ kde_packages }} + {{ kde_ubuntu_packages }}"
-    state: latest
+    state: present
     update_cache: true
     autoclean: true
   when:
@@ -37,7 +37,7 @@
 - name: "[UBUNTU] Install XFCE packages"
   apt:
     name: "{{ xfce_packages }} + {{ xfce_ubuntu_packages }}"
-    state: latest
+    state: present
     update_cache: true
     autoclean: true
   when:

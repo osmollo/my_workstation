@@ -3,4 +3,4 @@
 - name: "[CHROMIUM] [ARCH] Install chromium browser"
   pacman:
     name: chromium
-    state: latest
+    state: present

@@ -1,6 +1,6 @@
 ---
 
-- name: "[PYCHARM] Get latest version of rambox"
+- name: "[RAMBOX] Get latest version of rambox"
   uri:
     url: "{{ rambox_latest_url }}"
     follow_redirects: safe
@@ -8,7 +8,7 @@
   register: rambox_latest
   when: linux_distribution != "arch"
 
-- name: "[PYCHARM] Set urls for rambox packages"
+- name: "[RAMBOX] Set urls for rambox packages"
   vars:
     rambox_version: "{{ rambox_latest.url | urlsplit('path') | basename }}"
   set_fact:
@@ -16,4 +16,5 @@
     rambox_deb_package: "https://github.com/ramboxapp/community-edition/releases/download/{{ rambox_version }}/Rambox-{{ rambox_version }}-linux-amd64.deb"
   when: linux_distribution != "arch"
 
-- include_tasks: "rambox_{{ linux_distribution }}.yml"
+- name: "[RAMBOX] install for {{ linux_distribution }}"
+  include_tasks: "rambox_{{ linux_distribution }}.yml"

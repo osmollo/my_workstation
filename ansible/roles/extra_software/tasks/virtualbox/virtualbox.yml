@@ -1,11 +1,18 @@
 ---
 
-- include_vars:
+- name: "[VIRTUALBOX] check default python version pre installation"
+  stat:
+    path: /usr/bin/python
+  register: pre_response
+
+- name: "[VIRTUALBOX] include vars file"
+  include_vars:
     file: "{{ linux_distribution }}.yml"
   tags:
     - vagrant
 
-- include_tasks: "virtualbox_{{ linux_distribution }}.yml"
+- name: "[VIRTUALBOX] install virtualbox for {{ linux_distribution }}"
+  include_tasks: "virtualbox_{{ linux_distribution }}.yml"
 
 - name: "[VIRTUALBOX] Adding {{ ansible_user }} to group vboxusers"
   user:
@@ -20,23 +27,21 @@
     state: present
 
 - name: "[VIRTUALBOX] Check if extension pack is already installed"
-  shell: "VBoxManage list extpacks"
+  command: "VBoxManage list extpacks"
   changed_when: false
   register: extpack_list
 
 - name: "[VIRTUALBOX] Download VirtualBox extension pack"
   get_url:
-    url: "https://download.virtualbox.org/virtualbox/{{ virtualbox_extpack_version }}/Oracle_VM_VirtualBox_Extension_Pack-{{ virtualbox_extpack_version }}.vbox-extpack"
+    url: "{{ virtualbox_extension_package }}"
     dest: /tmp/
     force: yes
   register: download_result
   when: 'extpack_list.stdout == "Extension Packs: 0"'
+  skip_ansible_lint: true
 
 - name: "[VIRTUALBOX] Install VirtualBox extension pack"
-  shell: "VBoxManage extpack install --replace {{ download_result.dest }}"
-  args:
-    stdin: "y"
-    stdin_add_newline: false
+  command: "echo 'y' | VBoxManage extpack install --replace {{ download_result.dest }}"
   when: 'extpack_list.stdout == "Extension Packs: 0"'
 
 - name: "[VIRTUALBOX] Delete Virtualbox Extension pack"
@@ -44,3 +49,29 @@
     path: "{{ download_result.dest }}"
     state: absent
   when: 'extpack_list.stdout == "Extension Packs: 0"'
+
+- name: "[VIRTUALBOX] check default python version post installation"
+  stat:
+    path: /usr/bin/python
+  register: post_response
+
+- name: "[VIRTUALBOX] restore python version"
+  block:
+    - name: "[VIRTUALBOX] delete python link"
+      file:
+        path: /usr/bin/python
+        state: absent
+
+    - name: "[VIRTUALBOX] restore default python version"
+      file:
+        src: "/usr/bin/{{ pre_response.stat.lnk_target }}"
+        dest: "/usr/bin/python"
+        state: link
+
+    - name: "Alternative link for python"
+      alternatives:
+        name: python
+        link: /usr/bin/python
+        path: "/usr/bin/{{ pre_response.stat.lnk_target }}"
+  when:
+    - pre_response.stat.lnk_target != post_response.stat.lnk_target

@@ -39,10 +39,11 @@
       git:
         repo: "{{ prezto_repo }}"
         dest: "{{ ansible_user_dir }}/.zprezto"
-        clone: yes
+        clone: true
         key_file: "/home/{{ ansible_user }}/.ssh/id_rsa"
         accept_hostkey: true
         recursive: true
+        version: master
       ignore_errors: true
 
     - name: "[PREZTO] set autocomplete special directories in prezto config"

@@ -30,7 +30,7 @@ install_franz: false
 install_chromium: false
 install_deluge: false
 install_cherrytree: false
-install_kubectl: true
+install_k8s_tools: true
 install_flatpak: false
 install_megacmd: true
 install_megasync: false
@@ -52,5 +52,4 @@ install_yakyak: false
 install_hiri: false
 install_steam: false
 install_wireguard: true
-install_lens: true
 install_typora: true

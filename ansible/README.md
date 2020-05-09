@@ -66,7 +66,7 @@ Por defecto se instala el siguiente software:
 | [Franz](https://meetfranz.com/) | franz | install_franz | SI | |
 | [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | SI | |
 | [Cherrytree](https://www.giuspen.com/cherrytree/) | cherrytree | install_cherrytree | SI | editors |
-| [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-kubectl) | kubectl | install_kubectl | SI | |
+| [k8s_tools]() | k8s_tools | install_k8s_tools | SI | |
 | [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | SI | mega |
 | [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | SI | mega |
 | [Vivaldi](https://vivaldi.com/es/) | vivaldi | install_vivaldi | SI | browsers |
@@ -87,7 +87,6 @@ Por defecto se instala el siguiente software:
 | [Hiri](https://www.hiri.com/) | hiri | install_hiri | NO | |
 | [Steam](https://store.steampowered.com/?l=spanish) | steam | install_steam | NO | |
 | [Wireguard](https://www.wireguard.com/) | wireguard | install_wireguard | SI | |
-| [Lens](https://k8slens.dev) | lens | install_lens | SI | |
 | [Typora](https://typora.io) | typora | install_typora | SI | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:

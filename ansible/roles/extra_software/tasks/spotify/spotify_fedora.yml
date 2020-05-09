@@ -11,5 +11,5 @@
 - name: "[SPOTIFY] [FEDORA] Install Spotify"
   yum:
     name: spotify-client
-    state: latest
+    state: present
     update_cache: true

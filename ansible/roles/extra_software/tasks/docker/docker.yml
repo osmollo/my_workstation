@@ -1,6 +1,7 @@
 ---
 
-- include_tasks: "docker_{{ linux_distribution }}.yml"
+- name: "[DOCKER] install for {{ linux_distribution }}"
+  include_tasks: "docker_{{ linux_distribution }}.yml"
 
 - name: "[DOCKER] Adding {{ ansible_user }} to group docker"
   user:
@@ -14,9 +15,9 @@
     enabled: true
     state: restarted
 
-- name: "[DOCKER] Install docker compose"
+- name: "[DOCKER_COMPOSE] Install docker compose"
   block:
-    - name: "[DOCKER] Get latest version of Docker Compose"
+    - name: "[DOCKER_COMPOSE] Get latest version of Docker Compose"
       uri:
         url: "{{ dockercompose_latest_url }}"
         follow_redirects: safe
@@ -24,15 +25,34 @@
       register: dockercompose_latest
       when: linux_distribution != "arch"
 
-    - name: "[DOCKER] Set urls for Docker Compose packages"
-      vars:
-        dockercompose_version: "{{ dockercompose_latest.url | urlsplit('path') | basename }}"
+    - name: "[DOCKER_COMPOSE] Set docker compose version"
       set_fact:
-        dockercompose_package: "https://github.com/docker/compose/releases/download/{{ dockercompose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+        dockercompose_version: "{{ dockercompose_latest.url | urlsplit('path') | basename }}"
       when: linux_distribution != "arch"
 
-    - name: "[DOCKER] Download Docker Compose binary"
+    - name: "[DOCKER_COMPOSE] Download Docker Compose binary"
       import_tasks: docker_compose.yml
       when: linux_distribution != "arch"
   tags:
     - dockercompose
+
+- name: "[DIVE] Install Dive"
+  block:
+    - name: "[DIVE] Get latest version of Dive"
+      uri:
+        url: "{{ dive_latest_url }}"
+      register: dive_response
+      when: linux_distribution != "arch"
+
+    - name: "[DIVE] Set urls for Dive packages"
+      vars:
+        dive_version: "{{ dive_response.json.tag_name }}"
+      set_fact:
+        dive_deb_package: "https://github.com/wagoodman/dive/releases/download/{{ dive_version }}/dive_{{ dive_version[1:] }}_linux_amd64.deb"
+        dive_rpm_package: "https://github.com/wagoodman/dive/releases/download/{{ dive_version }}/dive_{{ dive_version[1:] }}_linux_amd64.rpm"
+      when: linux_distribution != "arch"
+
+    - name: "[DIVE] Download Dive"
+      include_tasks: "dive_{{ linux_distribution }}.yml"
+  tags:
+    - dive

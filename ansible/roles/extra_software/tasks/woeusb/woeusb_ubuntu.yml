@@ -10,4 +10,4 @@
         name: woeusb
         state: present
         update_cache: true
-  when: code_name == "bionic"
+  when: ubuntu_codename == "bionic"

@@ -1,0 +1,27 @@
+---
+
+- name: "[KOPS] delete hetzner-kube binary if exists"
+  file:
+    path: /usr/local/bin/hetzner-kube
+    state: absent
+
+- name: "[KOPS] Get latest version of hetzner kube"
+  uri:
+    url: "{{ kops_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: kops_latest
+
+- name: "[KOPS] Set urls for hetzner kube package"
+  vars:
+    kops_version: "{{ kops_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    kops_package: "https://github.com/kubernetes/kops/releases/download/{{ kops_version }}/kops-linux-amd64"
+
+- name: "[KOPS] Copy kops binary"
+  get_url:
+    url: "{{ kops_package }}"
+    dest: /usr/local/bin/kops
+    mode: 0755
+    owner: root
+    group: root
