@@ -19,5 +19,5 @@
       - libx11-xcb-dev
       - libasound2
       - code
-    state: latest
+    state: present
     update_cache: true

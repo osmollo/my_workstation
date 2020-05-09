@@ -1,6 +1,6 @@
 ---
 
-- name: "[MEGACMD] [ARCH] Install megacmd"
+- name: "[MEGA_CMD] [ARCH] Install megacmd"
   become: false
   yay:
     name: "{{ megacmd_package }}"

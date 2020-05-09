@@ -31,7 +31,7 @@
     install_chromium: false
     install_deluge: false
     install_cherrytree: false
-    install_kubectl: false
+    install_k8s_tools: false
     install_megacmd: false
     install_megasync: false
     install_vivaldi: false
@@ -48,7 +48,6 @@
     install_hiri: false
     install_steam: false
     install_wireguard: false
-    install_lens: false
     install_typora: false
   roles:
     - common

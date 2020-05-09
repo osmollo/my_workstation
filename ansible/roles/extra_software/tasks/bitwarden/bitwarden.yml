@@ -1,6 +1,7 @@
 ---
 
-- block:
+- name: "[BITWARDEN] install bitwarden desktop"
+  block:
     - name: "[BITWARDEN] Get latest version of Bitwarden"
       uri:
         url: "{{ bitwarden_latest_url }}"
@@ -17,12 +18,14 @@
         bitwarden_deb_package: "https://github.com/bitwarden/desktop/releases/download/{{ bitwarden_version }}/Bitwarden-{{ bitwarden_version[1:] }}-amd64.deb"
       when: linux_distribution != "arch"
 
-    - include_tasks: "bitwarden_{{ linux_distribution }}.yml"
+    - name: "[BITWARDEN] install for {{ linux_distribution }}"
+      include_tasks: "bitwarden_{{ linux_distribution }}.yml"
   tags:
     - bitwarden_desktop
 
 
-- block:
+- name: "[BITWARDEN] install bitwarden cli"
+  block:
     - name: "[BITWARDEN] Get latest version of Bitwarden CLI"
       uri:
         url: "{{ bitwardencli_latest_url }}"

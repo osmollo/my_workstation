@@ -4,5 +4,5 @@
   become: false
   yay:
     name: "{{ code_package }}"
-    state: latest
+    state: present
     update_cache: true

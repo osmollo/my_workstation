@@ -1,5 +1,41 @@
 # CHANGELOG
 
+## 3.7
+
+- Corrección de errores:
+  - La instalación de **Virtualbox** cambia la versión por defecto de **Python** a 2.7. Se corrige si la versión anterior a la instalación era **Python 3**
+  - fix instalación `woeusb` para **ubuntu 18.04**
+  - instalación de `python3-gpg` como dependencia de `dropbox`
+  - corrección nombre tareas de `DOCKER_COMPOSE`, `HETZNER_KUBE` y `MEGA_CMD`
+  - corrección de errores de `ansible-lint`
+- Instalación de nuevos módulos de python
+  - pylint
+  - flake8
+  - pep8
+  - numerizer
+  - faker
+- `extra_software/kubectl` es renombrado a `extra_software/k8s_tools`, que instala:
+  - kubectl
+  - helm
+  - kops
+  - hetzner-kube
+  - lens
+- Instalación de `dive` para análisis de layers de **docker**
+- Creación de `$GOPATH` y export de variables de entorno en la instalación de `go`
+- Configuración del CI
+- Cambios en `post_install/ohermosa`:
+  - Descarga de paquetes de `go`
+  - Actualizada contraseña BBVA
+  - Descarga de paquetes de `go`
+  - Cambio de la imagen de usuario en **gnome**
+  - Restauración de `zhistory`
+  - El tag `environment` lanza la reconfiguración de `prezto` en lugar de hacerlo desde el `main.yml`
+  - Nuevos repositorios git en `post_install/ohermosa`:
+    - [Terraform provider openstack flavors patch](https://globaldevtools.bbva.com/bitbucket/projects/MLYID/repos/mlyid_terraform_provider_openstack/browse)
+    - [GO apps](https://gitlab.com/ohermosa/go_apps)
+    - [msqlm_deploy_id2](https://globaldevtools.bbva.com/bitbucket/projects/MSQLM/repos/msqlm_deploy_id2/browse)
+  - Configuración  `user.email` y `user.name` para el repo de `prezto`
+
 ## 3.6
 
 - Soporte para **Ubuntu 20.04**:

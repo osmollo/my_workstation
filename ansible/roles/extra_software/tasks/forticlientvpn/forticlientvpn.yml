@@ -1,6 +1,7 @@
 ---
 
-- include_tasks: "forticlientvpn_{{ linux_distribution }}.yml"
+- name: "[FORTICLIENTVPN] install for {{ linux_distribution }}"
+  include_tasks: "forticlientvpn_{{ linux_distribution }}.yml"
 
 - name: "[FORTICLIENTVPN] Copy rutas.sh to /home/{{ ansible_user }}"
   template:

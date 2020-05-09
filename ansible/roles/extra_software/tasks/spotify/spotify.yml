@@ -1,8 +1,10 @@
 ---
 
-- include_tasks: "spotify_{{ linux_distribution }}.yml"
+- name: "[SPOTIFY] install for {{ linux_distribution }}"
+  include_tasks: "spotify_{{ linux_distribution }}.yml"
 
-- block:
+- name: "[SPOTIFY] install spotify cli"
+  block:
     - name: "[SPOTIFY] Get latest version of spotify-tui"
       uri:
         url: https://github.com/Rigellute/spotify-tui/releases/latest

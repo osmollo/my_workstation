@@ -96,6 +96,12 @@ git_repositories:
     - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_postgresha.git
       dest: "{{ git_dir }}/mlyid_postgresha"
       remote: gitlab
+    - repo: ssh://git@globaldevtools.bbva.com:7999/mlyid/mlyid_terraform_provider_openstack.git
+      dest: "{{ git_dir }}/mlyid_terraform_provider_openstack"
+      remote: gitlab
+    - repo: ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_deploy_id2.git
+      dest: "{{ git_dir }}/msqlm_deploy_id2"
+      remote: gitlab
   home:
     - repo: git@gitlab.com:ohermosa/AmazonPy.git
       dest: "{{ git_dir }}/AmazonPy"
@@ -171,6 +177,8 @@ git_repositories:
       dest: "{{ git_dir }}/docker-image-generator"
     - repo: git@github.com:gopasspw/gopass.git
       dest: "{{ git_dir }}/gopass"
+    - repo: git@gitlab.com:ohermosa/go_apps.git
+      dest: "{{ git_dir }}/go_apps"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/bash_aliases"
@@ -271,11 +279,11 @@ secrets:
     secret_value: PASSWORD
     secret: !vault |
       $ANSIBLE_VAULT;1.1;AES256
-      36383064323862396433346561343137303861616163376261363261656339616461346464313939
-      3334656635386130306466353165316265343437623838660a336165633332306137613835376532
-      66346133663061373732363334396134383337323165303061613337653638646339383961316432
-      6333316462626230630a323136646262366438363037313939646365666431366236326464363038
-      3462
+      62643030666534383839343466376238636438336363653437666134623132343966623632373033
+      6337366362323238383634613266376665636634663339330a343062653132613535373462343533
+      34383738306565393938656164333832313463313636663032393630363165653765623538363163
+      3637353263326435310a373163616530653038333736656531343332613136626237393230336663
+      6235
   - label: "root token"
     secret_key: vault_sistemas
     secret_value: TOKEN
@@ -495,3 +503,6 @@ docker_config_json:
       auth: "{{ docker_nexus_es | replace('\n', '')  }}"
   HttpHeaders:
     User-Agent: "Docker-Client/18.09.5 (linux)"
+
+go_packages:
+  - github.com/go-telegram-bot-api/telegram-bot-api

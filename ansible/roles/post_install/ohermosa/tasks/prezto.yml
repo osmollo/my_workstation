@@ -28,8 +28,21 @@
   vars:
     prezto_repo: git@github.com:sorin-ionescu/prezto.git
 
+- name: "[PREZTO] Configure name and user for prezto repo"
+  git_config:
+    name: user.name
+    repo: "{{ ansible_user_dir }}/.zprezto"
+    scope: local
+    value: "Oscar Hermosa"
 
-- name: "[PREZTO] opy powerline truetype fonts"
+- name: "[PREZTO] Configure name and user for prezto repo"
+  git_config:
+    name: user.email
+    repo: "{{ ansible_user_dir }}/.zprezto"
+    scope: local
+    value: "ohermosa@gmail.com"
+
+- name: "[PREZTO] copy powerline truetype fonts"
   vars:
     font_dir: "{{ ansible_user_dir }}/.local/share/fonts"
   block:

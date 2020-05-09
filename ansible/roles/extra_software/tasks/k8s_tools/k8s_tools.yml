@@ -1,8 +1,12 @@
 ---
 
-- include_tasks: "kubectl_{{ linux_distribution }}.yml"
+- name: "[KUBECTL] install for {{ linux_distribution }}"
+  include_tasks: "kubectl_{{ linux_distribution }}.yml"
+  tags:
+    - kubectl
 
-- block:
+- name: "[KUBECTL] configure shell"
+  block:
     - name: "[KUBECTL] check if .bashrc exists"
       stat:
         path: "{{ ansible_user_dir }}/.bashrc"
@@ -27,11 +31,25 @@
         state: present
       when: zshrc_exists.stat.exists
   become: false
+  tags:
+    - kubectl
 
-- import_tasks: helm.yml
+- name: "[HELM] installation"
+  import_tasks: helm.yml
   tags:
     - helm
 
-- import_tasks: hetzner_kube.yml
+- name: "[HETZNER_KUBE] installation"
+  import_tasks: hetzner_kube.yml
   tags:
     - hetznerkube
+
+- name: "[KOPS] installation"
+  import_tasks: kops.yml
+  tags:
+    - kops
+
+- name: "[LENS] installation"
+  import_tasks: lens.yml
+  tags:
+    - lens

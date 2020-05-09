@@ -1,6 +1,7 @@
 ---
 
-- include_vars:
+- name: "include vars file"
+  include_vars:
     file: "{{ item }}"
   loop:
     - "{{ linux_distribution }}.yml"
@@ -265,12 +266,12 @@
     - cherrytree
     - editors
 
-- name: "---[INSTALL]--- Kubectl"
-  import_tasks: kubectl/kubectl.yml
-  when: install_kubectl
+- name: "---[INSTALL]--- k8s_tools"
+  import_tasks: k8s_tools/k8s_tools.yml
+  when: install_k8s_tools
   tags:
     - extra_software
-    - kubectl
+    - k8s_tools
 
 - name: "---[INSTALL]--- MEGAcmd"
   import_tasks: megacmd/megacmd.yml
@@ -425,14 +426,6 @@
   tags:
     - extra_software
     - wireguard
-
-- name: "---[INSTALL]--- LENS"
-  import_tasks: lens.yml
-  when:
-    - install_lens
-  tags:
-    - extra_software
-    - lens
 
 - name: "---[INSTALL]--- TYPORA"
   import_tasks: typora/typora.yml

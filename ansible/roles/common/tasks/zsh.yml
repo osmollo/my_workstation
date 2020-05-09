@@ -3,17 +3,17 @@
 - name: "[FEDORA] Install zsh"
   yum:
     name: zsh
-    state: latest
+    state: present
   when: linux_distribution == "fedora"
 
 - name: "[DEB] Install zsh"
   apt:
     name: zsh
-    state: latest
+    state: present
   when: linux_distribution in ["ubuntu", "debian"]
 
 - name: "[ARCH] Install zsh"
   pacman:
     name: zsh
-    state: latest
+    state: present
   when: linux_distribution == "arch"
