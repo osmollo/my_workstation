@@ -1,6 +1,9 @@
+before_script:
+  - echo "before script"
+
 stages:
   - init
-  - build
+  - run-develop
   - run-master
 
 version:
@@ -11,10 +14,10 @@ version:
     - shell
     - gitlab2github
 
-build:
-  stage: build
+develop:
+  stage: run-develop
   script:
-    - echo "build stage"
+    - echo "develop stage"
   tags:
     - shell
     - gitlab2github
@@ -22,7 +25,12 @@ build:
 run-master:
   stage: run-master
   script:
-    - echo "run-master stage"
+    - git config --global user.email "${CI_EMAIL}"
+    - git config --global user.name "${CI_USERNAME}"
+    - git remote remove github; git remote add github https://${GITLAB_USER_LOGIN}:${GITHUB_TOKEN}@gitlab.com/ohermosa/my_workstation.git
+    - git remote remove gitea; git remote add gitea https://${GITLAB_USER_LOGIN}:${GITEA_TOKEN}@gitea.com/ohermosa/my_workstation.git
+    - git push github
+    - git push gitea
   only:
     - master
   tags:
