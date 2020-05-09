@@ -5,12 +5,14 @@
     path: /usr/bin/python
   register: pre_response
 
-- include_vars:
+- name: "[VIRTUALBOX] include vars file"
+  include_vars:
     file: "{{ linux_distribution }}.yml"
   tags:
     - vagrant
 
-- include_tasks: "virtualbox_{{ linux_distribution }}.yml"
+- name: "[VIRTUALBOX] install virtualbox for {{ linux_distribution }}"
+  include_tasks: "virtualbox_{{ linux_distribution }}.yml"
 
 - name: "[VIRTUALBOX] Adding {{ ansible_user }} to group vboxusers"
   user:
@@ -55,7 +57,8 @@
     path: /usr/bin/python
   register: post_response
 
-- block:
+- name: "[VIRTUALBOX] restore python version"
+  block:
     - name: "[VIRTUALBOX] delete python link"
       file:
         path: /usr/bin/python

@@ -1,8 +1,10 @@
 ---
 
-- include_tasks: "code_{{ linux_distribution }}.yml"
+- name: "[CODE] install for {{ linux_distribution }}"
+  include_tasks: "code_{{ linux_distribution }}.yml"
 
-- block:
+- name: "[CODE] install extensions"
+  block:
     - name: "[CODE] get json with extensions"
       uri:
         url: "{{ code_extensions_url }}"

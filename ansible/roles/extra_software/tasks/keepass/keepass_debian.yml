@@ -3,5 +3,5 @@
 - name: "[KEEPASS] [DEB] install KeepassXC"
   apt:
     name: keepassxc
-    state: latest
+    state: present
     update_cache: true

@@ -1,3 +1,4 @@
 ---
 
-- include_tasks: "franz_{{ linux_distribution }}.yml"
+- name: "[FRANZ] install for {{ linux_distribution }}"
+  include_tasks: "franz_{{ linux_distribution }}.yml"

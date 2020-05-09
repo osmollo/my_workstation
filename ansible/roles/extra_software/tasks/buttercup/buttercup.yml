@@ -16,4 +16,5 @@
     buttercup_deb_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop_{{ buttercup_version | replace('v', '') }}_amd64.deb"
   when: linux_distribution != "arch"
 
-- include_tasks: "buttercup_{{ linux_distribution }}.yml"
+- name: "[BUTTERCUP] install for {{ linux_distribution }}"
+  include_tasks: "buttercup_{{ linux_distribution }}.yml"

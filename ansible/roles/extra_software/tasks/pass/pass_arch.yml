@@ -3,5 +3,5 @@
 - name: "[PASS] [ARCH] Install Pass"
   pacman:
     name: pass
-    state: latest
+    state: present
     update_cache: true

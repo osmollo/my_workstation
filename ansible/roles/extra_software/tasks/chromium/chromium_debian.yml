@@ -3,4 +3,4 @@
 - name: "[CHROMIUM] [DEBIAN] Install chromium browser"
   apt:
     name: "{{ chromium_package }}"
-    state: latest
+    state: present

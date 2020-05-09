@@ -7,6 +7,7 @@
   - fix instalación `woeusb` para **ubuntu 18.04**
   - instalación de `python3-gpg` como dependencia de `dropbox`
   - corrección nombre tareas de `DOCKER_COMPOSE`, `HETZNER_KUBE` y `MEGA_CMD`
+  - corrección de errores de `ansible-lint`
 - Instalación de nuevos módulos de python
   - pylint
   - flake8
