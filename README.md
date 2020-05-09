@@ -1,5 +1,8 @@
 # Configuración de estación de trabajo con Ansible
 
+
+[![pipeline status](https://gitlab.com/ohermosa/my_workstation/badges/master/pipeline.svg)](https://gitlab.com/ohermosa/my_workstation/-/commits/master)
+
 ## Ejecución
 
 Dentro del directorio [ansible](ansible) se encuentran todas las herramientas necesarias para configurar una estación de trabajo con  **Ansible**, así como la documentación del mismo
