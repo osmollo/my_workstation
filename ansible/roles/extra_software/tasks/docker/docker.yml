@@ -1,6 +1,7 @@
 ---
 
-- include_tasks: "docker_{{ linux_distribution }}.yml"
+- name: "[DOCKER] install for {{ linux_distribution }}"
+  include_tasks: "docker_{{ linux_distribution }}.yml"
 
 - name: "[DOCKER] Adding {{ ansible_user }} to group docker"
   user:

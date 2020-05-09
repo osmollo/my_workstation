@@ -1,6 +1,7 @@
 ---
 
-- include_vars:
+- name: "[NOMACHINE] include vars file"
+  include_vars:
     file: "{{ linux_distribution }}.yml"
 
 - name: "[NOMACHINE] get lastest version of nomachine"
@@ -13,4 +14,5 @@
       set_fact:
         nomachine_version: "{{ nomachine_response.version }}"
 
-- include_tasks: "nomachine_{{ linux_distribution }}.yml"
+- name: "[NOMACHINE] install for {{ linux_distribution }}"
+  include_tasks: "nomachine_{{ linux_distribution }}.yml"

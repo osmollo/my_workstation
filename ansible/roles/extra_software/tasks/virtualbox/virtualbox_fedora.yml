@@ -13,13 +13,13 @@
 - name: "[VIRTUALBOX] [FEDORA] Install Virtualbox packages"
   yum:
     name: "{{ virtualbox_packages }}"
-    state: latest
+    state: present
     update_cache: true
 
 - name: "[VAGRANT] [FEDORA] Install Vagrant"
   yum:
     name: "{{ vagrant_package }}"
-    state: latest
+    state: present
     update_cache: true
   tags:
     - vagrant

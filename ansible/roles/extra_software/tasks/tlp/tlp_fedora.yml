@@ -5,7 +5,7 @@
     name:
       - tlp
       - tlp-rdw
-    state: latest
+    state: present
 
 - name: "[TLP] [FEDORA] Import repository key"
   rpm_key:
@@ -27,6 +27,6 @@
       - akmod-tp_smapi
       - akmod-acpi_call
       - kernel-devel
-    state: latest
+    state: present
     update_cache: true
   when: "'ThinkPad' in ansible_product_version"
