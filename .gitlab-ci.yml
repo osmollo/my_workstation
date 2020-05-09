@@ -1,0 +1,30 @@
+stages:
+  - init
+  - build
+  - run-master
+
+version:
+  stage: init
+  script:
+    - echo "init stage"
+  tags:
+    - shell
+    - gitlab2github
+
+build:
+  stage: build
+  script:
+    - echo "build stage"
+  tags:
+    - shell
+    - gitlab2github
+
+run-master:
+  stage: run-master
+  script:
+    - echo "run-master stage"
+  only:
+    - master
+  tags:
+    - shell
+    - gitlab2github
