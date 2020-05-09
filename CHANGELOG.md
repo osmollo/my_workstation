@@ -21,6 +21,7 @@
   - lens
 - Instalación de `dive` para análisis de layers de **docker**
 - Creación de `$GOPATH` y export de variables de entorno en la instalación de `go`
+- Configuración del CI
 - Cambios en `post_install/ohermosa`:
   - Descarga de paquetes de `go`
   - Actualizada contraseña BBVA

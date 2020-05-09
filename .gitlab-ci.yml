@@ -1,36 +1,30 @@
-before_script:
-  - echo "before script"
-
 stages:
-  - init
   - run-develop
   - run-master
 
-version:
-  stage: init
-  script:
-    - echo "init stage"
-  tags:
-    - shell
-    - gitlab2github
-
-develop:
+ansible-lint:
   stage: run-develop
+  before_script:
+    - pip install ansible-lint
+    - ansible-lint --version
   script:
     - echo "develop stage"
+    - ansible-lint ansible/install.yml
   tags:
     - shell
     - gitlab2github
 
-run-master:
+release:
   stage: run-master
   script:
     - git config --global user.email "${CI_EMAIL}"
     - git config --global user.name "${CI_USERNAME}"
-    - git remote remove github; git remote add github https://${GITLAB_USER_LOGIN}:${GITHUB_TOKEN}@gitlab.com/ohermosa/my_workstation.git
-    - git remote remove gitea; git remote add gitea https://${GITLAB_USER_LOGIN}:${GITEA_TOKEN}@gitea.com/ohermosa/my_workstation.git
-    - git push github
-    - git push gitea
+    - git remote remove github
+    - git remote add github https://${GITLAB_USER_LOGIN}:${GITHUB_TOKEN}@gitlab.com/ohermosa/my_workstation.git
+    - git remote remove gitea
+    - git remote add gitea https://${GITLAB_USER_LOGIN}:${GITEA_TOKEN}@gitea.com/ohermosa/my_workstation.git
+    - git push github --tags
+    - git push gitea --tags
   only:
     - master
   tags:
