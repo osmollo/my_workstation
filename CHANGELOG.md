@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.7.3
+
+- __one more time__
+
 ## 3.7.2
 
 - más fixes en CI
