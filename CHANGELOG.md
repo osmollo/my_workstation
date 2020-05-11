@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.7.4
+
+- fucking CI
+
 ## 3.7.3
 
 - __one more time__
