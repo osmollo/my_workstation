@@ -15,11 +15,12 @@ ansible-lint:
 release:
   stage: run-master
   script:
-    - git config --global user.email "${GITLAB_USER_EMAIL}"
-    - git config --global user.name "${GITLAB_USER_NAME}"
+    - git config user.email "${GITLAB_USER_EMAIL}"
+    - git config user.name "${GITLAB_USER_NAME}"
     - if ! $(git remote show github 2&>1 /dev/null); then git remote add github https://${GITLAB_USER_LOGIN}:${GITHUB_TOKEN}@github.com/ohermosa/my_workstation.git; fi
     - if ! $(git remote show gitea 2&>1 /dev/null); then git remote add gitea https://${GITLAB_USER_LOGIN}:${GITEA_TOKEN}@gitea.com/ohermosa/my_workstation.git; fi
-    - git tag -a $(jq -r .version release.json) -m "jq -r .version release.json"
+    - git tag -a $(jq -r .version release.json) -m "$(jq -r .version release.json)"
+    - git push --tags
     - git push github
     - git push github --tags
     - git push gitea
