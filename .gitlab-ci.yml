@@ -1,26 +1,42 @@
 stages:
-  - run-develop
-  - run-master
+  - test
+  - pull_request
+  - release
 
 ansible-lint:
-  stage: run-develop
+  stage: test
   before_script:
     - pip install ansible-lint
   script:
     - ansible-lint ansible/install.yml
+  only:
+    - ${CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_NAME}
+  tags:
+    - shell
+    - gitlab2github
+
+git_config:
+  stage: pull_request
+  before_script:
+    - git config user.email "${GITLAB_USER_EMAIL}"
+    - git config user.name "${GITLAB_USER_NAME}"
+    - git config push.default simple
+    - git remote set-url origin https://gitlab-ci-token:${GITLAB_TOKEN}@${CI_REPOSITORY_URL}
+    - if ! $(git remote show github 2&>1 /dev/null); then git remote add github https://${GITLAB_USER_LOGIN}:${GITHUB_TOKEN}@github.com/ohermosa/my_workstation.git; fi
+    - if ! $(git remote show gitea 2&>1 /dev/null); then git remote add gitea https://${GITLAB_USER_LOGIN}:${GITEA_TOKEN}@gitea.com/ohermosa/my_workstation.git; fi
+  script:
+    - if ! $(git diff-index ${CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_NAME} --quiet -- release.json 2&>1 /dev/null); then echo "releasing $(jq -r .version release.json)"; else echo "release.json hasn't changed'"; exit $(git diff-index master --quiet -- release.json); fi
+  only:
+    - master
   tags:
     - shell
     - gitlab2github
 
 release:
-  stage: run-master
+  stage: release
   script:
-    - git config user.email "${GITLAB_USER_EMAIL}"
-    - git config user.name "${GITLAB_USER_NAME}"
-    - if ! $(git remote show github 2&>1 /dev/null); then git remote add github https://${GITLAB_USER_LOGIN}:${GITHUB_TOKEN}@github.com/ohermosa/my_workstation.git; fi
-    - if ! $(git remote show gitea 2&>1 /dev/null); then git remote add gitea https://${GITLAB_USER_LOGIN}:${GITEA_TOKEN}@gitea.com/ohermosa/my_workstation.git; fi
     - git tag -a $(jq -r .version release.json) -m "$(jq -r .version release.json)"
-    - git push --tags
+    - git push gitlab --tags
     - git push github
     - git push github --tags
     - git push gitea
