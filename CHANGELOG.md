@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.8
+
+- Se incluye [bitbucket](https://bitbucket.org/ohermosa/my_workstation/src/master/) en el CI
+
 ## 3.7.1
 
 - fixes en CI
