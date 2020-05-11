@@ -1,21 +1,9 @@
 # CHANGELOG
 
-## 3.7.4
-
-- fucking CI
-
-## 3.7.3
-
-- __one more time__
-
-## 3.7.2
-
-- más fixes en CI
-- fichero `release.json` para generar tag automáticamente en ciclo de CI
-
 ## 3.7.1
 
-- fix en el ciclo de CI
+- fixes en CI
+- fichero `release.json` para generar tag automáticamente en ciclo de CI
 
 ## 3.7
 
