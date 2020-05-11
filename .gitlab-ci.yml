@@ -9,8 +9,6 @@ ansible-lint:
     - pip install ansible-lint
   script:
     - ansible-lint ansible/install.yml
-  only:
-    - ${CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_NAME}
   tags:
     - shell
     - gitlab2github
@@ -25,7 +23,7 @@ git_config:
     - if ! $(git remote show github 2&>1 /dev/null); then git remote add github https://${GITLAB_USER_LOGIN}:${GITHUB_TOKEN}@github.com/ohermosa/my_workstation.git; fi
     - if ! $(git remote show gitea 2&>1 /dev/null); then git remote add gitea https://${GITLAB_USER_LOGIN}:${GITEA_TOKEN}@gitea.com/ohermosa/my_workstation.git; fi
   script:
-    - if ! $(git diff-index ${CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_NAME} --quiet -- release.json 2&>1 /dev/null); then echo "releasing $(jq -r .version release.json)"; else echo "release.json hasn't changed'"; exit $(git diff-index master --quiet -- release.json); fi
+    - if ! $(git diff-index HEAD^ --quiet -- release.json 2&>1 /dev/null); then echo "releasing $(jq -r .version release.json)"; else echo "release.json hasn't changed'"; exit $(git diff-index master --quiet -- release.json); fi
   only:
     - master
   tags:
