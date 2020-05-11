@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.7.2
+
+- más fixes en CI
+- fichero `release.json` para generar tag automáticamente en ciclo de CI
+
 ## 3.7.1
 
 - fix en el ciclo de CI
