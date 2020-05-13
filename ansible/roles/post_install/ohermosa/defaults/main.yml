@@ -179,6 +179,8 @@ git_repositories:
       dest: "{{ git_dir }}/gopass"
     - repo: git@gitlab.com:ohermosa/go_apps.git
       dest: "{{ git_dir }}/go_apps"
+    - repo: git@gitlab.com:ohermosa/fichatron.git
+      dest: "{{ git_dir }}/fichatron"
 
 links_to_create:
     - src: "{{ dropbox_dir }}/datio/bash_aliases"

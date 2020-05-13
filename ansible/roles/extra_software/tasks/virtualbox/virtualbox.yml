@@ -38,7 +38,6 @@
     force: yes
   register: download_result
   when: 'extpack_list.stdout == "Extension Packs: 0"'
-  skip_ansible_lint: true
 
 - name: "[VIRTUALBOX] Install VirtualBox extension pack"
   command: "echo 'y' | VBoxManage extpack install --replace {{ download_result.dest }}"
