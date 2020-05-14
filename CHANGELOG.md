@@ -2,10 +2,11 @@
 
 ## 3.8
 
-- Mejora rapidez `ansible-lint` del CI revisando únicamente los ficheros `yaml` modificados en el último commit
+- Mejora en la rapidez de `ansible-lint` del CI revisando sólo los ficheros `yaml` modificados en el último commit
 - Cambios en `post_install/ohermosa`:
   - Corrección de errores:
     - Fichero backup de `zhistory` incluye el `$HOSTNAME` para evitar conflictos en **Dropbox**
+    - Se restaura `zhistory.$HOSTNAME` si existe, si no `zhistory`
 
 ## 3.7.2
 
