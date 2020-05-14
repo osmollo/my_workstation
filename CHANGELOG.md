@@ -7,6 +7,8 @@
   - Corrección de errores:
     - Fichero backup de `zhistory` incluye el `$HOSTNAME` para evitar conflictos en **Dropbox**
     - Se restaura `zhistory.$HOSTNAME` si existe, si no `zhistory`
+    - El tag `clone_repos` también crea los remotos y configura la configuración de los repositorios
+    - Nuevo tag `repos_config` para configurar el `user.email` y `user.name` de los repositorios
 
 ## 3.7.2
 
