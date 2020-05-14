@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.8
+
+- Cambios en `post_install/ohermosa`:
+  - Corrección de errores:
+    - Fichero backup de `zhistory` incluye el `$HOSTNAME` para evitar conflictos en **Dropbox**
+
 ## 3.7.2
 
 - Se incluye [bitbucket](https://bitbucket.org/ohermosa/my_workstation/src/master/) en el CI
