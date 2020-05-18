@@ -1,0 +1,42 @@
+stages:
+  - test
+  - release
+
+ansible-lint:
+  stage: test
+  variables:
+    LAST_COMMIT: 'git log --format="%H" -n 2 | tail -1'
+    UPDATED_YAML: 'git diff --name-only `eval $LAST_COMMIT` | grep ".yml" | grep -v ".gitlab-ci.yml" | tr "\n" " "'
+    EXECUTE_LINT: 'git diff --name-only `eval $LAST_COMMIT` | grep ".yml" | grep -v ".gitlab-ci.yml" | wc -l'
+  before_script:
+    - if [ `eval $EXECUTE_LINT` -ge 1 ]; then pip install ansible-lint; else exit 0; fi
+  script:
+    - if [ `eval $EXECUTE_LINT` -ge 1 ]; then echo "Executing... ansible-lint `eval $UPDATED_YAML`"; ansible-lint --exclude ansible/roles/post_install/ohermosa/defaults/* `eval $UPDATED_YAML`; else exit 0; fi
+  except:
+    - master
+  tags:
+    - shell
+    - gitlab2github
+
+release:
+  stage: release
+  before_script:
+    - git config user.email "${GITLAB_USER_EMAIL}"
+    - git config user.name "${GITLAB_USER_NAME}"
+    - git config push.default simple
+    - git remote set-url origin https://${GITLAB_USER_LOGIN}:${GITLAB_TOKEN}@gitlab.com/${GITLAB_USER_LOGIN}/my_workstation.git
+    - if ! $(git remote show github 2&>1 /dev/null); then git remote add github https://${GITLAB_USER_LOGIN}:${GITHUB_TOKEN}@github.com/${GITLAB_USER_LOGIN}/my_workstation.git; fi
+    - if ! $(git remote show gitea 2&>1 /dev/null); then git remote add gitea https://${GITLAB_USER_LOGIN}:${GITEA_TOKEN}@gitea.com/${GITLAB_USER_LOGIN}/my_workstation.git; fi
+    - if ! $(git remote show bitbucket 2&>1 /dev/null); then git remote add bitbucket https://${GITLAB_USER_LOGIN}:${BITBUCKET_TOKEN}@bitbucket.org:${GITLAB_USER_LOGIN}/my_workstation.git; fi
+  script:
+    - git checkout master
+    - git pull
+    - if ! $(git diff-index HEAD^ --quiet -- release.json 2&>1 /dev/null); then echo "releasing $(jq -r .version release.json)"; else echo "release.json hasn't changed'"; exit $(git diff-index master --quiet -- release.json); fi
+    - git push github HEAD:master
+    - git push gitea HEAD:master
+    - git push bitbucket HEAD:master
+  only:
+    - master
+  tags:
+    - shell
+    - gitlab2github

@@ -1,0 +1,9 @@
+---
+
+- name: "[VIM] Configure VIM editor"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.vimrc"
+    line: "{{ item }}"
+    state: present
+    create: true
+  loop: "{{ vim_config }}"

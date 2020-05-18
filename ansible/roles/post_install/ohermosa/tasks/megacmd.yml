@@ -1,0 +1,12 @@
+---
+
+- name: "[MEGACMD] Check if i'm already logged in MEGAsync"
+  shell: mega-login
+  changed_when: false
+  ignore_errors: true
+  register: login_status
+
+- name: "[MEGACMD] Configure megacmd client"
+  shell: "mega-login {{ mega.user }} {{ mega.password }}"
+  no_log: true
+  when: "'Already logged in' not in login_status.stdout"

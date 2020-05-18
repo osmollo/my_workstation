@@ -1,0 +1,166 @@
+---
+
+- name: "Configure /etc/hosts"
+  become: true
+  become_method: sudo
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item.ip }}\t{{ item.host }}"
+  loop: "{{ etc_hosts }}"
+  tags:
+    - post_install
+    - resolv
+
+- name: "create secrets"
+  import_tasks: secrets.yml
+  tags:
+    - post_install
+    - secrets
+
+- name: "configure megacmd client"
+  import_tasks: megacmd.yml
+  tags:
+    - post_install
+    - megacmd
+
+- name: "Customize firefox"
+  import_tasks: firefox.yml
+  tags:
+    - post_install
+    - firefox
+
+- name: "Delete default directories in /home/{{ ansible_user }}"
+  file:
+    path: "/home/{{ ansible_user }}/{{ item }}"
+    state: absent
+  loop:
+    - Documentos
+    - Imágenes
+    - Libros
+    - Música
+    - Plantillas
+    - Público
+    - Vídeos
+  tags:
+    - post_install
+    - del_default_dirs
+
+- name: "restore kde config"
+  import_tasks: kde_restore.yml
+  when: desktop_environment == "kde"
+  tags:
+    - post_install
+    - kde_restore
+
+- name: "install gnome extensions"
+  import_tasks: gnome_extensions.yml
+  when: desktop_environment == "gnome"
+  tags:
+    - post_install
+    - gnome_extensions
+    - gnome
+
+- name: "restore gnome config"
+  import_tasks: gnome_conf.yml
+  when: desktop_environment == "gnome" or desktop_environment == "cinnamon"
+  tags:
+    - post_install
+    - gnome_conf
+    - gnome
+
+- name: "configure docker"
+  import_tasks: docker.yml
+  tags:
+    - post_install
+    - docker
+
+- name: "create crontab jobs"
+  import_tasks: crontab.yml
+  tags:
+    - post_install
+    - crontab
+
+- name: "configure environment"
+  import_tasks: environment.yml
+  tags:
+    - post_install
+    - environment
+    - env
+
+- name: "download go packages"
+  import_tasks: go.yml
+  tags:
+    - post_install
+    - go
+    - go_packages
+
+- name: "clone git repostitories"
+  import_tasks: git.yml
+  tags:
+    - post_install
+    - git
+
+- name: "configure python"
+  import_tasks: python.yml
+  tags:
+    - post_install
+    - git
+    - python
+
+- name: "configure sublime"
+  import_tasks: sublime.yml
+  tags:
+    - post_install
+    - sublime
+
+- name: "configure VPNs"
+  import_tasks: network.yml
+  become: true
+  become_method: sudo
+  tags:
+    - post_install
+    - network
+
+- name: "import GPG keys"
+  import_tasks: gpg.yml
+  tags:
+    - post_install
+    - gpg
+    - pass
+
+- name: "Configure VIM"
+  import_tasks: vim.yml
+  tags:
+    - post_install
+    - vim
+    - vimplugins
+
+- name: "Configure Gimp"
+  import_tasks: gimp.yml
+  tags:
+    - post_install
+    - gimp
+
+- name: "install HP packages"
+  import_tasks: hp.yml
+  tags:
+    - post_install
+    - hp
+
+- name: "configure pass secrets manager"
+  import_tasks: pass.yml
+  tags:
+    - post_install
+    - pass
+
+- name: "configure spotify tui"
+  import_tasks: spotify.yml
+  tags:
+    - post_install
+    - spotify
+
+- name: "configure user photo"
+  import_tasks: user.yml
+  tags:
+    - post_install
+    - user

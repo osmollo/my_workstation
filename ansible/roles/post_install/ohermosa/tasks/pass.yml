@@ -1,0 +1,21 @@
+---
+
+- name: "[PASS] check if pass is installed"
+  stat:
+    path: /usr/bin/pass
+  register: pass_response
+
+- block:
+    - name: "[PASS] initialize pass"
+      shell: "pass init {{ gpg_pub_keys[0] }}"
+
+    - name: "[PASS] initialize pass repository"
+      shell: pass git init
+
+    - name: "[PASS] create git remote for pass"
+      shell: "pass git remote add origin {{ pass_remote }}"
+      failed_when: false
+
+    - name: "[PASS] pass git pull"
+      shell: pass git pull
+  when: pass_response.stat.exists
