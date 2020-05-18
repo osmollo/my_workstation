@@ -1,8 +1,0 @@
-[User]
-Session=
-XSession=
-Icon=/var/lib/AccountsService/icons/ohermosa
-SystemAccount=false
-
-[InputSource0]
-xkb=es

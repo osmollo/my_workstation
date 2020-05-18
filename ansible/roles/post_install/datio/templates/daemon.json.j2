@@ -1,8 +1,0 @@
-{
-  "insecure-registries": [
-{% for item in docker.insecure_registries %}
-    "{{ item }}"{% if not loop.last %},
-{% endif %}
-{% endfor%}
-  ]
-}
