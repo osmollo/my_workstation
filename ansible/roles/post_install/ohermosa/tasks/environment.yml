@@ -32,16 +32,30 @@
     - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
     - "{{ ansible_user_dir }}/.zhistory"
 
-- name: "[ENVIRONMENT] copy .zhistory"
+- name: "[ENVIRONMENT] check if {{ dropbox_dir }}/datio/zhistory.{{ ansible_hostname }} exists"
+  stat:
+    path: "{{ dropbox_dir }}/datio/zhistory.{{ ansible_hostname }}"
+  register: stat_response
+
+- name: "[ENVIRONMENT] restore .zhistory.{{ ansible_hostname }}"
+  copy:
+    src: "{{ dropbox_dir }}/datio/zhistory.{{ ansible_hostname }}"
+    dest: "{{ ansible_user_dir }}/.zhistory"
+    remote_src: true
+    mode: 0600
+  when: stat_response.stat.exists
+
+- name: "[ENVIRONMENT] restore .zhistory"
   copy:
     src: "{{ dropbox_dir }}/datio/zhistory"
     dest: "{{ ansible_user_dir }}/.zhistory"
     remote_src: true
     mode: 0600
+  when: not stat_response.stat.exists
 
 - name: "[ENVIRONMENT] create vault_pass files"
   lineinfile:
-    path: "{{ ansible_user_dir}}/{{ item.name }}"
+    path: "{{ ansible_user_dir }}/{{ item.name }}"
     line: "{{ item.content }}"
     create: true
   no_log: true

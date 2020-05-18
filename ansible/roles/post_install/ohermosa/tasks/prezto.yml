@@ -2,7 +2,7 @@
 
 - name: "[PREZTO] delete previous prezto installation"
   file:
-    path: "{{ ansible_user_dir}}/.{{ item }}"
+    path: "{{ ansible_user_dir }}/.{{ item }}"
     state: absent
   loop:
     - zlogin
@@ -43,9 +43,11 @@
     value: "ohermosa@gmail.com"
 
 - name: "[PREZTO] copy powerline truetype fonts"
-  vars:
-    font_dir: "{{ ansible_user_dir }}/.local/share/fonts"
   block:
+    - name: "[PREZTO] set fonts directory"
+      set_fact:
+        font_dir: "{{ ansible_user_dir }}/.local/share/fonts"
+
     - name: "[PREZTO] create {{ font_dir }}"
       file:
         path: "{{ font_dir }}"

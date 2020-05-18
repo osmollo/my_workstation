@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 3.8
+
+- Mejora en la rapidez de `ansible-lint` del CI revisando sólo los ficheros `yaml` modificados en el último commit
+- Cambios en `post_install/ohermosa`:
+  - Corrección de errores:
+    - Fichero backup de `zhistory` incluye el `$HOSTNAME` para evitar conflictos en **Dropbox**
+    - Se restaura `zhistory.$HOSTNAME` si existe, si no `zhistory`
+    - El tag `clone_repos` también crea los remotos y configura la configuración de los repositorios
+    - Nuevo tag `repos_config` para configurar el `user.email` y `user.name` de los repositorios
+
 ## 3.7.2
 
 - Se incluye [bitbucket](https://bitbucket.org/ohermosa/my_workstation/src/master/) en el CI

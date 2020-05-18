@@ -14,7 +14,7 @@
     - name: "[GIT] Clone git repositories"
       git:
         repo: "{{ item.repo }}"
-        dest: "{{ item.dest}}"
+        dest: "{{ item.dest }}"
         clone: true
         key_file: "/home/{{ ansible_user }}/.ssh/id_rsa"
         accept_hostkey: true
@@ -132,37 +132,41 @@
       vars:
         repo_name: "{{ (item.remote | basename).split('.')[0] }}"
   tags:
+    - clone_repos
     - create_remotes
 
+- block:
+    - name: "[GIT] Configure name and user of BBVA repositories"
+      git_config:
+        name: user.name
+        repo: "{{ item }}"
+        scope: local
+        value: "{{ git_user_name }}"
+      loop: "{{ git_repositories.work | json_query('[].dest') }}"
 
-- name: "[GIT] Configure name and user of BBVA repositories"
-  git_config:
-    name: user.name
-    repo: "{{ item }}"
-    scope: local
-    value: "{{ git_user_name }}"
-  loop: "{{ git_repositories.work | json_query('[].dest') }}"
+    - name: "[GIT] Configure name and user of BBVA repositories"
+      git_config:
+        name: user.email
+        repo: "{{ item }}"
+        scope: local
+        value: "{{ git_user_mail_work }}"
+      loop: "{{ git_repositories.work | json_query('[].dest') }}"
 
-- name: "[GIT] Configure name and user of BBVA repositories"
-  git_config:
-    name: user.email
-    repo: "{{ item }}"
-    scope: local
-    value: "{{ git_user_mail_work }}"
-  loop: "{{ git_repositories.work | json_query('[].dest') }}"
+    - name: "[GIT] Configure name and user of personal repositories"
+      git_config:
+        name: user.name
+        repo: "{{ item }}"
+        scope: local
+        value: "{{ git_user_name }}"
+      loop: "{{ git_repositories.home | json_query('[].dest') }}"
 
-- name: "[GIT] Configure name and user of personal repositories"
-  git_config:
-    name: user.name
-    repo: "{{ item }}"
-    scope: local
-    value: "{{ git_user_name }}"
-  loop: "{{ git_repositories.home | json_query('[].dest') }}"
-
-- name: "[GIT] Configure name and user of personal repositories"
-  git_config:
-    name: user.email
-    repo: "{{ item }}"
-    scope: local
-    value: "{{ git_user_mail_personal}}"
-  loop: "{{ git_repositories.home | json_query('[].dest') }}"
+    - name: "[GIT] Configure name and user of personal repositories"
+      git_config:
+        name: user.email
+        repo: "{{ item }}"
+        scope: local
+        value: "{{ git_user_mail_personal }}"
+      loop: "{{ git_repositories.home | json_query('[].dest') }}"
+  tags:
+    - clone_repos
+    - repos_config
