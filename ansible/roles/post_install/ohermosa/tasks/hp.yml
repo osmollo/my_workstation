@@ -1,0 +1,11 @@
+---
+
+- name: "[HP] Install HP packages"
+  become: true
+  become_method: sudo
+  apt:
+    name:
+      - hpijs-ppds
+      - printer-driver-hpijs
+    state: present
+    update_cache: true

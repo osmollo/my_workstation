@@ -4,7 +4,7 @@
   - [Distribuciones soportadas](#distribuciones-soportadas)
   - [Software extra instalado](#software-extra-instalado)
   - [¿Cómo se usa?](#cómo-se-usa)
-    - [Instalación **DATIO**](#instalación-datio)
+    - [Post instalación](#post-instalación)
     - [Deshabilitar actualizaciones](#deshabilitar-actualizaciones)
     - [Gestión de contraseñas](#gestión-de-contraseñas)
       - [Ficheros locales](#ficheros-locales)
@@ -47,7 +47,7 @@ Por defecto se instala el siguiente software:
 | [Atom](https://atom.io/) | atom | install_atom | SI | editors |
 | [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | SI | |
 | [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | SI | socials |
-| [Slack](https://datiodevelopers.slack.com/) | slack | install_slack | SI | socials |
+| [Slack](https://slack.com/intl/es-es/) | slack | install_slack | SI | socials |
 | [Forticlient VPN](https://www.fortinet.com/lat) | forticlientvpn | install_forticlientvpn | SI | |
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | SI | |
 | [Virtualbox](https://www.virtualbox.org/) | virtualbox | install_virtualbox | SI | |
@@ -160,12 +160,12 @@ Igualmente, se pueden usar los tags específicos que cada usuario haya puesto en
 ansible-playbook install-yml -t env --ask-vault-pass
 ```
 
-### Instalación **DATIO**
+### Post instalación
 
-Para realizar una configuración general para un pc de trabajo en [Datio](www.datio.com), hay que ejecutar el siguiente playbook:
+Existe el directorio `roles/post_install` donde cada usuario puede implementar todas las tareas de post instalación que considere oportunas. Las mismas, podrás ejecutarse con el siguiente playbook:
 
 ```bash
-ansible-playbook datio.yml --ask-vault-pass
+ansible-playbook post_install.yml --ask-vault-pass
 ```
 
 ### Deshabilitar actualizaciones

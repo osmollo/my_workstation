@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 4.0
+
+- Se ha cifrado con gpg el fichero `post_install/ohermosa/defaults/mail.yml` y se ha [eliminado del histórico de git](https://www.adictosaltrabajo.com/2017/02/02/como-borrar-ficheros-del-historico-de-git-y-en-general-como-manipular-todo-el-historico/) todas las referencias al fichero original.
+- Se ha eliminado del CI la creación de tags y su replicación en otros remotos. A partir de ahora, los cambios en cada versión se registrarán únicamente en el [CHANGELOG](CHANGELOG.md)
+- Se ha eliminado el role `post_install/datio` y el playbook que lo ejecutaba
+- Se ha separado del playbook `install.yml` el nuevo `post_install.yml` para las tareas de post instalación
+
 ## 3.8
 
 - Mejora en la rapidez de `ansible-lint` del CI revisando sólo los ficheros `yaml` modificados en el último commit

@@ -1,0 +1,24 @@
+---
+
+- name: "[USER] Configure user"
+  block:
+    - name: "[USER] Wait until guarroman photo exists"
+      wait_for:
+        path: "{{ dropbox_dir }}/fotos/guarroman.png"
+        timeout: "{{ wait_dropbox_sync }}"
+
+    - name: "[USER] Set profile photo for user '{{ ansible_user }}'"
+      become: true
+      become_method: sudo
+      copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest}}"
+        mode: 0644
+        owner: root
+        group: root
+      loop:
+        - src: ohermosa.png
+          dest: /var/lib/AccountsService/icons/ohermosa
+        - src: ohermosa.file
+          dest: /var/lib/AccountsService/users/ohermosa
+  when: desktop_environment == "gnome"

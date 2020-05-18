@@ -1,0 +1,40 @@
+---
+
+- name: "[GNOME_EXTENSIONS] Create /home/{{ ansible_user }}/.local/share/gnome-shell/extensions/"
+  file:
+    path: "/home/{{ ansible_user }}/.local/share/gnome-shell/extensions/"
+    state: directory
+
+- name: "[GNOME_EXTENSIONS] Unzip gnome extension files"
+  unarchive:
+    src: "gnome_extensions.tar.gz"
+    dest: "/home/{{ ansible_user }}/.local/share/gnome-shell/extensions/"
+
+- name: "[GNOME_EXTENSIONS] Search for gnome extensions metadata.json"
+  find:
+    paths: "/home/{{ ansible_user }}/.local/share/gnome-shell/extensions"
+    recurse: true
+    patterns: "^metadata.json$"
+    use_regex: true
+  register: find_response
+
+- name: "[GNOME_EXTENSIONS] Get the uuids of gnome extensions"
+  slurp:
+    path: "{{ item }}"
+  loop: "{{ find_response | json_query('files[].path') }}"
+  register: slurp_response
+
+- name: "[GNOME_EXTENSIONS] set uuids"
+  set_fact:
+    uuids: "{{ (slurp_response | json_query('results[].content')) | map ('b64decode') | map('from_json') | list | json_query('[].uuid') }}"
+
+- name: "[GNOME_EXTENSIONS] Enable gnome extensions"
+  shell: "gnome-shell-extension-tool -e {{ item }}"
+  ignore_errors: true
+  loop: "{{ uuids | difference(fedora_gnome_extensions) }}"
+
+- name: "[GNOME_EXTENSIONS] [FEDORA] Enable gnome extensions"
+  shell: "gnome-shell-extension-tool -e {{ item }}"
+  ignore_errors: true
+  loop: "{{ fedora_gnome_extensions }}"
+  when: linux_distribution == "fedora"

@@ -1,0 +1,35 @@
+[connection]
+id=BBVA
+uuid={{ 999999999999999999999 | random | to_uuid }}
+type=vpn
+permissions=
+
+[vpn]
+auth=SHA1
+ca={{ dropbox_dir }}/vpn/bbva/bbva-1.0.p12
+cert={{ dropbox_dir }}/vpn/bbva/bbva-1.0.p12
+cert-pass-flags=1
+cipher=AES-256-CBC
+connection-type=password-tls
+dev=tun
+key={{ dropbox_dir }}/vpn/bbva/bbva-1.0.p12
+ns-cert-type=server
+password-flags=1
+ping=10
+ping-restart=120
+remote=spain.datio.com:1195:udp
+ta={{ dropbox_dir }}/vpn/bbva/bbva-1.0.key
+ta-dir=1
+username={{ ansible_user }}
+verify-x509-name=name:VPNDatioBBVA-Cert
+service-type=org.freedesktop.NetworkManager.openvpn
+
+[ipv4]
+dns-search=
+method=auto
+never-default=true
+
+[ipv6]
+addr-gen-mode=stable-privacy
+dns-search=
+method=auto
