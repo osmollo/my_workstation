@@ -5,6 +5,7 @@
 - Instalación de `Beekeeper Studio` para **Ubuntu**
 - Instalación de `Kdenlive` en **Ubuntu**, **Debian** y **Fedora**
 - Se vuelven a generar tags en el CI
+- Fichero `.ansible-lint` con configuración para lintado de **ansible**
 
 ## 4.0
 
