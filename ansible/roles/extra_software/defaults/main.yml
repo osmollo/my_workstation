@@ -37,9 +37,9 @@ install_megasync: true
 install_vivaldi: true
 install_brave: true
 install_bitwarden: true
-install_lexnet: false
+install_lexnet: true
 install_pass: true
-install_bucklespring: false
+install_bucklespring: true
 install_protonvpn: true
 install_prezto: true
 install_etcher: true
@@ -47,12 +47,13 @@ install_woeusb: true
 install_go: true
 install_fzf: true
 install_vimplugins: true
-install_authy: false
+install_authy: true
 install_yakyak: true
-install_hiri: false
-install_steam: false
+install_hiri: true
+install_steam: true
 install_wireguard: true
 install_typora: true
+install_beekeeper: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85

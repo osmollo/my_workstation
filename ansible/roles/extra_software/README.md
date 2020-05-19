@@ -67,6 +67,7 @@
 | **hiri** | Instala `Hiri` |
 | **Steam** | Instala `Steam` |
 | **Wireguard** | Instala `Wireguard` |
+| **Beekeeper** | Instala `Beekeeper Studio`|
 | **flatpak** | |
 | **vagrant** | |
 | **dockercompose** | |

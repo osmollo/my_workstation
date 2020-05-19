@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 4.1
+
+- Instalación de `Beekeeper Studio` para **Ubuntu**
+
+
 ## 4.0
 
 - Se ha cifrado con gpg el fichero `post_install/ohermosa/defaults/mail.yml` y se ha [eliminado del histórico de git](https://www.adictosaltrabajo.com/2017/02/02/como-borrar-ficheros-del-historico-de-git-y-en-general-como-manipular-todo-el-historico/) todas las referencias al fichero original.

@@ -10,7 +10,7 @@
   tags:
     - always
 
-- name: "---[INSTALL]--- flatpak"
+- name: "Install flatpak"
   import_tasks: flatpak.yml
   when:
     - linux_distribution == "fedora"
@@ -25,21 +25,21 @@
     - skype
     - franz
 
-- name: "---[INSTALL]--- docker"
+- name: "Install docker"
   import_tasks: docker/docker.yml
   when: install_docker
   tags:
     - extra_software
     - docker
 
-- name: "---[INSTALL]--- dropbox"
+- name: "Install dropbox"
   import_tasks: dropbox/dropbox.yml
   when: install_dropbox
   tags:
     - extra_software
     - dropbox
 
-- name: "---[INSTALL]--- Visual Studio Code"
+- name: "Install Visual Studio Code"
   import_tasks: code/code.yml
   when: install_code
   tags:
@@ -47,14 +47,14 @@
     - code
     - editors
 
-- name: "---[INSTALL]--- Spotify"
+- name: "Install Spotify"
   import_tasks: spotify/spotify.yml
   when: install_spotify
   tags:
     - extra_software
     - spotify
 
-- name: "---[INSTALL]--- Oh My ZSH!"
+- name: "Install Oh My ZSH!"
   import_tasks: oh_my_zsh.yml
   when:
     - install_ohmyzsh
@@ -62,7 +62,7 @@
     - extra_software
     - ohmyzsh
 
-- name: "---[INSTALL]--- Sublime Text"
+- name: "Install Sublime Text"
   import_tasks: sublime/sublime.yml
   when: install_sublime
   tags:
@@ -70,7 +70,7 @@
     - sublime
     - editors
 
-- name: "---[INSTALL]--- Atom"
+- name: "Install Atom"
   import_tasks: atom/atom.yml
   when: install_atom
   tags:
@@ -78,14 +78,14 @@
     - atom
     - editors
 
-- name: "---[INSTALL]--- Gitkraken"
+- name: "Install Gitkraken"
   import_tasks: gitkraken/gitkraken.yml
   when: install_gitkraken
   tags:
     - extra_software
     - gitkraken
 
-- name: "---[INSTALL]--- Telegram"
+- name: "Install Telegram"
   import_tasks: telegram/telegram.yml
   when: install_telegram
   tags:
@@ -93,7 +93,7 @@
     - telegram
     - socials
 
-- name: "---[INSTALL]--- Slack"
+- name: "Install Slack"
   import_tasks: slack/slack.yml
   when: install_slack
   tags:
@@ -101,7 +101,7 @@
     - slack
     - socials
 
-- name: "---[INSTALL]--- Forticlient VPN"
+- name: "Install Forticlient VPN"
   import_tasks: forticlientvpn/forticlientvpn.yml
   when: install_forticlientvpn
   tags:
@@ -109,21 +109,21 @@
     - forticlientvpn
     - vpnclient
 
-- name: "---[INSTALL]--- TLP"
+- name: "Install TLP"
   import_tasks: tlp/tlp.yml
   when: install_tlp
   tags:
     - extra_software
     - tlp
 
-- name: "---[INSTALL]--- Virtualbox"
+- name: "Install Virtualbox"
   import_tasks: virtualbox/virtualbox.yml
   when: install_virtualbox
   tags:
     - extra_software
     - virtualbox
 
-- name: "---[INSTALL]--- PyCharm"
+- name: "Install PyCharm"
   import_tasks: pycharm/pycharm.yml
   when: install_pycharm
   tags:
@@ -131,7 +131,7 @@
     - pycharm
     - editors
 
-- name: "---[INSTALL]--- Keepass"
+- name: "Install Keepass"
   import_tasks: keepass/keepass.yml
   when: install_keepass
   tags:
@@ -139,7 +139,7 @@
     - keepass
     - pass_managers
 
-- name: "---[INSTALL]--- Buttercup"
+- name: "Install Buttercup"
   import_tasks: buttercup/buttercup.yml
   when: install_buttercup
   tags:
@@ -147,7 +147,7 @@
     - buttercup
     - pass_managers
 
-- name: "---[INSTALL]--- Windscribe client"
+- name: "Install Windscribe client"
   import_tasks: windscribe/windscribe.yml
   when: install_windscribe
   tags:
@@ -155,7 +155,7 @@
     - windscribe
     - vpnclient
 
-- name: "---[INSTALL]--- Google Chrome"
+- name: "Install Google Chrome"
   import_tasks: chrome/chrome.yml
   when: install_chrome
   tags:
@@ -163,14 +163,14 @@
     - chrome
     - browsers
 
-- name: "---[INSTALL]--- Teamviewer"
+- name: "Install Teamviewer"
   import_tasks: teamviewer/teamviewer.yml
   when: install_teamviewer
   tags:
     - extra_software
     - teamviewer
 
-- name: "---[INSTALL]--- No Machine"
+- name: "Install No Machine"
   import_tasks: nomachine/nomachine.yml
   when: install_nomachine
   tags:
@@ -178,28 +178,28 @@
     - nomachine
     - remotes
 
-- name: "---[INSTALL]--- Ether Cloud Services Client"
+- name: "Install Ether Cloud Services Client"
   import_tasks: ecs.yml
   when: install_ecs
   tags:
     - extra_software
     - ecs
 
-- name: "---[INSTALL]--- Postman"
+- name: "Install Postman"
   import_tasks: postman/postman.yml
   when: install_postman
   tags:
     - extra_software
     - postman
 
-- name: "---[INSTALL]--- Skype"
+- name: "Install Skype"
   import_tasks: skype/skype.yml
   when: install_skype
   tags:
     - extra_software
     - skype
 
-- name: "---[INSTALL]--- Java"
+- name: "Install Java"
   import_tasks: java/java.yml
   when: install_java
   tags:
@@ -207,7 +207,7 @@
     - java
     - apachedirectory
 
-- name: "---[INSTALL]--- Apache Directory"
+- name: "Install Apache Directory"
   block:
     - import_tasks: apachedirectory.yml
       when:
@@ -227,21 +227,21 @@
     - extra_software
     - apachedirectory
 
-- name: "---[INSTALL]--- Rambox"
+- name: "Install Rambox"
   import_tasks: rambox/rambox.yml
   when: install_rambox
   tags:
     - extra_software
     - rambox
 
-- name: "---[INSTALL]--- Franz"
+- name: "Install Franz"
   import_tasks: franz/franz.yml
   when: install_franz
   tags:
     - extra_software
     - franz
 
-- name: "---[INSTALL]--- Chromium Browser"
+- name: "Install Chromium Browser"
   import_tasks: chromium/chromium.yml
   when: install_chromium
   tags:
@@ -249,7 +249,7 @@
     - chromium
     - browsers
 
-- name: "---[INSTALL]--- Deluge"
+- name: "Install Deluge"
   import_tasks: deluge/deluge.yml
   when:
     - install_deluge
@@ -258,7 +258,7 @@
     - extra_software
     - deluge
 
-- name: "---[INSTALL]--- Cherrytree"
+- name: "Install Cherrytree"
   import_tasks: cherrytree/cherrytree.yml
   when: install_cherrytree
   tags:
@@ -266,14 +266,14 @@
     - cherrytree
     - editors
 
-- name: "---[INSTALL]--- k8s_tools"
+- name: "Install k8s_tools"
   import_tasks: k8s_tools/k8s_tools.yml
   when: install_k8s_tools
   tags:
     - extra_software
     - k8s_tools
 
-- name: "---[INSTALL]--- MEGAcmd"
+- name: "Install MEGAcmd"
   import_tasks: megacmd/megacmd.yml
   when: install_megacmd
   tags:
@@ -281,7 +281,7 @@
     - megacmd
     - mega
 
-- name: "---[INSTALL]--- MEGAsync"
+- name: "Install MEGAsync"
   import_tasks: megasync/megasync.yml
   when: install_megasync
   tags:
@@ -289,7 +289,7 @@
     - megasync
     - mega
 
-- name: "---[INSTALL]--- Vivaldi"
+- name: "Install Vivaldi"
   import_tasks: vivaldi/vivaldi.yml
   when: install_vivaldi
   tags:
@@ -297,7 +297,7 @@
     - vivaldi
     - browsers
 
-- name: "---[INSTALL]--- Brave"
+- name: "Install Brave"
   import_tasks: brave/brave.yml
   when: install_brave
   tags:
@@ -305,7 +305,7 @@
     - brave
     - browsers
 
-- name: "---[INSTALL]--- Bitwarden"
+- name: "Install Bitwarden"
   import_tasks: bitwarden/bitwarden.yml
   when: install_bitwarden
   tags:
@@ -313,7 +313,7 @@
     - bitwarden
     - pass_managers
 
-- name: "---[INSTALL]--- Lexnet"
+- name: "Install Lexnet"
   import_tasks: lexnet.yml
   when:
     - install_lexnet
@@ -322,7 +322,7 @@
     - extra_software
     - lexnet
 
-- name: "---[INSTALL]--- Pass"
+- name: "Install Pass"
   import_tasks: pass/pass.yml
   when: install_pass
   tags:
@@ -330,7 +330,7 @@
     - pass
     - pass_managers
 
-- name: "---[INSTALL]--- Bucklespring"
+- name: "Install Bucklespring"
   import_tasks: bucklespring.yml
   when:
     - linux_distribution == "ubuntu" or linux_distribution == "debian"
@@ -339,49 +339,49 @@
     - extra_software
     - bucklespring
 
-- name: "---[INSTALL]--- ProtonVPN"
+- name: "Install ProtonVPN"
   import_tasks: protonvpn.yml
   when: install_protonvpn
   tags:
     - extra_software
     - protonvpn
 
-- name: "---[INSTALL]--- Prezto"
+- name: "Install Prezto"
   import_tasks: prezto.yml
   when: install_prezto
   tags:
     - extra_software
     - prezto
 
-- name: "---[INSTALL]--- Etcher"
+- name: "Install Etcher"
   import_tasks: etcher.yml
   when: install_etcher
   tags:
     - extra_software
     - etcher
 
-- name: "---[INSTALL]--- WoeUSB"
+- name: "Install WoeUSB"
   import_tasks: woeusb/woeusb.yml
   when: install_woeusb
   tags:
     - extra_software
     - woeusb
 
-- name: "---[INSTALL]--- GO"
+- name: "Install Go"
   import_tasks: go.yml
   when: install_go
   tags:
     - extra_software
     - go
 
-- name: "---[INSTALL]--- FZF"
+- name: "Install FZF"
   import_tasks: fzf.yml
   when: install_fzf
   tags:
     - extra_software
     - fzf
 
-- name: "---[INSTALL]--- VIM PLUGINS"
+- name: "Install vim plugins"
   import_tasks: vim_plugins.yml
   when: install_vimplugins
   tags:
@@ -389,28 +389,28 @@
     - vim
     - vimplugins
 
-- name: "---[INSTALL]--- AUTHY"
+- name: "Install authy"
   import_tasks: authy/authy.yml
   when: install_authy
   tags:
     - extra_software
     - authy
 
-- name: "---[INSTALL]--- YAKYAK"
+- name: "Install yakyak"
   import_tasks: yakyak/yakyak.yml
   when: install_yakyak
   tags:
     - extra_software
     - yakyak
 
-- name: "---[INSTALL]--- HIRI"
+- name: "Install hiri"
   import_tasks: hiri/hiri.yml
   when: install_hiri
   tags:
     - extra_software
     - hiri
 
-- name: "---[INSTALL]--- STEAM"
+- name: "Install steam"
   import_tasks: steam.yml
   when:
     - install_steam
@@ -419,7 +419,7 @@
     - extra_software
     - steam
 
-- name: "---[INSTALL]--- WIREGUARD"
+- name: "Install wireguard"
   import_tasks: wireguard/wireguard.yml
   when:
     - install_wireguard
@@ -427,10 +427,19 @@
     - extra_software
     - wireguard
 
-- name: "---[INSTALL]--- TYPORA"
+- name: "Install typora"
   import_tasks: typora/typora.yml
   when:
     - install_typora
   tags:
     - extra_software
     - typora
+
+- name: "Install beekeeper"
+  import_tasks: beekeeper.yml
+  when:
+    - install_beekeeper
+    - linux_distribution == "ubuntu"
+  tags:
+    - extra_software
+    - beekeeper
