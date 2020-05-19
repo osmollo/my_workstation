@@ -54,6 +54,7 @@ install_steam: true
 install_wireguard: true
 install_typora: true
 install_beekeeper: true
+install_kdenlive: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -82,6 +83,7 @@ pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Commu
 postman_flatpak: "https://flathub.org/repo/appstream/com.getpostman.Postman.flatpakref"
 skype_flatpak: "https://flathub.org/repo/appstream/com.skype.Client.flatpakref"
 franz_flatpak: "https://flathub.org/repo/appstream/com.meetfranz.Franz.flatpakref"
+kdenlive_flatpak: "https://flathub.org/apps/details/org.kde.kdenlive"
 
 ecs_cli_package: "ecs-cli-0.2.16.tar.gz"
 ecs_cli_url: "https://globaldevtools.bbva.com/artifactory/semaas-global-bin/releases/ecs-cli/{{ ecs_cli_package }}"

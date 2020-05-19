@@ -443,3 +443,11 @@
   tags:
     - extra_software
     - beekeeper
+
+- name: "Install kdenlive"
+  import_tasks: kdenlive/kdenlive.yml
+  when:
+    - install_kdenlive
+  tags:
+    - extra_software
+    - kdenlive

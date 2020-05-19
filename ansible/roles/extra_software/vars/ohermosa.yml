@@ -54,3 +54,4 @@ install_steam: false
 install_wireguard: true
 install_typora: true
 install_beekeeper: false
+intall_kdenlive: true

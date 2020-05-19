@@ -3,7 +3,7 @@
 ## 4.1
 
 - Instalación de `Beekeeper Studio` para **Ubuntu**
-
+- Instalación de `Kdenlive` en **Ubuntu**, **Debian** y **Fedora**
 
 ## 4.0
 

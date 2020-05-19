@@ -68,6 +68,7 @@
 | **Steam** | Instala `Steam` |
 | **Wireguard** | Instala `Wireguard` |
 | **Beekeeper** | Instala `Beekeeper Studio`|
+| **Kdenlive** | Instala `Kdenlive` |
 | **flatpak** | |
 | **vagrant** | |
 | **dockercompose** | |

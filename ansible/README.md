@@ -89,6 +89,7 @@ Por defecto se instala el siguiente software:
 | [Wireguard](https://www.wireguard.com/) | wireguard | install_wireguard | |
 | [Typora](https://typora.io) | typora | install_typora | |
 | [Beekeeper Studio](https://www.beekeeperstudio.io/) | beekeeer | install_beekeeper | |
+| [KDEnlive](https://kdenlive.org/es/descargar/)| kdenlive | install_kdenlive | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
