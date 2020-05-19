@@ -4,6 +4,7 @@
 
 - Instalación de `Beekeeper Studio` para **Ubuntu**
 - Instalación de `Kdenlive` en **Ubuntu**, **Debian** y **Fedora**
+- Se vuelven a generar tags en el CI
 
 ## 4.0
 
