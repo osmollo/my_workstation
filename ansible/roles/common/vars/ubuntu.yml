@@ -23,6 +23,7 @@ distro_packages:
   - libzookeeper-mt-dev
   - fonts-firacode
   - virtualenvwrapper
+  - traceroute
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras

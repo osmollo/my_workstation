@@ -6,6 +6,7 @@
 - Instalación de `Kdenlive` en **Ubuntu**, **Debian** y **Fedora**
 - Se vuelven a generar tags en el CI
 - Fichero `.ansible-lint` con configuración para lintado de **ansible**
+- Instalación de `traceroute` en **Ubuntu**
 
 ## 4.0
 
