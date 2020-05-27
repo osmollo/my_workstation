@@ -5,6 +5,9 @@
 - Nuevo tag `sublime` para instalar **Sublime Text** y **Sublime Merge**
 - Actualizada configuración de `Sublime Text`
 - Unificado de nuevo `install.yml` y `post_install.yml`. Y van...
+- Cambios en `post_install/ohermosa`:
+  - Nuevos repos git:
+    - [Erase una vez k8s](https://github.com/mmorejon/erase-una-vez-k8s)
 
 ## 4.1.1
 
