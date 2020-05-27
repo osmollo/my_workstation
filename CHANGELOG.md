@@ -8,6 +8,14 @@
 - Cambios en `post_install/ohermosa`:
   - Nuevos repos git:
     - [Erase una vez k8s](https://github.com/mmorejon/erase-una-vez-k8s)
+    - [Rash](https://github.com/pando85/rash)
+    - [mega.py](https://github.com/richardARPANET/mega.py)
+    - [k8s dashboard](https://github.com/kubernetes/dashboard)
+  - Apuntando al repositorio original:
+    - [OneTimeSecret](https://github.com/onetimesecret/onetimesecret)
+    - [Oh my zsh](https://github.com/ohmyzsh/ohmyzsh)
+    - [Oh my bash](https://github.com/ohmybash/oh-my-bash)
+    - [Kubespray](https://github.com/kubernetes-sigs/kubespray)
 
 ## 4.1.1
 
