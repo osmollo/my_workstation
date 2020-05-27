@@ -43,8 +43,8 @@ Por defecto se instala el siguiente software:
 | [Visual Studio Code](https://code.visualstudio.com/) | code | install_code | editors |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | |
-| [Sublime Text](https://www.sublimetext.com/) | sublimetext | install_sublimetext | editors |
-| [Sublime Merge](https://www.sublimemerge.com/) | sublimemerge | install_sublimemerge | |
+| [Sublime Text](https://www.sublimetext.com/) | sublimetext | install_sublimetext | editors/sublime |
+| [Sublime Merge](https://www.sublimemerge.com/) | sublimemerge | install_sublimemerge | sublime |
 | [Atom](https://atom.io/) | atom | install_atom | editors |
 | [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | |
 | [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | socials |

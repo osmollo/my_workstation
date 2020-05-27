@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 4.2
+
+- Nuevo tag `sublime` para instalar **Sublime Text** y **Sublime Merge**
+- Unificado de nuevo `install.yml` y `post_install.yml`. Y van...
+
 ## 4.1.1
 
 - fix en `gitlab-ci.yml` al crear el remoto de **Bitbucket**

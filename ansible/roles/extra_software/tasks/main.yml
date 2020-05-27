@@ -69,6 +69,7 @@
     - extra_software
     - sublimetext
     - editors
+    - sublime
 
 - name: "Install Sublime Merge"
   import_tasks: sublime_merge/sublime.yml
@@ -76,6 +77,7 @@
   tags:
     - extra_software
     - sublimemerge
+    - sublime
 
 - name: "Install Atom"
   import_tasks: atom/atom.yml
