@@ -12,7 +12,7 @@
       become_method: sudo
       copy:
         src: "{{ item.src }}"
-        dest: "{{ item.dest}}"
+        dest: "{{ item.dest }}"
         mode: 0644
         owner: root
         group: root
