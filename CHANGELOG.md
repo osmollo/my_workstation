@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.1.1
+
+- fix en `gitlab-ci.yml` al crear el remoto de **Bitbucket**
+
 ## 4.1
 
 - Instalación de `Sublime Merge`
