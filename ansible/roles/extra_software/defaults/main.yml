@@ -5,7 +5,7 @@ install_dropbox: true
 install_code: true
 install_spotify: true
 install_ohmyzsh: true
-install_sublime: true
+install_sublimetext: true
 install_atom: true
 install_gitkraken: true
 install_telegram: true
@@ -55,6 +55,7 @@ install_wireguard: true
 install_typora: true
 install_beekeeper: true
 install_kdenlive: true
+install_sublimemerge: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85

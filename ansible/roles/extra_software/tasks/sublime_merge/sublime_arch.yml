@@ -1,0 +1,8 @@
+---
+
+- name: "[SUBLIME_MERGE] [ARCH] Install Sublime Merge"
+  become: false
+  yay:
+    name: "{{ sublimemerge_package }}"
+    state: present
+    update_cache: true

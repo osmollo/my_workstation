@@ -1,0 +1,8 @@
+---
+
+- name: "[SUBLIME_TEXT] [ARCH] Install Sublime Text"
+  become: false
+  yay:
+    name: "{{ sublimetext_package }}"
+    state: present
+    update_cache: true

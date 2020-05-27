@@ -2,6 +2,7 @@
 
 ## 4.1
 
+- Instalación de `Sublime Merge`
 - Instalación de `Beekeeper Studio` para **Ubuntu**
 - Instalación de `Kdenlive` en **Ubuntu**, **Debian** y **Fedora**
 - Se vuelven a generar tags en el CI
