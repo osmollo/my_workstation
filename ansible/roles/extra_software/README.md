@@ -70,6 +70,7 @@
 | **Wireguard** | Instala `Wireguard` |
 | **Beekeeper** | Instala `Beekeeper Studio`|
 | **Kdenlive** | Instala `Kdenlive` |
+| **BFG** | Instala `BFG Repo-Cleaner` |
 | **flatpak** | |
 | **vagrant** | |
 | **dockercompose** | |

@@ -1,0 +1,22 @@
+---
+
+- name: "[BFG] get BFG url"
+  bfg_url:
+  register: bfg_response
+
+- name: "[BFG] check if previous BFG exists"
+  stat:
+    path: "/opt/bfg/{{ bfg_response.url | basename }}"
+  register: stat_response
+
+- name: "[BFG] create BFG directory"
+  file:
+    path: /opt/bfg
+    state: directory
+
+- name: "[BFG] download BFG jar"
+  get_url:
+    url: "{{ bfg_response.url }}"
+    dest: "/opt/bfg/{{ bfg_response.url | basename }}"
+    mode: 0644
+  when: not stat_response.stat.exists

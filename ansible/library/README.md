@@ -215,3 +215,18 @@ Este módulo devuelve los repositorios existentes para el repositorio autenticad
 
 - debug: var=fastest_response.fastest
 ```
+
+## bfg_url
+
+Este módulo devuelve la URL de la última versión de [BFG](https://rtyley.github.io/bfg-repo-cleaner/#usage)
+
+### Ejemplo de uso
+
+```yaml
+# Get latest version of BFG
+- name: "get BFG url"
+  bfg_url:
+  register: bfg_response
+
+- debug: var=bfg_response.url
+```

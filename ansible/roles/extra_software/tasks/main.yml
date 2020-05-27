@@ -460,3 +460,12 @@
   tags:
     - extra_software
     - kdenlive
+
+- name: "Install BFG cleaner"
+  import_tasks: bfg.yml
+  when:
+    - install_bfg
+  tags:
+    - extra_software
+    - bfg
+    - git

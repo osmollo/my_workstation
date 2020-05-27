@@ -91,6 +91,7 @@ Por defecto se instala el siguiente software:
 | [Typora](https://typora.io) | typora | install_typora | |
 | [Beekeeper Studio](https://www.beekeeperstudio.io/) | beekeeer | install_beekeeper | |
 | [KDEnlive](https://kdenlive.org/es/descargar/)| kdenlive | install_kdenlive | |
+| [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner) | bfg | install_bfg | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

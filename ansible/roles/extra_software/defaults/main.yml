@@ -56,6 +56,7 @@ install_typora: true
 install_beekeeper: true
 install_kdenlive: true
 install_sublimemerge: true
+install_bfg: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85

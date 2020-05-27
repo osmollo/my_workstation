@@ -56,3 +56,5 @@ install_typora: true
 install_beekeeper: false
 intall_kdenlive: true
 install_sublimemerge: true
+install_bfg: true
+
