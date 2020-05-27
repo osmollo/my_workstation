@@ -6,6 +6,7 @@
 - Actualizada configuración de `Sublime Text`
 - Unificado de nuevo `install.yml` y `post_install.yml`. Y van...
 - Cambios en `post_install/ohermosa`:
+  - Creación de [algunos tags nuevos](ansible/roles/post_install/ohermosa/README.md) para poder lanzar la configuración sin tener que pasar por la instalación de `extra_software`
   - Nuevos repos git:
     - [Erase una vez k8s](https://github.com/mmorejon/erase-una-vez-k8s)
     - [Rash](https://github.com/pando85/rash)

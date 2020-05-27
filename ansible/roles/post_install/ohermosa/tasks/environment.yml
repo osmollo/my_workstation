@@ -114,3 +114,4 @@
       import_tasks: prezto.yml
       tags:
         - prezto
+        - post_prezto

@@ -10,18 +10,21 @@
   tags:
     - post_install
     - resolv
+    - post_resolv
 
 - name: "create secrets"
   import_tasks: secrets.yml
   tags:
     - post_install
     - secrets
+    - post_secrets
 
 - name: "configure megacmd client"
   import_tasks: megacmd.yml
   tags:
     - post_install
     - megacmd
+    - post_megacmd
 
 - name: "Customize firefox"
   import_tasks: firefox.yml
@@ -73,6 +76,7 @@
   tags:
     - post_install
     - docker
+    - post_docker
 
 - name: "create crontab jobs"
   import_tasks: crontab.yml
@@ -93,6 +97,7 @@
     - post_install
     - go
     - go_packages
+    - post_go
 
 - name: "clone git repostitories"
   import_tasks: git.yml
@@ -106,6 +111,7 @@
     - post_install
     - git
     - python
+    - post_python
 
 - name: "configure sublime"
   import_tasks: sublime.yml
@@ -114,6 +120,9 @@
     - sublime
     - sublimetext
     - sublimemerge
+    - post_sublime
+    - post_sublimetext
+    - post_sublimemerge
 
 - name: "configure VPNs"
   import_tasks: network.yml
@@ -136,6 +145,8 @@
     - post_install
     - vim
     - vimplugins
+    - post_vim
+    - post_vimplugins
 
 - name: "Configure Gimp"
   import_tasks: gimp.yml
@@ -154,15 +165,18 @@
   tags:
     - post_install
     - pass
+    - post_pass
 
 - name: "configure spotify tui"
   import_tasks: spotify.yml
   tags:
     - post_install
     - spotify
+    - post_spotify
 
 - name: "configure user photo"
   import_tasks: user.yml
   tags:
     - post_install
     - user
+    - post_user

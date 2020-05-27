@@ -11,26 +11,26 @@
 | **gnome** | Ejecuta todas las tareas relacionadas con gnome (`gnome_extensions` y `gnome_conf`) | | |
 | **kde_restore** | Restaura la copia de seguridad los ficheros de configuración de **KDE** almacenados en **Dropbox**. Borra el original y crea un enlace simbólico al backup | :cloud: | |
 | **pre_kde_backup** | Realiza una copia de seguridad de los ficheros de `$HOME/.config/*rc` en **Dropbox** | :cloud: | |
-| **docker** | Restaura de **Dropbox** los login en repositorios de Docker y la configuración del demonio `docker` | | |
+| **docker**/**post_docker** | Restaura de **Dropbox** los login en repositorios de Docker y la configuración del demonio `docker` | | |
 | **crontab** | Restaura de **Dropbox** el crontab del usuario | | |
 | **environment** <br> **env**| Restaura de **Dropbox** los ficheros de configuración del entorno (`.bashrc`, `.bash_history`, `.zshrc`,...) | :cloud: | |
 | **git** | Clona los repositorios indicados en el fichero de variables y configura el `user.email` y `user.name` en cada uno de ellos | :cloud: |
 | **network** | Genera las configuraciones para las conexiones de red | | :lock: |
-| **sublime** | Restaura la configuración de `Sublime Text` y `Sublime Merge` almacenada en **Dropbox** | :cloud: | |
-| **sublimetext** | Restaura la configuración de `Sublime Text` almacenada en **Dropbox** | :cloud: | |
-| **sublimemerge** | Restaura la configuración de `Sublime Merge` almacenada en **Dropbox** | :cloud: | |
+| **sublime**/**post_sublime** | Restaura la configuración de `Sublime Text` y `Sublime Merge` almacenada en **Dropbox** | :cloud: | |
+| **sublimetext**/**post_sublimetext** | Restaura la configuración de `Sublime Text` almacenada en **Dropbox** | :cloud: | |
+| **sublimemerge**/**post_sublimemerge** | Restaura la configuración de `Sublime Merge` almacenada en **Dropbox** | :cloud: | |
 | **gpg** | Importa llaves públicas GPG del keyserver | | |
 | **firefox** | Personaliza `Firefox` | | |
 | **secrets** | Crea los secretos específicos para el usuario _ohermosa_ | | :lock: |
-| **megacmd** | Configura el cliente **MEGAcmd** | | :lock: |
+| **megacmd**/**post_megacmd** | Configura el cliente **MEGAcmd** | | :lock: |
 | **hp** | Instala packetes para impresora **HP** | | |
 | **vim** | Configura **Vim** | | |
 | **gimp** | Configura **Gimp** | | |
-| **pass** | Configura el gestor de secretos **Pass** | | |
-| **python** | Crea virtualenvs para repositorios git que tengan el fichero `requirements.txt` | :cloud: | |
-| **prezto** | Personaliza la configuración de `prezto` | | |
+| **pass**/**post_pass** | Configura el gestor de secretos **Pass** | | |
+| **python**/**post_python**| Crea virtualenvs para repositorios git que tengan el fichero `requirements.txt` | :cloud: | |
+| **prezto**/**post_prezto** | Personaliza la configuración de `prezto` | | |
 | **protonvpn** | Configura el cliente **protonvpn** | | :lock: |
-| **spotify** | Configura el cliente de **spotify** de consola | | |
+| **spotify**/**post_spotify** | Configura el cliente de **spotify** de consola | | |
 | **ohermosa** | Ejecuta los post instalación de **ohermosa** | :cloud: | :lock: |
 
 | :information_source: **WARNING**: algunos de los tags anteriores requieren que **Dropbox** esté totalmente sincronizado antes de ejecutarse |
