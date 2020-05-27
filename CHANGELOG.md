@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 4.1
+
+- Instalación de `Sublime Merge`
+- Instalación de `Beekeeper Studio` para **Ubuntu**
+- Instalación de `Kdenlive` en **Ubuntu**, **Debian** y **Fedora**
+- Se vuelven a generar tags en el CI
+- Fichero `.ansible-lint` con configuración para lintado de **ansible**
+- Instalación de `traceroute` en **Ubuntu**
+- Cambios en `post_install/ohermosa`:
+  - Restauración de la configuración de `Sublime Merge` desde **Dropbox**
+  - Nuevos repositorios git:
+    - [docker-image-generator](https://github.com/tuxotron/docker-image-generator)
+
 ## 4.0
 
 - Se ha cifrado con gpg el fichero `post_install/ohermosa/defaults/mail.yml` y se ha [eliminado del histórico de git](https://www.adictosaltrabajo.com/2017/02/02/como-borrar-ficheros-del-historico-de-git-y-en-general-como-manipular-todo-el-historico/) todas las referencias al fichero original.

@@ -11,7 +11,7 @@ ansible-lint:
   before_script:
     - if [ `eval $EXECUTE_LINT` -ge 1 ]; then pip install ansible-lint; else exit 0; fi
   script:
-    - if [ `eval $EXECUTE_LINT` -ge 1 ]; then echo "Executing... ansible-lint `eval $UPDATED_YAML`"; ansible-lint --exclude ansible/roles/post_install/ohermosa/defaults/* `eval $UPDATED_YAML`; else exit 0; fi
+    - if [ `eval $EXECUTE_LINT` -ge 1 ]; then echo "Executing... ansible-lint `eval $UPDATED_YAML`"; ansible-lint `eval $UPDATED_YAML`; else exit 0; fi
   except:
     - master
   tags:
@@ -32,9 +32,14 @@ release:
     - git checkout master
     - git pull
     - if ! $(git diff-index HEAD^ --quiet -- release.json 2&>1 /dev/null); then echo "releasing $(jq -r .version release.json)"; else echo "release.json hasn't changed'"; exit $(git diff-index master --quiet -- release.json); fi
+    - git tag -a $(jq -r .version release.json) -m "$(jq -r .version release.json)"
+    - git push --tags
     - git push github HEAD:master
+    - git push github HEAD:master --tags
     - git push gitea HEAD:master
+    - git push gitea HEAD:master --tags
     - git push bitbucket HEAD:master
+    - git push bitbucket HEAD:master --tags
   only:
     - master
   tags:

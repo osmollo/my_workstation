@@ -21,7 +21,8 @@
 | **spotify** | Instala `Spotify` |
 | **spotify_cli** | Instala cliente `Spotify TUI` |
 | **ohmyzsh** | Instala `Oh my ZSH!` |
-| **sublime** | Instala `Sublime Text` |
+| **sublimetext** | Instala `Sublime Text` |
+| **sublimemerge** | Instala `Sublime Merge` |
 | **atom** | Instala `Atom` |
 | **gitkraken** | Instala `Gitkraken` |
 | **telegram** | Instala `Telegram Desktop` |
@@ -67,6 +68,8 @@
 | **hiri** | Instala `Hiri` |
 | **Steam** | Instala `Steam` |
 | **Wireguard** | Instala `Wireguard` |
+| **Beekeeper** | Instala `Beekeeper Studio`|
+| **Kdenlive** | Instala `Kdenlive` |
 | **flatpak** | |
 | **vagrant** | |
 | **dockercompose** | |

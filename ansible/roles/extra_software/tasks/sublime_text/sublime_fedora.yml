@@ -1,0 +1,21 @@
+---
+
+- name: "[SUBLIME_TEXT] [FEDORA] Import repository key"
+  rpm_key:
+    key: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+    state: present
+
+- name: "[SUBLIME_TEXT] [FEDORA] Add repository file"
+  yum_repository:
+    name: sublime-text
+    description: Sublime Text - x86_64 - Stable
+    baseurl: https://download.sublimetext.com/rpm/stable/x86_64
+    gpgkey: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+    gpgcheck: true
+    enabled: true
+
+- name: "[SUBLIME_TEXT] [FEDORA] Install Sublime Text"
+  yum:
+    name: sublime-text
+    state: present
+    update_cache: true

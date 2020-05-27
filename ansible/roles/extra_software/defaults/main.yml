@@ -5,7 +5,7 @@ install_dropbox: true
 install_code: true
 install_spotify: true
 install_ohmyzsh: true
-install_sublime: true
+install_sublimetext: true
 install_atom: true
 install_gitkraken: true
 install_telegram: true
@@ -37,9 +37,9 @@ install_megasync: true
 install_vivaldi: true
 install_brave: true
 install_bitwarden: true
-install_lexnet: false
+install_lexnet: true
 install_pass: true
-install_bucklespring: false
+install_bucklespring: true
 install_protonvpn: true
 install_prezto: true
 install_etcher: true
@@ -47,12 +47,15 @@ install_woeusb: true
 install_go: true
 install_fzf: true
 install_vimplugins: true
-install_authy: false
+install_authy: true
 install_yakyak: true
-install_hiri: false
-install_steam: false
+install_hiri: true
+install_steam: true
 install_wireguard: true
 install_typora: true
+install_beekeeper: true
+install_kdenlive: true
+install_sublimemerge: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -81,6 +84,7 @@ pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Commu
 postman_flatpak: "https://flathub.org/repo/appstream/com.getpostman.Postman.flatpakref"
 skype_flatpak: "https://flathub.org/repo/appstream/com.skype.Client.flatpakref"
 franz_flatpak: "https://flathub.org/repo/appstream/com.meetfranz.Franz.flatpakref"
+kdenlive_flatpak: "https://flathub.org/apps/details/org.kde.kdenlive"
 
 ecs_cli_package: "ecs-cli-0.2.16.tar.gz"
 ecs_cli_url: "https://globaldevtools.bbva.com/artifactory/semaas-global-bin/releases/ecs-cli/{{ ecs_cli_package }}"

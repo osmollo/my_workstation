@@ -1,0 +1,4 @@
+---
+
+- name: "[SUBLIME_MERGE] install for {{ linux_distribution }}"
+  include_tasks: "sublime_{{ linux_distribution }}.yml"

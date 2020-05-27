@@ -5,7 +5,7 @@ install_dropbox: true
 install_code: true
 install_spotify: true
 install_ohmyzsh: false
-install_sublime: false
+install_sublimetext: true
 install_atom: false
 install_gitkraken: false
 install_telegram: true
@@ -53,3 +53,6 @@ install_hiri: false
 install_steam: false
 install_wireguard: true
 install_typora: true
+install_beekeeper: false
+intall_kdenlive: true
+install_sublimemerge: true

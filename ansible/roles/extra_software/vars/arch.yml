@@ -24,7 +24,8 @@ yay_repo: "{{ aur_url }}/yay-bin.git"
 vagrant_repo: "{{ aur_url }}/vagrant-git.git"
 nomachine_repo: "{{ aur_url }}/nomachine.git"
 gitkraken_repo: "{{ aur_url }}/gitkraken.git"
-sublime_repo: "{{ aur_url }}/sublime-text-nightly.git"
+sublimetext_repo: "{{ aur_url }}/sublime-text-nightly.git"
+sublimemerge_repo: "{{ aur_url }}/sublime-merge.git"
 franz_repo: "{{ aur_url }}/franz-bin.git"
 forticlient_repo: "{{ aur_url }}/forticlientsslvpn.git"
 windscribe_repo: "{{ aur_url }}/windscribe-cli.git"
@@ -66,7 +67,8 @@ yay_package: yay-bin
 vagrant_package: vagrant-git
 nomachine_package: nomachine
 gitkraken_package: gitkraken
-sublime_package: sublime-text-nightly
+sublimetext_package: sublime-text-nightly
+sublimemerge_package: sublime-merge
 franz_package: franz-bin
 forticlient_package: forticlientsslvpn
 deluge_package: deluge-git

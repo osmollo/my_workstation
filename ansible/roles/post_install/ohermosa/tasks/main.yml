@@ -112,6 +112,8 @@
   tags:
     - post_install
     - sublime
+    - sublimetext
+    - sublimemerge
 
 - name: "configure VPNs"
   import_tasks: network.yml
