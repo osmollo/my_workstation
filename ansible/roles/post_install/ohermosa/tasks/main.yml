@@ -111,6 +111,7 @@
   import_tasks: sublime.yml
   tags:
     - post_install
+    - sublime
     - sublimetext
     - sublimemerge
 

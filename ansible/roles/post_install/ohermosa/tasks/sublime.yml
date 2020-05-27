@@ -8,7 +8,7 @@
 - block:
     - name: "[SUBLIME_TEXT] Wait until directory exist in Dropbox"
       wait_for:
-        path: "{{ dropbox_dir }}/backups/Sublime/User"
+        path: "{{ dropbox_dir }}/backups/Sublime/Text/User"
         timeout: "{{ wait_dropbox_sync }}"
 
     - name: "[SUBLIME_TEXT] Delete local directory for Sublime configuration"
@@ -18,7 +18,31 @@
 
     - name: "[SUBLIME_TEXT] Create the symlink to Sublime config in Dropbox"
       file:
-        src: "{{ dropbox_dir }}/backups/Sublime/User"
+        src: "{{ dropbox_dir }}/backups/Sublime/Text/User"
         dest: "/home/{{ ansible_user }}/.config/sublime-text-3/Packages/User"
         state: link
   when: subl_response.stat.exists
+
+
+- name: "[SUBLIME_MERGE] check if sublime directory exists"
+  stat:
+    path: "/home/{{ ansible_user }}/.config/sublime-merge"
+  register: sublmerge_response
+
+- block:
+    - name: "[SUBLIME_MERGE] Wait until directory exist in Dropbox"
+      wait_for:
+        path: "{{ dropbox_dir }}/backups/Sublime/Merge/User"
+        timeout: "{{ wait_dropbox_sync }}"
+
+    - name: "[SUBLIME_MERGE] Delete local directory for Sublime configuration"
+      file:
+        path: "/home/{{ ansible_user }}/.config/sublime-merge/Packages/User"
+        state: absent
+
+    - name: "[SUBLIME_MERGE] Create the symlink to Sublime config in Dropbox"
+      file:
+        src: "{{ dropbox_dir }}/backups/Sublime/Merge/User"
+        dest: "/home/{{ ansible_user }}/.config/sublime-merge/Packages/User"
+        state: link
+  when: sublmerge_response.stat.exists

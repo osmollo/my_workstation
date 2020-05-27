@@ -16,7 +16,9 @@
 | **environment** <br> **env**| Restaura de **Dropbox** los ficheros de configuración del entorno (`.bashrc`, `.bash_history`, `.zshrc`,...) | :cloud: | |
 | **git** | Clona los repositorios indicados en el fichero de variables y configura el `user.email` y `user.name` en cada uno de ellos | :cloud: |
 | **network** | Genera las configuraciones para las conexiones de red | | :lock: |
-| **sublime** | Restaura la configuración de `Sublime Text` almacenada en **Dropbox** | :cloud: | |
+| **sublime** | Restaura la configuración de `Sublime Text` y `Sublime Merge` almacenada en **Dropbox** | :cloud: | |
+| **sublimetext** | Restaura la configuración de `Sublime Text` almacenada en **Dropbox** | :cloud: | |
+| **sublimemerge** | Restaura la configuración de `Sublime Merge` almacenada en **Dropbox** | :cloud: | |
 | **gpg** | Importa llaves públicas GPG del keyserver | | |
 | **firefox** | Personaliza `Firefox` | | |
 | **secrets** | Crea los secretos específicos para el usuario _ohermosa_ | | :lock: |

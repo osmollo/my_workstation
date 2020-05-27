@@ -9,6 +9,7 @@
 - Fichero `.ansible-lint` con configuración para lintado de **ansible**
 - Instalación de `traceroute` en **Ubuntu**
 - Cambios en `post_install/ohermosa`:
+  - Restauración de la configuración de `Sublime Merge` desde **Dropbox**
   - Nuevos repositorios git:
     - [docker-image-generator](https://github.com/tuxotron/docker-image-generator)
 
