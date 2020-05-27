@@ -1,23 +1,27 @@
 {
-  "bootstrapped": true,
-  "in_process_packages":
-  [
-  ],
-  "installed_packages":
-  [
-    "A File Icon",
-    "AutoFileName",
-    "BracketHighlighter",
-    "Material Theme",
-    "Package Control",
-    "PackageResourceViewer",
-    "Python Flake8 Lint",
-    "Python Improved",
-    "SideBarEnhancements",
-    "SublimeCodeIntel",
-    "SublimeREPL",
-    "Terminal",
-    "SerializedDataConverter"
-  ]
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"Ansible",
+		"AutoFileName",
+		"BracketHighlighter",
+		"Highlight Trailing Whitespace",
+		"Markdown Extended",
+		"Material Theme",
+		"Package Control",
+		"PackageResourceViewer",
+		"Python Flake8 Lint",
+		"Python Improved",
+		"SerializedDataConverter",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"SublimeREPL",
+		"Terminal",
+		"TrailingSpaces"
+	]
 }
 
