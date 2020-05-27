@@ -9,19 +9,14 @@
 		"Ansible",
 		"AutoFileName",
 		"BracketHighlighter",
-		"Highlight Trailing Whitespace",
 		"Markdown Extended",
 		"Material Theme",
 		"Package Control",
-		"PackageResourceViewer",
 		"Python Flake8 Lint",
 		"Python Improved",
-		"SerializedDataConverter",
-		"SideBarEnhancements",
 		"SublimeCodeIntel",
 		"SublimeREPL",
 		"Terminal",
-		"TrailingSpaces"
+		"Zeal"
 	]
 }
-
