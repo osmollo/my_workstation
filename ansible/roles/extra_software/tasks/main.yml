@@ -40,11 +40,11 @@
     - dropbox
 
 - name: "Install Visual Studio Code"
-  import_tasks: code/code.yml
-  when: install_code
+  import_tasks: vscode/code.yml
+  when: install_vscode
   tags:
     - extra_software
-    - code
+    - vscode
     - editors
 
 - name: "Install Spotify"
@@ -469,3 +469,11 @@
     - extra_software
     - bfg
     - git
+
+- name: "Install Visual Studio Codium"
+  import_tasks: vscodium/codium.yml
+  when: install_vscodium
+  tags:
+    - extra_software
+    - vscodium
+    - editors

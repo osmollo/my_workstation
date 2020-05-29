@@ -10,14 +10,15 @@
 | **TAG** | **DESCRIPCIÓN** |
 |---------|-----------------|
 | **extra_software** | Ejecuta el role completo |
-| **editors** | Instala los editores de texto `Visual Studio Code`, `Atom`, `Sublime Text` y `PyCharm` |
+| **editors** | Instala los editores de texto `Visual Studio Code`, `VSCodium`, `Atom`, `Sublime Text`, `PyCharm` y `Cherrytree` |
 | **pass_managers** | Instala `KeepassXC` y `Buttercup` |
 | **remotes** | Instala `Teamviewer` y `No Machine` |
 | **socials** | Instala los clientes de mensajería `Telegram Desktop`, `Slack` y `Skype` |
 | **windscribe** | Instala los clientes de VPN `Forti Client VPN` y `Windscribe` |
 | **docker** | Instala `Docker Community Edition` |
 | **dropbox** | Instala `Dropbox` |
-| **code** | Instala `Visual Studio Code` |
+| **vscode** | Instala `Visual Studio Code` |
+| **vscodium** | Instala `Visual Studio Codium` |
 | **spotify** | Instala `Spotify` |
 | **spotify_cli** | Instala cliente `Spotify TUI` |
 | **ohmyzsh** | Instala `Oh my ZSH!` |

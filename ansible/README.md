@@ -40,7 +40,8 @@ Por defecto se instala el siguiente software:
 | [Chromium Browser](https://chromium.woolyss.com/download/es/) | chromium | install_chromium| browsers |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | |
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | |
-| [Visual Studio Code](https://code.visualstudio.com/) | code | install_code | editors |
+| [Visual Studio Code](https://code.visualstudio.com/) | vscode | install_vscode | editors |
+| [Visual Studio Codium](https://vscodium.com/) | vscodium | install_vscodium | editors |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | |
 | [Sublime Text](https://www.sublimetext.com/) | sublimetext | install_sublimetext | editors/sublime |
@@ -157,7 +158,7 @@ grep "install_" ansible/roles/extra_software/defaults/main.yml > ansible/roles/e
 Para instalar una aplicación que en este fichero se haya definido a `false`, es posible modificar el valor mediante `--extra-vars`:
 
 ```bash
-ansible-playbook install.yml -t code -e install_code=true
+ansible-playbook install.yml -t code -e install_vscode=true
 ```
 
 Igualmente, se pueden usar los tags específicos que cada usuario haya puesto en su role `post_install/$USER`
