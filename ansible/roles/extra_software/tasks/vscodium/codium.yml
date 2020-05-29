@@ -1,7 +1,7 @@
 ---
 
 - name: "[VSCODIUM] install for {{ linux_distribution }}"
-  include_tasks: "code_{{ linux_distribution }}.yml"
+  include_tasks: "codium_{{ linux_distribution }}.yml"
 
 - name: "[VSCODIUM] install extensions"
   block:
