@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 4.3
+
+- Corrección de errores:
+  - Al configurar **Code** y **Codium**, se hace backup de `settings.json`
+
 ## 4.2
 
 - Instalación de [BFG Cleaner](https://rtyley.github.io/bfg-repo-cleaner) para limpiar el histórico de `git`
