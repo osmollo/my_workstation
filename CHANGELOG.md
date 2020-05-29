@@ -4,6 +4,7 @@
 
 - Instalación de [BFG Cleaner](https://rtyley.github.io/bfg-repo-cleaner) para limpiar el histórico de `git`
 - Instalación de `VSCodium`
+- Restauración de `settings.json` en **VSCode** y **VSCodium**: nuevos tags `code_settings` y `codium_settings`
 - Nuevo tag `sublime` para instalar **Sublime Text** y **Sublime Merge**
 - Actualizada configuración de `Sublime Text`
 - Unificado de nuevo `install.yml` y `post_install.yml`. Y van...

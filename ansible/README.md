@@ -103,7 +103,7 @@ ansible-playbook install.yml -e "install_spotify=false install_ohmyzsh=false"
 En caso contrario, si lo único que se quiere hacer es instalar alguna de las aplicaciones, hay que usar el **tag** correspondiente, que coincide con las variables anteriores. Por ejemplo, para instalar *Visual Studio Code*:
 
 ```bash
-ansible-playbook install.yml -t "code,dropbox,spotify"
+ansible-playbook install.yml -t "vscode,dropbox,spotify"
 ```
 
 En el siguiente punto, se explica cómo generar una configuración específica de usuario con el software que se desea instalar
