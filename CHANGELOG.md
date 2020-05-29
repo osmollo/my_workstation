@@ -2,6 +2,12 @@
 
 ## 4.3
 
+- Nuevos plugins de **vim**:
+  - [dockerfile](https://github.com/ekalinin/dockerfile.vim)
+  - [vim-workspace](https://github.com/thaerkh/vim-workspace)
+  - [youcompleteme](https://github.com/valloric/youcompleteme)
+  - [vim-terraform](https://github.com/hashivim/vim-terraform)
+  - [vim-terraform-completion](https://github.com/juliosueiras/vim-terraform-completion)
 - Corrección de errores:
   - Al configurar **Code** y **Codium**, se hace backup de `settings.json`
 

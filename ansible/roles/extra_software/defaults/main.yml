@@ -120,7 +120,11 @@ vim_plugins:
   - 'terryma/vim-multiple-cursors'
   - 'mileszs/ack.vim'
   - 'kien/ctrlp.vim'
-  - 'vim-scripts/AutoComplPop'
+  - 'ekalinin/dockerfile.vim'
+  - 'thaerkh/vim-workspace'
+  - 'valloric/youcompleteme'
+  - 'hashivim/vim-terraform'
+  - 'juliosueiras/vim-terraform-completion'
 
 firefox_esr_version: 50.1.0
 firefox_esr_url: "https://download-installer.cdn.mozilla.net/pub/firefox/releases/{{ firefox_esr_version }}/linux-x86_64/es-ES/firefox-{{ firefox_esr_version }}.tar.bz2"
