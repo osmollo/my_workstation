@@ -10,6 +10,7 @@
   - [vim-terraform-completion](https://github.com/juliosueiras/vim-terraform-completion)
 - Corrección de errores:
   - Al configurar **Code** y **Codium**, se hace backup de `settings.json`
+  - Creación de alias para `bfg` en el fichero `~/.bash_aliases` tras la instalación
 
 ## 4.2
 
