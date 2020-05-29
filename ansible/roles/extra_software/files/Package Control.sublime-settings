@@ -1,0 +1,22 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"Ansible",
+		"AutoFileName",
+		"BracketHighlighter",
+		"Markdown Extended",
+		"Material Theme",
+		"Package Control",
+		"Python Flake8 Lint",
+		"Python Improved",
+		"SublimeCodeIntel",
+		"SublimeREPL",
+		"Terminal",
+		"Zeal"
+	]
+}

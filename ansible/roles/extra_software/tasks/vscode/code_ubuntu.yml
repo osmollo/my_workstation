@@ -1,6 +1,6 @@
 ---
 
-- name: "[CODE] [DEB] Copy repository file"
+- name: "[VSCODE] [DEB] Copy repository file"
   copy:
     src: code.list
     dest: /etc/apt/sources.list.d/vscode.list
@@ -8,12 +8,12 @@
     owner: root
     group: root
 
-- name: "[CODE] [DEB] Import repository key"
+- name: "[VSCODE] [DEB] Import repository key"
   apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc
     state: present
 
-- name: "[CODE] [DEB] Install code package"
+- name: "[VSCODE] [DEB] Install code package"
   apt:
     name:
       - libx11-xcb-dev

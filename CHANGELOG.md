@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## 4.2
+
+- Instalación de [BFG Cleaner](https://rtyley.github.io/bfg-repo-cleaner) para limpiar el histórico de `git`
+- Instalación de `VSCodium`
+- Restauración de `settings.json` en **VSCode** y **VSCodium**: nuevos tags `code_settings` y `codium_settings`
+- Nuevo tag `sublime` para instalar **Sublime Text** y **Sublime Merge**
+- Actualizada configuración de `Sublime Text`
+- Unificado de nuevo `install.yml` y `post_install.yml`. Y van...
+- Cambios en `post_install/ohermosa`:
+  - Creación de [algunos tags nuevos](ansible/roles/post_install/ohermosa/README.md) para poder lanzar la configuración sin tener que pasar por la instalación de `extra_software`
+  - Nuevos repos git:
+    - [Erase una vez k8s](https://github.com/mmorejon/erase-una-vez-k8s)
+    - [Rash](https://github.com/pando85/rash)
+    - [mega.py](https://github.com/richardARPANET/mega.py)
+    - [k8s dashboard](https://github.com/kubernetes/dashboard)
+  - Apuntando al repositorio original:
+    - [OneTimeSecret](https://github.com/onetimesecret/onetimesecret)
+    - [Oh my zsh](https://github.com/ohmyzsh/ohmyzsh)
+    - [Oh my bash](https://github.com/ohmybash/oh-my-bash)
+    - [Kubespray](https://github.com/kubernetes-sigs/kubespray)
+
 ## 4.1.1
 
 - fix en `gitlab-ci.yml` al crear el remoto de **Bitbucket**

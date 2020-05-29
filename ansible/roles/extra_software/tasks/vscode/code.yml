@@ -1,0 +1,44 @@
+---
+
+- name: "[VSCODE] install for {{ linux_distribution }}"
+  include_tasks: "code_{{ linux_distribution }}.yml"
+
+- name: "[VSCODE] install extensions"
+  block:
+    - name: "[VSCODE] get json with extensions"
+      uri:
+        url: "{{ code_extensions_url }}"
+      register: extensions_response
+
+    - name: "[VSCODE] Install extensions for Visual Studio Code"
+      become: false
+      become_user: "{{ ansible_user }}"
+      vars:
+        id_query: "[].metadata.publisherId"
+      command: "code --install-extension {{ item }}"
+      loop: "{{ extensions_response.json | default([]) | json_query(id_query) | list }}"
+  tags:
+    - code_extensions
+
+- name: "[CODE] restore settings.json"
+  block:
+    - name: "[CODE] get settings.json"
+      uri:
+        url: "{{ code_settings_url }}"
+      register: settings_response
+
+    - name: "[CODE] save settings to file"
+      vars:
+        gist:
+          sync.gist: ""
+        project_manager:
+          projectManager.git.baseFolders:
+            - "{{ ansible_user_dir }}/git"
+      copy:
+        content: "{{ settings_response.json | combine(gist, recursive=true) | combine(project_manager, recursive=true) }}"
+        dest: "{{ ansible_user_dir }}/.config/Code/User/settings.json"
+        mode: 0664
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+  tags:
+    - code_settings

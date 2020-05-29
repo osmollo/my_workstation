@@ -1,0 +1,23 @@
+---
+
+- name: "[VSCODIUM] [DEB] Copy repository file"
+  copy:
+    src: codium.list
+    dest: /etc/apt/sources.list.d/vscodium.list
+    mode: 0644
+    owner: root
+    group: root
+
+- name: "[VSCODIUM] [DEB] Import repository key"
+  apt_key:
+    url: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+    state: present
+
+- name: "[VSCODIUM] [DEB] Install VSCodium package"
+  apt:
+    name:
+      - libx11-xcb-dev
+      - libasound2
+      - codium
+    state: present
+    update_cache: true

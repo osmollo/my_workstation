@@ -35,16 +35,17 @@
 Por defecto se instala el siguiente software:
 
 | **APLICACIÓN** | **TAG** | **VARIABLE** | **GRUPO** |
-|--|--|--|--|--|
+|--|--|--|--|
 | [Google Chrome](https://www.google.com/intl/es/chrome/) | chrome | install_chrome | browsers |
 | [Chromium Browser](https://chromium.woolyss.com/download/es/) | chromium | install_chromium| browsers |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | |
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | |
-| [Visual Studio Code](https://code.visualstudio.com/) | code | install_code | editors |
+| [Visual Studio Code](https://code.visualstudio.com/) | vscode | install_vscode | editors |
+| [Visual Studio Codium](https://vscodium.com/) | vscodium | install_vscodium | editors |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | |
-| [Sublime Text](https://www.sublimetext.com/) | sublimetext | install_sublimetext | editors |
-| [Sublime Merge](https://www.sublimemerge.com/) | sublimemerge | install_sublimemerge | |
+| [Sublime Text](https://www.sublimetext.com/) | sublimetext | install_sublimetext | editors/sublime |
+| [Sublime Merge](https://www.sublimemerge.com/) | sublimemerge | install_sublimemerge | sublime |
 | [Atom](https://atom.io/) | atom | install_atom | editors |
 | [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | |
 | [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | socials |
@@ -91,6 +92,7 @@ Por defecto se instala el siguiente software:
 | [Typora](https://typora.io) | typora | install_typora | |
 | [Beekeeper Studio](https://www.beekeeperstudio.io/) | beekeeer | install_beekeeper | |
 | [KDEnlive](https://kdenlive.org/es/descargar/)| kdenlive | install_kdenlive | |
+| [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner) | bfg | install_bfg | |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
@@ -101,7 +103,7 @@ ansible-playbook install.yml -e "install_spotify=false install_ohmyzsh=false"
 En caso contrario, si lo único que se quiere hacer es instalar alguna de las aplicaciones, hay que usar el **tag** correspondiente, que coincide con las variables anteriores. Por ejemplo, para instalar *Visual Studio Code*:
 
 ```bash
-ansible-playbook install.yml -t "code,dropbox,spotify"
+ansible-playbook install.yml -t "vscode,dropbox,spotify"
 ```
 
 En el siguiente punto, se explica cómo generar una configuración específica de usuario con el software que se desea instalar
@@ -156,7 +158,7 @@ grep "install_" ansible/roles/extra_software/defaults/main.yml > ansible/roles/e
 Para instalar una aplicación que en este fichero se haya definido a `false`, es posible modificar el valor mediante `--extra-vars`:
 
 ```bash
-ansible-playbook install.yml -t code -e install_code=true
+ansible-playbook install.yml -t code -e install_vscode=true
 ```
 
 Igualmente, se pueden usar los tags específicos que cada usuario haya puesto en su role `post_install/$USER`

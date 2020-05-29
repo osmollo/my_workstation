@@ -1,0 +1,8 @@
+---
+
+- name: "[VSCODIUM] [ARCH] install VSCodium"
+  become: false
+  yay:
+    name: "{{ codium_package }}"
+    state: present
+    update_cache: true

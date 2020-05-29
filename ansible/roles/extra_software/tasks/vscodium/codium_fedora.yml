@@ -1,0 +1,20 @@
+---
+
+- name: "[VSCODIUM] [FEDORA] Copy repository file"
+  copy:
+    src: codium.repo
+    dest: /etc/yum.repos.d/codium.repo
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "[VSCODIUM] [FEDORA] Import Microsoft key"
+  rpm_key:
+    key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+    state: present
+
+- name: "[VSCODIUM] [FEDORA] Install VSCodium"
+  yum:
+    name: codium
+    state: present
+    update_cache: true

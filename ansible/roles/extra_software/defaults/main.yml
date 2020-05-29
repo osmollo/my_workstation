@@ -2,7 +2,7 @@
 
 install_docker: true
 install_dropbox: true
-install_code: true
+install_vscode: true
 install_spotify: true
 install_ohmyzsh: true
 install_sublimetext: true
@@ -56,6 +56,8 @@ install_typora: true
 install_beekeeper: true
 install_kdenlive: true
 install_sublimemerge: true
+install_bfg: true
+install_vscodium: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -133,6 +135,7 @@ lexnet_packages:
   - pcsc-tools
   - libglade2-dev
 
+code_settings_url: https://gist.githubusercontent.com/ohermosa/a2b55c8a488b2a45e8626e75ca35c7c4/raw/settings.json
 code_extensions_url: https://gist.githubusercontent.com/ohermosa/a2b55c8a488b2a45e8626e75ca35c7c4/raw/extensions.json
 atom_packages_url: https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json
 
