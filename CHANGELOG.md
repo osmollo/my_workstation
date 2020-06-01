@@ -2,6 +2,7 @@
 
 ## 4.3
 
+- Instalación de `Tmux`
 - Nuevos plugins de **vim**:
   - [dockerfile](https://github.com/ekalinin/dockerfile.vim)
   - [vim-workspace](https://github.com/thaerkh/vim-workspace)

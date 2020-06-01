@@ -58,3 +58,4 @@ intall_kdenlive: true
 install_sublimemerge: true
 install_bfg: true
 install_vscodium: false
+install_tmux: false

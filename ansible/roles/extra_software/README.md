@@ -61,12 +61,13 @@
 | **sublimetext** | Instala `Sublime Text` |
 | **teamviewer** | Instala `Teamviewer` |
 | **telegram** | Instala `Telegram Desktop` |
+| **tmux** | Instala y configura `Tmux` |
 | **tlp** | Instala `TLP` |
 | **vim_plugins** | Instala plugins de `vim` |
 | **virtualbox** | Instala `Virtualbox` |
 | **vivaldi** | Instala `Vivaldi` |
-| **vscode** | Instala `Visual Studio Code` |
-| **vscodium** | Instala `Visual Studio Codium` |
+| **vscode** | Instala y configura `Visual Studio Code` |
+| **vscodium** | Instala y configura `Visual Studio Codium` |
 | **windscribe** | Instala `Windscribe Client VPN` |
 | **windscribe** | Instala los clientes de VPN `Forti Client VPN` y `Windscribe` |
 | **Wireguard** | Instala `Wireguard` |

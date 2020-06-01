@@ -1,0 +1,43 @@
+---
+
+- name: "[TMUX] [DEB] install tmux"
+  apt:
+    name: tmux
+    update_cache: true
+    state: present
+  when: linux_distribution == "ubuntu"
+
+- name: "[TMUX] [FEDORA] install tmux"
+  yum:
+    name: tmux
+    update_cache: true
+    state: present
+  when: linux_distribution == "fedora"
+
+- name: "[TMUX] [ARCH] install tmux"
+  pacman:
+    name: tmux
+    state: present
+    update_cache: true
+  when: linux_distribution == "arch"
+
+- name: "[TMUX] configure tmux"
+  become: false
+  become_user: "{{ ansible_user }}"
+  vars:
+    tmux_config_repo: https://github.com/samoshkin/tmux-config.git
+    tmux_config_dir: /tmp/tmux-config
+  block:
+    - name: "[TMUX] clone tmux config tool"
+      git:
+        repo: "{{ tmux_config_repo }}"
+        dest: "{{ tmux_config_dir }}"
+        clone: true
+
+    - name: "[TMUX] run script for tmux config"
+      command: "{{ tmux_config_dir }}/install.sh"
+
+    - name: "[TMUX] delete temporal directory"
+      file:
+        path: "{{ tmux_config_dir }}"
+        state: absent

@@ -83,6 +83,7 @@ Por defecto se instala el siguiente software:
 | [Teamviewer](https://www.teamviewer.com/es/) | teamviewer | install_teamviewer | remotes |
 | [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | socials |
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | |
+| [Tmux](http://www.sromero.org/wiki/linux/aplicaciones/tmux) | tmux | install_tmux | |
 | [Typora](https://typora.io) | typora | install_typora | |
 | [Vim plugins]() | vimplugins | install_vimplugins | |
 | [Virtualbox](https://www.virtualbox.org/) | virtualbox | install_virtualbox | |

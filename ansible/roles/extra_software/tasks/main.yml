@@ -477,3 +477,10 @@
     - extra_software
     - vscodium
     - editors
+
+- name: "Install tmux"
+  import_tasks: tmux.yml
+  when: install_tmux
+  tags:
+    - extra_software
+    - tmux

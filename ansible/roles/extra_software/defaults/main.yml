@@ -58,6 +58,7 @@ install_kdenlive: true
 install_sublimemerge: true
 install_bfg: true
 install_vscodium: true
+install_tmux: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
