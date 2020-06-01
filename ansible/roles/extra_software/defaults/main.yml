@@ -37,7 +37,7 @@ install_megasync: true
 install_vivaldi: true
 install_brave: true
 install_bitwarden: true
-install_lexnet: true
+install_lexnet: false
 install_pass: true
 install_bucklespring: true
 install_protonvpn: true
