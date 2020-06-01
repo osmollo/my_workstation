@@ -2,6 +2,8 @@
 
 ## 4.3
 
+- Descripción del software disponible para instalación en el [README](ansible/README.md)
+- Instalación de [FZF](ansible/roles/extra_software/tasks/fzf.yml) mediante paquetes nativos de cada distro
 - Instalación de `Tmux`
 - Nuevos plugins de **vim**:
   - [dockerfile](https://github.com/ekalinin/dockerfile.vim)
@@ -12,7 +14,6 @@
 - Corrección de errores:
   - Al configurar **Code** y **Codium**, se hace backup de `settings.json`
   - Creación de alias para `bfg` en el fichero `~/.bash_aliases` tras la instalación
-- Descripción del software disponible para instalación en el [README](ansible/README.md)
 
 ## 4.2
 

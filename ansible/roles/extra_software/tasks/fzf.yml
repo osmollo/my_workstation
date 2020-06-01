@@ -1,21 +1,22 @@
 ---
 
-- name: "[FZF] Get latest version of fzf"
-  uri:
-    url: "{{ fzf_latest_url }}"
-    follow_redirects: safe
-    body_format: raw
-  register: fzf_latest
+- name: "[FZF] [DEB] install fzf"
+  apt:
+    name: fzf
+    update_cache: true
+    state: present
+  when: linux_distribution == "ubuntu"
 
-- name: "[FZF] Set url for fzf package"
-  vars:
-    fzf_version: "{{ fzf_latest.url | urlsplit('path') | basename }}"
-  set_fact:
-    fzf_package: "https://github.com/junegunn/fzf-bin/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-linux_amd64.tgz"
+- name: "[FZF] [FEDORA] install fzf"
+  yum:
+    name: fzf
+    update_cache: true
+    state: present
+  when: linux_distribution == "fedora"
 
-- name: "[FZF] Download fzf"
-  unarchive:
-    src: "{{ fzf_package }}"
-    dest: /usr/local/bin
-    remote_src: true
-    mode: 0755
+- name: "[FZF] [ARCH] install fzf"
+  pacman:
+    name: fzf
+    state: present
+    update_cache: true
+  when: linux_distribution == "arch"
