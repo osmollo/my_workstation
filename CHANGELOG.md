@@ -12,6 +12,7 @@
 - Corrección de errores:
   - Al configurar **Code** y **Codium**, se hace backup de `settings.json`
   - Creación de alias para `bfg` en el fichero `~/.bash_aliases` tras la instalación
+- Descripción del software disponible para instalación en el [README](ansible/README.md)
 
 ## 4.2
 
