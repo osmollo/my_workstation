@@ -60,7 +60,7 @@ Por defecto se instala el siguiente software:
 | [Google Chrome](https://www.google.com/intl/es/chrome/) | chrome | install_chrome | browsers | Navegador web |
 | [Hiri](https://www.hiri.com/) | hiri | install_hiri | | Cliente de correo |
 | [Java](https://openjdk.java.net/) | java | install_java | | Lenguaje Java |
-| [k8s_tools]() | k8s_tools | install_k8s_tools | | Herramientas de Kubernetes |
+| [k8s_tools](https://kubernetes.io/docs/reference/tools/) | k8s_tools | install_k8s_tools | | Herramientas de Kubernetes |
 | [KDEnlive](https://kdenlive.org/es/descargar/)| kdenlive | install_kdenlive | | Editor de video para KDE |
 | [KeepassXC](https://keepassxc.org/download/) | keepass | install_keepass | pass_managers | Gestor de contraseñas |
 | [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | | Firefox 50.1 + Java para acceder a Lexnet (sólo para abogados) |
@@ -85,7 +85,7 @@ Por defecto se instala el siguiente software:
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | | Gestión de batería (sólo para Thinkpad) |
 | [Tmux](http://www.sromero.org/wiki/linux/aplicaciones/tmux) | tmux | install_tmux | | Multiplexador de terminal avanzado |
 | [Typora](https://typora.io) | typora | install_typora | | Editor de textos especializado en Markdown |
-| [Vim plugins]() | vimplugins | install_vimplugins | | Instalación de plugins de VIM |
+| [Vim plugins](https://vimawesome.com/) | vimplugins | install_vimplugins | | Instalación de plugins de VIM |
 | [Virtualbox](https://www.virtualbox.org/) | virtualbox | install_virtualbox | | Virtualización (incluye Vagrant) |
 | [Visual Studio Code](https://code.visualstudio.com/) | vscode | install_vscode | editors | Editor de textos |
 | [Visual Studio Codium](https://vscodium.com/) | vscodium | install_vscodium | editors | Editor de textos libre pasado en VS Code |
