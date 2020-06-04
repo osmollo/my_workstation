@@ -41,6 +41,7 @@
 | **k8s_tools** | Instala herramientas para `kubernetes` |
 | **Kdenlive** | Instala `Kdenlive` |
 | **keepass** | Instala `KeepassXD` |
+| **kodi** | Instala `Kodi` |
 | **lexnet** | Instala `Lexnet` |
 | **megacmd** | Instala `MEGAcmd` |
 | **megasync** | Instala `MEGA sync` |

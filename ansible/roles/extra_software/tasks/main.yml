@@ -484,3 +484,11 @@
   tags:
     - extra_software
     - tmux
+
+
+- name: "Install kodi"
+  import_tasks: kodi/kodi.yml
+  when: install_kodi
+  tags:
+    - extra_software
+    - kodi

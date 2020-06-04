@@ -5,6 +5,7 @@
 - Descripción del software disponible para instalación en el [README](ansible/README.md)
 - Instalación de [FZF](ansible/roles/extra_software/tasks/fzf.yml) mediante paquetes nativos de cada distro
 - Instalación de `Tmux`
+- Instalación de `Kodi`
 - Nuevos plugins de **vim**:
   - [dockerfile](https://github.com/ekalinin/dockerfile.vim)
   - [vim-workspace](https://github.com/thaerkh/vim-workspace)

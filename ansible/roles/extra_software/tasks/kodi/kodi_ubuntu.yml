@@ -1,0 +1,26 @@
+---
+
+- name: "[KODI] [UBUNTU] install kodi repository"
+  apt_repository:
+    validate_certs: no
+    repo: 'ppa:team-xbmc/ppa'
+    state: present
+
+- name: "[KODI] [UBUNTU] install kodi"
+  apt:
+    name: kodi
+    update_cache: true
+    state: present
+
+- name: "[KODI] [UBUNTU] install audio codecs"
+  apt:
+    name:
+      - kodi-audiodecoder-modplug
+      - kodi-audiodecoder-nosefart
+      - kodi-audiodecoder-sidplay
+      - kodi-audiodecoder-snesapu
+      - kodi-audiodecoder-stsound
+      - kodi-audiodecoder-timidity
+      - kodi-audiodecoder-vgmstream
+    update_cache: true
+    state: present
