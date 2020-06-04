@@ -65,6 +65,7 @@ Por defecto se instala el siguiente software:
 | [KeepassXC](https://keepassxc.org/download/) | keepass | install_keepass | pass_managers | Gestor de contraseñas |
 | [Kodi](https://kodi.tv/) | kodi | install_kodi | | Media center |
 | [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | | Firefox 50.1 + Java para acceder a Lexnet (sólo para abogados) |
+| [MAME](https://www.mamedev.org/) | mame | install_mame | Emulador de juegos de recreativas |
 | [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | mega | Cliente de almacenamiento en la nube de Mega |
 | [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | mega | Cliente de almacenamiento en la nube de Mega para terminal |
 | [NoMachine](https://www.nomachine.com/es/) | nomachine | install_nomachine | remotes | Cliente de escritorio remoto |

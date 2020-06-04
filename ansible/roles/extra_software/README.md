@@ -43,6 +43,7 @@
 | **keepass** | Instala `KeepassXD` |
 | **kodi** | Instala `Kodi` |
 | **lexnet** | Instala `Lexnet` |
+| **mame** | Instala `MAME` |
 | **megacmd** | Instala `MEGAcmd` |
 | **megasync** | Instala `MEGA sync` |
 | **nomachine** | Instala `No Machine` |

@@ -1,0 +1,22 @@
+---
+
+- name: "[MAME] [DEB] install mame"
+  apt:
+    name: mame
+    update_cache: true
+    state: present
+  when: linux_distribution in ["ubuntu", "debian"]
+
+- name: "[MAME] [FEDORA] install mame"
+  yum:
+    name: mame
+    update_cache: true
+    state: present
+  when: linux_distribution == "fedora"
+
+- name: "[MAME] [ARCH] install mame"
+  pacman:
+    name: mame
+    state: present
+    update_cache: true
+  when: linux_distribution == "arch"

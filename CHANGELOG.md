@@ -6,6 +6,7 @@
 - Instalación de [FZF](ansible/roles/extra_software/tasks/fzf.yml) mediante paquetes nativos de cada distro
 - Instalación de `Tmux`
 - Instalación de `Kodi`
+- Instalación de `MAME`
 - Nuevos plugins de **vim**:
   - [dockerfile](https://github.com/ekalinin/dockerfile.vim)
   - [vim-workspace](https://github.com/thaerkh/vim-workspace)

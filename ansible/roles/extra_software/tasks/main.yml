@@ -485,10 +485,16 @@
     - extra_software
     - tmux
 
-
 - name: "Install kodi"
   import_tasks: kodi/kodi.yml
   when: install_kodi
   tags:
     - extra_software
     - kodi
+
+- name: "Install mame"
+  import_tasks: mame.yml
+  when: install_mame
+  tags:
+    - extra_software
+    - mame

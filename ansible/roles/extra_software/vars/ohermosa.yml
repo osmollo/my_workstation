@@ -60,3 +60,4 @@ install_bfg: true
 install_vscodium: false
 install_tmux: false
 install_kodi: false
+install_mame: false
