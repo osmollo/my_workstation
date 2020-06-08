@@ -16,6 +16,9 @@
 - Corrección de errores:
   - Al configurar **Code** y **Codium**, se hace backup de `settings.json`
   - Creación de alias para `bfg` en el fichero `~/.bash_aliases` tras la instalación
+- Cambios en `post_install/ohermosa`:
+  - Nuevo repositorios git:
+    - [prometheus python client](https://github.com/prometheus/client_python)
 
 ## 4.2
 
