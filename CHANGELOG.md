@@ -20,6 +20,7 @@
   - Nuevo repositorios git:
     - [prometheus python client](https://github.com/prometheus/client_python)
     - [Sysadmin util](https://github.com/skx/sysadmin-util))
+    - [Hashicorp Vault](https://github.com/hashicorp/vault)
 
 ## 4.2
 
