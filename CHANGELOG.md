@@ -1,5 +1,37 @@
 # CHANGELOG
 
+## 4.3
+
+- Descripción del software disponible para instalación en el [README](ansible/README.md)
+- Instalación de [FZF](ansible/roles/extra_software/tasks/fzf.yml) mediante paquetes nativos de cada distro
+- Instalación de `Tmux`
+- Instalación de `Kodi`
+- Instalación de `MAME`
+- Nuevos plugins de **vim**:
+  - [dockerfile](https://github.com/ekalinin/dockerfile.vim)
+  - [vim-workspace](https://github.com/thaerkh/vim-workspace)
+  - [youcompleteme](https://github.com/valloric/youcompleteme)
+  - [vim-terraform](https://github.com/hashivim/vim-terraform)
+  - [vim-terraform-completion](https://github.com/juliosueiras/vim-terraform-completion)
+- Corrección de errores:
+  - Al configurar **Code** y **Codium**, se hace backup de `settings.json`
+  - Creación de alias para `bfg` en el fichero `~/.bash_aliases` tras la instalación
+  - La ejecución de `ansible-lint` en `gitlab-ci.yml` ignora ficheros `*.yml.gpg`
+  - Ignora errores en la instalación de extensiones en `Code`, `Codium` y `Atom` para evitar fallos por cambio de nombre de extensiones [#10](https://gitlab.com/ohermosa/my_workstation/-/issues/10)
+- Cambios en `post_install/ohermosa`:
+  - Ya no es necesario definir el directorio de destino cuando se clona un repositorio de git, si no está definido se clona en el directorio por defecto (`{{ git_dir }} + '/' + <repo_name>`)
+  - Nuevo repositorios git:
+    - [prometheus python client](https://github.com/prometheus/client_python)
+    - [Sysadmin util](https://github.com/skx/sysadmin-util))
+    - [Hashicorp Vault](https://github.com/hashicorp/vault)
+    - **Bitwarden**:
+      - [Server](https://github.com/bitwarden/server)
+      - [Browser](https://github.com/bitwarden/browser)
+      - [Desktop](https://github.com/bitwarden/desktop)
+      - [CLI](https://github.com/bitwarden/cli)
+      - [Web](https://github.com/bitwarden/web)
+      - [Mobile](https://github.com/bitwarden/mobile)
+
 ## 4.2
 
 - Instalación de [BFG Cleaner](https://rtyley.github.io/bfg-repo-cleaner) para limpiar el histórico de `git`

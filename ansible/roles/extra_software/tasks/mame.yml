@@ -1,22 +1,22 @@
 ---
 
-- name: "[FZF] [DEB] install fzf"
+- name: "[MAME] [DEB] install mame"
   apt:
-    name: fzf
+    name: mame
     update_cache: true
     state: present
-  when: linux_distribution == "ubuntu"
+  when: linux_distribution in ["ubuntu", "debian"]
 
-- name: "[FZF] [FEDORA] install fzf"
+- name: "[MAME] [FEDORA] install mame"
   yum:
-    name: fzf
+    name: mame
     update_cache: true
     state: present
   when: linux_distribution == "fedora"
 
-- name: "[FZF] [ARCH] install fzf"
+- name: "[MAME] [ARCH] install mame"
   pacman:
-    name: fzf
+    name: mame
     state: present
     update_cache: true
   when: linux_distribution == "arch"

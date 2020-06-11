@@ -17,6 +17,7 @@
         id_query: "[].metadata.publisherId"
       command: "code --install-extension {{ item }}"
       loop: "{{ extensions_response.json | default([]) | json_query(id_query) | list }}"
+      ignore_errors: true
   tags:
     - code_extensions
 
@@ -37,6 +38,7 @@
       copy:
         content: "{{ settings_response.json | combine(gist, recursive=true) | combine(project_manager, recursive=true) }}"
         dest: "{{ ansible_user_dir }}/.config/Code/User/settings.json"
+        backup: true
         mode: 0664
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"

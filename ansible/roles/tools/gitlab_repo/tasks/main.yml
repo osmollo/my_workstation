@@ -1,6 +1,6 @@
 ---
 
-- name: "working with '{{ repo_name }}' repository"
+- name: "[GITLAB] creating '{{ repo_name }}' repository"
   gitlab_repo:
     gitlab_auth_key: "{{ gitlab_token }}"
     name: "{{ repo_name }}"

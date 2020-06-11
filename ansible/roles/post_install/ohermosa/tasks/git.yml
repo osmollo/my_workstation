@@ -14,7 +14,7 @@
     - name: "[GIT] Clone git repositories"
       git:
         repo: "{{ item.repo }}"
-        dest: "{{ item.dest }}"
+        dest: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
         clone: true
         key_file: "/home/{{ ansible_user }}/.ssh/id_rsa"
         accept_hostkey: true
@@ -58,7 +58,7 @@
     - name: "[GIT] Create new remote for work repositories"
       shell: "git remote add {{ item.remote }} {{ remote_url }}"
       args:
-        chdir: "{{ item.dest }}"
+        chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
       with_items: "{{ git_repositories.work }}"
       when: item.remote is defined
       register: remote_response
@@ -95,7 +95,7 @@
     - name: "[GIT] Create new remote for home repositories"
       shell: "git remote add {{ item.remote }} {{ remote_url }}"
       args:
-        chdir: "{{ item.dest }}"
+        chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
       with_items: "{{ git_repositories.home }}"
       when: item.remote is defined
       register: remote_response

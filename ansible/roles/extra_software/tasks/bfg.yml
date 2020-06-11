@@ -20,3 +20,9 @@
     dest: "/opt/bfg/{{ bfg_response.url | basename }}"
     mode: 0644
   when: not stat_response.stat.exists
+
+- name: "[BFG] create bfg alias"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.bash_aliases"
+    line: "alias bfg='java -jar '"
+    state: present

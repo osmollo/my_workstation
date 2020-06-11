@@ -1,0 +1,7 @@
+---
+
+- name: "[KODI] [DEBIAN] install kodi package"
+  apt:
+    name: kodi
+    update_cache: true
+    state: present

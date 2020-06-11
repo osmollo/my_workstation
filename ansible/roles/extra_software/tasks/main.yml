@@ -477,3 +477,24 @@
     - extra_software
     - vscodium
     - editors
+
+- name: "Install tmux"
+  import_tasks: tmux.yml
+  when: install_tmux
+  tags:
+    - extra_software
+    - tmux
+
+- name: "Install kodi"
+  import_tasks: kodi/kodi.yml
+  when: install_kodi
+  tags:
+    - extra_software
+    - kodi
+
+- name: "Install mame"
+  import_tasks: mame.yml
+  when: install_mame
+  tags:
+    - extra_software
+    - mame

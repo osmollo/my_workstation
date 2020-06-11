@@ -1,10 +1,10 @@
 ---
 
-- name: "include secrets"
+- name: "[TELEGRAM] include secrets"
   include_vars:
     file: "secrets.yml"
 
-- name: "send telegram message"
+- name: "[TELEGRAM] send telegram message"
   telegram:
     token: "{{ token_telegram }}"
     msg: "{{ text_telegram}}"
