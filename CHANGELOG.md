@@ -16,6 +16,7 @@
 - Corrección de errores:
   - Al configurar **Code** y **Codium**, se hace backup de `settings.json`
   - Creación de alias para `bfg` en el fichero `~/.bash_aliases` tras la instalación
+  - La ejecución de `ansible-lint` en `gitlab-ci.yml` ignora ficheros `*.yml.gpg`
 - Cambios en `post_install/ohermosa`:
   - Ya no es necesario definir el directorio de destino cuando se clona un repositorio de git, si no está definido se clona en el directorio por defecto (`{{ git_dir }} + '/' + <repo_name>`)
   - Nuevo repositorios git:
