@@ -21,6 +21,13 @@
     - [prometheus python client](https://github.com/prometheus/client_python)
     - [Sysadmin util](https://github.com/skx/sysadmin-util))
     - [Hashicorp Vault](https://github.com/hashicorp/vault)
+    - **Bitwarden**:
+      - [Server](https://github.com/bitwarden/server)
+      - [Browser](https://github.com/bitwarden/browser)
+      - [Desktop](https://github.com/bitwarden/desktop)
+      - [CLI](https://github.com/bitwarden/cli)
+      - [Web](https://github.com/bitwarden/web)
+      - [Mobile](https://github.com/bitwarden/mobile)
 
 ## 4.2
 
