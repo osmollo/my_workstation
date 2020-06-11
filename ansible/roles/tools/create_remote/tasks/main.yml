@@ -1,6 +1,6 @@
 ---
 
-- name: "Create remote"
+- name: "[CREATE_REMOTE] Create remote"
   shell: "git remote add {{ remote.name }} {{ remote.url }}"
   args:
     chdir: "{{ remote.directory }}"
