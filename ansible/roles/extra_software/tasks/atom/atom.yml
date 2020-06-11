@@ -33,5 +33,6 @@
         id_query: "[].name"
       command: "apm install {{ item }}"
       loop: "{{ packages_response.json | default([]) | json_query(id_query) | list }}"
+      ignore_errors: true
   tags:
     - atom_extensions

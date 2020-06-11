@@ -17,6 +17,7 @@
         id_query: "[].metadata.publisherId"
       command: "codium --install-extension {{ item }}"
       loop: "{{ extensions_response.json | default([]) | json_query(id_query) | list }}"
+      ignore_errors: true
   tags:
     - codium_extensions
 

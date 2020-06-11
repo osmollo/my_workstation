@@ -17,6 +17,7 @@
         id_query: "[].metadata.publisherId"
       command: "code --install-extension {{ item }}"
       loop: "{{ extensions_response.json | default([]) | json_query(id_query) | list }}"
+      ignore_errors: true
   tags:
     - code_extensions
 
