@@ -22,7 +22,7 @@
   - Ya no es necesario definir el directorio de destino cuando se clona un repositorio de git, si no está definido se clona en el directorio por defecto (`{{ git_dir }} + '/' + <repo_name>`)
   - Nuevo repositorios git:
     - [prometheus python client](https://github.com/prometheus/client_python)
-    - [Sysadmin util](https://github.com/skx/sysadmin-util))
+    - [Sysadmin util](https://github.com/skx/sysadmin-util)
     - [Hashicorp Vault](https://github.com/hashicorp/vault)
     - **Bitwarden**:
       - [Server](https://github.com/bitwarden/server)
