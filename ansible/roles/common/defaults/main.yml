@@ -36,6 +36,7 @@ python_modules:
   - hcloud
   - gitpython
   - jmespath
+  - peewee
 
 bad_snap_packages:
   - gnome-calculator

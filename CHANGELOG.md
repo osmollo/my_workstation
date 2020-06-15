@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 4.4
+
+- Nueva librería de Python:
+  - [PeeWee](https://pypi.org/project/peewee/)
+
 ## 4.3
 
 - Descripción del software disponible para instalación en el [README](ansible/README.md)
