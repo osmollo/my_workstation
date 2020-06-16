@@ -7,6 +7,7 @@
 - Cambios `post_install/ohermosa`:
   - Nuevos repositorios git:
     - [raspberry_docker](https://github.com/ohermosa/raspberry_docker)
+    - [docker transmission](https://github.com/linuxserver/docker-transmission)
 
 ## 4.3
 
