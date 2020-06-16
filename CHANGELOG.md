@@ -4,6 +4,9 @@
 
 - Nueva librería de Python:
   - [PeeWee](https://pypi.org/project/peewee/)
+- Cambios `post_install/ohermosa`:
+  - Nuevos repositorios git:
+    - [raspberry_docker](https://github.com/ohermosa/raspberry_docker)
 
 ## 4.3
 
