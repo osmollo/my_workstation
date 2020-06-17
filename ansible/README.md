@@ -84,6 +84,7 @@ Por defecto se instala el siguiente software:
 | [Sublime Text](https://www.sublimetext.com/) | sublimetext | install_sublimetext | editors/sublime | Editor de textos |
 | [Teamviewer](https://www.teamviewer.com/es/) | teamviewer | install_teamviewer | remotes | Cliente de escritorio remoto |
 | [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | socials | Cliente de escritorio de mensajería Telegram |
+| [Terraform](https://www.terraform.io/) | terraform | install_terraform | | Creación de infraestructura |
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | | Gestión de batería (sólo para Thinkpad) |
 | [Tmux](http://www.sromero.org/wiki/linux/aplicaciones/tmux) | tmux | install_tmux | | Multiplexador de terminal avanzado |
 | [Typora](https://typora.io) | typora | install_typora | | Editor de textos especializado en Markdown |

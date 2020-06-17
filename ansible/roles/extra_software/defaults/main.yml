@@ -61,6 +61,7 @@ install_vscodium: true
 install_tmux: true
 install_kodi: true
 install_mame: true
+install_terraform: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -147,3 +148,5 @@ code_extensions_url: https://gist.githubusercontent.com/ohermosa/a2b55c8a488b2a4
 atom_packages_url: https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json
 
 appimage_dir: "{{ ansible_user_dir }}/AppImage"
+
+terraform_binary_path: /usr/local/bin/terraform

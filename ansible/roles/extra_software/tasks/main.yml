@@ -498,3 +498,10 @@
   tags:
     - extra_software
     - mame
+
+- name: "Install terraform"
+  import_tasks: terraform.yml
+  when: install_terraform
+  tags:
+    - extra_software
+    - terraform

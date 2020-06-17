@@ -2,6 +2,7 @@
 
 ## 4.4
 
+- Instalación de `Terraform`
 - Nueva librería de Python:
   - [PeeWee](https://pypi.org/project/peewee/)
 - Cambios `post_install/ohermosa`:

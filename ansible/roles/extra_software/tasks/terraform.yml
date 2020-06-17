@@ -1,0 +1,24 @@
+---
+
+- name: "[TERRAFORM] check if terraform binary is already downloaded"
+  stat:
+    path: "{{ terraform_binary_path }}"
+  register: stat_response
+
+- name: "[TERRAFORM] check installed terraform version"
+  command: "{{ terraform_binary_path }} version"
+  register: terraform_current_version
+  when: stat_response.stat.exists
+
+- name: "[TERRAFORM] get latest terraform version"
+  get_terraform_latest:
+  register: terraform_response
+
+- name: "[TERRAFORM] download terraform binary"
+  unarchive:
+    src: "https://releases.hashicorp.com/terraform/{{ terraform_response.version }}/terraform_{{ terraform_response.version }}_linux_amd64.zip"
+    dest: /usr/local/bin
+    remote_src: true
+    mode: 0755
+  when:
+    - not stat_response.stat.exists or terraform_response.version != terraform_current_version.stdout.split('\n')[0].split('v')[1]

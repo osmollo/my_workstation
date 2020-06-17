@@ -63,6 +63,7 @@
 | **sublimetext** | Instala `Sublime Text` |
 | **teamviewer** | Instala `Teamviewer` |
 | **telegram** | Instala `Telegram Desktop` |
+| **terraform** | Instala `Terraform` |
 | **tmux** | Instala y configura `Tmux` |
 | **tlp** | Instala `TLP` |
 | **vim_plugins** | Instala plugins de `vim` |
