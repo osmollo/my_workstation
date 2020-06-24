@@ -20,3 +20,4 @@ ansible-playbook install.yml -t install_docker --ask-bacome-pass
 | [Kafka](kafka/) | Despliegue de `Kafka` usando `Zookeeper` como backend |
 | [Consul](consul/) | Despliegue de `Consul` |
 | [Wireguard](wireguard/) | Despliegue del servicio VPN `Wireguard` |
+| [torrent_raspi](torrent_raspi/) | Despliegue de sistema automático de descargas en **Raspberry** usando `transmission` y gestión de contenidos con `plesk` |

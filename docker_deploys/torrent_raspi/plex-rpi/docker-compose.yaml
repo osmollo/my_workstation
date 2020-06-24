@@ -1,0 +1,71 @@
+version: "2"
+
+services:
+
+  samba:
+    image: dperson/samba:rpi
+    restart: always
+    command: '-u "pi;password" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
+    stdin_open: true
+    tty: true
+    ports:
+      - 139:139
+      - 445:445
+    volumes:
+      - /usr/share/zoneinfo/America/Argentina/Mendoza:/etc/localtime
+      - ${MEDIA}:/media
+      - ${STORAGE}/torrents:/downloads
+
+  plex:
+    image: jaymoulin/plex:1.16.5
+    expose:
+      - 32400
+      - 33400
+    hostname: raspberrypi
+    volumes:
+      - ${STORAGE}/Plex Media Server:/root/Library/Application Support/Plex Media Server
+      - ${MEDIA}:/media
+      - ${STORAGE}/tmp:/tmp
+    restart: unless-stopped
+    networks: 
+      lan:
+        ipv4_address: 192.168.0.3
+
+  transmission:
+    image : jaymoulin/transmission
+    command: transmission-daemon -f -g /config
+    volumes:
+      - ./transmission:/config
+      - ${STORAGE}/torrents:/downloads
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    expose:
+      - 9091
+    restart: unless-stopped
+
+  flexget:
+    build: flexget-arm
+    volumes:
+      - ./flexget:/config
+      - ${STORAGE}/torrents:/downloads
+      - ${MEDIA}:/storage
+    ports:
+      - 5050:5050
+    environment:
+      - TORRENT_PLUGIN=transmission
+      - FG_WEBUI_PASSWD=123456
+    restart: unless-stopped
+    links:
+      - transmission
+
+networks:
+  lan:
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: "192.168.0.0/24"       
+          gateway: "192.168.0.1"
