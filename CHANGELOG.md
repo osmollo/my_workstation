@@ -9,6 +9,8 @@
   - Nuevos repositorios git:
     - [raspberry_docker](https://github.com/ohermosa/raspberry_docker)
     - [docker transmission](https://github.com/linuxserver/docker-transmission)
+- Nuevos despliegues con `Docker`:
+  - [Wireguard](docker_deploys/wireguard/docker-compose.yml)
 
 ## 4.3
 

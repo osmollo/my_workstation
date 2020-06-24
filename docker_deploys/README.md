@@ -19,3 +19,4 @@ ansible-playbook install.yml -t install_docker --ask-bacome-pass
 | [Bitwarden](bitwarden/) | Despliegue de `Bitwarden` |
 | [Kafka](kafka/) | Despliegue de `Kafka` usando `Zookeeper` como backend |
 | [Consul](consul/) | Despliegue de `Consul` |
+| [Wireguard](wireguard/) | Despliegue del servicio VPN `Wireguard` |
