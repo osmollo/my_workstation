@@ -12,7 +12,6 @@
     - [plex-pi](https://github.com/ohermosa/plex-rpi)
 - Nuevos despliegues con `Docker`:
   - [Wireguard](docker_deploys/wireguard/docker-compose.yml)
-  - [torrent_raspi](docker_deploy/torrent_raspi/docker-compose.yml)
 
 ## 4.3
 
