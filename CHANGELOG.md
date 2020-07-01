@@ -9,7 +9,7 @@
   - Nuevos repositorios git:
     - [raspberry_docker](https://github.com/ohermosa/raspberry_docker)
     - [docker transmission](https://github.com/linuxserver/docker-transmission)
-    - [plex-pi](https://github.com/ohermosa/plex-rpi)
+    - [plex-pi](https://github.com/pablokbs/plex-rpi)
 - Nuevos despliegues con `Docker`:
   - [Wireguard](docker_deploys/wireguard/docker-compose.yml)
 
