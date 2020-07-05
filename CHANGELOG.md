@@ -10,6 +10,7 @@
     - [raspberry_docker](https://github.com/ohermosa/raspberry_docker)
     - [docker transmission](https://github.com/linuxserver/docker-transmission)
     - [plex-pi](https://github.com/pablokbs/plex-rpi)
+  - Instalación y configuración de [broot](https://dystroy.org/blog/gg/)
 - Nuevos despliegues con `Docker`:
   - [Wireguard](docker_deploys/wireguard/docker-compose.yml)
 
