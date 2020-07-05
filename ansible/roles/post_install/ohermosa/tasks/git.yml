@@ -170,3 +170,32 @@
   tags:
     - clone_repos
     - repos_config
+
+- name: "install broot"
+  block:
+    - name: "download broot binary"
+      become: true
+      get_url:
+        url: "{{ broot_binary_url }}"
+        dest: /usr/local/bin/broot
+        mode: 0755
+
+    - name: "create broot config directory"
+      file:
+        path: "{{ ansible_user_dir }}/.config/broot"
+        state: directory
+
+    - name: "configure broot"
+      copy:
+        src: git-diff-conf.toml
+        dest: "{{ ansible_user_dir }}/.config/broot/git-diff-conf.toml"
+        mode: 0644
+
+    - name: "create alias for broot"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.bash_aliases"
+        create: true
+        state: present
+        line: "alias gg='/usr/local/bin/broot --conf ~/.config/broot/git-diff-conf.toml --git-status'"
+  tags:
+    - broot
