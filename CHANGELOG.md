@@ -12,6 +12,7 @@
     - [docker transmission](https://github.com/linuxserver/docker-transmission)
     - [plex-pi](https://github.com/pablokbs/plex-rpi)
   - Instalación y configuración de [broot](https://dystroy.org/blog/gg/)
+  - Configuración de `difftool` y `mergetool`
 - Nuevos despliegues con `Docker`:
   - [Wireguard](docker_deploys/wireguard/docker-compose.yml)
 
