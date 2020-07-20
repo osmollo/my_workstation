@@ -28,3 +28,4 @@ docker_deploys/bitwarden/web
 docker_deploys/kafka/zk-multiple-kafka-multiple
 
 hetzner.log
+.vscode

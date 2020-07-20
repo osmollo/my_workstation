@@ -1,0 +1,20 @@
+---
+
+- name: "[PODMAN] [UBUNTU] generate podman.list"
+  template:
+    src: podman_ubuntu.list.j2
+    dest: /etc/apt/sources.list.d/podman.list
+    mode: 0644
+    owner: root
+    group: root
+
+- name: "[PODMAN] [UBUNTU] Import repository key"
+  apt_key:
+    url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ubuntu_version_long }}/Release.key"
+    state: present
+
+- name: "[PODMAN] [UBUNTU] install podman"
+  apt:
+    name: "{{ podman_package }}"
+    state: present
+    update_cache: true

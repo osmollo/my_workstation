@@ -61,3 +61,5 @@ install_vscodium: false
 install_tmux: false
 install_kodi: false
 install_mame: false
+install_terraform: true
+install_podman: true

@@ -65,12 +65,13 @@ Por defecto se instala el siguiente software:
 | [KeepassXC](https://keepassxc.org/download/) | keepass | install_keepass | pass_managers | Gestor de contraseñas |
 | [Kodi](https://kodi.tv/) | kodi | install_kodi | | Media center |
 | [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | | Firefox 50.1 + Java para acceder a Lexnet (sólo para abogados) |
-| [MAME](https://www.mamedev.org/) | mame | install_mame | Emulador de juegos de recreativas |
+| [MAME](https://www.mamedev.org/) | mame | install_mame | | Emulador de juegos de recreativas |
 | [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | mega | Cliente de almacenamiento en la nube de Mega |
 | [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | mega | Cliente de almacenamiento en la nube de Mega para terminal |
 | [NoMachine](https://www.nomachine.com/es/) | nomachine | install_nomachine | remotes | Cliente de escritorio remoto |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | | Personalización de ZSH |
 | [Pass](https://www.passwordstore.org/) | pass | install_pass | pass_managers | Gestor de contraseñas |
+| [Podman](https://podman.io/) | podman | install_podman | | Gestor de contenedores |
 | [Postman](https://www.getpostman.com) | postman | install_postman | | Cliente REST API |
 | [Prezto](https://github.com/sorin-ionescu/prezto) | prezto | install_prezto | | Personalización de ZSH (fork mejorado de Oh my Zsh) |
 | [ProtonVPN](https://protonvpn.com/) | protonvpn | install_protonvpn | | Cliente de VPN |
@@ -84,6 +85,7 @@ Por defecto se instala el siguiente software:
 | [Sublime Text](https://www.sublimetext.com/) | sublimetext | install_sublimetext | editors/sublime | Editor de textos |
 | [Teamviewer](https://www.teamviewer.com/es/) | teamviewer | install_teamviewer | remotes | Cliente de escritorio remoto |
 | [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | socials | Cliente de escritorio de mensajería Telegram |
+| [Terraform](https://www.terraform.io/) | terraform | install_terraform | | Creación de infraestructura |
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | | Gestión de batería (sólo para Thinkpad) |
 | [Tmux](http://www.sromero.org/wiki/linux/aplicaciones/tmux) | tmux | install_tmux | | Multiplexador de terminal avanzado |
 | [Typora](https://typora.io) | typora | install_typora | | Editor de textos especializado en Markdown |

@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 4.4
+
+- Instalación de `Terraform`
+- Instalación de `Podman` y `Podman Compose`
+- Nueva librería de Python:
+  - [PeeWee](https://pypi.org/project/peewee/)
+- Instalación de `ripgrep` junto con `fzf` y config de shellconfig para `fzf`
+- Cambios `post_install/ohermosa`:
+  - Nuevos repositorios git:
+    - [raspberry_docker](https://github.com/ohermosa/raspberry_docker)
+    - [docker transmission](https://github.com/linuxserver/docker-transmission)
+    - [plex-pi](https://github.com/pablokbs/plex-rpi)
+    - [datio_corkscrew](https://github.com/DatioBD/corkscrew)
+  - Instalación y configuración de [broot](https://dystroy.org/blog/gg/)
+  - Configuración de `difftool` y `mergetool`
+- Nuevos despliegues con `Docker`:
+  - [Wireguard](docker_deploys/wireguard/docker-compose.yml)
+
 ## 4.3
 
 - Descripción del software disponible para instalación en el [README](ansible/README.md)

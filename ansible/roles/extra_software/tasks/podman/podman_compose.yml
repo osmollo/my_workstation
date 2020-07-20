@@ -1,0 +1,12 @@
+---
+
+- name: "[PODMAN_COMPOSE] Delete podman-compose binary if exists"
+  file:
+    path: /usr/local/bin/podman-compose
+    state: absent
+
+- name: "[PODMAN_COMPOSE] Download Podman Compose binary"
+  get_url:
+    url: "{{ podmancompose_package }}"
+    dest: /usr/local/bin/podman-compose
+    mode: 0755

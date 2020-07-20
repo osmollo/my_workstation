@@ -170,3 +170,54 @@
   tags:
     - clone_repos
     - repos_config
+
+- name: "install broot"
+  block:
+    - name: "download broot binary"
+      become: true
+      get_url:
+        url: "{{ broot_binary_url }}"
+        dest: /usr/local/bin/broot
+        mode: 0755
+
+    - name: "create broot config directory"
+      file:
+        path: "{{ ansible_user_dir }}/.config/broot"
+        state: directory
+
+    - name: "configure broot"
+      copy:
+        src: git-diff-conf.toml
+        dest: "{{ ansible_user_dir }}/.config/broot/git-diff-conf.toml"
+        mode: 0644
+
+    - name: "create alias for broot"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.bash_aliases"
+        create: true
+        state: present
+        line: "alias gg='/usr/local/bin/broot --conf ~/.config/broot/git-diff-conf.toml --git-status'"
+  tags:
+    - broot
+
+- name: "configure git diff config"
+  block:
+    - name: "check if meld is installed"
+      command: which meld
+      register: meld_response
+      ignore_errors: true
+
+    - name: "check if kompare is installed"
+      command: which kompare
+      register: kompare_response
+      ignore_errors: true
+
+    - name: "configure git"
+      vars:
+        diff_editor: "{{ 'meld' if meld_response.rc == 0 else 'kompare' if kompare.rc == 0 }}"
+      template:
+        src: gitconfig.j2
+        dest: "{{ ansible_user_dir }}/.gitconfig"
+        mode: 0644
+  tags:
+    - git_diff

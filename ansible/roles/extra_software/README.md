@@ -49,6 +49,7 @@
 | **nomachine** | Instala `No Machine` |
 | **ohmyzsh** | Instala `Oh my ZSH!` |
 | **pass** | Instala gestor de secretos `Pass` |
+| **podman** | Instala gestor de contenedores `Podman` |
 | **postman** | Instala `Postman` |
 | **prezto** | Instala `Prezto` |
 | **protonvpn** | Instala `ProtonVPN` |
@@ -63,6 +64,7 @@
 | **sublimetext** | Instala `Sublime Text` |
 | **teamviewer** | Instala `Teamviewer` |
 | **telegram** | Instala `Telegram Desktop` |
+| **terraform** | Instala `Terraform` |
 | **tmux** | Instala y configura `Tmux` |
 | **tlp** | Instala `TLP` |
 | **vim_plugins** | Instala plugins de `vim` |

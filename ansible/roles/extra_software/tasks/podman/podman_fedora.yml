@@ -1,0 +1,8 @@
+---
+
+
+- name: "[PODMAN] [FEDORA] Install podman"
+  yum:
+    name: "{{ podman_package }}"
+    state: present
+    update_cache: true

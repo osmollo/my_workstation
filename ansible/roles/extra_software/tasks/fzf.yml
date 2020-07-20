@@ -2,21 +2,37 @@
 
 - name: "[FZF] [DEB] install fzf"
   apt:
-    name: fzf
+    name:
+      - fzf
+      - ripgrep
     update_cache: true
     state: present
   when: linux_distribution == "ubuntu"
 
 - name: "[FZF] [FEDORA] install fzf"
   yum:
-    name: fzf
+    name:
+      - fzf
+      - ripgrep
     update_cache: true
     state: present
   when: linux_distribution == "fedora"
 
 - name: "[FZF] [ARCH] install fzf"
   pacman:
-    name: fzf
+    name:
+      - fzf
+      - ripgrep
     state: present
     update_cache: true
   when: linux_distribution == "arch"
+
+- name: "add config to shell config file"
+  become: false
+  blockinfile:
+    path: "{{ ansible_user_dir }}/.{{ ansible_user_shell | basename }}rc"
+    block: |
+      if type rg &> /dev/null; then
+        export FZF_DEFAULT_COMMAND='rg --files'
+        export FZF_DEFAULT_OPTS='-m --height 50% --border'
+      fi

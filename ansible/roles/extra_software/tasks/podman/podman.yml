@@ -1,0 +1,12 @@
+---
+
+- name: "[PODMAN] install for {{ linux_distribution }}"
+  include_tasks: "podman_{{ linux_distribution }}.yml"
+
+- name: "[PODMAN_COMPOSE] Install podman compose"
+  vars:
+    podmancompose_package: https://raw.githubusercontent.com/containers/podman-compose/devel/podman_compose.py
+  import_tasks: podman_compose.yml
+  when: linux_distribution != "arch"
+  tags:
+    - podmancompose
