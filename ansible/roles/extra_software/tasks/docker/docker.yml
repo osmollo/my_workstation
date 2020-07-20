@@ -15,24 +15,9 @@
     enabled: true
     state: restarted
 
-- name: "[DOCKER_COMPOSE] Install docker compose"
-  block:
-    - name: "[DOCKER_COMPOSE] Get latest version of Docker Compose"
-      uri:
-        url: "{{ dockercompose_latest_url }}"
-        follow_redirects: safe
-        body_format: raw
-      register: dockercompose_latest
-      when: linux_distribution != "arch"
-
-    - name: "[DOCKER_COMPOSE] Set docker compose version"
-      set_fact:
-        dockercompose_version: "{{ dockercompose_latest.url | urlsplit('path') | basename }}"
-      when: linux_distribution != "arch"
-
-    - name: "[DOCKER_COMPOSE] Download Docker Compose binary"
-      import_tasks: docker_compose.yml
-      when: linux_distribution != "arch"
+- name: "[DOCKER_COMPOSE] Download Docker Compose binary"
+  import_tasks: docker_compose.yml
+  when: linux_distribution != "arch"
   tags:
     - dockercompose
 

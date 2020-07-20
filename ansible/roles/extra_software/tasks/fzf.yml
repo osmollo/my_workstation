@@ -30,7 +30,7 @@
 - name: "add config to shell config file"
   become: false
   blockinfile:
-    path: "{{ ansible_user_dir}}/.{{ ansible_user_shell | basename }}rc"
+    path: "{{ ansible_user_dir }}/.{{ ansible_user_shell | basename }}rc"
     block: |
       if type rg &> /dev/null; then
         export FZF_DEFAULT_COMMAND='rg --files'

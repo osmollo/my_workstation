@@ -5,7 +5,7 @@
 
 - name: "[PODMAN_COMPOSE] Install podman compose"
   vars:
-    dockercompose_package: https://raw.githubusercontent.com/containers/podman-compose/devel/podman_compose.py
+    podmancompose_package: https://raw.githubusercontent.com/containers/podman-compose/devel/podman_compose.py
   import_tasks: podman_compose.yml
   when: linux_distribution != "arch"
   tags:

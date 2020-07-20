@@ -217,21 +217,23 @@
     - apachedirectory
 
 - name: "Install Apache Directory"
-  block:
-    - import_tasks: apachedirectory.yml
-      when:
-        - install_apachedirectory
-        - linux_distribution != "arch"
+  import_tasks: apachedirectory.yml
+  when:
+    - install_apachedirectory
+    - linux_distribution != "arch"
+  tags:
+    - extra_software
+    - apachedirectory
 
-    - name: "[ARCH] Install apache directory studio"
-      become: false
-      yay:
-        name: "{{ apachedirectory_package }}"
-        state: present
-        update_cache: true
-      when:
-        - install_apachedirectory
-        - linux_distribution == "arch"
+- name: "[ARCH] Install apache directory studio"
+  become: false
+  yay:
+    name: "{{ apachedirectory_package }}"
+    state: present
+    update_cache: true
+  when:
+    - install_apachedirectory
+    - linux_distribution == "arch"
   tags:
     - extra_software
     - apachedirectory

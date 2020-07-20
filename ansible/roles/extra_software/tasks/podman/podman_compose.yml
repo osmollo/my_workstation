@@ -7,6 +7,6 @@
 
 - name: "[PODMAN_COMPOSE] Download Podman Compose binary"
   get_url:
-    url: "{{ dockercompose_package }}"
+    url: "{{ podmancompose_package }}"
     dest: /usr/local/bin/podman-compose
     mode: 0755
