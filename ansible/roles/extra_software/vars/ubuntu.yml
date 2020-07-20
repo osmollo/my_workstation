@@ -41,3 +41,5 @@ steam_package: http://repo.steampowered.com/steam/archive/precise/steam_latest.d
 
 wireguard_packages:
   - wireguard
+
+podman_package: podman

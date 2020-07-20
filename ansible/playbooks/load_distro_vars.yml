@@ -84,6 +84,7 @@
     - name: "Set UBUNTU_VERSION variable"
       set_fact:
         ubuntu_version: "{{ ubuntu_versions[ubuntu_codename].split('.')[0] }}"
+        ubuntu_version_long: "{{ ubuntu_versions[ubuntu_codename] }}"
       vars:
         ubuntu_versions:
           focal: "20.04"

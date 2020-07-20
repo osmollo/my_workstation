@@ -1,0 +1,17 @@
+---
+
+- name: "[PODMAN] [ARCH] Install podman"
+  become: false
+  pacman:
+    name: "{{ podman_package }}"
+    state: present
+    update_cache: true
+
+- name: "[PODMAN] [ARCH] Install podman-compose"
+  become: false
+  yay:
+    name: "{{ podmancompose_package }}"
+    state: present
+    update_cache: true
+  tags:
+    - podmancompose

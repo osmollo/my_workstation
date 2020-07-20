@@ -49,6 +49,7 @@
 | **nomachine** | Instala `No Machine` |
 | **ohmyzsh** | Instala `Oh my ZSH!` |
 | **pass** | Instala gestor de secretos `Pass` |
+| **podman** | Instala gestor de contenedores `Podman` |
 | **postman** | Instala `Postman` |
 | **prezto** | Instala `Prezto` |
 | **protonvpn** | Instala `ProtonVPN` |

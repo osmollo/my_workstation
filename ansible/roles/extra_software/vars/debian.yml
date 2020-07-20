@@ -32,3 +32,5 @@ protonvpn_dependencies:
 
 wireguard_packages:
   - wireguard
+
+podman_package: podman

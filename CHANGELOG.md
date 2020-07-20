@@ -3,6 +3,7 @@
 ## 4.4
 
 - Instalación de `Terraform`
+- Instalación de `Podman` y `Podman Compose`
 - Nueva librería de Python:
   - [PeeWee](https://pypi.org/project/peewee/)
 - Instalación de `ripgrep` junto con `fzf` y config de shellconfig para `fzf`

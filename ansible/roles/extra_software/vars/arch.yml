@@ -2,50 +2,6 @@
 
 aur_url: https://aur.archlinux.org
 
-atom_repo: "{{ aur_url }}/atom-editor-bin.git"
-dropbox_repo: "{{ aur_url }}/dropbox.git"
-chrome_repo: "{{ aur_url }}/google-chrome.git"
-code_repo: "{{ aur_url }}/visual-studio-code-bin.git"
-codium_repo: "{{ aur_url }}/vscodium-bin"
-skype_repo: "{{ aur_url }}/skypeforlinux-stable-bin.git"
-ohmyzsh_repo: "{{ aur_url }}/oh-my-zsh-git.git"
-cherrytree_repo: "{{ aur_url }}/cherrytree.git"
-postman_repo: "{{ aur_url }}/postman-bin.git"
-teamviewer_repo: "{{ aur_url }}/teamviewer.git"
-keepass_repo: "{{ aur_url }}/keepassxc-git.git"
-buttercup_repo: "{{ aur_url }}/buttercup-desktop.git"
-virtualbox_repo: "{{ aur_url }}/virtualbox-bin.git"
-tlp_repo: "{{ aur_url }}/tlp-git.git"
-telegram_repo: "{{ aur_url }}/telegram-desktop-bin.git"
-spotify_repo: "{{ aur_url }}/spotify.git"
-slack_repo: "{{ aur_url }}/slack-desktop.git"
-rambox_repo: "{{ aur_url }}/rambox-bin.git"
-pycharm_repo: "{{ aur_url }}/pycharm-community-eap.git"
-yay_repo: "{{ aur_url }}/yay-bin.git"
-vagrant_repo: "{{ aur_url }}/vagrant-git.git"
-nomachine_repo: "{{ aur_url }}/nomachine.git"
-gitkraken_repo: "{{ aur_url }}/gitkraken.git"
-sublimetext_repo: "{{ aur_url }}/sublime-text-nightly.git"
-sublimemerge_repo: "{{ aur_url }}/sublime-merge.git"
-franz_repo: "{{ aur_url }}/franz-bin.git"
-forticlient_repo: "{{ aur_url }}/forticlientsslvpn.git"
-windscribe_repo: "{{ aur_url }}/windscribe-cli.git"
-apachedirectory_repo: "{{ aur_url }}/apachedirectorystudio.git"
-java_repo: "{{ aur_url }}/java-openjdk-bin.git"
-docker_repo: "{{ aur_url }}/docker-bin.git"
-dockercompose_repo: "{{ aur_url }}/docker-compose-bin.git"
-megacmd_repo: "{{ aur_url }}/megacmd-bin.git"
-megasync_repo: "{{ aur_url }}/megasync.git"
-vivaldi_repo: "{{ aur_url }}/vivaldi.git"
-brave_repo: "{{ aur_url }}/brave-bin.git"
-bitwarden_repo: "{{ aur_url }}/bitwarden-bin"
-woeusb_repo: "{{ aur_url }}/woeusb.git"
-authy_repo: "{{ aur_url }}/authy"
-yakyak_repo: "{{ aur_url }}/yakyak"
-hiri_repo: "{{ aur_url }}/hiri"
-typora_repo: "{{ aur_url }}/typora"
-dive_repo: "{{ aur_url }}/dive"
-
 atom_package: atom-editor-bin
 dropbox_package: dropbox
 chrome_package: google-chrome
@@ -90,6 +46,8 @@ yakyak_package: yakyak
 hiri_package: hiri
 typora_package: typora
 dive_package: dive
+podman_package: podman
+podmancompose_package: podman-compose
 
 protonvpn_dependencies:
   - openvpn

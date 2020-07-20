@@ -505,3 +505,10 @@
   tags:
     - extra_software
     - terraform
+
+- name: "Install podman"
+  import_tasks: podman/podman.yml
+  when: install_podman
+  tags:
+    - extra_software
+    - podman

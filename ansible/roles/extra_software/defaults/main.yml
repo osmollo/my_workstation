@@ -62,6 +62,7 @@ install_tmux: true
 install_kodi: true
 install_mame: true
 install_terraform: true
+install_podman: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
