@@ -3,6 +3,7 @@
 ## 4.5
 
 - Cambios `post_install/ohermosa`:
+  - Nuevo paquete de `GO` para instalar
   - Nuevos repositorios git:
     - [bitbucket_lifecycle](https://globaldevtools.bbva.com/bitbucket/projects/UQNWI/repos/bitbucket_lifecycle/browse)
     - [squid_samuel_acl](https://globaldevtools.bbva.com/bitbucket/projects/UQNWI/repos/squid_samuel_acl/browse)
