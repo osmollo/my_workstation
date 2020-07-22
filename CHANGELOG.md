@@ -7,6 +7,8 @@
   - Nuevos repositorios git:
     - [bitbucket_lifecycle](https://globaldevtools.bbva.com/bitbucket/projects/UQNWI/repos/bitbucket_lifecycle/browse)
     - [squid_samuel_acl](https://globaldevtools.bbva.com/bitbucket/projects/UQNWI/repos/squid_samuel_acl/browse)
+    - [docker-kerberos](git@github.com:ist-dsi/docker-kerberos.git)
+
 
 ## 4.4
 
