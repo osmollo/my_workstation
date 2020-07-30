@@ -2,6 +2,8 @@
 
 ## 4.5
 
+- Corrección de errores:
+  - Creación de acceso directo a `Lexnet`
 - Cambios `post_install/ohermosa`:
   - Nuevo paquete de `GO` para instalar
   - Nuevos repositorios git:
