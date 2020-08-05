@@ -1,0 +1,29 @@
+- name: "[DOWNLOAD_DOCSET] assert that 'docset_name' is defined"
+  assert:
+    that:
+      - docset_name is defined
+
+- name: "[DOWNLOAD_DOCSET] create docsets directory"
+  file:
+    path: "{{ ansible_user_dir }}/.local/share/Zeal/Zeal/docsets/"
+    state: directory
+
+- name: "[DOWNLOAD_DOCSET] get xml file for '{{ docset_name }}'"
+  uri:
+    url: "{{ docset_raw_url }}/{{ docset_name }}.xml"
+    return_content: true
+    body_format: raw
+  register: docset_xml
+
+- name: "[DOWNLOAD_DOCSET] read docset url from xml"
+  xml:
+    xmlstring: "{{ docset_xml.content }}"
+    content: text
+    xpath: "/entry/url"
+  register: xmlresp
+
+- name: "[DOWNLOAD_DOCSET] download docset '{{ docset_name }}'"
+  unarchive:
+    src: "{{ xmlresp.matches[0].url }}"
+    remote_src: true
+    dest: "{{ ansible_user_dir }}/.local/share/Zeal/Zeal/docsets/"

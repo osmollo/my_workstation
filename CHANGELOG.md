@@ -2,9 +2,11 @@
 
 ## 4.5
 
+- Nueva tool `tools/download_docset` para descargar docset de `Zeal`
 - Corrección de errores:
   - Creación de acceso directo a `Lexnet`
 - Cambios `post_install/ohermosa`:
+  - Descarga de docsets para `Zeal` (nuevo tag `zeal`)
   - Nuevo paquete de `GO` para instalar
   - Nuevos repositorios git:
     - [bitbucket_lifecycle](https://globaldevtools.bbva.com/bitbucket/projects/UQNWI/repos/bitbucket_lifecycle/browse)

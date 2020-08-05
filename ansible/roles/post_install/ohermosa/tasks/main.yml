@@ -180,3 +180,9 @@
     - post_install
     - user
     - post_user
+
+- name: "configure Zeal"
+  import_tasks: zeal.yml
+  tags:
+    - post_install
+    - zeal

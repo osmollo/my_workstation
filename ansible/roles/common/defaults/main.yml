@@ -41,6 +41,7 @@ python_modules:
   - pylint
   - flake8
   - pycodestyle
+  - lxml
 
 bad_snap_packages:
   - gnome-calculator
