@@ -14,6 +14,7 @@
     - [docker-kerberos](git@github.com:ist-dsi/docker-kerberos.git)
     - [squid-krb5](https://github.com/ohermosa/squid-krb5)
     - [gorkscrew](https://github.com/ohermosa/gorkscrew)
+    - [gokrb5](https://github.com/jcmturner/gokrb5)
 - Nuevos despliegues Docker:
   - [kerberos](docker_deploys/kerberos/README.md)
 
