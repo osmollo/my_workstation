@@ -16,6 +16,7 @@
     - [squid-krb5](https://github.com/ohermosa/squid-krb5)
     - [gorkscrew](https://github.com/ohermosa/gorkscrew)
     - [gokrb5](https://github.com/jcmturner/gokrb5)
+    - [play_k8s](https://github.com/ohermosa/play_k8s)
 - Nuevos despliegues Docker:
   - [kerberos](docker_deploys/kerberos/README.md)
 
