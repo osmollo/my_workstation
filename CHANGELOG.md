@@ -3,7 +3,9 @@
 ## 4.5
 
 - Nueva tool `tools/download_docset` para descargar docset de `Zeal`
-- Instalación de `Kind` dentro de las herramientas de **kubernetes**
+- Nuevas herramientas de **kubernetes**:
+  - [Kind](https://kind.sigs.k8s.io/)
+  - [Microk8s](https://microk8s.io/)
 - Corrección de errores:
   - Creación de acceso directo a `Lexnet`
 - Cambios `post_install/ohermosa`:

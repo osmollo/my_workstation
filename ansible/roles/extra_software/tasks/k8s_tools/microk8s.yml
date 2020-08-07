@@ -1,0 +1,6 @@
+- name: "[MICROK8S] Install microk8s"
+  snap:
+    name:
+      - microk8s
+    state: present
+    classic: true
