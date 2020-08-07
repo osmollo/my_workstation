@@ -3,6 +3,7 @@
 ## 4.5
 
 - Nueva tool `tools/download_docset` para descargar docset de `Zeal`
+- Instalación de `Kind` dentro de las herramientas de **kubernetes**
 - Corrección de errores:
   - Creación de acceso directo a `Lexnet`
 - Cambios `post_install/ohermosa`:

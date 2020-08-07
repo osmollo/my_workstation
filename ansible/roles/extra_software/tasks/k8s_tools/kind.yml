@@ -1,0 +1,7 @@
+- name: "[KIND] download kind"
+  get_url:
+    url: https://kind.sigs.k8s.io/dl/v0.8.1/kind-linux-amd64
+    dest: /usr/local/bin/kind
+    owner: root
+    group: root
+    mode: 0755

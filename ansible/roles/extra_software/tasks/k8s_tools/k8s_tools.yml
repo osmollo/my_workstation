@@ -53,3 +53,8 @@
   import_tasks: lens.yml
   tags:
     - lens
+
+- name: "[KIND] installation"
+  import_tasks: kind.yml
+  tags:
+    - kind
