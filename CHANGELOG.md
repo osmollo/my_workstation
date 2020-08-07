@@ -6,6 +6,7 @@
 - Nuevas herramientas de **kubernetes**:
   - [Kind](https://kind.sigs.k8s.io/)
   - [Microk8s](https://microk8s.io/)
+- Instalación de `Lens`en **Ubuntu** usando paquete *snap*
 - Corrección de errores:
   - Creación de acceso directo a `Lexnet`
 - Cambios `post_install/ohermosa`:
