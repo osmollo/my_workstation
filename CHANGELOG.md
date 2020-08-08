@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## 4.5
+
+- Nueva tool `tools/download_docset` para descargar docset de `Zeal`
+- Nuevas herramientas de **kubernetes**:
+  - [Kind](https://kind.sigs.k8s.io/)
+  - [Microk8s](https://microk8s.io/)
+- Instalación de `Lens`en **Ubuntu** usando paquete *snap*
+- Corrección de errores:
+  - Creación de acceso directo a `Lexnet`
+- Cambios `post_install/ohermosa`:
+  - Descarga de docsets para `Zeal` (nuevo tag `zeal`)
+  - Nuevo paquete de `GO` para instalar
+  - Nuevos repositorios git:
+    - [bitbucket_lifecycle](https://globaldevtools.bbva.com/bitbucket/projects/UQNWI/repos/bitbucket_lifecycle/browse)
+    - [squid_samuel_acl](https://globaldevtools.bbva.com/bitbucket/projects/UQNWI/repos/squid_samuel_acl/browse)
+    - [docker-kerberos](git@github.com:ist-dsi/docker-kerberos.git)
+    - [squid-krb5](https://github.com/ohermosa/squid-krb5)
+    - [gorkscrew](https://github.com/ohermosa/gorkscrew)
+    - [gokrb5](https://github.com/jcmturner/gokrb5)
+    - [play_k8s](https://github.com/ohermosa/play_k8s)
+- Nuevos despliegues Docker:
+  - [kerberos](docker_deploys/kerberos/README.md)
+
 ## 4.4
 
 - Instalación de `Terraform`

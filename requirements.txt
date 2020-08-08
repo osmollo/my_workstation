@@ -20,3 +20,4 @@ packaging
 pylint
 flake8
 pycodestyle
+lxml

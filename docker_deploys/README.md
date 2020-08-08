@@ -21,3 +21,4 @@ ansible-playbook install.yml -t install_docker --ask-bacome-pass
 | [Consul](consul/) | Despliegue de `Consul` |
 | [Wireguard](wireguard/) | Despliegue del servicio VPN `Wireguard` |
 | [torrent_raspi](torrent_raspi/) | Despliegue de sistema automático de descargas en **Raspberry** usando `transmission` y gestión de contenidos con `plex` |
+| [kerberos](kerberos/) | Despliegue de servidor kerberos |

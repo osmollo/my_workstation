@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Name=Firefox ESR for Lexnet
+Comment=Lexnet Edition
+GenericName=Web Browser
+Keywords=Internet;WWW;Browser;Web;Explorer
+Exec={{ firefox_esr_binary }} -P {{ lexnet_firefox_profile }} %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=firefox
+Categories=GNOME;GTK;Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;
+StartupNotify=true
+Actions=new-window;new-private-window;

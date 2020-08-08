@@ -1,0 +1,6 @@
+- name: "[ZEAL] download docset"
+  include_role:
+    name: tools/download_docset
+  vars:
+    docset_name: "{{ item }}"
+  loop: "{{ zeal_docsets }}"

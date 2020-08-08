@@ -84,6 +84,8 @@
 | **helm** | |
 | **hetznerkube** | |
 | **kops** | |
+| **kind** | |
+| **microk8s** | |
 
 ## Documentación
 

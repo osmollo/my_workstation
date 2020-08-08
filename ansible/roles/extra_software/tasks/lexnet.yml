@@ -87,6 +87,7 @@
 - name: "[LEXNET] customize firefox if {{ ansible_user_dir }}/.mozilla/firefox exists"
   become: false
   become_user: "{{ ansible_user }}"
+  when: stat_response.stat.exists
   block:
     - name: "[LEXNET] generate new profile {{ lexnet_firefox_profile }}"
       command: "{{ item }}"
@@ -137,7 +138,13 @@
       with_nested:
         - "{{ find_response.files | json_query('[].path') }}"
         - "{{ db_files }}"
-  when: stat_response.stat.exists
+
+- name: "[LEXNET] Create shortcut to application"
+  template:
+    src: lexnet.desktop.j2
+    dest: /usr/share/applications/lexnet.desktop
+    mode: 0644
+  when: desktop_environment == "gnome"
 
 - name: "[LEXNET] Delete temporal directory"
   file:
