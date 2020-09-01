@@ -48,6 +48,8 @@ typora_package: typora
 dive_package: dive
 podman_package: podman
 podmancompose_package: podman-compose
+vault_package: vault-bin
+vault_cli_package: vault-cli-bin
 
 protonvpn_dependencies:
   - openvpn

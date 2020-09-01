@@ -64,3 +64,4 @@ install_mame: false
 install_terraform: true
 install_podman: true
 install_act: true
+install_vault: true

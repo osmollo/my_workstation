@@ -3,6 +3,7 @@
 ## 4.6
 
 - Instalación de `act` para ejecución local de [Github Actions](https://github.com/marketplace?type=actions)
+- Instalación de [Vault](https://learn.hashicorp.com/tutorials/vault/getting-started-install)
 - Cambios `post_install/ohermosa`:
   - Nueva opción para desactivar `push` en los remotes de `git`
   - Nuevos repositorios git:

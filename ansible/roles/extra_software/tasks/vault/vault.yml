@@ -1,0 +1,20 @@
+---
+
+- name: "[VAULT] install for {{ linux_distribution }}"
+  include_tasks: "vault_{{ linux_distribution }}.yml"
+
+- name: "[VAULT] delete vault binary if exists"
+  vars:
+    vault_binary_path: /usr/local/bin/vault
+  block:
+    - name: "[VAULT] check if vault binary is present"
+      stat:
+        path: "{{ ansible_binary_path }}"
+      register: vault_response
+
+    - name: "[VAULT] delete vault binary"
+      file:
+        path: "{{ vault_binary_path }}"
+        state: absent
+      when: vault_response.stat.exists
+  when: (delete_vault_binary | default(false)) | bool

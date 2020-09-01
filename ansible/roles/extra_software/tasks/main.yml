@@ -521,3 +521,10 @@
   tags:
     - extra_software
     - act
+
+- name: "Install vault"
+  import_tasks: vault/vault.yml
+  when: install_vault
+  tags:
+    - extra_software
+    - vault

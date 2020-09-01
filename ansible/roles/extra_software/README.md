@@ -68,6 +68,7 @@
 | **terraform** | Instala `Terraform` |
 | **tmux** | Instala y configura `Tmux` |
 | **tlp** | Instala `TLP` |
+| **vault** | Instala `Vault` |
 | **vim_plugins** | Instala plugins de `vim` |
 | **virtualbox** | Instala `Virtualbox` |
 | **vivaldi** | Instala `Vivaldi` |
