@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 4.6
+
+- Cambios `post_install/ohermosa`:
+  - Nuevos repositorios git:
+    - [msqlm_gorkscrew](https://globaldevtools.bbva.com/bitbucket/projects/MSQLM/repos/msqlm_gorkscrew/browse)
+  - Cambios en repositorios git existentes:
+    - **gorkscrew**: pasa a estar alojado en [gitlab](https://gitlab.com/ohermosa/gorkscrew) con remoto en [github](https://github.com/ohermosa/gorkscrew)
+    - **squid-krb5**: se ha eliminado puesto que se ha integrado dentro de [corkscrew](https://gitlab.com/ohermosa/gorkscrew/-/tree/master/test)
+
 ## 4.5
 
 - Nueva tool `tools/download_docset` para descargar docset de `Zeal`
