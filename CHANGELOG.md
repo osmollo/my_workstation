@@ -2,6 +2,7 @@
 
 ## 4.6
 
+- Instalación de `act` para ejecución local de [Github Actions](https://github.com/marketplace?type=actions)
 - Cambios `post_install/ohermosa`:
   - Nueva opción para desactivar `push` en los remotes de `git`
   - Nuevos repositorios git:

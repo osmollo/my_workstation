@@ -1,0 +1,20 @@
+---
+
+- name: "[ACT] download installation script"
+  get_url:
+    url: https://raw.githubusercontent.com/nektos/act/master/install.sh
+    dest: /tmp/install.sh
+    mode: 0755
+
+- name: "[ACT] install act"
+  command: /tmp/install.sh
+  failed_when: false
+  register: act_response
+
+- name: "[ACT] delete temporal file"
+  file:
+    path: /tmp/install.sh
+    state: absent
+  when:
+    - not act_response.failed
+    - act_response.rc == 0

@@ -36,6 +36,7 @@ Por defecto se instala el siguiente software:
 
 | **APLICACIÓN** | **TAG** | **VARIABLE** | **GRUPO** | **DESCRIPCIÓN** |
 |--|--|--|--|--|
+| [Act](https://github.com/nektos/act) | act | install_act | | Ejecuta localmente **Github Actions** |
 | [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) | apachedirectory | install_apachedirectory | | Cliente de LDAP |
 | [Atom](https://atom.io/) | atom | install_atom | editors | Editor de texto |
 | [Authy](https://authy.com/) | authy | install_authy | | Aplicación para 2FA |

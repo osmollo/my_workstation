@@ -14,6 +14,7 @@
 | **pass_managers** | Instala `KeepassXC` y `Buttercup` |
 | **remotes** | Instala `Teamviewer` y `No Machine` |
 | **socials** | Instala los clientes de mensajería `Telegram Desktop`, `Slack` y `Skype` |
+| **act** | Instala `act` |
 | **apachedirectory** | Instala `Apache Directory Studio` |
 | **atom** | Instala `Atom` |
 | **authy** | Instala `Authy` |
