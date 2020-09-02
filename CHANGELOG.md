@@ -13,6 +13,7 @@
   - Nueva opción para desactivar `push` en los remotes de `git`
   - Nuevos repositorios git:
     - [msqlm_gorkscrew](https://globaldevtools.bbva.com/bitbucket/projects/MSQLM/repos/msqlm_gorkscrew/browse)
+    - [oracle_cloud](https://gitlab.com/ohermosa/oracle_cloud)
   - Cambios en repositorios git existentes:
     - **gorkscrew**: pasa a estar alojado en [gitlab](https://gitlab.com/ohermosa/gorkscrew) con remoto en [github](https://github.com/ohermosa/gorkscrew). Este remoto tiene el push desactivado
     - **squid-krb5**: se ha eliminado puesto que se ha integrado dentro de [corkscrew](https://gitlab.com/ohermosa/gorkscrew/-/tree/master/test)
