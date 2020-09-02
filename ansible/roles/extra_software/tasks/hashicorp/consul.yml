@@ -1,0 +1,28 @@
+---
+
+- name: "[CONSUL] delete previous binary"
+  import_tasks: delete_previous_binary.yml
+  vars:
+    tool_binary_path: "/usr/local/bin/consul"
+
+- name: "[CONSUL] [ARCH] Install consul"
+  become: false
+  yay:
+    name: "{{ consul_package }}"
+    state: present
+    update_cache: true
+  when: linux_distribution == "arch"
+
+- name: "[CONSUL] [DEB] install consul package"
+  apt:
+    name: consul
+    update_cache: true
+    state: present
+  when: linux_distribution in ["debian", "ubuntu"]
+
+- name: "[CONSUL] [FEDORA] install consul package"
+  yum:
+    name: consul
+    update_cache: true
+    state: present
+  when: linux_distribution == "fedora"

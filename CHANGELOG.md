@@ -3,7 +3,11 @@
 ## 4.6
 
 - Instalación de `act` para ejecución local de [Github Actions](https://github.com/marketplace?type=actions)
-- Instalación de [Vault](https://learn.hashicorp.com/tutorials/vault/getting-started-install)
+- Instalación del stack de aplicaciones de [Hashicorp](https://www.hashicorp.com/):
+  - [Vault](https://learn.hashicorp.com/tutorials/vault/getting-started-install)
+  - [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+  - [Consul](https://learn.hashicorp.com/tutorials/consul/get-started-install)
+  - [Nomad](https://learn.hashicorp.com/tutorials/nomad/get-started-install)
 - Cambios `post_install/ohermosa`:
   - Nueva opción para desactivar `push` en los remotes de `git`
   - Nuevos repositorios git:
@@ -11,6 +15,8 @@
   - Cambios en repositorios git existentes:
     - **gorkscrew**: pasa a estar alojado en [gitlab](https://gitlab.com/ohermosa/gorkscrew) con remoto en [github](https://github.com/ohermosa/gorkscrew). Este remoto tiene el push desactivado
     - **squid-krb5**: se ha eliminado puesto que se ha integrado dentro de [corkscrew](https://gitlab.com/ohermosa/gorkscrew/-/tree/master/test)
+- Corrección de errores:
+  - Fix en la tarea que copia los repositorios de **debian/ubuntu** de **vscode/vscodium**
 
 ## 4.5
 

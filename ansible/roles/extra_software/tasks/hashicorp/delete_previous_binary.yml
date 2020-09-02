@@ -1,0 +1,12 @@
+---
+
+- name: "[HASHICORP] check if tool binary is present"
+  stat:
+    path: "{{ tool_binary_path }}"
+  register: tool_response
+
+- name: "[HASHICORP] delete tool binary"
+  file:
+    path: "{{ tool_binary_path }}"
+    state: absent
+  when: tool_response.stat.exists

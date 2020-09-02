@@ -1,0 +1,31 @@
+---
+
+- name: "[VAULT] delete previous binary"
+  import_tasks: delete_previous_binary.yml
+  vars:
+    tool_binary_path: "/usr/local/bin/vault"
+
+- name: "[VAULT] [ARCH] Install vault"
+  become: false
+  yay:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop:
+    - "{{ vault_package }}"
+    - "{{ vault_cli_package }}"
+  when: linux_distribution == "arch"
+
+- name: "[VAULT] [DEB] install vault package"
+  apt:
+    name: vault
+    update_cache: true
+    state: present
+  when: linux_distribution in ["debian", "ubuntu"]
+
+- name: "[VAULT] [FEDORA] install vault package"
+  yum:
+    name: vault
+    update_cache: true
+    state: present
+  when: linux_distribution == "fedora"

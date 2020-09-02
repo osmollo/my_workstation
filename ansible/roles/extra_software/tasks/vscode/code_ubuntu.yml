@@ -2,11 +2,13 @@
 
 - name: "[VSCODE] [DEB] Copy repository file"
   copy:
-    src: code.list
+    content: "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main"
     dest: /etc/apt/sources.list.d/vscode.list
     mode: 0644
     owner: root
     group: root
+  tags:
+    - vscode_repo
 
 - name: "[VSCODE] [DEB] Import repository key"
   apt_key:

@@ -501,13 +501,6 @@
     - extra_software
     - mame
 
-- name: "Install terraform"
-  import_tasks: terraform.yml
-  when: install_terraform
-  tags:
-    - extra_software
-    - terraform
-
 - name: "Install podman"
   import_tasks: podman/podman.yml
   when: install_podman
@@ -522,9 +515,41 @@
     - extra_software
     - act
 
+- name: "Install Hashicorp stack"
+  import_tasks: hashicorp/hashicorp.yml
+  when: install_hashicorp or install_vault or install_terraform or install_consul or install_nomad
+  tags:
+    - extra_software
+    - hashicorp
+    - vault
+    - terraform
+    - consul
+    - nomad
+
 - name: "Install vault"
-  import_tasks: vault/vault.yml
+  import_tasks: hashicorp/vault.yml
   when: install_vault
   tags:
     - extra_software
     - vault
+
+- name: "Install terraform"
+  import_tasks: hashicorp/terraform.yml
+  when: install_terraform
+  tags:
+    - extra_software
+    - terraform
+
+- name: "Install consul"
+  import_tasks: hashicorp/consul.yml
+  when: install_consul
+  tags:
+    - extra_software
+    - consul
+
+- name: "Install nomad"
+  import_tasks: hashicorp/nomad.yml
+  when: install_nomad
+  tags:
+    - extra_software
+    - nomad

@@ -1,0 +1,6 @@
+---
+
+- name: "[HASHICORP] [FEDORA] download hashicorp.repo"
+  get_url:
+    url: https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+    dest: /etc/yum.repos.d/hashicorp.repo

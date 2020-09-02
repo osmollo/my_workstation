@@ -7,6 +7,8 @@
     owner: root
     group: root
     mode: 0644
+  tags:
+    - vscodium_repo
 
 - name: "[VSCODIUM] [FEDORA] Import Microsoft key"
   rpm_key:

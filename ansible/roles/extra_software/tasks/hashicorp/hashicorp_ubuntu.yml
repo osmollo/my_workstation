@@ -1,17 +1,11 @@
 ---
 
-- name: "[VAULT] [DEB] Import repository key"
+- name: "[HASHICORP] [DEB] Import repository key"
   apt_key:
     url: https://apt.releases.hashicorp.com/gpg
     state: present
 
-- name: "[VAULT] [DEB] create repository file"
+- name: "[HASHICORP] [DEB] create repository file"
   copy:
     content: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ubuntu_codename }} main"
     dest: /etc/apt/sources.list.d/hashicorp.list
-
-- name: "[VAULT] [DEB] install vault package"
-  apt:
-    name: vault
-    update_cache: true
-    state: present
