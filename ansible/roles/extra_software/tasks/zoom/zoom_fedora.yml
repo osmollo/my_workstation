@@ -1,0 +1,13 @@
+---
+
+- name: "[ZOOM] [FEDORA] install repository key"
+  rpm_key:
+    key: https://zoom.us/linux/download/pubkey
+    state: present
+
+
+- name: "[ZOOM] [FEDORA] install zoom package"
+  yum:
+    name: "{{ zoom_url_base }}/{{ zoom_version }}/zoom_x86_amd64.rpm"
+    update_cache: true
+    state: present

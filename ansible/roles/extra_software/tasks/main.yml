@@ -553,3 +553,10 @@
   tags:
     - extra_software
     - nomad
+
+- name: "Install zoom"
+  import_tasks: zoom/zoom.yml
+  when: install_zoom
+  tags:
+    - extra_software
+    - zoom

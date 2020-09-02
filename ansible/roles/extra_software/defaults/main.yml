@@ -68,7 +68,7 @@ install_vault: true
 install_terraform: true
 install_consul: true
 install_nomad: true
-
+install_zoom: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -157,3 +157,4 @@ atom_packages_url: https://gist.githubusercontent.com/ohermosa/854b27da912466255
 appimage_dir: "{{ ansible_user_dir }}/AppImage"
 
 terraform_binary_path: /usr/local/bin/terraform
+zoom_url_base: https://d11yldzmag5yn.cloudfront.net/prod

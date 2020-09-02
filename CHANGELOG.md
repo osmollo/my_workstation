@@ -2,6 +2,7 @@
 
 ## 4.6
 
+- Instalación del cliente de videoconferencia [Zoom](https://zoom.us/es-es/meetings.html)
 - Instalación de `act` para ejecución local de [Github Actions](https://github.com/marketplace?type=actions)
 - Instalación del stack de aplicaciones de [Hashicorp](https://www.hashicorp.com/):
   - [Vault](https://learn.hashicorp.com/tutorials/vault/getting-started-install)

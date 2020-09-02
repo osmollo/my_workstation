@@ -66,5 +66,6 @@ install_act: true
 install_hashicorp: true
 install_vault: true
 install_terraform: true
-install_consul: true
-install_nomad: true
+install_consul: false
+install_nomad: false
+install_zoom: false

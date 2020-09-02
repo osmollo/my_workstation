@@ -79,6 +79,7 @@
 | **Wireguard** | Instala `Wireguard` |
 | **woeusb** | Instala `WoeUSB` |
 | **yakyak** | Instala `YakYak` |
+| **zoom** | Instala `Zoom` |
 | **flatpak** | |
 | **vagrant** | |
 | **dockercompose** | |
