@@ -19,6 +19,9 @@
     - **squid-krb5**: se ha eliminado puesto que se ha integrado dentro de [corkscrew](https://gitlab.com/ohermosa/gorkscrew/-/tree/master/test)
 - Corrección de errores:
   - Fix en la tarea que copia los repositorios de **debian/ubuntu** de **vscode/vscodium**
+  - Fixes en CI:
+    - A partir de ahora, el job `test`sólo se ejecutará en commits de ramas asociados a una `merge request`
+    - El check de si ha cambiado el fichero `release.json` pasa de `release` a `test` para que no se pueda aprobar una `merge request` si no se ha modificado
 
 ## 4.5
 
