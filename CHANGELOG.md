@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.7
+
+- Script `github_release.py` para ejecutar en el CI y crear la _release_ en el [repositorio de github]('https://github.com/ohermosa/my_workstation')
+
 ## 4.6
 
 - Instalación del cliente de videoconferencia [Zoom](https://zoom.us/es-es/meetings.html)
