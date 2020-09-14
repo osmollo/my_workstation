@@ -21,6 +21,7 @@
   - Fixes en CI:
     - A partir de ahora, el job `test`sólo se ejecutará en commits de ramas asociados a una `merge request`
     - El check de si ha cambiado el fichero `release.json` pasa de `release` a `test` para que no se pueda aprobar una `merge request` si no se ha modificado
+  - Cambiado el ID de gist que se usa como backup de `Code` y `Codium`
 
 ## 4.5
 
