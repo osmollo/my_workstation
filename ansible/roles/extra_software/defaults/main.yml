@@ -61,8 +61,14 @@ install_vscodium: true
 install_tmux: true
 install_kodi: true
 install_mame: true
-install_terraform: true
 install_podman: true
+install_act: true
+install_hashicorp: true
+install_vault: true
+install_terraform: true
+install_consul: true
+install_nomad: true
+install_zoom: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -107,7 +113,7 @@ virtualbox_extension_package: "https://download.virtualbox.org/virtualbox/{{ vir
 dockercompose_package: "https://github.com/docker/compose/releases/download/{{ dockercompose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
 mega_url_base: "https://mega.nz/linux/MEGAsync"
 
-vivaldi_version: 2.9.1705.41-1
+vivaldi_version: 3.3.2022.45-1
 
 prezto_repo: https://github.com/sorin-ionescu/prezto.git
 
@@ -144,10 +150,11 @@ lexnet_packages:
   - pcsc-tools
   - libglade2-dev
 
-code_settings_url: https://gist.githubusercontent.com/ohermosa/a2b55c8a488b2a45e8626e75ca35c7c4/raw/settings.json
-code_extensions_url: https://gist.githubusercontent.com/ohermosa/a2b55c8a488b2a45e8626e75ca35c7c4/raw/extensions.json
+code_settings_url: https://gist.githubusercontent.com/ohermosa/894b15a847cc2f4d6b3d58ab6071f3ac/raw/settings.json
+code_extensions_url: https://gist.githubusercontent.com/ohermosa/894b15a847cc2f4d6b3d58ab6071f3ac/raw/extensions.json
 atom_packages_url: https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json
 
 appimage_dir: "{{ ansible_user_dir }}/AppImage"
 
 terraform_binary_path: /usr/local/bin/terraform
+zoom_url_base: https://d11yldzmag5yn.cloudfront.net/prod

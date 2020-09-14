@@ -2,11 +2,13 @@
 
 - name: "[VSCODIUM] [DEB] Copy repository file"
   copy:
-    src: codium.list
+    content: "deb https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/ vscodium main"
     dest: /etc/apt/sources.list.d/vscodium.list
     mode: 0644
     owner: root
     group: root
+  tags:
+    - vscodium_repo
 
 - name: "[VSCODIUM] [DEB] Import repository key"
   apt_key:

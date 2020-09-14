@@ -57,9 +57,15 @@ install_beekeeper: false
 intall_kdenlive: true
 install_sublimemerge: true
 install_bfg: true
-install_vscodium: false
+install_vscodium: true
 install_tmux: false
 install_kodi: false
 install_mame: false
-install_terraform: true
 install_podman: true
+install_act: true
+install_hashicorp: true
+install_vault: true
+install_terraform: true
+install_consul: false
+install_nomad: false
+install_zoom: false

@@ -1,0 +1,8 @@
+---
+
+- name: "[ZOOM] [ARCH] Install zoom"
+  become: false
+  yay:
+    name: "{{ zoom_package }}"
+    state: present
+    update_cache: true

@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## 4.6
+
+- Instalación del cliente de videoconferencia [Zoom](https://zoom.us/es-es/meetings.html)
+- Instalación de `act` para ejecución local de [Github Actions](https://github.com/marketplace?type=actions)
+- Instalación del stack de aplicaciones de [Hashicorp](https://www.hashicorp.com/):
+  - [Vault](https://learn.hashicorp.com/tutorials/vault/getting-started-install)
+  - [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+  - [Consul](https://learn.hashicorp.com/tutorials/consul/get-started-install)
+  - [Nomad](https://learn.hashicorp.com/tutorials/nomad/get-started-install)
+- Cambios `post_install/ohermosa`:
+  - Nueva opción para desactivar `push` en los remotes de `git`
+  - Nuevos repositorios git:
+    - [msqlm_gorkscrew](https://globaldevtools.bbva.com/bitbucket/projects/MSQLM/repos/msqlm_gorkscrew/browse)
+    - [oracle_cloud](https://gitlab.com/ohermosa/oracle_cloud)
+  - Cambios en repositorios git existentes:
+    - **squid-krb5**: se ha eliminado puesto que se ha integrado dentro de [corkscrew](https://gitlab.com/ohermosa/gorkscrew/-/tree/master/test)
+- Corrección de errores:
+  - Fix en la tarea que copia los repositorios de **debian/ubuntu** de **vscode/vscodium**
+  - Fixes en CI:
+    - A partir de ahora, el job `test` sólo se ejecutará en commits de ramas asociados a una `merge request`
+    - El check de si ha cambiado el fichero `release.json` pasa de `release` a `test` para que no se pueda aprobar una `merge request` si no se ha modificado
+  - Cambiado el ID de gist que se usa como backup de `Code` y `Codium`
+  - Actualizada versión de `Vivaldi` a **3.3.2022.45-1**
+
 ## 4.5
 
 - Nueva tool `tools/download_docset` para descargar docset de `Zeal`

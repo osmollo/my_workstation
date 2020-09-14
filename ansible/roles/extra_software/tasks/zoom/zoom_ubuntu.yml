@@ -1,0 +1,7 @@
+---
+
+- name: "[ZOOM] [DEB] install zoom"
+  apt:
+    deb: "{{ zoom_url_base }}/{{ zoom_version }}/zoom_amd64.deb"
+    update_cache: true
+    state: present

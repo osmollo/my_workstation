@@ -9,18 +9,22 @@
     - [Ejemplo de uso](#ejemplo-de-uso-1)
   - [get_nomachine_latest](#get_nomachine_latest)
     - [Ejemplo de uso](#ejemplo-de-uso-2)
-  - [github_repo](#github_repo)
+  - [get_zoom_latest](#get_zoom_latest)
     - [Ejemplo de uso](#ejemplo-de-uso-3)
-  - [gitlab_repo](#gitlab_repo)
+  - [github_repo](#github_repo)
     - [Ejemplo de uso](#ejemplo-de-uso-4)
-  - [gitlab_get_forks](#gitlab_get_forks)
+  - [gitlab_repo](#gitlab_repo)
     - [Ejemplo de uso](#ejemplo-de-uso-5)
-  - [gitlab_get_repos](#gitlab_get_repos)
+  - [gitlab_get_forks](#gitlab_get_forks)
     - [Ejemplo de uso](#ejemplo-de-uso-6)
-  - [yay](#yay)
+  - [gitlab_get_repos](#gitlab_get_repos)
     - [Ejemplo de uso](#ejemplo-de-uso-7)
-  - [protonvpn_fastest](#protonvpn_fastest)
+  - [yay](#yay)
     - [Ejemplo de uso](#ejemplo-de-uso-8)
+  - [protonvpn_fastest](#protonvpn_fastest)
+    - [Ejemplo de uso](#ejemplo-de-uso-9)
+  - [bfg_url](#bfg_url)
+    - [Ejemplo de uso](#ejemplo-de-uso-10)
 
 ## dconf_to_list
 
@@ -123,6 +127,19 @@ Este módulo parsea la [web de `NoMachine`](https://www.nomachine.com/download/d
 - debug: var=nomachine_response.version
 ```
 
+## get_zoom_latest
+
+Este módulo parsea la [web de `Zoom`](https://support.zoom.us/hc/en-us/articles/205759689) para devolver cuál es la última versión estable del cliente `Zoom`
+
+### Ejemplo de uso
+
+```yaml
+- name: "get zoom version"
+  get_zoom_latest:
+  register: zoom_response
+
+- debug: var=zoom_response.version
+```
 
 ## github_repo
 

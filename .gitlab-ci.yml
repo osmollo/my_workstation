@@ -8,12 +8,11 @@ ansible-lint:
     LAST_COMMIT: 'git log --format="%H" -n 2 | tail -1'
     UPDATED_YAML: 'git diff --name-only `eval $LAST_COMMIT` | grep ".yml" | grep -v gpg| grep -v ".gitlab-ci.yml" | tr "\n" " "'
     EXECUTE_LINT: 'git diff --name-only `eval $LAST_COMMIT` | grep ".yml" | grep -v ".gitlab-ci.yml" | wc -l'
-  before_script:
-    - if [ `eval $EXECUTE_LINT` -ge 1 ]; then pip install ansible-lint; else exit 0; fi
   script:
-    - if [ `eval $EXECUTE_LINT` -ge 1 ]; then echo "Executing... ansible-lint `eval $UPDATED_YAML`"; ansible-lint `eval $UPDATED_YAML`; else exit 0; fi
-  except:
-    - master
+    - if ! $(git diff-index HEAD^ --quiet -- release.json 2&>1 /dev/null); then echo "releasing $(jq -r .version release.json)"; else echo "release.json hasn't changed'"; exit 1; fi
+    - if [ `eval $EXECUTE_LINT` -ge 1 ]; then pip install ansible-lint; echo "Executing... ansible-lint `eval $UPDATED_YAML`"; ansible-lint `eval $UPDATED_YAML`; else exit 0; fi
+  only:
+    - merge_requests
   tags:
     - shell
     - gitlab2github
@@ -31,7 +30,6 @@ release:
   script:
     - git checkout master
     - git pull
-    - if ! $(git diff-index HEAD^ --quiet -- release.json 2&>1 /dev/null); then echo "releasing $(jq -r .version release.json)"; else echo "release.json hasn't changed'"; exit $(git diff-index master --quiet -- release.json); fi
     - git tag -a $(jq -r .version release.json) -m "$(jq -r .version release.json)"
     - git push --tags
     - git push github HEAD:master

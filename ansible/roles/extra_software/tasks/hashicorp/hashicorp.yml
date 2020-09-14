@@ -1,0 +1,14 @@
+---
+
+- name: "[HASHICORP] install for {{ linux_distribution }}"
+  include_tasks: "hashicorp_{{ linux_distribution }}.yml"
+  when: linux_distribution != "arch"
+
+- name: "[HASHICORP] install for Arch"
+  include_tasks: "{{ item }}.yml"
+  loop:
+    - consul
+    - terraform
+    - vault
+    - nomad
+  when: linux_distribution == "arch"

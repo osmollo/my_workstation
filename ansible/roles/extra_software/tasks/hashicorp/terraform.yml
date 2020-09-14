@@ -1,0 +1,28 @@
+---
+
+- name: "[TERRAFORM] delete previous binary"
+  import_tasks: delete_previous_binary.yml
+  vars:
+    tool_binary_path: "/usr/local/bin/terraform"
+
+- name: "[TERRAFORM] [ARCH] Install terraform"
+  become: false
+  yay:
+    name: "{{ terraform_package }}"
+    state: present
+    update_cache: true
+  when: linux_distribution == "arch"
+
+- name: "[TERRAFORM] [DEB] install terraform package"
+  apt:
+    name: terraform
+    update_cache: true
+    state: present
+  when: linux_distribution in ["debian", "ubuntu"]
+
+- name: "[TERRAFORM] [FEDORA] install terraform package"
+  yum:
+    name: terraform
+    update_cache: true
+    state: present
+  when: linux_distribution == "fedora"

@@ -14,6 +14,7 @@
 | **pass_managers** | Instala `KeepassXC` y `Buttercup` |
 | **remotes** | Instala `Teamviewer` y `No Machine` |
 | **socials** | Instala los clientes de mensajería `Telegram Desktop`, `Slack` y `Skype` |
+| **act** | Instala `act` |
 | **apachedirectory** | Instala `Apache Directory Studio` |
 | **atom** | Instala `Atom` |
 | **authy** | Instala `Authy` |
@@ -67,6 +68,7 @@
 | **terraform** | Instala `Terraform` |
 | **tmux** | Instala y configura `Tmux` |
 | **tlp** | Instala `TLP` |
+| **vault** | Instala `Vault` |
 | **vim_plugins** | Instala plugins de `vim` |
 | **virtualbox** | Instala `Virtualbox` |
 | **vivaldi** | Instala `Vivaldi` |
@@ -77,6 +79,7 @@
 | **Wireguard** | Instala `Wireguard` |
 | **woeusb** | Instala `WoeUSB` |
 | **yakyak** | Instala `YakYak` |
+| **zoom** | Instala `Zoom` |
 | **flatpak** | |
 | **vagrant** | |
 | **dockercompose** | |

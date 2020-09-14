@@ -103,6 +103,14 @@
       vars:
         remote_url: "git@{{ item.remote }}.com:ohermosa/{{ (item.repo | basename).split('.')[0] }}.git"
 
+    - name: "[GIT] Delete push for remote"
+      shell: "git remote set-url --push {{ item.remote }} no_push"
+      with_items: "{{ git_repositories.home }}"
+      when:
+        - item.remote is defined
+        - item.no_push is defined
+        - item.no_push | bool
+
     # Create remotes for repositories that have forks
 
     - name: "[GIT] get repositories to check if have forks"
