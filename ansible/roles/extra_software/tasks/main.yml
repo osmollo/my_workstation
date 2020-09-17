@@ -560,3 +560,10 @@
   tags:
     - extra_software
     - zoom
+
+- name: "Install Github CLI"
+  import_tasks: github_cli/github_cli.yml
+  when: install_githubcli
+  tags:
+    - extra_software
+    - githubcli

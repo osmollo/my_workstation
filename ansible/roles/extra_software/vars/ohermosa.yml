@@ -69,3 +69,4 @@ install_terraform: true
 install_consul: false
 install_nomad: false
 install_zoom: false
+install_githubcli: true

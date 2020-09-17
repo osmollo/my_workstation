@@ -1,0 +1,15 @@
+---
+
+- name: "[GITHUB_CLI] [FEDORA] Copy repository file"
+  get_url:
+    url: https://cli.github.com/packages/rpm/gh-cli.repo
+    dest: /etc/yum.repos.d/githubcli.repo
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "[GITHUB_CLI] [FEDORA] Install Github CLI"
+  yum:
+    name: gh
+    state: present
+    update_cache: true

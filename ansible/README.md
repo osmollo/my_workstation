@@ -57,6 +57,7 @@ Por defecto se instala el siguiente software:
 | [Forticlient VPN](https://www.fortinet.com/lat) | forticlientvpn | install_forticlientvpn | | Cliente VPN |
 | [Franz](https://meetfranz.com/) | franz | install_franz | | Administrador de clientes de mensajería |
 | [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | | Buscador difuso de archivos |
+| [Github CLI](https://github.com/cli/cli) | githubcli | install_githubcli | | Cli de consola para [Github](https://github.com) |
 | [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | | Cliente gráfico de git |
 | [GO](https://golang.org/doc/install/source) | go | install_go | | Compilador del lenguaje GO |
 | [Google Chrome](https://www.google.com/intl/es/chrome/) | chrome | install_chrome | browsers | Navegador web |

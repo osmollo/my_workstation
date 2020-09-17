@@ -2,7 +2,11 @@
 
 ## 4.7
 
+- Instalación de [Github CLI](https://github.com/cli/cli)
 - Script `github_release.py` para ejecutar en el CI y crear la _release_ en el [repositorio de github]('https://github.com/ohermosa/my_workstation')
+- Cambios en `post_install/ohermosa`:
+  - Nuevos repositorios git:
+    - [github cli](https://github.com/cli/cli)
 
 ## 4.6
 
