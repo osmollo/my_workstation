@@ -186,3 +186,9 @@
   tags:
     - post_install
     - zeal
+
+- name: "configure github CLI"
+  import_tasks: github_cli.yml
+  tags:
+    - post_install
+    - githubcli
