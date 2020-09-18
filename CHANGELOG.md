@@ -8,6 +8,8 @@
   - Configuración de `Github CLI`
   - Nuevos repositorios git:
     - [github cli](https://github.com/cli/cli)
+- Corrección de errores:
+  - Actualizada versión de `Dropbox` a `2020.03.04-1`
 
 ## 4.6
 
