@@ -43,6 +43,7 @@ version:
     returned: always
 '''
 
+
 def get_fucking_latest(versions=[]):
     r = re.compile("^[0-9]+\.[0-9]+(\.[0-9])*$")
     stable_versions = list(filter(r.match, versions))

@@ -4,6 +4,7 @@
 
 - Instalación de [Github CLI](https://github.com/cli/cli)
 - Script `github_release.py` para ejecutar en el CI y crear la _release_ en el [repositorio de github]('https://github.com/ohermosa/my_workstation')
+- Nuevo módulo `get_dropbox_latest` para obtener la última versión estable de **Dropbox**
 - Cambios en `post_install/ohermosa`:
   - Configuración de `Github CLI`
   - Nuevos repositorios git:
