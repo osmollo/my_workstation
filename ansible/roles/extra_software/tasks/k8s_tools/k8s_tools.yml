@@ -63,3 +63,8 @@
   import_tasks: microk8s.yml
   tags:
     - microk8s
+
+- name: "[KOMPOSE] installation"
+  import_tasks: kompose.yml
+  tags:
+    - kompose

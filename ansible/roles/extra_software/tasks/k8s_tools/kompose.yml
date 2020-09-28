@@ -1,0 +1,18 @@
+---
+
+- name: "[KOMPOSE] Get latest version of kompose"
+  uri:
+    url: "{{ kompose_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: kompose_latest
+
+- name: "[KOMPOSE] download kompose appimage"
+  vars:
+    kompose_version: "{{ kompose_latest.url | urlsplit('path') | basename }}"
+  get_url:
+    url: "https://github.com/kubernetes/kompose/releases/download/{{ kompose_version }}/kompose-linux-amd64"
+    dest: "/usr/local/bin/kompose"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
