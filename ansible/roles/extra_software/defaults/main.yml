@@ -152,8 +152,8 @@ lexnet_packages:
   - pcsc-tools
   - libglade2-dev
 
-code_settings_url: https://gist.githubusercontent.com/ohermosa/894b15a847cc2f4d6b3d58ab6071f3ac/raw/settings.json
-code_extensions_url: https://gist.githubusercontent.com/ohermosa/894b15a847cc2f4d6b3d58ab6071f3ac/raw/extensions.json
+code_settings_url: https://gist.githubusercontent.com/ohermosa/6dbeabf3bb121bf3f3546e296d251aa4/raw/settings.json
+code_extensions_url: https://gist.githubusercontent.com/ohermosa/6dbeabf3bb121bf3f3546e296d251aa4/raw/extensions.json
 atom_packages_url: https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json
 
 appimage_dir: "{{ ansible_user_dir }}/AppImage"

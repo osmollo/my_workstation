@@ -34,7 +34,7 @@ EXAMPLES = '''
 - name: "get dropbox version"
   get_dropbox_latest:
     distro: "ubuntu"
-    arch: "amd64"
+    arch: "x86_64"
   register: dropbox_response
 
 - debug: var=dropbox_response.version
@@ -50,12 +50,20 @@ version:
 
 def get_fucking_latest(versions=[]):
     print(versions)
-    r = re.compile("^[0-9]+.[0-9]+(.[0-9])*$")
-    stable_versions = list(filter(r.match, versions))
-    print(stable_versions)
-    for n, i in enumerate(stable_versions):
-        stable_versions[n] = version.parse(i)
-    return max(stable_versions).base_version
+    total_major = '0'
+    total_minor = '0'
+    total_patch = '0'
+    for item in versions:
+        major, minor, patch = item.split('.')
+        if int(major) > int(total_major):
+            total_major = major
+        elif int(major) == int(total_major):
+            if int(minor) > int(total_minor):
+                total_minor = minor
+            elif int(minor) == int(total_minor):
+                if int(patch) > int(total_patch):
+                    total_patch = patch
+    return "{}.{}.{}".format(total_major, total_minor, total_patch)
 
 
 def get_latest(distro, arch):
