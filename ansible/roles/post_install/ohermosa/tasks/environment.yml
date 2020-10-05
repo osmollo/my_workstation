@@ -45,13 +45,18 @@
     mode: 0600
   when: stat_response.stat.exists
 
-- name: "[ENVIRONMENT] restore .zhistory"
-  copy:
-    src: "{{ dropbox_dir }}/datio/zhistory"
-    dest: "{{ ansible_user_dir }}/.zhistory"
-    remote_src: true
-    mode: 0600
-  when: not stat_response.stat.exists
+# - name: "[ENVIRONMENT] restore .zhistory"
+#   copy:
+#     src: "{{ dropbox_dir }}/datio/zhistory"
+#     dest: "{{ ansible_user_dir }}/.zhistory"
+#     remote_src: true
+#     mode: 0600
+#   when: not stat_response.stat.exists
+
+- name: "[ENVIRONMENT] create .bash_aliases"
+  template:
+    src: bash_aliases.j2
+    dest: "{{ ansible_user_dir }}/.bash_aliases"
 
 - name: "[ENVIRONMENT] create vault_pass files"
   lineinfile:

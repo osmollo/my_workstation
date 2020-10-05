@@ -1,0 +1,12 @@
+mkvenv(){
+  mkdir {{ ansible_user_dir }}/python-venv/$1
+  if [ $# -eq 1 ]; then
+    mkvirtualenv -p /usr/bin/python3  -a {{ ansible_user_dir }}/python-venv/$1 $1
+  else
+    mkvirtualenv -p /usr/bin/python2  -a {{ ansible_user_dir }}/python-venv/$1 $1
+  fi
+}
+
+{% for alias in bash_aliases %}
+alias {{ alias.name }}='{{ alias.command | replace("#", "\"") }}'
+{% endfor %}
