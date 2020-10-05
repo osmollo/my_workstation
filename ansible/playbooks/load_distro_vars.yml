@@ -36,6 +36,11 @@
         linux_distribution: "arch"
       when: ansible_distribution in arch_based
 
+    - name: "Set LINUX_DISTRIBUTION when is undefined"
+      set_fact:
+        linux_distribution: "foobar"
+      when: linux_distribution is undefined
+
     - name: "Get Debian CODENAME"
       shell: |
         set -o pipefail
@@ -130,3 +135,9 @@
       when:
         - ansible_env.XDG_CURRENT_DESKTOP is defined
         - "'XFCE' in ansible_env.XDG_CURRENT_DESKTOP"
+
+    - name: "Set DESKTOP_ENVIRONMENT when is undefined"
+      set_fact:
+        desktop_environment: "foobar"
+      when:
+        desktop_environment is undefined

@@ -12,6 +12,8 @@
     - [github cli](https://github.com/cli/cli)
 - Corrección de errores:
   - Actualizada versión de `Dropbox` a `2020.03.04-1`
+  - Instalación `apt-transport-https`
+  - Definición de `linux_distribution` y `desktop_environment` cuando no ha conseguido ser definida
 
 ## 4.6
 

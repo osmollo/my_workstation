@@ -50,6 +50,12 @@
     - common
     - install_packages
 
+- name: "install apt-transport-https package"
+  apt:
+    name: apt-transport-https
+    state: present
+  when: linux_distribution in ["ubuntu", "debian"]
+
 - name: "install packages"
   include_tasks:
     file: "install_packages_{{ linux_distribution }}.yml"
