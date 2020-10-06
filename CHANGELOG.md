@@ -10,7 +10,8 @@
   - Configuración de `Github CLI`
   - Nuevos repositorios git:
     - [github cli](https://github.com/cli/cli)
-  - Migrado `.bash_aliases` de **dropbox** a **ansible**
+  - Migración de configuraciones de **Dropbox** a **Ansible**:
+    - `.bash_aliases`
 - Corrección de errores:
   - Actualizada versión de `Dropbox` a `2020.03.04-1`
   - Instalación `apt-transport-https`

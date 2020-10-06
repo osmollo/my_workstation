@@ -34,6 +34,7 @@
 #   loop:
 #     - "{{ ansible_user_dir }}/.bashrc"
 #     - "{{ ansible_user_dir }}/.bash_history"
+#     - "{{ ansible_user_dir }}/.bash_aliases"
 #     - "{{ ansible_user_dir }}/.zshrc"
 #     - "{{ ansible_user_dir }}/.ssh"
 #     - "{{ ansible_user_dir }}/.vault_pass*txt"
@@ -72,6 +73,8 @@
   template:
     src: bash_aliases.j2
     dest: "{{ ansible_user_dir }}/.bash_aliases"
+  tags:
+    - bash_aliases
 
 - name: "[ENVIRONMENT] create vault_pass files"
   lineinfile:
