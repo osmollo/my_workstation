@@ -7,6 +7,7 @@
 - Script `github_release.py` para ejecutar en el CI y crear la _release_ en el [repositorio de github]('https://github.com/ohermosa/my_workstation')
 - Nuevo módulo `get_dropbox_latest` para obtener la última versión estable de **Dropbox**
 - Nueva tool [kompose](https://github.com/kubernetes/kompose) dentro de `k8s_tools`
+- Instalación de `ansible-lint`
 - Cambios en `post_install/ohermosa`:
   - Configuración de `Github CLI`
   - Nuevos repositorios git:

@@ -158,7 +158,7 @@ Esto realiza las siguientes tareas:
 A continuación, hay que ejecutar el siguiente comando:
 
 ```bash
-ansible-playbook install.yml --ask-vault-pass
+ansible-playbook install.yml
 ```
 
 Un usuario puede personalizar las aplicaciones que desea instalar creando el fichero `ansible/roles/extra_software/vars/${USER}.yml`, se pueden usar los valores por defecto para generarlo y luego personalizarlo a su gusto:
@@ -176,16 +176,18 @@ ansible-playbook install.yml -t code -e install_vscode=true
 Igualmente, se pueden usar los tags específicos que cada usuario haya puesto en su role `post_install/$USER`
 
 ```bash
-ansible-playbook install-yml -t env --ask-vault-pass
+ansible-playbook install-yml -t env
 ```
 
 ### Post instalación
 
-Existe el directorio `roles/post_install` donde cada usuario puede implementar todas las tareas de post instalación que considere oportunas. Las mismas, podrás ejecutarse con el siguiente playbook:
+Dentro del directorio `roles/post_install` cada usuario puede crear su propio directorio donde implementar todas las tareas de post instalación que considere oportunas. Las mismas, podrás ejecutarse con el siguiente playbook:
 
 ```bash
 ansible-playbook post_install.yml --ask-vault-pass
 ```
+
+[Aquí se puede consultar la documentación de la post instalación](roles/post_install/ohermosa/README.md)
 
 ### Deshabilitar actualizaciones
 

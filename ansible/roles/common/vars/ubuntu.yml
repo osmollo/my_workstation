@@ -24,6 +24,7 @@ distro_packages:
   - fonts-firacode
   - virtualenvwrapper
   - traceroute
+  - ansible-lint
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras

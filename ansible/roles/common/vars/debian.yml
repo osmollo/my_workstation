@@ -20,6 +20,7 @@ distro_packages:
   - secure-delete
   - libnss3-tools
   - fonts-firacode
+  - ansible-lint
 
 gnome_debian_packages:
   - network-manager-openvpn-gnome

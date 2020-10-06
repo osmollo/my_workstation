@@ -20,6 +20,7 @@ distro_packages:
   - srm
   - nss-tools
   - fira-code-fonts
+  - ansible-lint
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome
