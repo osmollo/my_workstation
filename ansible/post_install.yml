@@ -23,18 +23,19 @@
       tags:
         - always
 
-###############
-# INSTALACION #
-###############
+####################
+# POST INSTALACION #
+####################
 
 - hosts: localhost
   connection: local
-  become: true
-  become_method: sudo
   vars:
-    disable_updates: "{{ lookup('env', 'REPO_DISABLE_UPDATES') | default(false) | bool }}"
     ansible_user: "{{ lookup('env', 'USER') }}"
     ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
-  roles:
-    - common
-    - extra_software
+    post_user: "{{ post_install_user | default(ansible_user) }}"
+  tasks:
+    - name: "[POST INSTALL] user customization"
+      include_role:
+        name: "post_install/{{ post_user }}"
+      tags:
+        - always

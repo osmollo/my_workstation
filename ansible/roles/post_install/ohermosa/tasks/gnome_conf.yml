@@ -48,11 +48,14 @@
         src: https://descargas.osmollo.es/files/mojave_dynamic.zip
         dest: "{{ wallpaper_dir }}"
         remote_src: true
+      register: wallpaper_download
+      ignore_errors: true
 
     - name: "[GNOME_CONF] generate wallpaper xml"
       template:
         src: mojave.xml.j2
         dest: "{{ wallpaper_dir }}/mojave.xml"
+      when: not wallpaper_download.failed
 
     - name: "[GNOME_CONF] import wallpaper config"
       dconf:
@@ -69,5 +72,6 @@
           value: "'zoom'"
         - key: "{{ dconf_wallpaper_path }}/secondary-color"
           value: "'#000000000000'"
+      when: not wallpaper_download.failed
   tags:
     - wallpaper

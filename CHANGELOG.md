@@ -1,7 +1,8 @@
 # CHANGELOG
 
-## 4.7
+## 5.0
 
+- Separación en playbooks `install.yml` y `post_install.yml` para la configuración manual de **Dropbox** y el descifrado del fichero `defaults/main.yml` de los subroles de `post_install/${USER}`
 - Instalación de [Github CLI](https://github.com/cli/cli)
 - Script `github_release.py` para ejecutar en el CI y crear la _release_ en el [repositorio de github]('https://github.com/ohermosa/my_workstation')
 - Nuevo módulo `get_dropbox_latest` para obtener la última versión estable de **Dropbox**
@@ -20,6 +21,13 @@
   - Actualizada versión de `Dropbox` a `2020.03.04-1`
   - Instalación `apt-transport-https`
   - Definición de `linux_distribution` y `desktop_environment` cuando no ha conseguido ser definida
+  - Instalación `lens`
+  - Para `ohermosa`, no se instala por defecto **VS Codium** ni **Bitwarden**
+  - Creación alias `bfg`
+  - Keyserver `github cli`
+  - No se instalan paquetes de `GO`
+  - No falla la instalación si no se puede descargar los wallpapers
+  - Configuración post instalación `github cli`
 
 ## 4.6
 

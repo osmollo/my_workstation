@@ -36,3 +36,4 @@
     name:
       - kontena-lens
     state: present
+    classic: true

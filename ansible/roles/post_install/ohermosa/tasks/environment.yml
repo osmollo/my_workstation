@@ -129,7 +129,7 @@
     - prezto
     - post_prezto
 
-- name: "[ENVIRONMENT] Configure environment"
+- name: "[ENVIRONMENT] Create links from Dropbox"
   block:
     - name: "[ENVIRONMENT] Wait until dropbox files exist"
       wait_for:
@@ -137,33 +137,9 @@
         timeout: "{{ wait_dropbox_sync }}"
       loop: "{{ links_to_create }}"
 
-    - name: "[ENVIRONMENT] delete zsh configuration files"
-      file:
-        path: "{{ item }}"
-        state: absent
-      loop:
-        - "{{ ansible_user_dir }}/.oh-my-zsh"
-        - "{{ ansible_user_dir }}/.zshrc"
-        - "{{ ansible_user_dir }}/.zprezto"
-
     - name: "[ENVIRONMENT] Create links from Dropbox"
       file:
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
         state: link
       loop: "{{ links_to_create }}"
-
-    - name: "[ENVIRONMENT] find files in {{ ansible_user_dir }}/.ssh"
-      find:
-        paths: "{{ ansible_user_dir }}/.ssh/"
-        recurse: true
-        file_type: file
-      register: find_response
-
-    - name: "[ENVIRONMENT] change permissions to files"
-      vars:
-        id_query: "[].path"
-      file:
-        dest: "{{ item }}"
-        mode: 0600
-      loop: "{{ find_response.files | json_query(id_query) }}"

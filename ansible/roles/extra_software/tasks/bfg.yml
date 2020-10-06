@@ -26,3 +26,4 @@
     path: "{{ ansible_user_dir }}/.bash_aliases"
     line: "alias bfg='java -jar '"
     state: present
+    create: true

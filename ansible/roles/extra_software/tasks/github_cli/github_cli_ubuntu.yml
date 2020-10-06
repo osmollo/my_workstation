@@ -12,6 +12,7 @@
 
 - name: "[GITHUB_CLI] [DEB] Import repository key"
   apt_key:
+    keyserver: keyserver.ubuntu.com
     id: C99B11DEB97541F0
     state: present
 
