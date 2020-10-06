@@ -14,6 +14,7 @@
     - `.bash_aliases`
     - `.bashrc`
     - `molecule-openrc.sh`
+    - `ssh_config`
 - Corrección de errores:
   - Actualizada versión de `Dropbox` a `2020.03.04-1`
   - Instalación `apt-transport-https`
