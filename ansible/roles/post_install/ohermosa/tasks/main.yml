@@ -1,17 +1,5 @@
 ---
 
-- name: "Configure /etc/hosts"
-  become: true
-  become_method: sudo
-  lineinfile:
-    path: /etc/hosts
-    line: "{{ item.ip }}\t{{ item.host }}"
-  loop: "{{ etc_hosts }}"
-  tags:
-    - post_install
-    - resolv
-    - post_resolv
-
 - name: "create secrets"
   import_tasks: secrets.yml
   tags:

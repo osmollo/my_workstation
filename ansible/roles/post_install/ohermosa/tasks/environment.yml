@@ -1,5 +1,13 @@
 ---
 
+- name: "[ENVIRONMENT] Configure /etc/hosts"
+  become: true
+  become_method: sudo
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item.ip }}\t{{ item.host }}"
+  loop: "{{ etc_hosts }}"
+
 - name: "[ENVIRONMENT] Configure VIM editor"
   import_tasks: vim.yml
 
@@ -19,18 +27,18 @@
         line: 'export VAULT_TOKEN=$(kwalletcli -f Passwords -e TOKEN)'
       when: desktop_environment == 'kde'
 
-- name: "[ENVIRONMENT] Delete bash files"
-  file:
-    path: "{{ item }}"
-    state: absent
-  loop:
-    - "{{ ansible_user_dir }}/.bashrc"
-    - "{{ ansible_user_dir }}/.bash_history"
-    - "{{ ansible_user_dir }}/.zshrc"
-    - "{{ ansible_user_dir }}/.ssh"
-    - "{{ ansible_user_dir }}/.vault_pass*txt"
-    - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
-    - "{{ ansible_user_dir }}/.zhistory"
+# - name: "[ENVIRONMENT] Delete bash files"
+#   file:
+#     path: "{{ item }}"
+#     state: absent
+#   loop:
+#     - "{{ ansible_user_dir }}/.bashrc"
+#     - "{{ ansible_user_dir }}/.bash_history"
+#     - "{{ ansible_user_dir }}/.zshrc"
+#     - "{{ ansible_user_dir }}/.ssh"
+#     - "{{ ansible_user_dir }}/.vault_pass*txt"
+#     - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
+#     - "{{ ansible_user_dir }}/.zhistory"
 
 - name: "[ENVIRONMENT] check if {{ dropbox_dir }}/datio/zhistory.{{ ansible_hostname }} exists"
   stat:
@@ -45,13 +53,20 @@
     mode: 0600
   when: stat_response.stat.exists
 
-# - name: "[ENVIRONMENT] restore .zhistory"
-#   copy:
-#     src: "{{ dropbox_dir }}/datio/zhistory"
-#     dest: "{{ ansible_user_dir }}/.zhistory"
-#     remote_src: true
-#     mode: 0600
-#   when: not stat_response.stat.exists
+- name: "[ENVIRONMENT] check if {{ dropbox_dir }}/datio/zhistory exists"
+  stat:
+    path: "{{ dropbox_dir }}/datio/zhistory"
+  register: stat2_response
+
+- name: "[ENVIRONMENT] restore .zhistory"
+  copy:
+    src: "{{ dropbox_dir }}/datio/zhistory"
+    dest: "{{ ansible_user_dir }}/.zhistory"
+    remote_src: true
+    mode: 0600
+  when:
+    - not stat_response.stat.exists
+    - stat2_response.stat.exists
 
 - name: "[ENVIRONMENT] create .bash_aliases"
   template:
