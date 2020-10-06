@@ -69,12 +69,17 @@
     - not stat_response.stat.exists
     - stat2_response.stat.exists
 
-- name: "[ENVIRONMENT] create .bash_aliases"
+- name: "[ENVIRONMENT] create config files"
   template:
-    src: bash_aliases.j2
-    dest: "{{ ansible_user_dir }}/.bash_aliases"
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop:
+    - src: bash_aliases.j2
+      dest: "{{ ansible_user_dir }}/.bash_aliases"
+    - src: bashrc.j2
+      dest: "{{ ansible_user_dir }}/.bashrc"
   tags:
-    - bash_aliases
+    - bash_config
 
 - name: "[ENVIRONMENT] create vault_pass files"
   lineinfile:

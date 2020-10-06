@@ -12,6 +12,7 @@
     - [github cli](https://github.com/cli/cli)
   - Migración de configuraciones de **Dropbox** a **Ansible**:
     - `.bash_aliases`
+    - `.bashrc`
 - Corrección de errores:
   - Actualizada versión de `Dropbox` a `2020.03.04-1`
   - Instalación `apt-transport-https`

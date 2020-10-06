@@ -1,0 +1,68 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=50000
+HISTFILESIZE=20000
+
+# Configuring color prompt
+function color_my_prompt {
+#    local __user_and_host="\[\033[036m\]\u@\h"
+#    local __cur_location="\[\033[34m\]\w"
+#    local __git_branch_color="\[\033[31m\]"
+#    local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
+#    local __prompt_tail="\[\033[35m\]$"
+#    local __last_color="\[\033[00m\]"
+
+    local __user_and_host="\[\033[38;5;208m\]\u\[\033[38;5;15m\]@\[\033[38;5;220m\]\h\[\033[38;5;15m\]"
+    local __cur_location="\[\033[38;5;33m\]\[\033[38;5;35m\]\w\[\033[38;5;33m\]"
+    local __git_branch_color="\[\033[31m\]"
+    local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
+    local __prompt_tail="\[\033[35m\]$"
+    local __last_color="\[\033[00m\]"
+
+    export PS1="$__user_and_host $__cur_location $__git_branch_color$__git_branch$__prompt_tail$__last_color "
+}
+
+color_my_prompt
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+export XEUSER={{ bbva_user }}
+export PATH=$PATH:/usr/local/go/bin
+export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt
+export WORKON_HOME=$HOME/python-venv
+
+if [ $(grep -i ubuntu /etc/os-release | wc -l) -ge 1 ]; then
+  source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+elif [ $(grep -i fedora /etc/os-release | wc -l) -ge 1 ]; then
+  source /usr/bin/virtualenvwrapper.sh
+fi
+
+
+complete -C {{ ansible_user_dir }}/vault vault
+source <(kubectl completion bash)
