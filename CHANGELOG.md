@@ -13,6 +13,7 @@
   - Migración de configuraciones de **Dropbox** a **Ansible**:
     - `.bash_aliases`
     - `.bashrc`
+    - `molecule-openrc.sh`
 - Corrección de errores:
   - Actualizada versión de `Dropbox` a `2020.03.04-1`
   - Instalación `apt-transport-https`

@@ -78,6 +78,8 @@
       dest: "{{ ansible_user_dir }}/.bash_aliases"
     - src: bashrc.j2
       dest: "{{ ansible_user_dir }}/.bashrc"
+    - src: molecule-openrc.sh.j2
+      dest: "{{ ansible_user_dir }}/molecule-openshrc.sh"
   tags:
     - bash_config
 
