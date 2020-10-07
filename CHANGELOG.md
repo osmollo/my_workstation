@@ -8,6 +8,7 @@
 - Nuevo módulo `get_dropbox_latest` para obtener la última versión estable de **Dropbox**
 - Nueva tool [kompose](https://github.com/kubernetes/kompose) dentro de `k8s_tools`
 - Instalación de `ansible-lint`
+- Mejora en la documentación
 - Cambios en `post_install/ohermosa`:
   - Configuración de `Github CLI`
   - Nuevos repositorios git:
