@@ -13,6 +13,7 @@
   - Configuración de `Github CLI`
   - Nuevos repositorios git:
     - [github cli](https://github.com/cli/cli)
+    - [ssh_magic](https://github.com/ohermosa/ssh_magic)
   - Migración de configuraciones de **Dropbox** a **Ansible**:
     - `.bash_aliases`
     - `.bashrc`
