@@ -19,6 +19,7 @@
     - `molecule-openrc.sh`
     - `ssh_config`
     - ssh keys
+  - Cambio contraseña usuario XE
 - Corrección de errores:
   - Actualizada versión de `Dropbox` a `2020.03.04-1`
   - Instalación `apt-transport-https`
