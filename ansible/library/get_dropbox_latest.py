@@ -3,7 +3,6 @@
 import re
 import requests
 from bs4 import BeautifulSoup
-from packaging import version
 from ansible.module_utils.basic import AnsibleModule
 
 ANSIBLE_METADATA = {
@@ -48,22 +47,9 @@ version:
 '''
 
 
-def get_fucking_latest(versions=[]):
-    print(versions)
-    total_major = '0'
-    total_minor = '0'
-    total_patch = '0'
-    for item in versions:
-        major, minor, patch = item.split('.')
-        if int(major) > int(total_major):
-            total_major = major
-        elif int(major) == int(total_major):
-            if int(minor) > int(total_minor):
-                total_minor = minor
-            elif int(minor) == int(total_minor):
-                if int(patch) > int(total_patch):
-                    total_patch = patch
-    return "{}.{}.{}".format(total_major, total_minor, total_patch)
+def major_minor_micro(version):
+    major, minor, micro = re.search('(\d+)\.(\d+)\.(\d+)', version).groups()
+    return int(major), int(minor), int(micro)
 
 
 def get_latest(distro, arch):
@@ -86,7 +72,7 @@ def get_latest(distro, arch):
         if len(versions) == 0:
             return None
         else:
-            return get_fucking_latest(versions)
+            return max(versions, key=major_minor_micro)
     else:
         return None
 
