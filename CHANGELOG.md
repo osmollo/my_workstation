@@ -21,6 +21,7 @@
     - `ssh_config`
     - ssh keys
   - Cambio contraseña usuario XE
+  - Nuevas entradas para `/etc/hosts`
 - Corrección de errores:
   - Actualizada versión de `Dropbox` a `2020.03.04-1`
   - Instalación `apt-transport-https`

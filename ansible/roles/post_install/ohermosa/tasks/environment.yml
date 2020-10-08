@@ -7,6 +7,8 @@
     path: /etc/hosts
     line: "{{ item.ip }}\t{{ item.host }}"
   loop: "{{ etc_hosts }}"
+  tags:
+    - etc_hosts
 
 - name: "[ENVIRONMENT] Configure VIM editor"
   import_tasks: vim.yml
@@ -94,6 +96,8 @@
       dest: "{{ ansible_user_dir }}/molecule-openshrc.sh"
     - src: ssh_config.j2
       dest: "{{ ansible_user_dir }}/.ssh/config"
+  tags:
+    - config_files
 
 - name: "[ENVIRONMENT] create ssh keys"
   copy:
