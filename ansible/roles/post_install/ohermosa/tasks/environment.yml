@@ -38,7 +38,7 @@
     - "{{ ansible_user_dir }}/.bash_history"
     - "{{ ansible_user_dir }}/.bash_aliases"
     - "{{ ansible_user_dir }}/.zshrc"
-    - "{{ ansible_user_dir }}/.ssh"
+    - "{{ ssh_dir }}"
     - "{{ ansible_user_dir }}/.vault_pass*txt"
     - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
     - "{{ ansible_user_dir }}/.zhistory"
@@ -95,7 +95,7 @@
     - src: molecule-openrc.sh.j2
       dest: "{{ ansible_user_dir }}/molecule-openshrc.sh"
     - src: ssh_config.j2
-      dest: "{{ ansible_user_dir }}/.ssh/config"
+      dest: "{{ ssh_dir }}/config"
   tags:
     - config_files
 
