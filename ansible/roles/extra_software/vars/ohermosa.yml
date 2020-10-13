@@ -70,3 +70,4 @@ install_consul: false
 install_nomad: false
 install_zoom: false
 install_githubcli: true
+install_1password: true

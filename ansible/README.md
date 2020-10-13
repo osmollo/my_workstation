@@ -31,6 +31,7 @@ Por defecto se instala el siguiente software:
 
 | **APLICACIÓN** | **TAG** | **VARIABLE** | **GRUPO** | **DESCRIPCIÓN** |
 |--|--|--|--|--|
+| [1Password](https://support.1password.com/cs/getting-started-linux/) | 1password | install_1password | pass_managers | Instala gestor de contraseñas **1Password** |
 | [Act](https://github.com/nektos/act) | act | install_act | | Ejecuta localmente **Github Actions** |
 | [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) | apachedirectory | install_apachedirectory | | Cliente de LDAP |
 | [Atom](https://atom.io/) | atom | install_atom | editors | Editor de texto |

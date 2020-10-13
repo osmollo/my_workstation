@@ -9,6 +9,7 @@
 - Nueva tool [kompose](https://github.com/kubernetes/kompose) dentro de `k8s_tools`
 - Instalación de `ansible-lint`
 - Mejora en la documentación
+- Instalación de [1Password](https://support.1password.com/cs/getting-started-linux/) para linux en **Ubuntu/Debian** y **Fedora**
 - Cambios en `post_install/ohermosa`:
   - Configuración de `Github CLI`
   - Nuevos repositorios git:
