@@ -23,6 +23,7 @@
     - ssh keys
   - Cambio contraseña usuario XE
   - Nuevas entradas para `/etc/hosts`
+  - Posibilidad de no ejecutar tareas dependientes de **Dropbox** usando la variable `use_dropbox`
 - Corrección de errores:
   - Actualizada versión de `Dropbox` a `2020.03.04-1`
   - Instalación `apt-transport-https`
@@ -36,6 +37,7 @@
   - Configuración post instalación `github cli`
   - En el role `extra_vars` se carga el fichero de variables `$USER.yml` únicamente si existe. Esto reemplaza al `ignore_errors` que se usaba
   - Error lintado `common/tasks/vlc_fedora.yml`
+  - Fixes `Vagrantfile`
 
 ## 4.6
 

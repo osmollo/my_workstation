@@ -44,6 +44,7 @@
     - "{{ ansible_user_dir }}/.zhistory"
 
 - name: "[ENVIRONMENT] restore .zhistory"
+  when: use_dropbox
   block:
     - name: "[ENVIRONMENT] check if {{ dropbox_dir }}/datio/zhistory.{{ ansible_hostname }} exists"
       stat:

@@ -103,6 +103,7 @@
 
 - name: "configure sublime"
   import_tasks: sublime.yml
+  when: use_dropbox
   tags:
     - post_install
     - sublime
@@ -116,6 +117,7 @@
   import_tasks: network.yml
   become: true
   become_method: sudo
+  when: use_dropxbox
   tags:
     - post_install
     - network

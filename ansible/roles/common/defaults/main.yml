@@ -21,7 +21,7 @@ python_modules:
   - pep8
   - numerizer
   - faker
-  - 'requests==2.22.0'
+  - requests
   - netaddr
   - telepot
   - matplotlib

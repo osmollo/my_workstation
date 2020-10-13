@@ -21,6 +21,8 @@ distro_packages:
   - nss-tools
   - fira-code-fonts
   - ansible-lint
+  - gcc
+  - python3-devel
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome

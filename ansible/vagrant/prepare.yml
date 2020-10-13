@@ -2,8 +2,7 @@
 
 - import_playbook: load_distro_vars.yml
 
-- hosts: localhost
-  connection: local
+- hosts: all
   become: true
   become_method: su
   vars:
@@ -74,8 +73,7 @@
         - always
 
 
-- hosts: localhost
-  connection: local
+- hosts: all
   become: true
   become_method: sudo
   vars:

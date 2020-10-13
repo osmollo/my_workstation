@@ -1,1 +1,142 @@
-../load_distro_vars.yml
+---
+
+- hosts: all
+  tasks:
+    - name: "Set compatible distributions"
+      set_fact:
+        debian_based:
+          - "Debian"
+        ubuntu_based:
+          - "Ubuntu"
+          - "Linux Mint"
+          - "KDE neon"
+        fedora_based:
+          - "Fedora"
+        arch_based:
+          - "Archlinux"
+
+    - name: "[DEBIAN] Set LINUX_DISTRIBUTION variable"
+      set_fact:
+        linux_distribution: "debian"
+      when: ansible_distribution in debian_based
+
+    - name: "[UBUNTU] Set LINUX_DISTRIBUTION variable"
+      set_fact:
+        linux_distribution: "ubuntu"
+      when: ansible_distribution in ubuntu_based
+
+    - name: "[FEDORA] Set LINUX_DISTRIBUTION variable"
+      set_fact:
+        linux_distribution: "fedora"
+      when: ansible_distribution in fedora_based
+
+    - name: "[ARCH] Set LINUX_DISTRIBUTION variable"
+      set_fact:
+        linux_distribution: "arch"
+      when: ansible_distribution in arch_based
+
+    - name: "Set LINUX_DISTRIBUTION when is undefined"
+      set_fact:
+        linux_distribution: "foobar"
+      when: linux_distribution is undefined
+
+    - name: "Get Debian CODENAME"
+      shell: |
+        set -o pipefail
+        grep VERSION_CODENAME /etc/os-release | awk -F'=' '{ print $2 }'
+      args:
+        executable: /bin/bash
+      register: debian_response
+      changed_when: false
+      when: linux_distribution == "debian"
+
+    - name: "Set DEBIAN_CODENAME variable"
+      set_fact:
+        debian_codename: "{{ debian_response.stdout }}"
+      when: linux_distribution == "debian"
+
+    - name: "Set DEBIAN_VERSION variable"
+      set_fact:
+        debian_version: "{{ debian_versions[debian_codename] }}"
+      vars:
+        debian_versions:
+          bullseye: "11"
+          buster: "10"
+          stretch: "9"
+          jessie: "8"
+          wheezy: "7"
+          squeeze: "6"
+          lenny: "5"
+          etch: "4"
+      when: linux_distribution == "debian"
+
+    - name: "Get Ubuntu CODENAME"
+      shell: |
+        set -o pipefail
+        grep UBUNTU_CODENAME /etc/os-release | awk -F'=' '{ print $2 }'
+      args:
+        executable: /bin/bash
+      register: response_codename
+      changed_when: false
+      when: linux_distribution == "ubuntu"
+
+    - name: "Set UBUNTU_CODENAME variable"
+      set_fact:
+        ubuntu_codename: "{{ response_codename.stdout }}"
+      when: linux_distribution == "ubuntu"
+
+    - name: "Set UBUNTU_VERSION variable"
+      set_fact:
+        ubuntu_version: "{{ ubuntu_versions[ubuntu_codename].split('.')[0] }}"
+        ubuntu_version_long: "{{ ubuntu_versions[ubuntu_codename] }}"
+      vars:
+        ubuntu_versions:
+          focal: "20.04"
+          eoan: "19.10"
+          disco: "19.04"
+          bionic: "18.04"
+          artful: "17.10"
+          zesty: "17.04"
+          yakkety: "16.10"
+          xenial: "16.04"
+          trusty: "14.04"
+      when: linux_distribution == "ubuntu"
+
+    - name: "Set FEDORA_VERSION variable"
+      set_fact:
+        fedora_version: "{{ ansible_distribution_version }}"
+      when: linux_distribution == "fedora"
+
+    - name: "[KDE] Set DESKTOP_ENVIRONMENT variable"
+      set_fact:
+        desktop_environment: "kde"
+      when:
+        - ansible_env.XDG_CURRENT_DESKTOP is defined
+        - "'KDE' in ansible_env.XDG_CURRENT_DESKTOP"
+
+    - name: "[GNOME] Set DESKTOP_ENVIRONMENT variable"
+      set_fact:
+        desktop_environment: "gnome"
+      when:
+        - ansible_env.XDG_CURRENT_DESKTOP is defined
+        - "'GNOME' in ansible_env.XDG_CURRENT_DESKTOP or 'Unity' in ansible_env.XDG_CURRENT_DESKTOP"
+
+    - name: "[CINNAMON] Set DESKTOP_ENVIRONMENT variable"
+      set_fact:
+        desktop_environment: "cinnamon"
+      when:
+        - ansible_env.XDG_CURRENT_DESKTOP is defined
+        - "'Cinnamon' in ansible_env.XDG_CURRENT_DESKTOP"
+
+    - name: "[XFCE] Set DESKTOP_ENVIRONMENT variable"
+      set_fact:
+        desktop_environment: "xfce"
+      when:
+        - ansible_env.XDG_CURRENT_DESKTOP is defined
+        - "'XFCE' in ansible_env.XDG_CURRENT_DESKTOP"
+
+    - name: "Set DESKTOP_ENVIRONMENT when is undefined"
+      set_fact:
+        desktop_environment: "foobar"
+      when:
+        desktop_environment is undefined

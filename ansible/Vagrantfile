@@ -72,9 +72,20 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "ansible" do |ansible|
     ansible.inventory_path = "ansible_hosts"
+    ansible.playbook = "vagrant/prepare.yml"
+  end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.inventory_path = "ansible_hosts"
     ansible.playbook = "vagrant/install.yml"
+  end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.inventory_path = "ansible_hosts"
+    ansible.playbook = "vagrant/post_install.yml"
     ansible.extra_vars = {
-      post_install_user: "ohermosa"
+      post_install_user: "ohermosa",
+      use_dropbox: false
     }
   end
 end

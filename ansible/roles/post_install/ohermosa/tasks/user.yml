@@ -21,4 +21,6 @@
           dest: /var/lib/AccountsService/icons/ohermosa
         - src: ohermosa.file
           dest: /var/lib/AccountsService/users/ohermosa
-  when: desktop_environment == "gnome"
+  when:
+    - desktop_environment == "gnome"
+    - use_dropbox
