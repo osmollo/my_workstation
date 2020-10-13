@@ -35,6 +35,7 @@
   - No falla la instalación si no se puede descargar los wallpapers
   - Configuración post instalación `github cli`
   - En el role `extra_vars` se carga el fichero de variables `$USER.yml` únicamente si existe. Esto reemplaza al `ignore_errors` que se usaba
+  - Error lintado `common/tasks/vlc_fedora.yml`
 
 ## 4.6
 

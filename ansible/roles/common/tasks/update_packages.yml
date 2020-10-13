@@ -4,7 +4,7 @@
   apt:
     name: "*"
     state: present
-    # update_cache: true
+    update_cache: true
     force_apt_get: true
     autoclean: true
   when: linux_distribution in ["debian", "ubuntu"]

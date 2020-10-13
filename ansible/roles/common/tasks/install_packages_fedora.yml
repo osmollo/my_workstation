@@ -39,11 +39,7 @@
     - desktop_environment is defined
     - desktop_environment == "xfce"
 
-- include_tasks:
-    file: vlc_fedora.yml
-    apply:
-      tags:
-        - vlc
+- import_tasks: vlc_fedora.yml
   when: desktop_environment is defined
   tags:
     - vlc
