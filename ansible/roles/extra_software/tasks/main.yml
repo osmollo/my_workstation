@@ -1,12 +1,20 @@
 ---
 
 - name: "include vars file"
-  include_vars:
-    file: "{{ item }}"
-  loop:
-    - "{{ linux_distribution }}.yml"
-    - "{{ ansible_user }}.yml"
-  ignore_errors: true
+  block:
+    - name: "include vars file based on linux distribution"
+      include_vars:
+        file: "{{ linux_distribution }}.yml"
+
+    - name: "check if user '{{ ansible_user }}' has customized vars file"
+      stat:
+        path: "{{ role_path }}/vars/{{ ansible_user }}.yml"
+      register: customized_response
+
+    - name: "include customized vars file"
+      include_vars:
+        file: "{{ ansible_user }}.yml"
+      when: customized_response.stat.exists
   tags:
     - always
 
