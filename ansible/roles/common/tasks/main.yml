@@ -47,7 +47,8 @@
 - name: "include vars file for desktop environment"
   include_vars:
     file: "{{ desktop_environment | lower }}.yml"
-  when: desktop_environment is defined
+  when:
+    - desktop_environment != "foobar"
   tags:
     - common
     - install_packages
