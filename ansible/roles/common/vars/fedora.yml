@@ -9,6 +9,7 @@ distro_packages:
   - bind-utils
   - flatpak
   - system-config-users
+  - "{{ 'system-config-users' if (fedora_version | int) <= 30 else '' }}"
   - python-devel
   - python3-devel
   - make

@@ -57,7 +57,7 @@
 
     - name: "[FEDORA] Install Fedora packages"
       yum:
-        name: "{{ distro_packages }}"
+        name: "{{ distro_packages | reject('equalto', '') | list }}"
         state: present
         update_cache: true
 
