@@ -39,6 +39,7 @@
   - Error lintado `common/tasks/vlc_fedora.yml`
   - Fixes `Vagrantfile`
   - Fix actualización paquetes Fedora
+  - Fix instalación **VLC** en Fedora
 
 ## 4.6
 
