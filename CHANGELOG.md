@@ -38,6 +38,7 @@
   - En el role `extra_vars` se carga el fichero de variables `$USER.yml` únicamente si existe. Esto reemplaza al `ignore_errors` que se usaba
   - Error lintado `common/tasks/vlc_fedora.yml`
   - Fixes `Vagrantfile`
+  - Fix actualización paquetes Fedora
 
 ## 4.6
 

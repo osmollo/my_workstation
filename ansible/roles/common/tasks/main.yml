@@ -47,8 +47,7 @@
 - name: "include vars file for desktop environment"
   include_vars:
     file: "{{ desktop_environment | lower }}.yml"
-  when:
-    - desktop_environment != "foobar"
+  when: desktop_environment != "foobar"
   tags:
     - common
     - install_packages
@@ -58,14 +57,12 @@
     name: apt-transport-https
     state: present
   when: linux_distribution in ["ubuntu", "debian"]
+  tags:
+    - common
+    - install_packages
 
 - name: "install packages"
-  include_tasks:
-    file: "install_packages_{{ linux_distribution }}.yml"
-    apply:
-      tags:
-        - common
-        - install_packages
+  import_tasks: "install_packages.yml"
   tags:
     - common
     - install_packages
