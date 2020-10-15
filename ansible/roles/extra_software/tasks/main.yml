@@ -482,7 +482,9 @@
 
 - name: "Install Visual Studio Codium"
   import_tasks: vscodium/codium.yml
-  when: install_vscodium
+  when:
+    - install_vscodium
+    - linux_distribution != "fedora"
   tags:
     - extra_software
     - vscodium

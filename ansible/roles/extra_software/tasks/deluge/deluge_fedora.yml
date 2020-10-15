@@ -4,3 +4,4 @@
   yum:
     name: "{{ deluge_package }}"
     state: present
+    disable_gpg_check: true
