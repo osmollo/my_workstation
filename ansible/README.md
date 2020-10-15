@@ -183,7 +183,7 @@ Dentro del directorio `roles/post_install` cada usuario puede crear su propio di
 ansible-playbook post_install.yml --ask-vault-pass
 ```
 
-[Aquí se puede consultar la documentación de la post instalación](roles/post_install/ohermosa/README.md)
+[Aquí se puede consultar la documentación de la post instalación](roles/post_install/README.md)
 
 ### Deshabilitar actualizaciones
 

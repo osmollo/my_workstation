@@ -25,7 +25,6 @@ release:
     - git config push.default simple
     - git remote set-url origin https://${GITLAB_USER_LOGIN}:${GITLAB_TOKEN}@gitlab.com/${GITLAB_USER_LOGIN}/my_workstation.git
     - if ! $(git remote show github 2&>1 /dev/null); then git remote add github https://${GITLAB_USER_LOGIN}:${GITHUB_TOKEN}@github.com/${GITLAB_USER_LOGIN}/my_workstation.git; fi
-    - if ! $(git remote show gitea 2&>1 /dev/null); then git remote add gitea https://${GITLAB_USER_LOGIN}:${GITEA_TOKEN}@gitea.com/${GITLAB_USER_LOGIN}/my_workstation.git; fi
     - if ! $(git remote show bitbucket 2&>1 /dev/null); then git remote add bitbucket https://${GITLAB_USER_LOGIN}:${BITBUCKET_TOKEN}@bitbucket.org/${GITLAB_USER_LOGIN}/my_workstation.git; fi
   script:
     - git checkout master
@@ -34,8 +33,6 @@ release:
     - git push --tags
     - git push github HEAD:master
     - git push github HEAD:master --tags
-    - git push gitea HEAD:master
-    - git push gitea HEAD:master --tags
     - git push bitbucket HEAD:master
     - git push bitbucket HEAD:master --tags
   only:

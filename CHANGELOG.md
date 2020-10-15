@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 5.1
+
+- Corrección de errores:
+  - Ya no se replica el repositorio en **gitea**
+  - Fixes en varios `README.md`
+
 ## 5.0
 
 - Soporte para [**FEDORA** 32](https://getfedora.org/es/workstation/)
