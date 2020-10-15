@@ -6,6 +6,9 @@
   - Ya no se replica el repositorio en **gitea**
   - Fixes en varios `README.md`
   - Fix en configuración ssh para `casa`
+- Cambios en `post_install/ohermosa`:
+  - Nuevos repositorios git:
+    - [raspberry_docker](git@gitlab.com:ohermosa/raspberrypi_docker.git)
 
 ## 5.0
 
