@@ -6,3 +6,4 @@
     name: "{{ podman_package }}"
     state: present
     update_cache: true
+    disable_gpg_check: true

@@ -37,3 +37,4 @@
       - kontena-lens
     state: present
     classic: true
+  when: linux_distribution == "ubuntu"

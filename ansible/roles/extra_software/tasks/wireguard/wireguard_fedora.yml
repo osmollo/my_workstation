@@ -10,9 +10,11 @@
         name: "{{ wireguard_packages }}"
         state: present
         update_cache: true
+        disable_gpg_check: true
 
 - name: "[WIREGUARD] [FEDORA] install wireguard"
   yum:
     name: wireguard-tools
     state: present
     update_cache: true
+    disable_gpg_check: true

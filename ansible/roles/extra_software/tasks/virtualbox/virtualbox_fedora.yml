@@ -15,12 +15,14 @@
     name: "{{ virtualbox_packages }}"
     state: present
     update_cache: true
+    disable_gpg_check: true
 
 - name: "[VAGRANT] [FEDORA] Install Vagrant"
   yum:
     name: "{{ vagrant_package }}"
     state: present
     update_cache: true
+    disable_gpg_check: true
   tags:
     - vagrant
 
@@ -28,5 +30,6 @@
   yum:
     name: vagrant-libvirt
     state: absent
+    disable_gpg_check: true
   tags:
     - vagrant

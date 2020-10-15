@@ -4,3 +4,4 @@
   yum:
     name: "{{ gitkraken_package }}"
     state: present
+    disable_gpg_check: true
