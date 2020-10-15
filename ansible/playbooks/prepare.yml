@@ -2,7 +2,6 @@
 
 - import_playbook: load_distro_vars.yml
 
-
 - hosts: localhost
   connection: local
   become: true
@@ -11,6 +10,9 @@
     ansible_user: "{{ lookup('env', 'USER') }}"
     ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
   tasks:
+    - meta: end_play
+      when: linux_distribution not in ["ubuntu", "debian"]
+
     - block:
         - name: "create post_install/{{ ansible_user }}/tasks"
           file:
@@ -130,11 +132,6 @@
           file:
             path: /var/tmp/.prepare
             state: touch
-
-        - debug:
-            msg: "Por favor, vuelve a ejecutar el playbook para usar la nueva version de Ansible"
-
-        - meta: end_play
       when:
         - linux_distribution == "ubuntu"
       tags:

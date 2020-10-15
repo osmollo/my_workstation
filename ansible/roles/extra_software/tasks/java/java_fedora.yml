@@ -5,3 +5,4 @@
     name: java-11-openjdk
     state: present
     update_cache: true
+    disable_gpg_check: true

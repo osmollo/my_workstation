@@ -69,6 +69,8 @@ install_terraform: true
 install_consul: true
 install_nomad: true
 install_zoom: true
+install_githubcli: true
+install_1password: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -88,6 +90,7 @@ yakyak_latest_url: "https://github.com/yakyak/yakyak/releases/latest"
 lens_latest_url: "https://github.com/lensapp/lens/releases/latest"
 kops_latest_url: "https://github.com/kubernetes/kops/releases/latest"
 dive_latest_url: "https://api.github.com/repos/wagoodman/dive/releases/latest"
+kompose_latest_url: "https://github.com/kubernetes/kompose/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
 
@@ -150,8 +153,8 @@ lexnet_packages:
   - pcsc-tools
   - libglade2-dev
 
-code_settings_url: https://gist.githubusercontent.com/ohermosa/894b15a847cc2f4d6b3d58ab6071f3ac/raw/settings.json
-code_extensions_url: https://gist.githubusercontent.com/ohermosa/894b15a847cc2f4d6b3d58ab6071f3ac/raw/extensions.json
+code_settings_url: https://gist.githubusercontent.com/ohermosa/6dbeabf3bb121bf3f3546e296d251aa4/raw/settings.json
+code_extensions_url: https://gist.githubusercontent.com/ohermosa/6dbeabf3bb121bf3f3546e296d251aa4/raw/extensions.json
 atom_packages_url: https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json
 
 appimage_dir: "{{ ansible_user_dir }}/AppImage"

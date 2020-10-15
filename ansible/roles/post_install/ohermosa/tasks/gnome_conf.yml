@@ -1,37 +1,40 @@
 ---
 
-- name: "[GNOME_CONF] Wait until file exist in Dropbox"
-  wait_for:
-    path: "{{ dropbox_dir }}/backups/gnome_config"
-    timeout: "{{ wait_dropbox_sync }}"
+- name: "[GNOME_CONF] restore config"
+  when: use_dropbox
+  block:
+    - name: "[GNOME_CONF] Wait until file exist in Dropbox"
+      wait_for:
+        path: "{{ dropbox_dir }}/backups/gnome_config"
+        timeout: "{{ wait_dropbox_sync }}"
 
-- name: "[GNOME_CONF] Parse dconf dump for general"
-  dconf_to_list:
-    paths_to_restore: "{{ dconf_paths_to_restore_general }}"
-    dconf_file: "{{ dropbox_dir }}/backups/gnome_config"
-  register: response_general
+    - name: "[GNOME_CONF] Parse dconf dump for general"
+      dconf_to_list:
+        paths_to_restore: "{{ dconf_paths_to_restore_general }}"
+        dconf_file: "{{ dropbox_dir }}/backups/gnome_config"
+      register: response_general
 
-- name: "[GNOME_CONF] Import gnome general config"
-  dconf:
-    key: "{{ item.key }}"
-    value: "{{ item.value }}"
-  loop: "{{ response_general.message }}"
-  when: restore_path | default("") in item.key
+    - name: "[GNOME_CONF] Import gnome general config"
+      dconf:
+        key: "{{ item.key }}"
+        value: "{{ item.value }}"
+      loop: "{{ response_general.message }}"
+      when: restore_path | default("") in item.key
 
-- name: "[GNOME_CONF] Parse dconf dump for ubuntu"
-  dconf_to_list:
-    paths_to_restore: "{{ dconf_paths_to_restore_gnome }}"
-    dconf_file: "{{ dropbox_dir }}/backups/gnome_config"
-  register: response_gnome
-  when: desktop_environment == "gnome"
+    - name: "[GNOME_CONF] Parse dconf dump for ubuntu"
+      dconf_to_list:
+        paths_to_restore: "{{ dconf_paths_to_restore_gnome }}"
+        dconf_file: "{{ dropbox_dir }}/backups/gnome_config"
+      register: response_gnome
+      when: desktop_environment == "gnome"
 
-- name: "[GNOME_CONF] Import ubuntu gnome config"
-  dconf:
-    key: "{{ item.key }}"
-    value: "{{ item.value }}"
-  loop: "{{ response_gnome.message }}"
-  when:
-    - (desktop_environment == "gnome") or (restore_path | default("") in item.key)
+    - name: "[GNOME_CONF] Import ubuntu gnome config"
+      dconf:
+        key: "{{ item.key }}"
+        value: "{{ item.value }}"
+      loop: "{{ response_gnome.message }}"
+      when:
+        - (desktop_environment == "gnome") or (restore_path | default("") in item.key)
 
 - name: "[GNOME_CONF] Import mojave wallpaper config"
   vars:
@@ -48,11 +51,14 @@
         src: https://descargas.osmollo.es/files/mojave_dynamic.zip
         dest: "{{ wallpaper_dir }}"
         remote_src: true
+      register: wallpaper_download
+      ignore_errors: true
 
     - name: "[GNOME_CONF] generate wallpaper xml"
       template:
         src: mojave.xml.j2
         dest: "{{ wallpaper_dir }}/mojave.xml"
+      when: not wallpaper_download.failed
 
     - name: "[GNOME_CONF] import wallpaper config"
       dconf:
@@ -69,5 +75,6 @@
           value: "'zoom'"
         - key: "{{ dconf_wallpaper_path }}/secondary-color"
           value: "'#000000000000'"
+      when: not wallpaper_download.failed
   tags:
     - wallpaper

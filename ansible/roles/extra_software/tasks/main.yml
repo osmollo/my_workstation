@@ -1,12 +1,20 @@
 ---
 
 - name: "include vars file"
-  include_vars:
-    file: "{{ item }}"
-  loop:
-    - "{{ linux_distribution }}.yml"
-    - "{{ ansible_user }}.yml"
-  ignore_errors: true
+  block:
+    - name: "include vars file based on linux distribution"
+      include_vars:
+        file: "{{ linux_distribution }}.yml"
+
+    - name: "check if user '{{ ansible_user }}' has customized vars file"
+      stat:
+        path: "{{ role_path }}/vars/{{ ansible_user }}.yml"
+      register: customized_response
+
+    - name: "include customized vars file"
+      include_vars:
+        file: "{{ ansible_user }}.yml"
+      when: customized_response.stat.exists
   tags:
     - always
 
@@ -474,7 +482,9 @@
 
 - name: "Install Visual Studio Codium"
   import_tasks: vscodium/codium.yml
-  when: install_vscodium
+  when:
+    - install_vscodium
+    - linux_distribution != "fedora"
   tags:
     - extra_software
     - vscodium
@@ -560,3 +570,20 @@
   tags:
     - extra_software
     - zoom
+
+- name: "Install Github CLI"
+  import_tasks: github_cli/github_cli.yml
+  when: install_githubcli
+  tags:
+    - extra_software
+    - githubcli
+
+- name: "Install 1Password"
+  import_tasks: 1password/1password.yml
+  when:
+    - install_1password
+    - linux_distribution in ["debian", "ubuntu", "fedora"]
+  tags:
+    - extra_software
+    - 1password
+    - pass_managers

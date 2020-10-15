@@ -27,7 +27,7 @@
     update_cache: true
   when: linux_distribution == "arch"
 
-- name: "add config to shell config file"
+- name: "[FZF] add config to shell config file"
   become: false
   blockinfile:
     path: "{{ ansible_user_dir }}/.{{ ansible_user_shell | basename }}rc"

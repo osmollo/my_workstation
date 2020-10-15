@@ -16,3 +16,4 @@
     name: brave-browser
     state: present
     update_cache: true
+    disable_gpg_check: true

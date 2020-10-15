@@ -11,3 +11,4 @@
     name: "{{ zoom_url_base }}/{{ zoom_version }}/zoom_x86_amd64.rpm"
     update_cache: true
     state: present
+    disable_gpg_check: true

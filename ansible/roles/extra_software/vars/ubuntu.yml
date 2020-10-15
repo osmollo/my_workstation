@@ -6,7 +6,6 @@
 #   - network-manager-fortisslvpn-gnome
 
 gitkraken_package: "https://release.axocdn.com/linux/gitkraken-amd64.deb"
-dropbox_package: "https://www.dropbox.com/download?dl=packages/{{ linux_distribution }}/dropbox_2019.02.14_amd64.deb"
 chrome_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 nomachine_package: "https://download.nomachine.com/download/{{ nomachine_version.split('.')[0:2] | join('.') }}/Linux/nomachine_{{ nomachine_version }}_amd64.deb"

@@ -1,5 +1,15 @@
 ---
 
+- name: "[ENVIRONMENT] Configure /etc/hosts"
+  become: true
+  become_method: sudo
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item.ip }}\t{{ item.host }}"
+  loop: "{{ etc_hosts }}"
+  tags:
+    - etc_hosts
+
 - name: "[ENVIRONMENT] Configure VIM editor"
   import_tasks: vim.yml
 
@@ -19,39 +29,86 @@
         line: 'export VAULT_TOKEN=$(kwalletcli -f Passwords -e TOKEN)'
       when: desktop_environment == 'kde'
 
-- name: "[ENVIRONMENT] Delete bash files"
+- name: "[ENVIRONMENT] Delete default files"
   file:
     path: "{{ item }}"
     state: absent
   loop:
     - "{{ ansible_user_dir }}/.bashrc"
     - "{{ ansible_user_dir }}/.bash_history"
+    - "{{ ansible_user_dir }}/.bash_aliases"
     - "{{ ansible_user_dir }}/.zshrc"
-    - "{{ ansible_user_dir }}/.ssh"
+    - "{{ ssh_dir }}"
     - "{{ ansible_user_dir }}/.vault_pass*txt"
     - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
     - "{{ ansible_user_dir }}/.zhistory"
 
-- name: "[ENVIRONMENT] check if {{ dropbox_dir }}/datio/zhistory.{{ ansible_hostname }} exists"
-  stat:
-    path: "{{ dropbox_dir }}/datio/zhistory.{{ ansible_hostname }}"
-  register: stat_response
-
-- name: "[ENVIRONMENT] restore .zhistory.{{ ansible_hostname }}"
-  copy:
-    src: "{{ dropbox_dir }}/datio/zhistory.{{ ansible_hostname }}"
-    dest: "{{ ansible_user_dir }}/.zhistory"
-    remote_src: true
-    mode: 0600
-  when: stat_response.stat.exists
-
 - name: "[ENVIRONMENT] restore .zhistory"
+  when: use_dropbox
+  block:
+    - name: "[ENVIRONMENT] check if {{ dropbox_dir }}/datio/zhistory.{{ ansible_hostname }} exists"
+      stat:
+        path: "{{ dropbox_dir }}/datio/zhistory.{{ ansible_hostname }}"
+      register: stat_response
+
+    - name: "[ENVIRONMENT] restore .zhistory.{{ ansible_hostname }}"
+      copy:
+        src: "{{ dropbox_dir }}/datio/zhistory.{{ ansible_hostname }}"
+        dest: "{{ ansible_user_dir }}/.zhistory"
+        remote_src: true
+        mode: 0600
+      when: stat_response.stat.exists
+
+    - name: "[ENVIRONMENT] check if {{ dropbox_dir }}/datio/zhistory exists"
+      stat:
+        path: "{{ dropbox_dir }}/datio/zhistory"
+      register: stat2_response
+
+    - name: "[ENVIRONMENT] restore .zhistory"
+      copy:
+        src: "{{ dropbox_dir }}/datio/zhistory"
+        dest: "{{ ansible_user_dir }}/.zhistory"
+        remote_src: true
+        mode: 0600
+      when:
+        - not stat_response.stat.exists
+        - stat2_response.stat.exists
+
+- name: "[ENVIRONMENT] create .ssh directories"
+  file:
+    path: "{{ ansible_user_dir }}/{{ item }}"
+    state: directory
+  loop:
+    - ".ssh"
+    - ".ssh/aws"
+    - ".ssh/isilon"
+    - ".ssh/ccr"
+
+- name: "[ENVIRONMENT] create config files"
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop:
+    - src: bash_aliases.j2
+      dest: "{{ ansible_user_dir }}/.bash_aliases"
+    - src: bashrc.j2
+      dest: "{{ ansible_user_dir }}/.bashrc"
+    - src: molecule-openrc.sh.j2
+      dest: "{{ ansible_user_dir }}/molecule-openshrc.sh"
+    - src: ssh_config.j2
+      dest: "{{ ssh_dir }}/config"
+  tags:
+    - config_files
+
+- name: "[ENVIRONMENT] create ssh keys"
   copy:
-    src: "{{ dropbox_dir }}/datio/zhistory"
-    dest: "{{ ansible_user_dir }}/.zhistory"
-    remote_src: true
-    mode: 0600
-  when: not stat_response.stat.exists
+    dest: "{{ item.path }}"
+    content: "{{ item.key }}"
+    mode: "0600"
+  loop: "{{ ssh_keys }}"
+  no_log: true
+  tags:
+    - ssh_keys
 
 - name: "[ENVIRONMENT] create vault_pass files"
   lineinfile:
@@ -71,7 +128,13 @@
     dest: "{{ ansible_user_dir }}/.vault_pass.txt"
     state: link
 
-- name: "[ENVIRONMENT] Configure environment"
+- name: "[ENVIRONMENT] configure prezto"
+  import_tasks: prezto.yml
+  tags:
+    - prezto
+    - post_prezto
+
+- name: "[ENVIRONMENT] Create links from Dropbox"
   block:
     - name: "[ENVIRONMENT] Wait until dropbox files exist"
       wait_for:
@@ -79,39 +142,9 @@
         timeout: "{{ wait_dropbox_sync }}"
       loop: "{{ links_to_create }}"
 
-    - name: "[ENVIRONMENT] delete zsh configuration files"
-      file:
-        path: "{{ item }}"
-        state: absent
-      loop:
-        - "{{ ansible_user_dir }}/.oh-my-zsh"
-        - "{{ ansible_user_dir }}/.zshrc"
-        - "{{ ansible_user_dir }}/.zprezto"
-
     - name: "[ENVIRONMENT] Create links from Dropbox"
       file:
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
         state: link
       loop: "{{ links_to_create }}"
-
-    - name: "[ENVIRONMENT] find files in {{ ansible_user_dir }}/.ssh"
-      find:
-        paths: "{{ ansible_user_dir }}/.ssh/"
-        recurse: true
-        file_type: file
-      register: find_response
-
-    - name: "[ENVIRONMENT] change permissions to files"
-      vars:
-        id_query: "[].path"
-      file:
-        dest: "{{ item }}"
-        mode: 0600
-      loop: "{{ find_response.files | json_query(id_query) }}"
-
-    - name: "[ENVIRONMENT] configure prezto"
-      import_tasks: prezto.yml
-      tags:
-        - prezto
-        - post_prezto

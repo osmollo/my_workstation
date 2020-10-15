@@ -6,6 +6,7 @@
       - tlp
       - tlp-rdw
     state: present
+    disable_gpg_check: true
 
 - name: "[TLP] [FEDORA] Import repository key"
   rpm_key:
@@ -19,6 +20,7 @@
       - "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version }}.noarch.rpm"
       - "http://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc{{ fedora_version }}.noarch.rpm"
     state: present
+    disable_gpg_check: true
   when: "'ThinkPad' in ansible_product_version"
 
 - name: "[TLP] [FEDORA] Install TLP packages for ThinkPads"
@@ -29,4 +31,5 @@
       - kernel-devel
     state: present
     update_cache: true
+    disable_gpg_check: true
   when: "'ThinkPad' in ansible_product_version"

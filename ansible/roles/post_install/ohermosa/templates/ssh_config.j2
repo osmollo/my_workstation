@@ -1,0 +1,41 @@
+Host *
+  ServerAliveInterval {{ ssh_config_default.server_alive_interval }}
+  ServerAliveCountMax {{ ssh_config_default.server_alive_count_max }}
+  StrictHostKeyChecking {{ ssh_config_default.strict_host_key_checking }}
+  UserKnownHostsFile {{ ssh_config_default.user_known_hosts_file }}
+  ForwardAgent {{ ssh_config_default.forward_agent }}
+
+{% for entry in ssh_config_entries %}
+Host {{ entry.name }}
+{% if entry.hostname is defined %}
+  Hostname {{ entry.hostname }}
+{% endif %}
+{% if entry.identity_file is defined %}
+  IdentityFile {{ entry.identity_file }}
+{% endif %}
+{% if entry.user is defined %}
+  User {{ entry.user }}
+{% endif %}
+{% if entry.server_alive_interval is defined %}
+  ServerAliveInterval {{ entry.server_alive_interval }}
+{% endif %}
+{% if entry.tcp_keep_alive is defined %}
+  TCPKeepAlive {{ entry.tcp_keep_alive }}
+{% endif %}
+{% if entry.add_keys_to_agent is defined %}
+  AddKeysToAgent {{ entry.add_keys_to_agent }}
+{% endif %}
+{% if entry.proxy_command is defined %}
+  ProxyCommand {{ entry.proxy_command }}
+{% endif %}
+{% if entry.log_level is defined %}
+  LogLevel {{ entry.log_level }}
+{% endif %}
+{% if entry.strict_host_key_checking is defined %}
+  StrictHostKeyChecking {{ entry.strict_host_key_checking }}
+{% endif %}
+{% if entry.user_known_hosts_file is defined %}
+  UserKnownHostsFile {{ entry.user_known_hosts_file }}
+{% endif %}
+
+{% endfor %}

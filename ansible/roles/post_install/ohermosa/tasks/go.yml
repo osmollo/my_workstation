@@ -10,9 +10,3 @@
     path: "{{ ansible_user_dir }}/go"
     state: directory
   when: not gopath_response.stat.exists
-
-- name: "[GO] download go packages"
-  shell: "go get {{ item }}"
-  loop: "{{ go_packages }}"
-  environment:
-    GOPATH: "{{ ansible_user_dir }}/go"

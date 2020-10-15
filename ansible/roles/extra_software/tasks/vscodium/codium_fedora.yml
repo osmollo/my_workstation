@@ -15,6 +15,11 @@
     key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
     state: present
 
+- name: "[VSCODIUM] [FEDORA] check update"
+  shell: yum check-update
+  register: yum_result
+  failed_when: yum_result.rc != 100
+
 - name: "[VSCODIUM] [FEDORA] Install VSCodium"
   yum:
     name: codium

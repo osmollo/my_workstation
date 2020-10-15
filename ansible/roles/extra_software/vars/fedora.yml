@@ -6,7 +6,6 @@
 #   - NetworkManager-fortisslvpn-gnome
 
 gitkraken_package: "https://release.axocdn.com/linux/gitkraken-amd64.rpm"
-dropbox_package: "https://www.dropbox.com/download?dl=packages/{{ linux_distribution }}/nautilus-dropbox-2019.02.14-1.{{ linux_distribution }}.{{ ansible_architecture }}.rpm"
 chrome_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_{{ ansible_architecture }}.rpm"
 teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer.{{ ansible_architecture }}.rpm"
 nomachine_package: "https://download.nomachine.com/download/{{ nomachine_version.split('.')[0:2] | join('.') }}/Linux/nomachine_{{ nomachine_version }}_{{ ansible_architecture }}.rpm"

@@ -1,5 +1,48 @@
 # CHANGELOG
 
+## 5.0
+
+- Soporte para [**FEDORA** 32](https://getfedora.org/es/workstation/)
+- Separación en playbooks `install.yml` y `post_install.yml` para la configuración manual de **Dropbox** y el descifrado del fichero `defaults/main.yml` de los subroles de `post_install/${USER}`
+- Instalación de [Github CLI](https://github.com/cli/cli)
+- Script `github_release.py` para ejecutar en el CI y crear la _release_ en el [repositorio de github]('https://github.com/ohermosa/my_workstation')
+- Nuevo módulo `get_dropbox_latest` para obtener la última versión estable de **Dropbox**
+- Nueva tool [kompose](https://github.com/kubernetes/kompose) dentro de `k8s_tools`
+- Instalación de `ansible-lint`
+- Mejora en la documentación
+- Instalación de [1Password](https://support.1password.com/cs/getting-started-linux/) para linux en **Ubuntu/Debian** y **Fedora**
+- Cambios en `post_install/ohermosa`:
+  - Configuración de `Github CLI`
+  - Nuevos repositorios git:
+    - [github cli](https://github.com/cli/cli)
+    - [ssh_magic](https://github.com/ohermosa/ssh_magic)
+  - Migración de configuraciones de **Dropbox** a **Ansible**:
+    - `.bash_aliases`
+    - `.bashrc`
+    - `molecule-openrc.sh`
+    - `ssh_config`
+    - ssh keys
+  - Cambio contraseña usuario XE
+  - Nuevas entradas para `/etc/hosts`
+  - Posibilidad de no ejecutar tareas dependientes de **Dropbox** usando la variable `use_dropbox`
+- Corrección de errores:
+  - Comentado en el `Vagrantfile` la ejecución de ansible porque lanza la rama `master` cuando la idea es que ejecute la rama de prueba
+  - Actualizada versión de `Dropbox` a `2020.03.04-1`
+  - Instalación `apt-transport-https`
+  - Definición de `linux_distribution` y `desktop_environment` cuando no ha conseguido ser definida
+  - Instalación `lens`
+  - Para `ohermosa`, no se instala por defecto **VS Codium** ni **Bitwarden**
+  - Creación alias `bfg`
+  - Keyserver `github cli`
+  - No se instalan paquetes de `GO`
+  - No falla la instalación si no se puede descargar los wallpapers
+  - Configuración post instalación `github cli`
+  - En el role `extra_vars` se carga el fichero de variables `$USER.yml` únicamente si existe. Esto reemplaza al `ignore_errors` que se usaba
+  - Error lintado `common/tasks/vlc_fedora.yml`
+  - Fixes `Vagrantfile`
+  - Fix actualización paquetes Fedora
+  - Fix instalación **VLC** en Fedora
+
 ## 4.6
 
 - Instalación del cliente de videoconferencia [Zoom](https://zoom.us/es-es/meetings.html)

@@ -1,0 +1,23 @@
+---
+
+- name: "[GITHUB_CLI] [DEB] Copy repository file"
+  copy:
+    content: "deb https://cli.github.com/packages {{ ubuntu_codename }} main"
+    dest: /etc/apt/sources.list.d/githubcli.list
+    mode: 0644
+    owner: root
+    group: root
+  tags:
+    - vscode_repo
+
+- name: "[GITHUB_CLI] [DEB] Import repository key"
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: C99B11DEB97541F0
+    state: present
+
+- name: "[GITHUB_CLI] [DEB] Install githubcli package"
+  apt:
+    name: gh
+    state: present
+    update_cache: true

@@ -1,6 +1,14 @@
 ---
 
+- name: "[DROPBOX] [DEB] get latest dropbox version"
+  get_dropbox_latest:
+    distro: "{{ linux_distribution }}"
+    arch: "{{ ansible_architecture }}"
+  register: dropbox_version
+
 - name: "[DROPBOX] [DEB] Install Dropbox package"
+  vars:
+    dropbox_package: "https://www.dropbox.com/download?dl=packages/{{ linux_distribution }}/dropbox_{{ dropbox_version.version }}_amd64.deb"
   apt:
     deb: "{{ dropbox_package }}"
     state: present

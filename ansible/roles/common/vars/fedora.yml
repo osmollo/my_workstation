@@ -8,7 +8,7 @@ distro_packages:
   - net-tools
   - bind-utils
   - flatpak
-  - system-config-users
+  - "{{ 'system-config-users' if (fedora_version|int) <= 30 else '' }}"
   - python-devel
   - python3-devel
   - make
@@ -20,6 +20,12 @@ distro_packages:
   - srm
   - nss-tools
   - fira-code-fonts
+  - ansible-lint
+  - gcc
+  - python3-devel
+  - mesa-libgbm
+  - mesa-libgbm-devel
+
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome

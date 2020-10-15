@@ -1,19 +1,15 @@
 ---
 
-- name: "Configure /etc/hosts"
-  become: true
-  become_method: sudo
-  lineinfile:
-    path: /etc/hosts
-    line: "{{ item.ip }}\t{{ item.host }}"
-  loop: "{{ etc_hosts }}"
+- name: "configure environment"
+  import_tasks: environment.yml
   tags:
     - post_install
-    - resolv
-    - post_resolv
+    - environment
+    - env
 
 - name: "create secrets"
   import_tasks: secrets.yml
+  when: desktop_environment != "foobar"
   tags:
     - post_install
     - secrets
@@ -84,13 +80,6 @@
     - post_install
     - crontab
 
-- name: "configure environment"
-  import_tasks: environment.yml
-  tags:
-    - post_install
-    - environment
-    - env
-
 - name: "download go packages"
   import_tasks: go.yml
   tags:
@@ -109,12 +98,12 @@
   import_tasks: python.yml
   tags:
     - post_install
-    - git
     - python
     - post_python
 
 - name: "configure sublime"
   import_tasks: sublime.yml
+  when: use_dropbox
   tags:
     - post_install
     - sublime
@@ -128,6 +117,7 @@
   import_tasks: network.yml
   become: true
   become_method: sudo
+  when: use_dropxbox
   tags:
     - post_install
     - network
@@ -186,3 +176,9 @@
   tags:
     - post_install
     - zeal
+
+- name: "configure github CLI"
+  import_tasks: github_cli.yml
+  tags:
+    - post_install
+    - githubcli

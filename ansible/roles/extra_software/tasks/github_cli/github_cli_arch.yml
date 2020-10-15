@@ -1,0 +1,7 @@
+---
+
+- name: "[GITHUB_CLI] [ARCH] Install github cli"
+  pacman:
+    name: github-cli
+    state: present
+    update_cache: true

@@ -1,4 +1,4 @@
-# install/ohermosa
+# ohermosa
 
 ## Acciones disponibles
 

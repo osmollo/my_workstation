@@ -6,6 +6,7 @@
       - "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version }}.noarch.rpm"
       - "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedora_version }}.noarch.rpm"
     update_cache: true
+    disable_gpg_check: true
     state: present
 
 - name: "[KODI] [FEDORA] install kodi"
@@ -13,3 +14,4 @@
     name: kodi
     update_cache: true
     state: present
+    disable_gpg_check: true

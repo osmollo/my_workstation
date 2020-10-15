@@ -33,14 +33,14 @@
     name: user.name
     repo: "{{ ansible_user_dir }}/.zprezto"
     scope: local
-    value: "Oscar Hermosa"
+    value: "{{ git_user_name }}"
 
 - name: "[PREZTO] Configure name and user for prezto repo"
   git_config:
     name: user.email
     repo: "{{ ansible_user_dir }}/.zprezto"
     scope: local
-    value: "ohermosa@gmail.com"
+    value: "{{ git_user_mail_personal }}"
 
 - name: "[PREZTO] copy powerline truetype fonts"
   block:
