@@ -66,7 +66,7 @@ def get_latest(distro, arch):
                     tmpver = item.text.split('_')[1]
                     versions.append(tmpver)
             elif distro == "fedora":
-                if item.text.startswith('nautilus-dropbox-') and tmparch in item.text:
+                if item.text.startswith('nautilus-dropbox-'):
                     tmpver = item.text.split('-')[2]
                     versions.append(tmpver)
         if len(versions) == 0:

@@ -2,6 +2,7 @@
 
 ## 5.0
 
+- Soporte para [**FEDORA** 32](https://getfedora.org/es/workstation/)
 - Separación en playbooks `install.yml` y `post_install.yml` para la configuración manual de **Dropbox** y el descifrado del fichero `defaults/main.yml` de los subroles de `post_install/${USER}`
 - Instalación de [Github CLI](https://github.com/cli/cli)
 - Script `github_release.py` para ejecutar en el CI y crear la _release_ en el [repositorio de github]('https://github.com/ohermosa/my_workstation')
@@ -25,6 +26,7 @@
   - Nuevas entradas para `/etc/hosts`
   - Posibilidad de no ejecutar tareas dependientes de **Dropbox** usando la variable `use_dropbox`
 - Corrección de errores:
+  - Comentado en el `Vagrantfile` la ejecución de ansible porque lanza la rama `master` cuando la idea es que ejecute la rama de prueba
   - Actualizada versión de `Dropbox` a `2020.03.04-1`
   - Instalación `apt-transport-https`
   - Definición de `linux_distribution` y `desktop_environment` cuando no ha conseguido ser definida
