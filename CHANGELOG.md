@@ -5,6 +5,7 @@
 - Corrección de errores:
   - Ya no se replica el repositorio en **gitea**
   - Fixes en varios `README.md`
+  - Fix en configuración ssh para `casa`
 
 ## 5.0
 
