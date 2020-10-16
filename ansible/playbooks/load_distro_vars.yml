@@ -7,6 +7,7 @@
       set_fact:
         debian_based:
           - "Debian"
+          - "Deepin 20"
         ubuntu_based:
           - "Ubuntu"
           - "Linux Mint"
@@ -49,12 +50,16 @@
         executable: /bin/bash
       register: debian_response
       changed_when: false
-      when: linux_distribution == "debian"
+      when:
+        - linux_distribution == "debian"
+        - ansible_distribution != "Deepin 20"
 
     - name: "Set DEBIAN_CODENAME variable"
       set_fact:
         debian_codename: "{{ debian_response.stdout }}"
-      when: linux_distribution == "debian"
+      when:
+        - linux_distribution == "debian"
+        - ansible_distribution != "Deepin 20"
 
     - name: "Set DEBIAN_VERSION variable"
       set_fact:
@@ -69,7 +74,14 @@
           squeeze: "6"
           lenny: "5"
           etch: "4"
-      when: linux_distribution == "debian"
+      when:
+        - linux_distribution == "debian"
+        - ansible_distribution != "Deepin 20"
+
+    - name: "Set DEBIAN_VERSION variable"
+      set_fact:
+        debian_version: "10"
+      when: ansible_distribution == "Deepin 20"
 
     - name: "Get Ubuntu CODENAME"
       shell: |
@@ -121,6 +133,13 @@
       when:
         - ansible_env.XDG_CURRENT_DESKTOP is defined
         - "'GNOME' in ansible_env.XDG_CURRENT_DESKTOP or 'Unity' in ansible_env.XDG_CURRENT_DESKTOP"
+
+    - name: "[DEEPIN] Set DESKTOP_ENVIRONMENT variable"
+      set_fact:
+        desktop_environment: "deepin"
+      when:
+        - ansible_env.XDG_CURRENT_DESKTOP is defined
+        - "'Deepin' in ansible_env.XDG_CURRENT_DESKTOP"
 
     - name: "[CINNAMON] Set DESKTOP_ENVIRONMENT variable"
       set_fact:

@@ -17,6 +17,7 @@
 | **DISTRIBUCIÓN** | **LINKS DE DESCARGA** |
 |------------------|--------------|
 | Debian | **STABLE (10)**: [Enlace](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.2.0-amd64-netinst.iso) <br> **TESTING (11)**: [Enlace](https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/debian-testing-amd64-netinst.iso) |
+| Deepin | **20**: [Enlace](http://www.mediafire.com/file/re4yrj5o5uj1mh7/deepin-desktop-community-1002-amd64.iso.torrent/file) |
 | Ubuntu 18.04 | **UBUNTU**: [Enlace](http://releases.ubuntu.com/18.04.3/ubuntu-18.04.3-desktop-amd64.iso) <br> **KUBUNTU**: [Enlace](http://cdimage.ubuntu.com/kubuntu/releases/18.04/release/kubuntu-18.04.3-desktop-amd64.iso) <br> **XUBUNTU**: [Enlace](http://ftp.uni-kl.de/pub/linux/ubuntu-dvd/xubuntu/releases/18.04.3/release/xubuntu-18.04.3-desktop-amd64.iso) |
 | Ubuntu 20.04 | **UBUNTU**: [Enlace](https://releases.ubuntu.com/20.04/ubuntu-20.04-desktop-amd64.iso) <br> **KUBUNTU**: [Enlace](http://cdimage.ubuntu.com/kubuntu/releases/20.04/release/kubuntu-20.04-desktop-amd64.iso) <br> **XUBUNTU**: [Enlace](https://torrent.ubuntu.com/xubuntu/releases/focal/release/desktop/xubuntu-20.04-desktop-amd64.iso.torrent) |
 | Fedora | **30**: [Enlace](http://mirror.uv.es/mirror/fedora/linux/releases/30/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-30-1.2.iso) <br> **31**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso) <br> **32**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/32/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-32-1.6.iso) |
@@ -232,17 +233,27 @@ ansible-playbook install.yml  -t virtualbox
 A continuación, dentro del directorio del repo, hay que ejecutar el siguiente comando para levntar la máquina virtual:
 
 ```bash
-vagrant up [mint|kubuntu|ubuntu|xubuntu|fedora30|fedora31|arch|manjaro|debian]
+vagrant up [mint|kubuntu|ubuntu|xubuntu|fedora30|fedora31|fedora32|arch|manjaro|debian]
 ```
 
-Cuando se inicie la máquina, se lanzará automáticamente el playbook `vagrant.yml` que instala el role `common` y `extra_software`. Si se quiere lanzar *ansible* desde el anfitrión, habrá que ejecutar el playbook correspondiente usando el inventario de la máquina vagrant que hayamos levantado:
+Para entrar a la máquina creada:
 
 ```bash
-ansible-playbook -i ansible_hosts vagrant/install.yml
-ansible-playbook -i ansible_hosts vagrant/post_install.yml -e post_user=ohermosa
+vagrant ssh [mint|kubuntu|ubuntu|xubuntu|fedora30|fedora31|fedora32|arch|manjaro|debian]
 ```
 
-Y para destruir las máquinas:
+Una vez dentro de ella, hay que instalar `git` y `ansible`, clonar el repositorio y lanzar los playbooks correspondientes como en una máquina física.
+
+```bash
+vagrant ssh debian
+sudo apt install git ansible
+git clone https://gitlab.com/ohermosa/my_workstation.git
+cd my_workstation/ansible
+ansible-playbook playbooks/prepare.yml
+ansible-playbook install.yml
+```
+
+Una vez terminadas las pruebas, para destruir las máquinas:
 
 ```bash
 vagrant destroy -f

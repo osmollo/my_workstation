@@ -2,6 +2,8 @@
 
 ## 5.1
 
+- Soporte para **Deepin 20**
+- Vagrant ya no ejecuta los playbooks porque está pensado para realizar pruebas y sólo podía ejecutar la rama `master` (las pruebas deberían ejecutarse antes de mergear en master)
 - Corrección de errores:
   - Ya no se replica el repositorio en **gitea**
   - Fixes en varios `README.md`
