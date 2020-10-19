@@ -9,6 +9,7 @@
   - Fixes en varios `README.md`
   - Fix en configuración ssh para `casa`
 - Cambios en `post_install/ohermosa`:
+  - Crontab para backup de **Gnome** incluye nombre del host que hace backup
   - Nuevos repositorios git:
     - [raspberry_docker](git@gitlab.com:ohermosa/raspberrypi_docker.git)
 
