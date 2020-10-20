@@ -57,9 +57,9 @@ export PATH=$PATH:/usr/local/go/bin
 export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt
 export WORKON_HOME=$HOME/python-venv
 
-if [ $(grep -i ubuntu /etc/os-release | wc -l) -ge 1 ]; then
+if grep -i ubuntu /etc/os-release > /dev/null; then
   source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-elif [ $(grep -i fedora /etc/os-release | wc -l) -ge 1 ]; then
+elif grep -i fedora /etc/os-release > /dev/null; then
   source /usr/bin/virtualenvwrapper.sh
 fi
 
