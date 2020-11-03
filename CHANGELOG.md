@@ -12,6 +12,7 @@
   - Crontab para backup de **Gnome** incluye nombre del host que hace backup
   - Source del virtualenvwrapper más claro
   - Instalación del navegador **Brave** por defecto
+  - Nuevas credenciales docker
   - Nuevos repositorios git:
     - [raspberry_docker](git@gitlab.com:ohermosa/raspberrypi_docker.git)
 
