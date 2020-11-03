@@ -35,7 +35,7 @@ install_flatpak: false
 install_megacmd: true
 install_megasync: false
 install_vivaldi: false
-install_brave: false
+install_brave: true
 install_bitwarden: false
 install_lexnet: false
 install_pass: false
