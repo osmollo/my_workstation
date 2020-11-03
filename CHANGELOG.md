@@ -15,6 +15,7 @@
   - Nuevas credenciales docker
   - Nuevos repositorios git:
     - [raspberry_docker](git@gitlab.com:ohermosa/raspberrypi_docker.git)
+    - [msqlm_alertops](ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_alertops.git)
 
 ## 5.0
 
