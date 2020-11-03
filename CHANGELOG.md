@@ -3,11 +3,13 @@
 ## 5.1
 
 - Soporte para **Deepin 20**
+- Soporte para **Fedora 33**
 - Vagrant ya no ejecuta los playbooks porque está pensado para realizar pruebas y sólo podía ejecutar la rama `master` (las pruebas deberían ejecutarse antes de mergear en master)
 - Corrección de errores:
   - Ya no se replica el repositorio en **gitea**
   - Fixes en varios `README.md`
   - Fix en configuración ssh para `casa`
+  - Fix instalación **Docker CE** para **Fedora** > 31
 - Cambios en `post_install/ohermosa`:
   - Crontab para backup de **Gnome** incluye nombre del host que hace backup
   - Source del virtualenvwrapper más claro
