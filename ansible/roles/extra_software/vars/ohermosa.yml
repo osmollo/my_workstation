@@ -5,7 +5,7 @@ install_dropbox: true
 install_vscode: true
 install_spotify: true
 install_ohmyzsh: false
-install_sublimetext: true
+install_sublimetext: false
 install_atom: false
 install_gitkraken: false
 install_telegram: true
@@ -17,7 +17,7 @@ install_pycharm: false
 install_keepass: false
 install_buttercup: false
 install_windscribe: false
-install_chrome: true
+install_chrome: false
 install_teamviewer: true
 install_nomachine: false
 install_ecs: false

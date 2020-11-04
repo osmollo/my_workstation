@@ -10,10 +10,12 @@
   - Fixes en varios `README.md`
   - Fix en configuración ssh para `casa`
   - Fix instalación **Docker CE** para **Fedora** > 31
+  - Fixes en la instalación de **KDEnlive**, **Virtualbox**, **microk8s**, **hetzner-kube**
 - Cambios en `post_install/ohermosa`:
   - Crontab para backup de **Gnome** incluye nombre del host que hace backup
   - Source del virtualenvwrapper más claro
-  - Instalación del navegador **Brave** por defecto
+  - Instalación del navegador **Brave** por defecto, **Chrome** ya no se instala
+  - No se instala por defecto **Sublime Text**
   - Nuevas credenciales docker
   - Nuevos repositorios git:
     - [raspberry_docker](git@gitlab.com:ohermosa/raspberrypi_docker.git)

@@ -1,18 +1,18 @@
 ---
 
-- name: "[KOPS] delete hetzner-kube binary if exists"
+- name: "[KOPS] delete kops binary if exists"
   file:
-    path: /usr/local/bin/hetzner-kube
+    path: /usr/local/bin/kops
     state: absent
 
-- name: "[KOPS] Get latest version of hetzner kube"
+- name: "[KOPS] Get latest version of kops"
   uri:
     url: "{{ kops_latest_url }}"
     follow_redirects: safe
     body_format: raw
   register: kops_latest
 
-- name: "[KOPS] Set urls for hetzner kube package"
+- name: "[KOPS] Set urls for kops package"
   vars:
     kops_version: "{{ kops_latest.url | urlsplit('path') | basename }}"
   set_fact:

@@ -61,6 +61,7 @@
 
 - name: "[MICROK8S] installation"
   import_tasks: microk8s.yml
+  when: linux_distribution in ['ubuntu', 'debian']
   tags:
     - microk8s
 

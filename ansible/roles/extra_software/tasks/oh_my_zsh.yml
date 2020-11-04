@@ -35,4 +35,6 @@
   lineinfile:
     path: /etc/zsh/zprofile
     line: "emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'"
-  when: desktop_environment == "kde"
+  when:
+    - desktop_environment == "kde"
+    - linux_distribution in ['ubuntu', 'debian']
