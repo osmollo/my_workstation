@@ -27,3 +27,4 @@
     src: "{{ xmlresp.matches[0].url }}"
     remote_src: true
     dest: "{{ ansible_user_dir }}/.local/share/Zeal/Zeal/docsets/"
+  ignore_errors: true

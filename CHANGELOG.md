@@ -18,6 +18,10 @@
   - Instalación del navegador **Brave** por defecto, **Chrome** ya no se instala
   - No se instala por defecto **Sublime Text**
   - Nuevas credenciales docker
+  - Corrección de errores:
+    - Fix en la instalación de **prezto**
+    - Fix en la configuracion de **git_diff**
+    - Fix en configuración de gnome extensions
   - Nuevos repositorios git:
     - [raspberry_docker](git@gitlab.com:ohermosa/raspberrypi_docker.git)
     - [msqlm_alertops](ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_alertops.git)

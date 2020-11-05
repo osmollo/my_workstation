@@ -222,7 +222,7 @@
 
     - name: "[GIT] configure git"
       vars:
-        diff_editor: "{{ 'meld' if meld_response.rc == 0 else 'kompare' if kompare.rc == 0 }}"
+        diff_editor: "{{ 'meld' if meld_response.rc == 0 else 'kompare' if kompare_response.rc == 0 }}"
       template:
         src: gitconfig.j2
         dest: "{{ ansible_user_dir }}/.gitconfig"

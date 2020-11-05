@@ -14,7 +14,9 @@
     - zshrc
 
 - name: "[PREZTO] install ohermosa's prezto fork'"
-  include_role:
+  become: true
+  become_method: sudo
+  import_role:
     name: extra_software
     tasks_from: prezto.yml
   vars:
