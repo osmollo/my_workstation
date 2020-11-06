@@ -4,6 +4,7 @@
 
 - Soporte para **Deepin 20**
 - Soporte para **Fedora 33**
+- Soporte para **Ubuntu 20.10**
 - Nuevo playbook `playbooks/import_gpg.yml`
 - Vagrant ya no ejecuta los playbooks porque está pensado para realizar pruebas y sólo podía ejecutar la rama `master` (las pruebas deberían ejecutarse antes de mergear en master)
 - Corrección de errores:
@@ -22,6 +23,7 @@
     - Fix en la instalación de **prezto**
     - Fix en la configuracion de **git_diff**
     - Fix en configuración de gnome extensions
+    - Fix al borrar `~/.ssh` porque estaba creado con propietario __root__
   - Nuevos repositorios git:
     - [raspberry_docker](git@gitlab.com:ohermosa/raspberrypi_docker.git)
     - [msqlm_alertops](ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_alertops.git)

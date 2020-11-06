@@ -30,6 +30,8 @@
       when: desktop_environment == 'kde'
 
 - name: "[ENVIRONMENT] Delete default files"
+  become: true
+  become_method: sudo
   file:
     path: "{{ item }}"
     state: absent
