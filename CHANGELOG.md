@@ -6,6 +6,7 @@
 - Soporte para **Fedora 33**
 - Soporte para **Ubuntu 20.10**
 - Nuevo playbook `playbooks/import_gpg.yml`
+- Nuevo despliegue de **Docker** para **MariaDB**
 - Vagrant ya no ejecuta los playbooks porque está pensado para realizar pruebas y sólo podía ejecutar la rama `master` (las pruebas deberían ejecutarse antes de mergear en master)
 - Corrección de errores:
   - Ya no se replica el repositorio en **gitea**
