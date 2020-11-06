@@ -14,6 +14,7 @@
   - Fix en configuración ssh para `casa`
   - Fix instalación **Docker CE** para **Fedora** > 31
   - Fixes en la instalación de **KDEnlive**, **Virtualbox**, **microk8s**, **hetzner-kube**
+  - Fix despliegue de **Jenkins**
 - Cambios en `post_install/ohermosa`:
   - Crontab para backup de **Gnome** incluye nombre del host que hace backup
   - Source del virtualenvwrapper más claro
