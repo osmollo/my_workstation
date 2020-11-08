@@ -30,6 +30,7 @@
     - [raspberry_docker](git@gitlab.com:ohermosa/raspberrypi_docker.git)
     - [msqlm_alertops](ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_alertops.git)
     - [PasswordPusher](git@github.com:pglombardo/PasswordPusher.git)
+    - [Peladonerd](git@github.com:pablokbs/peladonerd.git)
 
 ## 5.0
 
