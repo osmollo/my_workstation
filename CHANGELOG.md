@@ -5,7 +5,7 @@
 - Soporte para **Deepin 20**
 - Soporte para **Fedora 33**
 - Soporte para **Ubuntu 20.10**
-- Nuevo playbook `playbooks/import_gpg.yml`
+- Nuevos playbooks `playbooks/import_gpg.yml` y `restore_desktop_config.yml`
 - Nuevo despliegue de **Docker** para **MariaDB**
 - Vagrant ya no ejecuta los playbooks porque está pensado para realizar pruebas y sólo podía ejecutar la rama `master` (las pruebas deberían ejecutarse antes de mergear en master)
 - Corrección de errores:
@@ -21,6 +21,7 @@
   - Instalación del navegador **Brave** por defecto, **Chrome** ya no se instala
   - No se instala por defecto **Sublime Text**
   - Nuevas credenciales docker
+  - Se ha sacado la restauración de la configuración del entorno de escritorio del role `post_install`. Se ha pasado al playbook `restore_desktop_config.yml` para ejecutarlo de forma independiente
   - Corrección de errores:
     - Fix en la instalación de **prezto**
     - Fix en la configuracion de **git_diff**

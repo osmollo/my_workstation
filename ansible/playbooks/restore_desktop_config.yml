@@ -1,0 +1,36 @@
+---
+
+- name: "[LOAD VARS] setting ansible variables"
+  import_playbook: playbooks/load_distro_vars.yml
+  tags:
+    - always
+
+- hosts: localhost
+  connection: local
+  vars:
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+    post_user: "{{ post_install_user | default(ansible_user) }}"
+  tasks:
+    - name: "restore kde config"
+      import_tasks: kde_restore.yml
+      when: desktop_environment == "kde"
+      tags:
+        - post_install
+        - kde_restore
+
+    - name: "install gnome extensions"
+      import_tasks: gnome_extensions.yml
+      when: desktop_environment == "gnome"
+      tags:
+        - post_install
+        - gnome_extensions
+        - gnome
+
+    - name: "restore gnome config"
+      import_tasks: gnome_conf.yml
+      when: desktop_environment == "gnome" or desktop_environment == "cinnamon"
+      tags:
+        - post_install
+        - gnome_conf
+        - gnome

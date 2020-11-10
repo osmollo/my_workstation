@@ -7,6 +7,8 @@
   - [update_ansible.yml](#update_ansibleyml)
   - [load_distro_vars.yml](#load_distro_varsyml)
   - [kde_backup.yml](#kde_backupyml)
+  - [import_gpg.yml](#import_gpgyml)
+  - [restore_desktop_config.yml](#restore_desktop_configyml)
 
 ## get_secret.yml
 
@@ -54,4 +56,20 @@ Realiza una copia de seguridad de la configuración de **KDE**. Ejecuta las tare
 
 ```bash
 ansible-playbook playbooks/kde_backup.yml
+```
+
+## import_gpg.yml
+
+Importa las llaves GPG públicas y privadas. Es un playbook personal
+
+```bash
+ansible-playbook playbooks/import_gpg.yml
+```
+
+## restore_desktop_config.yml
+
+Este playbook restaura la configuración de usuario
+
+```bash
+ansible-playbook playbooks/restore_desktop_config.yml
 ```
