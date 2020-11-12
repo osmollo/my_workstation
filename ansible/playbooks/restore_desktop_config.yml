@@ -1,7 +1,7 @@
 ---
 
 - name: "[LOAD VARS] setting ansible variables"
-  import_playbook: playbooks/load_distro_vars.yml
+  import_playbook: load_distro_vars.yml
   tags:
     - always
 
@@ -13,14 +13,18 @@
     post_user: "{{ post_install_user | default(ansible_user) }}"
   tasks:
     - name: "restore kde config"
-      import_tasks: kde_restore.yml
+      import_role: 
+        name: "post_install/{{ post_user }}"
+        tasks_from: kde_restore.yml
       when: desktop_environment == "kde"
       tags:
         - post_install
         - kde_restore
 
     - name: "install gnome extensions"
-      import_tasks: gnome_extensions.yml
+      import_role: 
+        name: "post_install/{{ post_user }}"
+        tasks_from: gnome_extensions.yml
       when: desktop_environment == "gnome"
       tags:
         - post_install
@@ -28,7 +32,9 @@
         - gnome
 
     - name: "restore gnome config"
-      import_tasks: gnome_conf.yml
+      import_role:
+        name: "post_install/{{ post_user }}"
+        tasks_from: gnome_conf.yml
       when: desktop_environment == "gnome" or desktop_environment == "cinnamon"
       tags:
         - post_install
