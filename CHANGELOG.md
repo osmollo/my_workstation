@@ -7,6 +7,7 @@
 - Soporte para **Ubuntu 20.10**
 - Nuevos playbooks `playbooks/import_gpg.yml` y `restore_desktop_config.yml`
 - Nuevo despliegue de **Docker** para **MariaDB**
+- Nuevo directorio [kubernetes_deploys](./kubernetes_deploys) con despliegues en **kubernetes**
 - Vagrant ya no ejecuta los playbooks porque está pensado para realizar pruebas y sólo podía ejecutar la rama `master` (las pruebas deberían ejecutarse antes de mergear en master)
 - Corrección de errores:
   - Ya no se replica el repositorio en **gitea**
