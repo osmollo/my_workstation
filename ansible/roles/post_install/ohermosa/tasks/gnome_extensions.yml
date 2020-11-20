@@ -25,7 +25,7 @@
     - name: "[GNOME_EXTENSIONS] Get the uuids of gnome extensions"
       slurp:
         path: "{{ item }}"
-      loop: "{{ lookup('list', find_response | json_query('files[].path'), wantlist=True) }}"
+      loop: "{{ find_response | json_query('files[].path') }}"
       register: slurp_response
 
     - name: "[GNOME_EXTENSIONS] set uuids"

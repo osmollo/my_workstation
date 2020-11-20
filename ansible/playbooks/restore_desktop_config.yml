@@ -13,7 +13,7 @@
     post_user: "{{ post_install_user | default(ansible_user) }}"
   tasks:
     - name: "restore kde config"
-      import_role: 
+      import_role:
         name: "post_install/{{ post_user }}"
         tasks_from: kde_restore.yml
       when: desktop_environment == "kde"
@@ -22,7 +22,7 @@
         - kde_restore
 
     - name: "install gnome extensions"
-      import_role: 
+      import_role:
         name: "post_install/{{ post_user }}"
         tasks_from: gnome_extensions.yml
       when: desktop_environment == "gnome"
