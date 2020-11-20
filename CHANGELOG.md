@@ -32,7 +32,6 @@
     - [msqlm_alertops](ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_alertops.git)
     - [PasswordPusher](git@github.com:pglombardo/PasswordPusher.git)
     - [Peladonerd](git@github.com:pablokbs/peladonerd.git)
-    - [Playing with k8s](git@gitlab.com:ohermosa/playing_with_k8s.git)
 
 ## 5.0
 
