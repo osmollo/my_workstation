@@ -23,6 +23,7 @@
   - No se instala por defecto **Sublime Text**
   - Nuevas credenciales docker
   - Se ha sacado la restauración de la configuración del entorno de escritorio del role `post_install`. Se ha pasado al playbook `restore_desktop_config.yml` para ejecutarlo de forma independiente
+  - Parametrizada la ruta del fichero a usar para restaurar la configuración de **Gnome** para poder personalizarlo en `extra_vars`
   - Corrección de errores:
     - Fix en la instalación de **prezto**
     - Fix en la configuracion de **git_diff**
