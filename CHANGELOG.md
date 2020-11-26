@@ -35,6 +35,8 @@
     - [PasswordPusher](git@github.com:pglombardo/PasswordPusher.git)
     - [Peladonerd](git@github.com:pablokbs/peladonerd.git)
     - [squid_pip](git@globaldevtools.bbva.com:7999/uqnwi/squid_pip.git)
+  - Nuevo despliegue en Kubernetes:
+    - Vault
 
 ## 5.0
 
