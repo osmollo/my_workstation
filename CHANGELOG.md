@@ -29,6 +29,7 @@
     - Fix en la configuracion de **git_diff**
     - Fix en configuración de gnome extensions
     - Fix al borrar `~/.ssh` porque estaba creado con propietario __root__
+    - Fix al aplicar __git config__ a todos los repositorios
   - Nuevos repositorios git:
     - [raspberry_docker](git@gitlab.com:ohermosa/raspberrypi_docker.git)
     - [msqlm_alertops](ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_alertops.git)

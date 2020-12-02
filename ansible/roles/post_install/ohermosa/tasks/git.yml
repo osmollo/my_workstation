@@ -147,34 +147,34 @@
     - name: "[GIT] Configure name and user of BBVA repositories"
       git_config:
         name: user.name
-        repo: "{{ item }}"
+        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
         scope: local
         value: "{{ git_user_name }}"
-      loop: "{{ git_repositories.work | json_query('[].dest') }}"
+      loop: "{{ git_repositories.work }}"
 
     - name: "[GIT] Configure name and user of BBVA repositories"
       git_config:
         name: user.email
-        repo: "{{ item }}"
+        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
         scope: local
         value: "{{ git_user_mail_work }}"
-      loop: "{{ git_repositories.work | json_query('[].dest') }}"
+      loop: "{{ git_repositories.work }}"
 
     - name: "[GIT] Configure name and user of personal repositories"
       git_config:
         name: user.name
-        repo: "{{ item }}"
+        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
         scope: local
         value: "{{ git_user_name }}"
-      loop: "{{ git_repositories.home | json_query('[].dest') }}"
+      loop: "{{ git_repositories.home }}"
 
     - name: "[GIT] Configure name and user of personal repositories"
       git_config:
         name: user.email
-        repo: "{{ item }}"
+        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
         scope: local
         value: "{{ git_user_mail_personal }}"
-      loop: "{{ git_repositories.home | json_query('[].dest') }}"
+      loop: "{{ git_repositories.home }}"
   tags:
     - clone_repos
     - repos_config
