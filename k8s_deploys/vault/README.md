@@ -21,7 +21,7 @@ Y comprobamos que tenemos acceso al chart de **Vault**:
 
 ```bash
 helm search repo hashicorp/vault
-NAME           	CHART VERSION	APP VERSION	DESCRIPTION                   
+NAME           	CHART VERSION	APP VERSION	DESCRIPTION
 hashicorp/vault	0.8.0        	1.5.4      	Official HashiCorp Vault Chart
 ```
 
@@ -29,10 +29,10 @@ Vemos las versiones disponibles del chart de **Vault**:
 
 ```bash
 helm search repo hashicorp/vault -l
-NAME           	CHART VERSION	APP VERSION	DESCRIPTION                               
-hashicorp/vault	0.8.0        	1.5.4      	Official HashiCorp Vault Chart            
-hashicorp/vault	0.7.0        	1.5.2      	Official HashiCorp Vault Chart            
-hashicorp/vault	0.6.0        	1.4.2      	Official HashiCorp Vault Chart            
+NAME           	CHART VERSION	APP VERSION	DESCRIPTION
+hashicorp/vault	0.8.0        	1.5.4      	Official HashiCorp Vault Chart
+hashicorp/vault	0.7.0        	1.5.2      	Official HashiCorp Vault Chart
+hashicorp/vault	0.6.0        	1.4.2      	Official HashiCorp Vault Chart
 hashicorp/vault	0.5.0        	           	Install and configure Vault on Kubernetes.
 hashicorp/vault	0.4.0        	           	Install and configure Vault on Kubernetes.
 ```
@@ -151,7 +151,7 @@ HA Enabled      false
 Y para acceder desde el navegador, ejecutamos:
 
 ```bash
-kubectl -n vault port-forward service/vault 8200:8200 
+kubectl -n vault port-forward service/vault 8200:8200
 ```
 
 Abriendo esta url [http://localhost:8200](http://localhost:8200) en el navegador podremos entrar a **Vault**:

@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 5.1.2
+
+- Nuevo despliegue en Kubernetes:
+  - [nexus](./k8s_deploys/nexus/README.md)
+- Corrección de errores:
+  - Despliegue de [Jenkins en K8s](./k8s_deploys/jenkins/README.md): servicio pasa a ser `ClusterIP` en lugar de `NodePort`
+
 ## 5.1.1
 
 - Fix en [k8s_deploys/README.md](./k8s_deploys/README.md)

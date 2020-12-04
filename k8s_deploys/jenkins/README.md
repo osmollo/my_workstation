@@ -53,14 +53,12 @@ apiVersion: v1
 metadata:
   name: jenkins-svc
 spec:
-  type: NodePort
   selector:
     app: jenkins
   ports:
   - protocol: TCP
     port: 8080
     targetPort: 8080
-    nodePort: 30000
 ```
 
 Y creamos el servicio:
@@ -76,3 +74,25 @@ kubectl -n jenkins port-forward service/jenkins-svc 8080:8080
 ```
 
 Y en el navegador abrimos la url [http://localhost:8080](http://localhost:8080)
+
+Nos pedirá contraseña de administrador, para lo que tenemos que ver los logs del pod de Jenkins:
+
+```bash
+kubectl logs pod/jenkins-794699f9bc-rzhvb
+[...]
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+c867e88c87cb46678f4e50bfcafadf56
+
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+[...]
+```
