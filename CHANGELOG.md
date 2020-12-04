@@ -38,6 +38,8 @@
     - [squid_pip](git@globaldevtools.bbva.com:7999/uqnwi/squid_pip.git)
   - Nuevo despliegue en Kubernetes:
     - Vault
+    - Jenkins
+    - Wordpress + MySQL
 
 ## 5.0
 
