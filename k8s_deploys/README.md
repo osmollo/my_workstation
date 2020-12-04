@@ -40,11 +40,15 @@ nodes:
   - containerPort: 443
     hostPort: 443
     protocol: TCP
+  image: kindest/node:v1.19.4
 - role: worker
+  image: kindest/node:v1.19.4
 - role: worker
+  image: kindest/node:v1.19.4
 - role: worker
+  image: kindest/node:v1.19.4
 - role: worker
-- role: worker
+  image: kindest/node:v1.19.4
 ```
 
 Y para ejecutar el cluster:
