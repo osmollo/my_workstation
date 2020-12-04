@@ -57,7 +57,7 @@ docker-compose -f vault.yml up -d
 
 ## Despliegue de aplicaciones en Kubernetes
 
-Dentro del directorio [kubernetes_deploys](./kubernetes_deploys/), se encuentran los directorios correspondientes a diferentes aplicaciones para desplegar en **Kubernetes**
+Dentro del directorio [k8s_deploys](./k8s_deploys/), se encuentran los directorios correspondientes a diferentes aplicaciones para desplegar en **Kubernetes**
 
 ### Lanzar un deploy en kubernetes
 
@@ -68,5 +68,5 @@ kubectl apply -f .
 
 ### Documentación despliegues en Kubernetes
 
-| :information_source: [La documentación de esta sección está disponible aquí](./kubernetes_deploys/README.md)
+| :information_source: [La documentación de esta sección está disponible aquí](./k8s_deploys/README.md)
 | --- |

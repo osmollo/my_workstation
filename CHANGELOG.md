@@ -6,6 +6,8 @@
   - [nexus](./k8s_deploys/nexus/README.md)
 - Corrección de errores:
   - Despliegue de [Jenkins en K8s](./k8s_deploys/jenkins/README.md): servicio pasa a ser `ClusterIP` en lugar de `NodePort`
+  - Fixes `README.md`
+  - Fixes nombres de tarea `git.yml`
 
 ## 5.1.1
 
