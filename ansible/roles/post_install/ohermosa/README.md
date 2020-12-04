@@ -39,5 +39,5 @@
 ## Ejemplo de uso
 
 ```bash
-ansible-playbook install.yml -t git
+ansible-playbook post_install.yml -t git
 ```

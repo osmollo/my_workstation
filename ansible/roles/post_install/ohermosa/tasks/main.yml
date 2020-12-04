@@ -44,29 +44,6 @@
     - post_install
     - del_default_dirs
 
-- name: "restore kde config"
-  import_tasks: kde_restore.yml
-  when: desktop_environment == "kde"
-  tags:
-    - post_install
-    - kde_restore
-
-- name: "install gnome extensions"
-  import_tasks: gnome_extensions.yml
-  when: desktop_environment == "gnome"
-  tags:
-    - post_install
-    - gnome_extensions
-    - gnome
-
-- name: "restore gnome config"
-  import_tasks: gnome_conf.yml
-  when: desktop_environment == "gnome" or desktop_environment == "cinnamon"
-  tags:
-    - post_install
-    - gnome_conf
-    - gnome
-
 - name: "configure docker"
   import_tasks: docker.yml
   tags:
@@ -117,7 +94,7 @@
   import_tasks: network.yml
   become: true
   become_method: sudo
-  when: use_dropxbox
+  when: use_dropxbox | default(true)
   tags:
     - post_install
     - network

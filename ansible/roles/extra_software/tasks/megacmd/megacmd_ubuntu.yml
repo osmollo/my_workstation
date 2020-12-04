@@ -5,7 +5,7 @@
     name: "{{ item }}"
     state: present
     update_cache: true
-  loop: "{{ megacmd_dependencies }}"
+  loop: "{{ megacmd_dependencies | reject('equalto', '') | list }}"
 
 - name: "[MEGA_CMD] [DEB] install megacmd package"
   apt:

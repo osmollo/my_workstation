@@ -2,6 +2,7 @@
 
 - name: "[BRAVE] [FEDORA] Add Brave repository"
   yum_repository:
+    description: "Brave Browser Repository"
     name: brave-browser
     baseurl: "https://brave-browser-rpm-release.s3.brave.com/{{ ansible_architecture }}/"
     enabled: true

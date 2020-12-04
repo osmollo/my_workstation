@@ -1,5 +1,46 @@
 # CHANGELOG
 
+## 5.1
+
+- Soporte para **Deepin 20**
+- Soporte para **Fedora 33**
+- Soporte para **Ubuntu 20.10**
+- Nuevos playbooks `playbooks/import_gpg.yml` y `restore_desktop_config.yml`
+- Nuevo despliegue de **Docker** para **MariaDB**
+- Nuevo directorio [k8s_deploys](./k8s_deploys/README.md) con despliegues en **kubernetes**
+- Vagrant ya no ejecuta los playbooks porque está pensado para realizar pruebas y sólo podía ejecutar la rama `master` (las pruebas deberían ejecutarse antes de mergear en master)
+- Corrección de errores:
+  - Ya no se replica el repositorio en **gitea**
+  - Fixes en varios `README.md`
+  - Fix en configuración ssh para `casa`
+  - Fix instalación **Docker CE** para **Fedora** > 31
+  - Fixes en la instalación de **KDEnlive**, **Virtualbox**, **microk8s**, **hetzner-kube**
+  - Fix despliegue de **Jenkins**
+- Cambios en `post_install/ohermosa`:
+  - Crontab para backup de **Gnome** incluye nombre del host que hace backup
+  - Source del virtualenvwrapper más claro
+  - Instalación del navegador **Brave** por defecto, **Chrome** ya no se instala
+  - No se instala por defecto **Sublime Text**
+  - Nuevas credenciales docker
+  - Se ha sacado la restauración de la configuración del entorno de escritorio del role `post_install`. Se ha pasado al playbook `restore_desktop_config.yml` para ejecutarlo de forma independiente
+  - Parametrizada la ruta del fichero a usar para restaurar la configuración de **Gnome** para poder personalizarlo en `extra_vars`
+  - Corrección de errores:
+    - Fix en la instalación de **prezto**
+    - Fix en la configuracion de **git_diff**
+    - Fix en configuración de gnome extensions
+    - Fix al borrar `~/.ssh` porque estaba creado con propietario __root__
+    - Fix al aplicar __git config__ a todos los repositorios
+  - Nuevos repositorios git:
+    - [raspberry_docker](git@gitlab.com:ohermosa/raspberrypi_docker.git)
+    - [msqlm_alertops](ssh://git@globaldevtools.bbva.com:7999/msqlm/msqlm_alertops.git)
+    - [PasswordPusher](git@github.com:pglombardo/PasswordPusher.git)
+    - [Peladonerd](git@github.com:pablokbs/peladonerd.git)
+    - [squid_pip](git@globaldevtools.bbva.com:7999/uqnwi/squid_pip.git)
+  - Nuevo despliegue en Kubernetes:
+    - Vault
+    - Jenkins
+    - Wordpress + MySQL
+
 ## 5.0
 
 - Soporte para [**FEDORA** 32](https://getfedora.org/es/workstation/)

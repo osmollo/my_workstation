@@ -16,8 +16,8 @@
     state: absent
 
 - name: "[DOCKER] [FEDORA] Copy repository file for Docker-CE"
-  copy:
-    src: docker-ce.repo
+  template:
+    src: docker-ce.repo.j2
     dest: /etc/yum.repos.d/docker-ce.repo
     mode: 0644
     owner: root

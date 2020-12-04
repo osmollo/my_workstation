@@ -18,23 +18,27 @@
     use_regex: true
   register: find_response
 
-- name: "[GNOME_EXTENSIONS] Get the uuids of gnome extensions"
-  slurp:
-    path: "{{ item }}"
-  loop: "{{ find_response | json_query('files[].path') }}"
-  register: slurp_response
-
-- name: "[GNOME_EXTENSIONS] set uuids"
-  set_fact:
-    uuids: "{{ (slurp_response | json_query('results[].content')) | map ('b64decode') | map('from_json') | list | json_query('[].uuid') }}"
-
 - name: "[GNOME_EXTENSIONS] Enable gnome extensions"
-  shell: "gnome-shell-extension-tool -e {{ item }}"
-  ignore_errors: true
-  loop: "{{ uuids | difference(fedora_gnome_extensions) }}"
+  when:
+    - find_response.files | length > 0
+  block:
+    - name: "[GNOME_EXTENSIONS] Get the uuids of gnome extensions"
+      slurp:
+        path: "{{ item }}"
+      loop: "{{ find_response | json_query('files[].path') }}"
+      register: slurp_response
 
-- name: "[GNOME_EXTENSIONS] [FEDORA] Enable gnome extensions"
-  shell: "gnome-shell-extension-tool -e {{ item }}"
-  ignore_errors: true
-  loop: "{{ fedora_gnome_extensions }}"
-  when: linux_distribution == "fedora"
+    - name: "[GNOME_EXTENSIONS] set uuids"
+      set_fact:
+        uuids: "{{ (slurp_response | json_query('results[].content')) | map ('b64decode') | map('from_json') | list | json_query('[].uuid') }}"
+
+    - name: "[GNOME_EXTENSIONS] Enable gnome extensions"
+      shell: "gnome-shell-extension-tool -e {{ item }}"
+      ignore_errors: true
+      loop: "{{ uuids | difference(fedora_gnome_extensions) }}"
+
+    - name: "[GNOME_EXTENSIONS] [FEDORA] Enable gnome extensions"
+      shell: "gnome-shell-extension-tool -e {{ item }}"
+      ignore_errors: true
+      loop: "{{ fedora_gnome_extensions }}"
+      when: linux_distribution == "fedora"
