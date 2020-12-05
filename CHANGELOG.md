@@ -3,6 +3,8 @@
 ## 5.2
 
 - Instalación de **Minikube** dentro de las `k8s_tools`
+- Cambios en `post_install/ohermosa`:
+  - Nuevos nombres en `/etc/hosts`
 
 ## 5.1.2
 
