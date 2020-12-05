@@ -1,0 +1,12 @@
+---
+
+- name: "[MINIKUBE] delete minikube binary"
+  file:
+    path: "/usr/local/bin/minikube"
+    state: absent
+
+- name: "[MINIKUBE] download minikube binary"
+  get_url:
+    url: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    dest: "/usr/local/bin/minikube"
+    mode: 0755

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.2
+
+- Instalación de **Minikube** dentro de las `k8s_tools`
+
 ## 5.1.2
 
 - Nuevo despliegue en Kubernetes:

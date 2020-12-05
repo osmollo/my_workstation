@@ -34,6 +34,11 @@
   tags:
     - kubectl
 
+- name: "[MINIKUBE] install minikube"
+  import_tasks: minikube.yml
+  tags:
+    - minikube
+
 - name: "[HELM] installation"
   import_tasks: helm.yml
   tags:
