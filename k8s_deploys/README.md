@@ -1,24 +1,105 @@
 # Jugando con kubernetes
 
 - [Jugando con kubernetes](#jugando-con-kubernetes)
-  - [Creando un cluster de prueba](#creando-un-cluster-de-prueba)
-  - [Ingress controler](#ingress-controler)
-    - [Nginx ingress controller](#nginx-ingress-controller)
-    - [Contour ingress controller](#contour-ingress-controller)
-    - [Ambassador ingress controller](#ambassador-ingress-controller)
-  - [Software Load Balancer](#software-load-balancer)
-    - [Metallb (no desplegar)](#metallb-no-desplegar)
-  - [Borrando el cluster](#borrando-el-cluster)
+  - [Minikube](#minikube)
+  - [Creando un cluster](#creando-un-cluster)
+    - [Escalar cluster](#escalar-cluster)
+    - [Desescalar cluster](#desescalar-cluster)
+    - [Borrar el cluster](#borrar-el-cluster)
+    - [Activar dashboard](#activar-dashboard)
+    - [Ingress](#ingress)
+  - [Kind](#kind)
+    - [Creando un cluster de prueba](#creando-un-cluster-de-prueba)
+    - [Borrando el cluster](#borrando-el-cluster)
+    - [Ingress controler](#ingress-controler)
+      - [Nginx ingress controller](#nginx-ingress-controller)
+      - [Contour ingress controller](#contour-ingress-controller)
+      - [Ambassador ingress controller](#ambassador-ingress-controller)
+    - [Software Load Balancer](#software-load-balancer)
+      - [Metallb (no desplegar)](#metallb-no-desplegar)
   - [Documentación](#documentación)
 
-[KIND](https://kind.sigs.k8s.io/) es una solución oficial para desplegar un cluster de __Kubernetes__ dentro de contenedores **Docker**. Puede instalarse con el siguiente comando:
+## Minikube
+
+
+[Minikube](https://kubernetes.io/es/docs/tasks/tools/install-minikube/) es una solución oficial para poder desplegar __kubernetes__ en un entorno local mediante **Docker**, **Virtualbox**... Puede instalarse mediante el siguiente comando:
+
+```bash
+cd ../ansible
+ansible-playbook install.yml -t minikube
+```
+
+## Creando un cluster
+
+Para crear un cluster de un sólo nodo, simplemente hay que ejecutar el comando:
+
+```bash
+minikube start [--nodes=N]
+```
+
+### Escalar cluster
+
+Para escalar el cluster y añadir más nodos, hay que ejecutar:
+
+```bash
+minikube node add
+```
+
+### Desescalar cluster
+
+Para eliminar un nodo del cluster, primero tenemos que listar los nodos existentes:
+
+```bash
+minikube node list
+minikube        192.168.49.2
+minikube-m02    192.168.49.3
+minikube-m03    192.168.49.4
+minikube-m04    192.168.49.5
+```
+
+A continuación, borramos el nodo que queramos:
+
+```bash
+minikube node delete minikube-m04
+```
+
+### Borrar el cluster
+
+Para destruir el cluster tenemos que ejecutar:
+
+```bash
+minikube stop
+```
+
+### Activar dashboard
+
+Para poder acceder al dashboard de __kubernetes__ hay que ejecutar el siguiente comando:
+
+```bash
+minikube dashboard
+```
+
+Automáticamente se abrirá un navegador con la [url del dashboard](http://127.0.0.1:33747/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/#/overview)
+
+
+### Ingress
+
+Para habilitar el addon para __ingress__:
+
+```bash
+minikube addons ingress enable
+```
+
+## Kind
+
+[KIND](https://kind.sigs.k8s.io/) es otra solución oficial para desplegar un cluster de __Kubernetes__ dentro de contenedores **Docker**. Puede instalarse con el siguiente comando:
 
 ```bash
 cd ../ansible
 ansible-playbook install.yml -t kind
 ```
 
-## Creando un cluster de prueba
+### Creando un cluster de prueba
 
 Hay que crear un fichero [kind.yml](./kind.yml) (o el nombre que se quiera), donde se definen los nodos del cluster:
 
@@ -57,11 +138,19 @@ Y para ejecutar el cluster:
 kind create cluster --config kind.yml
 ```
 
-## Ingress controler
+### Borrando el cluster
+
+Para destruír el cluster, hay que ejecutar:
+
+```bash
+kind delete cluster
+```
+
+### Ingress controler
 
 Los __ingress controller__ permiten accecder a los servicios desplegados en Kubernetes desde fuera del cluster. Hay que instalar uno de los siguientes:
 
-### Nginx ingress controller
+#### Nginx ingress controller
 
 Para instalar el ingress de **Nginx**, ejecutamos el siguiente comando:
 
@@ -81,7 +170,7 @@ Con el siguiente comando reconfiguramos ingress para que espere hasta que el pod
 kubectl wait --namespace ingress-nginx --for=condition=ready pod --selector=app.kubernetes.io/component=controller --timeout=90s
 ```
 
-### Contour ingress controller
+#### Contour ingress controller
 
 Hay que instalar el controlador:
 
@@ -100,7 +189,7 @@ Por último, hay que aplicar un parche específico de **Kind** para reenviar el 
 kubectl patch daemonsets -n projectcontour envoy -p '{"spec":{"template":{"spec":{"nodeSelector":{"ingress-ready":"true"},"tolerations":[{"key":"node-role.kubernetes.io/master","operator":"Equal","effect":"NoSchedule"}]}}}}'
 ```
 
-### Ambassador ingress controller
+#### Ambassador ingress controller
 
 Primero instalamos los CDRs:
 
@@ -121,9 +210,9 @@ Cuando se realice el despliegue del ingress, hay que crear esta anotación cambi
 kubectl annotate ingress $INGRESS_NAME kubernetes.io/ingress.class=ambassador
 ```
 
-## Software Load Balancer
+### Software Load Balancer
 
-### Metallb (no desplegar)
+#### Metallb (no desplegar)
 
 Para poder crear `LoadBalancer` en el cluster, es necesario instalar **MetalLB** con los siguientes comandos:
 
@@ -163,14 +252,6 @@ Y lo desplegamos:
 
 ```bash
 kubectl apply -f metallb_config.yml
-```
-
-## Borrando el cluster
-
-Para destruír el cluster, hay que ejecutar:
-
-```bash
-kind delete cluster
 ```
 
 ## Documentación

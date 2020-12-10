@@ -4,6 +4,7 @@
 
 - Instalación de **Minikube** dentro de las `k8s_tools`
 - **Fedora 32/33** ya [es soportada](https://medium.com/nttlabs/docker-20-10-59cc4bd59d37) por **Docker (20.10)**
+- Documentación de [minikube](./k8s_deploys/README.md#minikube) para despliegues con **kubernetes**
 - Cambios en `post_install/ohermosa`:
   - Nuevos nombres en `/etc/hosts`
 
