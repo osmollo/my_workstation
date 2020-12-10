@@ -7,6 +7,7 @@
 - Documentación de [minikube](./k8s_deploys/README.md#minikube) para despliegues con **kubernetes**
 - Cambios en `post_install/ohermosa`:
   - Nuevos nombres en `/etc/hosts`
+  - Nuevos repositorios git
 
 ## 5.1.2
 
