@@ -87,7 +87,7 @@ Automáticamente se abrirá un navegador con la [url del dashboard](http://127.0
 Para habilitar el addon para __ingress__:
 
 ```bash
-minikube addons ingress enable
+minikube addons enable ingress 
 ```
 
 ## Kind
