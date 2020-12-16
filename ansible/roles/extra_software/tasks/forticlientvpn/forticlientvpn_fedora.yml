@@ -1,16 +1,6 @@
 ---
 
-- name: "[FORTICLIENTVPN] [FEDORA] Uncompress Forticlient package"
-  unarchive:
-    src: forticlientsslvpn.tar.gz
-    dest: "/home/{{ ansible_user }}"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-
-- name: "[FORTICLIENTVPN] Create /usr/share/applications/forticlient.desktop"
-  template:
-    src: forticlientvpn.desktop.j2
-    dest: /usr/share/applications/forticlientvpn.desktop
-    owner: root
-    group: root
-    mode: 0644
+- name: "[FORTICLIENTVPN] install forticlient package"
+  yum:
+    name: "{{ forticlient_rpm_package }}"
+    state: present

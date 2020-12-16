@@ -6,6 +6,7 @@
 - **Fedora 32/33** ya [es soportada](https://medium.com/nttlabs/docker-20-10-59cc4bd59d37) por **Docker (20.10)**
 - Documentación de [minikube](./k8s_deploys/README.md#minikube) para despliegues con **kubernetes**
 - Instalación de nuevo __.deb__ para **Forticlient** en **Debian/Ubuntu**
+- Instalación de nuevo __.rpm__ para **Forticlient** en **Fedora**
 - Cambios en `post_install/ohermosa`:
   - Nuevos nombres en `/etc/hosts`
   - Nuevos repositorios git
