@@ -38,6 +38,7 @@ gnome_fedora_packages:
   - python3-psutil
   - wireshark
   - liveusb-creator
+  - guake
 
 kde_fedora_packages:
   - kwalletcli
