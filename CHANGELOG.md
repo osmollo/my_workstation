@@ -8,6 +8,7 @@
 - Instalación de nuevo __.deb__ para **Forticlient** en **Debian/Ubuntu**
 - Instalación de nuevo __.rpm__ para **Forticlient** en **Fedora**
 - Tuning ansible: activación del callback plugins __timer__ y __profile_tasks__
+- `ansible_hosts` y `Vagrantfile` movidos al directorio `tests`
 - Cambios en `post_install/ohermosa`:
   - Nuevos nombres en `/etc/hosts`
   - Nuevos repositorios git
