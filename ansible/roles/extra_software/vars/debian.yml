@@ -33,3 +33,4 @@ wireguard_packages:
   - wireguard
 
 podman_package: podman
+forticlient_deb_package: "https://filestore.fortinet.com/forticlient/downloads/FortiClientFullVPNInstaller_6.4.0.0851.deb"
