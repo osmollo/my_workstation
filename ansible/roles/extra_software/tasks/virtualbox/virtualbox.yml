@@ -25,6 +25,8 @@
     path: /etc/profile
     line: export VAGRANT_DEFAULT_PROVIDER=virtualbox
     state: present
+  tags:
+    - vagrant
 
 - name: "[VIRTUALBOX] Check if extension pack is already installed"
   command: "VBoxManage list extpacks"

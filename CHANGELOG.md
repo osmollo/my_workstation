@@ -7,7 +7,6 @@
 - Documentación de [minikube](./k8s_deploys/README.md#minikube) para despliegues con **kubernetes**
 - Instalación de nuevo __.deb__ para **Forticlient** en **Debian/Ubuntu**
 - Instalación de nuevo __.rpm__ para **Forticlient** en **Fedora**
-- Tuning ansible: activación del callback plugins __timer__ y __profile_tasks__
 - Instalación de **Guake** en **Ubuntu**/**Fedora** con **GNOME**
 - `ansible_hosts` y `Vagrantfile` movidos al directorio `tests`
 - Cambios en `post_install/ohermosa`:
