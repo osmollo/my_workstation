@@ -33,6 +33,21 @@
     - skype
     - franz
 
+- name: "Install Brave"
+  import_tasks: brave/brave.yml
+  when: install_brave
+  tags:
+    - extra_software
+    - brave
+    - browsers
+
+- name: "Install Prezto"
+  import_tasks: prezto.yml
+  when: install_prezto
+  tags:
+    - extra_software
+    - prezto
+
 - name: "Install docker"
   import_tasks: docker/docker.yml
   when: install_docker
@@ -316,14 +331,6 @@
     - vivaldi
     - browsers
 
-- name: "Install Brave"
-  import_tasks: brave/brave.yml
-  when: install_brave
-  tags:
-    - extra_software
-    - brave
-    - browsers
-
 - name: "Install Bitwarden"
   import_tasks: bitwarden/bitwarden.yml
   when: install_bitwarden
@@ -364,13 +371,6 @@
   tags:
     - extra_software
     - protonvpn
-
-- name: "Install Prezto"
-  import_tasks: prezto.yml
-  when: install_prezto
-  tags:
-    - extra_software
-    - prezto
 
 - name: "Install Etcher"
   import_tasks: etcher.yml
@@ -525,44 +525,37 @@
     - extra_software
     - act
 
-- name: "Install Hashicorp stack"
-  import_tasks: hashicorp/hashicorp.yml
-  when: install_hashicorp or install_vault or install_terraform or install_consul or install_nomad
-  tags:
-    - extra_software
-    - hashicorp
-    - vault
-    - terraform
-    - consul
-    - nomad
-
 - name: "Install vault"
   import_tasks: hashicorp/vault.yml
-  when: install_vault
+  when: install_vault or install_hashicorp
   tags:
     - extra_software
     - vault
+    - hashicorp
 
 - name: "Install terraform"
   import_tasks: hashicorp/terraform.yml
-  when: install_terraform
+  when: install_terraform or install_hashicorp
   tags:
     - extra_software
     - terraform
+    - hashicorp
 
 - name: "Install consul"
   import_tasks: hashicorp/consul.yml
-  when: install_consul
+  when: install_consul or install_hashicorp
   tags:
     - extra_software
     - consul
+    - hashicorp
 
 - name: "Install nomad"
   import_tasks: hashicorp/nomad.yml
-  when: install_nomad
+  when: install_nomad or install_hashicorp
   tags:
     - extra_software
     - nomad
+    - hashicorp
 
 - name: "Install zoom"
   import_tasks: zoom/zoom.yml
