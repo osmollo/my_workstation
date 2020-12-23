@@ -65,7 +65,7 @@
 
     - name: "[VIRTUALBOX] restore default python version"
       file:
-        src: "/usr/bin/{{ pre_response.stat.lnk_target }}"
+        src: "/usr/bin/{{ pre_response.stat.lnk_source }}"
         dest: "/usr/bin/python"
         state: link
 
@@ -73,6 +73,6 @@
       alternatives:
         name: python
         link: /usr/bin/python
-        path: "/usr/bin/{{ pre_response.stat.lnk_target }}"
+        path: "/usr/bin/{{ pre_response.stat.lnk_source }}"
   when:
-    - pre_response.stat.lnk_target != post_response.stat.lnk_target
+    - pre_response.stat.lnk_source != post_response.stat.lnk_source

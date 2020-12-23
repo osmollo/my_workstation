@@ -12,6 +12,7 @@
 - Corrección de errores:
   - Instalación de **VSCode** en **Fedora**
   - Instalación de **WOEUSB** en **Fedora**
+  - Versión predeterminada de **python** en la instalación de **Virtualbox**
 - Cambios en `post_install/ohermosa`:
   - Nuevos nombres en `/etc/hosts`
   - Nuevos repositorios git
