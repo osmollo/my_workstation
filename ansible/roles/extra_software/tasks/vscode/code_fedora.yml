@@ -15,12 +15,6 @@
     key: https://packages.microsoft.com/keys/microsoft.asc
     state: present
 
-- name: "[VSCODE] [FEDORA] check updates]"
-  shell: yum check-update
-  warn: false
-  register: yum_result
-  failed_when: yum_result.rc != 100
-
 - name: "[VSCODE] [FEDORA] Install Code"
   yum:
     name: code

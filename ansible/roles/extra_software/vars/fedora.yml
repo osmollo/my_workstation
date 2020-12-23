@@ -10,9 +10,9 @@ chrome_package: "https://dl.google.com/linux/direct/google-chrome-stable_current
 teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer.{{ ansible_architecture }}.rpm"
 nomachine_package: "https://download.nomachine.com/download/{{ nomachine_version.split('.')[0:2] | join('.') }}/Linux/nomachine_{{ nomachine_version }}_{{ ansible_architecture }}.rpm"
 woeusb_package:
-  31: "https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/{{ fedora_version }}/Everything/{{ ansible_architecture }}/os/Packages/w/WoeUSB-3.2.12-3.fc31.{{ ansible_architecture }}.rpm"
-  32: "https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/{{ fedora_version }}/Everything/{{ ansible_architecture }}/os/Packages/w/WoeUSB-3.3.1-2.fc32.{{ ansible_architecture }}.rpm"
-  33: "https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/{{ fedora_version }}/Everything/{{ ansible_architecture }}/os/Packages/w/WoeUSB-3.3.1-3.fc33.{{ ansible_architecture }}.rpm"
+  v31: "https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/{{ fedora_version }}/Everything/{{ ansible_architecture }}/os/Packages/w/WoeUSB-3.2.12-3.fc{{ fedora_version }}.{{ ansible_architecture }}.rpm"
+  v32: "https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/{{ fedora_version }}/Everything/{{ ansible_architecture }}/os/Packages/w/WoeUSB-3.3.1-2.fc{{ fedora_version }}.{{ ansible_architecture }}.rpm"
+  v33: "https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/{{ fedora_version }}/Everything/{{ ansible_architecture }}/os/Packages/w/WoeUSB-3.3.1-3.fc{{ fedora_version }}.{{ ansible_architecture }}.rpm"
 
 buttercup_rpm_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop-{{ buttercup_version | replace('v', '') }}.{{ ansible_architecture }}.rpm"
 

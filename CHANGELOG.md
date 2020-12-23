@@ -9,6 +9,9 @@
 - Instalación de nuevo __.rpm__ para **Forticlient** en **Fedora**
 - Instalación de **Guake** en **Ubuntu**/**Fedora** con **GNOME**
 - `ansible_hosts` y `Vagrantfile` movidos al directorio `tests`
+- Corrección de errores:
+  - Instalación de **VSCode** en **Fedora**
+  - Instalación de **WOEUSB** en **Fedora**
 - Cambios en `post_install/ohermosa`:
   - Nuevos nombres en `/etc/hosts`
   - Nuevos repositorios git
