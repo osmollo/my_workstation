@@ -17,6 +17,7 @@
 - Cambios en `post_install/ohermosa`:
   - Nuevos nombres en `/etc/hosts`
   - Nuevos repositorios git
+  - Mejora documentación
 
 ## 5.1.2
 

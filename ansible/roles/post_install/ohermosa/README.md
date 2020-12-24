@@ -36,6 +36,28 @@
 | :information_source: **WARNING**: algunos de los tags anteriores requieren que **Dropbox** esté totalmente sincronizado antes de ejecutarse |
 | --- |
 
+## Paso previo
+
+Antes de poder ejecutar el role, es necesario desencriptar el fichero [defaults/main.yml.gpg](./defaults/main.yml.gpg). Para ello es necesario ejecutar el siguiente playbook:
+
+```bash
+ansible-playbook playbooks/import_gpg.yml
+```
+
+Para que este playbook se ejecute, necesita que existan las siguiente llaves GPG en el `$HOME` del usuario:
+
+ - home.priv
+ - home.pub
+ - work.priv
+ - work.pub
+ - rootnerds.pub
+
+Una vez ejecutado el playbook (pedirá introducir los passphrases correspondientes durante la ejecución), habrá que ejecutar el siguiente comando:
+
+```bash
+gpg --output roles/post_install/ohermosa/defaults/main.yml --decrypt roles/post_install/ohermosa/defaults/main.yml.gpg
+```
+
 ## Ejemplo de uso
 
 ```bash
