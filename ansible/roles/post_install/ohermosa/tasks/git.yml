@@ -145,10 +145,12 @@
 
 - block:
     - name: "[GIT] Configure user name"
-      community.general.git_config:
-        name: user.name
-        scope: global
-        value: "{{ git_user_name }}"
+      blockinfile:
+        path: "{{ ansible_user_dir }}/.gitconfig"
+        block: |
+          [user]
+            name = {{ git_user_name }}
+        state: present
 
     - name: "[GIT] Configure user email in BBVA repositories"
       git_config:
