@@ -145,7 +145,7 @@
 
 - block:
     - name: "[GIT] Configure user name"
-      git_config:
+      community.general.git_config:
         name: user.name
         scope: global
         value: "{{ git_user_name }}"

@@ -23,7 +23,7 @@
     hour: "{{ item.hour | default('*') }}"
   loop:
     - name: dconf_dump
-      job: "dconf dump / > {{ dropbox_dir }}/backups/gnome_config.{{ ansible_hostname }}"
+      job: "rm -f {{ dropbox_dir }}/backups/gnome_config.{{ ansible_hostname }} && dconf dump / > {{ dropbox_dir }}/backups/gnome_config.{{ ansible_hostname }}"
       minute: "00"
       hour: "12"
   when: desktop_environment == 'gnome'
