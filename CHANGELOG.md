@@ -18,6 +18,7 @@
   - Nuevos nombres en `/etc/hosts`
   - Nuevos repositorios git
   - Mejora documentación
+  - Configuración global en git de `user.name`
 
 ## 5.1.2
 

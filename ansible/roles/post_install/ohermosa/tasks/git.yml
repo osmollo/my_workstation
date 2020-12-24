@@ -144,13 +144,11 @@
     - create_remotes
 
 - block:
-    - name: "[GIT] Configure user name in BBVA repositories"
+    - name: "[GIT] Configure user name"
       git_config:
         name: user.name
-        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-        scope: local
+        scope: global
         value: "{{ git_user_name }}"
-      loop: "{{ git_repositories.work }}"
 
     - name: "[GIT] Configure user email in BBVA repositories"
       git_config:
@@ -159,14 +157,6 @@
         scope: local
         value: "{{ git_user_mail_work }}"
       loop: "{{ git_repositories.work }}"
-
-    - name: "[GIT] Configure user name in personal repositories"
-      git_config:
-        name: user.name
-        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-        scope: local
-        value: "{{ git_user_name }}"
-      loop: "{{ git_repositories.home }}"
 
     - name: "[GIT] Configure user email in personal repositories"
       git_config:
