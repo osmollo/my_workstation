@@ -1,7 +1,5 @@
 # My Workstation
 
-[![pipeline status](https://gitlab.com/ohermosa/my_workstation/badges/master/pipeline.svg)](https://gitlab.com/ohermosa/my_workstation/-/commits/master)
-
 - [My Workstation](#my-workstation)
   - [Configuración de estación de trabajo con Ansible](#configuración-de-estación-de-trabajo-con-ansible)
     - [Ejecución](#ejecución)

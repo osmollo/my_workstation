@@ -20,6 +20,7 @@
   - Mejora documentación
   - Configuración global en git de `user.name`
   - Nuevo alias `my_ip`
+  - Actualizada password XE
 
 ## 5.1.2
 
