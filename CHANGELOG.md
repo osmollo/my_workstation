@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 5.3
+
+- Cambios en `post_install/ohermosa`:
+  - Fix repositorio
+
 ## 5.2
 
 - Instalación de **Minikube** dentro de las `k8s_tools`
