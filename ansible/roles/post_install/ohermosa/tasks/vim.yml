@@ -7,3 +7,8 @@
     state: present
     create: true
   loop: "{{ vim_config }}"
+
+- name: "[VIM] copy ftplugin directory"
+  copy:
+    src: ftplugin
+    dest: "{{ ansible_user_dir }}/.vim/"

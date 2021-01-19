@@ -4,6 +4,7 @@
 
 - Cambios en `post_install/ohermosa`:
   - Fix repositorio
+  - Configuración de **vim** según el tipo de fichero
 
 ## 5.2
 
