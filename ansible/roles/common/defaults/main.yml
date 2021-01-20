@@ -15,6 +15,7 @@ common_packages:
   - rsync
 
 python_modules:
+  - pre-commit
   - mega.py
   - pylint
   - flake8

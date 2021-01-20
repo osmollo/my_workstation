@@ -2,6 +2,7 @@
 
 ## 5.3
 
+- Github Actions
 - Cambios en `post_install/ohermosa`:
   - Fix repositorio
   - Configuración de **vim** según el tipo de fichero
