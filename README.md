@@ -1,5 +1,7 @@
 # My Workstation
 
+![Ansible Lint](https://github.com/ohermosa/my_workstation/workflows/Ansible%20Lint/badge.svg)
+
 - [My Workstation](#my-workstation)
   - [Configuración de estación de trabajo con Ansible](#configuración-de-estación-de-trabajo-con-ansible)
     - [Ejecución](#ejecución)
