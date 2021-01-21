@@ -10,9 +10,6 @@
   tags:
     - etc_hosts
 
-- name: "[ENVIRONMENT] Configure VIM editor"
-  import_tasks: vim.yml
-
 - name: "[ENVIRONMENT] Configure /etc/profile"
   become: true
   become_method: sudo
