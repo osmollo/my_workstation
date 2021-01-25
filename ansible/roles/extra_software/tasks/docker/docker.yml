@@ -41,8 +41,3 @@
       include_tasks: "dive_{{ linux_distribution }}.yml"
   tags:
     - dive
-
-- name: "[SECRETHUB] Install Secrethub for {{ linux_distribution | upper }}"
-  include_tasks: "secrethub_{{ linux_distribution }}.yml"
-  tags:
-    - secrethub

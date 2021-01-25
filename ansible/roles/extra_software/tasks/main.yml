@@ -55,6 +55,13 @@
     - extra_software
     - docker
 
+- name: "Install secrethub"
+  import_tasks: secrethub/secrethub.yml
+  when: install_secrethub
+  tags:
+    - extra_software
+    - secrethub
+
 - name: "Install dropbox"
   import_tasks: dropbox/dropbox.yml
   when: install_dropbox

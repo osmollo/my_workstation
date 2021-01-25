@@ -71,6 +71,7 @@ install_nomad: true
 install_zoom: true
 install_githubcli: true
 install_1password: true
+install_secrethub: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85

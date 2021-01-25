@@ -3,7 +3,7 @@
 ## 5.3
 
 - Github Actions
-- Instalación de **secrethub** conjuntamente con **docker**. Nueva tag `-t secrethub`
+- Instalación de **secrethub**. Nueva tag `secrethub`
 - Cambios en `post_install/ohermosa`:
   - Fix repositorio
   - Configuración de **vim** según el tipo de fichero
