@@ -9,6 +9,7 @@
   - Fix repositorio
   - Configuración de **vim** según el tipo de fichero
   - git remote por defecto pasa a ser [github](https://github.com)
+  - Configuración de Oracle Cloud
 
 ## 5.2
 

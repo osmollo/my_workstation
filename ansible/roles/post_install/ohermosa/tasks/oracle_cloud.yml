@@ -1,0 +1,25 @@
+---
+
+- name: "[ORACLE_CLOUD] create directory"
+  file:
+    path: "{{ ansible_user_dir }}/.oci"
+    state: directory
+
+- name: "[ORACLE_CLOUD] generate config file"
+  template:
+    src: oci_config.j2
+    dest: "{{ ansible_user_dir }}/.oci/config"
+
+- name: "[ORACLE_CLOUD] generate certificates"
+  copy:
+    content: "{{ item.content }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+  no_log: true
+  loop:
+    - content: "{{ oci_config.pem }}"
+      dest: "{{ ansible_user_dir }}/.oci/oci_api_key.pem"
+      mode: "0400"
+    - content: "{{ oci_config.public_pem }}"
+      dest: "{{ ansible_user_dir }}/.oci/oci_api_key_public.pem"
+      mode: "0644"
