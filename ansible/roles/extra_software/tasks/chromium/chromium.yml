@@ -1,8 +1,4 @@
 ---
 
-- name: "[CHROMIUM] include vars file"
-  include_vars:
-    file: "{{ linux_distribution }}.yml"
-
 - name: "[CHROMIUM] install for {{ linux_distribution }}"
   include_tasks: "chromium_{{ linux_distribution }}.yml"

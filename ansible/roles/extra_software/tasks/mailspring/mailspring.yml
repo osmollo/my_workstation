@@ -1,0 +1,21 @@
+---
+
+- name: "[MAILSPRING] Get latest version of Mailspring"
+  uri:
+    url: "{{ mailspring_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: mailspring_latest
+  when: linux_distribution != "arch"
+
+- name: "[MAILSPRING] Set urls for Mailspring packages"
+  vars:
+    mailspring_version: "{{ mailspring_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    mailspring_rpm_package: "https://github.com/Foundry376/Mailspring/releases/download/{{ mailspring_version }}/mailspring-{{ mailspring_version }}-0.1.x86_64.rpm"
+    mailspring_deb_package: "https://github.com/Foundry376/Mailspring/releases/download/{{ mailspring_version }}/mailspring-{{ mailspring_version }}-amd64.deb"
+  when: linux_distribution != "arch"
+
+- name: "[MAILSPRING] install for {{ linux_distribution }}"
+  include_tasks: "mailspring_{{ linux_distribution }}.yml"
+  when: linux_distribution != "arch"

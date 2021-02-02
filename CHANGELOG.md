@@ -3,6 +3,7 @@
 ## 5.3
 
 - Github Actions
+- Instalación de [Mailspring](https://getmailspring.com/)
 - Instalación de **secrethub**. Nueva tag `secrethub`
 - Instalación módulo de **ansible** para **secrethub**
 - Cambios en `post_install/ohermosa`:

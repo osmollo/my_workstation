@@ -72,3 +72,4 @@ install_zoom: false
 install_githubcli: true
 install_1password: true
 install_secrethub: true
+install_mailspring: false

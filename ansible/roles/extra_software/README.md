@@ -44,6 +44,7 @@
 | **keepass** | Instala `KeepassXD` |
 | **kodi** | Instala `Kodi` |
 | **lexnet** | Instala `Lexnet` |
+| **mailspring** | Instala `Mailspring` |
 | **mame** | Instala `MAME` |
 | **megacmd** | Instala `MEGAcmd` |
 | **megasync** | Instala `MEGA sync` |

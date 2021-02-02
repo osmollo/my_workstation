@@ -1,0 +1,7 @@
+---
+
+- name: "[MAILSPRING] [DEB] install mailspring package"
+  apt:
+    deb: "{{ mailspring_deb_package }}"
+    state: present
+    update_cache: true

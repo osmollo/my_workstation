@@ -54,6 +54,7 @@ vault_cli_package: vault-cli-bin
 consul_package: consul-bin
 nomad_package: nomad-bin
 zoom_package: zoom
+mailspring_package: mailspring
 
 protonvpn_dependencies:
   - openvpn

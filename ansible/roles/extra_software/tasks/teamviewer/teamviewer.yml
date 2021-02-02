@@ -1,8 +1,4 @@
 ---
 
-- name: "[TEAMVIEWER] include vars file"
-  include_vars:
-    file: "{{ linux_distribution }}.yml"
-
 - name: "[TEAMVIEWER] install for {{ linux_distribution }}"
   include_tasks: "teamviewer_{{ linux_distribution }}.yml"

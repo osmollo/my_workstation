@@ -587,3 +587,10 @@
     - extra_software
     - 1password
     - pass_managers
+
+- name: "Install Mailspring"
+  import_tasks: mailspring/mailspring.yml
+  when: install_mailspring
+  tags:
+    - extra_software
+    - mailspring

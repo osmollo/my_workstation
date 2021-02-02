@@ -5,12 +5,6 @@
     path: /usr/bin/python
   register: pre_response
 
-- name: "[VIRTUALBOX] include vars file"
-  include_vars:
-    file: "{{ linux_distribution }}.yml"
-  tags:
-    - vagrant
-
 - name: "[VIRTUALBOX] install virtualbox for {{ linux_distribution }}"
   include_tasks: "virtualbox_{{ linux_distribution }}.yml"
 

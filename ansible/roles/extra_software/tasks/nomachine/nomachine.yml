@@ -1,9 +1,5 @@
 ---
 
-- name: "[NOMACHINE] include vars file"
-  include_vars:
-    file: "{{ linux_distribution }}.yml"
-
 - name: "[NOMACHINE] get lastest version of nomachine"
   block:
     - name: "[NOMACHINE] get latest version of no machine"
