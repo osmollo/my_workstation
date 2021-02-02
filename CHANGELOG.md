@@ -10,7 +10,8 @@
   - Configuración de **vim** según el tipo de fichero
   - git remote por defecto pasa a ser [github](https://github.com)
   - Configuración de Oracle Cloud
-  - -fixes bash aliases
+  - Fixes bash aliases
+  - Nuevas entradas `/etc/hosts`
 
 ## 5.2
 
