@@ -83,13 +83,19 @@
     - ".ssh/isilon"
     - ".ssh/ccr"
 
+- name: "[ENVIRONMENT] create .bash_aliases"
+  template:
+    src: bash_aliases.j2
+    dest: "{{ ansible_user_dir }}/.bash_aliases"
+  tags:
+    - config_files
+    - bash_aliases
+
 - name: "[ENVIRONMENT] create config files"
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   loop:
-    - src: bash_aliases.j2
-      dest: "{{ ansible_user_dir }}/.bash_aliases"
     - src: bashrc.j2
       dest: "{{ ansible_user_dir }}/.bashrc"
     - src: molecule-openrc.sh.j2
