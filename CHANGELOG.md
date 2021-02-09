@@ -4,6 +4,7 @@
 
 - Github Actions
 - Instalación de [Mailspring](https://getmailspring.com/)
+- Instalación de [k0s](https://docs.k0sproject.io) dentro de **k8s_tools**
 - Instalación de **secrethub**. Nueva tag `secrethub`
 - Instalación módulo de **ansible** para **secrethub**
 - Cambios en `post_install/ohermosa`:
