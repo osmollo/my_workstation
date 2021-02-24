@@ -3,6 +3,7 @@
 ## 5.3
 
 - Github Actions
+- Actualizado el proceso de instalación de VPNaaS Forticlient
 - Instalación de [Mailspring](https://getmailspring.com/)
 - Instalación de [k0s](https://docs.k0sproject.io) dentro de **k8s_tools**
 - Instalación de **secrethub**. Nueva tag `secrethub`
