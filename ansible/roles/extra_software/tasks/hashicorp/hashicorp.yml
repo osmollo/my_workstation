@@ -1,14 +1,58 @@
 ---
 
 - name: "[HASHICORP] install for {{ linux_distribution }}"
-  include_tasks: "hashicorp_{{ linux_distribution }}.yml"
+  include_tasks:
+    file: "hashicorp_{{ linux_distribution }}.yml"
+    apply:
+      tags:
+        - vault
+        - terraform
+        - consul
+        - nomad
   when: linux_distribution != "arch"
+  tags:
+    - vault
+    - terraform
+    - consul
+    - nomad
 
 - name: "[HASHICORP] install for Arch"
-  include_tasks: "{{ item }}.yml"
+  include_tasks:
+    file: "{{ item }}.yml"
+    apply:
+      tags:
+        - vault
+        - terraform
+        - consul
+        - nomad
   loop:
     - consul
     - terraform
     - vault
     - nomad
   when: linux_distribution == "arch"
+  tags:
+    - vault
+    - terraform
+    - consul
+    - nomad
+
+- import_tasks: vault.yml
+  when: install_vault
+  tags:
+    - vault
+
+- import_tasks: terraform.yml
+  when: install_terraform
+  tags:
+    - terraform
+
+- import_tasks: consul.yml
+  when: install_consul
+  tags:
+    - consul
+
+- import_tasks: nomad.yml
+  when: install_nomad
+  tags:
+    - nomad

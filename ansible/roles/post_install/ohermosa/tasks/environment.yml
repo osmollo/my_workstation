@@ -129,7 +129,7 @@
 
 - name: "[ENVIRONMENT] create link to vault_pass file"
   file:
-    src: "{{ ansible_user_dir }}/.vault_pass_datio.txt"
+    src: "{{ ansible_user_dir }}/.vault_pass_personal.txt"
     dest: "{{ ansible_user_dir }}/.vault_pass.txt"
     state: link
 

@@ -37,5 +37,8 @@ Host {{ entry.name }}
 {% if entry.user_known_hosts_file is defined %}
   UserKnownHostsFile {{ entry.user_known_hosts_file }}
 {% endif %}
+{% if entry.pubkeyacceptedkeytypes is defined %}
+  PubkeyAcceptedKeyTypes {{ entry.pubkeyacceptedkeytypes }}
+{% endif %}
 
 {% endfor %}

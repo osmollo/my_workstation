@@ -15,6 +15,14 @@
   - Configuración de Oracle Cloud
   - Fixes bash aliases
   - Nuevas entradas `/etc/hosts`
+  - Refactor creación de entornos virtuales python
+- Corrección de errores:
+  - Instalación **Secrethub** para **Fedora**
+  - Restauración enlace binario **Python** en instalación de **Virtualbox**
+  - Cambio destino enlace `ANSIBLE_VAULT_FILE`
+  - Cambio orden instalación `extra_software`
+  - Fix configuración __"user.name"__ de **git**
+  - Instalación tools de **Hashicorp**
 
 ## 5.2
 

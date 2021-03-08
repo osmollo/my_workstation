@@ -62,6 +62,16 @@
     - extra_software
     - secrethub
 
+- name: "Install 1Password"
+  import_tasks: 1password/1password.yml
+  when:
+    - install_1password
+    - linux_distribution in ["debian", "ubuntu", "fedora"]
+  tags:
+    - extra_software
+    - 1password
+    - pass_managers
+
 - name: "Install dropbox"
   import_tasks: dropbox/dropbox.yml
   when: install_dropbox
@@ -532,36 +542,11 @@
     - extra_software
     - act
 
-- name: "Install vault"
-  import_tasks: hashicorp/vault.yml
-  when: install_vault or install_hashicorp
+- name: "Install hashicorp tools"
+  import_tasks: hashicorp/hashicorp.yml
+  when: install_vault or install_terraform or install_consul or install_nomad or install_hashicorp
   tags:
     - extra_software
-    - vault
-    - hashicorp
-
-- name: "Install terraform"
-  import_tasks: hashicorp/terraform.yml
-  when: install_terraform or install_hashicorp
-  tags:
-    - extra_software
-    - terraform
-    - hashicorp
-
-- name: "Install consul"
-  import_tasks: hashicorp/consul.yml
-  when: install_consul or install_hashicorp
-  tags:
-    - extra_software
-    - consul
-    - hashicorp
-
-- name: "Install nomad"
-  import_tasks: hashicorp/nomad.yml
-  when: install_nomad or install_hashicorp
-  tags:
-    - extra_software
-    - nomad
     - hashicorp
 
 - name: "Install zoom"
@@ -577,16 +562,6 @@
   tags:
     - extra_software
     - githubcli
-
-- name: "Install 1Password"
-  import_tasks: 1password/1password.yml
-  when:
-    - install_1password
-    - linux_distribution in ["debian", "ubuntu", "fedora"]
-  tags:
-    - extra_software
-    - 1password
-    - pass_managers
 
 - name: "Install Mailspring"
   import_tasks: mailspring/mailspring.yml
