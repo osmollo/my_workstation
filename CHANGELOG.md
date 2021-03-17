@@ -16,6 +16,7 @@
   - Fixes bash aliases
   - Nuevas entradas `/etc/hosts`
   - Refactor creación de entornos virtuales python
+  - Corrección de alias bash
 - Corrección de errores:
   - Instalación **Secrethub** para **Fedora**
   - Restauración enlace binario **Python** en instalación de **Virtualbox**
