@@ -71,6 +71,8 @@ install_nomad: true
 install_zoom: true
 install_githubcli: true
 install_1password: true
+install_secrethub: true
+install_mailspring: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -91,6 +93,8 @@ lens_latest_url: "https://github.com/lensapp/lens/releases/latest"
 kops_latest_url: "https://github.com/kubernetes/kops/releases/latest"
 dive_latest_url: "https://api.github.com/repos/wagoodman/dive/releases/latest"
 kompose_latest_url: "https://github.com/kubernetes/kompose/releases/latest"
+mailspring_latest_url: "https://github.com/Foundry376/Mailspring/releases/latest"
+k0s_latest_url: https://github.com/k0sproject/k0s/releases/latest
 
 ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
 

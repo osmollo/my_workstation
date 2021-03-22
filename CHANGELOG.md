@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## 5.3
+
+- Github Actions
+- Actualizado el proceso de instalación de VPNaaS Forticlient
+- Instalación de [Mailspring](https://getmailspring.com/)
+- Instalación de [k0s](https://docs.k0sproject.io) dentro de **k8s_tools**
+- Instalación de **secrethub**. Nueva tag `secrethub`
+- Instalación módulo de **ansible** para **secrethub**
+- Cambios en `post_install/ohermosa`:
+  - Nuevos repositorios
+  - Configuración de **vim** según el tipo de fichero
+  - git remote por defecto pasa a ser [github](https://github.com)
+  - Configuración de Oracle Cloud
+  - Fixes bash aliases
+  - Nuevas entradas `/etc/hosts`
+  - Refactor creación de entornos virtuales python
+  - Corrección de alias bash
+- Corrección de errores:
+  - Instalación **Secrethub** para **Fedora**
+  - Restauración enlace binario **Python** en instalación de **Virtualbox**
+  - Cambio destino enlace `ANSIBLE_VAULT_FILE`
+  - Cambio orden instalación `extra_software`
+  - Fix configuración __"user.name"__ de **git**
+  - Instalación tools de **Hashicorp**
+
 ## 5.2
 
 - Instalación de **Minikube** dentro de las `k8s_tools`

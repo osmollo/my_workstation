@@ -146,6 +146,7 @@
 - block:
     - name: "[GIT] Configure user name"
       blockinfile:
+        create: true
         path: "{{ ansible_user_dir }}/.gitconfig"
         block: |
           [user]

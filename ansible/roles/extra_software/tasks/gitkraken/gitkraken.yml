@@ -1,8 +1,4 @@
 ---
 
-- name: "[GITKRAKEN] include vars file"
-  include_vars:
-    file: "{{ linux_distribution }}.yml"
-
 - name: "[GITKRAKEN] install for {{ linux_distribution }}"
   include_tasks: "gitkraken_{{ linux_distribution }}.yml"

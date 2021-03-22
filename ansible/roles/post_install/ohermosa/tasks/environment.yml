@@ -10,9 +10,6 @@
   tags:
     - etc_hosts
 
-- name: "[ENVIRONMENT] Configure VIM editor"
-  import_tasks: vim.yml
-
 - name: "[ENVIRONMENT] Configure /etc/profile"
   become: true
   become_method: sudo
@@ -86,13 +83,19 @@
     - ".ssh/isilon"
     - ".ssh/ccr"
 
+- name: "[ENVIRONMENT] create .bash_aliases"
+  template:
+    src: bash_aliases.j2
+    dest: "{{ ansible_user_dir }}/.bash_aliases"
+  tags:
+    - config_files
+    - bash_aliases
+
 - name: "[ENVIRONMENT] create config files"
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   loop:
-    - src: bash_aliases.j2
-      dest: "{{ ansible_user_dir }}/.bash_aliases"
     - src: bashrc.j2
       dest: "{{ ansible_user_dir }}/.bashrc"
     - src: molecule-openrc.sh.j2
@@ -126,7 +129,7 @@
 
 - name: "[ENVIRONMENT] create link to vault_pass file"
   file:
-    src: "{{ ansible_user_dir }}/.vault_pass_datio.txt"
+    src: "{{ ansible_user_dir }}/.vault_pass_personal.txt"
     dest: "{{ ansible_user_dir }}/.vault_pass.txt"
     state: link
 

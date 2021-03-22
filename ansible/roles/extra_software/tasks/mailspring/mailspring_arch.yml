@@ -1,0 +1,8 @@
+---
+
+- name: "[MAILSPRING] [ARCH] Install mailspring"
+  become: false
+  yay:
+    name: "{{ mailspring_package }}"
+    state: present
+    update_cache: true

@@ -5,12 +5,6 @@
     path: /usr/bin/python
   register: pre_response
 
-- name: "[VIRTUALBOX] include vars file"
-  include_vars:
-    file: "{{ linux_distribution }}.yml"
-  tags:
-    - vagrant
-
 - name: "[VIRTUALBOX] install virtualbox for {{ linux_distribution }}"
   include_tasks: "virtualbox_{{ linux_distribution }}.yml"
 
@@ -65,7 +59,7 @@
 
     - name: "[VIRTUALBOX] restore default python version"
       file:
-        src: "/usr/bin/{{ pre_response.stat.lnk_source }}"
+        src: "/usr/bin/{{ pre_response.stat.lnk_source | basename }}"
         dest: "/usr/bin/python"
         state: link
 
@@ -73,6 +67,6 @@
       alternatives:
         name: python
         link: /usr/bin/python
-        path: "/usr/bin/{{ pre_response.stat.lnk_source }}"
+        path: "/usr/bin/{{ pre_response.stat.lnk_source | basename }}"
   when:
     - pre_response.stat.lnk_source != post_response.stat.lnk_source

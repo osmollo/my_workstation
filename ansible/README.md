@@ -66,6 +66,7 @@ Por defecto se instala el siguiente software:
 | [KeepassXC](https://keepassxc.org/download/) | keepass | install_keepass | pass_managers | Gestor de contraseñas |
 | [Kodi](https://kodi.tv/) | kodi | install_kodi | | Media center |
 | [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | | Firefox 50.1 + Java para acceder a Lexnet (sólo para abogados) |
+| [Mailspring](https://getmailspring.com/) | mailspring | install_mailspring | | Cliente de correo electrónico |
 | [MAME](https://www.mamedev.org/) | mame | install_mame | | Emulador de juegos de recreativas |
 | [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | mega | Cliente de almacenamiento en la nube de Mega |
 | [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | mega | Cliente de almacenamiento en la nube de Mega para terminal |
@@ -79,6 +80,7 @@ Por defecto se instala el siguiente software:
 | [ProtonVPN](https://protonvpn.com/) | protonvpn | install_protonvpn | | Cliente de VPN |
 | [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | pycharm | install_pycharm | editors | IDE para Python |
 | [Rambox](https://rambox.pro/#home) | rambox | install_rambox | | Gestor de clientes de mensajería |
+| [Secrethub](https://secrethub.io) | secrethub | install_secrethub | | Gestor de secretos |
 | [Skype](https://www.skype.com/es/) | skype | install_skype | socials | Cliente de mensajería de Skype |
 | [Slack](https://slack.com/intl/es-es/) | slack | install_slack | socials | Cliente de mensajería para entornos de trabajo |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | | Cliente de Spotify |

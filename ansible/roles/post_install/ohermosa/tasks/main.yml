@@ -1,5 +1,4 @@
 ---
-
 - name: "configure environment"
   import_tasks: environment.yml
   tags:
@@ -153,9 +152,18 @@
   tags:
     - post_install
     - zeal
+    - post_zeal
 
 - name: "configure github CLI"
   import_tasks: github_cli.yml
   tags:
     - post_install
     - githubcli
+    - post_githubcli
+
+- name: "configure Oracle Cloud"
+  import_tasks: oracle_cloud.yml
+  tags:
+    - post_install
+    - oracle_cloud
+    - post_oracle_cloud

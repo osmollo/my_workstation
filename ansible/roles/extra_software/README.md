@@ -44,6 +44,7 @@
 | **keepass** | Instala `KeepassXD` |
 | **kodi** | Instala `Kodi` |
 | **lexnet** | Instala `Lexnet` |
+| **mailspring** | Instala `Mailspring` |
 | **mame** | Instala `MAME` |
 | **megacmd** | Instala `MEGAcmd` |
 | **megasync** | Instala `MEGA sync` |
@@ -56,6 +57,7 @@
 | **protonvpn** | Instala `ProtonVPN` |
 | **pycharm** | Instala `PyCharm` |
 | **rambox** | Instala `Rambox` |
+| **secrethub** | Instala `Secrethub` |
 | **skype** | Instala `Skype` |
 | **slack** | Instala `Slack` |
 | **spotify_cli** | Instala cliente `Spotify TUI` |

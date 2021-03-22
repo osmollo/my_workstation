@@ -1,9 +1,5 @@
 ---
 
-- name: "[ZOOM] include vars file"
-  include_vars:
-    file: "{{ linux_distribution }}.yml"
-
 - name: "[ZOOM] get lastest version of zoom"
   block:
     - name: "[ZOOM] get latest version of no machine"

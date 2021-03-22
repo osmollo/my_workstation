@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -e
+
+VPN_DATA="$(ip r | grep vpn)"
+if [[ -z "$VPN_DATA" ]]; then
+  >&2 echo "[ERROR] Route data could not be extracted from [vpn] interface. Are you connected to VPNaaS?"
+  exit 1
+fi
+
+IP="$(echo "$VPN_DATA" | grep default | awk '{print $3}')"
+if [[ -z "$IP" ]]; then
+  >&2 echo "[WARN] This script has already been executed after connecting. Nothing is done!"
+  exit 0
+fi
+
+# Borramos el gateway por defecto para no sacar todo el tráfico por el túnel de la VPNaaS.
+sudo ip route del default via "$IP"
+
+# Añadimos ruta para enviar el tráfico de la red privada 10.0.0.0/8 por el túnel de la VPNaaS.
+sudo ip route add 10.0.0.0/8 dev vpn
+
+# Añadimos ruta para enviar el tráfico de ciertas IPs públicas necesarias (AWS, etc.) por el túnel de la VPNaaS.
+# Como son varias IPs (y no hay un listado definido), se opta por añadir todas las IPs 100.x.x.x
+# Esto podría ocasionar un problema si algun servidor web de Internet usa este direccionamento...
+# Solución a esto: Obtener un listado bien definido de las IPs públicas que es necesario mandar por el túnel VPNaaS.
+sudo ip route add 100.0.0.0/8 dev vpn

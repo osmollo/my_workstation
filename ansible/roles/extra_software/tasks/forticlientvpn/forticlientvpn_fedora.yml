@@ -1,6 +1,64 @@
 ---
 
-- name: "[FORTICLIENTVPN] install forticlient package"
+- name: "[FORTICLIENTVPN] [FEDORA] install forticlient package"
   yum:
     name: "{{ forticlient_rpm_package }}"
+    update_cache: true
     state: present
+  when: ansible_distribution == "Fedora"
+
+- name: "[FORTICLIENTVPN] [FEDORA] install dnsmasq"
+  yum:
+    name: dnsmasq
+    state: present
+  when: ansible_distribution == "Fedora"
+
+- name: "[FORTICLIENTVPN] [FEDORA] copy dnmasq configfile"
+  copy:
+    src: vpnaas.conf
+    dest: /etc/dnsmasq.d
+
+- name: "[FORTICLIENTVPN] [FEDORA] Stop NetworkManager"
+  systemd:
+    name: NetworkManager
+    state: stopped
+
+- name: "[FORTICLIENTVPN] [FEDORA] reconfigure NetworkManager.conf"
+  lineinfile:
+    path: /etc/NetworkManager/NetworkManager.conf
+    insertafter: "^plugins=ifupdown,keyfile"
+    line: "dns=none"
+    state: present
+
+- name: "[FORTICLIENTVPN] [FEDORA] delete /etc/resolv.conf"
+  file:
+    path: /etc/resolv.conf
+    state: absent
+
+- name: "[FORTICLIENTVPN] [FEDORA] create empty /etc/resolv.conf"
+  file:
+    path: /etc/resolv.conf
+    state: touch
+
+- name: "[FORTICLIENTVPN] [FEDORA] restart NetworkManager"
+  systemd:
+    name: NetworkManager
+    state: restarted
+
+- name: "[FORTICLIENTVPN] [FEDORA] disable systemd-resolved"
+  systemd:
+    name: systemd-resolved
+    enabled: false
+    state: stopped
+
+- name: "[FORTICLIENTVPN] [FEDORA] enable dnsmasq"
+  systemd:
+    name: dnsmasq
+    state: started
+    enabled: true
+
+- name: "[FORTICLIENTVPN] [FEDORA] copy script rutas"
+  copy:
+    src: rutas_vpnaas
+    dest: /usr/local/bin/rutas_vpnaas
+    mode: 0755

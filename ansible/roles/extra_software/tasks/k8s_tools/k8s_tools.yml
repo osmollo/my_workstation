@@ -74,3 +74,8 @@
   import_tasks: kompose.yml
   tags:
     - kompose
+
+- name: "[K0s] installation"
+  import_tasks: k0s.yml
+  tags:
+    - k0s

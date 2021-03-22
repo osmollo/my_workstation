@@ -1,0 +1,23 @@
+---
+
+- name: "[PYTHON_VIRTUAL_ENVS] check if directory has requirements.txt"
+  stat:
+    path: "{{ workdir }}/requirements.txt"
+  register: stat_response
+
+- name: "[PYTHON_VIRTUAL_ENVS] create python virtual environment"
+  block:
+    - name: "[PYTHON_VIRTUAL_ENVS] create directory"
+      file:
+        path: "{{ python_venv_dir }}/{{ workdir | basename }}"
+        recurse: true
+        force: true
+        state: directory
+
+    - name: "[PYTHON_VIRTUAL_ENVS] install virtual env"
+      pip:
+        requirements: "{{ workdir }}/requirements.txt"
+        virtualenv: "{{ python_venv_dir }}/{{ workdir | basename }}"
+        virtualenv_command: virtualenv
+      ignore_errors: true
+  when: stat_response.stat.exists
