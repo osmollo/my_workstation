@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 5.4
+
+- Cambios en `post_install/ohermosa`:
+  - Nuevas entradas en `/etc/hosts`
+
 ## 5.3
 
 - Github Actions
