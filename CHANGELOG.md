@@ -4,6 +4,7 @@
 
 - Cambios en `post_install/ohermosa`:
   - Nuevas entradas en `/etc/hosts`
+  - Nuevos repositorios git
 
 ## 5.3
 
