@@ -5,6 +5,7 @@
 - Cambios en `post_install/ohermosa`:
   - Nuevas entradas en `/etc/hosts`
   - Nuevos repositorios git
+  - Refactor configuración VPN trabajo
 
 ## 5.3
 
