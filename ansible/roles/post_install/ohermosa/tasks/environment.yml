@@ -104,6 +104,7 @@
       dest: "{{ ssh_dir }}/config"
   tags:
     - config_files
+    - ssh_config
 
 - name: "[ENVIRONMENT] create ssh keys"
   copy:
