@@ -2,6 +2,8 @@
 
 ## 5.4
 
+- Corrección de errores:
+  - Borrado del tema `Material` de la configuración de **Sublime Text**
 - Cambios en `post_install/ohermosa`:
   - Nuevas entradas en `/etc/hosts`
   - Nuevos repositorios git
