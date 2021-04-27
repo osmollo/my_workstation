@@ -1,0 +1,7 @@
+---
+
+- name: "[OBS_STUDIO] [ARCH] install obs studio"
+  pacman:
+    name: obs-studio
+    update_cache: true
+    state: present

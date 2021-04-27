@@ -1,0 +1,21 @@
+---
+
+- name: "[OBS_STUDIO] [UBUNTU] install obs dependencies"
+  apt:
+    name:
+      - ffmpeg
+      - v4l2loopback-dkms
+    state: present
+    update_cache: true
+
+- name: "[OBS_STUDIO] [UBUNTU] install obs repository"
+  apt_repository:
+    validate_certs: no
+    repo: 'ppa:obsproject/obs-studio'
+    state: present
+
+- name: "[OBS_STUDIO] [UBUNTU] install obs package"
+  apt:
+    name: obs-studio
+    state: present
+    update_cache: true

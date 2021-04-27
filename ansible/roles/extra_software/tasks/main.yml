@@ -569,3 +569,11 @@
   tags:
     - extra_software
     - mailspring
+
+- name: "Install OBS Studio"
+  import_tasks: obs_studio/obs_studio.yml
+  when: install_obs
+  tags:
+    - extra_software
+    - obs
+    - obs_studio

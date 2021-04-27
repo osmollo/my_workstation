@@ -72,6 +72,7 @@ Por defecto se instala el siguiente software:
 | [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | mega | Cliente de almacenamiento en la nube de Mega para terminal |
 | [NoMachine](https://www.nomachine.com/es/) | nomachine | install_nomachine | remotes | Cliente de escritorio remoto |
 | [Nomad](https://learn.hashicorp.com/tutorials/nomad/install-cli) | nomad | install_nomad | | Orchestration tool for deploying and managing applications |
+| [OBS Studio](https://obsproject.com/es) | obs | install_obs | | Grabación de video y transmissión en vivo |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | | Personalización de ZSH |
 | [Pass](https://www.passwordstore.org/) | pass | install_pass | pass_managers | Gestor de contraseñas |
 | [Podman](https://podman.io/) | podman | install_podman | | Gestor de contenedores |
