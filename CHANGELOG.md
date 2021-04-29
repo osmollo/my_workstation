@@ -3,6 +3,7 @@
 ## 5.4
 
 - Instalación de [OBS Studio](https://obsproject.com/es)
+- Instalación de **Spotify** en **Ubuntu** usando paquete nativo en lugar de snap
 - Corrección de errores:
   - Borrado del tema `Material` de la configuración de **Sublime Text**
 - Cambios en `post_install/ohermosa`:
