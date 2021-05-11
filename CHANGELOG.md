@@ -4,6 +4,7 @@
 
 - Instalación de [OBS Studio](https://obsproject.com/es)
 - Instalación de **Spotify** en **Ubuntu** usando paquete nativo en lugar de snap
+- Instalación de **Telegram** en **Ubuntu** usando paquete nativo para _Ubuntu 17.10_ y superiores
 - Instalación independiente de las distintas `k8s_tools`
 - Corrección de errores:
   - Borrado del tema `Material` de la configuración de **Sublime Text**
