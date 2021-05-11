@@ -31,6 +31,16 @@ install_chromium: true
 install_deluge: true
 install_cherrytree: true
 install_k8s_tools: true
+install_kubectl: true
+install_minikube: true
+install_helm: true
+install_hetznerkube: true
+install_kops: true
+install_lens: true
+install_kind: true
+install_microk8s: true
+install_kompose: true
+install_k0s: true
 install_flatpak: true
 install_megacmd: true
 install_megasync: true

@@ -319,7 +319,6 @@
 
 - name: "Install k8s_tools"
   import_tasks: k8s_tools/k8s_tools.yml
-  when: install_k8s_tools
   tags:
     - extra_software
     - k8s_tools
