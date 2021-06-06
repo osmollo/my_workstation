@@ -32,7 +32,6 @@
 | **dropbox** | Instala `Dropbox` |
 | **ecs** | Instala `Ether Cloud Services Client` |
 | **etcher** | Instala `Balena Etcher` |
-| **forticlientvpn** | Instala `Forti Client VPN` |
 | **franz** | Instala `Franz` |
 | **fzf** | Instala `FZF` |
 | **gitkraken** | Instala `Gitkraken` |
@@ -77,7 +76,6 @@
 | **vscode** | Instala y configura `Visual Studio Code` |
 | **vscodium** | Instala y configura `Visual Studio Codium` |
 | **windscribe** | Instala `Windscribe Client VPN` |
-| **windscribe** | Instala los clientes de VPN `Forti Client VPN` y `Windscribe` |
 | **Wireguard** | Instala `Wireguard` |
 | **woeusb** | Instala `WoeUSB` |
 | **yakyak** | Instala `YakYak` |

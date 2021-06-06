@@ -1,10 +1,5 @@
 ---
 
-# forticlientvpn_packages:
-#   - openfortivpn
-#   - network-manager-fortisslvpn
-#   - network-manager-fortisslvpn-gnome
-
 gitkraken_package: "https://release.axocdn.com/linux/gitkraken-amd64.deb"
 chrome_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
@@ -42,4 +37,3 @@ wireguard_packages:
   - wireguard
 
 podman_package: podman
-forticlient_deb_package: "https://filestore.fortinet.com/forticlient/downloads/FortiClientFullVPNInstaller_6.4.0.0851.deb"

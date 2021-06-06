@@ -28,7 +28,6 @@ gitkraken_package: gitkraken
 sublimetext_package: sublime-text-nightly
 sublimemerge_package: sublime-merge
 franz_package: franz-bin
-forticlient_package: forticlientsslvpn
 deluge_package: deluge-git
 windscribe_package: windscribe-cli
 apachedirectory_package: apachedirectorystudio

@@ -150,14 +150,6 @@
     - slack
     - socials
 
-- name: "Install Forticlient VPN"
-  import_tasks: forticlientvpn/forticlientvpn.yml
-  when: install_forticlientvpn
-  tags:
-    - extra_software
-    - forticlientvpn
-    - vpnclient
-
 - name: "Install TLP"
   import_tasks: tlp/tlp.yml
   when: install_tlp

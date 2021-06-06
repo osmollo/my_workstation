@@ -10,7 +10,6 @@ install_atom: false
 install_gitkraken: false
 install_telegram: true
 install_slack: false
-install_forticlientvpn: false
 install_tlp: false
 install_virtualbox: true
 install_pycharm: false

@@ -1,10 +1,5 @@
 ---
 
-# forticlientvpn_packages:
-#   - openfortivpn
-#   - NetworkManager-fortisslvpn
-#   - NetworkManager-fortisslvpn-gnome
-
 gitkraken_package: "https://release.axocdn.com/linux/gitkraken-amd64.rpm"
 chrome_package: "https://dl.google.com/linux/direct/google-chrome-stable_current_{{ ansible_architecture }}.rpm"
 teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer.{{ ansible_architecture }}.rpm"
@@ -50,4 +45,3 @@ wireguard_packages:
 typora_dir: /opt/typora
 typora_package: https://typora.io/linux/Typora-linux-x64.tar.gz
 podman_package: podman
-forticlient_rpm_package: "https://filestore.fortinet.com/forticlient/downloads/FortiClientFullVPNInstaller_6.4.0.0851.rpm"
