@@ -5,7 +5,6 @@
 - Instalación de [OBS Studio](https://obsproject.com/es)
 - Instalación de las siguientes apps mediante paquete nativo en lugar de snap en **Ubuntu**:
   - Spotify
-  - Telegram
   - Pycharm
 - Instalación independiente de las distintas `k8s_tools`
 - Eliminación de **Forticlient VPN** porque ya existe un repo específico para eso
