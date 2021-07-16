@@ -9,6 +9,7 @@
   - Pycharm
 - Instalación independiente de las distintas `k8s_tools`
 - Eliminación de **Forticlient VPN** porque ya existe un repo específico para eso
+- Actualización versión `Apache Directory Studio`
 - Corrección de errores:
   - Borrado del tema `Material` de la configuración de **Sublime Text**
 - Cambios en `post_install/ohermosa`:

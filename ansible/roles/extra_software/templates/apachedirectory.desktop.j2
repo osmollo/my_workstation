@@ -1,10 +1,10 @@
 [Desktop Entry]
-Name=ApacheDS
+Name=ApacheDirectoryStudio
 GenericName=Apache Directory Studio
 Comment=LDAP client
-Exec=/home/{{ ansible_user }}/ApacheDirectoryStudio/ApacheDirectoryStudio
+Exec={{ ansible_user_dir }}/ApacheDirectoryStudio/ApacheDirectoryStudio
 Terminal=false
 Type=Application
-Icon=/home/{{ ansible_user }}/ApacheDirectoryStudio/icon.xpm
+Icon={{ ansible_user_dir }}/ApacheDirectoryStudio/icon.xpm
 Categories=System;Utility;
 StartupNotify=false
