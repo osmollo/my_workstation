@@ -13,6 +13,8 @@
   - Borrado del tema `Material` de la configuración de **Sublime Text**
 - Cambios en `post_install/ohermosa`:
   - Nuevas entradas en `/etc/hosts`
+  - Limpieza de alias de bash
+  - Limpieza de configuración de ssh
   - Nuevos repositorios git
   - Refactor configuración VPN trabajo
 
