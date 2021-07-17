@@ -83,3 +83,4 @@ install_1password: true
 install_secrethub: true
 install_mailspring: false
 install_obs: false
+install_copyq: false

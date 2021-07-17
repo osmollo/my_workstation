@@ -27,6 +27,7 @@
 | **cherrytree** | Instala `Cherry Tree` |
 | **chrome** | Instala `Google Chrome` |
 | **chromium** | Instala `Chromium` |
+| **copyq** | Instala `CopyQ` |
 | **deluge** | Instala `Deluge` |
 | **docker** | Instala `Docker Community Edition` |
 | **dropbox** | Instala `Dropbox` |

@@ -568,3 +568,10 @@
     - extra_software
     - obs
     - obs_studio
+
+- name: "Install CopyQ"
+  import_tasks: copyq/copyq.yml
+  when: install_copyq
+  tags:
+    - extra_software
+    - copyq

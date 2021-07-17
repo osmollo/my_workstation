@@ -1,0 +1,6 @@
+---
+
+- name: "[COPYQ] [ARCH] Install copyq package"
+  pacman:
+    name: copyq
+    state: present
