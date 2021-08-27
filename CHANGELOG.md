@@ -2,6 +2,8 @@
 
 ## 5.4
 
+- Unificación de los playbooks `install.yml` y `post_install.yml`
+- Eliminación de los subroles dentro de `roles/post_install`
 - Instalación de [OBS Studio](https://obsproject.com/es)
 - Instalación de [CopyQ](https://hluk.github.io/CopyQ/)
 - Instalación de las siguientes apps mediante paquete nativo en lugar de snap en **Ubuntu**:

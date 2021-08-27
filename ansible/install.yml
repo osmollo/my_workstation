@@ -38,3 +38,4 @@
   roles:
     - common
     - extra_software
+    - post_install
