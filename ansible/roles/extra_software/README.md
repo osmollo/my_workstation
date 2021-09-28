@@ -35,6 +35,7 @@
 | **etcher** | Instala `Balena Etcher` |
 | **franz** | Instala `Franz` |
 | **fzf** | Instala `FZF` |
+| **google_fonts** | Instala las fuentes tipográficas de Google |
 | **gitkraken** | Instala `Gitkraken` |
 | **go** | Instala `GO` |
 | **hiri** | Instala `Hiri` |

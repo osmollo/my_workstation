@@ -575,3 +575,11 @@
   tags:
     - extra_software
     - copyq
+
+- name: "Install Google Fonts"
+  import_tasks: fonts.yml
+  when: install_fonts
+  tags:
+    - extra_software
+    - fonts
+    - google_fonts

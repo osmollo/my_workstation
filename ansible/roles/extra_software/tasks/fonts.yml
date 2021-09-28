@@ -1,0 +1,40 @@
+---
+
+- name: "[GOOGLE FONTS] : download google fonts package"
+  unarchive:
+    src: "{{ google_fonts_package }}"
+    dest: /tmp/
+    remote_src: true
+
+- name: "[GOOGLE FONTS] : find ttf files"
+  find:
+    path: "/tmp/fonts-main"
+    patterns: "^.*ttf$"
+    use_regex: true
+    recurse: true
+    file_type: file
+  register: font_files
+
+- debug: var=font_files.files
+
+- name: "[GOOGLE FONTS] : create user directory"
+  file:
+    path: "{{ ansible_user_dir }}/.fonts"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: "[GOOGLE FONTS] : move fonts"
+  copy:
+    src: "{{ item }}"
+    dest: "{{ ansible_user_dir }}/.fonts/"
+    remote_src: true
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  loop: "{{ font_files.files | json_query('[].path') | map('dirname') | list | unique }}"
+  notify: rebuild fonts cache
+
+- name: "[GOOGLE FONTS] : delete useless data"
+  file:
+    path: /tmp/fonts-main
+    state: absent

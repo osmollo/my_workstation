@@ -84,6 +84,7 @@ install_secrethub: true
 install_mailspring: true
 install_obs: true
 install_copyq: true
+install_fonts: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -176,3 +177,5 @@ appimage_dir: "{{ ansible_user_dir }}/AppImage"
 
 terraform_binary_path: /usr/local/bin/terraform
 zoom_url_base: https://d11yldzmag5yn.cloudfront.net/prod
+
+google_fonts_package: https://github.com/google/fonts/archive/main.zip
