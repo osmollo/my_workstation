@@ -1,7 +1,17 @@
 ---
 
-- name: "[LENS] installation"
-  when: linux_distribution != "ubuntu"
+- name: "[LENS] Get latest version of lens"
+  uri:
+    url: "{{ lens_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: lens_latest
+
+- name: "[LENS] set lens version"
+  set_fact:
+    lens_version: "{{ lens_latest.url | urlsplit('path') | basename }}"
+
+- name: "[LENS] install Lens on Arch"
   block:
     - name: "[LENS] create {{ ansible_user_dir }}/AppImage directory"
       file:
@@ -10,18 +20,9 @@
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
 
-    - name: "[LENS] Get latest version of lens"
-      uri:
-        url: "{{ lens_latest_url }}"
-        follow_redirects: safe
-        body_format: raw
-      register: lens_latest
-
     - name: "[LENS] download lens appimage"
-      vars:
-        lens_version: "{{ lens_latest.url | urlsplit('path') | basename }}"
       get_url:
-        url: "https://github.com/lensapp/lens/releases/download/{{ lens_version }}/Lens-{{ lens_version[1:] }}.AppImage"
+        url: "https://github.com/lensapp/lens/releases/download/{{ lens_version }}/Lens-{{ lens_version[1:] }}.x86_64.AppImage"
         dest: "{{ appimage_dir }}/Lens.AppImage"
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
@@ -30,11 +31,18 @@
     - name: "[LENS] how to run"
       debug:
         msg: "Puedes ejecutar Lens con el comando: '{{ appimage_dir }}/Lens.AppImage'"
+  when: linux_distribution == "arch"
 
-- name: "[LENS] ubuntu instalation"
-  snap:
-    name:
-      - kontena-lens
+- name: "[LENS] [UBUNTU] install lens package"
+  apt:
+    deb: "https://github.com/lensapp/lens/releases/download/{{ lens_version }}/Lens-{{ lens_version[1:] }}.amd64.deb"
     state: present
-    classic: true
-  when: linux_distribution == "ubuntu"
+    update_cache: true
+  when: linux_distribution in ['ubuntu', 'debian']
+
+- name: "[LENS] [FEDORA] install lens package"
+  yum:
+    name: "https://github.com/lensapp/lens/releases/download/{{ lens_version }}/Lens-{{ lens_version[1:] }}.x86_64.rpm"
+    state: present
+    update_cache: true
+  when: linux_distribution == 'fedora'

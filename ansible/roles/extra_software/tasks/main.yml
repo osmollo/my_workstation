@@ -150,14 +150,6 @@
     - slack
     - socials
 
-- name: "Install Forticlient VPN"
-  import_tasks: forticlientvpn/forticlientvpn.yml
-  when: install_forticlientvpn
-  tags:
-    - extra_software
-    - forticlientvpn
-    - vpnclient
-
 - name: "Install TLP"
   import_tasks: tlp/tlp.yml
   when: install_tlp
@@ -319,7 +311,6 @@
 
 - name: "Install k8s_tools"
   import_tasks: k8s_tools/k8s_tools.yml
-  when: install_k8s_tools
   tags:
     - extra_software
     - k8s_tools
@@ -569,3 +560,26 @@
   tags:
     - extra_software
     - mailspring
+
+- name: "Install OBS Studio"
+  import_tasks: obs_studio/obs_studio.yml
+  when: install_obs
+  tags:
+    - extra_software
+    - obs
+    - obs_studio
+
+- name: "Install CopyQ"
+  import_tasks: copyq/copyq.yml
+  when: install_copyq
+  tags:
+    - extra_software
+    - copyq
+
+- name: "Install Google Fonts"
+  import_tasks: fonts.yml
+  when: install_fonts
+  tags:
+    - extra_software
+    - fonts
+    - google_fonts

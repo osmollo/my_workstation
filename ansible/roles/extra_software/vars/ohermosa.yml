@@ -10,7 +10,6 @@ install_atom: false
 install_gitkraken: false
 install_telegram: true
 install_slack: false
-install_forticlientvpn: false
 install_tlp: false
 install_virtualbox: true
 install_pycharm: false
@@ -30,7 +29,17 @@ install_franz: false
 install_chromium: false
 install_deluge: false
 install_cherrytree: false
-install_k8s_tools: true
+install_k8s_tools: false
+install_kubectl: true
+install_minikube: true
+install_helm: true
+install_hetznerkube: true
+install_kops: false
+install_lens: true
+install_kind: false
+install_microk8s: false
+install_kompose: false
+install_k0s: false
 install_flatpak: false
 install_megacmd: true
 install_megasync: false
@@ -73,3 +82,6 @@ install_githubcli: true
 install_1password: true
 install_secrethub: true
 install_mailspring: false
+install_obs: false
+install_copyq: false
+install_fonts: true

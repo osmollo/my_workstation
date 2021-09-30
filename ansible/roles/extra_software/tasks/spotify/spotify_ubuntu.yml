@@ -1,14 +1,22 @@
 ---
 
-- name: "[SPOTIFY] [DEB] Check if ansible_version >= 2.8"
-  assert:
-    that:
-      - ansible_version.full >= "2.8"
-    fail_msg: "Ansible version must be >= 2.8. Please, ejecute 'ansible-playbook update_ansible.yml '"
-    success_msg: "OK, your ansible version is {{ ansible_version.full }}"
+- name: "[SPOFITY] [DEB] install spotify repository"
+  lineinfile:
+    path: /etc/apt/sources.list.d/spotify.list
+    line: deb http://repository.spotify.com stable non-free
+    create: true
+    mode: 0644
+    owner: root
+    group: root
 
-- name: "[SPOTIFY] [DEB] Install Spotify using snap"
-  snap:
-    name:
-      - spotify
+- name: "[UBUNTU] [DEB] Import spotify repository key"
+  apt_key:
+    url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
     state: present
+    validate_certs: false
+
+- name: "[UBUNTU] [DEB] install spotify"
+  apt:
+    name: spotify-client
+    state: present
+    update_cache: true

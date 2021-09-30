@@ -47,17 +47,18 @@ Por defecto se instala el siguiente software:
 | [Cherrytree](https://www.giuspen.com/cherrytree/) | cherrytree | install_cherrytree | editors | Editor de textos |
 | [Chromium Browser](https://chromium.woolyss.com/download/es/) | chromium | install_chromium| browsers | Navegador web libre basado en Chrome |
 | [Consul](https://learn.hashicorp.com/tutorials/consul/install-cli) | consul | install_consul | | Service discovery |
+| [CopyQ](https://hluk.github.io/CopyQ/) | copyq | install_copyq | | Gestor de portapapeles |
 | [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | | Cliente de Torrent |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | | Gestión de contenedores Docker |
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | | Cliente de almacenamiento en la nube |
 | [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | ecs | install_ecs | | |
-| [Forticlient VPN](https://www.fortinet.com/lat) | forticlientvpn | install_forticlientvpn | | Cliente VPN |
 | [Franz](https://meetfranz.com/) | franz | install_franz | | Administrador de clientes de mensajería |
 | [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | | Buscador difuso de archivos |
 | [Github CLI](https://github.com/cli/cli) | githubcli | install_githubcli | | Cli de consola para [Github](https://github.com) |
 | [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | | Cliente gráfico de git |
 | [GO](https://golang.org/doc/install/source) | go | install_go | | Compilador del lenguaje GO |
 | [Google Chrome](https://www.google.com/intl/es/chrome/) | chrome | install_chrome | browsers | Navegador web |
+| [Google Fonts](https://fonts.google.com/) | google_fonts | install_fonts | | Fuentes tipográficas de Google |
 | [Hashicorp stask](https://www.hashicorp.com/) | hashicorp | install_hashicorp | | Stack de aplicaciones de **Hashicorp**: **Vault**, **Terraform**, **Consul** y **Nomad** |
 | [Hiri](https://www.hiri.com/) | hiri | install_hiri | | Cliente de correo |
 | [Java](https://openjdk.java.net/) | java | install_java | | Lenguaje Java |
@@ -72,6 +73,7 @@ Por defecto se instala el siguiente software:
 | [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | mega | Cliente de almacenamiento en la nube de Mega para terminal |
 | [NoMachine](https://www.nomachine.com/es/) | nomachine | install_nomachine | remotes | Cliente de escritorio remoto |
 | [Nomad](https://learn.hashicorp.com/tutorials/nomad/install-cli) | nomad | install_nomad | | Orchestration tool for deploying and managing applications |
+| [OBS Studio](https://obsproject.com/es) | obs | install_obs | | Grabación de video y transmissión en vivo |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | | Personalización de ZSH |
 | [Pass](https://www.passwordstore.org/) | pass | install_pass | pass_managers | Gestor de contraseñas |
 | [Podman](https://podman.io/) | podman | install_podman | | Gestor de contenedores |

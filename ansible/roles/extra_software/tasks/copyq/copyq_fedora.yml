@@ -1,0 +1,7 @@
+---
+
+- name: "[COPYQ] [FEDORA] install copyq package"
+  yum:
+    name: copyq
+    state: present
+    update_cache: true

@@ -1,0 +1,9 @@
+---
+
+- name: "[OBS_STUDIO] [DEBIAN] install obs"
+  apt:
+    name:
+      - ffmpeg
+      - obs-studio
+    state: present
+    update_cache: true

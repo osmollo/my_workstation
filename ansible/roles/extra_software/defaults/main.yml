@@ -10,7 +10,6 @@ install_atom: true
 install_gitkraken: true
 install_telegram: true
 install_slack: true
-install_forticlientvpn: true
 install_tlp: true
 install_virtualbox: true
 install_pycharm: true
@@ -31,6 +30,16 @@ install_chromium: true
 install_deluge: true
 install_cherrytree: true
 install_k8s_tools: true
+install_kubectl: true
+install_minikube: true
+install_helm: true
+install_hetznerkube: true
+install_kops: true
+install_lens: true
+install_kind: true
+install_microk8s: true
+install_kompose: true
+install_k0s: true
 install_flatpak: true
 install_megacmd: true
 install_megasync: true
@@ -73,6 +82,9 @@ install_githubcli: true
 install_1password: true
 install_secrethub: true
 install_mailspring: true
+install_obs: true
+install_copyq: true
+install_fonts: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -110,7 +122,7 @@ ecs_cli_package: "ecs-cli-0.2.16.tar.gz"
 ecs_cli_url: "https://globaldevtools.bbva.com/artifactory/semaas-global-bin/releases/ecs-cli/{{ ecs_cli_package }}"
 ecs_cli_doc_url: "https://platform.bbva.com/en-us/developers/ether-cli/documentation/03-getting-started"
 
-apachedirectory_url: "http://ftp.cixug.es/apache/directory/studio/2.0.0.v20180908-M14/ApacheDirectoryStudio-2.0.0.v20180908-M14-linux.gtk.x86_64.tar.gz"
+apachedirectory_url: "https://ftp.cixug.es/apache/directory/studio/2.0.0.v20210213-M16/ApacheDirectoryStudio-2.0.0.v20210213-M16-linux.gtk.x86_64.tar.gz"
 
 deluge_package: deluge
 cherrytree_package: cherrytree
@@ -165,3 +177,5 @@ appimage_dir: "{{ ansible_user_dir }}/AppImage"
 
 terraform_binary_path: /usr/local/bin/terraform
 zoom_url_base: https://d11yldzmag5yn.cloudfront.net/prod
+
+google_fonts_package: https://github.com/google/fonts/archive/main.zip

@@ -1,6 +1,5 @@
 {
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/User/Material-Theme (Flake8Lint).tmTheme",
 	"file_exclude_patterns":
 	[
 		".DS_Store",
@@ -28,7 +27,6 @@
 	"line_padding_top": 1,
 	"remember_open_files": false,
 	"tab_size": 2,
-	"theme": "Material-Theme.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"word_wrap": true,
 	"match_brackets": true,

@@ -1,0 +1,4 @@
+---
+
+- name: "[COPYQ] install for {{ linux_distribution }}"
+  include_tasks: "copyq_{{ linux_distribution }}.yml"
