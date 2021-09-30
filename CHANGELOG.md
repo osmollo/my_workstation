@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 5.4
+## 6.0
 
 - Unificación de los playbooks `install.yml` y `post_install.yml`
 - Eliminación de los subroles dentro de `roles/post_install`
