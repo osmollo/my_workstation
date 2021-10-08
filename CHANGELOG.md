@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.1
+
+- Nuevos alias en .bash_aliases
+
 ## 6.0
 
 - Unificación de los playbooks `install.yml` y `post_install.yml`
