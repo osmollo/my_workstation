@@ -4,6 +4,7 @@
 
 - Nuevos alias en .bash_aliases
 - Paginado del __CHANGELOG.md__ por versiones
+- Soporte para **Ubuntu 21.10**
 
 ## 6.0
 

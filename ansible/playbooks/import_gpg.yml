@@ -10,7 +10,6 @@
       - "{{ ansible_user_dir }}/home.priv"
       - "{{ ansible_user_dir }}/work.pub"
       - "{{ ansible_user_dir }}/work.priv"
-      - "{{ ansible_user_dir }}/rootnerds.pub"
   vars_prompt:
     - name: home_gpg
       prompt: Enter personal GPG passphrase

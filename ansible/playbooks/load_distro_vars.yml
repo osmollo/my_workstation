@@ -104,6 +104,8 @@
         ubuntu_version_long: "{{ ubuntu_versions[ubuntu_codename] }}"
       vars:
         ubuntu_versions:
+          impish: "21.10"
+          hirsute: "21.04"
           groovy: "20.10"
           focal: "20.04"
           eoan: "19.10"

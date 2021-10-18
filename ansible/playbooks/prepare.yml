@@ -108,7 +108,7 @@
         - name: "[UBUNTU] install python-apt"
           apt:
             name:
-              - python-apt
+              - "{{ 'python-apt-common' if ubuntu_version_long is version('21.10', '>=') else 'python-apt' }}"
             update_cache: true
             state: present
             force_apt_get: true

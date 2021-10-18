@@ -46,11 +46,21 @@
         version: master
       ignore_errors: true
 
+    - name: "[PREZTO] create prezto directory"
+      file:
+        path: "{{ ansible_user_dir }}/.zprezto/runcoms"
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+
     - name: "[PREZTO] set autocomplete special directories in prezto config"
       lineinfile:
         path: "{{ ansible_user_dir }}/.zprezto/runcoms/zpreztorc"
         line: "zstyle ':completion:*' special-dirs true"
         state: present
+        create: true
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
 
     - name: "[PREZTO] find prezto config files"
       find:
