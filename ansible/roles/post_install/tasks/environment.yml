@@ -56,6 +56,8 @@
         dest: "{{ ansible_user_dir }}/.zhistory"
         remote_src: true
         mode: 0600
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
       when: stat_response.stat.exists
 
     - name: "[ENVIRONMENT] check if {{ dropbox_dir }}/datio/zhistory exists"
@@ -69,6 +71,8 @@
         dest: "{{ ansible_user_dir }}/.zhistory"
         remote_src: true
         mode: 0600
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_group }}"
       when:
         - not stat_response.stat.exists
         - stat2_response.stat.exists
@@ -77,6 +81,8 @@
   file:
     path: "{{ ansible_user_dir }}/{{ item }}"
     state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
   loop:
     - ".ssh"
     - ".ssh/aws"
@@ -87,6 +93,8 @@
   template:
     src: bash_aliases.j2
     dest: "{{ ansible_user_dir }}/.bash_aliases"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
   tags:
     - config_files
     - bash_aliases
@@ -95,6 +103,8 @@
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
   loop:
     - src: bashrc.j2
       dest: "{{ ansible_user_dir }}/.bashrc"
@@ -111,6 +121,8 @@
     dest: "{{ item.path }}"
     content: "{{ item.key }}"
     mode: "0600"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
   loop: "{{ ssh_keys }}"
   no_log: true
   tags:

@@ -30,19 +30,15 @@
   vars:
     prezto_repo: git@github.com:sorin-ionescu/prezto.git
 
-# - name: "[PREZTO] Configure 'user.name' for prezto repo"
-#   git_config:
-#     name: user.name
-#     repo: "{{ ansible_user_dir }}/.zprezto"
-#     scope: local
-#     value: "{{ git_user_name }}"
+- name: "[PREZTO] Configure 'user.name' for prezto repo"
+  shell: "git config user.name {{ git_user_name }}"
+  args:
+    chdir: "{{ ansible_user_dir }}/.zprezto"
 
-# - name: "[PREZTO] Configure 'user.email'' for prezto repo"
-#   git_config:
-#     name: user.email
-#     repo: "{{ ansible_user_dir }}/.zprezto"
-#     scope: local
-#     value: "{{ git_user_mail_personal }}"
+- name: "[PREZTO] Configure 'user.email'' for prezto repo"
+  shell: "git config user.email {{ git_user_mail_personal }}"
+  args:
+    chdir: "{{ ansible_user_dir }}/.zprezto"
 
 - name: "[PREZTO] copy powerline truetype fonts"
   block:
@@ -65,3 +61,8 @@
       shell: "fc-cache -f {{ font_dir }}"
   tags:
     - deploy_fonts
+
+- name: "[PREZTO] install submodules"
+  shell: git submodule update --init --recursive
+  args:
+    chdir: "{{ ansible_user_dir }}/.zprezto"
