@@ -163,3 +163,13 @@
         desktop_environment: "foobar"
       when:
         desktop_environment is undefined
+
+    - block:
+        - name: "get xserver"
+          shell: "loginctl show-session $(loginctl | awk '/tty/ {print $1}') -p Type | awk -F= '{print $2}'"
+          register: get_xserver
+
+        # Values: x11, wayland...
+        - name: "Set XSERVER variable"
+          set_fact:
+            xserver: "{{  get_xserver.stdout }}"
