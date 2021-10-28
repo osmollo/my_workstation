@@ -1,4 +1,4 @@
-# ohermosa
+# post_install
 
 ## Acciones disponibles
 
@@ -46,16 +46,13 @@ ansible-playbook playbooks/import_gpg.yml
 
 Para que este playbook se ejecute, necesita que existan las siguiente llaves GPG en el `$HOME` del usuario:
 
- - home.priv
- - home.pub
- - work.priv
- - work.pub
- - rootnerds.pub
+- home.priv
+- home.pub
 
 Una vez ejecutado el playbook (pedirá introducir los passphrases correspondientes durante la ejecución), habrá que ejecutar el siguiente comando:
 
 ```bash
-gpg --output roles/post_install/ohermosa/defaults/main.yml --decrypt roles/post_install/ohermosa/defaults/main.yml.gpg
+gpg --output roles/post_install/defaults/main.yml --decrypt roles/post_install/defaults/main.yml.gpg
 ```
 
 ## Ejemplo de uso

@@ -1,0 +1,20 @@
+---
+
+- name: "[LOAD VARS] setting ansible variables"
+  import_playbook: playbooks/load_distro_vars.yml
+  tags:
+    - always
+
+####################
+# POST INSTALACION #
+####################
+
+- hosts: localhost
+  connection: local
+  become: false
+  vars:
+    disable_updates: "{{ lookup('env', 'REPO_DISABLE_UPDATES') | default(false) | bool }}"
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+  roles:
+    - post_install

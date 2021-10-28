@@ -182,8 +182,6 @@ ansible-playbook install-yml -t env
 
 ### Post instalación
 
-Dentro del directorio `roles/post_install` cada usuario puede crear su propio directorio donde implementar todas las tareas de post instalación que considere oportunas. Las mismas, podrás ejecutarse con el siguiente playbook:
-
 ```bash
 ansible-playbook post_install.yml --ask-vault-pass
 ```

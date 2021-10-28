@@ -56,7 +56,7 @@ La forma de invocar el módulo sería así:
 ```yaml
 - name: "Parse dconf dump"
   dconf_to_list:
-    dconf_file: "{{ dropbox_dir }}/datio/gnome_config"
+    dconf_file: "{{ dropbox_dir }}/backups/gnome/gnome_config"
     paths_to_restore: "{{ dconf_paths_to_restore }}"
 ```
 
@@ -88,7 +88,7 @@ Un ejemplo de salida de `dconf_to_list` sería:
 ```yaml
 - name: "Parse dconf dump"
   dconf_to_list:
-    dconf_file: "{{ dropbox_dir }}/datio/gnome_config"
+    dconf_file: "{{ dropbox_dir }}/backups/gnome/gnome_config"
     paths_to_restore: "{{ dconf_paths_to_restore }}"
   register: response
 

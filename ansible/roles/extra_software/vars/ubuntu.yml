@@ -16,9 +16,9 @@ megacmd_dependencies:
   - libmediainfo0v5
   - libpcrecpp0v5
   - libzen0v5
-  - libcrypto++6
+  - "{{ 'libcrypto++8' if ubuntu_version_long is version('21.10', '=') else 'libcrypto++6' }}"
   - libmms0
-  - "{{ 'libtinyxml2-6' if ubuntu_codename != 'groovy' else '' }}"
+  - "{{ 'libtinyxml2-8' if ubuntu_version_long is version('21.10', '=') else 'libtinyxml2-6' }}"
 
 megasync_package: "https://mega.nz/linux/MEGAsync/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/megasync-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb"
 file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"

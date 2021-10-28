@@ -15,8 +15,6 @@
     file_type: file
   register: font_files
 
-- debug: var=font_files.files
-
 - name: "[GOOGLE FONTS] : create user directory"
   file:
     path: "{{ ansible_user_dir }}/.fonts"

@@ -6,7 +6,7 @@ ansible/.inventory_cache
 ansible/*.log
 ansible/test.yml
 
-ansible/roles/post_install/ohermosa/defaults/main.yml
+ansible/roles/post_install/defaults/main.yml
 
 docker_deploys/vault/vault/data/*
 docker_deploys/vault/vault/logs/*

@@ -1,5 +1,17 @@
 ---
 
+- when: ubuntu_version_long is version("21.10", ">=")
+  block:
+    - name: "[FIREFOX] uninstall firefox from snap package"
+      snap:
+        name: "firefox"
+        state: absent
+
+    - name: "[UBUNTU] Install firefox from Ubuntu repositories"
+      apt:
+        name: "firefox"
+        state: present
+
 - name: "[FIREFOX] check if {{ ansible_user_dir }}/.mozilla/firefox exists"
   stat:
     path: "{{ firefox_dir }}"

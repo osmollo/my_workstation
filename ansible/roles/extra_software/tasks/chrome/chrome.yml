@@ -2,3 +2,8 @@
 
 - name: "[CHROME] install for {{ linux_distribution }}"
   include_tasks: "chrome_{{ linux_distribution }}.yml"
+
+- name: "[CHROME] enable flag if Wayland is in use"
+  become: false
+  shell: google-chrome --enable-features=enablewebrtcpipewirecapturer
+  when: xserver == 'wayland'
