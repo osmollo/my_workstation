@@ -6,7 +6,7 @@ teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer_a
 nomachine_package: "https://download.nomachine.com/download/{{ nomachine_version.split('.')[0:2] | join('.') }}/Linux/nomachine_{{ nomachine_version }}_amd64.deb"
 
 virtualbox_packages:
-  - virtualbox-6.0
+  - virtualbox-6.1
 
 chromium_package: chromium-browser
 vagrant_package: "https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_{{ ansible_architecture }}.deb"

@@ -6,7 +6,7 @@ gitkraken_package: "https://release.axocdn.com/linux/gitkraken-amd64.deb"
 teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 vagrant_package: vagrant
 virtualbox_packages:
-  - virtualbox-6.0
+  - virtualbox-6.1
 buttercup_deb_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop_{{ buttercup_version | replace('v', '') }}_amd64.deb"
 megacmd_package: "https://mega.nz/linux/MEGAsync/{{ ansible_distribution }}_{{ ansible_distribution_version }}.0/amd64/megacmd-{{ ansible_distribution }}_{{ ansible_distribution_version }}.0_amd64.deb"
 megacmd_dependencies:

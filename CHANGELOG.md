@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 6.1.1
+
+- Corrección de errores:
+  - Instalación de **Virtualbox 6.1**
+  - Fix `install.yml`
+
 ## 6.1
 
 - Nuevos alias en `.bash_aliases`
