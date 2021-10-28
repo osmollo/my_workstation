@@ -5,6 +5,7 @@
 - Corrección de errores:
   - Desinstalación **Firefox** como snap
   - Eliminados algunos repositorios git a clonar
+  - Ejecución de `git.yml` al final del role `post_install` para no retrasar el resto de configuraciones
 
 ## 6.1.1
 
