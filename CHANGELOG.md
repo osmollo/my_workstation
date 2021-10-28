@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 6.1.2
+
+- Corrección de errores:
+  - Desinstalación **Firefox** como snap
+  - Eliminados algunos repositorios git a clonar
+
 ## 6.1.1
 
 - Corrección de errores:
