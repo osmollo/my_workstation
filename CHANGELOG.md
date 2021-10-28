@@ -5,6 +5,7 @@
 - Nuevos alias en .bash_aliases
 - Paginado del __CHANGELOG.md__ por versiones
 - Soporte para **Ubuntu 21.10**
+- Separación en playbooks `install.yml` y `post_install.yml`
 
 ## 6.0
 
