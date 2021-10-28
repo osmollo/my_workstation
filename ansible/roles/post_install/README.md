@@ -48,7 +48,6 @@ Para que este playbook se ejecute, necesita que existan las siguiente llaves GPG
 
 - home.priv
 - home.pub
-- rootnerds.pub
 
 Una vez ejecutado el playbook (pedirá introducir los passphrases correspondientes durante la ejecución), habrá que ejecutar el siguiente comando:
 

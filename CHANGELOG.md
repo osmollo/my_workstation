@@ -2,10 +2,13 @@
 
 ## 6.1
 
-- Nuevos alias en .bash_aliases
+- Nuevos alias en `.bash_aliases`
 - Paginado del __CHANGELOG.md__ por versiones
 - Soporte para **Ubuntu 21.10**
 - Separación en playbooks `install.yml` y `post_install.yml`
+- Correcciones de errores:
+  - Fix gpg key instalación __1password__ en **Ubuntu**
+  - Actualizado fichero `roles/extra_software/vars/ohermosa.yml`
 
 ## 6.0
 

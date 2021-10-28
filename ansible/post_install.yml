@@ -5,25 +5,6 @@
   tags:
     - always
 
-- hosts: localhost
-  connection: local
-  tasks:
-    - name: "check if system is prepared"
-      block:
-        - name: "check if prepare flag exists"
-          stat:
-            path: /var/tmp/.prepare
-          register: flag_response
-
-        - name: "Exit if system is not prepared"
-          fail:
-            msg: "Por favor, antes de continuar ejecuta el comando 'ansible-playbook playbooks/prepare.yml'"
-          when: not flag_response.stat.exists
-      when: linux_distribution in ["debian", "ubuntu"]
-      tags:
-        - always
-
-
 ####################
 # POST INSTALACION #
 ####################

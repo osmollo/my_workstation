@@ -16,7 +16,7 @@ megacmd_dependencies:
   - libmediainfo0v5
   - libpcrecpp0v5
   - libzen0v5
-  - "{{ 'libcrypto++6' if ubuntu_version_long is version('21.10', '=') else 'libcrypto++6' }}"
+  - "{{ 'libcrypto++8' if ubuntu_version_long is version('21.10', '=') else 'libcrypto++6' }}"
   - libmms0
   - "{{ 'libtinyxml2-8' if ubuntu_version_long is version('21.10', '=') else 'libtinyxml2-6' }}"
 

@@ -8,7 +8,7 @@
     hour: "{{ item.hour | default('*') }}"
   loop:
     - name: "zhistory_to_dropbox"
-      job: "cat {{ ansible_user_dir }}/.zhistory > {{ dropbox_dir }}/datio/zhistory.{{ ansible_hostname }}"
+      job: "cat {{ ansible_user_dir }}/.zhistory > {{ dropbox_dir }}/backups/zsh/zhistory.{{ ansible_hostname }}"
       minute: "*/30"
     - name: "bbva_to_gitlab"
       job: "{{ dropbox_dir }}/bin/datio/bbva_to_gitlab.py"
@@ -23,7 +23,7 @@
     hour: "{{ item.hour | default('*') }}"
   loop:
     - name: dconf_dump
-      job: "rm -f {{ dropbox_dir }}/backups/gnome_config.{{ ansible_hostname }} && dconf dump / > {{ dropbox_dir }}/backups/gnome_config.{{ ansible_hostname }}"
+      job: "rm -f {{ gnome_config_file }} && dconf dump / > {{ gnome_config_file }}"
       minute: "00"
       hour: "12"
   when: desktop_environment == 'gnome'
