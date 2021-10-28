@@ -168,6 +168,7 @@
         - name: "get xserver"
           shell: "loginctl show-session $(loginctl | awk '/tty/ {print $1}') -p Type | awk -F= '{print $2}'"
           register: get_xserver
+          changed_when: false
 
         # Values: x11, wayland...
         - name: "Set XSERVER variable"
