@@ -5,3 +5,6 @@
     name: flatpak
     state: present
     update_cache: true
+
+- name: "[FLATPAK] [FEDORA] add flatpak remote"
+  shell: "flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo"

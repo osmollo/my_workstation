@@ -79,6 +79,9 @@
     - ".ssh/aws"
     - ".ssh/isilon"
     - ".ssh/ccr"
+  tags:
+    - ssh_config
+    - ssh_keys
 
 - name: "[ENVIRONMENT] create .bash_aliases"
   template:

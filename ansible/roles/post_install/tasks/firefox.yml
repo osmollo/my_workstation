@@ -1,6 +1,8 @@
 ---
 
-- when: ubuntu_version_long is version("21.10", ">=")
+- when:
+    - linux_distribution == "ubuntu"
+    - ubuntu_version_long is version("21.10", ">=")
   become: true
   block:
     - name: "[FIREFOX] uninstall firefox from snap package"

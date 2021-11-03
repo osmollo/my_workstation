@@ -110,7 +110,7 @@ k0s_latest_url: https://github.com/k0sproject/k0s/releases/latest
 
 ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
 
-telegram_flatpak: "https://flathub.org/repo/appstream/org.telegram.desktop.flatpakref"
+telegram_flatpak: "https://dl.flathub.org/repo/appstream/org.telegram.desktop.flatpakref"
 slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"
 pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Community.flatpakref"
 postman_flatpak: "https://flathub.org/repo/appstream/com.getpostman.Postman.flatpakref"
