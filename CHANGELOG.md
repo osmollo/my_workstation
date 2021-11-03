@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 6.1.3
+
+- Corrección de errores:
+  - Creación de link a `bash_history`
+
 ## 6.1.2
 
 - Corrección de errores:
