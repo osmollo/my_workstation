@@ -70,13 +70,6 @@
     - post_install
     - git
 
-- name: "configure python"
-  import_tasks: python.yml
-  tags:
-    - post_install
-    - python
-    - post_python
-
 - name: "configure sublime"
   import_tasks: sublime.yml
   when: use_dropbox
@@ -167,3 +160,10 @@
     - post_install
     - oracle_cloud
     - post_oracle_cloud
+
+- name: "configure python"
+  import_tasks: python.yml
+  tags:
+    - post_install
+    - python
+    - post_python
