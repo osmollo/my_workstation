@@ -9,6 +9,7 @@
   - Actualizados los credenciales del registry de docker
   - Instalación llave pública de **Secrethub** en la instalación de **Ubuntu**
   - Corrección en la ruta donde se instala la llave pública en la instalación de **1Password**
+  - Actualización contraseña XE
 
 ## 6.1.1
 
