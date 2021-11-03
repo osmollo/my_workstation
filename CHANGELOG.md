@@ -7,6 +7,8 @@
   - Eliminados algunos repositorios git a clonar
   - Ejecución de `git.yml` al final del role `post_install` para no retrasar el resto de configuraciones
   - Actualizados los credenciales del registry de docker
+  - Instalación llave pública de **Secrethub** en la instalación de **Ubuntu**
+  - Corrección en la ruta donde se instala la llave pública en la instalación de **1Password**
 
 ## 6.1.1
 
