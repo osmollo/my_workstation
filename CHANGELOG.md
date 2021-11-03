@@ -4,6 +4,7 @@
 
 - Corrección de errores:
   - Creación de link a `bash_history`
+- Instalación del cli de **1Password**
 
 ## 6.1.2
 
