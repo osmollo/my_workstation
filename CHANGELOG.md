@@ -4,7 +4,16 @@
 
 - Corrección de errores:
   - Creación de link a `bash_history`
+  - Corrección key de **1Password** en **Fedora**
+  - Fix en el tag `ssh_config`
+  - Fix **Firefox** que sólo se ejecute en distribuciones **Ubuntu**
+  - Instalación de __cronie__ en **Fedora**
+  - Fix ruta VPN en Dropbox
+  - Fix configuración __Flatpak__
 - Instalación del cli de **1Password**
+- Instalación de la beta de **1Password** en lugar de stable para **Fedora**
+- Soporte **Fedora 35**
+
 
 ## 6.1.2
 

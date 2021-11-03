@@ -25,7 +25,8 @@ distro_packages:
   - python3-devel
   - mesa-libgbm
   - mesa-libgbm-devel
-
+  - cronie
+  - cronie-anacron
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome
@@ -34,7 +35,6 @@ gnome_fedora_packages:
   - elementary-icon-theme
   - papirus-icon-theme
   - gnome-tweaks
-  - python2-psutil
   - python3-psutil
   - wireshark
   - liveusb-creator
