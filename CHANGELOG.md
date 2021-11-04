@@ -4,6 +4,7 @@
 
 - Corrección de errores:
   - Ejecución de `playbooks/prepare.yml` desde `install.yml`
+- Preparación de post configuración automatizada
 
 ## 6.1.3
 

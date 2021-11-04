@@ -89,26 +89,32 @@
         39356637323661626331353835663865613530393939633931306564383139326565346634663638
         6537643462343939650a363665653336313835323136313963643533323730633136346231363862
         3439
+      item1: !vault |
+        $ANSIBLE_VAULT;1.1;AES256
+        61656539636132626562643363656664376165613436666163653564356539326236373664666137
+        3639623538643331623265373432306434323062643461650a393862353066396365323763643336
+        61363636653764373362383965343434643136643864303166353535616563366635656261393362
+        3034303230313234350a303832666433633731343161303462326265636238323661323138323561
+        30326238666233316533303238336437323861626264363731636233383766323431
   roles:
     - common
     - extra_software
   post_tasks:
-    - block:
+    - become: false
+      block:
         - stat:
             path: /usr/local/bin/op
           register: op_response
 
-        - name: "Execute the following commands:"
-          debug:
-            msg: "{{ item }}"
-          loop:
-            - "eval $(op signin {{ op.host }} {{ op.user }}) -----> KEY: {{ op.sk }}"
-            - "op get document {{ op.doc1 }} --output ~/{{ op.file1 }}"
-            - "op get document {{ op.doc2 }} --output ~/{{ op.file2 }}"
-          loop_control:
-            index_var: index_list
-            label: "STEP #{{ index_list + 1}}"
+        - name: "Generating the script './prepare_post.sh'"
+          template:
+            src: roles/post_install/templates/prepare_post.sh.j2
+            dest: "./prepare_post.sh"
+            mode: 0755
           when: op_response.stat.exists
+
+        - debug:
+            msg: "Please, execute: './prepare_post.sh'"
       tags:
         - prepare_post
         - always
