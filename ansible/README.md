@@ -123,7 +123,6 @@ En el siguiente punto, se explica cómo generar una configuración específica d
 
 ## ¿Cómo se usa?
 
-- El usuario que ejecute los playbooks debe tener `sudo` activado (se configura con el playbook `playbooks/prepare.yml`)
 - Las tareas de este repositorio se ejecutan en local, por lo que para poder ejecutar los playbooks es necesario tener instalado `git` y `ansible`:
 
 ```bash
@@ -142,23 +141,6 @@ A continuación habrá que clonar este repositorio (da igual el directorio de de
 ```bash
 git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
-```
-
-:warning: Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar `prepare.yml` para instalar todos los requisitos previos. Para sistemas **Debian**/**Ubuntu** será necesario introducir la contraseña de `su`, para el resto de sistemas será la de `sudo`
-
-```bash
-ansible-playbook playbooks/prepare.yml
-```
-
-Esto realiza las siguientes tareas:
-
-- Instalación de **Python3** y sus módulos correspondientes
-- Configuración de `sudo` para sistemas **Debian**
-- Actualización de `ansible` para sistemas **Debian** y **Ubuntu**
-
-A continuación, hay que ejecutar el siguiente comando:
-
-```bash
 ansible-playbook install.yml --ask-vault-pass
 ```
 
@@ -251,8 +233,7 @@ vagrant ssh debian
 sudo apt install git ansible
 git clone https://gitlab.com/ohermosa/my_workstation.git
 cd my_workstation/ansible
-ansible-playbook playbooks/prepare.yml
-ansible-playbook install.yml
+ansible-playbook install.yml --ask-vault-pass
 ```
 
 Una vez terminadas las pruebas, para destruir las máquinas:

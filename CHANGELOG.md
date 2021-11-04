@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 6.1.4
+
+- Corrección de errores:
+  - Ejecución de `playbooks/prepare.yml` desde `install.yml`
+
 ## 6.1.3
 
 - Corrección de errores:
