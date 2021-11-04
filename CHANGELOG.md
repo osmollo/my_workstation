@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 6.1.3
+
+- Corrección de errores:
+  - Creación de link a `bash_history`
+  - Corrección key de **1Password** en **Fedora**
+  - Fix en el tag `ssh_config`
+  - Fix **Firefox** que sólo se ejecute en distribuciones **Ubuntu**
+  - Instalación de __cronie__ en **Fedora**
+  - Fix ruta VPN en Dropbox
+  - Fix configuración __Flatpak__
+  - Fix post configuración __zsh__
+- Cambios en la instalación de **1Password**:
+  - Instalación del cli de **1Password**, nuevo tag `1password_cli`
+  - Instalación de la beta de **1Password** en lugar de stable para **Fedora**
+- Soporte **Fedora 35**
+- Preparación post instalación
+
+
 ## 6.1.2
 
 - Corrección de errores:

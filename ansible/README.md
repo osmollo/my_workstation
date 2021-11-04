@@ -20,7 +20,7 @@
 | Deepin | **20**: [Enlace](http://www.mediafire.com/file/re4yrj5o5uj1mh7/deepin-desktop-community-1002-amd64.iso.torrent/file) |
 | Ubuntu 18.04 | **UBUNTU**: [Enlace](http://releases.ubuntu.com/18.04.3/ubuntu-18.04.3-desktop-amd64.iso) <br> **KUBUNTU**: [Enlace](http://cdimage.ubuntu.com/kubuntu/releases/18.04/release/kubuntu-18.04.3-desktop-amd64.iso) <br> **XUBUNTU**: [Enlace](http://ftp.uni-kl.de/pub/linux/ubuntu-dvd/xubuntu/releases/18.04.3/release/xubuntu-18.04.3-desktop-amd64.iso) |
 | Ubuntu 20.04 | **UBUNTU**: [Enlace](https://releases.ubuntu.com/20.04/ubuntu-20.04-desktop-amd64.iso) <br> **KUBUNTU**: [Enlace](http://cdimage.ubuntu.com/kubuntu/releases/20.04/release/kubuntu-20.04-desktop-amd64.iso) <br> **XUBUNTU**: [Enlace](https://torrent.ubuntu.com/xubuntu/releases/focal/release/desktop/xubuntu-20.04-desktop-amd64.iso.torrent) |
-| Fedora | **30**: [Enlace](http://mirror.uv.es/mirror/fedora/linux/releases/30/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-30-1.2.iso) <br> **31**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso) <br> **32**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/32/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-32-1.6.iso) <br> **33**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/33/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-33-1.2.iso) |
+| Fedora | **30**: [Enlace](http://mirror.uv.es/mirror/fedora/linux/releases/30/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-30-1.2.iso) <br> **31**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso) <br> **32**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/32/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-32-1.6.iso) <br> **33**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/33/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-33-1.2.iso) <br> **34**: [Enlace](https://mirrors.xtom.de/fedora//releases/34/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-34-1.2.iso) <br> **35**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/35/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-35-1.2.iso) |
 | Linux Mint 19 | **CINNAMON**: [Enlace](https://mirror.dogecloud.org/Linux/Mint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso) |
 | KDE Neon | [Enlace](https://files.kde.org/neon/images/user/20191024-1119/neon-user-20191024-1119.iso) |
 | Arch Linux | **TORRENT**: [Enlace](https://www.archlinux.org/releng/releases/2019.10.01/torrent/) |
@@ -110,13 +110,13 @@ Por defecto se instala el siguiente software:
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
 ```bash
-ansible-playbook install.yml -e "install_spotify=false install_ohmyzsh=false"
+ansible-playbook install.yml -e "install_spotify=false install_ohmyzsh=false" --ask-vault-pass
 ```
 
 En caso contrario, si lo único que se quiere hacer es instalar alguna de las aplicaciones, hay que usar el **tag** correspondiente, que coincide con las variables anteriores. Por ejemplo, para instalar *Visual Studio Code*:
 
 ```bash
-ansible-playbook install.yml -t "vscode,dropbox,spotify"
+ansible-playbook install.yml -t "vscode,dropbox,spotify" --ask-vault-pass
 ```
 
 En el siguiente punto, se explica cómo generar una configuración específica de usuario con el software que se desea instalar
@@ -144,7 +144,7 @@ git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
 ```
 
-:warning: Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar `prepare.yml` para instalar todos los requisitos previos. Para sistemas **Debian** será necesario introducir la contraseña de `su`, para el resto de sistemas será la de `sudo`
+:warning: Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar `prepare.yml` para instalar todos los requisitos previos. Para sistemas **Debian**/**Ubuntu** será necesario introducir la contraseña de `su`, para el resto de sistemas será la de `sudo`
 
 ```bash
 ansible-playbook playbooks/prepare.yml
@@ -159,7 +159,7 @@ Esto realiza las siguientes tareas:
 A continuación, hay que ejecutar el siguiente comando:
 
 ```bash
-ansible-playbook install.yml
+ansible-playbook install.yml --ask-vault-pass
 ```
 
 Un usuario puede personalizar las aplicaciones que desea instalar creando el fichero `ansible/roles/extra_software/vars/${USER}.yml`, se pueden usar los valores por defecto para generarlo y luego personalizarlo a su gusto:
@@ -171,13 +171,13 @@ grep "install_" ansible/roles/extra_software/defaults/main.yml > ansible/roles/e
 Para instalar una aplicación que en este fichero se haya definido a `false`, es posible modificar el valor mediante `--extra-vars`:
 
 ```bash
-ansible-playbook install.yml -t code -e install_vscode=true
+ansible-playbook install.yml -t code -e install_vscode=true --ask-vault-pass
 ```
 
 Igualmente, se pueden usar los tags específicos que cada usuario haya puesto en su role `post_install/$USER`
 
 ```bash
-ansible-playbook install-yml -t env
+ansible-playbook install-yml -t env --ask-vault-pass
 ```
 
 ### Post instalación
@@ -229,7 +229,7 @@ ansible localhost -m shell -a "df -h"
 Para probar el código, se puede levantar una máquina virtual usando [Vagrant](https://www.vagrantup.com/) y [Virtualbox](https://www.virtualbox.org/). Para ello, será necesario instalar *Virtualbox* usando el tag `--virtualbox`:
 
 ```bash
-ansible-playbook install.yml  -t virtualbox
+ansible-playbook install.yml  -t virtualbox --ask-vault-pass
 ```
 
 A continuación, dentro del directorio del repo, hay que ejecutar el siguiente comando para levntar la máquina virtual:

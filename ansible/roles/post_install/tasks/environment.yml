@@ -42,7 +42,6 @@
     - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
     - "{{ ansible_user_dir }}/.zhistory"
 
-
 - name: "[ENVIRONMENT] check if {{ dropbox_dir }}/backups/zsh/zhistory.{{ ansible_hostname }} exists"
   stat:
     path: "{{ dropbox_dir }}/backups/zsh/zhistory.{{ ansible_hostname }}"
@@ -69,6 +68,9 @@
     - ".ssh/aws"
     - ".ssh/isilon"
     - ".ssh/ccr"
+  tags:
+    - ssh_config
+    - ssh_keys
 
 - name: "[ENVIRONMENT] create .bash_aliases"
   template:

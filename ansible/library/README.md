@@ -5,26 +5,28 @@
     - [INPUT](#input)
     - [OUTPUT](#output)
     - [Ejemplo de uso](#ejemplo-de-uso)
-  - [get_go_latest](#get_go_latest)
+  - [get_1p_latest](#get_1p_latest)
     - [Ejemplo de uso](#ejemplo-de-uso-1)
-  - [get_nomachine_latest](#get_nomachine_latest)
+  - [get_go_latest](#get_go_latest)
     - [Ejemplo de uso](#ejemplo-de-uso-2)
-  - [get_zoom_latest](#get_zoom_latest)
+  - [get_nomachine_latest](#get_nomachine_latest)
     - [Ejemplo de uso](#ejemplo-de-uso-3)
-  - [github_repo](#github_repo)
+  - [get_zoom_latest](#get_zoom_latest)
     - [Ejemplo de uso](#ejemplo-de-uso-4)
-  - [gitlab_repo](#gitlab_repo)
+  - [github_repo](#github_repo)
     - [Ejemplo de uso](#ejemplo-de-uso-5)
-  - [gitlab_get_forks](#gitlab_get_forks)
+  - [gitlab_repo](#gitlab_repo)
     - [Ejemplo de uso](#ejemplo-de-uso-6)
-  - [gitlab_get_repos](#gitlab_get_repos)
+  - [gitlab_get_forks](#gitlab_get_forks)
     - [Ejemplo de uso](#ejemplo-de-uso-7)
-  - [yay](#yay)
+  - [gitlab_get_repos](#gitlab_get_repos)
     - [Ejemplo de uso](#ejemplo-de-uso-8)
-  - [protonvpn_fastest](#protonvpn_fastest)
+  - [yay](#yay)
     - [Ejemplo de uso](#ejemplo-de-uso-9)
-  - [bfg_url](#bfg_url)
+  - [protonvpn_fastest](#protonvpn_fastest)
     - [Ejemplo de uso](#ejemplo-de-uso-10)
+  - [bfg_url](#bfg_url)
+    - [Ejemplo de uso](#ejemplo-de-uso-11)
 
 ## dconf_to_list
 
@@ -97,6 +99,20 @@ Un ejemplo de salida de `dconf_to_list` sería:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
   loop: "{{ response.message }}"
+```
+
+## get_1p_latest
+
+Este módulo parsea la [web de `1Password CLI`](https://app-updates.agilebits.com/product_history/CLI) para devolver cuál es la última versión estable del cli de 1Password
+
+### Ejemplo de uso
+
+```yaml
+- name: "get 1p cli version"
+  get_1p_latest:
+  register: cli_response
+
+- debug: var=cli_response.version
 ```
 
 ## get_go_latest

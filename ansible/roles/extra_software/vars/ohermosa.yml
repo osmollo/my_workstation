@@ -40,7 +40,7 @@ install_kind: false
 install_microk8s: false
 install_kompose: false
 install_k0s: false
-install_flatpak: false
+install_flatpak: true
 install_megacmd: true
 install_megasync: false
 install_vivaldi: false

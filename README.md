@@ -23,7 +23,7 @@ Un ejemplo de ejecución de `ansible` para instalar todo el software disponible 
 
 ```bash
 cd ansible
-ansible-playbook install.yml -t extra_software
+ansible-playbook install.yml -t extra_software --ask-vault-pass
 ```
 
 ### Documentación
