@@ -10,8 +10,9 @@
   - Instalación de __cronie__ en **Fedora**
   - Fix ruta VPN en Dropbox
   - Fix configuración __Flatpak__
-- Instalación del cli de **1Password**
-- Instalación de la beta de **1Password** en lugar de stable para **Fedora**
+- Cambios en la instalación de **1Password**:
+  - Instalación del cli de **1Password**, nuevo tag `1password_cli`
+  - Instalación de la beta de **1Password** en lugar de stable para **Fedora**
 - Soporte **Fedora 35**
 
 
