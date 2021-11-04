@@ -110,13 +110,13 @@ Por defecto se instala el siguiente software:
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
 ```bash
-ansible-playbook install.yml -e "install_spotify=false install_ohmyzsh=false"
+ansible-playbook install.yml -e "install_spotify=false install_ohmyzsh=false" --ask-vault-pass
 ```
 
 En caso contrario, si lo único que se quiere hacer es instalar alguna de las aplicaciones, hay que usar el **tag** correspondiente, que coincide con las variables anteriores. Por ejemplo, para instalar *Visual Studio Code*:
 
 ```bash
-ansible-playbook install.yml -t "vscode,dropbox,spotify"
+ansible-playbook install.yml -t "vscode,dropbox,spotify" --ask-vault-pass
 ```
 
 En el siguiente punto, se explica cómo generar una configuración específica de usuario con el software que se desea instalar
@@ -144,7 +144,7 @@ git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
 ```
 
-:warning: Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar `prepare.yml` para instalar todos los requisitos previos. Para sistemas **Debian** será necesario introducir la contraseña de `su`, para el resto de sistemas será la de `sudo`
+:warning: Para preparar el equipo antes de lanzar el playbook principal, hay que ejecutar `prepare.yml` para instalar todos los requisitos previos. Para sistemas **Debian**/**Ubuntu** será necesario introducir la contraseña de `su`, para el resto de sistemas será la de `sudo`
 
 ```bash
 ansible-playbook playbooks/prepare.yml
@@ -159,7 +159,7 @@ Esto realiza las siguientes tareas:
 A continuación, hay que ejecutar el siguiente comando:
 
 ```bash
-ansible-playbook install.yml
+ansible-playbook install.yml --ask-vault-pass
 ```
 
 Un usuario puede personalizar las aplicaciones que desea instalar creando el fichero `ansible/roles/extra_software/vars/${USER}.yml`, se pueden usar los valores por defecto para generarlo y luego personalizarlo a su gusto:
@@ -171,13 +171,13 @@ grep "install_" ansible/roles/extra_software/defaults/main.yml > ansible/roles/e
 Para instalar una aplicación que en este fichero se haya definido a `false`, es posible modificar el valor mediante `--extra-vars`:
 
 ```bash
-ansible-playbook install.yml -t code -e install_vscode=true
+ansible-playbook install.yml -t code -e install_vscode=true --ask-vault-pass
 ```
 
 Igualmente, se pueden usar los tags específicos que cada usuario haya puesto en su role `post_install/$USER`
 
 ```bash
-ansible-playbook install-yml -t env
+ansible-playbook install-yml -t env --ask-vault-pass
 ```
 
 ### Post instalación
@@ -229,7 +229,7 @@ ansible localhost -m shell -a "df -h"
 Para probar el código, se puede levantar una máquina virtual usando [Vagrant](https://www.vagrantup.com/) y [Virtualbox](https://www.virtualbox.org/). Para ello, será necesario instalar *Virtualbox* usando el tag `--virtualbox`:
 
 ```bash
-ansible-playbook install.yml  -t virtualbox
+ansible-playbook install.yml  -t virtualbox --ask-vault-pass
 ```
 
 A continuación, dentro del directorio del repo, hay que ejecutar el siguiente comando para levntar la máquina virtual:

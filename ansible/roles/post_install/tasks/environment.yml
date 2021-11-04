@@ -42,17 +42,6 @@
     - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
     - "{{ ansible_user_dir }}/.zhistory"
 
-- name: "[ENVIRONMENT] check if {{ dropbox_dir }}/backups/bash/bash_history exists"
-  stat:
-    path: "{{ dropbox_dir }}/backups/bash/bash_history"
-  register: stat_response
-
-- name: "[ENVIRONMENT] create bash_history link"
-  file:
-    src: "{{ dropbox_dir }}/backups/bash/bash_history"
-    dest: "{{ ansible_user_dir }}/.bash_history"
-    state: link
-
 - name: "[ENVIRONMENT] check if {{ dropbox_dir }}/backups/zsh/zhistory.{{ ansible_hostname }} exists"
   stat:
     path: "{{ dropbox_dir }}/backups/zsh/zhistory.{{ ansible_hostname }}"
