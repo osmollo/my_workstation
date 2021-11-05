@@ -5,6 +5,7 @@ ansible/.vscode
 ansible/.inventory_cache
 ansible/*.log
 ansible/test.yml
+ansible/prepare_post.sh
 
 ansible/roles/post_install/defaults/main.yml
 

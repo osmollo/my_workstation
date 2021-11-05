@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 6.1.4
+
+- Corrección de errores:
+  - Ejecución de `playbooks/prepare.yml` desde `install.yml`
+- Preparación de post configuración automatizada
+- Eliminadas tareas/playbooks relacionados con importación de llaves gpg
+
 ## 6.1.3
 
 - Corrección de errores:
