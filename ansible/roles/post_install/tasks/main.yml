@@ -1,4 +1,5 @@
 ---
+
 - name: "configure environment"
   import_tasks: environment.yml
   tags:
@@ -90,13 +91,6 @@
   tags:
     - post_install
     - network
-
-- name: "import GPG keys"
-  import_tasks: gpg.yml
-  tags:
-    - post_install
-    - gpg
-    - pass
 
 - name: "Configure VIM"
   import_tasks: vim.yml
