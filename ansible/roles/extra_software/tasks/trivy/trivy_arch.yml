@@ -1,0 +1,8 @@
+---
+
+- name: "[TRIVY] [ARCH] Install Trivy"
+  become: false
+  yay:
+    name: "{{ trivy_package }}"
+    state: present
+    update_cache: true

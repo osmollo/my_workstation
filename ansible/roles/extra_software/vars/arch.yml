@@ -54,6 +54,7 @@ consul_package: consul-bin
 nomad_package: nomad-bin
 zoom_package: zoom
 mailspring_package: mailspring
+trivy_package: trivy-bin
 
 protonvpn_dependencies:
   - openvpn

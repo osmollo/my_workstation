@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.2
+
+- Instalación de [Trivy](https://github.com/aquasecurity/trivy)
+
 ## 6.1.4
 
 - Corrección de errores:

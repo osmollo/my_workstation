@@ -1,0 +1,7 @@
+---
+
+- name: "[TRIVY] [RPM] Install trivy"
+  yum:
+    name: "{{ trivy_rpm_package }}"
+    state: present
+    disable_gpg_check: true

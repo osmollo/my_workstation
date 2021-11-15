@@ -1,0 +1,19 @@
+---
+
+- name: "[TRIVY] Get latest version of trivy"
+  uri:
+    url: "{{ trivy_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: trivy_latest
+
+- name: "[TRIVY] Install trivy {{ trivy_version }}"
+  vars:
+    trivy_version: "{{ trivy_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    trivy_rpm_package: "https://github.com/aquasecurity/trivy/releases/download/{{ trivy_version }}/trivy_{{ trivy_version[1:] }}_Linux-64bit.rpm"
+    trivy_deb_package: "https://github.com/aquasecurity/trivy/releases/download/{{ trivy_version }}/trivy_{{ trivy_version[1:] }}_Linux-64bit.deb"
+  when: linux_distribution != "arch"
+
+- name: "[TRIVY] install trivy {{ trivy_version }}"
+  include_tasks: "trivy_{{ linux_distribution }}.yml"

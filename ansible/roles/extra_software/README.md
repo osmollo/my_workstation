@@ -69,6 +69,7 @@
 | **teamviewer** | Instala `Teamviewer` |
 | **telegram** | Instala `Telegram Desktop` |
 | **terraform** | Instala `Terraform` |
+| **trivy** | Instalal `Trivy` |
 | **tmux** | Instala y configura `Tmux` |
 | **tlp** | Instala `TLP` |
 | **vault** | Instala `Vault` |

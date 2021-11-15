@@ -85,6 +85,7 @@ install_mailspring: true
 install_obs: true
 install_copyq: true
 install_fonts: true
+install_trivy: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -107,6 +108,7 @@ dive_latest_url: "https://api.github.com/repos/wagoodman/dive/releases/latest"
 kompose_latest_url: "https://github.com/kubernetes/kompose/releases/latest"
 mailspring_latest_url: "https://github.com/Foundry376/Mailspring/releases/latest"
 k0s_latest_url: https://github.com/k0sproject/k0s/releases/latest
+trivy_latest_url: "https://github.com/aquasecurity/trivy/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
 

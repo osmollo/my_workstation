@@ -576,6 +576,13 @@
     - extra_software
     - copyq
 
+- name: "Install trivy"
+  import_tasks: trivy/trivy.yml
+  when: install_trivy
+  tags:
+    - extra_software
+    - trivy
+
 - name: "Install Google Fonts"
   import_tasks: fonts.yml
   when: install_fonts
