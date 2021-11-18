@@ -3,6 +3,8 @@
 ## 6.2
 
 - Instalación de [Trivy](https://github.com/aquasecurity/trivy)
+- Corrección de errores:
+  - Cambio repositorio git
 
 ## 6.1.4
 
