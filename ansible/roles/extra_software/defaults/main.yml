@@ -87,6 +87,7 @@ install_copyq: true
 install_fonts: true
 install_trivy: true
 install_ferdi: true
+install_station: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -111,6 +112,7 @@ mailspring_latest_url: "https://github.com/Foundry376/Mailspring/releases/latest
 k0s_latest_url: https://github.com/k0sproject/k0s/releases/latest
 trivy_latest_url: "https://github.com/aquasecurity/trivy/releases/latest"
 ferdi_latest_url: "https://github.com/getferdi/ferdi/releases/latest"
+station_latest_url: "https://github.com/getstation/desktop-app/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
 

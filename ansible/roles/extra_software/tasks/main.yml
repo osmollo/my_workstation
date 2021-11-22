@@ -291,6 +291,13 @@
     - extra_software
     - ferdi
 
+- name: "Install Station"
+  import_tasks: station.yml
+  when: install_station
+  tags:
+    - extra_software
+    - station
+
 - name: "Install Chromium Browser"
   import_tasks: chromium/chromium.yml
   when: install_chromium

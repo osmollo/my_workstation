@@ -64,6 +64,7 @@
 | **slack** | Instala `Slack` |
 | **spotify_cli** | Instala cliente `Spotify TUI` |
 | **spotify** | Instala `Spotify` |
+| **station** | Instala `Station' |
 | **Steam** | Instala `Steam` |
 | **sublimemerge** | Instala `Sublime Merge` |
 | **sublimetext** | Instala `Sublime Text` |
