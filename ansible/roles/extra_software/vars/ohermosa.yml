@@ -86,3 +86,4 @@ install_obs: false
 install_copyq: false
 install_fonts: true
 install_trivy: true
+install_ferdi: false

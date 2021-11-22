@@ -3,6 +3,7 @@
 ## 6.2
 
 - Instalación de [Trivy](https://github.com/aquasecurity/trivy)
+- Instalación de [Ferdi](https://getferdi.com/)
 - Corrección de errores:
   - Cambio repositorio git
 

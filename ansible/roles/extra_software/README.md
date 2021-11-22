@@ -33,6 +33,7 @@
 | **dropbox** | Instala `Dropbox` |
 | **ecs** | Instala `Ether Cloud Services Client` |
 | **etcher** | Instala `Balena Etcher` |
+| **ferdi** | Instala `Ferdi` |
 | **franz** | Instala `Franz` |
 | **fzf** | Instala `FZF` |
 | **google_fonts** | Instala las fuentes tipográficas de Google |
