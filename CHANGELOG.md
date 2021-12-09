@@ -5,6 +5,7 @@
 - Instalación de [Trivy](https://github.com/aquasecurity/trivy)
 - Instalación de [Ferdi](https://getferdi.com/)
 - Instalación de [Station](https://getstation.com/)
+- Nuevos alias bash
 - Corrección de errores:
   - Cambio repositorio git
 
