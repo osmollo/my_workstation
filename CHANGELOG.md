@@ -6,6 +6,7 @@
 - Instalación de [Ferdi](https://getferdi.com/)
 - Instalación de [Station](https://getstation.com/)
 - Nuevos alias bash
+- Nuevos repositorios para clonar
 - Corrección de errores:
   - Cambio repositorio git
 
