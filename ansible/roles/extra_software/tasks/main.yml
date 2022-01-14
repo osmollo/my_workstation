@@ -422,6 +422,13 @@
     - extra_software
     - fzf
 
+- name: "Install Neovim"
+  import_tasks: neovim/neovim.yml
+  when: install_neovim
+  tags:
+    - extra_software
+    - neovim
+
 - name: "Install vim plugins"
   import_tasks: vim_plugins.yml
   when: install_vimplugins

@@ -88,3 +88,4 @@ install_fonts: true
 install_trivy: true
 install_ferdi: false
 install_station: false
+install_neovim: true

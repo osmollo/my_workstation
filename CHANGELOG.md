@@ -5,6 +5,7 @@
 - Instalación de [Trivy](https://github.com/aquasecurity/trivy)
 - Instalación de [Ferdi](https://getferdi.com/)
 - Instalación de [Station](https://getstation.com/)
+- Instalación de [Neovim](https://neovim.io)
 - Nuevos alias bash
 - Nuevos repositorios para clonar
 - Corrección de errores:

@@ -1,0 +1,8 @@
+---
+
+- name: "[NEOVIM] [ARCH] Install neovim"
+  become: false
+  yay:
+    name: "{{ neovim_package }}"
+    state: present
+    update_cache: true

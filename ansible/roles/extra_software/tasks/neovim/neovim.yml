@@ -1,0 +1,4 @@
+---
+
+- name: "[NEOVIM] install for {{ linux_distribution }}"
+  include_tasks: "neovim_{{ linux_distribution }}.yml"

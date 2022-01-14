@@ -50,6 +50,7 @@
 | **mame** | Instala `MAME` |
 | **megacmd** | Instala `MEGAcmd` |
 | **megasync** | Instala `MEGA sync` |
+| **neovim** | Instala `NeoVIM` |
 | **nomachine** | Instala `No Machine` |
 | **ohmyzsh** | Instala `Oh my ZSH!` |
 | **pass** | Instala gestor de secretos `Pass` |

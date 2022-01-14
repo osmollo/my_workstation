@@ -56,6 +56,7 @@ zoom_package: zoom
 mailspring_package: mailspring
 trivy_package: trivy-bin
 ferdi_package: ferdi-bin
+neovim_package: neovim
 
 protonvpn_dependencies:
   - openvpn
