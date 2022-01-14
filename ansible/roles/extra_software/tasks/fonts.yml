@@ -1,5 +1,23 @@
 ---
 
+- name: "[FONTS] : create user fonts directory"
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    recurse:
+  loop:
+    - "{{ ansible_user_dir }}/.fonts"
+    - "{{ ansible_user_dir }}/.fonts/nerd_fonts"
+
+- name: "[FONTS] : download nerd font"
+  unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/DejaVuSansMono.zip
+    dest: "{{ ansible_user_dir }}/.fonts/nerd_fonts"
+    remote_src: true
+  notify: rebuild fonts cache
+
 - name: "[GOOGLE FONTS] : download google fonts package"
   unarchive:
     src: "{{ google_fonts_package }}"
@@ -15,12 +33,6 @@
     file_type: file
   register: font_files
 
-- name: "[GOOGLE FONTS] : create user directory"
-  file:
-    path: "{{ ansible_user_dir }}/.fonts"
-    state: directory
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
 
 - name: "[GOOGLE FONTS] : move fonts"
   copy:
