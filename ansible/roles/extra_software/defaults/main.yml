@@ -186,3 +186,6 @@ terraform_binary_path: /usr/local/bin/terraform
 zoom_url_base: https://d11yldzmag5yn.cloudfront.net/prod
 
 google_fonts_package: https://github.com/google/fonts/archive/main.zip
+
+neovim_config_dir: "{{ ansible_user_dir }}/.config/nvim"
+python_venv_dir: "{{ ansible_user_dir }}/python-venv"

@@ -605,7 +605,7 @@
     - trivy
 
 - name: "Install Typography Fonts"
-  import_tasks: fonts.yml
+  import_tasks: fonts/fonts.yml
   when: install_fonts
   tags:
     - extra_software

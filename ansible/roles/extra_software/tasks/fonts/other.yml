@@ -1,0 +1,19 @@
+---
+
+- name: "[FONTS] : create user fonts directory"
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    recurse:
+  loop:
+    - "{{ ansible_user_dir }}/.fonts"
+    - "{{ ansible_user_dir }}/.fonts/nerd_fonts"
+
+- name: "[FONTS] : download nerd font"
+  unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/DejaVuSansMono.zip
+    dest: "{{ ansible_user_dir }}/.fonts/nerd_fonts"
+    remote_src: true
+  notify: rebuild fonts cache
