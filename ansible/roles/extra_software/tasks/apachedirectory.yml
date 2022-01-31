@@ -17,14 +17,14 @@
     group: root
     mode: 0644
 
-- name: "[APACHEDIRECTORY] create route to ldap"
-  command: ip route add 10.48.193.78 dev vpn
+# - name: "[APACHEDIRECTORY] create route to ldap"
+#   command: ip route add 10.48.193.78 dev vpn
 
-- name: "[APACHEDIRECTORY] create alias to ldap"
+- name: "[APACHEDIRECTORY] delete alias to ldap"
   lineinfile:
     path: /etc/hosts
     line: "{{ item.ip }}    {{ item.name }}"
-    state: present
+    state: absent
   loop:
     - ip: 10.48.193.78
       name: ldap.secaas.live.es.ether.igrupobbva
