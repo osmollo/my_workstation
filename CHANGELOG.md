@@ -11,6 +11,7 @@
 - Nuevos repositorios para clonar
 - Corrección de errores:
   - Cambio repositorio git
+  - Eliminación de entradas en `/etc/hosts`
 
 ## 6.1.4
 
