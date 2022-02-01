@@ -1,0 +1,8 @@
+---
+
+pantheon_packages:
+  - seahorse
+  - tilix
+  - meld
+  - gimp
+  - zeal

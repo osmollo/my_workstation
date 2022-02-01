@@ -43,7 +43,7 @@ python_modules:
   - flake8
   - pycodestyle
   - lxml
-  - pienv
+  #- pienv
   - jedi
 
 bad_snap_packages:
