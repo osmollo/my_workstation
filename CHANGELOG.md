@@ -14,6 +14,7 @@
 - Corrección de errores:
   - Cambio repositorio git
   - Eliminación de entradas en `/etc/hosts`
+  - Modificación orden de tareas post instalación
 
 ## 6.1.4
 
