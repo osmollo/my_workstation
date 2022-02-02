@@ -11,7 +11,7 @@ virtualbox_packages:
 chromium_package: chromium-browser
 vagrant_package: "https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_{{ ansible_architecture }}.deb"
 buttercup_deb_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop_{{ buttercup_version | replace('v', '') }}_amd64.deb"
-megacmd_package: "https://mega.nz/linux/MEGAsync/x{{ linux_distribution }}_{{ ubuntu_version_long }}/amd64/megacmd-x{{ linux_distribution }}_{{ ubuntu_version_long }}_amd64.deb"
+megacmd_package: "https://mega.nz/linux/repo/x{{ linux_distribution | capitalize }}_{{ ubuntu_version_long }}/amd64/megacmd-x{{ linux_distribution | capitalize }}_{{ ubuntu_version_long }}_amd64.deb"
 megacmd_dependencies:
   - libmediainfo0v5
   - libpcrecpp0v5
@@ -20,7 +20,7 @@ megacmd_dependencies:
   - libmms0
   - "{{ 'libtinyxml2-8' if ubuntu_version_long is version('21.10', '=') else 'libtinyxml2-6' }}"
 
-megasync_package: "https://mega.nz/linux/MEGAsync/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/megasync-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb"
+megasync_package: "https://mega.nz/linux/MEGAsync/x{{ linux_distribution | capitalize }}_{{ ansible_distribution_version }}/amd64/megasync-x{{ linux_distribution | capitalize }}_{{ ubuntu_version_long }}_amd64.deb"
 file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"
 
 vivaldi_package: https://downloads.vivaldi.com/stable/vivaldi-stable_{{ vivaldi_version }}_amd64.deb
