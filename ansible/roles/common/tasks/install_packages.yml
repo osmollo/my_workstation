@@ -128,6 +128,16 @@
         - desktop_environment is defined
         - desktop_environment == "kde"
 
+    - name: "[UBUNTU] install Pantheon packeges"
+      apt:
+        name: "{{ pantheon_packeges }}"
+        state: present
+        update_cache: true
+        autoclean: true
+      when:
+        - desktop_environment is defined
+        - desktop_environment == 'pantheon'
+
     - name: "[UBUNTU] Install XFCE packages"
       apt:
         name: "{{ xfce_packages }} + {{ xfce_ubuntu_packages }}"

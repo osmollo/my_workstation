@@ -438,6 +438,13 @@
     - vim
     - vimplugins
 
+- name: "Install Neovim"
+  import_tasks: neovim/neovim.yml
+  when: install_neovim
+  tags:
+    - extra_software
+    - neovim
+
 - name: "Install authy"
   import_tasks: authy/authy.yml
   when: install_authy

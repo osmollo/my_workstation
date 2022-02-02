@@ -12,6 +12,7 @@
           - "Ubuntu"
           - "Linux Mint"
           - "KDE neon"
+          - "elementary OS"
         fedora_based:
           - "Fedora"
         arch_based:
@@ -143,6 +144,13 @@
       when:
         - ansible_env.XDG_CURRENT_DESKTOP is defined
         - "'Deepin' in ansible_env.XDG_CURRENT_DESKTOP"
+
+    - name: "[PANTHEON] set DESKTOP_ENVIRONMENT variable"
+      set_fact:
+        desktop_environment: "pantheon"
+      when:
+        - ansible_env.XDG_CURRENT_DESKTOP is defined
+        - "'Pantheon' in ansible_env.XDG_CURRENT_DESKTOP"
 
     - name: "[CINNAMON] Set DESKTOP_ENVIRONMENT variable"
       set_fact:
