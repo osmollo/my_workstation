@@ -428,6 +428,7 @@
   tags:
     - extra_software
     - neovim
+    - nvim
 
 - name: "Install vim plugins"
   import_tasks: vim_plugins.yml

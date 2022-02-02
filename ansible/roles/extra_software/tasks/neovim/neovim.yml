@@ -43,8 +43,6 @@
       dest: general/settings.vim
     - src: plugins.vim.j2
       dest: nvim-plugins/plugins.vim
-    - src: coc.vim.j2
-      dest: plug-config/coc.vim
     - src: nerdcommenter.vim.j2
       dest: plug-config/nerdcommenter.vim
     - src: airline.vim.j2
@@ -53,11 +51,6 @@
       dest: keymapping/keys.vim
     - src: init.vim.j2
       dest: init.vim
-    - src: coc-settings.json.j2
-      dest: coc-settings.json
 
 - name: "[NEOVIM] install neovim plugins"
-  command: "vim -c ':{{ item }}' -c ':qall'"
-  loop:
-    - PlugInstall
-    - CocConfig
+  command: "vim -c ':PlugInstall' -c ':qall'"
