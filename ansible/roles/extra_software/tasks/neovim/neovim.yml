@@ -5,52 +5,8 @@
 - name: "[NEOVIM] install for {{ linux_distribution }}"
   include_tasks: "neovim_{{ linux_distribution }}.yml"
 
-- name: "[NEOVIM] create directories"
-  file:
-    path: "{{ item }}"
-    state: directory
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-  loop:
-    - "{{ neovim_config_dir }}"
-    - "{{ neovim_config_dir }}/general"
-    - "{{ neovim_config_dir }}/keymapping"
-    - "{{ neovim_config_dir }}/nvim-plugins"
-    - "{{ neovim_config_dir }}/plug-config"
-    - "{{ ansible_user_dir }}/.local/share/nvim/site/autoload"
-
-- name: "[NEOVIM] create virtualenv for neovim"
-  become: false
-  command: "python3 -m venv {{ python_venv_dir }}/neovim"
-
-- import_tasks: ../fonts/other.yml
-
-- name: "[NEOVIM] download vim-plug"
-  get_url:
-    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    dest: "{{ ansible_user_dir }}/.local/share/nvim/site/autoload/plug.vim"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-
-- name: "[NEOVIM] configure neovim"
-  template:
-    src: "neovim/{{ item.src }}"
-    dest: "{{ neovim_config_dir }}/{{ item.dest }}"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-  loop:
-    - src: settings.vim.j2
-      dest: general/settings.vim
-    - src: plugins.vim.j2
-      dest: nvim-plugins/plugins.vim
-    - src: nerdcommenter.vim.j2
-      dest: plug-config/nerdcommenter.vim
-    - src: airline.vim.j2
-      dest: plug-config/airline.vim
-    - src: keys.vim.j2
-      dest: keymapping/keys.vim
-    - src: init.vim.j2
-      dest: init.vim
-
-- name: "[NEOVIM] install neovim plugins"
-  command: "vim -c ':PlugInstall' -c ':qall'"
+- name: "[NEOVIM] install plugins"
+  import_tasks: "neovim_plugins.yml"
+  tags:
+    - neovim_plugins
+    - nvim_plugins

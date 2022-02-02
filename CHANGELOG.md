@@ -10,6 +10,7 @@
 - Instalación de nuevas tipografías
 - Nuevos alias bash
 - Nuevos repositorios para clonar
+- Nuevos plugins para Neovim
 - Corrección de errores:
   - Cambio repositorio git
   - Eliminación de entradas en `/etc/hosts`

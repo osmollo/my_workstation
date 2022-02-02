@@ -1,5 +1,4 @@
 call plug#begin(stdpath('data').'/plugged')
-
     " NERDTree
     Plug 'preservim/nerdtree'
 
@@ -15,6 +14,21 @@ call plug#begin(stdpath('data').'/plugged')
 
     " NERDCommenter
     Plug 'preservim/nerdcommenter'
+
+    " git blame"
+    Plug 'f-person/git-blame.nvim'
+
+    " go support"
+    Plug 'ray-x/go.nvim'
+
+    " Auto-close braces and scopes
+    Plug 'jiangmiao/auto-pairs'
+
+    " A fuzzy file finder
+    Plug 'kien/ctrlp.vim'
+
+    " Git integration
+    Plug 'tpope/vim-fugitive'
 
     " Other themes
     Plug 'morhetz/gruvbox'
