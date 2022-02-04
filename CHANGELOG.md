@@ -14,6 +14,7 @@
 - Corrección de errores:
   - Cambio repositorio git
   - Eliminación de entradas en `/etc/hosts`
+  - Eliminación de entradas en `~/.ssh/config`
 
 ## 6.1.4
 
