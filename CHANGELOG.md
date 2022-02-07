@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.2.1
+
+- Fix [README.md](./README.md)
+
 ## 6.2
 
 - Compatibilidad con **ElementaryOS** y **Pantheon**
