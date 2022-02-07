@@ -116,7 +116,7 @@ trivy_latest_url: "https://github.com/aquasecurity/trivy/releases/latest"
 ferdi_latest_url: "https://github.com/getferdi/ferdi/releases/latest"
 station_latest_url: "https://github.com/getstation/desktop-app/releases/latest"
 
-ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
+ohmyzsh_installer: "https://gitlab.com/osmollo/oh-my-zsh/raw/master/tools/install.sh"
 
 telegram_flatpak: "https://dl.flathub.org/repo/appstream/org.telegram.desktop.flatpakref"
 slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"
@@ -177,9 +177,9 @@ lexnet_packages:
   - pcsc-tools
   - libglade2-dev
 
-code_settings_url: https://gist.githubusercontent.com/ohermosa/6dbeabf3bb121bf3f3546e296d251aa4/raw/settings.json
-code_extensions_url: https://gist.githubusercontent.com/ohermosa/6dbeabf3bb121bf3f3546e296d251aa4/raw/extensions.json
-atom_packages_url: https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json
+code_settings_url: https://gist.githubusercontent.com/osmollo/6dbeabf3bb121bf3f3546e296d251aa4/raw/settings.json
+code_extensions_url: https://gist.githubusercontent.com/osmollo/6dbeabf3bb121bf3f3546e296d251aa4/raw/extensions.json
+atom_packages_url: https://gist.githubusercontent.com/osmollo/854b27da91246625596f8839cc365713/raw/packages.json
 
 appimage_dir: "{{ ansible_user_dir }}/AppImage"
 

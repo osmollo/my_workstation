@@ -20,7 +20,7 @@
     name: extra_software
     tasks_from: prezto.yml
   vars:
-    prezto_repo: git@github.com:ohermosa/prezto.git
+    prezto_repo: git@github.com:osmollo/prezto.git
 
 - name: "[PREZTO] Create new remote for presto original source"
   shell: "git remote add source {{ prezto_repo }}"
