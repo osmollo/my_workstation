@@ -8,7 +8,8 @@
 - Instalación de [Station](https://getstation.com/)
 - Instalación de [Neovim](https://neovim.io)
 - Instalación de nuevas tipografías
-- Instalación de [Cloudfare](https://1.1.1.1/)
+- Instalación de [Cloudfare](https://1.1.1.1/) para Debian/Ubuntu
+- Eliminados directorios `./docker_deploys` y `./k8s_deploys` y movido todo el contenido de `./ansible` al raíz
 - Nuevos alias bash
 - Nuevos repositorios para clonar
 - Nuevos plugins para Neovim

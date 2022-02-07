@@ -33,7 +33,7 @@
         - name: "[DEBIAN] Create ansible repository file"
           lineinfile:
             path: /etc/apt/sources.list.d/ansible.list
-            line: deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main
+            line: deb http://ppa.launchpad.net/ubuntu trusty main
             create: true
 
         - name: "[DEBIAN] Update ansible"
@@ -87,7 +87,7 @@
         - name: "[UBUNTU] add ansible ppa repository"
           apt_repository:
             validate_certs: no
-            repo: 'ppa:ansible/ansible'
+            repo: 'ppa:ansible'
             state: present
             codename: "{{ ubuntu_codename }}"
 

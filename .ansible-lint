@@ -1,7 +1,7 @@
 exclude_paths:
-  - ansible/roles/common/defaults/
-  - ansible/roles/extra_software/defaults/
-  - ansible/roles/post_install/defaults/
+  - roles/common/defaults/
+  - roles/extra_software/defaults/
+  - roles/post_install/defaults/
 quiet: true
 skip_list:
   - '204'

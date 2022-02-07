@@ -38,22 +38,13 @@
 
 ## Paso previo
 
-Antes de poder ejecutar el role, es necesario desencriptar el fichero [defaults/main.yml.gpg](./defaults/main.yml.gpg). Para ello es necesario ejecutar el siguiente playbook:
+Antes de poder ejecutar el role, es necesario ejecutar el script `./prepare_post.sh` que se genera en la última tarea del playbook `install.yml`. En caso de que no exista, se puede generar el script con el comando:
 
-```bash
-ansible-playbook playbooks/import_gpg.yml
+```shell
+ansible-playbook install.yml -t prepare_post [--ask-vault-pass]
 ```
 
-Para que este playbook se ejecute, necesita que existan las siguiente llaves GPG en el `$HOME` del usuario:
-
-- home.priv
-- home.pub
-
-Una vez ejecutado el playbook (pedirá introducir los passphrases correspondientes durante la ejecución), habrá que ejecutar el siguiente comando:
-
-```bash
-gpg --output roles/post_install/defaults/main.yml --decrypt roles/post_install/defaults/main.yml.gpg
-```
+Durante la ejecución del script se intentarán leer secretos de **1Password** para acceder a las claver GPG necesarias para desencriptar el fichero `roles/post_install/defaults/main.yml.gpg`.
 
 ## Ejemplo de uso
 
