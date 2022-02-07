@@ -8,7 +8,6 @@
     - [Deshabilitar actualizaciones](#deshabilitar-actualizaciones)
   - [Otros playbooks](#otros-playbooks)
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
-  - [Uso de Vagrant](#uso-de-vagrant)
   - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
   - [Emoji Cheat Sheet](#emoji-cheat-sheet)
 
@@ -207,44 +206,6 @@ sudo touch /var/tmp/.update
 
 ```bash
 ansible localhost -m shell -a "df -h"
-```
-
-## Uso de Vagrant
-
-:information_source: El __usuario/contraseña__ de las máquinas virtuales es `vagrant/vagrant`
-
-Para probar el código, se puede levantar una máquina virtual usando [Vagrant](https://www.vagrantup.com/) y [Virtualbox](https://www.virtualbox.org/). Para ello, será necesario instalar *Virtualbox* usando el tag `--virtualbox`:
-
-```bash
-ansible-playbook install.yml  -t virtualbox --ask-vault-pass
-```
-
-A continuación, dentro del directorio del repo, hay que ejecutar el siguiente comando para levntar la máquina virtual:
-
-```bash
-vagrant up [mint|kubuntu|ubuntu|xubuntu|fedora30|fedora31|fedora32|arch|manjaro|debian]
-```
-
-Para entrar a la máquina creada:
-
-```bash
-vagrant ssh [mint|kubuntu|ubuntu|xubuntu|fedora30|fedora31|fedora32|arch|manjaro|debian]
-```
-
-Una vez dentro de ella, hay que instalar `git` y `ansible`, clonar el repositorio y lanzar los playbooks correspondientes como en una máquina física.
-
-```bash
-vagrant ssh debian
-sudo apt install git ansible
-git clone https://gitlab.com/ohermosa/my_workstation.git
-cd my_workstation/ansible
-ansible-playbook install.yml --ask-vault-pass
-```
-
-Una vez terminadas las pruebas, para destruir las máquinas:
-
-```bash
-vagrant destroy -f
 ```
 
 ## Actualización de CHANGELOG.md
