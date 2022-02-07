@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.2.2
+
+- Cambio de username en todos mis repositorios de github/gitlab
+
 ## 6.2.1
 
 - Fix [README.md](./README.md)

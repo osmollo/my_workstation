@@ -143,7 +143,7 @@ sudo pacman -S git ansible
 A continuación habrá que clonar este repositorio (da igual el directorio de destino):
 
 ```bash
-git clone https://gitlab.com/ohermosa/my_workstation.git /tmp/repo
+git clone https://github.com/osmollo/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
 ansible-playbook install.yml --ask-vault-pass
 ```

@@ -64,7 +64,7 @@
       register: remote_response
       failed_when: false
       vars:
-        remote_url: "git@{{ item.remote }}.com:ohermosa/{{ (item.repo | basename).split('.')[0] }}.git"
+        remote_url: "git@{{ item.remote }}.com:osmollo/{{ (item.repo | basename).split('.')[0] }}.git"
 
     - name: "[GIT] Create github repositories for HOME"
       include_role:
@@ -101,7 +101,7 @@
       register: remote_response
       failed_when: false
       vars:
-        remote_url: "git@{{ item.remote }}.com:ohermosa/{{ (item.repo | basename).split('.')[0] }}.git"
+        remote_url: "git@{{ item.remote }}.com:osmollo/{{ (item.repo | basename).split('.')[0] }}.git"
 
     - name: "[GIT] Delete push for remote"
       shell: "git remote set-url --push {{ item.remote }} no_push"
