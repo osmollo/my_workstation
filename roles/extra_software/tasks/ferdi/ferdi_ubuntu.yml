@@ -1,0 +1,6 @@
+---
+
+- name: "[FERDI] [DEB] Install Trivy"
+  apt:
+    deb: "{{ ferdi_deb_package }}"
+    state: present

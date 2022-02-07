@@ -1,0 +1,6 @@
+---
+
+- name: "[TRIVY] [DEB] Install Trivy"
+  apt:
+    deb: "{{ trivy_deb_package }}"
+    state: present

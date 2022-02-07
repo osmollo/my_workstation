@@ -1,0 +1,71 @@
+---
+
+aur_url: https://aur.archlinux.org
+
+atom_package: atom-editor-bin
+dropbox_package: dropbox
+chrome_package: google-chrome
+code_package: visual-studio-code-bin
+codium_package: vscodium-bin
+skype_package: skypeforlinux-stable-bin
+ohmyzsh_package: oh-my-zsh-git
+cherrytree_package: cherrytree
+postman_package: postman-bin
+teamviewer_package: teamviewer
+keepass_package: keepassxc-git
+buttercup_package: buttercup-desktop
+virtualbox_package: virtualbox-bin
+tlp_package: tlp-git
+telegram_package: telegram-desktop
+spotify_package: spotify
+slack_package: slack-desktop
+rambox_package: rambox-bin
+pycharm_package: pycharm-community-eap
+yay_package: yay-bin
+vagrant_package: vagrant-git
+nomachine_package: nomachine
+gitkraken_package: gitkraken
+sublimetext_package: sublime-text-nightly
+sublimemerge_package: sublime-merge
+franz_package: franz-bin
+deluge_package: deluge-git
+windscribe_package: windscribe-cli
+apachedirectory_package: apachedirectorystudio
+java_package: java-openjdk-bin
+docker_package: docker-bin
+dockercompose_package: docker-compose-bin
+megacmd_package: megacmd-bin
+megasync_package: megasync
+vivaldi_package: vivaldi
+brave_package: brave-bin
+bitwarden_package: bitwarden-bin
+woeusb_package: woeusb
+authy_package: authy
+yakyak_package: yakyak
+hiri_package: hiri
+typora_package: typora
+dive_package: dive
+podman_package: podman
+podmancompose_package: podman-compose
+terraform_package:
+vault_package: vault-bin
+vault_cli_package: vault-cli-bin
+consul_package: consul-bin
+nomad_package: nomad-bin
+zoom_package: zoom
+mailspring_package: mailspring
+trivy_package: trivy-bin
+ferdi_package: ferdi-bin
+neovim_package: neovim
+
+protonvpn_dependencies:
+  - openvpn
+  - dialog
+  - python-pip
+  - python-setuptools
+
+file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"
+
+wireguard_packages:
+  - wireguard-tools
+  - wireguard-arch

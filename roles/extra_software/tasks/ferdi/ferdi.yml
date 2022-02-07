@@ -1,0 +1,19 @@
+---
+
+- name: "[FERDI] Get latest version of ferdi"
+  uri:
+    url: "{{ ferdi_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: ferdi_latest
+
+- name: "[FERDI] Install ferdi {{ ferdi_version }}"
+  vars:
+    ferdi_version: "{{ ferdi_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    ferdi_rpm_package: "https://github.com/getferdi/ferdi/releases/download/{{ ferdi_version }}/ferdi-{{ ferdi_version[1:] }}.x86_64.rpm"
+    ferdi_deb_package: "https://github.com/getferdi/ferdi/releases/download/{{ ferdi_version }}/ferdi_{{ ferdi_version[1:] }}_amd64.deb"
+  when: linux_distribution != "arch"
+
+- name: "[FERDI] install for {{ linux_distribution }}"
+  include_tasks: "ferdi_{{ linux_distribution }}.yml"

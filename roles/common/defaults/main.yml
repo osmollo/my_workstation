@@ -1,0 +1,53 @@
+---
+
+common_packages:
+  - jq
+  - vim
+  - sshpass
+  - git
+  - curl
+  - wget
+  - colordiff
+  - htop
+  - zip
+  - unzip
+  - ipcalc
+  - rsync
+
+python_modules:
+  - pre-commit
+  - mega.py
+  - pylint
+  - flake8
+  - pep8
+  - numerizer
+  - faker
+  - requests
+  - netaddr
+  - telepot
+  - matplotlib
+  - numpy
+  - beautifulsoup4
+  - bs4
+  - openstacksdk
+  - molecule
+  - dnspython
+  - docker-py
+  - virtualenvwrapper
+  - hcloud
+  - gitpython
+  - jmespath
+  - peewee
+  - packaging
+  - pylint
+  - flake8
+  - pycodestyle
+  - lxml
+  - jedi
+
+bad_snap_packages:
+  - gnome-calculator
+  - gnome-system-monitor
+  - gnome-logs
+
+last_update_file: "/var/tmp/.update"

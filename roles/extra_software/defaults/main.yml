@@ -1,0 +1,192 @@
+---
+
+install_docker: true
+install_dropbox: true
+install_vscode: true
+install_spotify: true
+install_ohmyzsh: true
+install_sublimetext: true
+install_atom: true
+install_gitkraken: true
+install_telegram: true
+install_slack: true
+install_tlp: true
+install_virtualbox: true
+install_pycharm: true
+install_keepass: true
+install_buttercup: true
+install_windscribe: true
+install_chrome: true
+install_teamviewer: true
+install_nomachine: true
+install_ecs: true
+install_postman: true
+install_skype: true
+install_java: true
+install_apachedirectory: true
+install_rambox: true
+install_franz: true
+install_chromium: true
+install_deluge: true
+install_cherrytree: true
+install_k8s_tools: true
+install_kubectl: true
+install_minikube: true
+install_helm: true
+install_hetznerkube: true
+install_kops: true
+install_lens: true
+install_kind: true
+install_microk8s: true
+install_kompose: true
+install_k0s: true
+install_flatpak: true
+install_megacmd: true
+install_megasync: true
+install_vivaldi: true
+install_brave: true
+install_bitwarden: true
+install_lexnet: false
+install_pass: true
+install_bucklespring: true
+install_protonvpn: true
+install_prezto: true
+install_etcher: true
+install_woeusb: true
+install_go: true
+install_fzf: true
+install_vimplugins: true
+install_authy: true
+install_yakyak: true
+install_hiri: true
+install_steam: true
+install_wireguard: true
+install_typora: true
+install_beekeeper: true
+install_kdenlive: true
+install_sublimemerge: true
+install_bfg: true
+install_vscodium: true
+install_tmux: true
+install_kodi: true
+install_mame: true
+install_podman: true
+install_act: true
+install_hashicorp: true
+install_vault: true
+install_terraform: true
+install_consul: true
+install_nomad: true
+install_zoom: true
+install_githubcli: true
+install_1password: true
+install_secrethub: true
+install_mailspring: true
+install_obs: true
+install_copyq: true
+install_fonts: true
+install_trivy: true
+install_ferdi: true
+install_station: true
+install_neovim: true
+install_cloudfare: true
+
+tlp_battery_min: 75
+tlp_battery_max: 85
+
+atom_latest_url: "https://github.com/atom/atom/releases/latest"
+rambox_latest_url: "https://github.com/ramboxapp/community-edition/releases/latest"
+buttercup_latest_url: "https://github.com/buttercup/buttercup-desktop/releases/latest"
+franz_latest_url: "https://github.com/meetfranz/franz/releases/latest"
+dockercompose_latest_url: "https://github.com/docker/compose/releases/latest"
+bitwarden_latest_url: "https://github.com/bitwarden/desktop/releases/latest"
+bitwardencli_latest_url: "https://github.com/bitwarden/cli/releases/latest"
+helm_latest_url: "https://github.com/helm/helm/releases/latest"
+hetznerkube_latest_url: "https://github.com/xetys/hetzner-kube/releases/latest"
+etcher_latest_url: "https://github.com/balena-io/etcher/releases/latest"
+fzf_latest_url: "https://github.com/junegunn/fzf-bin/releases/latest"
+yakyak_latest_url: "https://github.com/yakyak/yakyak/releases/latest"
+lens_latest_url: "https://github.com/lensapp/lens/releases/latest"
+kops_latest_url: "https://github.com/kubernetes/kops/releases/latest"
+dive_latest_url: "https://api.github.com/repos/wagoodman/dive/releases/latest"
+kompose_latest_url: "https://github.com/kubernetes/kompose/releases/latest"
+mailspring_latest_url: "https://github.com/Foundry376/Mailspring/releases/latest"
+k0s_latest_url: https://github.com/k0sproject/k0s/releases/latest
+trivy_latest_url: "https://github.com/aquasecurity/trivy/releases/latest"
+ferdi_latest_url: "https://github.com/getferdi/ferdi/releases/latest"
+station_latest_url: "https://github.com/getstation/desktop-app/releases/latest"
+
+ohmyzsh_installer: "https://gitlab.com/ohermosa/oh-my-zsh/raw/master/tools/install.sh"
+
+telegram_flatpak: "https://dl.flathub.org/repo/appstream/org.telegram.desktop.flatpakref"
+slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"
+pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Community.flatpakref"
+postman_flatpak: "https://flathub.org/repo/appstream/com.getpostman.Postman.flatpakref"
+skype_flatpak: "https://flathub.org/repo/appstream/com.skype.Client.flatpakref"
+franz_flatpak: "https://flathub.org/repo/appstream/com.meetfranz.Franz.flatpakref"
+kdenlive_flatpak: "https://dl.flathub.org/repo/appstream/org.kde.kdenlive.flatpakref"
+
+ecs_cli_package: "ecs-cli-0.2.16.tar.gz"
+ecs_cli_url: "https://globaldevtools.bbva.com/artifactory/semaas-global-bin/releases/ecs-cli/{{ ecs_cli_package }}"
+ecs_cli_doc_url: "https://platform.bbva.com/en-us/developers/ether-cli/documentation/03-getting-started"
+
+apachedirectory_url: "https://ftp.cixug.es/apache/directory/studio/2.0.0.v20210213-M16/ApacheDirectoryStudio-2.0.0.v20210213-M16-linux.gtk.x86_64.tar.gz"
+
+deluge_package: deluge
+cherrytree_package: cherrytree
+
+virtualbox_extpack_version: "6.0.14"
+virtualbox_extension_package: "https://download.virtualbox.org/virtualbox/{{ virtualbox_extpack_version }}/Oracle_VM_VirtualBox_Extension_Pack-{{ virtualbox_extpack_version }}.vbox-extpack"
+dockercompose_package: "https://github.com/docker/compose/releases/download/{{ dockercompose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+mega_url_base: "https://mega.nz/linux/MEGAsync"
+
+vivaldi_version: 3.3.2022.45-1
+
+prezto_repo: https://github.com/sorin-ionescu/prezto.git
+
+go_dir: /usr/local/go
+
+vim_plugins:
+  - 'VundleVim/Vundle.vim'
+  - 'itchyny/lightline.vim'
+  - 'preservim/nerdtree'
+  - 'altercation/vim-colors-solarized'
+  - 'pearofducks/ansible-vim'
+  - 'frazrepo/vim-rainbow'
+  - 'junegunn/fzf.vim'
+  - 'airblade/vim-gitgutter'
+  - 'terryma/vim-multiple-cursors'
+  - 'mileszs/ack.vim'
+  - 'kien/ctrlp.vim'
+  - 'ekalinin/dockerfile.vim'
+  - 'thaerkh/vim-workspace'
+  - 'valloric/youcompleteme'
+  - 'hashivim/vim-terraform'
+  - 'juliosueiras/vim-terraform-completion'
+
+firefox_esr_version: 50.1.0
+firefox_esr_url: "https://download-installer.cdn.mozilla.net/pub/firefox/releases/{{ firefox_esr_version }}/linux-x86_64/es-ES/firefox-{{ firefox_esr_version }}.tar.bz2"
+firefox_esr_dir: /opt/firefox
+firefox_esr_binary: "{{ firefox_esr_dir }}/firefox"
+java_lexnet_package: "https://descargas.lexdefensa.es/jdk-8u241-linux-x64.tar.gz"
+lexnet_firefox_profile: lexnet
+lexnet_packages:
+  - libccid
+  - libpcsclite1
+  - pcscd
+  - pcsc-tools
+  - libglade2-dev
+
+code_settings_url: https://gist.githubusercontent.com/ohermosa/6dbeabf3bb121bf3f3546e296d251aa4/raw/settings.json
+code_extensions_url: https://gist.githubusercontent.com/ohermosa/6dbeabf3bb121bf3f3546e296d251aa4/raw/extensions.json
+atom_packages_url: https://gist.githubusercontent.com/ohermosa/854b27da91246625596f8839cc365713/raw/packages.json
+
+appimage_dir: "{{ ansible_user_dir }}/AppImage"
+
+terraform_binary_path: /usr/local/bin/terraform
+zoom_url_base: https://d11yldzmag5yn.cloudfront.net/prod
+
+google_fonts_package: https://github.com/google/fonts/archive/main.zip
+
+neovim_config_dir: "{{ ansible_user_dir }}/.config/nvim"
+python_venv_dir: "{{ ansible_user_dir }}/python-venv"

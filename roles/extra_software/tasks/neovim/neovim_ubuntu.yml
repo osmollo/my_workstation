@@ -1,0 +1,27 @@
+---
+
+- name: "[NEOVIM] [DEB] Install neovim"
+  apt:
+    name:
+      - neovim
+      - python3-neovim
+      - npm
+    state: present
+    update_cache: true
+    force: true
+
+- name: "[NEOVIM ]Alternative link for neovim"
+  alternatives:
+    name: "{{ item.name }}"
+    link: "{{ item.link }}"
+    path: "{{ item.path }}"
+  loop:
+    - name: vi
+      link: /usr/bin/vi
+      path: /usr/bin/nvim
+    - name: vim
+      link: /usr/bin/vim
+      path: /usr/bin/nvim
+    - name: editor
+      link: /usr/bin/editor
+      path: /usr/bin/nvim

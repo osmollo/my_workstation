@@ -1,0 +1,31 @@
+---
+
+- name: "[STATION] Get latest version of station"
+  uri:
+    url: "{{ station_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: station_latest
+
+- name: "[STATION] set station version"
+  set_fact:
+    station_version: "{{ station_latest.url | urlsplit('path') | basename }}"
+
+- name: "[STATION] create {{ ansible_user_dir }}/AppImage directory"
+  file:
+    path: "{{ appimage_dir }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: "[STATION] download station appimage {{ station_version }}"
+  get_url:
+    url: "https://github.com/getstation/desktop-app/releases/download/{{ station_version }}/Station-x86_64.AppImage"
+    dest: "{{ appimage_dir }}/Station.AppImage"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+
+- name: "[STATION] how to run"
+  debug:
+    msg: "Puedes ejecutar Station con el comando: '{{ appimage_dir }}/Station.AppImage'"

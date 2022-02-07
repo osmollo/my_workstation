@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 6.2
+
+- Compatibilidad con **ElementaryOS** y **Pantheon**
+- Instalación de [Trivy](https://github.com/aquasecurity/trivy)
+- Instalación de [Ferdi](https://getferdi.com/)
+- Instalación de [Station](https://getstation.com/)
+- Instalación de [Neovim](https://neovim.io)
+- Instalación de nuevas tipografías
+- Instalación de [Cloudfare](https://1.1.1.1/) para Debian/Ubuntu
+- Eliminados directorios `./docker_deploys` y `./k8s_deploys` y movido todo el contenido de `./ansible` al raíz
+- Nuevos alias bash
+- Nuevos repositorios para clonar
+- Nuevos plugins para Neovim
+- Corrección de errores:
+  - Cambio repositorio git
+  - Eliminación de entradas en `/etc/hosts`
+  - Eliminación de entradas en `~/.ssh/config`
+
 ## 6.1.4
 
 - Corrección de errores:

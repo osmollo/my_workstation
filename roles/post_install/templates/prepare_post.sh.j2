@@ -1,0 +1,31 @@
+#!/bin/bash
+
+echo "SECRET KEY: {{ op.sk }}"
+eval $(op signin {{ op.host }} {{ op.user }})
+
+echo "DROPBOX: $(op get item {{ op.item1 }} --fields password)"
+
+echo "$(op get item {{ op.doc1 }} --fields title)..."
+op get document {{ op.doc1 }} --output ~/{{ op.file1 }}
+unzip ~/{{ op.file1 }} -d ~/
+gpg --import ~/pub
+echo "$(op get item {{ op.doc1 }} --fields passphrase)" | gpg --batch --yes --passphrase-fd 0 --import ~/priv
+rm -fr ~/pub ~/priv ~/revoke ~/{{ op.file1 }}
+
+echo "$(op get item {{ op.doc2 }} --fields title)..."
+op get document {{ op.doc1 }} --output ~/{{ op.file2 }}
+unzip ~/{{ op.file2 }} -d ~/
+gpg --import ~/pub
+echo "$(op get item {{ op.doc2 }} --fields passphrase)" | gpg --batch --yes --passphrase-fd 0 --import ~/priv
+rm -fr ~/pub ~/priv ~/revoke ~/{{ op.file1 }}
+
+echo "TRUSTING..."
+for fpr in $(gpg --list-keys --with-colons  | awk -F: '/fpr:/ {print $10}' | sort -u); do
+  echo -e '5\ny\n' |  gpg --command-fd 0 --expert --edit-key $fpr trust
+done
+
+echo "GPG passphrase: $(op get item {{ op.doc1 }} | jq -r .details.sections[0].fields[0].v)"
+read -rsp 'Press any key to continue...' -n1 key
+
+echo "DECRYPTING..."
+gpg --batch --yes --passphrase "$(op get item {{ op.doc1 }} --fields passphrase)" --output roles/post_install/defaults/main.yml --decrypt roles/post_install/defaults/main.yml.gpg

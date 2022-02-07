@@ -1,0 +1,12 @@
+---
+
+# https://linuxfacil.mx/blog/neovim/como-configurar-neovim-como-vscode-para-python/
+
+- name: "[NEOVIM] install for {{ linux_distribution }}"
+  include_tasks: "neovim_{{ linux_distribution }}.yml"
+
+- name: "[NEOVIM] install plugins"
+  import_tasks: "neovim_plugins.yml"
+  tags:
+    - neovim_plugins
+    - nvim_plugins

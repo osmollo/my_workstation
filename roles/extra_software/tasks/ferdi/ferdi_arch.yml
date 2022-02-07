@@ -1,0 +1,8 @@
+---
+
+- name: "[FERDI] [ARCH] Install ferdi"
+  become: false
+  yay:
+    name: "{{ ferdi_package }}"
+    state: present
+    update_cache: true

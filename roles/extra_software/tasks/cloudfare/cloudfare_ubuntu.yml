@@ -1,0 +1,18 @@
+---
+
+- name: "[CLOUDFARE] [DEB] install gpg key"
+  get_url:
+    url: https://pkg.cloudflareclient.com/pubkey.gpg
+    dest: /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+
+- name: "[CLOUDFARE] [DEB] copy repository file"
+  copy:
+    content: |
+      deb [arch=amd64 signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ {{ 'focal' if linux_distribution == 'ubuntu' else ansible_distribution_release if linux_distribution == 'debian' }} main
+    dest: /etc/apt/sources.list.d/cloudfare.list
+
+- name: "[CLOUDFARE] [DEB] install cloudfare"
+  apt:
+    name: cloudflare-warp
+    state: present
+    update_cache: true
