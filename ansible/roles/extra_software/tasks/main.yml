@@ -605,6 +605,13 @@
     - extra_software
     - trivy
 
+- name: "Install Cloudfare client"
+  import_tasks: cloudfare/cloudfare.yml
+  when: install_cloudfare
+  tags:
+    - extra_software
+    - cloudfare
+
 - name: "Install Typography Fonts"
   import_tasks: fonts/fonts.yml
   when: install_fonts

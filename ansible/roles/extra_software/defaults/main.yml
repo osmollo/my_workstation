@@ -89,6 +89,7 @@ install_trivy: true
 install_ferdi: true
 install_station: true
 install_neovim: true
+install_cloudfare: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85

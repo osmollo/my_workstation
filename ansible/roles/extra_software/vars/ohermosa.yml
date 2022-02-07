@@ -89,3 +89,4 @@ install_trivy: true
 install_ferdi: false
 install_station: false
 install_neovim: true
+install_cloudfare: true

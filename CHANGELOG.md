@@ -8,6 +8,7 @@
 - Instalación de [Station](https://getstation.com/)
 - Instalación de [Neovim](https://neovim.io)
 - Instalación de nuevas tipografías
+- Instalación de [Cloudfare](https://1.1.1.1/)
 - Nuevos alias bash
 - Nuevos repositorios para clonar
 - Nuevos plugins para Neovim
