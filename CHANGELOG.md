@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 6.3
+
+- Post_install:
+  - Borrado de entradas de `~/.ssh/config`
+
 ## 6.2.2
 
 - Cambio de username en todos mis repositorios de github/gitlab
