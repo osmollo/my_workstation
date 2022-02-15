@@ -4,6 +4,7 @@
 
 - Post_install:
   - Borrado de entradas de `~/.ssh/config`
+  - Nuevo alias de bash
 
 ## 6.2.2
 
