@@ -1,12 +1,8 @@
 ---
 
 - name: "[PYCHARM] [DEB] install pycharm repository"
-  apt_repository:
-    repo: ppa:viktor-krivak/pycharm
+  snap:
+    name:
+      - pycharm-community
     state: present
-
-- name: "[PYCHARM] [DEB] Install PyCharm package"
-  apt:
-    name: pycharm
-    state: present
-    update_cache: true
+    classic: true

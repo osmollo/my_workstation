@@ -4,6 +4,7 @@
 
 - Instalación de [lsd](https://github.com/Peltoche/lsd)
 - Nuevos plugins **Neovim**
+- Instalación de [PyCharm](https://www.jetbrains.com/es-es/pycharm/) en **Ubuntu** usando __snap__
 - Post_install:
   - Borrado de entradas de `~/.ssh/config`
   - Nuevo alias de bash
