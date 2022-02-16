@@ -2,6 +2,7 @@
 
 ## 6.3
 
+- Nuevos plugins **Neovim**
 - Post_install:
   - Borrado de entradas de `~/.ssh/config`
   - Nuevo alias de bash

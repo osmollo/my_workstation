@@ -44,6 +44,10 @@
       dest: plug-config/git-blame.vim
     - src: airline.vim.j2
       dest: plug-config/airline.vim
+    - src: deoplete.vim.j2
+      dest: plug-config/deoplete.vim
+    - src: neoformat.vim.j2
+      dest: plug-config/neoformat.vim
     - src: keys.vim.j2
       dest: keymapping/keys.vim
     - src: init.vim.j2
