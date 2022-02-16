@@ -11,7 +11,7 @@
       job: "cat {{ ansible_user_dir }}/.zhistory > {{ dropbox_dir }}/backups/zsh/zhistory.{{ ansible_hostname }}"
       minute: "*/30"
     - name: "bbva_to_gitlab"
-      job: "{{ dropbox_dir }}/bin/datio/bbva_to_gitlab.py"
+      job: "{{ dropbox_dir }}/bin/datio/bbva_to_github.py"
       minute: "00"
       hour: "7,18"
 
