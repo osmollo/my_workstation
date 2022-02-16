@@ -9,6 +9,7 @@
   - Borrado de entradas de `~/.ssh/config`
   - Nuevo alias de bash
   - Quitando extensión al fichero `~/.vault_pass.txt`
+  - Nuevos repositorios git
 
 ## 6.2.2
 
