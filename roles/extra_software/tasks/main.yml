@@ -612,6 +612,13 @@
     - extra_software
     - cloudfare
 
+- name: "Install LSD"
+  import_tasks: lsd/lsd.yml
+  when: install_lsd
+  tags:
+    - extra_software
+    - lsd
+
 - name: "Install Typography Fonts"
   import_tasks: fonts/fonts.yml
   when: install_fonts

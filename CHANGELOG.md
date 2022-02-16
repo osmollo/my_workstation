@@ -2,6 +2,7 @@
 
 ## 6.3
 
+- Instalación de [lsd](https://github.com/Peltoche/lsd)
 - Nuevos plugins **Neovim**
 - Post_install:
   - Borrado de entradas de `~/.ssh/config`

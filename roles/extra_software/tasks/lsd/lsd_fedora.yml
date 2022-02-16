@@ -1,0 +1,7 @@
+---
+
+- name: "[LSD] [RPM] Install lsd"
+  yum:
+    name: lsd
+    state: present
+    update_cache: true

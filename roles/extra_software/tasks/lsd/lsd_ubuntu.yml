@@ -1,0 +1,6 @@
+---
+
+- name: "[LSD] [DEB] Install lsd"
+  apt:
+    deb: "{{ lsd_deb_package }}"
+    state: present

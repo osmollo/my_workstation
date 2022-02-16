@@ -1,0 +1,26 @@
+---
+
+- name: "[LSD] Get latest version of lsd"
+  uri:
+    url: "{{ lsd_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: lsd_latest
+
+- name: "[LSD] Install lsd {{ lsd_version }}"
+  vars:
+    lsd_version: "{{ lsd_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    lsd_deb_package: "https://github.com/Peltoche/lsd/releases/download/{{ lsd_version }}/lsd_{{ lsd_version }}_amd64.deb"
+  when: linux_distribution in ["debian", "ubuntu"]
+
+- name: "[LSD] install for {{ linux_distribution }}"
+  include_tasks: "lsd_{{ linux_distribution }}.yml"
+
+- name: "[LSD] create alias"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.bash_aliases"
+    line: "alias ls='lsd'"
+    regexp: '^alias ls='
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
