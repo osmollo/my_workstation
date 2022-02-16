@@ -38,7 +38,7 @@
     - "{{ ansible_user_dir }}/.bash_aliases"
     - "{{ ansible_user_dir }}/.zshrc"
     - "{{ ssh_dir }}"
-    - "{{ ansible_user_dir }}/.vault_pass*txt"
+    - "{{ ansible_user_dir }}/.vault_pass*"
     - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
     - "{{ ansible_user_dir }}/.zhistory"
 
@@ -118,15 +118,15 @@
     create: true
   no_log: true
   loop:
-    - name: .vault_pass_personal.txt
+    - name: .vault_pass_personal
       content: "{{ vault_personal_pass }}"
-    - name: .vault_pass_datio.txt
+    - name: .vault_pass_datio
       content: "{{ vault_datio_pass }}"
 
 - name: "[ENVIRONMENT] create link to vault_pass file"
   file:
-    src: "{{ ansible_user_dir }}/.vault_pass_personal.txt"
-    dest: "{{ ansible_user_dir }}/.vault_pass.txt"
+    src: "{{ ansible_user_dir }}/.vault_pass_personal"
+    dest: "{{ ansible_user_dir }}/.vault_pass"
     state: link
 
 - name: "[ENVIRONMENT] configure prezto"
