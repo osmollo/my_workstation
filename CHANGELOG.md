@@ -7,6 +7,7 @@
 - Nuevos plugins **Neovim**
 - Instalación de [PyCharm](https://www.jetbrains.com/es-es/pycharm/) en **Ubuntu** usando __snap__
 - Post_install:
+  - El `ssh_config` se genera con `blockinfile` en vez de con `template` para no sobreescribir las entradas que ya existan de otros repositorios
   - Borrado de entradas de `~/.ssh/config`
   - Nuevo alias de bash
   - Quitando extensión al fichero `~/.vault_pass.txt`
