@@ -114,7 +114,8 @@
         ServerAliveInternal {{ item.serveraliveinternal }}
       {% endif %}
       {% if item.serveralivecountmax is defined %}
-        ServerAliveCountMax {{ item.serveralivecountmax }}{% endif %}
+        ServerAliveCountMax {{ item.serveralivecountmax }}
+      {% endif %}
       {% if item.stricthostkeychecking is defined %}
         StrictHostKeyChecking {{ item.stricthostkeychecking }}
       {% endif %}
