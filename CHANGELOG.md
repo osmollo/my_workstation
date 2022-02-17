@@ -2,6 +2,7 @@
 
 ## 6.3
 
+- Git hook para que cuando se actualice `roles/post_install/defaults/main.yml.gpg` se desencripte automáticamente
 - Instalación de [lsd](https://github.com/Peltoche/lsd)
 - Nuevos plugins **Neovim**
 - Instalación de [PyCharm](https://www.jetbrains.com/es-es/pycharm/) en **Ubuntu** usando __snap__
