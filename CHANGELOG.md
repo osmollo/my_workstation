@@ -12,6 +12,7 @@
   - Nuevo alias de bash
   - Quitando extensión al fichero `~/.vault_pass.txt`
   - Nuevos repositorios git
+  - Renombrado remote de prezto
 
 ## 6.2.2
 
