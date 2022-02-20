@@ -108,6 +108,7 @@
   tags:
     - extra_software
     - sublimetext
+    - sublime_text
     - editors
     - sublime
 
@@ -117,6 +118,7 @@
   tags:
     - extra_software
     - sublimemerge
+    - sublime_merge
     - sublime
 
 - name: "Install Atom"
