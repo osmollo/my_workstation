@@ -10,22 +10,6 @@
   tags:
     - etc_hosts
 
-- name: "[ENVIRONMENT] Configure /etc/profile"
-  become: true
-  become_method: sudo
-  block:
-    - name: "[ENVIRONMENT] edit /etc/profile [not KDE]"
-      lineinfile:
-        path: /etc/profile
-        line: 'export VAULT_TOKEN=$(secret-tool lookup vault_sistemas TOKEN)'
-      when: desktop_environment != 'kde'
-
-    - name: "[ENVIRONMENT] edit /etc/profile [KDE]"
-      lineinfile:
-        path: /etc/profile
-        line: 'export VAULT_TOKEN=$(kwalletcli -f Passwords -e TOKEN)'
-      when: desktop_environment == 'kde'
-
 - name: "[ENVIRONMENT] Delete default files"
   become: true
   become_method: sudo
@@ -41,22 +25,8 @@
     - "{{ ansible_user_dir }}/.vault_pass*"
     - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
     - "{{ ansible_user_dir }}/.zhistory"
-
-- name: "[ENVIRONMENT] check if {{ dropbox_dir }}/backups/zsh/zhistory.{{ ansible_hostname }} exists"
-  stat:
-    path: "{{ dropbox_dir }}/backups/zsh/zhistory.{{ ansible_hostname }}"
-  register: stat_response
-
-- name: "[ENVIRONMENT] restore .zhistory.{{ ansible_hostname }}"
-  copy:
-    src: "{{ dropbox_dir }}/backups/zsh/zhistory.{{ ansible_hostname }}"
-    dest: "{{ ansible_user_dir }}/.zhistory"
-    remote_src: true
-    mode: 0600
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-  when: stat_response.stat.exists
-
+    - "{{ ansible_user_dir }}/.zsh_history"
+    
 - name: "[ENVIRONMENT] create .ssh directories"
   file:
     path: "{{ ansible_user_dir }}/{{ item }}"
@@ -100,6 +70,8 @@
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
   loop: "{{ ssh_keys }}"
+  loop_control:
+    label: "{{ item.path }}"
   no_log: true
   tags:
     - ssh_keys

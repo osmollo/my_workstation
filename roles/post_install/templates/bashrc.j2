@@ -13,8 +13,10 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=50000
-HISTFILESIZE=20000
+export HISTFILE=~/Dropbox/backups/bash/bash_history
+export HISTSIZE=50000
+export HISTFILESIZE=20000
+export HISTTIMEFORMAT="%d/%m - %H:%M:%S "
 
 # Configuring color prompt
 function color_my_prompt {

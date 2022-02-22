@@ -13,6 +13,8 @@
   - Quitando extensión al fichero `~/.vault_pass.txt`
   - Nuevos repositorios git
   - Renombrado remote de prezto
+  - Reubicación de la configuración del historial de bash
+  - Sincronización de `.zhistory` vía **Dropbox**
 
 ## 6.2.2
 
