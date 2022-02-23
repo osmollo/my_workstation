@@ -100,32 +100,32 @@
     - common
     - extra_software
   post_tasks:
-    - become: false
-      block:
-        - name: "check that git hooks exist"
-          stat:
-            path: "{{ playbook_dir }}/.git/hooks/post_merge"
-          register: stat_response
+    # - become: false
+    #   block:
+    #     - name: "check that git hooks exist"
+    #       stat:
+    #         path: "{{ playbook_dir }}/.git/hooks/post_merge"
+    #       register: stat_response
 
 
-        - name: "copy git hook scripts"
-          template:
-            src: roles/post_install/templates/post-merge.j2
-            dest: "{{ playbook_dir }}/.git/hooks/post-merge"
-            owner: "{{ ansible_user }}"
-            group: "{{ ansible_user }}"
-            mode: 0755
-          when: not stat_response.stat.exists
+    #     - name: "copy git hook scripts"
+    #       template:
+    #         src: roles/post_install/templates/post-merge.j2
+    #         dest: "{{ playbook_dir }}/.git/hooks/post-merge"
+    #         owner: "{{ ansible_user }}"
+    #         group: "{{ ansible_user }}"
+    #         mode: 0755
+    #       when: not stat_response.stat.exists
 
-        - name: "creating link for hook 'post-rewrite'"
-          file:
-            src: "{{ playbook_dir }}/.git/hooks/post-merge"
-            dest: "{{ playbook_dir }}/.git/hooks/post-rewrite"
-            state: link
-          when: not stat_response.stat.exists
-      tags:
-        - git_hooks
-        - always
+    #     - name: "creating link for hook 'post-rewrite'"
+    #       file:
+    #         src: "{{ playbook_dir }}/.git/hooks/post-merge"
+    #         dest: "{{ playbook_dir }}/.git/hooks/post-rewrite"
+    #         state: link
+    #       when: not stat_response.stat.exists
+    #   tags:
+    #     - git_hooks
+    #     - always
 
     - become: false
       block:
