@@ -28,6 +28,7 @@
 | **chrome** | Instala `Google Chrome` |
 | **chromium** | Instala `Chromium` |
 | **copyq** | Instala `CopyQ` |
+| **curlie** | Instala `curlie` |
 | **deluge** | Instala `Deluge` |
 | **docker** | Instala `Docker Community Edition` |
 | **dropbox** | Instala `Dropbox` |
@@ -37,6 +38,7 @@
 | **franz** | Instala `Franz` |
 | **fzf** | Instala `FZF` |
 | **google_fonts** | Instala las fuentes tipográficas de Google |
+| **gping** | Instala `gping` |
 | **gitkraken** | Instala `Gitkraken` |
 | **go** | Instala `GO` |
 | **hiri** | Instala `Hiri` |
@@ -46,6 +48,7 @@
 | **keepass** | Instala `KeepassXD` |
 | **kodi** | Instala `Kodi` |
 | **lexnet** | Instala `Lexnet` |
+| **lsd** | Instala `lsd` |
 | **mailspring** | Instala `Mailspring` |
 | **mame** | Instala `MAME` |
 | **megacmd** | Instala `MEGAcmd` |

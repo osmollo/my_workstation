@@ -92,3 +92,4 @@ install_neovim: true
 install_cloudfare: true
 install_lsd: true
 install_gping: true
+install_curlie: true

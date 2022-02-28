@@ -48,6 +48,7 @@ Por defecto se instala el siguiente software:
 | [Cloudfare](https://1.1.1.1) | cloudfare | install_cloudfare | | Navegación segura |
 | [Consul](https://learn.hashicorp.com/tutorials/consul/install-cli) | consul | install_consul | | Service discovery |
 | [CopyQ](https://hluk.github.io/CopyQ/) | copyq | install_copyq | | Gestor de portapapeles |
+| [curlie](https://github.com/rs/curlie) | curlie | install_curlie | | Curl vitaminado |
 | [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | | Cliente de Torrent |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | | Gestión de contenedores Docker |
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | | Cliente de almacenamiento en la nube |

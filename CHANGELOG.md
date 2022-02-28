@@ -2,6 +2,7 @@
 
 ## 6.3
 
+- Instalación de [curlie](https://github.com/rs/curlie)
 - Instalación de [gping](https://github.com/orf/gping)
 - Instalación de [lsd](https://github.com/Peltoche/lsd)
 - Nuevos plugins **Neovim**
