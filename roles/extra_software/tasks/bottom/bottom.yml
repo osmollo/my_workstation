@@ -1,0 +1,27 @@
+---
+
+- name: "[BOTTOM] Get latest version of bottom"
+  uri:
+    url: "{{ bottom_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: bottom_latest
+  when: linux_distribution in ["debian", "ubuntu", "fedora"]
+
+- name: "[BOTTOM] Install bottom {{ bottom_version }}"
+  vars:
+    bottom_version: "{{ bottom_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    bottom_deb_package: "https://github.com/ClementTsang/bottom/releases/download/{{  bottom_version }}/bottom_{{  bottom_version }}_amd64.deb"
+  when: linux_distribution in ["debian", "ubuntu"]
+
+- name: "[BOTTOM] install for {{ linux_distribution }}"
+  include_tasks: "bottom_{{ linux_distribution }}.yml"
+
+- name: "[BOTTOM] create alias"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.bash_aliases"
+    line: "alias top='btm'"
+    state: present
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"

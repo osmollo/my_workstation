@@ -6,6 +6,7 @@
     follow_redirects: safe
     body_format: raw
   register: curlie_latest
+  when: linux_distribution in ["debian", "ubuntu", "fedora"]
 
 - name: "[CURLIE] Install curlie {{ curlie_version }}"
   vars:
@@ -13,7 +14,7 @@
   set_fact:
     curlie_deb_package: "https://github.com/rs/curlie/releases/download/{{  curlie_version }}/curlie_{{ curlie_version[1:] }}_linux_amd64.deb"
     curlie_rpm_package: "https://github.com/rs/curlie/releases/download/{{  curlie_version }}/curlie_{{ curlie_version[1:] }}_linux_amd64.rpm"
-  when: linux_distribution in ["debian", "ubuntu"]
+  when: linux_distribution in ["debian", "ubuntu", "fedora"]
 
 - name: "[CURLIE] install for {{ linux_distribution }}"
   include_tasks: "curlie_{{ linux_distribution }}.yml"

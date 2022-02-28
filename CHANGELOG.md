@@ -2,6 +2,7 @@
 
 ## 6.3
 
+- Instalación de [bottom](https://github.com/ClementTsang/bottom)
 - Instalación de [ripgrep](https://github.com/BurntSushi/ripgrep)
 - Instalación de [duf](https://github.com/muesli/duf)
 - Instalación de [bat](https://github.com/sharkdp/bat)

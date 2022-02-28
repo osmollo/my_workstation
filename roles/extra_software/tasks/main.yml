@@ -668,6 +668,15 @@
     - vitaminar
     - vitaminado
 
+- name: "Install bottom"
+  import_tasks: bottom/bottom.yml
+  when: install_bottom
+  tags:
+    - extra_software
+    - bottom
+    - vitaminar
+    - vitaminado
+
 - name: "Install Typography Fonts"
   import_tasks: fonts/fonts.yml
   when: install_fonts

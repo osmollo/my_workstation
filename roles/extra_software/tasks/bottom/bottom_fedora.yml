@@ -1,0 +1,10 @@
+---
+
+- name: "[GPING] [FEDORA] enable bottom repo"
+  command: dnf copr enable atim/bottom -y
+
+- name: "[BOTTOM] [RPM] Install bottom"
+  yum:
+    name: bottom
+    state: present
+    update_cache: true

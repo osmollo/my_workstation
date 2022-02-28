@@ -1,0 +1,7 @@
+---
+
+- name: "[BOTTOM] [ARCH] Install bottom"
+  pacman:
+    name: bottom
+    state: present
+    update_cache: true

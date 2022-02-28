@@ -6,6 +6,7 @@
     follow_redirects: safe
     body_format: raw
   register: duf_latest
+  when: linux_distribution in ["debian", "ubuntu", "fedora"]
 
 - name: "[DUF] Install duf {{ duf_version }}"
   vars:
@@ -13,7 +14,7 @@
   set_fact:
     duf_deb_package: "https://github.com/muesli/duf/releases/download/{{  duf_version }}/duf_{{ duf_version[1:] }}_linux_amd64.deb"
     duf_rpm_package: "https://github.com/muesli/duf/releases/download/{{  duf_version }}/duf_{{ duf_version[1:] }}_linux_amd64.rpm"
-  when: linux_distribution in ["debian", "ubuntu"]
+  when: linux_distribution in ["debian", "ubuntu", "fedora"]
 
 - name: "[DUF] install for {{ linux_distribution }}"
   include_tasks: "duf_{{ linux_distribution }}.yml"
