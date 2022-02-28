@@ -1,0 +1,7 @@
+---
+
+- name: "[RIPGREP] [RPM] Install ripgrep"
+  yum:
+    name: ripgrep
+    state: present
+    update_cache: true

@@ -620,6 +620,8 @@
   tags:
     - extra_software
     - lsd
+    - vitaminar
+    - vitaminado
 
 - name: "Install gping"
   import_tasks: gping/gping.yml
@@ -627,6 +629,8 @@
   tags:
     - extra_software
     - gping
+    - vitaminar
+    - vitaminado
 
 - name: "Install curlie"
   import_tasks: curlie/curlie.yml
@@ -634,6 +638,8 @@
   tags:
     - extra_software
     - curlie
+    - vitaminar
+    - vitaminado
 
 - name: "Install bat"
   import_tasks: bat/bat.yml
@@ -641,6 +647,8 @@
   tags:
     - extra_software
     - bat
+    - vitaminar
+    - vitaminado
 
 - name: "Install duf"
   import_tasks: duf/duf.yml
@@ -648,6 +656,17 @@
   tags:
     - extra_software
     - duf
+    - vitaminar
+    - vitaminado
+
+- name: "Install ripgrep"
+  import_tasks: ripgrep/ripgrep.yml
+  when: install_ripgrep
+  tags:
+    - extra_software
+    - ripgrep
+    - vitaminar
+    - vitaminado
 
 - name: "Install Typography Fonts"
   import_tasks: fonts/fonts.yml

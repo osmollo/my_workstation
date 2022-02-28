@@ -1,0 +1,7 @@
+---
+
+- name: "[RIPGREP] [DEB] Install ripgrep"
+  apt:
+    name: ripgrep
+    state: present
+    update_cache: true

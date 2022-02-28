@@ -95,3 +95,4 @@ install_gping: true
 install_curlie: true
 install_bat: true
 install_duf: true
+install_ripgrep: true
