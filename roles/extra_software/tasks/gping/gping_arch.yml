@@ -1,0 +1,7 @@
+---
+
+- name: "[GPING] [ARCH] Install gping"
+  pacman:
+    name: gping
+    state: present
+    update_cache: true

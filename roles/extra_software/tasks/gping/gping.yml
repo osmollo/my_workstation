@@ -1,0 +1,4 @@
+---
+
+- name: "[GPING] install for {{ linux_distribution }}"
+  include_tasks: "gping_{{ linux_distribution }}.yml"
