@@ -2,11 +2,12 @@
 
 ## 6.3
 
+- Instalación de [bat](https://github.com/sharkdp/bat)
 - Instalación de [curlie](https://github.com/rs/curlie)
 - Instalación de [gping](https://github.com/orf/gping)
 - Instalación de [lsd](https://github.com/Peltoche/lsd)
 - Nuevos plugins **Neovim**
-- Instalación de [PyCharm](https://www.jetbrains.com/es-es/pycharm/) en **Ubuntu** usando __snap__
+- Instalación de [PyCharm](https://www.jetbrains.com/es-es/pycharm/) en **Ubuntu** usando _snap_
 - Post_install:
   - El `ssh_config` se genera con `blockinfile` en vez de con `template` para no sobreescribir las entradas que ya existan de otros repositorios
   - Borrado de entradas de `~/.ssh/config`

@@ -37,6 +37,7 @@ Por defecto se instala el siguiente software:
 | [Atom](https://atom.io/) | atom | install_atom | editors | Editor de texto |
 | [Authy](https://authy.com/) | authy | install_authy | | Aplicación para 2FA |
 | [Balena Etcher](https://www.balena.io/etcher/) | etcher | install_etcher | | Aplicación para quemar imágenes iso en usb |
+| [Bat](https://github.com/sharkdp/bat) | bat | install_bat | | cat vitaminado |
 | [Beekeeper Studio](https://www.beekeeperstudio.io/) | beekeeer | install_beekeeper | | Cliente gráfico para BBDD |
 | [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner) | bfg | install_bfg | | Herramienta para trabajar con el histórico de git |
 | [Bitwarden](https://bitwarden.com/) | bitwarden | install_bitwarden | pass_managers | Gestor de contraseñas |

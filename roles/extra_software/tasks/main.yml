@@ -635,6 +635,13 @@
     - extra_software
     - curlie
 
+- name: "Install bat"
+  import_tasks: bat/bat.yml
+  when: install_bat
+  tags:
+    - extra_software
+    - bat
+
 - name: "Install Typography Fonts"
   import_tasks: fonts/fonts.yml
   when: install_fonts

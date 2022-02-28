@@ -1,0 +1,7 @@
+---
+
+- name: "[BAT] [RPM] Install bat"
+  yum:
+    name: bat
+    state: present
+    update_cache: true
