@@ -1,0 +1,7 @@
+---
+
+- name: "[DUF] [ARCH] Install duf"
+  pacman:
+    name: duf
+    state: present
+    update_cache: true

@@ -53,6 +53,7 @@ Por defecto se instala el siguiente software:
 | [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | | Cliente de Torrent |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | | Gestión de contenedores Docker |
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | | Cliente de almacenamiento en la nube |
+| [Duf](https://github.com/muesli/duf) | duf | install_duf | | du vitaminado |
 | [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | ecs | install_ecs | | |
 | [Ferdi](https://getferdi.com/) | ferdi | install_ferdi | | Administrador ded clientes de mensajería |
 | [Franz](https://meetfranz.com/) | franz | install_franz | | Administrador de clientes de mensajería |

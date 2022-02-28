@@ -94,6 +94,7 @@ install_lsd: true
 install_gping: true
 install_curlie: true
 install_bat: true
+install_duf: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -122,6 +123,7 @@ station_latest_url: "https://github.com/getstation/desktop-app/releases/latest"
 lsd_latest_url: "https://github.com/Peltoche/lsd/releases/latest"
 curlie_latest_url: "https://github.com/rs/curlie/releases/latest"
 bat_latest_url: "https://github.com/sharkdp/bat/releases/latest"
+duf_latest_url: "https://github.com/muesli/duf/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/osmollo/oh-my-zsh/raw/master/tools/install.sh"
 
