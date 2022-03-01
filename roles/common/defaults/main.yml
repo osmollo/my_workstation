@@ -16,29 +16,16 @@ common_packages:
 
 python_modules:
   - pre-commit
-  - mega.py
   - pylint
   - flake8
   - pep8
-  - numerizer
-  - faker
   - requests
   - netaddr
-  - telepot
-  - matplotlib
-  - numpy
-  - beautifulsoup4
-  - bs4
-  - openstacksdk
-  - molecule
   - dnspython
   - docker-py
   - virtualenvwrapper
-  - hcloud
   - gitpython
   - jmespath
-  - peewee
-  - packaging
   - pylint
   - flake8
   - pycodestyle

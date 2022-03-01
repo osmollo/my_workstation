@@ -8,9 +8,8 @@ distro_packages:
   - net-tools
   - python-libevdev
   - bridge-utils
-  - secure-delete
   - nss
-  - otf-fira-code
+  - ttf-fira-code
   - ansible-lint
 
 gnome_arch_packages:

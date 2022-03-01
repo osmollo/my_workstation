@@ -32,8 +32,8 @@ deluge_package: deluge-git
 windscribe_package: windscribe-cli
 apachedirectory_package: apachedirectorystudio
 java_package: java-openjdk-bin
-docker_package: docker-bin
-dockercompose_package: docker-compose-bin
+docker_package: docker
+dockercompose_package: docker-compose
 megacmd_package: megacmd-bin
 megasync_package: megasync
 vivaldi_package: vivaldi
@@ -57,6 +57,7 @@ mailspring_package: mailspring
 trivy_package: trivy-bin
 ferdi_package: ferdi-bin
 neovim_package: neovim
+1password_package: 1password
 
 protonvpn_dependencies:
   - openvpn
