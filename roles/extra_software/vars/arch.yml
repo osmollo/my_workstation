@@ -48,8 +48,7 @@ dive_package: dive
 podman_package: podman
 podmancompose_package: podman-compose
 terraform_package:
-vault_package: vault-bin
-vault_cli_package: vault-cli-bin
+vault_package: vault-cli
 consul_package: consul-bin
 nomad_package: nomad-bin
 zoom_package: zoom
@@ -57,7 +56,8 @@ mailspring_package: mailspring
 trivy_package: trivy-bin
 ferdi_package: ferdi-bin
 neovim_package: neovim
-1password_package: 1password
+op_package: 1password
+kubectl_package: kubectl-bin
 
 protonvpn_dependencies:
   - openvpn
@@ -69,4 +69,3 @@ file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }
 
 wireguard_packages:
   - wireguard-tools
-  - wireguard-arch

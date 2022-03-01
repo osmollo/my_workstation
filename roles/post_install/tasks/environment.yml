@@ -17,15 +17,28 @@
     path: "{{ item }}"
     state: absent
   loop:
+    - "{{ ssh_dir }}"
     - "{{ ansible_user_dir }}/.bashrc"
     - "{{ ansible_user_dir }}/.bash_history"
     - "{{ ansible_user_dir }}/.bash_aliases"
-    - "{{ ansible_user_dir }}/.zshrc"
-    - "{{ ssh_dir }}"
     - "{{ ansible_user_dir }}/.vault_pass*"
     - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
     - "{{ ansible_user_dir }}/.zhistory"
     - "{{ ansible_user_dir }}/.zsh_history"
+
+- name: "[ENVIRONMENT] configure HISTFILE"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.{{ ansible_user_shell | basename }}rc"
+    line: "{{ item }}"
+  loop:
+    - "HISTFILE={{ dropbox_dir }}/backups/{{ ansible_user_shell | basename }}/{{ ansible_user_shell | basename }}_history"
+    - HISTSIZE=50000
+    - SAVEHIST=50000
+    - setopt HIST_FIND_NO_DUPS
+    - setopt INC_APPEND_HISTORY
+    - setopt EXTENDED_HISTORY
+    - source $HOME/.bash_aliases
+  when: "'zsh' == ansible_user_shell | basename"
 
 - name: "[ENVIRONMENT] create .ssh directories"
   file:
@@ -103,6 +116,9 @@
       {% if item.identity_file is defined %}
         IdentityFile {{ item.identity_file }}
       {% endif %}
+      {% if item.pubkeyacceptedkeytypes is defined %}
+        PubkeyAcceptedKeyTypes {{ item.pubkeyacceptedkeytypes }}
+      {% endif %}
     state: present
     marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
     create: true
@@ -135,7 +151,6 @@
 
 - name: "[ENVIRONMENT] configure prezto"
   import_tasks: prezto.yml
-  when: "'Manjaro' in ansible_lsb.description"
   tags:
     - prezto
     - post_prezto

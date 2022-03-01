@@ -10,3 +10,12 @@
   tags:
     - neovim_plugins
     - nvim_plugins
+
+- name: "[NEOVIM] create alias"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.bash_aliases"
+    line: "alias vim='nvim'"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    create: true
+

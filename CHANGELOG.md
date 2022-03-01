@@ -2,16 +2,18 @@
 
 ## 6.3
 
-- Instalación de [bottom](https://github.com/ClementTsang/bottom)
-- Instalación de [ripgrep](https://github.com/BurntSushi/ripgrep)
-- Instalación de [duf](https://github.com/muesli/duf)
-- Instalación de [bat](https://github.com/sharkdp/bat)
-- Instalación de [curlie](https://github.com/rs/curlie)
-- Instalación de [gping](https://github.com/orf/gping)
-- Instalación de [lsd](https://github.com/Peltoche/lsd)
+- Reemplazo de utilidades nativas por otras vitaminadas:
+  - Instalación de [bottom](https://github.com/ClementTsang/bottom)
+  - Instalación de [ripgrep](https://github.com/BurntSushi/ripgrep)
+  - Instalación de [duf](https://github.com/muesli/duf)
+  - Instalación de [bat](https://github.com/sharkdp/bat)
+  - Instalación de [curlie](https://github.com/rs/curlie)
+  - Instalación de [gping](https://github.com/orf/gping)
+  - Instalación de [lsd](https://github.com/Peltoche/lsd)
 - Nuevos plugins **Neovim**
 - Instalación de [PyCharm](https://www.jetbrains.com/es-es/pycharm/) en **Ubuntu** usando _snap_
 - Eliminación de personalización por usuario
+- Corrección de errores para distribuciones basadas en **Arch**
 - Post_install:
   - El `ssh_config` se genera con `blockinfile` en vez de con `template` para no sobreescribir las entradas que ya existan de otros repositorios
   - Borrado de entradas de `~/.ssh/config`
@@ -21,8 +23,6 @@
   - Renombrado remote de prezto
   - Reubicación de la configuración del historial de bash
   - Sincronización de `.zhistory` vía **Dropbox**
-  - Configurar _prezto_ salvo si se trata de **Manjaro**
-  - Fixes Arch based
 
 ## 6.2.2
 

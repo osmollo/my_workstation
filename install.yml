@@ -142,6 +142,7 @@
 
         - debug:
             msg: "Please, execute: './prepare_post.sh'"
+      when: ansible_user in ['ohermosa', 'osmollo', 'yosmollo']
       tags:
         - prepare_post
         - always

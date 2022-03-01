@@ -30,10 +30,10 @@ install_chromium: false
 install_deluge: false
 install_cherrytree: false
 install_k8s_tools: false
-install_kubectl: true
+install_kubectl: false
 install_minikube: false
-install_helm: true
-install_hetznerkube: true
+install_helm: false
+install_hetznerkube: false
 install_kops: false
 install_lens: false
 install_kind: false
@@ -60,10 +60,10 @@ install_authy: false
 install_yakyak: false
 install_hiri: false
 install_steam: false
-install_wireguard: true
+install_wireguard: false
 install_typora: true
 install_beekeeper: false
-intall_kdenlive: true
+intall_kdenlive: false
 install_sublimemerge: false
 install_bfg: true
 install_vscodium: false
@@ -72,8 +72,8 @@ install_kodi: false
 install_mame: false
 install_podman: false
 install_act: true
-install_hashicorp: true
-install_vault: true
+install_hashicorp: false
+install_vault: false
 install_terraform: false
 install_consul: false
 install_nomad: false
@@ -85,7 +85,7 @@ install_mailspring: false
 install_obs: false
 install_copyq: false
 install_fonts: true
-install_trivy: true
+install_trivy: false
 install_ferdi: false
 install_station: false
 install_neovim: true
