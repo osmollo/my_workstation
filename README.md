@@ -155,22 +155,10 @@ cd /tmp/repo/ansible
 ansible-playbook install.yml --ask-vault-pass
 ```
 
-Un usuario puede personalizar las aplicaciones que desea instalar creando el fichero `roles/extra_software/vars/${USER}.yml`, se pueden usar los valores por defecto para generarlo y luego personalizarlo a su gusto:
+No todas las aplicaciones se instalan por defecto, este comportamiento se encuentra definido en el fichero `./roles/extra_software/defaults/main.yml` donde hay una serie de variables `install_` que indican si la correspondiente aplicación se instala o no. Para modificar este comportamiento, puede editarse dicho fichero o cambiar el valor de la variable por `extravars`:
 
 ```bash
-grep "install_" roles/extra_software/defaults/main.yml > roles/extra_software/vars/${USER}.yml
-```
-
-Para instalar una aplicación que en este fichero se haya definido a `false`, es posible modificar el valor mediante `--extra-vars`:
-
-```bash
-ansible-playbook install.yml -t code -e install_vscode=true --ask-vault-pass
-```
-
-Igualmente, se pueden usar los tags específicos que cada usuario haya puesto en su role `post_install/$USER`
-
-```bash
-ansible-playbook install-yml -t env --ask-vault-pass
+ansible-playbook install.yml -t chromium -e install_chromium=true
 ```
 
 ### Post instalación
