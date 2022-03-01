@@ -11,6 +11,7 @@ distro_packages:
   - nss
   - ttf-fira-code
   - ansible-lint
+  - gcc
 
 gnome_arch_packages:
   - wireshark-cli

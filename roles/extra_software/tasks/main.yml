@@ -64,9 +64,7 @@
 
 - name: "Install 1Password"
   import_tasks: 1password/1password.yml
-  when:
-    - install_1password
-    - linux_distribution in ["debian", "ubuntu", "fedora"]
+  when: install_1password
   tags:
     - extra_software
     - 1password
