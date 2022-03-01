@@ -26,7 +26,7 @@
     - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
     - "{{ ansible_user_dir }}/.zhistory"
     - "{{ ansible_user_dir }}/.zsh_history"
-    
+
 - name: "[ENVIRONMENT] create .ssh directories"
   file:
     path: "{{ ansible_user_dir }}/{{ item }}"
@@ -135,6 +135,7 @@
 
 - name: "[ENVIRONMENT] configure prezto"
   import_tasks: prezto.yml
+  when: "'Manjaro' in ansible_lsb.description"
   tags:
     - prezto
     - post_prezto

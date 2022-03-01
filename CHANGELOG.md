@@ -20,6 +20,7 @@
   - Renombrado remote de prezto
   - Reubicación de la configuración del historial de bash
   - Sincronización de `.zhistory` vía **Dropbox**
+  - Configurar _prezto_ salvo si se trata de **Manjaro**
 
 ## 6.2.2
 
