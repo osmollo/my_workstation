@@ -13,6 +13,8 @@ distro_packages:
   - ansible-lint
   - gcc
   - screenfetch
+  - openvpn
+  - networkmanager-openvpn
 
 gnome_arch_packages:
   - wireshark-cli

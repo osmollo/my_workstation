@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.3.1
+
+- Instalación de paquetes de `openvpn` en **Arch**
+
 ## 6.3
 
 - Reemplazo de utilidades nativas por otras vitaminadas:
