@@ -15,7 +15,7 @@ call plug#begin(stdpath('data').'/plugged')
     " NERDCommenter
     Plug 'preservim/nerdcommenter'
 
-    " git blame"
+    " git blame
     Plug 'f-person/git-blame.nvim'
 
     " go support"
@@ -43,9 +43,13 @@ call plug#begin(stdpath('data').'/plugged')
     Plug 'mileszs/ack.vim'
     Plug 'ekalinin/dockerfile.vim'
     Plug 'thaerkh/vim-workspace'
-    Plug 'valloric/youcompleteme'
+    " Plug 'valloric/youcompleteme'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
     Plug 'hashivim/vim-terraform'
     Plug 'juliosueiras/vim-terraform-completion'
+    Plug 'sbdchd/neoformat'
 
 
 call plug#end()
+

@@ -1,0 +1,7 @@
+---
+
+- name: "[BAT] [DEB] Install bat"
+  apt:
+    name: bat
+    state: present
+    update_cache: true

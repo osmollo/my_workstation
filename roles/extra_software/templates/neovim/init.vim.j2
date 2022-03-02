@@ -8,6 +8,12 @@ let g:config_file_list = ['/nvim-plugins/plugins.vim',
     \ '/plug-config/git-blame.vim',
     \ ]
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
 for f in g:config_file_list
     execute 'source ' . g:nvim_config_root . f
 endfor
+
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+

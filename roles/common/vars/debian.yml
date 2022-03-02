@@ -21,6 +21,7 @@ distro_packages:
   - libnss3-tools
   - fonts-firacode
   - ansible-lint
+  - screenfetch
 
 gnome_debian_packages:
   - network-manager-openvpn-gnome

@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## 6.3
+
+- Reemplazo de utilidades nativas por otras vitaminadas:
+  - Instalación de [bottom](https://github.com/ClementTsang/bottom)
+  - Instalación de [ripgrep](https://github.com/BurntSushi/ripgrep)
+  - Instalación de [duf](https://github.com/muesli/duf)
+  - Instalación de [bat](https://github.com/sharkdp/bat)
+  - Instalación de [curlie](https://github.com/rs/curlie)
+  - Instalación de [gping](https://github.com/orf/gping)
+  - Instalación de [lsd](https://github.com/Peltoche/lsd)
+- Instalación de `screenfetch`
+- Nuevos plugins **Neovim**
+- Instalación de [PyCharm](https://www.jetbrains.com/es-es/pycharm/) en **Ubuntu** usando _snap_
+- Eliminación de personalización por usuario
+- Corrección de errores para distribuciones basadas en **Arch**
+- Post_install:
+  - El `ssh_config` se genera con `blockinfile` en vez de con `template` para no sobreescribir las entradas que ya existan de otros repositorios
+  - Borrado de entradas de `~/.ssh/config`
+  - Fix llaves rsa viejas para nuevas versiones de `openssh`
+  - Nuevo alias de bash
+  - Quitando extensión al fichero `~/.vault_pass.txt`
+  - Nuevos repositorios git
+  - Renombrado remote de prezto
+  - Reubicación de la configuración del historial de bash
+  - Sincronización de `.zhistory` vía **Dropbox**
+
 ## 6.2.2
 
 - Cambio de username en todos mis repositorios de github/gitlab

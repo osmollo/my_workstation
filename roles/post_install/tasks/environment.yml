@@ -10,22 +10,6 @@
   tags:
     - etc_hosts
 
-- name: "[ENVIRONMENT] Configure /etc/profile"
-  become: true
-  become_method: sudo
-  block:
-    - name: "[ENVIRONMENT] edit /etc/profile [not KDE]"
-      lineinfile:
-        path: /etc/profile
-        line: 'export VAULT_TOKEN=$(secret-tool lookup vault_sistemas TOKEN)'
-      when: desktop_environment != 'kde'
-
-    - name: "[ENVIRONMENT] edit /etc/profile [KDE]"
-      lineinfile:
-        path: /etc/profile
-        line: 'export VAULT_TOKEN=$(kwalletcli -f Passwords -e TOKEN)'
-      when: desktop_environment == 'kde'
-
 - name: "[ENVIRONMENT] Delete default files"
   become: true
   become_method: sudo
@@ -33,29 +17,28 @@
     path: "{{ item }}"
     state: absent
   loop:
+    - "{{ ssh_dir }}"
     - "{{ ansible_user_dir }}/.bashrc"
     - "{{ ansible_user_dir }}/.bash_history"
     - "{{ ansible_user_dir }}/.bash_aliases"
-    - "{{ ansible_user_dir }}/.zshrc"
-    - "{{ ssh_dir }}"
-    - "{{ ansible_user_dir }}/.vault_pass*txt"
+    - "{{ ansible_user_dir }}/.vault_pass*"
     - "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes"
     - "{{ ansible_user_dir }}/.zhistory"
+    - "{{ ansible_user_dir }}/.zsh_history"
 
-- name: "[ENVIRONMENT] check if {{ dropbox_dir }}/backups/zsh/zhistory.{{ ansible_hostname }} exists"
-  stat:
-    path: "{{ dropbox_dir }}/backups/zsh/zhistory.{{ ansible_hostname }}"
-  register: stat_response
-
-- name: "[ENVIRONMENT] restore .zhistory.{{ ansible_hostname }}"
-  copy:
-    src: "{{ dropbox_dir }}/backups/zsh/zhistory.{{ ansible_hostname }}"
-    dest: "{{ ansible_user_dir }}/.zhistory"
-    remote_src: true
-    mode: 0600
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-  when: stat_response.stat.exists
+- name: "[ENVIRONMENT] configure HISTFILE"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.{{ ansible_user_shell | basename }}rc"
+    line: "{{ item }}"
+  loop:
+    - "HISTFILE={{ dropbox_dir }}/backups/{{ ansible_user_shell | basename }}/{{ ansible_user_shell | basename }}_history"
+    - HISTSIZE=50000
+    - SAVEHIST=50000
+    - setopt HIST_FIND_NO_DUPS
+    - setopt INC_APPEND_HISTORY
+    - setopt EXTENDED_HISTORY
+    - source $HOME/.bash_aliases
+  when: "'zsh' == ansible_user_shell | basename"
 
 - name: "[ENVIRONMENT] create .ssh directories"
   file:
@@ -82,22 +65,15 @@
     - config_files
     - bash_aliases
 
-- name: "[ENVIRONMENT] create config files"
+- name: "[ENVIRONMENT] create .bashrc"
   template:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
+    src: "bashrc.j2"
+    dest: "{{ ansible_user_dir }}/.bashrc"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
-  loop:
-    - src: bashrc.j2
-      dest: "{{ ansible_user_dir }}/.bashrc"
-    - src: molecule-openrc.sh.j2
-      dest: "{{ ansible_user_dir }}/molecule-openshrc.sh"
-    - src: ssh_config.j2
-      dest: "{{ ssh_dir }}/config"
   tags:
     - config_files
-    - ssh_config
+    - bash_config
 
 - name: "[ENVIRONMENT] create ssh keys"
   copy:
@@ -107,9 +83,56 @@
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
   loop: "{{ ssh_keys }}"
+  loop_control:
+    label: "{{ item.path }}"
   no_log: true
   tags:
     - ssh_keys
+
+- name: "configure ssh entries"
+  blockinfile:
+    path: "{{ ansible_user_dir }}/.ssh/config"
+    block: |
+      Host {{ item.name }}
+        ForwardAgent yes
+      {% if item.serveraliveinternal is defined %}
+        ServerAliveInternal {{ item.serveraliveinternal }}
+      {% endif %}
+      {% if item.serveralivecountmax is defined %}
+        ServerAliveCountMax {{ item.serveralivecountmax }}
+      {% endif %}
+      {% if item.stricthostkeychecking is defined %}
+        StrictHostKeyChecking {{ item.stricthostkeychecking }}
+      {% endif %}
+      {% if item.forwardagent is defined %}
+        ForwardAgent {{ item.forwardagent }}
+      {% endif %}
+      {% if item.hostname is defined %}
+        Hostname {{ item.hostname }}
+      {% endif %}
+      {% if item.user is defined %}
+        User {{ item.user }}
+      {% endif %}
+      {% if item.identity_file is defined %}
+        IdentityFile {{ item.identity_file }}
+      {% endif %}
+      {% if item.pubkeyacceptedkeytypes is defined %}
+        PubkeyAcceptedKeyTypes {{ item.pubkeyacceptedkeytypes }}
+      {% endif %}
+      {% if item.hostkeyalgorithms is defined %}
+        HostKeyAlgorithms {{ item.hostkeyalgorithms }} 
+      {% endif %}
+    state: present
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
+    create: true
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  loop: "{{ ssh_config_entries }}"
+  loop_control:
+    label: "{{ item.name }}"
+  tags:
+    - ssh_config
+    - config_files
 
 - name: "[ENVIRONMENT] create vault_pass files"
   lineinfile:
@@ -118,15 +141,15 @@
     create: true
   no_log: true
   loop:
-    - name: .vault_pass_personal.txt
+    - name: .vault_pass_personal
       content: "{{ vault_personal_pass }}"
-    - name: .vault_pass_datio.txt
+    - name: .vault_pass_datio
       content: "{{ vault_datio_pass }}"
 
 - name: "[ENVIRONMENT] create link to vault_pass file"
   file:
-    src: "{{ ansible_user_dir }}/.vault_pass_personal.txt"
-    dest: "{{ ansible_user_dir }}/.vault_pass.txt"
+    src: "{{ ansible_user_dir }}/.vault_pass_personal"
+    dest: "{{ ansible_user_dir }}/.vault_pass"
     state: link
 
 - name: "[ENVIRONMENT] configure prezto"
@@ -149,3 +172,22 @@
         dest: "{{ item.dest }}"
         state: link
       loop: "{{ links_to_create }}"
+
+- block:
+    - name: "[ENVIRONMENT] check if '/etc/zsh/zshrc' exists"
+      stat:
+        path: /etc/zsh/zshrc
+      register: stat_response
+
+    - name: "[ENVIRONMENT] execute screenfetch"
+      become: true
+      vars:
+        files_to_update:
+          - "/etc/bash.bashrc"
+          - "{{ '/etc/zsh/zshrc' if  stat_response.stat.exists else '' }}"
+      lineinfile:
+        path: "{{ item }}"
+        line: screenfetch
+      loop: "{{ files_to_update | reject('equalto', '') | list }}"
+  tags:
+    - screenfetch

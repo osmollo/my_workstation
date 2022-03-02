@@ -2,7 +2,7 @@
 
 aur_url: https://aur.archlinux.org
 
-atom_package: atom-editor-bin
+atom_package: atom-editor-git
 dropbox_package: dropbox
 chrome_package: google-chrome
 code_package: visual-studio-code-bin
@@ -25,16 +25,16 @@ yay_package: yay-bin
 vagrant_package: vagrant-git
 nomachine_package: nomachine
 gitkraken_package: gitkraken
-sublimetext_package: sublime-text-nightly
+sublimetext_package: sublime-text-4
 sublimemerge_package: sublime-merge
 franz_package: franz-bin
 deluge_package: deluge-git
 windscribe_package: windscribe-cli
 apachedirectory_package: apachedirectorystudio
 java_package: java-openjdk-bin
-docker_package: docker-bin
-dockercompose_package: docker-compose-bin
-megacmd_package: megacmd-bin
+docker_package: docker
+dockercompose_package: docker-compose
+megacmd_package: megacmd
 megasync_package: megasync
 vivaldi_package: vivaldi
 brave_package: brave-bin
@@ -48,8 +48,7 @@ dive_package: dive
 podman_package: podman
 podmancompose_package: podman-compose
 terraform_package:
-vault_package: vault-bin
-vault_cli_package: vault-cli-bin
+vault_package: vault-cli
 consul_package: consul-bin
 nomad_package: nomad-bin
 zoom_package: zoom
@@ -57,6 +56,8 @@ mailspring_package: mailspring
 trivy_package: trivy-bin
 ferdi_package: ferdi-bin
 neovim_package: neovim
+op_package: 1password
+kubectl_package: kubectl-bin
 
 protonvpn_dependencies:
   - openvpn
@@ -68,4 +69,3 @@ file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }
 
 wireguard_packages:
   - wireguard-tools
-  - wireguard-arch

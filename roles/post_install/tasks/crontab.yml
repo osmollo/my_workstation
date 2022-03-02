@@ -7,11 +7,8 @@
     minute: "{{ item.minute }}"
     hour: "{{ item.hour | default('*') }}"
   loop:
-    - name: "zhistory_to_dropbox"
-      job: "cat {{ ansible_user_dir }}/.zhistory > {{ dropbox_dir }}/backups/zsh/zhistory.{{ ansible_hostname }}"
-      minute: "*/30"
-    - name: "bbva_to_gitlab"
-      job: "{{ dropbox_dir }}/bin/datio/bbva_to_gitlab.py"
+    - name: "bbva_to_github"
+      job: "{{ dropbox_dir }}/bin/datio/bbva_to_github.py"
       minute: "00"
       hour: "7,18"
 

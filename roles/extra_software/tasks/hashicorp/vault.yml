@@ -8,12 +8,9 @@
 - name: "[VAULT] [ARCH] Install vault"
   become: false
   yay:
-    name: "{{ item }}"
+    name: "{{ vault_package }}"
     state: present
     update_cache: true
-  loop:
-    - "{{ vault_package }}"
-    - "{{ vault_cli_package }}"
   when: linux_distribution == "arch"
 
 - name: "[VAULT] [DEB] install vault package"

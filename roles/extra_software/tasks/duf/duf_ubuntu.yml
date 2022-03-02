@@ -1,0 +1,6 @@
+---
+
+- name: "[DUF] [DEB] Install duf"
+  apt:
+    deb: "{{ duf_deb_package }}"
+    state: present

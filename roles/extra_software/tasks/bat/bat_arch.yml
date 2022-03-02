@@ -1,0 +1,7 @@
+---
+
+- name: "[BAT] [ARCH] Install bat"
+  pacman:
+    name: bat
+    state: present
+    update_cache: true

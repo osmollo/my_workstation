@@ -1,0 +1,6 @@
+---
+
+- name: "[CURLIE] [DEB] Install curlie"
+  apt:
+    deb: "{{ curlie_deb_package }}"
+    state: present

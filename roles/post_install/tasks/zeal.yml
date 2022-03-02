@@ -1,3 +1,11 @@
+- name: "[ZEAL] install zeal for arch"
+  become: true
+  yay:
+    name: zeal
+    state: present
+    update_cache: true
+  when: linux_distribution == 'arch'
+
 - name: "[ZEAL] download docset"
   include_role:
     name: tools/download_docset

@@ -1,0 +1,7 @@
+---
+
+- name: "[BOTTOM] [DEB] Install bottom"
+  apt:
+    deb: "{{ bottom_deb_package }}"
+    state: present
+    update_cache: true

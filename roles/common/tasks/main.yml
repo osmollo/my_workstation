@@ -94,17 +94,6 @@
     - common
     - yay
 
-- name: "Configure size of bash history"
-  lineinfile:
-    path: /etc/profile
-    line: "{{ item }}"
-  loop:
-    - 'export HISTTIMEFORMAT="%d/%m - %H:%M:%S "'
-    - 'export HISTSIZE=50000'
-  tags:
-    - common
-    - bash_history_size
-
 - name: "Configure $HOME directories"
   import_tasks: home.yml
   tags:

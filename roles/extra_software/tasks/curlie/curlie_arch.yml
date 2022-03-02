@@ -1,0 +1,7 @@
+---
+
+- name: "[CURLIE] [ARCH] Install curlie"
+  pacman:
+    name: curlie
+    state: present
+    update_cache: true

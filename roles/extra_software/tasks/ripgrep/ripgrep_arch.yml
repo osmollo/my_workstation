@@ -1,0 +1,7 @@
+---
+
+- name: "[RIPGREP] [ARCH] Install ripgrep"
+  pacman:
+    name: ripgrep
+    state: present
+    update_cache: true

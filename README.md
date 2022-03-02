@@ -37,10 +37,12 @@ Por defecto se instala el siguiente software:
 | [Atom](https://atom.io/) | atom | install_atom | editors | Editor de texto |
 | [Authy](https://authy.com/) | authy | install_authy | | Aplicación para 2FA |
 | [Balena Etcher](https://www.balena.io/etcher/) | etcher | install_etcher | | Aplicación para quemar imágenes iso en usb |
+| [Bat](https://github.com/sharkdp/bat) | bat | install_bat | | cat vitaminado |
 | [Beekeeper Studio](https://www.beekeeperstudio.io/) | beekeeer | install_beekeeper | | Cliente gráfico para BBDD |
 | [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner) | bfg | install_bfg | | Herramienta para trabajar con el histórico de git |
 | [Bitwarden](https://bitwarden.com/) | bitwarden | install_bitwarden | pass_managers | Gestor de contraseñas |
 | [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | brave | install_brave | browsers | Navegador web |
+| [Bottom](https://github.com/ClementTsang/bottom) | bottom | install_bottom | | top vitaminado |
 | [Bucklespring](https://github.com/zevv/bucklespring) | bucklespring | install_bucklespring | | Herramienta para simular el ruido de un teclado mecánico |
 | [Buttercup](https://buttercup.pw/) | buttercup | install_buttercup | pass_managers | Gestor de contraseñas |
 | [Cherrytree](https://www.giuspen.com/cherrytree/) | cherrytree | install_cherrytree | editors | Editor de textos |
@@ -48,9 +50,11 @@ Por defecto se instala el siguiente software:
 | [Cloudfare](https://1.1.1.1) | cloudfare | install_cloudfare | | Navegación segura |
 | [Consul](https://learn.hashicorp.com/tutorials/consul/install-cli) | consul | install_consul | | Service discovery |
 | [CopyQ](https://hluk.github.io/CopyQ/) | copyq | install_copyq | | Gestor de portapapeles |
+| [curlie](https://github.com/rs/curlie) | curlie | install_curlie | | Curl vitaminado |
 | [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | | Cliente de Torrent |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | | Gestión de contenedores Docker |
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | | Cliente de almacenamiento en la nube |
+| [Duf](https://github.com/muesli/duf) | duf | install_duf | | du vitaminado |
 | [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | ecs | install_ecs | | |
 | [Ferdi](https://getferdi.com/) | ferdi | install_ferdi | | Administrador ded clientes de mensajería |
 | [Franz](https://meetfranz.com/) | franz | install_franz | | Administrador de clientes de mensajería |
@@ -60,6 +64,7 @@ Por defecto se instala el siguiente software:
 | [GO](https://golang.org/doc/install/source) | go | install_go | | Compilador del lenguaje GO |
 | [Google Chrome](https://www.google.com/intl/es/chrome/) | chrome | install_chrome | browsers | Navegador web |
 | [Google Fonts](https://fonts.google.com/) | google_fonts | install_fonts | | Fuentes tipográficas de Google |
+| [Gping](https://github.com/orf/gping) | gping | install_gping | | ping vitaminado |
 | [Hashicorp stask](https://www.hashicorp.com/) | hashicorp | install_hashicorp | | Stack de aplicaciones de **Hashicorp**: **Vault**, **Terraform**, **Consul** y **Nomad** |
 | [Hiri](https://www.hiri.com/) | hiri | install_hiri | | Cliente de correo |
 | [Java](https://openjdk.java.net/) | java | install_java | | Lenguaje Java |
@@ -68,6 +73,7 @@ Por defecto se instala el siguiente software:
 | [KeepassXC](https://keepassxc.org/download/) | keepass | install_keepass | pass_managers | Gestor de contraseñas |
 | [Kodi](https://kodi.tv/) | kodi | install_kodi | | Media center |
 | [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | | Firefox 50.1 + Java para acceder a Lexnet (sólo para abogados) |
+| [LSD](https://github.com/Peltoche/lsd) | lsd | install_lsd | | binario para listar directorios |
 | [Mailspring](https://getmailspring.com/) | mailspring | install_mailspring | | Cliente de correo electrónico |
 | [MAME](https://www.mamedev.org/) | mame | install_mame | | Emulador de juegos de recreativas |
 | [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | mega | Cliente de almacenamiento en la nube de Mega |
@@ -84,6 +90,7 @@ Por defecto se instala el siguiente software:
 | [ProtonVPN](https://protonvpn.com/) | protonvpn | install_protonvpn | | Cliente de VPN |
 | [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | pycharm | install_pycharm | editors | IDE para Python |
 | [Rambox](https://rambox.pro/#home) | rambox | install_rambox | | Gestor de clientes de mensajería |
+| [ripgrep](https://github.com/BurntSushi/ripgrep) | ripgrep | install_ripgrep | | grep vitaminado |
 | [Secrethub](https://secrethub.io) | secrethub | install_secrethub | | Gestor de secretos |
 | [Skype](https://www.skype.com/es/) | skype | install_skype | socials | Cliente de mensajería de Skype |
 | [Slack](https://slack.com/intl/es-es/) | slack | install_slack | socials | Cliente de mensajería para entornos de trabajo |
@@ -148,22 +155,10 @@ cd /tmp/repo/ansible
 ansible-playbook install.yml --ask-vault-pass
 ```
 
-Un usuario puede personalizar las aplicaciones que desea instalar creando el fichero `roles/extra_software/vars/${USER}.yml`, se pueden usar los valores por defecto para generarlo y luego personalizarlo a su gusto:
+No todas las aplicaciones se instalan por defecto, este comportamiento se encuentra definido en el fichero `./roles/extra_software/defaults/main.yml` donde hay una serie de variables `install_` que indican si la correspondiente aplicación se instala o no. Para modificar este comportamiento, puede editarse dicho fichero o cambiar el valor de la variable por `extravars`:
 
 ```bash
-grep "install_" roles/extra_software/defaults/main.yml > roles/extra_software/vars/${USER}.yml
-```
-
-Para instalar una aplicación que en este fichero se haya definido a `false`, es posible modificar el valor mediante `--extra-vars`:
-
-```bash
-ansible-playbook install.yml -t code -e install_vscode=true --ask-vault-pass
-```
-
-Igualmente, se pueden usar los tags específicos que cada usuario haya puesto en su role `post_install/$USER`
-
-```bash
-ansible-playbook install-yml -t env --ask-vault-pass
+ansible-playbook install.yml -t chromium -e install_chromium=true
 ```
 
 ### Post instalación

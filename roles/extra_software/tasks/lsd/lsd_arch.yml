@@ -1,0 +1,7 @@
+---
+
+- name: "[LSD] [ARCH] Install lsd"
+  pacman:
+    name: lsd
+    state: present
+    update_cache: true

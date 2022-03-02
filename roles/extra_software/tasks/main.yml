@@ -1,20 +1,9 @@
 ---
 
-- name: "include vars file"
-  block:
-    - name: "include vars file based on linux distribution"
-      include_vars:
-        file: "{{ linux_distribution }}.yml"
 
-    - name: "check if user '{{ ansible_user }}' has customized vars file"
-      stat:
-        path: "{{ role_path }}/vars/{{ ansible_user }}.yml"
-      register: customized_response
-
-    - name: "include customized vars file"
-      include_vars:
-        file: "{{ ansible_user }}.yml"
-      when: customized_response.stat.exists
+- name: "include vars file based on linux distribution"
+  include_vars:
+    file: "{{ linux_distribution }}.yml"
   tags:
     - always
 
@@ -64,9 +53,7 @@
 
 - name: "Install 1Password"
   import_tasks: 1password/1password.yml
-  when:
-    - install_1password
-    - linux_distribution in ["debian", "ubuntu", "fedora"]
+  when: install_1password
   tags:
     - extra_software
     - 1password
@@ -108,6 +95,7 @@
   tags:
     - extra_software
     - sublimetext
+    - sublime_text
     - editors
     - sublime
 
@@ -117,6 +105,7 @@
   tags:
     - extra_software
     - sublimemerge
+    - sublime_merge
     - sublime
 
 - name: "Install Atom"
@@ -611,6 +600,69 @@
   tags:
     - extra_software
     - cloudfare
+
+- name: "Install LSD"
+  import_tasks: lsd/lsd.yml
+  when: install_lsd
+  tags:
+    - extra_software
+    - lsd
+    - vitaminar
+    - vitaminado
+
+- name: "Install gping"
+  import_tasks: gping/gping.yml
+  when: install_gping
+  tags:
+    - extra_software
+    - gping
+    - vitaminar
+    - vitaminado
+
+- name: "Install curlie"
+  import_tasks: curlie/curlie.yml
+  when: install_curlie
+  tags:
+    - extra_software
+    - curlie
+    - vitaminar
+    - vitaminado
+
+- name: "Install bat"
+  import_tasks: bat/bat.yml
+  when: install_bat
+  tags:
+    - extra_software
+    - bat
+    - vitaminar
+    - vitaminado
+
+- name: "Install duf"
+  import_tasks: duf/duf.yml
+  when: install_duf
+  tags:
+    - extra_software
+    - duf
+    - vitaminar
+    - vitaminado
+
+- name: "Install ripgrep"
+  import_tasks: ripgrep/ripgrep.yml
+  when: install_ripgrep
+  tags:
+    - extra_software
+    - ripgrep
+    - vitaminar
+    - vitaminado
+
+- name: "Install bottom"
+  import_tasks: bottom/bottom.yml
+  when: install_bottom
+  tags:
+    - extra_software
+    - bottom
+    - vitaminar
+    - vitaminado
 
 - name: "Install Typography Fonts"
   import_tasks: fonts/fonts.yml

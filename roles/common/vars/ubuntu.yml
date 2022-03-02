@@ -25,6 +25,7 @@ distro_packages:
   - virtualenvwrapper
   - traceroute
   - ansible-lint
+  - screenfetch
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras

@@ -2,7 +2,7 @@
 
 - name: "[KUBECTL] [ARCH] Install kubectl"
   become: false
-  pacman:
+  yay:
     name: "{{ kubectl_package }}"
     state: present
     update_cache: true

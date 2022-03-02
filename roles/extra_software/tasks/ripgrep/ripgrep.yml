@@ -1,0 +1,13 @@
+---
+
+- name: "[RIPGREP] install for {{ linux_distribution }}"
+  include_tasks: "ripgrep_{{ linux_distribution }}.yml"
+
+- name: "[RIPGREP] create alias"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.bash_aliases"
+    line: "alias grep='rg'"
+    state: present
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    create: true

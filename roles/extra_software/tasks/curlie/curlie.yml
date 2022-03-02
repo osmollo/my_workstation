@@ -1,0 +1,28 @@
+---
+
+- name: "[CURLIE] Get latest version of curlie"
+  uri:
+    url: "{{ curlie_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: curlie_latest
+  when: linux_distribution in ["debian", "ubuntu", "fedora"]
+
+- name: "[CURLIE] Install curlie {{ curlie_version }}"
+  vars:
+    curlie_version: "{{ curlie_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    curlie_deb_package: "https://github.com/rs/curlie/releases/download/{{  curlie_version }}/curlie_{{ curlie_version[1:] }}_linux_amd64.deb"
+    curlie_rpm_package: "https://github.com/rs/curlie/releases/download/{{  curlie_version }}/curlie_{{ curlie_version[1:] }}_linux_amd64.rpm"
+  when: linux_distribution in ["debian", "ubuntu", "fedora"]
+
+- name: "[CURLIE] install for {{ linux_distribution }}"
+  include_tasks: "curlie_{{ linux_distribution }}.yml"
+
+- name: "[CURLIE] create alias"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.bash_aliases"
+    line: "alias curl='curlie'"
+    state: present
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"

@@ -35,3 +35,5 @@ nnoremap <leader><S-tab> :bp<cr>
 
 " Closing and hiding current buffer
 nnoremap <leader>w :bd<cr>
+
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"

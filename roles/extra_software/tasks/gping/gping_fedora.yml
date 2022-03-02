@@ -1,0 +1,10 @@
+---
+
+- name: "[GPING] [FEDORA] enable gping repo"
+  command: dnf copr enable atim/gping -y
+
+- name: "[GPING] [FEDORA] install gping"
+  dnf:
+    name: gping
+    state: present
+    update_cache: true

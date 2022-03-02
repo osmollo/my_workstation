@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if git log --name-status -1 | grep main.yml.gpg | grep "^M"; then
+  echo "'roles/post_install/defaults/main.yml.gpg' HAS BEEN UPDATED"
+  
+  echo "DELETING 'roles/post_install/defaults/main.yml'..."
+  rm -fr ../../roles/post_install/defaults/main.yml
+
+  echo "SECRET KEY: {{ op.sk }}"
+  eval $(op signin {{ op.host }} {{ op.user }}  )
+
+  echo "GPG passphrase: $(op get item {{ op.doc1 }} | jq -r .details.sections[0].fields[0].v)"
+  read -rsp 'Press any key to continue...' -n1 key
+
+  echo "DECRYPTING..."
+  gpg --batch --yes --passphrase "$(op get item {{ op.doc1 }} --fields passphrase)" --output ../../roles/post_install/defaults/main.yml --decrypt ../../roles/post_install/defaults/main.yml.gpg
+fi
