@@ -3,6 +3,7 @@
 ## 6.3.1
 
 - Instalación de paquetes de `openvpn` en **Arch**
+- Instalación de `wireshark`en **Arch**
 
 ## 6.3
 

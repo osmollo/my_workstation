@@ -15,6 +15,7 @@ distro_packages:
   - screenfetch
   - openvpn
   - networkmanager-openvpn
+  - wireshark-qt
 
 gnome_arch_packages:
   - wireshark-cli
