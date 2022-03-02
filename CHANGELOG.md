@@ -10,6 +10,7 @@
   - Instalación de [curlie](https://github.com/rs/curlie)
   - Instalación de [gping](https://github.com/orf/gping)
   - Instalación de [lsd](https://github.com/Peltoche/lsd)
+- Instalación de `screenfetch`
 - Nuevos plugins **Neovim**
 - Instalación de [PyCharm](https://www.jetbrains.com/es-es/pycharm/) en **Ubuntu** usando _snap_
 - Eliminación de personalización por usuario

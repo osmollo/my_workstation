@@ -1,4 +1,5 @@
 - name: "[ZEAL] install zeal for arch"
+  become: true
   yay:
     name: zeal
     state: present

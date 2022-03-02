@@ -27,6 +27,7 @@ distro_packages:
   - mesa-libgbm-devel
   - cronie
   - cronie-anacron
+  - screenfetch
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome

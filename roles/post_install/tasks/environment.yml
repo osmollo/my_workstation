@@ -169,3 +169,22 @@
         dest: "{{ item.dest }}"
         state: link
       loop: "{{ links_to_create }}"
+
+- block:
+    - name: "[ENVIRONMENT] check if '/etc/zsh/zshrc' exists"
+      stat:
+        path: /etc/zsh/zshrc
+      register: stat_response
+
+    - name: "[ENVIRONMENT] execute screenfetch"
+      become: true
+      vars:
+        files_to_update:
+          - "/etc/bash.bashrc"
+          - "{{ '/etc/zsh/zshrc' if  stat_response.stat.exists else '' }}"
+      lineinfile:
+        path: "{{ item }}"
+        line: screenfetch
+      loop: "{{ files_to_update | reject('equalto', '') | list }}"
+  tags:
+    - screenfetch

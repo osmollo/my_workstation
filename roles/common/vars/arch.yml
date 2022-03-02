@@ -12,6 +12,7 @@ distro_packages:
   - ttf-fira-code
   - ansible-lint
   - gcc
+  - screenfetch
 
 gnome_arch_packages:
   - wireshark-cli
