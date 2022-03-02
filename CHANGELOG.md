@@ -18,6 +18,7 @@
 - Post_install:
   - El `ssh_config` se genera con `blockinfile` en vez de con `template` para no sobreescribir las entradas que ya existan de otros repositorios
   - Borrado de entradas de `~/.ssh/config`
+  - Fix llaves rsa viejas para nuevas versiones de `openssh`
   - Nuevo alias de bash
   - Quitando extensión al fichero `~/.vault_pass.txt`
   - Nuevos repositorios git

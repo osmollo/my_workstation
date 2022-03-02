@@ -119,6 +119,9 @@
       {% if item.pubkeyacceptedkeytypes is defined %}
         PubkeyAcceptedKeyTypes {{ item.pubkeyacceptedkeytypes }}
       {% endif %}
+      {% if item.hostkeyalgorithms is defined %}
+        HostKeyAlgorithms {{ item.hostkeyalgorithms }} 
+      {% endif %}
     state: present
     marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
     create: true
