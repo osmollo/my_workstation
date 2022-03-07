@@ -4,6 +4,7 @@
 
 - Instalación de paquetes de `openvpn` en **Arch**
 - Instalación de `wireshark`en **Arch**
+- Fix instalación `java` en **Arch**
 
 ## 6.3
 

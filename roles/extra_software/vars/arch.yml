@@ -31,7 +31,7 @@ franz_package: franz-bin
 deluge_package: deluge-git
 windscribe_package: windscribe-cli
 apachedirectory_package: apachedirectorystudio
-java_package: java-openjdk-bin
+java_package: jre-openjdk
 docker_package: docker
 dockercompose_package: docker-compose
 megacmd_package: megacmd
