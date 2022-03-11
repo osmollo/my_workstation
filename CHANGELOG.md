@@ -5,6 +5,8 @@
 - Instalación de paquetes de `openvpn` en **Arch**
 - Instalación de `wireshark`en **Arch**
 - Fix instalación `java` en **Arch**
+- Post_install:
+  - Nuevo alias bash
 
 ## 6.3
 
