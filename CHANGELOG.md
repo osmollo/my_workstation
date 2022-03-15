@@ -2,9 +2,11 @@
 
 ## 6.3.1
 
-- Instalación de paquetes de `openvpn` en **Arch**
-- Instalación de `wireshark`en **Arch**
-- Fix instalación `java` en **Arch**
+- Fixes para instalación en **ARCH**:
+  - Instalación de paquetes de `openvpn`
+  - Instalación de `wireshark`
+  - Fix instalación `java`
+  - Fix instalación `docker`
 - Post_install:
   - Nuevo alias bash
 

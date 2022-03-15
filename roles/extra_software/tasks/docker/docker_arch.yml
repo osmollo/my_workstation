@@ -13,3 +13,12 @@
     update_cache: true
   tags:
     - dockercompose
+
+- name: "[DOCKER] [ARCH] configure daemon.json"
+  copy:
+    content: |
+      {
+        "storage-driver": "overlay2"
+      }
+    dest: /etc/docker/daemon.json
+
