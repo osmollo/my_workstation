@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 6.3.1
+
+- Instalación del plugin `kite` para **neovim**
+- Fixes para instalación en **ARCH**:
+  - Instalación de paquetes de `openvpn`
+  - Instalación de `wireshark`
+  - Fix instalación `java`
+  - Fix instalación `docker`
+- Post_install:
+  - Nuevo alias bash
+
 ## 6.3
 
 - Reemplazo de utilidades nativas por otras vitaminadas:

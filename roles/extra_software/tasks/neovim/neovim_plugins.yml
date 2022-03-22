@@ -48,6 +48,8 @@
       dest: plug-config/deoplete.vim
     - src: neoformat.vim.j2
       dest: plug-config/neoformat.vim
+    - src: kite.vim.j2
+      dest: plug-config/kite.vim
     - src: keys.vim.j2
       dest: keymapping/keys.vim
     - src: init.vim.j2
