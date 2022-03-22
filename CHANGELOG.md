@@ -2,6 +2,7 @@
 
 ## 6.3.1
 
+- Instalación del plugin `kite` para **neovim**
 - Fixes para instalación en **ARCH**:
   - Instalación de paquetes de `openvpn`
   - Instalación de `wireshark`
