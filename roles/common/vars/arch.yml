@@ -31,5 +31,6 @@ python_packages:
   - python-pip
   - ipython
   - python-virtualenv
+  - python-virtualenvwrapper
 
 kwalletcli_package: kwalletcli

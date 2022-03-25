@@ -1,9 +1,15 @@
 # CHANGELOG
 
+## 6.4
+
+- Soporte para **Ubuntu 22.04**
+- Corrección de errores:
+  - Fix instalación `virtualenvwrapper` en **Arch**
+
 ## 6.3.2
 
 - Fixes para instalación en **ARCH**:
- - Instalación del paquete `make`
+  - Instalación del paquete `make`
 - Post instalación:
   - Nuevo alias bash
 
