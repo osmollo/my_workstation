@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 6.3.2
+
+- Fixes para instalación en **ARCH**:
+ - Instalación del paquete `make`
+- Post instalación:
+  - Nuevo alias bash
+
 ## 6.3.1
 
 - Instalación del plugin `kite` para **neovim**
