@@ -16,6 +16,7 @@ distro_packages:
   - openvpn
   - networkmanager-openvpn
   - wireshark-qt
+  - make
 
 gnome_arch_packages:
   - wireshark-cli
