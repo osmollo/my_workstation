@@ -594,13 +594,6 @@
     - extra_software
     - trivy
 
-- name: "Install Cloudfare client"
-  import_tasks: cloudfare/cloudfare.yml
-  when: install_cloudfare
-  tags:
-    - extra_software
-    - cloudfare
-
 - name: "Install LSD"
   import_tasks: lsd/lsd.yml
   when: install_lsd
