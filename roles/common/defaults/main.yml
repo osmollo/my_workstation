@@ -31,6 +31,8 @@ python_modules:
   - pycodestyle
   - lxml
   - jedi
+  - bs4
+  - beautifulsoup4
 
 bad_snap_packages:
   - gnome-calculator
