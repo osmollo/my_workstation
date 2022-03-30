@@ -1,6 +1,7 @@
 ---
 
 distro_packages:
+  - "{{ 'python-apt-common' if ubuntu_version_long is version('21.10', '>=') else 'python-apt' }}"
   - libsecret-tools
   - aptitude
   - software-properties-common
@@ -8,7 +9,6 @@ distro_packages:
   - apt-transport-https
   - openvpn
   - dnsutils
-  - "{{ 'python-dev' if ansible_distribution_major_version is version ('20', '<') else '' }}"
   - python3-dev
   - build-essential
   - snap
@@ -16,7 +16,6 @@ distro_packages:
   - firewall-config
   - net-tools
   - python3-jmespath
-  - "{{ 'python-dev' if ansible_distribution_major_version is version ('20', '<') else '' }}"
   - python3-gpg
   - secure-delete
   - libnss3-tools
@@ -34,7 +33,6 @@ gnome_ubuntu_packages:
   - elementary-icon-theme
   - papirus-icon-theme
   - gnome-tweaks
-  - "{{ 'python-dev' if ansible_distribution_major_version is version ('20', '<') else '' }}"
   - python3-psutil
   - wireshark
   - vlc

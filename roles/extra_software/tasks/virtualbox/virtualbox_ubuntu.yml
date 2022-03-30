@@ -5,7 +5,7 @@
 - name: "[VIRTUALBOX] [UBUNTU] Create repository file for Virtualbox"
   lineinfile:
     path: /etc/apt/sources.list.d/virtualbox.list
-    line: "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian {{ 'hirsute' if ubuntu_version_long is version('21.10', '=') else ubuntu_codename }} contrib"
+    line: "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian {{ 'impish' if ubuntu_version_long is version('22.04', '=') else ubuntu_codename }} contrib"
     create: true
 
 - name: "[VIRTUALBOX] [UBUNTU] Import repository key"
