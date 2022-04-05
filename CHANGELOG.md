@@ -6,6 +6,8 @@
 - Eliminación de soporte de versiones anteriores a **Ubuntu 20.04**
 - Corrección de errores:
   - Fix instalación `virtualenvwrapper` en **Arch**
+- Post instalación:
+  - Nuevos repositorios git
 
 # VERSIONES ANTERIORES
 
