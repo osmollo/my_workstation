@@ -22,6 +22,7 @@ distro_packages:
   - fonts-firacode
   - ansible-lint
   - screenfetch
+  - vlc
 
 gnome_debian_packages:
   - network-manager-openvpn-gnome
@@ -32,9 +33,10 @@ gnome_debian_packages:
   - python-psutil
   - python3-psutil
   - wireshark
-  - vlc
 
-kde_debian_packages: []
+kde_debian_packages:
+  - yakuake
+  - kwalletcli
 
 xfce_debian_packages: []
 

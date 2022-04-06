@@ -6,6 +6,9 @@
 - Eliminación de soporte de versiones anteriores a **Ubuntu 20.04**
 - Corrección de errores:
   - Fix instalación `virtualenvwrapper` en **Arch**
+  - Instalación de `libsecret` sólo en distros con **Gnome**
+  - Instalación de `vlc` independientemente del entorno gráfico
+  - Instalación de `yakuake` en distros con **KDE**
 - Post instalación:
   - Nuevos repositorios git
 
