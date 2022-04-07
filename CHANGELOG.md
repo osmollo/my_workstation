@@ -4,6 +4,7 @@
 
 - Soporte para **Ubuntu 22.04**
 - Eliminación de soporte de versiones anteriores a **Ubuntu 20.04**
+- Instalación de `neovim` en **Ubuntu** usando __PPA__
 - Corrección de errores:
   - Fix instalación `virtualenvwrapper` en **Arch**
   - Instalación de `libsecret` sólo en distros con **Gnome**
@@ -12,7 +13,7 @@
 - Post instalación:
   - Nuevos repositorios git
 
-# VERSIONES ANTERIORES
+## VERSIONES ANTERIORES
 
 - [Versión 6](changelog/v6.md)
 - [Versión 5](changelog/v5.md)
