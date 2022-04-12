@@ -1,0 +1,17 @@
+---
+
+- assert:
+    that:
+      - package.name is defined
+      - package.latest_url is defined
+
+- name: "Get latest version of '{{ package.name }}'"
+  uri:
+    url: "{{ package.latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: package_latest
+
+- name: "Return 'package_version' variable with latest version ({{ package_version }}) of '{{ package.name }}'"
+  set_fact:
+    package_version: "{{ package_latest.url | urlsplit('path') | basename }}"
