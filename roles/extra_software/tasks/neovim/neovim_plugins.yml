@@ -19,12 +19,19 @@
   command: "python3 -m venv {{ python_venv_dir }}/neovim"
 
 - name: "[NEOVIM] install python modules for neovim"
+  pip:
+    name: '{{ item }}'
+  loop:
+    - 'python-lsp-server[all]'
+
+- name: "[NEOVIM] install python modules for neovim in its venv"
   become: false
   pip:
     name: '{{ item }}'
     virtualenv: "{{ python_venv_dir }}/neovim"
   loop:
     - neovim
+    - pynvim
     - 'python-lsp-server[all]'
 
 - import_tasks: ../fonts/other.yml
