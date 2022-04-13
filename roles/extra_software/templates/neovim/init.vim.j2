@@ -6,6 +6,8 @@ let g:config_file_list = ['/nvim-plugins/plugins.vim',
     \ '/plug-config/airline.vim',
     \ '/plug-config/nerdcommenter.vim',
     \ '/plug-config/git-blame.vim',
+    \ '/plug-config/kite.vim',
+    \ '/plug-config/neoformat.vim'
     \ ]
 
 let g:airline#extensions#tabline#enabled = 1
@@ -16,4 +18,6 @@ for f in g:config_file_list
 endfor
 
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
 
