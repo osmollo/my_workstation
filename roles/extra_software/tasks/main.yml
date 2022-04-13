@@ -7,6 +7,11 @@
   tags:
     - always
 
+- name: "Install AppImage tools"
+  import_tasks: appimage_tools.yml
+  tags:
+    - extra_software
+
 - name: "Install flatpak"
   import_tasks: flatpak.yml
   when:
