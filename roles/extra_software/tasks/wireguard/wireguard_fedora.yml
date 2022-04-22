@@ -1,17 +1,5 @@
 ---
 
-- when: fedora_version is version('31', '<=')
-  block:
-    - name: "[WIREGUARD] [FEDORA] install wireguard repositoy"
-      command: dnf copr enable jdoss/wireguard
-
-    - name: "[WIREGUARD] [FEDORA] install wireguard"
-      yum:
-        name: "{{ wireguard_packages }}"
-        state: present
-        update_cache: true
-        disable_gpg_check: true
-
 - name: "[WIREGUARD] [FEDORA] install wireguard"
   yum:
     name: wireguard-tools

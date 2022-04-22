@@ -15,10 +15,10 @@
 
 | **DISTRIBUCIÓN** | **LINKS DE DESCARGA** |
 |------------------|--------------|
-| Debian | **STABLE (10)**: [Enlace](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.2.0-amd64-netinst.iso) <br> **TESTING (11)**: [Enlace](https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/debian-testing-amd64-netinst.iso) |
+| Debian | **STABLE (11)**: [Enlace](http://debian-cd.repulsive.eu/11.3.0/amd64/iso-cd/) |
 | Deepin | **20**: [Enlace](http://www.mediafire.com/file/re4yrj5o5uj1mh7/deepin-desktop-community-1002-amd64.iso.torrent/file) |
-| Ubuntu 20.04 | **UBUNTU**: [Enlace](https://releases.ubuntu.com/20.04/ubuntu-20.04-desktop-amd64.iso) <br> **KUBUNTU**: [Enlace](http://cdimage.ubuntu.com/kubuntu/releases/20.04/release/kubuntu-20.04-desktop-amd64.iso) <br> **XUBUNTU**: [Enlace](https://torrent.ubuntu.com/xubuntu/releases/focal/release/desktop/xubuntu-20.04-desktop-amd64.iso.torrent) |
-| Fedora | **30**: [Enlace](http://mirror.uv.es/mirror/fedora/linux/releases/30/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-30-1.2.iso) <br> **31**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso) <br> **32**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/32/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-32-1.6.iso) <br> **33**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/33/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-33-1.2.iso) <br> **34**: [Enlace](https://mirrors.xtom.de/fedora//releases/34/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-34-1.2.iso) <br> **35**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/35/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-35-1.2.iso) |
+| Ubuntu 20.04 | **UBUNTU**: [Enlace](https://ftp.crifo.org/ubuntu-cd/22.04/) |
+| Fedora | **35**: [Enlace](https://fedora.cu.be/linux/releases/35/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-35-1.2.iso) |
 | Linux Mint 19 | **CINNAMON**: [Enlace](https://mirror.dogecloud.org/Linux/Mint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso) |
 | KDE Neon | [Enlace](https://files.kde.org/neon/images/user/20191024-1119/neon-user-20191024-1119.iso) |
 | Arch Linux | **TORRENT**: [Enlace](https://www.archlinux.org/releng/releases/2019.10.01/torrent/) |

@@ -68,7 +68,6 @@
       vars:
         debian_versions:
           bullseye: "11"
-          buster: "10"
       when:
         - linux_distribution == "debian"
         - ansible_distribution != "Deepin 20"

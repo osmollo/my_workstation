@@ -1,6 +1,5 @@
-# TODO: quitar cuando docker suba paquetes de groovy a su repo
 {% if ubuntu_codename is defined %}
-deb [arch=amd64] https://download.docker.com/linux/{{ linux_distribution }} {{ 'impish' if ubuntu_version_long is version("22.04", "=") else ubuntu_codename }} stable
+deb [arch=amd64] https://download.docker.com/linux/{{ linux_distribution }} {{ ubuntu_codename }} stable
 {% elif debian_codename is defined %}
 deb [arch=amd64] https://download.docker.com/linux/{{ linux_distribution }} {{ debian_codename }} stable
 {% endif %}

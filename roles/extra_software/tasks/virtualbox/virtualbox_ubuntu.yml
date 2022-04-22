@@ -3,10 +3,13 @@
 # TODO: corregir chapuza para instalar en focal cuando virtualbox meta paquetes para esa version
 
 - name: "[VIRTUALBOX] [UBUNTU] Create repository file for Virtualbox"
-  lineinfile:
-    path: /etc/apt/sources.list.d/virtualbox.list
-    line: "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian {{ 'impish' if ubuntu_version_long is version('22.04', '=') else ubuntu_codename }} contrib"
-    create: true
+  copy:
+    dest: /etc/apt/sources.list.d/virtualbox.list
+    content: |
+      deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian hirsuite contrib
+    mode: 0644
+    owner: root
+    group: root
 
 - name: "[VIRTUALBOX] [UBUNTU] Import repository key"
   apt_key:
