@@ -1,7 +1,7 @@
 ---
 
 distro_packages:
-  - "{{ 'python-apt-common' if ubuntu_version_long is version('21.10', '>=') else 'python-apt' }}"
+  - python-apt-common
   - aptitude
   - software-properties-common
   - network-manager-openvpn

@@ -5,19 +5,6 @@
   tags:
     - always
 
-- hosts: localhost
-  connection: local
-  tasks:
-    - name: "[PREPARE] check if prepare flag exists"
-      stat:
-        path: /var/tmp/.prepare
-      register: prepare_response
-
-    - set_fact:
-        prepare_exists: "{{ prepare_response.stat.exists }}"
-  tags:
-    - always
-
 ###############
 # INSTALACION #
 ###############
@@ -92,33 +79,6 @@
     - common
     - extra_software
   post_tasks:
-    # - become: false
-    #   block:
-    #     - name: "check that git hooks exist"
-    #       stat:
-    #         path: "{{ playbook_dir }}/.git/hooks/post_merge"
-    #       register: stat_response
-
-
-    #     - name: "copy git hook scripts"
-    #       template:
-    #         src: roles/post_install/templates/post-merge.j2
-    #         dest: "{{ playbook_dir }}/.git/hooks/post-merge"
-    #         owner: "{{ ansible_user }}"
-    #         group: "{{ ansible_user }}"
-    #         mode: 0755
-    #       when: not stat_response.stat.exists
-
-    #     - name: "creating link for hook 'post-rewrite'"
-    #       file:
-    #         src: "{{ playbook_dir }}/.git/hooks/post-merge"
-    #         dest: "{{ playbook_dir }}/.git/hooks/post-rewrite"
-    #         state: link
-    #       when: not stat_response.stat.exists
-    #   tags:
-    #     - git_hooks
-    #     - always
-
     - become: false
       block:
         - stat:

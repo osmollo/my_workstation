@@ -38,5 +38,6 @@ bad_snap_packages:
   - gnome-calculator
   - gnome-system-monitor
   - gnome-logs
+  - firefox
 
 last_update_file: "/var/tmp/.update"

@@ -1,6 +1,6 @@
 ---
 
-# TODO: corregir chapuña para instalar en focal cuando virtualbox meta paquetes para esa version
+# TODO: corregir chapuza para instalar en focal cuando virtualbox meta paquetes para esa version
 
 - name: "[VIRTUALBOX] [UBUNTU] Create repository file for Virtualbox"
   lineinfile:

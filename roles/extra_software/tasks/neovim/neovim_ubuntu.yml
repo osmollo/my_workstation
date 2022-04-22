@@ -1,10 +1,18 @@
 ---
 
-- name: "[NEOVIM] [UBUNTU] install neovim repository"
-  apt_repository:
-    validate_certs: no
-    repo: 'ppa:neovim-ppa/stable'
-    state: present
+# TODO: descomentar tarea y eliminar el copy cuando neovim este disponible en ppa para jammy
+
+# - name: "[NEOVIM] [UBUNTU] install neovim repository"
+#   apt_repository:
+#     validate_certs: no
+#     repo: 'ppa:neovim-ppa/stable'
+#     state: present
+
+- name: "[NEOVIM] [UBUNTU] create repository file"
+  copy:
+    content: |
+      deb http://ppa.launchpad.net/neovim-ppa/stable/ubuntu/ impish main
+    dest: /etc/apt/sources.list.d/neovim-ppa-ubuntu-stable-impish.list
 
 - name: "[NEOVIM] [UBUNTU] install neovim"
   apt:
