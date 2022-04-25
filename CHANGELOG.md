@@ -14,6 +14,7 @@
   - Instalación de `libsecret` sólo en distros con **Gnome**
   - Instalación de `vlc` independientemente del entorno gráfico
   - Instalación de `yakuake` en distros con **KDE**
+  - Fix permisos en ficheros de configuración creados/actualizados en `post_env`
 - Post instalación:
   - Nuevos repositorios git
 
