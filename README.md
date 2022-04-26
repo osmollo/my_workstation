@@ -174,7 +174,7 @@ Una de las primeras tareas que se ejecutan es la actualización de los paquetes 
 
 - Variable de entorno
 
-Hay que exportar la variable `REPO_DISABLE_UPDATES` con valor _1_. Cualquier otro valor se considerará _false_ y se actualizarán los paquetes
+Hay que exportar la variable `REPO_DISABLE_UPDATES` con valor *1*. Cualquier otro valor se considerará *false* y se actualizarán los paquetes
 
 ```bash
 export REPO_DISABLE_UPDATES=1
