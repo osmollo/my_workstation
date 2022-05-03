@@ -37,6 +37,7 @@ gnome_ubuntu_packages:
   - python3-psutil
   - wireshark
   - guake
+  - chrome-gnome-shell
 
 kde_ubuntu_packages:
   - kubuntu-restricted-extras

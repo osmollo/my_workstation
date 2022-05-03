@@ -33,6 +33,7 @@ gnome_debian_packages:
   - python-psutil
   - python3-psutil
   - wireshark
+  - chrome-gnome-shell
 
 kde_debian_packages:
   - yakuake

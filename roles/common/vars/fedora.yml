@@ -41,6 +41,7 @@ gnome_fedora_packages:
   - wireshark
   - liveusb-creator
   - guake
+  - chrome-gnome-shell
 
 kde_fedora_packages:
   - kwalletcli

@@ -15,6 +15,7 @@
   - Instalación de `vlc` independientemente del entorno gráfico
   - Instalación de `yakuake` en distros con **KDE**
   - Fix permisos en ficheros de configuración creados/actualizados en `post_env`
+  - Instalación del paquete `chrome-gnome-shell` para poder instalar extensiones de **Gnome Shell**
 - Post instalación:
   - Nuevos repositorios git
 
