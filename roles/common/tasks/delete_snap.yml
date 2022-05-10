@@ -9,3 +9,16 @@
   apt:
     name: "{{ bad_snap_packages }}"
     state: present
+
+- name: "[UBUNTU] install firefox from ppa"
+  apt_repository:
+    validate_certs: no
+    repo: 'ppa:mozillateam/ppa'
+    state: present
+ 
+- name: "[UBUNTU] install firefox"
+  apt:
+    name: firefox
+    update_cache: true
+    state: present
+ 

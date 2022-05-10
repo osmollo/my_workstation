@@ -9,6 +9,7 @@
 - Instalación de `neovim` en **Ubuntu** usando __PPA__
 - Nuevo role `tools/get_latest_version` para obtener la última versión de paquetes alojados en [Github](https://github.com)
 - Configuración de LSP en **Neovim**
+- Instalación de **Firefox** desde __ppa__ en **Ubuntu** >= 22.04
 - Corrección de errores:
   - Fix instalación `virtualenvwrapper` en **Arch**
   - Instalación de `libsecret` sólo en distros con **Gnome**
