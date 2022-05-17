@@ -18,6 +18,7 @@
   - Fix permisos en ficheros de configuración creados/actualizados en `post_env`
   - Instalación del paquete `chrome-gnome-shell` para poder instalar extensiones de **Gnome Shell**
   - Fix permisos `~/.ssh` en post instalación
+  - Instalación **Neovim** para **Ubuntu 22.04**
 - Post instalación:
   - Nuevos repositorios git
 
