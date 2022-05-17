@@ -19,6 +19,7 @@
   - Instalación del paquete `chrome-gnome-shell` para poder instalar extensiones de **Gnome Shell**
   - Fix permisos `~/.ssh` en post instalación
   - Instalación **Neovim** para **Ubuntu 22.04**
+  - Instalación de **Virtualbox** para **Ubuntu 22.04**
 - Post instalación:
   - Nuevos repositorios git
 

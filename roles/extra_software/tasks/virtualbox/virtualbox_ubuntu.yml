@@ -2,23 +2,9 @@
 
 # TODO: corregir chapuza para instalar en focal cuando virtualbox meta paquetes para esa version
 
-- name: "[VIRTUALBOX] [UBUNTU] Create repository file for Virtualbox"
-  copy:
-    dest: /etc/apt/sources.list.d/virtualbox.list
-    content: |
-      deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian hirsuite contrib
-    mode: 0644
-    owner: root
-    group: root
-
-- name: "[VIRTUALBOX] [UBUNTU] Import repository key"
-  apt_key:
-    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
-    state: present
-
 - name: "[VIRTUALBOX] [UBUNTU] Install Virtualbox and Vagrant packages"
   apt:
-    name: "{{ virtualbox_packages }}"
+    name: virtualbox
     state: present
     update_cache: true
 
