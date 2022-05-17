@@ -15,14 +15,14 @@
 
 | **DISTRIBUCIÓN** | **LINKS DE DESCARGA** |
 |------------------|--------------|
-| Debian | **STABLE (11)**: [Enlace](http://debian-cd.repulsive.eu/11.3.0/amd64/iso-cd/) |
-| Deepin | **20**: [Enlace](http://www.mediafire.com/file/re4yrj5o5uj1mh7/deepin-desktop-community-1002-amd64.iso.torrent/file) |
-| Ubuntu 20.04 | **UBUNTU**: [Enlace](https://ftp.crifo.org/ubuntu-cd/22.04/) |
-| Fedora | **35**: [Enlace](https://fedora.cu.be/linux/releases/35/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-35-1.2.iso) |
-| Linux Mint 19 | **CINNAMON**: [Enlace](https://mirror.dogecloud.org/Linux/Mint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso) |
-| KDE Neon | [Enlace](https://files.kde.org/neon/images/user/20191024-1119/neon-user-20191024-1119.iso) |
-| Arch Linux | **TORRENT**: [Enlace](https://www.archlinux.org/releng/releases/2019.10.01/torrent/) |
-| Manjaro | **GNOME**: [Enlace](https://osdn.net/frs/redir.php?m=dotsrc&f=%2Fstorage%2Fg%2Fm%2Fma%2Fmanjaro%2Fgnome%2F18.1.2%2Fmanjaro-gnome-18.1.2-191028-linux53.iso) <br> **KDE**: [Enlace](https://osdn.net/frs/redir.php?m=dotsrc&f=%2Fstorage%2Fg%2Fm%2Fma%2Fmanjaro%2Fkde%2F18.1.2%2Fmanjaro-kde-18.1.2-191028-linux53.iso) <br> **XFCE**: [Enlace](https://osdn.net/frs/redir.php?m=dotsrc&f=%2Fstorage%2Fg%2Fm%2Fma%2Fmanjaro%2Fxfce%2F18.1.2%2Fmanjaro-xfce-18.1.2-191028-linux53.iso) |
+| Ubuntu 20.04 | [Enlace](https://ubuntu.com/download/desktop) |
+| Fedora | [Enlace](https://getfedora.org/es/workstation/download/) |
+| Debian | [Enlace](https://www.debian.org/distrib/netinst#smallcd) |
+| Deepin | [Enlace](https://www.deepin.org/en/download/) |
+| Linux Mint | [Enlace](https://www.linuxmint.com/download.php) |
+| KDE Neon | [Enlace](https://neon.kde.org/download) |
+| Arch Linux | [Enlace](https://www.archlinux.org/releng/releases) |
+| Manjaro | [Enlace](https://manjaro.org/download/) |
 
 ## Software extra instalado
 

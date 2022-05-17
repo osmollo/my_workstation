@@ -3,8 +3,9 @@
 ## 7.0
 
 - Soporte para **Ubuntu 22.04**
+- Soporte para **Fedora 36**
 - Eliminación de soporte de versiones anteriores a **Ubuntu 22.04**
-- Eliminación de soporte de versiones anteriores a **Fedora 35**
+- Eliminación de soporte de versiones anteriores a **Fedora 36**
 - Eliminación de soporte de versiones anteriores a **Debian 11**
 - Instalación de `neovim` en **Ubuntu** usando __PPA__
 - Nuevo role `tools/get_latest_version` para obtener la última versión de paquetes alojados en [Github](https://github.com)

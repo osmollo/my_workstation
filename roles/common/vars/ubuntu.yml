@@ -38,6 +38,7 @@ gnome_ubuntu_packages:
   - wireshark
   - guake
   - chrome-gnome-shell
+  - gnome-shell-extension-manager
 
 kde_ubuntu_packages:
   - kubuntu-restricted-extras
