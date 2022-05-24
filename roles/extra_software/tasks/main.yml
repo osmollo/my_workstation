@@ -7,6 +7,11 @@
   tags:
     - always
 
+# - name: "Install AppImage tools"
+#   import_tasks: appimage_tools.yml
+#   tags:
+#     - extra_software
+
 - name: "Install flatpak"
   import_tasks: flatpak.yml
   when:
@@ -594,13 +599,6 @@
     - extra_software
     - trivy
 
-- name: "Install Cloudfare client"
-  import_tasks: cloudfare/cloudfare.yml
-  when: install_cloudfare
-  tags:
-    - extra_software
-    - cloudfare
-
 - name: "Install LSD"
   import_tasks: lsd/lsd.yml
   when: install_lsd
@@ -663,6 +661,13 @@
     - bottom
     - vitaminar
     - vitaminado
+
+- name: "Install singlebox"
+  import_tasks: singlebox/singlebox.yml
+  when: install_singlebox
+  tags:
+    - extra_software
+    - singlebox
 
 - name: "Install Typography Fonts"
   import_tasks: fonts/fonts.yml

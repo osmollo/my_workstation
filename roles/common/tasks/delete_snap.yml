@@ -1,12 +1,5 @@
 ---
 
-- name: "[UBUNTU] Check if ansible_version >= 2.8"
-  assert:
-    that:
-      - ansible_version.full is version("2.8", ">=")
-    fail_msg: "Ansible version must be >= 2.8. Please, ejecute 'ansible-playbook update_ansible.yml'"
-    success_msg: "OK, your ansible version is {{ ansible_version.full }}"
-
 - name: "[UBUNTU] Delete snap system packages"
   snap:
     name: "{{ bad_snap_packages }}"
@@ -16,3 +9,16 @@
   apt:
     name: "{{ bad_snap_packages }}"
     state: present
+
+- name: "[UBUNTU] install firefox from ppa"
+  apt_repository:
+    validate_certs: no
+    repo: 'ppa:mozillateam/ppa'
+    state: present
+ 
+- name: "[UBUNTU] install firefox"
+  apt:
+    name: firefox
+    update_cache: true
+    state: present
+ 

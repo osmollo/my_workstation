@@ -15,15 +15,14 @@
 
 | **DISTRIBUCIÓN** | **LINKS DE DESCARGA** |
 |------------------|--------------|
-| Debian | **STABLE (10)**: [Enlace](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.2.0-amd64-netinst.iso) <br> **TESTING (11)**: [Enlace](https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/debian-testing-amd64-netinst.iso) |
-| Deepin | **20**: [Enlace](http://www.mediafire.com/file/re4yrj5o5uj1mh7/deepin-desktop-community-1002-amd64.iso.torrent/file) |
-| Ubuntu 18.04 | **UBUNTU**: [Enlace](http://releases.ubuntu.com/18.04.3/ubuntu-18.04.3-desktop-amd64.iso) <br> **KUBUNTU**: [Enlace](http://cdimage.ubuntu.com/kubuntu/releases/18.04/release/kubuntu-18.04.3-desktop-amd64.iso) <br> **XUBUNTU**: [Enlace](http://ftp.uni-kl.de/pub/linux/ubuntu-dvd/xubuntu/releases/18.04.3/release/xubuntu-18.04.3-desktop-amd64.iso) |
-| Ubuntu 20.04 | **UBUNTU**: [Enlace](https://releases.ubuntu.com/20.04/ubuntu-20.04-desktop-amd64.iso) <br> **KUBUNTU**: [Enlace](http://cdimage.ubuntu.com/kubuntu/releases/20.04/release/kubuntu-20.04-desktop-amd64.iso) <br> **XUBUNTU**: [Enlace](https://torrent.ubuntu.com/xubuntu/releases/focal/release/desktop/xubuntu-20.04-desktop-amd64.iso.torrent) |
-| Fedora | **30**: [Enlace](http://mirror.uv.es/mirror/fedora/linux/releases/30/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-30-1.2.iso) <br> **31**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso) <br> **32**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/32/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-32-1.6.iso) <br> **33**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/33/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-33-1.2.iso) <br> **34**: [Enlace](https://mirrors.xtom.de/fedora//releases/34/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-34-1.2.iso) <br> **35**: [Enlace](https://download.fedoraproject.org/pub/fedora/linux/releases/35/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-35-1.2.iso) |
-| Linux Mint 19 | **CINNAMON**: [Enlace](https://mirror.dogecloud.org/Linux/Mint/stable/19.2/linuxmint-19.2-cinnamon-64bit.iso) |
-| KDE Neon | [Enlace](https://files.kde.org/neon/images/user/20191024-1119/neon-user-20191024-1119.iso) |
-| Arch Linux | **TORRENT**: [Enlace](https://www.archlinux.org/releng/releases/2019.10.01/torrent/) |
-| Manjaro | **GNOME**: [Enlace](https://osdn.net/frs/redir.php?m=dotsrc&f=%2Fstorage%2Fg%2Fm%2Fma%2Fmanjaro%2Fgnome%2F18.1.2%2Fmanjaro-gnome-18.1.2-191028-linux53.iso) <br> **KDE**: [Enlace](https://osdn.net/frs/redir.php?m=dotsrc&f=%2Fstorage%2Fg%2Fm%2Fma%2Fmanjaro%2Fkde%2F18.1.2%2Fmanjaro-kde-18.1.2-191028-linux53.iso) <br> **XFCE**: [Enlace](https://osdn.net/frs/redir.php?m=dotsrc&f=%2Fstorage%2Fg%2Fm%2Fma%2Fmanjaro%2Fxfce%2F18.1.2%2Fmanjaro-xfce-18.1.2-191028-linux53.iso) |
+| Ubuntu 20.04 | [Enlace](https://ubuntu.com/download/desktop) |
+| Fedora | [Enlace](https://getfedora.org/es/workstation/download/) |
+| Debian | [Enlace](https://www.debian.org/distrib/netinst#smallcd) |
+| Deepin | [Enlace](https://www.deepin.org/en/download/) |
+| Linux Mint | [Enlace](https://www.linuxmint.com/download.php) |
+| KDE Neon | [Enlace](https://neon.kde.org/download) |
+| Arch Linux | [Enlace](https://www.archlinux.org/releng/releases) |
+| Manjaro | [Enlace](https://manjaro.org/download/) |
 
 ## Software extra instalado
 
@@ -94,6 +93,7 @@ Por defecto se instala el siguiente software:
 | [Secrethub](https://secrethub.io) | secrethub | install_secrethub | | Gestor de secretos |
 | [Skype](https://www.skype.com/es/) | skype | install_skype | socials | Cliente de mensajería de Skype |
 | [Slack](https://slack.com/intl/es-es/) | slack | install_slack | socials | Cliente de mensajería para entornos de trabajo |
+| [Singlebox](https://webcatalog.io/singlebox/) | singlebox | install_singlebox | socials | Administrador de clientes de mensajería |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | | Cliente de Spotify |
 | [Station](https://getstation.com/) | station | install_station | | Administrador de clientes de mensajería |
 | [Steam](https://store.steampowered.com/?l=spanish) | steam | install_steam | | Cliente Steam para juegos de PC |
@@ -175,7 +175,7 @@ Una de las primeras tareas que se ejecutan es la actualización de los paquetes 
 
 - Variable de entorno
 
-Hay que exportar la variable `REPO_DISABLE_UPDATES` con valor _1_. Cualquier otro valor se considerará _false_ y se actualizarán los paquetes
+Hay que exportar la variable `REPO_DISABLE_UPDATES` con valor *1*. Cualquier otro valor se considerará *false* y se actualizarán los paquetes
 
 ```bash
 export REPO_DISABLE_UPDATES=1

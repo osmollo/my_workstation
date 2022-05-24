@@ -1,151 +1,33 @@
 # CHANGELOG
 
-## 6.3.2
+## 7.0
 
-- Fixes para instalación en **ARCH**:
- - Instalación del paquete `make`
+- Soporte para **Ubuntu 22.04**
+- Soporte para **Fedora 36**
+- Eliminación de soporte de versiones anteriores a **Ubuntu 22.04**
+- Eliminación de soporte de versiones anteriores a **Fedora 36**
+- Eliminación de soporte de versiones anteriores a **Debian 11**
+- Instalación de `neovim` en **Ubuntu** usando __PPA__
+- Nuevo role `tools/get_latest_version` para obtener la última versión de paquetes alojados en [Github](https://github.com)
+- Configuración de LSP en **Neovim**
+- Instalación de **Firefox** desde __ppa__ en **Ubuntu** >= 22.04
+- Instalación de [**Singlebox**](https://webcatalog.io/singlebox/)
+- Corrección de errores:
+  - Fix instalación `virtualenvwrapper` en **Arch**
+  - Instalación de `libsecret` sólo en distros con **Gnome**
+  - Instalación de `vlc` independientemente del entorno gráfico
+  - Instalación de `yakuake` en distros con **KDE**
+  - Fix permisos en ficheros de configuración creados/actualizados en `post_env`
+  - Instalación del paquete `chrome-gnome-shell` para poder instalar extensiones de **Gnome Shell**
+  - Fix permisos `~/.ssh` en post instalación
+  - Instalación **Neovim** para **Ubuntu 22.04**
+  - Instalación de **Virtualbox** para **Ubuntu 22.04**
 - Post instalación:
-  - Nuevo alias bash
-
-## 6.3.1
-
-- Instalación del plugin `kite` para **neovim**
-- Fixes para instalación en **ARCH**:
-  - Instalación de paquetes de `openvpn`
-  - Instalación de `wireshark`
-  - Fix instalación `java`
-  - Fix instalación `docker`
-- Post_install:
-  - Nuevo alias bash
-
-## 6.3
-
-- Reemplazo de utilidades nativas por otras vitaminadas:
-  - Instalación de [bottom](https://github.com/ClementTsang/bottom)
-  - Instalación de [ripgrep](https://github.com/BurntSushi/ripgrep)
-  - Instalación de [duf](https://github.com/muesli/duf)
-  - Instalación de [bat](https://github.com/sharkdp/bat)
-  - Instalación de [curlie](https://github.com/rs/curlie)
-  - Instalación de [gping](https://github.com/orf/gping)
-  - Instalación de [lsd](https://github.com/Peltoche/lsd)
-- Instalación de `screenfetch`
-- Nuevos plugins **Neovim**
-- Instalación de [PyCharm](https://www.jetbrains.com/es-es/pycharm/) en **Ubuntu** usando _snap_
-- Eliminación de personalización por usuario
-- Corrección de errores para distribuciones basadas en **Arch**
-- Post_install:
-  - El `ssh_config` se genera con `blockinfile` en vez de con `template` para no sobreescribir las entradas que ya existan de otros repositorios
-  - Borrado de entradas de `~/.ssh/config`
-  - Fix llaves rsa viejas para nuevas versiones de `openssh`
-  - Nuevo alias de bash
-  - Quitando extensión al fichero `~/.vault_pass.txt`
   - Nuevos repositorios git
-  - Renombrado remote de prezto
-  - Reubicación de la configuración del historial de bash
-  - Sincronización de `.zhistory` vía **Dropbox**
 
-## 6.2.2
+## VERSIONES ANTERIORES
 
-- Cambio de username en todos mis repositorios de github/gitlab
-
-## 6.2.1
-
-- Fix [README.md](./README.md)
-
-## 6.2
-
-- Compatibilidad con **ElementaryOS** y **Pantheon**
-- Instalación de [Trivy](https://github.com/aquasecurity/trivy)
-- Instalación de [Ferdi](https://getferdi.com/)
-- Instalación de [Station](https://getstation.com/)
-- Instalación de [Neovim](https://neovim.io)
-- Instalación de nuevas tipografías
-- Instalación de [Cloudfare](https://1.1.1.1/) para Debian/Ubuntu
-- Eliminados directorios `./docker_deploys` y `./k8s_deploys` y movido todo el contenido de `./ansible` al raíz
-- Nuevos alias bash
-- Nuevos repositorios para clonar
-- Nuevos plugins para Neovim
-- Corrección de errores:
-  - Cambio repositorio git
-  - Eliminación de entradas en `/etc/hosts`
-  - Eliminación de entradas en `~/.ssh/config`
-
-## 6.1.4
-
-- Corrección de errores:
-  - Ejecución de `playbooks/prepare.yml` desde `install.yml`
-- Preparación de post configuración automatizada
-- Eliminadas tareas/playbooks relacionados con importación de llaves gpg
-
-## 6.1.3
-
-- Corrección de errores:
-  - Creación de link a `bash_history`
-  - Corrección key de **1Password** en **Fedora**
-  - Fix en el tag `ssh_config`
-  - Fix **Firefox** que sólo se ejecute en distribuciones **Ubuntu**
-  - Instalación de __cronie__ en **Fedora**
-  - Fix ruta VPN en Dropbox
-  - Fix configuración __Flatpak__
-  - Fix post configuración __zsh__
-- Cambios en la instalación de **1Password**:
-  - Instalación del cli de **1Password**, nuevo tag `1password_cli`
-  - Instalación de la beta de **1Password** en lugar de stable para **Fedora**
-- Soporte **Fedora 35**
-- Preparación post instalación
-
-
-## 6.1.2
-
-- Corrección de errores:
-  - Desinstalación **Firefox** como snap
-  - Eliminados algunos repositorios git a clonar
-  - Ejecución de `git.yml` al final del role `post_install` para no retrasar el resto de configuraciones
-  - Actualizados los credenciales del registry de docker
-  - Instalación llave pública de **Secrethub** en la instalación de **Ubuntu**
-  - Corrección en la ruta donde se instala la llave pública en la instalación de **1Password**
-  - Actualización contraseña XE
-
-## 6.1.1
-
-- Corrección de errores:
-  - Instalación de **Virtualbox 6.1**
-  - Fix `install.yml`
-
-## 6.1
-
-- Nuevos alias en `.bash_aliases`
-- Paginado del __CHANGELOG.md__ por versiones
-- Soporte para **Ubuntu 21.10**
-- Separación en playbooks `install.yml` y `post_install.yml`
-- Correcciones de errores:
-  - Fix gpg key instalación __1password__ en **Ubuntu**
-  - Actualizado fichero `roles/extra_software/vars/ohermosa.yml`
-
-## 6.0
-
-- Unificación de los playbooks `install.yml` y `post_install.yml`
-- Eliminación de los subroles dentro de `roles/post_install`
-- Instalación de [OBS Studio](https://obsproject.com/es)
-- Instalación de [CopyQ](https://hluk.github.io/CopyQ/)
-- Instalación de las siguientes apps mediante paquete nativo en lugar de snap en **Ubuntu**:
-  - Spotify
-  - Pycharm
-- Instalación de [Google Fonts](https://fonts.google.com/)
-- Instalación independiente de las distintas `k8s_tools`
-- Eliminación de **Forticlient VPN** porque ya existe un repo específico para eso
-- Actualización versión `Apache Directory Studio`
-- Corrección de errores:
-  - Borrado del tema `Material` de la configuración de **Sublime Text**
-- Cambios en `post_install/ohermosa`:
-  - Nuevas entradas en `/etc/hosts`
-  - Limpieza de alias de bash
-  - Limpieza de configuración de ssh
-  - Nuevos repositorios git
-  - Refactor configuración VPN trabajo
-
-# VERSIONES ANTERIORES
-
+- [Versión 6](changelog/v6.md)
 - [Versión 5](changelog/v5.md)
 - [Versión 4](changelog/v4.md)
 - [Versión 3](changelog/v3.md)

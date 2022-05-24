@@ -1,27 +1,15 @@
 ---
 
-- name: "[NEOVIM] [DEB] Install neovim"
-  apt:
-    name:
-      - neovim
-      - python3-neovim
-      - npm
-    state: present
-    update_cache: true
-    force: true
+# TODO: descomentar tarea y eliminar el copy cuando neovim este disponible en ppa para jammy
 
-- name: "[NEOVIM ]Alternative link for neovim"
-  alternatives:
-    name: "{{ item.name }}"
-    link: "{{ item.link }}"
-    path: "{{ item.path }}"
-  loop:
-    - name: vi
-      link: /usr/bin/vi
-      path: /usr/bin/nvim
-    - name: vim
-      link: /usr/bin/vim
-      path: /usr/bin/nvim
-    - name: editor
-      link: /usr/bin/editor
-      path: /usr/bin/nvim
+- name: "[NEOVIM] [UBUNTU] install neovim repository"
+  apt_repository:
+    validate_certs: no
+    repo: 'ppa:neovim-ppa/stable'
+    state: present
+
+- name: "[NEOVIM] [UBUNTU] install neovim"
+  apt:
+    name: neovim
+    update_cache: true
+    state: present

@@ -1,0 +1,5 @@
+---
+
+- name: "[SINGLEBOX] Install Singlebox for {{ linux_distribution | upper }}"
+  include_tasks: "singlebox_{{ linux_distribution }}.yml"
+  when: linux_distribution in ["debian", "ubuntu"]

@@ -68,13 +68,6 @@
       vars:
         debian_versions:
           bullseye: "11"
-          buster: "10"
-          stretch: "9"
-          jessie: "8"
-          wheezy: "7"
-          squeeze: "6"
-          lenny: "5"
-          etch: "4"
       when:
         - linux_distribution == "debian"
         - ansible_distribution != "Deepin 20"
@@ -105,18 +98,7 @@
         ubuntu_version_long: "{{ ubuntu_versions[ubuntu_codename] }}"
       vars:
         ubuntu_versions:
-          impish: "21.10"
-          hirsute: "21.04"
-          groovy: "20.10"
-          focal: "20.04"
-          eoan: "19.10"
-          disco: "19.04"
-          bionic: "18.04"
-          artful: "17.10"
-          zesty: "17.04"
-          yakkety: "16.10"
-          xenial: "16.04"
-          trusty: "14.04"
+          jammy: "22.04"
       when: linux_distribution == "ubuntu"
 
     - name: "Set FEDORA_VERSION variable"

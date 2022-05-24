@@ -18,6 +18,22 @@
   become: false
   command: "python3 -m venv {{ python_venv_dir }}/neovim"
 
+- name: "[NEOVIM] install python modules for neovim"
+  pip:
+    name: '{{ item }}'
+  loop:
+    - 'python-lsp-server[all]'
+
+- name: "[NEOVIM] install python modules for neovim in its venv"
+  become: false
+  pip:
+    name: '{{ item }}'
+    virtualenv: "{{ python_venv_dir }}/neovim"
+  loop:
+    - neovim
+    - pynvim
+    - 'python-lsp-server[all]'
+
 - import_tasks: ../fonts/other.yml
 
 - name: "[NEOVIM] download vim-plug"
@@ -44,8 +60,6 @@
       dest: plug-config/git-blame.vim
     - src: airline.vim.j2
       dest: plug-config/airline.vim
-    - src: deoplete.vim.j2
-      dest: plug-config/deoplete.vim
     - src: neoformat.vim.j2
       dest: plug-config/neoformat.vim
     - src: kite.vim.j2
@@ -56,4 +70,4 @@
       dest: init.vim
 
 - name: "[NEOVIM] install neovim plugins"
-  command: "vim -c ':PlugInstall' -c ':qall'"
+  command: "nvim -c ':PlugInstall' -c ':qall'"

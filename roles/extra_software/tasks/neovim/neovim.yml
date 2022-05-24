@@ -5,6 +5,22 @@
 - name: "[NEOVIM] install for {{ linux_distribution }}"
   include_tasks: "neovim_{{ linux_distribution }}.yml"
 
+- name: "[NEOVIM] [DEBIAN] Alternative link for neovim"
+  alternatives:
+    name: "{{ item.name }}"
+    link: "{{ item.link }}"
+    path: "{{ item.path }}"
+  loop:
+    - name: vi
+      link: /usr/bin/vi
+      path: /usr/bin/nvim
+    - name: vim
+      link: /usr/bin/vim
+      path: /usr/bin/nvim
+    - name: editor
+      link: /usr/bin/editor
+      path: /usr/bin/nvim
+
 - name: "[NEOVIM] install plugins"
   import_tasks: "neovim_plugins.yml"
   tags:
@@ -18,4 +34,3 @@
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     create: true
-

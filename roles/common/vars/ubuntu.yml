@@ -1,14 +1,13 @@
 ---
 
 distro_packages:
-  - libsecret-tools
+  - python-apt-common
   - aptitude
   - software-properties-common
   - network-manager-openvpn
   - apt-transport-https
   - openvpn
   - dnsutils
-  - "{{ 'python-dev' if ansible_distribution_major_version is version ('20', '<') else '' }}"
   - python3-dev
   - build-essential
   - snap
@@ -16,7 +15,6 @@ distro_packages:
   - firewall-config
   - net-tools
   - python3-jmespath
-  - "{{ 'python-dev' if ansible_distribution_major_version is version ('20', '<') else '' }}"
   - python3-gpg
   - secure-delete
   - libnss3-tools
@@ -26,19 +24,21 @@ distro_packages:
   - traceroute
   - ansible-lint
   - screenfetch
+  - vlc
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras
+  - libsecret-tools
   - network-manager-openvpn-gnome
   - arc-theme
   - elementary-icon-theme
   - papirus-icon-theme
   - gnome-tweaks
-  - "{{ 'python-dev' if ansible_distribution_major_version is version ('20', '<') else '' }}"
   - python3-psutil
   - wireshark
-  - vlc
   - guake
+  - chrome-gnome-shell
+  - gnome-shell-extension-manager
 
 kde_ubuntu_packages:
   - kubuntu-restricted-extras

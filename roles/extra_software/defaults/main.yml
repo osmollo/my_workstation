@@ -63,7 +63,7 @@ install_steam: false
 install_wireguard: false
 install_typora: true
 install_beekeeper: false
-intall_kdenlive: false
+install_kdenlive: false
 install_sublimemerge: false
 install_bfg: true
 install_vscodium: false
@@ -97,6 +97,7 @@ install_bat: true
 install_duf: true
 install_ripgrep: true
 install_bottom: true
+install_singlebox: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85

@@ -1,1 +1,11 @@
-neovim_ubuntu.yml
+---
+
+- name: "[NEOVIM] [DEBIAN] Install neovim"
+  apt:
+    name:
+      - neovim
+      - python3-neovim
+      - npm
+    state: present
+    update_cache: true
+    force: true

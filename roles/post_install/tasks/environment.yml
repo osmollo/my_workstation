@@ -5,7 +5,8 @@
   become_method: sudo
   lineinfile:
     path: /etc/hosts
-    line: "{{ item.ip }}\t{{ item.host }}"
+    line: "{{ item.ip }}    {{ item.host }}"
+    mode: 0644
   loop: "{{ etc_hosts }}"
   tags:
     - etc_hosts
@@ -46,6 +47,7 @@
     state: directory
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
+    mode: 0750
   loop:
     - ".ssh"
     - ".ssh/aws"
@@ -61,6 +63,7 @@
     dest: "{{ ansible_user_dir }}/.bash_aliases"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
+    mode: 0600
   tags:
     - config_files
     - bash_aliases
@@ -71,6 +74,7 @@
     dest: "{{ ansible_user_dir }}/.bashrc"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
+    mode: 0600
   tags:
     - config_files
     - bash_config
@@ -85,7 +89,7 @@
   loop: "{{ ssh_keys }}"
   loop_control:
     label: "{{ item.path }}"
-  no_log: true
+  # no_log: true
   tags:
     - ssh_keys
 
@@ -120,13 +124,14 @@
         PubkeyAcceptedKeyTypes {{ item.pubkeyacceptedkeytypes }}
       {% endif %}
       {% if item.hostkeyalgorithms is defined %}
-        HostKeyAlgorithms {{ item.hostkeyalgorithms }} 
+        HostKeyAlgorithms {{ item.hostkeyalgorithms }}
       {% endif %}
     state: present
     marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
     create: true
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
+    mode: 0600
   loop: "{{ ssh_config_entries }}"
   loop_control:
     label: "{{ item.name }}"
@@ -139,6 +144,7 @@
     path: "{{ ansible_user_dir }}/{{ item.name }}"
     line: "{{ item.content }}"
     create: true
+    mode: 0600
   no_log: true
   loop:
     - name: .vault_pass_personal

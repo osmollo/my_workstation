@@ -1,20 +1,12 @@
 ---
 
-- when: desktop_environment != "kde"
-  block:
-    - name: "[KDENLIVE] [DEB] Check if ansible_version >= 2.8"
-      assert:
-        that:
-          - ansible_version.full is version ("2.8", ">=")
-        fail_msg: "Ansible version must be >= 2.8. Please, ejecute 'ansible-playbook update_ansible.yml '"
-        success_msg: "OK, your ansible version is {{ ansible_version.full }}"
-
-    - name: "[KDENLIVE] [DEB] Install Kdenlive using snap"
-      snap:
-        name:
-          - kdenlive
-        classic: true
-        state: present
+- name: "[KDENLIVE] [DEB] Install Kdenlive using snap"
+  snap:
+    name:
+      - kdenlive
+    classic: true
+    state: present
+  when: desktop_environment != "kde"
 
 - name: "[KDENLIVE] install kdenlive"
   apt:

@@ -5,9 +5,6 @@ chrome_package: "https://dl.google.com/linux/direct/google-chrome-stable_current
 teamviewer_package: "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 nomachine_package: "https://download.nomachine.com/download/{{ nomachine_version.split('.')[0:2] | join('.') }}/Linux/nomachine_{{ nomachine_version }}_amd64.deb"
 
-virtualbox_packages:
-  - virtualbox-6.1
-
 chromium_package: chromium-browser
 vagrant_package: "https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_{{ ansible_architecture }}.deb"
 buttercup_deb_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop_{{ buttercup_version | replace('v', '') }}_amd64.deb"
@@ -16,9 +13,9 @@ megacmd_dependencies:
   - libmediainfo0v5
   - libpcrecpp0v5
   - libzen0v5
-  - "{{ 'libcrypto++8' if ubuntu_version_long is version('21.10', '=') else 'libcrypto++6' }}"
+  - libcrypto++8
   - libmms0
-  - "{{ 'libtinyxml2-8' if ubuntu_version_long is version('21.10', '=') else 'libtinyxml2-6' }}"
+  - libtinyxml2-9
 
 megasync_package: "https://mega.nz/linux/MEGAsync/x{{ linux_distribution | capitalize }}_{{ ansible_distribution_version }}/amd64/megasync-x{{ linux_distribution | capitalize }}_{{ ubuntu_version_long }}_amd64.deb"
 file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"

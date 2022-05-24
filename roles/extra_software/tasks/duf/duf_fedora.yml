@@ -4,4 +4,5 @@
   yum:
     name: "{{ duf_rpm_package }}"
     state: present
-    update_cache: true
+    update_cache: tru
+    disable_gpg_check: true

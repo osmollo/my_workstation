@@ -3,7 +3,6 @@
 distro_packages:
   - openvpn
   - networkmanager-openvpn
-  - libsecret
   - bind-tools
   - net-tools
   - python-libevdev
@@ -17,12 +16,14 @@ distro_packages:
   - networkmanager-openvpn
   - wireshark-qt
   - make
+  - vlc
 
 gnome_arch_packages:
   - wireshark-cli
-  - vlc
+  - libsecret
 
-kde_arch_packages: []
+kde_arch_packages:
+  - yakuake
 
 xfce_arch_packages: []
 
@@ -31,5 +32,6 @@ python_packages:
   - python-pip
   - ipython
   - python-virtualenv
+  - python-virtualenvwrapper
 
 kwalletcli_package: kwalletcli
