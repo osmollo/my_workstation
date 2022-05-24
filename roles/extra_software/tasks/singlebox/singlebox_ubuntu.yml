@@ -1,0 +1,8 @@
+---
+
+- name: "[SINGLEBOX] [DEB] Install single using snap"
+  snap:
+    name:
+      - singlebox
+    state: present
+    channel: edge

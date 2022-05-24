@@ -93,6 +93,7 @@ Por defecto se instala el siguiente software:
 | [Secrethub](https://secrethub.io) | secrethub | install_secrethub | | Gestor de secretos |
 | [Skype](https://www.skype.com/es/) | skype | install_skype | socials | Cliente de mensajería de Skype |
 | [Slack](https://slack.com/intl/es-es/) | slack | install_slack | socials | Cliente de mensajería para entornos de trabajo |
+| [Singlebox](https://webcatalog.io/singlebox/) | singlebox | install_singlebox | socials | Administrador de clientes de mensajería |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | | Cliente de Spotify |
 | [Station](https://getstation.com/) | station | install_station | | Administrador de clientes de mensajería |
 | [Steam](https://store.steampowered.com/?l=spanish) | steam | install_steam | | Cliente Steam para juegos de PC |
