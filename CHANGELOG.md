@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 7.1
+
+- Post instalación:
+  - Cambios repositorios git
+
 ## 7.0
 
 - Soporte para **Ubuntu 22.04**
