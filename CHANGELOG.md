@@ -4,6 +4,7 @@
 
 - Post instalación:
   - Cambios repositorios git
+  - Nuevos alias bash
 
 ## 7.0
 
