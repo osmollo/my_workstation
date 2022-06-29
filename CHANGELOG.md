@@ -7,6 +7,8 @@
 - Post instalación:
   - Cambios repositorios git
   - Nuevos alias bash
+- Corrección de errores:
+  - Fix de la condición para la ejecución del borrado de snaps
 
 ## 7.0
 
