@@ -6,7 +6,7 @@ install_vscode: true
 install_spotify: true
 install_ohmyzsh: false
 install_sublimetext: false
-install_atom: false
+# install_atom: false
 install_gitkraken: false
 install_telegram: true
 install_slack: false
@@ -102,7 +102,7 @@ install_singlebox: false
 tlp_battery_min: 75
 tlp_battery_max: 85
 
-atom_latest_url: "https://github.com/atom/atom/releases/latest"
+# atom_latest_url: "https://github.com/atom/atom/releases/latest"
 rambox_latest_url: "https://github.com/ramboxapp/community-edition/releases/latest"
 buttercup_latest_url: "https://github.com/buttercup/buttercup-desktop/releases/latest"
 franz_latest_url: "https://github.com/meetfranz/franz/releases/latest"
