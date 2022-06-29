@@ -2,6 +2,7 @@
 
 ## 7.1
 
+- Instalación de [Neovim](https://neovim.io/) en **Ubuntu** desde el paquete [descargado de github](https://github.com/neovim/neovim/releases/latest)
 - Post instalación:
   - Cambios repositorios git
   - Nuevos alias bash

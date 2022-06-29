@@ -2,6 +2,21 @@
 
 # https://linuxfacil.mx/blog/neovim/como-configurar-neovim-como-vscode-para-python/
 
+- when: linux_distribution in ['ubuntu', 'debian']
+  block:
+    - name: "[NEOVIM] Get latest version of neovim"
+      uri:
+        url: "{{ neovim_latest_url }}"
+        follow_redirects: safe
+        body_format: raw
+      register: neovim_latest
+
+    - name: "[NEOVIM] Set urls for neovim packages"
+      vars:
+        neovim_version: "{{ neovim_latest.url | urlsplit('path') | basename }}"
+      set_fact:
+        neovim_deb_package: "https://github.com/neovim/neovim/releases/download/{{ neovim_version }}/nvim-linux64.deb"
+
 - name: "[NEOVIM] install for {{ linux_distribution }}"
   include_tasks: "neovim_{{ linux_distribution }}.yml"
 
