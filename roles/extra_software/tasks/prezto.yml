@@ -9,27 +9,42 @@
     path: "{{ ansible_env.HOME }}/.oh-my-zsh"
   register: ohmyzshdir_exists
 
-- name: "[PREZTO] install prezto"
+- name: "[PREZTO] delete oh-my-zsh"
+  become: false
+  become_user: "{{ ansible_user }}"
+  block:
+    - name: "[PREZTO] creating backup"
+      copy:
+        src: "{{ ansible_env.HOME }}/.oh-my-zsh"
+        dest: "{{ ansible_env.HOME }}/.oh-my-zsh.bkp"
+        remote_src: true
+
+    - name: "[PREZTO] delete old files/directories"
+      file:
+        path: "{{ ansible_env.HOME }}/.oh-my-zsh"
+        state: absent
+  when: ohmyzshdir_exists.stat.exists
+
+- name: "[PREZTO] check if previous .zshrc installation exists"
+  stat:
+    path: "{{ ansible_env.HOME }}/.zshrc"
+  register: zshrc_exists
+
+- name: "[PREZTO] delete ~/.zshrc"
   become: false
   become_user: "{{ ansible_user }}"
   block:
     - name: "[PREZTO] creating backups"
       copy:
-        src: "{{ item }}"
-        dest: "{{ item }}.bkp"
+        src: "{{ ansible_user_dir }}/.zshrc"
+        dest: "{{ ansible_user_dir }}/.zshrc.bkp"
         remote_src: true
-      loop:
-        - "{{ ansible_env.HOME }}/.oh-my-zsh"
-        - "{{ ansible_user_dir }}/.zshrc"
 
     - name: "[PREZTO] delete old files/directories"
       file:
-        path: "{{ item }}"
+        path: "{{ ansible_user_dir }}/.zshrc"
         state: absent
-      loop:
-        - "{{ ansible_env.HOME }}/.oh-my-zsh"
-        - "{{ ansible_user_dir }}/.zshrc"
-  when: ohmyzshdir_exists.stat.exists
+  when: zshrc_exists.stat.exists
 
 - name: "[PREZTO] install prezto"
   become: false
@@ -52,6 +67,7 @@
         state: directory
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
+        mode: 0755
 
     - name: "[PREZTO] set autocomplete special directories in prezto config"
       lineinfile:
@@ -61,6 +77,7 @@
         create: true
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
+        mode: 0644
 
     - name: "[PREZTO] find prezto config files"
       find:

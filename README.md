@@ -20,6 +20,7 @@
 | Debian | [Enlace](https://www.debian.org/distrib/netinst#smallcd) |
 | Deepin | [Enlace](https://www.deepin.org/en/download/) |
 | Linux Mint | [Enlace](https://www.linuxmint.com/download.php) |
+| Pop!_OS | [Enlace](https://pop.system76.com/)
 | KDE Neon | [Enlace](https://neon.kde.org/download) |
 | Arch Linux | [Enlace](https://www.archlinux.org/releng/releases) |
 | Manjaro | [Enlace](https://manjaro.org/download/) |
