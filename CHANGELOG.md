@@ -10,6 +10,7 @@
   - Nuevos alias bash
 - Corrección de errores:
   - Fix de la condición para la ejecución del borrado de snaps
+  - Guardar la apt-key de algunas apps en su propio fichero independiente
 
 ## 7.0
 

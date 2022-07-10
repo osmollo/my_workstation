@@ -10,15 +10,21 @@
     name: "{{ bad_snap_packages }}"
     state: present
 
-- name: "[UBUNTU] install firefox from ppa"
-  apt_repository:
-    validate_certs: no
-    repo: 'ppa:mozillateam/ppa'
-    state: present
- 
+- name: "[UBUNTU] install mozilla repository file"
+  copy:
+    content: "deb [signed-by=/usr/share/keyrings/mozilla.gpg] http://ppa.launchpad.net/mozillateam/ppa/ubuntu {{ ubuntu_codename }} main"
+    dest: /etc/apt/sources.list.d/mozilla.list
+    owner: root
+    group: root
+    mode: 0644
+
 - name: "[UBUNTU] install firefox"
   apt:
     name: firefox
     update_cache: true
     state: present
- 
+
+- name: "[UBUNTU] save apt key"
+  apt_key:
+    id: 0AB215679C571D1C8325275B9BDB3D89CE49EC21
+    file: /usr/share/keyrings/mozilla.gpg

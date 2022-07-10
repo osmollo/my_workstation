@@ -11,8 +11,13 @@
     state: absent
 
 - name: "[DOCKER] [DEB] Copy repository file"
-  template:
-    src: docker-ce.list.j2
+  copy:
+    content: |
+      {% if ubuntu_codename is defined %}
+      deb [arch=amd64 signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/{{ linux_distribution }} {{ ubuntu_codename }} stable
+      {% elif debian_codename is defined %}
+      deb [arch=amd64 signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/{{ linux_distribution }} {{ debian_codename }} stable
+      {% endif %}
     dest: /etc/apt/sources.list.d/docker-ce.list
     mode: 0644
     owner: root
@@ -20,7 +25,8 @@
 
 - name: "[DOCKER] [DEB] Import repository key"
   apt_key:
-    url: "https://download.docker.com/linux/{{ linux_distribution }}/gpg"
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+    file: /usr/share/keyrings/docker.gpg
     state: present
 
 - name: "[DOCKER] [DEB] Install Docker-CE"
