@@ -105,7 +105,6 @@ Por defecto se instala el siguiente software:
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | | Gestión de batería (sólo para Thinkpad) |
 | [Tmux](http://www.sromero.org/wiki/linux/aplicaciones/tmux) | tmux | install_tmux | | Multiplexador de terminal avanzado |
 | [Trivy](https://github.com/aquasecurity/trivy) | trivy | install_trivy | | Scanner de vulnerabilidades de contenedores docker |
-| [Typora](https://typora.io) | typora | install_typora | | Editor de textos especializado en Markdown |
 | [Vault](https://learn.hashicorp.com/tutorials/vault/getting-started-install) | vault | install_vault | | Cliente/Servidor de gestión de secretos |
 | [Vim plugins](https://vimawesome.com/) | vimplugins | install_vimplugins | | Instalación de plugins de VIM |
 | [Virtualbox](https://www.virtualbox.org/) | virtualbox | install_virtualbox | | Virtualización (incluye Vagrant) |

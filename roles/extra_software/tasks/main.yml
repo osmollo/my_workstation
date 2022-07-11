@@ -470,14 +470,6 @@
     - extra_software
     - wireguard
 
-- name: "Install typora"
-  import_tasks: typora/typora.yml
-  when:
-    - install_typora
-  tags:
-    - extra_software
-    - typora
-
 - name: "Install beekeeper"
   import_tasks: beekeeper.yml
   when:
