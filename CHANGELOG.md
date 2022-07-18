@@ -6,6 +6,7 @@
 - Instalación de [Neovim](https://neovim.io/) en **Ubuntu** desde el paquete [descargado de github](https://github.com/neovim/neovim/releases/latest)
 - [Atom](https://atom.io/) ya no se encuentra disponible para instalar por su [fin de desarrollo](https://www.genbeta.com/desarrollo/github-anuncia-muerte-editor-codigo-atom-15-diciembre-su-atencion-se-centrara-vs-code)
 - Subida de versión de ECS cli (0.3.17)
+- Mejorada la config de **vim** y **neovim**
 - Post instalación:
   - Cambios repositorios git
   - Nuevos alias bash
