@@ -1,0 +1,51 @@
+---
+
+- name: "[{{ mozilla_browser }}] create directory '{{ mozilla_dir }}'"
+  file:
+    path: "{{ mozilla_dir }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0700
+
+- name: "[{{ mozilla_browser }}] get the {{ mozilla_browser | lower }} preferences file"
+  find:
+    path: "{{ mozilla_dir }}"
+    patterns: "^prefs.js$"
+    use_regex: true
+    file_type: file
+    recurse: true
+  register: find_response_round_1
+
+- set_fact:
+    find_response: "{{ find_response_round_1 }}"
+
+- name: "[{{ mozilla_browser }}] launch firefox if there aren't matches'"
+  block:
+    - name: "[{{ mozilla_browser }}] launch and kill {{ mozilla_browser | lower }}"
+      shell: "{{ item }}"
+      loop:
+        - "{{ mozilla_browser | lower }} &"
+        - "killall {{ mozilla_browser | lower }}"
+
+    - name: "[{{ mozilla_browser }}] get the {{ mozilla_browser | lower }} preferences file"
+      find:
+        path: "{{ mozilla_dir }}"
+        patterns: "^prefs.js$"
+        use_regex: true
+        file_type: file
+        recurse: true
+      register: find_response_round_2
+
+    - set_fact:
+        find_response: "{{ find_response_round_2 }}"
+  when: (find_response_round_1.matched | int) == 0
+
+- name: "[{{ mozilla_browser }}] customize {{ mozilla_browser | lower }} profile for {{ ansible_user }} ('{{ (find_response.files | json_query('[].path'))[0] }}')"
+  lineinfile:
+    path: "{{ (find_response.files | json_query('[].path'))[0] }}"
+    regexp: '{{ item.regex }}'
+    line: '{{ item.line }}'
+  loop: "{{ firefox_customizations if mozilla_browser == 'FIREFOX' else librewolf_customizations if mozilla_browser == 'LIBREWOLF' }}"
+  loop_control:
+    label: "{{ item.regex }}"

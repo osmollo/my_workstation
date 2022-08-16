@@ -1,0 +1,8 @@
+---
+
+- name: "[LIBREWOLF] [ARCH] Install librewolf"
+  become: false
+  yay:
+    name: "{{ librewolf_package }}"
+    state: present
+    update_cache: true

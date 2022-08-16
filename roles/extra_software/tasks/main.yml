@@ -347,6 +347,14 @@
     - vivaldi
     - browsers
 
+- name: "Install librewolf"
+  import_tasks: librewolf/librewolf.yml
+  when: install_librewolf
+  tags:
+    - extra_software
+    - librewolf
+    - browsers
+
 - name: "Install Bitwarden"
   import_tasks: bitwarden/bitwarden.yml
   when: install_bitwarden

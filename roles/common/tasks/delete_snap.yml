@@ -18,6 +18,25 @@
     group: root
     mode: 0644
 
+- name: "[UBUNTU] configure priority for firefox"
+  copy:
+    content: |
+      Package: *
+      Pin: release o=LP-PPA-mozillateam
+      Pin-Priority: 1001    
+    dest: /etc/apt/preferences.d/mozilla-firefox
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "[UBUNTU] configure firefox apt update"
+  copy:
+    content: 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";'
+    dest: /etc/apt/apt.conf.d/51unattended-upgrades-firefox
+    owner: root
+    group: root
+    mode: 0644
+
 - name: "[UBUNTU] install firefox"
   apt:
     name: firefox
