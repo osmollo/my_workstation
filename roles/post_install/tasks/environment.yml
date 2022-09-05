@@ -41,18 +41,13 @@
     - source $HOME/.bash_aliases
   when: "'zsh' == ansible_user_shell | basename"
 
-- name: "[ENVIRONMENT] create .ssh directories"
+- name: "[ENVIRONMENT] create .ssh directory"
   file:
-    path: "{{ ansible_user_dir }}/{{ item }}"
+    path: "{{ ssh_dir }}"
     state: directory
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     mode: 0750
-  loop:
-    - ".ssh"
-    - ".ssh/aws"
-    - ".ssh/isilon"
-    - ".ssh/ccr"
   tags:
     - ssh_config
     - ssh_keys

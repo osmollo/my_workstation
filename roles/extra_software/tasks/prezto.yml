@@ -55,7 +55,7 @@
         repo: "{{ prezto_repo }}"
         dest: "{{ ansible_user_dir }}/.zprezto"
         clone: true
-        key_file: "/home/{{ ansible_user }}/.ssh/id_rsa"
+        key_file: "{{ ssh_dir }}/osmollo"
         accept_hostkey: true
         recursive: true
         version: master
