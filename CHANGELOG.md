@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 7.1.1
+
+- Corrección de errores
+
 ## 7.1
 
 - Soporte para la distribución [Pop!_OS](https://pop.system76.com/)
