@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## 7.1
+
+- Soporte para la distribución [Pop!_OS](https://pop.system76.com/)
+- Instalación de [Neovim](https://neovim.io/) en **Ubuntu** desde el paquete [descargado de github](https://github.com/neovim/neovim/releases/latest)
+- Instalación de [Librewolf](https://librewolf.net/)
+- [Atom](https://atom.io/) ya no se encuentra disponible para instalar por su [fin de desarrollo](https://www.genbeta.com/desarrollo/github-anuncia-muerte-editor-codigo-atom-15-diciembre-su-atencion-se-centrara-vs-code)
+- Subida de versión de ECS cli (0.3.17)
+- Mejorada la config de **vim** y **neovim**
+- Limpieza de llaves SSH
+- Post instalación:
+  - Cambios repositorios git
+  - Nuevos alias bash
+- Corrección de errores:
+  - Fix de la condición para la ejecución del borrado de snaps
+  - Guardar la apt-key de algunas apps en su propio fichero independiente
+  - Instalación de **firefox** con .deb después de borrar su snap
+
 ## 7.0
 
 - Soporte para **Ubuntu 22.04**

@@ -23,10 +23,26 @@
     - post_megacmd
 
 - name: "Customize firefox"
-  import_tasks: firefox.yml
+  vars:
+    mozilla_browser: FIREFOX
+    mozilla_dir: "{{ ansible_user_dir }}/.mozilla/firefox"
+  import_tasks: mozilla.yml
   tags:
     - post_install
     - firefox
+
+- block:
+    - include_vars: "{{ playbook_dir }}/roles/extra_software/defaults/main.yml"
+
+    - name: "Customize librewolf"
+      vars:
+        mozilla_browser: LIBREWOLF
+        mozilla_dir: "{{ ansible_user_dir }}/.librewolf"
+      import_tasks: mozilla.yml
+  when: install_librewolf
+  tags:
+    - post_install
+    - librewolf
 
 - name: "Delete default directories in /home/{{ ansible_user }}"
   file:

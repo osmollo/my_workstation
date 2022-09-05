@@ -113,13 +113,13 @@
     - sublime_merge
     - sublime
 
-- name: "Install Atom"
-  import_tasks: atom/atom.yml
-  when: install_atom
-  tags:
-    - extra_software
-    - atom
-    - editors
+# - name: "Install Atom"
+#   import_tasks: atom/atom.yml
+#   when: install_atom
+#   tags:
+#     - extra_software
+#     - atom
+#     - editors
 
 - name: "Install Gitkraken"
   import_tasks: gitkraken/gitkraken.yml
@@ -347,6 +347,14 @@
     - vivaldi
     - browsers
 
+- name: "Install librewolf"
+  import_tasks: librewolf/librewolf.yml
+  when: install_librewolf
+  tags:
+    - extra_software
+    - librewolf
+    - browsers
+
 - name: "Install Bitwarden"
   import_tasks: bitwarden/bitwarden.yml
   when: install_bitwarden
@@ -469,14 +477,6 @@
   tags:
     - extra_software
     - wireguard
-
-- name: "Install typora"
-  import_tasks: typora/typora.yml
-  when:
-    - install_typora
-  tags:
-    - extra_software
-    - typora
 
 - name: "Install beekeeper"
   import_tasks: beekeeper.yml

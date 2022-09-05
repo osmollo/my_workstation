@@ -1,5 +1,44 @@
 set nocompatible              " be iMproved, required
+set history=1000 " increase history size
+
 filetype off                  " required
+
+set nobackup
+set nowritebackup
+set noswapfile
+set backspace=indent,eol,start
+
+" Modify indenting settings
+
+set autoindent " autoindent always ON.
+set expandtab " expand tabs
+set shiftwidth=2 " spaces for autoindenting
+set softtabstop=2 " remove a full pseudo-TAB when i press <BS>
+
+" Modify some other settings about files
+
+set encoding=utf-8 " always use unicode
+set hidden
+set ignorecase
+set scrolloff=8 " Keep at least 8 lines below cursor
+set foldmethod=manual " To avoid performance issues, I never fold anything so...
+
+"-----------------------------------------
+" 3. UI
+"-----------------------------------------
+
+set fillchars+=vert:\ " Remove unpleasant pipes from vertical splits
+
+" Sauce on this: http://stackoverflow.com/a/9001540
+
+set wildmenu " enable visual wildmenu
+set number " show line numbers
+set showmatch " higlight matching parentheses and brackets
+set nohlsearch
+set lazyredraw
+set ttyfast
+set hidden
+
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -28,7 +67,3 @@ let g:lightline = {
   \     }
   \ }
 
-set tabstop=2
-set expandtab
-set shiftwidth=2
-set softtabstop=2

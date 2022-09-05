@@ -6,7 +6,7 @@ install_vscode: true
 install_spotify: true
 install_ohmyzsh: false
 install_sublimetext: false
-install_atom: false
+# install_atom: false
 install_gitkraken: false
 install_telegram: true
 install_slack: false
@@ -98,11 +98,12 @@ install_duf: true
 install_ripgrep: true
 install_bottom: true
 install_singlebox: false
+install_librewolf: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85
 
-atom_latest_url: "https://github.com/atom/atom/releases/latest"
+# atom_latest_url: "https://github.com/atom/atom/releases/latest"
 rambox_latest_url: "https://github.com/ramboxapp/community-edition/releases/latest"
 buttercup_latest_url: "https://github.com/buttercup/buttercup-desktop/releases/latest"
 franz_latest_url: "https://github.com/meetfranz/franz/releases/latest"
@@ -128,6 +129,7 @@ curlie_latest_url: "https://github.com/rs/curlie/releases/latest"
 bat_latest_url: "https://github.com/sharkdp/bat/releases/latest"
 duf_latest_url: "https://github.com/muesli/duf/releases/latest"
 bottom_latest_url: "https://github.com/ClementTsang/bottom/releases/latest"
+neovim_latest_url: "https://github.com/neovim/neovim/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/osmollo/oh-my-zsh/raw/master/tools/install.sh"
 
@@ -139,7 +141,7 @@ skype_flatpak: "https://flathub.org/repo/appstream/com.skype.Client.flatpakref"
 franz_flatpak: "https://flathub.org/repo/appstream/com.meetfranz.Franz.flatpakref"
 kdenlive_flatpak: "https://dl.flathub.org/repo/appstream/org.kde.kdenlive.flatpakref"
 
-ecs_cli_package: "ecs-cli-0.2.16.tar.gz"
+ecs_cli_package: "ecs-cli-0.3.17.tar.gz"
 ecs_cli_url: "https://globaldevtools.bbva.com/artifactory/semaas-global-bin/releases/ecs-cli/{{ ecs_cli_package }}"
 ecs_cli_doc_url: "https://platform.bbva.com/en-us/developers/ether-cli/documentation/03-getting-started"
 

@@ -13,6 +13,7 @@
           - "Linux Mint"
           - "KDE neon"
           - "elementary OS"
+          - "Pop!_OS"
         fedora_based:
           - "Fedora"
         arch_based:

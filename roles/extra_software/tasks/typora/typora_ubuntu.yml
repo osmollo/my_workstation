@@ -1,19 +1,8 @@
 ---
 
-# TODO: descomentar cuando typora.io deje de dar timeouts
-# - name: "[DEB] Import repository key"
-#   apt_key:
-#     url: https://typora.io/linux/public-key.asc
-#     state: present
-
-- name: "[TYPORA] [DEB] Import repository key"
-  apt_key:
-    data: "{{ lookup('file', 'typora.asc') }}"
-    state: present
-
 - name: "[TYPORA] [DEB] install typora repository"
   apt_repository:
-    repo: "deb https://typora.io/linux ./"
+    repo: "deb [signed-by=/usr/share/keyrings/typora.gpg] https://typora.io/linux ./"
     state: present
 
 - name: "[TYPORA] [DEB] install typora"
@@ -21,3 +10,10 @@
     name: typora
     state: present
     update_cache: true
+
+- name: "[TYPORA] [DEB] Import repository key"
+  apt_key:
+    id: 4AC441BE68B4ADAB7439FBF9BA300B7755AFCFAE
+    file: /usr/share/keyrings/typora.gpg
+    state: present
+

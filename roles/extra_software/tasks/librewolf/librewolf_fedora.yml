@@ -1,0 +1,19 @@
+---
+
+- name: "[LIBREWOLF] [FEDORA] add rpm key"
+  rpm_key:
+    key: https://keys.openpgp.org/vks/v1/by-fingerprint/034F7776EF5E0C613D2F7934D29FBD5F93C0CFC3
+    state: present
+
+- name: "[LIBREWOLF] [FEDORA] download repository file"
+  yum_repository:
+    name: librewolf
+    description: Librewolf - x86_64 - Stable
+    baseurl: https://rpm.librewolf.net
+    enabled: true
+
+- name: "[LIBREWOLF] [FEDORA] install librewolf"
+  yum:
+    name: librewolf
+    update_cache: true
+    state: present

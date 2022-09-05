@@ -1,15 +1,6 @@
 ---
 
-# TODO: descomentar tarea y eliminar el copy cuando neovim este disponible en ppa para jammy
-
-- name: "[NEOVIM] [UBUNTU] install neovim repository"
-  apt_repository:
-    validate_certs: no
-    repo: 'ppa:neovim-ppa/stable'
-    state: present
-
-- name: "[NEOVIM] [UBUNTU] install neovim"
+- name: "[NEOVIM] [UBUNTU] Install Neovim"
   apt:
-    name: neovim
-    update_cache: true
+    deb: "{{ neovim_deb_package }}"
     state: present

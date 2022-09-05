@@ -20,6 +20,7 @@
 | Debian | [Enlace](https://www.debian.org/distrib/netinst#smallcd) |
 | Deepin | [Enlace](https://www.deepin.org/en/download/) |
 | Linux Mint | [Enlace](https://www.linuxmint.com/download.php) |
+| Pop!_OS | [Enlace](https://pop.system76.com/)
 | KDE Neon | [Enlace](https://neon.kde.org/download) |
 | Arch Linux | [Enlace](https://www.archlinux.org/releng/releases) |
 | Manjaro | [Enlace](https://manjaro.org/download/) |
@@ -33,7 +34,6 @@ Por defecto se instala el siguiente software:
 | [1Password](https://support.1password.com/cs/getting-started-linux/) | 1password | install_1password | pass_managers | Instala gestor de contraseñas **1Password** |
 | [Act](https://github.com/nektos/act) | act | install_act | | Ejecuta localmente **Github Actions** |
 | [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) | apachedirectory | install_apachedirectory | | Cliente de LDAP |
-| [Atom](https://atom.io/) | atom | install_atom | editors | Editor de texto |
 | [Authy](https://authy.com/) | authy | install_authy | | Aplicación para 2FA |
 | [Balena Etcher](https://www.balena.io/etcher/) | etcher | install_etcher | | Aplicación para quemar imágenes iso en usb |
 | [Bat](https://github.com/sharkdp/bat) | bat | install_bat | | cat vitaminado |
@@ -72,6 +72,7 @@ Por defecto se instala el siguiente software:
 | [KeepassXC](https://keepassxc.org/download/) | keepass | install_keepass | pass_managers | Gestor de contraseñas |
 | [Kodi](https://kodi.tv/) | kodi | install_kodi | | Media center |
 | [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | | Firefox 50.1 + Java para acceder a Lexnet (sólo para abogados) |
+| [Librewolf](https://librewolf.net/) | librewolf | install_librewolf | browsers | Navegador web Librewolf (fork de Firefox) |
 | [LSD](https://github.com/Peltoche/lsd) | lsd | install_lsd | | binario para listar directorios |
 | [Mailspring](https://getmailspring.com/) | mailspring | install_mailspring | | Cliente de correo electrónico |
 | [MAME](https://www.mamedev.org/) | mame | install_mame | | Emulador de juegos de recreativas |
@@ -105,7 +106,6 @@ Por defecto se instala el siguiente software:
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | | Gestión de batería (sólo para Thinkpad) |
 | [Tmux](http://www.sromero.org/wiki/linux/aplicaciones/tmux) | tmux | install_tmux | | Multiplexador de terminal avanzado |
 | [Trivy](https://github.com/aquasecurity/trivy) | trivy | install_trivy | | Scanner de vulnerabilidades de contenedores docker |
-| [Typora](https://typora.io) | typora | install_typora | | Editor de textos especializado en Markdown |
 | [Vault](https://learn.hashicorp.com/tutorials/vault/getting-started-install) | vault | install_vault | | Cliente/Servidor de gestión de secretos |
 | [Vim plugins](https://vimawesome.com/) | vimplugins | install_vimplugins | | Instalación de plugins de VIM |
 | [Virtualbox](https://www.virtualbox.org/) | virtualbox | install_virtualbox | | Virtualización (incluye Vagrant) |

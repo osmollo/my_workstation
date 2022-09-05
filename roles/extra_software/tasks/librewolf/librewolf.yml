@@ -1,0 +1,4 @@
+---
+
+- name: "[LIBREWOLF] install for {{ linux_distribution }}"
+  include_tasks: "librewolf_{{ linux_distribution }}.yml"

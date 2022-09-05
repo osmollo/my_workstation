@@ -5,3 +5,16 @@
     deb: "{{ teamviewer_package }}"
     state: present
     update_cache: true
+
+- name: "[TEAMVIEWER] [DEB] save apt key"
+  apt_key:
+    id: 8CAE012EBFAC38B17A937CD8C5E224500C1289C0
+    file: /usr/share/keyrings/teamviewer.gpg 
+
+- name: "[TEAMVIEWER] [DEB] modify reposirory file"
+  copy:
+    content: "deb [signed-by=/usr/share/keyrings/teamviewer.gpg] https://linux.teamviewer.com/deb stable main"
+    dest: /etc/apt/sources.list.d/teamviewer.list
+    owner: root
+    group: root
+    mode: 0644

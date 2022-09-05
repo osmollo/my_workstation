@@ -76,7 +76,7 @@
 
 - name: "delete snap packages"
   import_tasks: delete_snap.yml
-  when: ansible_distribution == "ubuntu" and ansible_distribution_major_version >= "18"
+  when: linux_distribution == "ubuntu" and ansible_distribution_major_version is version("18", ">=")
   tags:
     - common
     - delete_snap

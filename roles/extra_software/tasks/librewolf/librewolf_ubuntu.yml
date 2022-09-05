@@ -1,0 +1,26 @@
+---
+
+- vars:
+    librewolf_keyring_file: /etc/apt/trusted.gpg.d/librewolf-keyring.gpg
+  when: 
+    - (ubuntu_version is defined and ubuntu_version | int == 22) or (debian_version is defined and debian_version | int == 11)
+  block:
+    - name: "[LIBREWOLF] [DEB] install gpg key"
+      apt_key:
+        url: https://deb.librewolf.net/keyring.gpg
+        keyring: "{{ librewolf_keyring_file }}"
+        state: present
+
+    - name: "[LIBREWOLF] [DEB] copy repository file"
+      copy:
+        content: |
+          deb [signed-by={{ librewolf_keyring_file }}] https://deb.librewolf.net {{ ansible_distribution_release | lower }} main
+        dest: /etc/apt/sources.list.d/librewolf.list
+        mode: 0644
+
+    - name: "[LIBREWOLF] [DEB] install librewolf package"
+      apt:
+        name: librewolf
+        state: present
+        update_cache: true
+

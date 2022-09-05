@@ -59,6 +59,7 @@ neovim_package: neovim
 op_package: 1password
 kubectl_package: kubectl-bin
 appimage_launcher_package: appimagelauncher
+librewolf_package: librewolf-bin
 
 protonvpn_dependencies:
   - openvpn

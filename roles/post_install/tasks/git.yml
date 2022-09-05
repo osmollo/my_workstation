@@ -3,7 +3,7 @@
 - block:
     - name: "[GIT] Wait until private ssh key exists"
       wait_for:
-        path: "/home/{{ ansible_user }}/.ssh/id_rsa"
+        path: "{{ ssh_dir }}/osmollo"
         timeout: "{{ wait_dropbox_sync }}"
 
     - name: "[GIT] Create {{ git_dir }}"
@@ -16,7 +16,7 @@
         repo: "{{ item.repo }}"
         dest: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
         clone: true
-        key_file: "/home/{{ ansible_user }}/.ssh/id_rsa"
+        key_file: "{{ ssh_dir }}/osmollo"
         accept_hostkey: true
       with_items:
         - "{{ git_repositories.work }}"
