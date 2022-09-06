@@ -1,7 +1,8 @@
 ---
 
-- name: "[ZOOM] [DEB] install zoom"
-  apt:
-    deb: "{{ zoom_url_base }}/{{ zoom_version }}/zoom_amd64.deb"
-    update_cache: true
+- name: "[ZOOM] [UBUNTU] Install Zoom using snap"
+  snap:
+    name:
+      - zoom-client
     state: present
+

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 7.2
+
+- Instalación de **Zoom** usando __snap__ en **Ubuntu** y __flatpak__ en **Fedora**
+
 ## 7.1.1
 
 - Corrección de errores
