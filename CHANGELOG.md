@@ -3,6 +3,8 @@
 ## 7.2
 
 - Instalación de **Zoom** usando __snap__ en **Ubuntu** y __flatpak__ en **Fedora**
+- Corrección de errores
+  - Entradas de ssh_config
 
 ## 7.1.1
 
