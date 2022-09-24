@@ -1,0 +1,12 @@
+---
+
+# - name: "[MARK TEXT] [FEDORA] Install the MarkText flatpak"
+#   flatpak:
+#     name:  "{{ marktext_flatpak }}"
+#     state: present
+
+- name: "[MARK TEXT] [FEDORA] install MarkText package"
+  yum:
+    name: "{{ marktext_rpm_package }}"
+    state: present
+    update_cache: true

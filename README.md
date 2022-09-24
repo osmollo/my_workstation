@@ -15,7 +15,7 @@
 
 | **DISTRIBUCIÓN** | **LINKS DE DESCARGA** |
 |------------------|--------------|
-| Ubuntu 20.04 | [Enlace](https://ubuntu.com/download/desktop) |
+| Ubuntu | [Enlace](https://ubuntu.com/download/desktop) |
 | Fedora | [Enlace](https://getfedora.org/es/workstation/download/) |
 | Debian | [Enlace](https://www.debian.org/distrib/netinst#smallcd) |
 | Deepin | [Enlace](https://www.deepin.org/en/download/) |
@@ -76,6 +76,7 @@ Por defecto se instala el siguiente software:
 | [LSD](https://github.com/Peltoche/lsd) | lsd | install_lsd | | binario para listar directorios |
 | [Mailspring](https://getmailspring.com/) | mailspring | install_mailspring | | Cliente de correo electrónico |
 | [MAME](https://www.mamedev.org/) | mame | install_mame | | Emulador de juegos de recreativas |
+| [MarkText](https://github.com/marktext/marktext) | marktext | install_marktext | | Editor de Markdown |
 | [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | mega | Cliente de almacenamiento en la nube de Mega |
 | [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | mega | Cliente de almacenamiento en la nube de Mega para terminal |
 | [NeoVim](https://neovim.io/) | neovim | install_neovim | | Editor de texto |
