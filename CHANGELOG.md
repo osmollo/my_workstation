@@ -4,6 +4,7 @@
 
 - Instalación de **Zoom** usando __snap__ en **Ubuntu** y __flatpak__ en **Fedora**
 - Instalación de [MarkText](https://github.com/marktext/marktext)
+- Nuevos repositorios git para clonar
 - Corrección de errores
   - Entradas de ssh_config
 
