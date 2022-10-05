@@ -7,6 +7,7 @@
 - Nuevos repositorios git para clonar
 - Corrección de errores
   - Entradas de ssh_config
+  - Instalación de la última versión de **Kind** (la versión estaba hardcodeada)
 
 ## 7.1.1
 

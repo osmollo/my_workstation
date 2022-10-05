@@ -1,6 +1,22 @@
-- name: "[KIND] download kind"
+---
+
+- name: "[KIND] delete previous kind binary"
+  file:
+    path: "/usr/local/bin/kind"
+    state: absent
+
+- name: "[KIND] Get latest version of Kind"
+  uri:
+    url: "{{ kind_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: kind_latest
+
+- name: "[KIND] download kind {{ kind_version }}"
+  vars:
+    kind_version: "{{ kind_latest.url | urlsplit('path') | basename }}"
   get_url:
-    url: https://kind.sigs.k8s.io/dl/v0.8.1/kind-linux-amd64
+    url: "https://github.com/kubernetes-sigs/kind/releases/download/{{ kind_version }}/kind-linux-amd64"
     dest: /usr/local/bin/kind
     owner: root
     group: root

@@ -132,6 +132,7 @@ duf_latest_url: "https://github.com/muesli/duf/releases/latest"
 bottom_latest_url: "https://github.com/ClementTsang/bottom/releases/latest"
 neovim_latest_url: "https://github.com/neovim/neovim/releases/latest"
 marktext_latest_url: "https://github.com/marktext/marktext/releases/latest"
+kind_latest_url: "https://github.com/kubernetes-sigs/kind/releases/latest"
 
 ohmyzsh_installer: "https://gitlab.com/osmollo/oh-my-zsh/raw/master/tools/install.sh"
 
