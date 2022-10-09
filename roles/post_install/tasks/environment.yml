@@ -39,6 +39,7 @@
     - setopt INC_APPEND_HISTORY
     - setopt EXTENDED_HISTORY
     - source $HOME/.bash_aliases
+    - zstyle ':completion:*' special-dirs true
   when: "'zsh' == ansible_user_shell | basename"
 
 - name: "[ENVIRONMENT] create .ssh directory"
@@ -155,7 +156,6 @@
 
 - name: "[ENVIRONMENT] configure prezto"
   import_tasks: prezto.yml
-  when: "'Manjaro' not in {{ ansible_lsb.id }}"
   tags:
     - prezto
     - post_prezto

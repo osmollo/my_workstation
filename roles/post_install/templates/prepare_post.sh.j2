@@ -8,14 +8,14 @@ export BW_SESSION=$SESSION
 echo "DROPBOX: $(bw get password {{ bw.item1 }})"
 
 echo "$(bw get item {{ bw.doc1.id }} | jq .name)..."
-bw get attachment {{ bw.doc1.file.filename }} --itemid {{ bw.doc1.id }}
+bw get attachment {{ bw.doc1.file.filename }} --itemid {{ bw.doc1.id }} --output ~/{{ bw.doc1.file.filename }}
 unzip ~/{{ bw.doc1.file.filename }} -d ~/
 gpg --import ~/pub
 echo "$(bw get item {{ bw.doc1.id }} | jq -r '.fields[0].value')" | gpg --batch --yes --passphrase-fd 0 --import ~/priv
 rm -fr ~/pub ~/priv ~/revoke ~/{{ bw.doc1.file.filename }}
 
 echo "$(bw get item {{ bw.doc2.id }} | jq .name)..."
-bw get attachment {{ bw.doc2.file.filename }} --itemid {{ bw.doc2.id }}
+bw get attachment {{ bw.doc2.file.filename }} --itemid {{ bw.doc2.id }} -- output ~/{{ bw.doc2.file.filename }}
 unzip ~/{{ bw.doc2.file.filename }} -d ~/
 gpg --import ~/pub
 echo "$(bw get item {{ bw.doc2.id }} | jq -r '.fields[0].value')" | gpg --batch --yes --passphrase-fd 0 --import ~/priv

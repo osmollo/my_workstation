@@ -31,14 +31,16 @@
     - post_install
     - firefox
 
-- block:
-    - include_vars: "{{ playbook_dir }}/roles/extra_software/defaults/main.yml"
+- include_vars: "{{ playbook_dir }}/roles/extra_software/defaults/main.yml"
+  tags:
+    - post_install
+    - librewolf
 
-    - name: "Customize librewolf"
-      vars:
-        mozilla_browser: LIBREWOLF
-        mozilla_dir: "{{ ansible_user_dir }}/.librewolf"
-      import_tasks: mozilla.yml
+- name: "Customize librewolf"
+  vars:
+    mozilla_browser: LIBREWOLF
+    mozilla_dir: "{{ ansible_user_dir }}/.librewolf"
+  import_tasks: mozilla.yml
   when: install_librewolf
   tags:
     - post_install

@@ -27,6 +27,14 @@
     - skype
     - franz
 
+- name: "Install Bitwarden"
+  import_tasks: bitwarden/bitwarden.yml
+  when: install_bitwarden
+  tags:
+    - extra_software
+    - bitwarden
+    - pass_managers
+
 - name: "Install Brave"
   import_tasks: brave/brave.yml
   when: install_brave
@@ -355,14 +363,6 @@
     - librewolf
     - browsers
 
-- name: "Install Bitwarden"
-  import_tasks: bitwarden/bitwarden.yml
-  when: install_bitwarden
-  tags:
-    - extra_software
-    - bitwarden
-    - pass_managers
-
 - name: "Install Lexnet"
   import_tasks: lexnet.yml
   when:
@@ -426,7 +426,9 @@
 
 - name: "Install vim plugins"
   import_tasks: vim_plugins.yml
-  when: install_vimplugins
+  when: 
+    - install_vimplugins
+    - not install_neovim 
   tags:
     - extra_software
     - vim

@@ -50,7 +50,7 @@ install_lexnet: false
 install_pass: false
 install_bucklespring: false
 install_protonvpn: true
-install_prezto: true
+install_prezto: "{{ true if 'Manjaro' not in ansible_lsb.id else false }}"
 install_etcher: true
 install_woeusb: false
 install_go: true

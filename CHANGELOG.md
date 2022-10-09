@@ -10,6 +10,14 @@
 - Corrección de errores
   - Entradas de ssh_config
   - Instalación de la última versión de **Kind** (la versión estaba hardcodeada)
+  - Instalación de `vim plugins` si no se instala **Neovim**
+  - Fix post configuración de **librewolf**
+  - Fixes para **Manjaro**:
+    - Ya no es necesario configurar el overlay en **Docker**
+    - Priorización en la instalación de **Bitwarde** en el role `extra_software`
+    - No se ejecuta `update-alternatives` para el binario de **Neovim**
+    - Alias de **yay**
+    - Fix instalación **megacmd**
 
 ## 7.1.1
 
