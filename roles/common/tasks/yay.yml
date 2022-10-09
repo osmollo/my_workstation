@@ -1,5 +1,20 @@
 ---
 
+- name: "[ARCH] configure pacman"
+  lineinfile:
+    path: /etc/pacman.conf
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  loop:
+    - regexp: "^#UseSyslog"
+      line: "UseSyslog"
+    - regexp: "^#Color"
+      line: "Color"
+    - regexp: "^#CheckSpace"
+      line: "CheckSpace"
+    - regexp: "^#VerbosePkgLists"
+      line: "VerbosePkgLists"
+
 - name: "[ARCH] uninstall yay and yay-bin"
   pacman:
     name:

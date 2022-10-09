@@ -155,6 +155,7 @@
 
 - name: "[ENVIRONMENT] configure prezto"
   import_tasks: prezto.yml
+  when: "'Manjaro' not in {{ ansible_lsb.id }}"
   tags:
     - prezto
     - post_prezto

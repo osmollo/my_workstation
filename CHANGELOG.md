@@ -6,6 +6,7 @@
 - Instalación de [MarkText](https://github.com/marktext/marktext)
 - Nuevos repositorios git para clonar
 - Se deja de usar **1Password** en favor de **Bitwarden** en el `prepare_post.sh`
+- Mejoras en la configuración de **Manjaro**
 - Corrección de errores
   - Entradas de ssh_config
   - Instalación de la última versión de **Kind** (la versión estaba hardcodeada)
