@@ -6,7 +6,7 @@
     arch: "{{ ansible_architecture }}"
   register: dropbox_version
 
-- name: "[DROPBOX] [DEB] Install Dropbox package"
+- name: "[DROPBOX] [DEB] Install Dropbox package {{ dropbox_version.version }}"
   vars:
     dropbox_package: "https://www.dropbox.com/download?dl=packages/{{ linux_distribution }}/dropbox_{{ dropbox_version.version }}_amd64.deb"
   apt:

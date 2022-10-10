@@ -2,7 +2,7 @@
 
 - name: "[VSCODE] [DEB] Copy repository file"
   copy:
-    content: "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main"
+    content: "deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] http://packages.microsoft.com/repos/vscode stable main"
     dest: /etc/apt/sources.list.d/vscode.list
     mode: 0644
     owner: root
@@ -13,6 +13,7 @@
 - name: "[VSCODE] [DEB] Import repository key"
   apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc
+    keyring: /usr/share/keyrings/vscode.gpg
     state: present
 
 - name: "[VSCODE] [DEB] Install code package"

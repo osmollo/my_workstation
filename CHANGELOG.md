@@ -12,6 +12,16 @@
   - Instalación de la última versión de **Kind** (la versión estaba hardcodeada)
   - Instalación de `vim plugins` si no se instala **Neovim**
   - Fix post configuración de **librewolf**
+  - Fix en instalación de paquetes de entornos de escritorio
+  - Fix en instalación de **VSCode**
+  - Fix en instalación de **Teamviewer**
+  - Fix en instalación de **Gping**
+  - Creación de `~/.zshrc` al instalar **Prezto** en el role `extra_software`
+  - Fixes para **Debian**:
+    - Actualización de paquetes de Python
+    - Fix instalación **Docker**
+    - Fixes instalación **Dropbox**
+    - Fixes instalación **MegaCMD**
   - Fixes para **Manjaro**:
     - Ya no es necesario configurar el overlay en **Docker**
     - Priorización en la instalación de **Bitwarde** en el role `extra_software`

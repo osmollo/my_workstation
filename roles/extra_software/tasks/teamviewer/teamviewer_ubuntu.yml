@@ -8,8 +8,9 @@
 
 - name: "[TEAMVIEWER] [DEB] save apt key"
   apt_key:
-    id: 8CAE012EBFAC38B17A937CD8C5E224500C1289C0
-    file: /usr/share/keyrings/teamviewer.gpg 
+    url: https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc
+    keyring: /usr/share/keyrings/teamviewer.gpg 
+    state: present
 
 - name: "[TEAMVIEWER] [DEB] modify reposirory file"
   copy:

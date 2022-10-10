@@ -61,7 +61,7 @@ def get_latest(distro, arch):
         soup = BeautifulSoup(dropbox_text.text, 'html.parser')
         versions = []
         for item in soup.find_all("a"):
-            if distro == "ubuntu":
+            if distro in ["ubuntu", "debian"]:
                 if item.text.startswith('dropbox_') and tmparch in item.text:
                     tmpver = item.text.split('_')[1]
                     versions.append(tmpver)
@@ -82,7 +82,7 @@ def run_module():
         "distro": {
             "required": True,
             "type": "str",
-            "choices": ['ubuntu', 'fedora'],
+            "choices": ['ubuntu', 'debian', 'fedora'],
         },
         "arch": {
             "default": 'x86_64',

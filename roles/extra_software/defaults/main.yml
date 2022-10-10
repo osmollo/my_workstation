@@ -78,7 +78,7 @@ install_terraform: false
 install_consul: false
 install_nomad: false
 install_zoom: false
-install_githubcli: true
+install_githubcli: false
 install_1password: false
 install_secrethub: true
 install_mailspring: false

@@ -69,6 +69,7 @@
       vars:
         debian_versions:
           bullseye: "11"
+          bookworm: "12"
       when:
         - linux_distribution == "debian"
         - ansible_distribution != "Deepin 20"

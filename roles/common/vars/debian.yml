@@ -8,7 +8,6 @@ distro_packages:
   - apt-transport-https
   - openvpn
   - dnsutils
-  - python-dev
   - python3-dev
   - build-essential
   - snap
@@ -16,7 +15,6 @@ distro_packages:
   - firewall-config
   - net-tools
   - python3-jmespath
-  - python-jmespath
   - secure-delete
   - libnss3-tools
   - fonts-firacode
@@ -30,7 +28,6 @@ gnome_debian_packages:
   - deepin-icon-theme
   - papirus-icon-theme
   - gnome-tweaks
-  - python-psutil
   - python3-psutil
   - wireshark
   - chrome-gnome-shell
