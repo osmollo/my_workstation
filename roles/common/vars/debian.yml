@@ -31,6 +31,8 @@ gnome_debian_packages:
   - python3-psutil
   - wireshark
   - chrome-gnome-shell
+  - gir1.2-gda-5.0
+  - gir1.2-gsound-1.0
 
 kde_debian_packages:
   - yakuake

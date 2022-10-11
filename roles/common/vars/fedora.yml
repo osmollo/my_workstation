@@ -41,6 +41,8 @@ gnome_fedora_packages:
   - liveusb-creator
   - guake
   - chrome-gnome-shell
+  - libgda
+  - libgda-sqlite
 
 kde_fedora_packages:
   - kwalletcli
