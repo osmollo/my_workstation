@@ -9,12 +9,17 @@
 - name: "[KUBECTL] [DEB] Import repository key"
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    keyring: /usr/share/keyrings/kubectl.gpg
     state: present
 
 - name: "[KUBECTL] [DEB] copy repository file"
   copy:
     src: kubectl.list
+    content: "deb [signed-by=/usr/share/keyrings/kubectl.gpg] https://apt.kubernetes.io/ kubernetes-xenial main"
     dest: /etc/apt/sources.list.d/kubernetes.list
+    mode: 0644
+    owner: root
+    group: root
 
 - name: "[KUBECTL] [DEB] install kubectl package"
   apt:

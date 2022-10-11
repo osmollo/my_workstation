@@ -2,7 +2,7 @@
 
 - name: "[WINDSCRIBE] [DEB] Copy repository file"
   copy:
-    src: windscribe.list
+    content: deb [signed-by=/usr/share/keyrings/windscribe.gpg] https://repo.windscribe.com/ubuntu zesty main
     dest: /etc/apt/sources.list.d/windscribe.list
     owner: root
     group: root
@@ -13,6 +13,7 @@
     keyserver: keyserver.ubuntu.com
     id: FDC247B7
     state: present
+    keyring: /usr/share/keyrings/windscribe.gpg
     validate_certs: false
 
 - name: "[WINDSCRIBE] [DEB] install windscribe package"

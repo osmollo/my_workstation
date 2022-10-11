@@ -4,8 +4,9 @@
   when: debian_version == "10"
   block:
     - name: "[PODMAN] [DEBIAN] generate podman.list"
-      template:
-        src: podman_debian.list.j2
+      copy:
+        content: |
+          deb [signed-by=/usr/share/keyrings/podman.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_{{ debian_version }}/ /
         dest: /etc/apt/sources.list.d/podman.list
         mode: 0644
         owner: root
@@ -14,6 +15,7 @@
     - name: "[PODMAN] [DEBIAN] Import repository key"
       apt_key:
         url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_{{ debian_version }}/Release.key"
+        keyring: /usr/share/keyrings/podman.gpg
         state: present
 
     - name: "[PODMAN] [DEBIAN] install podman"

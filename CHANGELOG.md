@@ -19,6 +19,7 @@
   - Fix en instalación de **Teamviewer**
   - Fix en instalación de **Gping**
   - Creación de `~/.zshrc` al instalar **Prezto** en el role `extra_software`
+  - Configuración de las llaves gpg de los repositorios en ficheros separados de `trusted.gpg`
   - Fixes para **Debian**:
     - Actualización de paquetes de Python
     - Fix instalación **Docker**
