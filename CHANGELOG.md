@@ -8,6 +8,7 @@
 - Se deja de usar **1Password** en favor de **Bitwarden** en el `prepare_post.sh`
 - Instalación de [Pano](https://github.com/oae/gnome-shell-pano) como gestor de portapapeles en **Gnome**
 - Mejoras en la configuración de **Manjaro**
+- En la instalación de **VSCode** y **VSCodium** en el role `extra_software` ya no se instalan extensiones
 - Corrección de errores
   - Entradas de ssh_config
   - Instalación de la última versión de **Kind** (la versión estaba hardcodeada)
