@@ -10,6 +10,11 @@
     name: "{{ bad_snap_packages }}"
     state: present
 
+- name: "[UBUNTU] save apt key"
+  apt_key:
+    id: 0AB215679C571D1C8325275B9BDB3D89CE49EC21
+    keyring: /usr/share/keyrings/mozilla.gpg
+
 - name: "[UBUNTU] install mozilla repository file"
   copy:
     content: "deb [signed-by=/usr/share/keyrings/mozilla.gpg] http://ppa.launchpad.net/mozillateam/ppa/ubuntu {{ ubuntu_codename }} main"
@@ -43,7 +48,3 @@
     update_cache: true
     state: present
 
-- name: "[UBUNTU] save apt key"
-  apt_key:
-    id: 0AB215679C571D1C8325275B9BDB3D89CE49EC21
-    file: /usr/share/keyrings/mozilla.gpg

@@ -23,6 +23,7 @@
     - Fix instalación **Docker**
     - Fixes instalación **Dropbox**
     - Fixes instalación **MegaCMD**
+    - Instalación de **Spotify** con paquete deb en vez de snap
   - Fixes para **Manjaro**:
     - Ya no es necesario configurar el overlay en **Docker**
     - Priorización en la instalación de **Bitwarde** en el role `extra_software`

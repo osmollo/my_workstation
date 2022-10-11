@@ -31,6 +31,7 @@
   become: false
   blockinfile:
     path: "{{ ansible_user_dir }}/.{{ ansible_user_shell | basename }}rc"
+    create: true
     block: |
       if type rg &> /dev/null; then
         export FZF_DEFAULT_COMMAND='rg --files'
