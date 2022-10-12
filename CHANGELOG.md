@@ -9,6 +9,7 @@
 - Instalación de [Pano](https://github.com/oae/gnome-shell-pano) como gestor de portapapeles en **Gnome**
 - Mejoras en la configuración de **Manjaro**
 - En la instalación de **VSCode** y **VSCodium** en el role `extra_software` ya no se instalan extensiones
+- Eliminación de los tags `post_*` del playbook `post_install.yml`
 - Corrección de errores
   - Entradas de ssh_config
   - Instalación de la última versión de **Kind** (la versión estaba hardcodeada)
