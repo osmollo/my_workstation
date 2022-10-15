@@ -1,0 +1,97 @@
+---
+
+- name: "[OHMYZSH] check if ~/.zshrc exists"
+  stat:
+    path: "{{ ansible_env.HOME }}/.zshrc"
+  register: stat_response
+
+- name: "[OHMYZSH] creating backup"
+  copy:
+    src: "{{ ansible_env.HOME }}/.zshrc"
+    dest: "{{ ansible_env.HOME }}/.zshrc.bkp"
+    remote_src: true
+  when: stat_response.stat.exists
+
+- name: "[OHMYZSH] delete previous installation"
+  file:
+    path: "{{ ansible_user_dir }}/.{{ item }}"
+    state: absent
+  loop:
+    - zlogin
+    - zlogout
+    - zprezto
+    - zpreztorc
+    - zprofile
+    - zshenv
+    - zshrc
+    - oh-my-zsh
+
+- name: "[OHMYZSH] install my oh-my-zsh fork'"
+  become: true
+  become_method: sudo
+  import_role:
+    name: extra_software
+    tasks_from: oh_my_zsh.yml
+  vars:
+    ohmyzsh_installer: https://raw.githubusercontent.com/osmollo/oh-my-zsh/master/tools/install.sh
+
+- name: "[OHMYZSH] delete .zshrc"
+  file:
+    path: "{{ ansible_user_dir }}/.{{ item }}"
+    state: absent
+  loop:
+    - zshrc
+    - zhistory
+    - zsh_history
+  ignore_errors: true
+
+- name: "[OHMYZSH] create link to .zshrc"
+  file:
+    src: "{{ ansible_user_dir }}/.oh-my-zsh/zshrc"
+    dest: "{{ ansible_user_dir }}/.zshrc"
+    state: link
+
+- name: "[OHMYZSH] Create new remote for presto original source"
+  shell: "git remote add upstream {{ ohmyzsh_repo }}"
+  args:
+    chdir: "{{ ansible_user_dir }}/.oh-my-zsh"
+  failed_when: false
+  vars:
+    ohmyzsh_repo: git@github.com:ohmyzsh/ohmyzsh.git
+
+- name: "[OHMYZSH] Configure 'user.name' for oh-my-zsh repo"
+  shell: "git config user.name {{ git_user_name }}"
+  args:
+    chdir: "{{ ansible_user_dir }}/.oh-my-zsh"
+
+- name: "[OHMYZSH] Configure 'user.email' for oh-my-zsh repo"
+  shell: "git config user.email {{ git_user_mail_personal }}"
+  args:
+    chdir: "{{ ansible_user_dir }}/.oh-my-zsh"
+
+- name: "[OHMYZSH] copy powerline truetype fonts"
+  block:
+    - name: "[OHMYZSH] set fonts directory"
+      set_fact:
+        font_dir: "{{ ansible_user_dir }}/.local/share/fonts"
+
+    - name: "[OHMYZSH] create {{ font_dir }}"
+      file:
+        path: "{{ font_dir }}"
+        state: directory
+
+    - name: "[OHMYZSH] download fonts"
+      get_url:
+        url: "{{ item }}"
+        dest: "{{ ansible_user_dir }}/.local/share/fonts/{{ (item | basename).replace('%20', ' ') }}"
+      loop: "{{ powerline_fonts }}"
+
+    - name: "[OHMYZSH] refresh font cache"
+      shell: "fc-cache -f {{ font_dir }}"
+  tags:
+    - deploy_fonts
+
+- name: "[OHMYZSH] install submodules"
+  shell: git submodule update --init --recursive
+  args:
+    chdir: "{{ ansible_user_dir }}/.oh-my-zsh"

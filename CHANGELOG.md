@@ -10,6 +10,7 @@
 - Mejoras en la configuración de **Manjaro**
 - En la instalación de **VSCode** y **VSCodium** en el role `extra_software` ya no se instalan extensiones
 - Eliminación de los tags `post_*` del playbook `post_install.yml`
+- Framework de configuración de **ZSH** por defecto pasa a ser [oh my zsh!](https://github.com/ohmyzsh/ohmyzsh)
 - Corrección de errores
   - Entradas de ssh_config
   - Instalación de la última versión de **Kind** (la versión estaba hardcodeada)

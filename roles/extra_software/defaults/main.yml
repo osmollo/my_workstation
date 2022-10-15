@@ -4,7 +4,7 @@ install_docker: true
 install_dropbox: true
 install_vscode: true
 install_spotify: true
-install_ohmyzsh: false
+install_ohmyzsh: "{{ true if 'Manjaro' not in ansible_lsb.id else false }}"
 install_sublimetext: false
 # install_atom: false
 install_gitkraken: false
@@ -50,7 +50,7 @@ install_lexnet: false
 install_pass: false
 install_bucklespring: false
 install_protonvpn: true
-install_prezto: "{{ true if 'Manjaro' not in ansible_lsb.id else false }}"
+install_prezto: false
 install_etcher: true
 install_woeusb: false
 install_go: true
@@ -134,7 +134,7 @@ neovim_latest_url: "https://github.com/neovim/neovim/releases/latest"
 marktext_latest_url: "https://github.com/marktext/marktext/releases/latest"
 kind_latest_url: "https://github.com/kubernetes-sigs/kind/releases/latest"
 
-ohmyzsh_installer: "https://gitlab.com/osmollo/oh-my-zsh/raw/master/tools/install.sh"
+ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 
 telegram_flatpak: "https://dl.flathub.org/repo/appstream/org.telegram.desktop.flatpakref"
 slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"

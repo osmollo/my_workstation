@@ -154,11 +154,11 @@
     dest: "{{ ansible_user_dir }}/.vault_pass"
     state: link
 
-- name: "[ENVIRONMENT] configure prezto"
-  import_tasks: prezto.yml
+- name: "[ENVIRONMENT] configure oh-my-zsh"
+  import_tasks: oh_my_zsh.yml
   tags:
-    - prezto
-    - post_prezto
+    - oh-my-zsh
+    - ohmyzsh
 
 - name: "[ENVIRONMENT] Create links from Dropbox"
   block:
