@@ -13,9 +13,6 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTFILE=~/Dropbox/backups/bash/bash_history
-export HISTSIZE=50000
-export HISTFILESIZE=20000
 export HISTTIMEFORMAT="%d/%m - %H:%M:%S "
 
 # Configuring color prompt
@@ -39,10 +36,6 @@ function color_my_prompt {
 
 color_my_prompt
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -54,20 +47,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export XEUSER={{ bbva_user }}
-export PATH=$PATH:/usr/local/go/bin
-export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt
-export WORKON_HOME=$HOME/python-venv
-
 if grep -i ubuntu /etc/os-release > /dev/null; then
   source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 elif grep -i fedora /etc/os-release > /dev/null; then
   source /usr/bin/virtualenvwrapper.sh
 fi
 
+source {{ ansible_user_dir }}/.env
+source {{ ansible_user_dir }}/.bash_aliases
 
 complete -C {{ ansible_user_dir }}/vault vault
 if which kubectl; then
   source <(kubectl completion bash)
 fi
-

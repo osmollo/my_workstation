@@ -11,6 +11,7 @@
 - En la instalación de **VSCode** y **VSCodium** en el role `extra_software` ya no se instalan extensiones
 - Eliminación de los tags `post_*` del playbook `post_install.yml`
 - Framework de configuración de **ZSH** por defecto pasa a ser [oh my zsh!](https://github.com/ohmyzsh/ohmyzsh)
+- Todos los exports de variables de entorno se generan mediante un template y salen fuera de los `${SHELL}rc` 
 - Corrección de errores
   - Entradas de ssh_config
   - Instalación de la última versión de **Kind** (la versión estaba hardcodeada)

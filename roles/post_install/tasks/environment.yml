@@ -27,32 +27,6 @@
     - "{{ ansible_user_dir }}/.zhistory"
     - "{{ ansible_user_dir }}/.zsh_history"
 
-- name: "[ENVIRONMENT] configure HISTFILE"
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.{{ ansible_user_shell | basename }}rc"
-    line: "{{ item }}"
-  loop:
-    - "HISTFILE={{ dropbox_dir }}/backups/{{ ansible_user_shell | basename }}/{{ ansible_user_shell | basename }}_history"
-    - HISTSIZE=50000
-    - SAVEHIST=50000
-    - setopt HIST_FIND_NO_DUPS
-    - setopt INC_APPEND_HISTORY
-    - setopt EXTENDED_HISTORY
-    - source $HOME/.bash_aliases
-    - zstyle ':completion:*' special-dirs true
-  when: "'zsh' == ansible_user_shell | basename"
-
-- name: "[ENVIRONMENT] create .ssh directory"
-  file:
-    path: "{{ ssh_dir }}"
-    state: directory
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-    mode: 0750
-  tags:
-    - ssh_config
-    - ssh_keys
-
 - name: "[ENVIRONMENT] create .bash_aliases"
   template:
     src: bash_aliases.j2
@@ -64,6 +38,17 @@
     - config_files
     - bash_aliases
 
+- name: "[ENVIRONMENT] create .env"
+  template:
+    src: "env.j2"
+    dest: "{{ ansible_user_dir }}/.env"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0600
+  tags:
+    - config_files
+    - bash_config
+
 - name: "[ENVIRONMENT] create .bashrc"
   template:
     src: "bashrc.j2"
@@ -74,6 +59,17 @@
   tags:
     - config_files
     - bash_config
+
+- name: "[ENVIRONMENT] create .ssh directory"
+  file:
+    path: "{{ ssh_dir }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0750
+  tags:
+    - ssh_config
+    - ssh_keys
 
 - name: "[ENVIRONMENT] create ssh keys"
   copy:
