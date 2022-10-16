@@ -15,6 +15,7 @@
   - Entradas de ssh_config
   - Instalación de la última versión de **Kind** (la versión estaba hardcodeada)
   - Instalación de `vim plugins` si no se instala **Neovim**
+  - Fix configuración plugin de **Neovim**
   - Fix post configuración de **librewolf**
   - Fix en instalación de paquetes de entornos de escritorio
   - Fix en instalación de **VSCode**
