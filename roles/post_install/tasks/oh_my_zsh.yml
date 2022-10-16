@@ -47,7 +47,7 @@
 
 - name: "[OHMYZSH] create link to .zshrc"
   file:
-    src: "{{ ansible_user_dir }}/.oh-my-zsh/zshrc"
+    src: "{{ ansible_user_dir }}/.oh-my-zsh/zsh_config/my_workstation"
     dest: "{{ ansible_user_dir }}/.zshrc"
     state: link
 
