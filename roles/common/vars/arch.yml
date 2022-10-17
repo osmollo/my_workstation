@@ -17,10 +17,13 @@ distro_packages:
   - wireshark-qt
   - make
   - vlc
+  - patch
+  - automake
 
 gnome_arch_packages:
   - wireshark-cli
   - libsecret
+  - libgda
 
 kde_arch_packages:
   - yakuake

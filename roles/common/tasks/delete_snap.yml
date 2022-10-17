@@ -1,14 +1,25 @@
 ---
 
-- name: "[UBUNTU] Delete snap system packages"
-  snap:
-    name: "{{ bad_snap_packages }}"
+- name: "[UBUNTU] Delete snap packages"
+  apt:
+    name: 
+      - snap
+      - snapd
     state: absent
 
-- name: "[UBUNTU] Install packages from Ubuntu repositories"
+- name: "[UBUNTU] Install snap packages"
   apt:
-    name: "{{ bad_snap_packages }}"
+    name: 
+      - snap
+      - snapd
+    update_cache: true
     state: present
+
+- name: "[UBUNTU] save apt key"
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 0AB215679C571D1C8325275B9BDB3D89CE49EC21
+    keyring: /usr/share/keyrings/mozilla.gpg
 
 - name: "[UBUNTU] install mozilla repository file"
   copy:
@@ -23,7 +34,7 @@
     content: |
       Package: *
       Pin: release o=LP-PPA-mozillateam
-      Pin-Priority: 1001    
+      Pin-Priority: 1001
     dest: /etc/apt/preferences.d/mozilla-firefox
     owner: root
     group: root
@@ -42,8 +53,3 @@
     name: firefox
     update_cache: true
     state: present
-
-- name: "[UBUNTU] save apt key"
-  apt_key:
-    id: 0AB215679C571D1C8325275B9BDB3D89CE49EC21
-    file: /usr/share/keyrings/mozilla.gpg

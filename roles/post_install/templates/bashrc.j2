@@ -13,9 +13,6 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTFILE=~/Dropbox/backups/bash/bash_history
-export HISTSIZE=50000
-export HISTFILESIZE=20000
 export HISTTIMEFORMAT="%d/%m - %H:%M:%S "
 
 # Configuring color prompt
@@ -30,7 +27,7 @@ function color_my_prompt {
     local __user_and_host="\[\033[38;5;208m\]\u\[\033[38;5;15m\]@\[\033[38;5;220m\]\h\[\033[38;5;15m\]"
     local __cur_location="\[\033[38;5;33m\]\[\033[38;5;35m\]\w\[\033[38;5;33m\]"
     local __git_branch_color="\[\033[31m\]"
-    local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
+    local __git_branch='$(if [ -d .git ]; then git rev-parse --abbrev-ref HEAD; fi)'
     local __prompt_tail="\[\033[35m\]$"
     local __last_color="\[\033[00m\]"
 
@@ -38,10 +35,6 @@ function color_my_prompt {
 }
 
 color_my_prompt
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -54,17 +47,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export XEUSER={{ bbva_user }}
-export PATH=$PATH:/usr/local/go/bin
-export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt
-export WORKON_HOME=$HOME/python-venv
-
 if grep -i ubuntu /etc/os-release > /dev/null; then
   source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 elif grep -i fedora /etc/os-release > /dev/null; then
   source /usr/bin/virtualenvwrapper.sh
 fi
 
+source {{ ansible_user_dir }}/.env
+source {{ ansible_user_dir }}/.bash_aliases
 
 complete -C {{ ansible_user_dir }}/vault vault
-source <(kubectl completion bash)
+if which kubectl; then
+  source <(kubectl completion bash)
+fi

@@ -6,7 +6,7 @@
     arch: "{{ ansible_architecture }}"
   register: dropbox_version
 
-- name: "[DROPBOX] [DEB] Install Dropbox package"
+- name: "[DROPBOX] [DEB] Install Dropbox package {{ dropbox_version.version }}"
   vars:
     dropbox_package: "https://www.dropbox.com/download?dl=packages/{{ linux_distribution }}/dropbox_{{ dropbox_version.version }}_amd64.deb"
   apt:
@@ -15,8 +15,9 @@
 
 - name: "[DROPBOX] [DEB] save apt key"
   apt_key:
+    keyserver: pgp.mit.edu
     id: 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
-    file: /usr/share/keyrings/dropbox.gpg
+    keyring: /usr/share/keyrings/dropbox.gpg
     state: present
 
 - name: "[DROPBOX] [DEB] reconfigure repository file"

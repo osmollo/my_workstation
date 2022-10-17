@@ -1,5 +1,42 @@
 # CHANGELOG
 
+## 7.2
+
+- Instalación de **Zoom** usando __snap__ en **Ubuntu** y __flatpak__ en **Fedora**
+- Instalación de [MarkText](https://github.com/marktext/marktext)
+- Nuevos repositorios git para clonar
+- Se deja de usar **1Password** en favor de **Bitwarden** en el `prepare_post.sh`
+- Instalación de [Pano](https://github.com/oae/gnome-shell-pano) como gestor de portapapeles en **Gnome**
+- Mejoras en la configuración de **Manjaro**
+- En la instalación de **VSCode** y **VSCodium** en el role `extra_software` ya no se instalan extensiones
+- Eliminación de los tags `post_*` del playbook `post_install.yml`
+- Framework de configuración de **ZSH** por defecto pasa a ser [oh my zsh!](https://github.com/ohmyzsh/ohmyzsh)
+- Todos los exports de variables de entorno se generan mediante un template y salen fuera de los `${SHELL}rc` 
+- Corrección de errores
+  - Entradas de ssh_config
+  - Instalación de la última versión de **Kind** (la versión estaba hardcodeada)
+  - Instalación de `vim plugins` si no se instala **Neovim**
+  - Fix configuración plugin de **Neovim**
+  - Fix post configuración de **librewolf**
+  - Fix en instalación de paquetes de entornos de escritorio
+  - Fix en instalación de **VSCode**
+  - Fix en instalación de **Teamviewer**
+  - Fix en instalación de **Gping**
+  - Creación de `~/.zshrc` al instalar **Prezto** en el role `extra_software`
+  - Configuración de las llaves gpg de los repositorios en ficheros separados de `trusted.gpg`
+  - Fixes para **Debian**:
+    - Actualización de paquetes de Python
+    - Fix instalación **Docker**
+    - Fixes instalación **Dropbox**
+    - Fixes instalación **MegaCMD**
+    - Instalación de **Spotify** con paquete deb en vez de snap
+  - Fixes para **Manjaro**:
+    - Ya no es necesario configurar el overlay en **Docker**
+    - Priorización en la instalación de **Bitwarde** en el role `extra_software`
+    - No se ejecuta `update-alternatives` para el binario de **Neovim**
+    - Alias de **yay**
+    - Fix instalación **megacmd**
+
 ## 7.1.1
 
 - Corrección de errores

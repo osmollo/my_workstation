@@ -8,14 +8,14 @@ vagrant_package: vagrant
 virtualbox_packages:
   - virtualbox-6.1
 buttercup_deb_package: "{{ buttercup_latest_url.split('/')[0:-1] | join('/') }}/download/{{ buttercup_version }}/buttercup-desktop_{{ buttercup_version | replace('v', '') }}_amd64.deb"
-megacmd_package: "https://mega.nz/linux/MEGAsync/{{ ansible_distribution }}_{{ ansible_distribution_version }}.0/amd64/megacmd-{{ ansible_distribution }}_{{ ansible_distribution_version }}.0_amd64.deb"
+megacmd_package: "https://mega.nz/linux/repo/Debian_{{ debian_version if debian_version == '11' else 'testing' }}/amd64/megacmd-Debian_{{ debian_version if debian_version == '11' else 'testing' }}_amd64.deb"
 megacmd_dependencies:
   - libmediainfo0v5
   - libpcrecpp0v5
   - libzen0v5
-  - libcrypto++6
+  - libcrypto++8
   - libmms0
-  - libtinyxml2-6
+  - libtinyxml2-9
 
 megasync_package: "https://mega.nz/linux/MEGAsync/{{ ansible_distribution }}_{{ ansible_distribution_version }}.0/amd64/megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.0_amd64.deb"
 file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"

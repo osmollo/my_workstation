@@ -4,7 +4,7 @@ install_docker: true
 install_dropbox: true
 install_vscode: true
 install_spotify: true
-install_ohmyzsh: false
+install_ohmyzsh: "{{ true if 'Manjaro' not in ansible_lsb.id else false }}"
 install_sublimetext: false
 # install_atom: false
 install_gitkraken: false
@@ -45,12 +45,12 @@ install_megacmd: true
 install_megasync: false
 install_vivaldi: false
 install_brave: true
-install_bitwarden: false
+install_bitwarden: true
 install_lexnet: false
 install_pass: false
 install_bucklespring: false
 install_protonvpn: true
-install_prezto: true
+install_prezto: false
 install_etcher: true
 install_woeusb: false
 install_go: true
@@ -78,8 +78,8 @@ install_terraform: false
 install_consul: false
 install_nomad: false
 install_zoom: false
-install_githubcli: true
-install_1password: true
+install_githubcli: false
+install_1password: false
 install_secrethub: true
 install_mailspring: false
 install_obs: false
@@ -99,6 +99,7 @@ install_ripgrep: true
 install_bottom: true
 install_singlebox: false
 install_librewolf: false
+install_marktext: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -130,8 +131,10 @@ bat_latest_url: "https://github.com/sharkdp/bat/releases/latest"
 duf_latest_url: "https://github.com/muesli/duf/releases/latest"
 bottom_latest_url: "https://github.com/ClementTsang/bottom/releases/latest"
 neovim_latest_url: "https://github.com/neovim/neovim/releases/latest"
+marktext_latest_url: "https://github.com/marktext/marktext/releases/latest"
+kind_latest_url: "https://github.com/kubernetes-sigs/kind/releases/latest"
 
-ohmyzsh_installer: "https://gitlab.com/osmollo/oh-my-zsh/raw/master/tools/install.sh"
+ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 
 telegram_flatpak: "https://dl.flathub.org/repo/appstream/org.telegram.desktop.flatpakref"
 slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"
@@ -140,6 +143,7 @@ postman_flatpak: "https://flathub.org/repo/appstream/com.getpostman.Postman.flat
 skype_flatpak: "https://flathub.org/repo/appstream/com.skype.Client.flatpakref"
 franz_flatpak: "https://flathub.org/repo/appstream/com.meetfranz.Franz.flatpakref"
 kdenlive_flatpak: "https://dl.flathub.org/repo/appstream/org.kde.kdenlive.flatpakref"
+marktext_flatpak: "https://dl.flathub.org/repo/appstream/com.github.marktext.marktext.flatpakref"
 
 ecs_cli_package: "ecs-cli-0.3.17.tar.gz"
 ecs_cli_url: "https://globaldevtools.bbva.com/artifactory/semaas-global-bin/releases/ecs-cli/{{ ecs_cli_package }}"
@@ -192,8 +196,6 @@ lexnet_packages:
   - pcsc-tools
   - libglade2-dev
 
-code_settings_url: https://gist.githubusercontent.com/osmollo/6dbeabf3bb121bf3f3546e296d251aa4/raw/settings.json
-code_extensions_url: https://gist.githubusercontent.com/osmollo/6dbeabf3bb121bf3f3546e296d251aa4/raw/extensions.json
 atom_packages_url: https://gist.githubusercontent.com/osmollo/854b27da91246625596f8839cc365713/raw/packages.json
 
 appimage_dir: "{{ ansible_user_dir }}/AppImage"

@@ -2,8 +2,8 @@
 
 - name: "[SUBLIME_TEXT] [DEB] Import repository key"
   apt_key:
-    id: 1EDDE2CDFC025D17F6DA9EC0ADAE6AD28A8F901A
-    file: /usr/share/keyrings/sublime.gpg
+    url: https://download.sublimetext.com/sublimehq-pub.gpg
+    keyring: /usr/share/keyrings/sublime.gpg
     state: present
 
 - name: "[SUBLIME_TEXT] [DEB] Install dependencies"

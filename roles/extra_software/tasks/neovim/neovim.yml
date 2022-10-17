@@ -35,6 +35,7 @@
     - name: editor
       link: /usr/bin/editor
       path: /usr/bin/nvim
+  when: linux_distribution != 'arch' 
 
 - name: "[NEOVIM] install plugins"
   import_tasks: "neovim_plugins.yml"

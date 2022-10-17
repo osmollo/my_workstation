@@ -1,0 +1,8 @@
+---
+
+- name: "[MARK TEXT] [ARCH] Install MarkText"
+  become: false
+  yay:
+    name: "{{ marktext_package }}"
+    state: present
+    update_cache: true

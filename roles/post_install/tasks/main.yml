@@ -13,14 +13,12 @@
   tags:
     - post_install
     - secrets
-    - post_secrets
 
 - name: "configure megacmd client"
   import_tasks: megacmd.yml
   tags:
     - post_install
     - megacmd
-    - post_megacmd
 
 - name: "Customize firefox"
   vars:
@@ -31,14 +29,16 @@
     - post_install
     - firefox
 
-- block:
-    - include_vars: "{{ playbook_dir }}/roles/extra_software/defaults/main.yml"
+- include_vars: "{{ playbook_dir }}/roles/extra_software/defaults/main.yml"
+  tags:
+    - post_install
+    - librewolf
 
-    - name: "Customize librewolf"
-      vars:
-        mozilla_browser: LIBREWOLF
-        mozilla_dir: "{{ ansible_user_dir }}/.librewolf"
-      import_tasks: mozilla.yml
+- name: "Customize librewolf"
+  vars:
+    mozilla_browser: LIBREWOLF
+    mozilla_dir: "{{ ansible_user_dir }}/.librewolf"
+  import_tasks: mozilla.yml
   when: install_librewolf
   tags:
     - post_install
@@ -65,7 +65,6 @@
   tags:
     - post_install
     - docker
-    - post_docker
 
 - name: "create crontab jobs"
   import_tasks: crontab.yml
@@ -79,7 +78,6 @@
     - post_install
     - go
     - go_packages
-    - post_go
 
 - name: "configure sublime"
   import_tasks: sublime.yml
@@ -89,9 +87,6 @@
     - sublime
     - sublimetext
     - sublimemerge
-    - post_sublime
-    - post_sublimetext
-    - post_sublimemerge
 
 - name: "configure VPNs"
   import_tasks: network.yml
@@ -108,8 +103,6 @@
     - post_install
     - vim
     - vimplugins
-    - post_vim
-    - post_vimplugins
 
 - name: "Configure Gimp"
   import_tasks: gimp.yml
@@ -128,35 +121,30 @@
   tags:
     - post_install
     - pass
-    - post_pass
 
 - name: "configure spotify tui"
   import_tasks: spotify.yml
   tags:
     - post_install
     - spotify
-    - post_spotify
 
 - name: "configure user photo"
   import_tasks: user.yml
   tags:
     - post_install
     - user
-    - post_user
 
 - name: "configure github CLI"
   import_tasks: github_cli.yml
   tags:
     - post_install
     - githubcli
-    - post_githubcli
 
 - name: "configure Oracle Cloud"
   import_tasks: oracle_cloud.yml
   tags:
     - post_install
     - oracle_cloud
-    - post_oracle_cloud
 
 - name: "clone git repostitories"
   import_tasks: git.yml
@@ -169,11 +157,9 @@
   tags:
     - post_install
     - zeal
-    - post_zeal
 
 - name: "configure python"
   import_tasks: python.yml
   tags:
     - post_install
     - python
-    - post_python

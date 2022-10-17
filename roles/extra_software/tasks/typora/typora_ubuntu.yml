@@ -14,6 +14,5 @@
 - name: "[TYPORA] [DEB] Import repository key"
   apt_key:
     id: 4AC441BE68B4ADAB7439FBF9BA300B7755AFCFAE
-    file: /usr/share/keyrings/typora.gpg
+    keyring: /usr/share/keyrings/typora.gpg
     state: present
-

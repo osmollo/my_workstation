@@ -1,5 +1,17 @@
 ---
 
+- name: "[PREZTO] check if ~/.zshrc exists"
+  stat:
+    path: "{{ ansible_env.HOME }}/.zshrc"
+  register: stat_response
+
+- name: "[PREZTO] creating backup"
+  copy:
+    src: "{{ ansible_env.HOME }}/.zshrc"
+    dest: "{{ ansible_env.HOME }}/.zshrc.bkp"
+    remote_src: true
+  when: stat_response.stat.exists
+
 - name: "[PREZTO] delete previous prezto installation"
   file:
     path: "{{ ansible_user_dir }}/.{{ item }}"
@@ -66,3 +78,4 @@
   shell: git submodule update --init --recursive
   args:
     chdir: "{{ ansible_user_dir }}/.zprezto"
+

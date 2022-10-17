@@ -1,0 +1,7 @@
+---
+
+- name: "[MARK TEXT] [DEB] install MarkText package"
+  apt:
+    deb: "{{ marktext_deb_package }}"
+    state: present
+    update_cache: true

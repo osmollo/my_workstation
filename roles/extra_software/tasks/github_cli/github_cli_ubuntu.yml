@@ -2,7 +2,7 @@
 
 - name: "[GITHUB_CLI] [DEB] Copy repository file"
   copy:
-    content: "deb https://cli.github.com/packages stable main"
+    content: "deb [signed-by=/usr/share/keyrings/githubcli.gpg] https://cli.github.com/packages stable main"
     dest: /etc/apt/sources.list.d/githubcli.list
     mode: 0644
     owner: root
@@ -14,6 +14,7 @@
   apt_key:
     keyserver: keyserver.ubuntu.com
     id: C99B11DEB97541F0
+    keyring: /usr/share/keyrings/githubcli.gpg
     state: present
 
 - name: "[GITHUB_CLI] [DEB] Install githubcli package"

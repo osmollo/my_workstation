@@ -2,21 +2,3 @@
 
 - name: "[VSCODIUM] install for {{ linux_distribution }}"
   include_tasks: "codium_{{ linux_distribution }}.yml"
-
-- name: "[VSCODIUM] install extensions"
-  block:
-    - name: "[VSCODIUM] get json with extensions"
-      uri:
-        url: "{{ code_extensions_url }}"
-      register: extensions_response
-
-    - name: "[VSCODIUM] Install extensions for Visual Studio Codium"
-      become: false
-      become_user: "{{ ansible_user }}"
-      vars:
-        id_query: "[].metadata.publisherId"
-      command: "codium --install-extension {{ item }}"
-      loop: "{{ extensions_response.json | default([]) | json_query(id_query) | list }}"
-      ignore_errors: true
-  tags:
-    - codium_extensions

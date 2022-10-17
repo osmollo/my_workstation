@@ -24,7 +24,7 @@
 
     - name: "[ARCH] Install KDE packages"
       pacman:
-        name: "{{ kde_packages }} + {{ kde_arch_packages }}"
+        name: "{{ kde_packages + kde_arch_packages }}"
         state: present
         update_cache: true
       when:
@@ -43,7 +43,7 @@
 
     - name: "[ARCH] Install XFCE packages"
       pacman:
-        name: "{{ xfce_packages }} + {{ xfce_arch_packages }}"
+        name: "{{ xfce_packages + xfce_arch_packages }}"
         state: present
         update_cache: true
       when:
@@ -66,7 +66,7 @@
 
     - name: "[FEDORA] Install Gnome packages"
       yum:
-        name: "{{ gnome_packages }} + {{ gnome_fedora_packages }}"
+        name: "{{ gnome_packages + gnome_fedora_packages }}"
         state: present
         update_cache: true
       when:
@@ -75,7 +75,7 @@
 
     - name: "[FEDORA] Install KDE packages"
       yum:
-        name: "{{ kde_packages }} + {{ kde_fedora_packages }}"
+        name: "{{ kde_packages + kde_fedora_packages }}"
         state: present
         update_cache: true
       when:
@@ -84,7 +84,7 @@
 
     - name: "[FEDORA] Install XFCE packages"
       yum:
-        name: "{{ xfce_packages }} + {{ xfce_fedora_packages }}"
+        name: "{{ xfce_packages + xfce_fedora_packages }}"
         state: present
         update_cache: true
       when:
@@ -113,7 +113,7 @@
 
     - name: "[UBUNTU] Install Gnome packages"
       apt:
-        name: "{{ gnome_packages }} + {{ gnome_ubuntu_packages | reject('equalto', '') | list }}"
+        name: "{{ gnome_packages + (gnome_ubuntu_packages | reject('equalto', '') | list) }}"
         state: present
         update_cache: true
         autoclean: true
@@ -123,7 +123,7 @@
 
     - name: "[UBUNTU] Install KDE packages"
       apt:
-        name: "{{ kde_packages }} + {{ kde_ubuntu_packages }}"
+        name: "{{ kde_packages + kde_ubuntu_packages }}"
         state: present
         update_cache: true
         autoclean: true
@@ -143,7 +143,7 @@
 
     - name: "[UBUNTU] Install XFCE packages"
       apt:
-        name: "{{ xfce_packages }} + {{ xfce_ubuntu_packages }}"
+        name: "{{ xfce_packages + xfce_ubuntu_packages }}"
         state: present
         update_cache: true
         autoclean: true
@@ -169,7 +169,7 @@
 
     - name: "[DEBIAN] Install Gnome packages"
       apt:
-        name: "{{ gnome_packages }} + {{ gnome_debian_packages }}"
+        name: "{{ gnome_packages + gnome_debian_packages }}"
         state: present
         update_cache: true
         autoclean: true
@@ -179,7 +179,7 @@
 
     - name: "[DEBIAN] Install KDE packages"
       apt:
-        name: "{{ kde_packages }} + {{ kde_debian_packages }}"
+        name: "{{ kde_packages + kde_debian_packages }}"
         state: present
         update_cache: true
         autoclean: true
@@ -189,7 +189,7 @@
 
     - name: "[DEBIAN] Install XFCE packages"
       apt:
-        name: "{{ xfce_packages }} + {{ xfce_debian_packages }}"
+        name: "{{ xfce_packages + xfce_debian_packages }}"
         state: present
         update_cache: true
         autoclean: true

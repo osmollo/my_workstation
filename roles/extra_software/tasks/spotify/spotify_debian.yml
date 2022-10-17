@@ -1,1 +1,22 @@
-spotify_ubuntu.yml
+---
+
+- name: "[SPOTIFY] [DEBIAN] download repository key file"
+  apt_key:
+    url: https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg
+    keyring: /usr/share/keyrings/spotify.gpg
+    state: present
+
+- name: "[SPOTIFY] [DEBIAN] copy repository file"
+  copy:
+    content: |
+      deb [signed-by=/usr/share/keyrings/spotify.gpg] http://repository.spotify.com stable non-free
+    dest: /etc/apt/sources.list.d/spotify.list
+    mode: 0644
+    owner: root
+    group: root
+
+- name: "[SPOTIFY] [DEBIAN] install spotify"
+  apt:
+    name: spotify-client
+    update_cache: true
+    state: present

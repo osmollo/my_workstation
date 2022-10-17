@@ -19,8 +19,8 @@
         key_file: "{{ ssh_dir }}/osmollo"
         accept_hostkey: true
       with_items:
-        - "{{ git_repositories.work }}"
         - "{{ git_repositories.home }}"
+        - "{{ git_repositories.work }}"
       ignore_errors: true
   tags:
     - clone_repos
