@@ -57,13 +57,6 @@
     - extra_software
     - docker
 
-- name: "Install secrethub"
-  import_tasks: secrethub/secrethub.yml
-  when: install_secrethub
-  tags:
-    - extra_software
-    - secrethub
-
 - name: "Install 1Password"
   import_tasks: 1password/1password.yml
   when: install_1password
@@ -120,14 +113,6 @@
     - sublimemerge
     - sublime_merge
     - sublime
-
-# - name: "Install Atom"
-#   import_tasks: atom/atom.yml
-#   when: install_atom
-#   tags:
-#     - extra_software
-#     - atom
-#     - editors
 
 - name: "Install Gitkraken"
   import_tasks: gitkraken/gitkraken.yml

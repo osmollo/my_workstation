@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 7.3
+
+- **Secrethub** ya no se encuentra disponible para su instalación debido a su [fin de vida](https://secrethub.io/)
+
 ## 7.2
 
 - Instalación de **Zoom** usando __snap__ en **Ubuntu** y __flatpak__ en **Fedora**
