@@ -4,6 +4,8 @@
 
 - **Secrethub** ya no se encuentra disponible para su instalación debido a su [fin de vida](https://secrethub.io/)
 - Cambios en repositorios git
+- Corrección de errores:
+  - `~/.env` renombrado como `~/.environment`
 
 ## 7.2
 
