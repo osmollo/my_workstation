@@ -39,6 +39,13 @@
             mode: 0755
           when: bw_response.stat.exists
 
+        - name: "[UBUNTU PRO] generate script"
+          template:
+            src: roles/post_install/templates/ubuntu_pro.sh.j2
+            dest: "./ubuntu_pro.sh"
+            mode: 0755
+          when: ansible_distribution == 'Ubuntu'
+
         - name: "Final step"
           debug:
             msg: "Please, execute: './prepare_post.sh'"

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+sudo apt install ubuntu-advantage-tools=27.11.2~$(lsb_release -rs).1
+pro security-status
+sudo pro attach {{ ubuntu_token }}
+sudo pro enable esm-apps --beta
+apt list --upgradable | grep apps-security
+sudo apt upgrade
+

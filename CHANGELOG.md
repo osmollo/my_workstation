@@ -4,6 +4,7 @@
 
 - **Secrethub** ya no se encuentra disponible para su instalación debido a su [fin de vida](https://secrethub.io/)
 - Cambios en repositorios git
+- Script para configurar [Ubuntu PRO](https://discourse.ubuntu.com/t/ubuntu-pro-beta-tutorial/31018)
 - Corrección de errores:
   - `~/.env` renombrado como `~/.environment`
 
