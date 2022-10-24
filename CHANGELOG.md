@@ -7,6 +7,7 @@
 - Script para configurar [Ubuntu PRO](https://discourse.ubuntu.com/t/ubuntu-pro-beta-tutorial/31018)
 - Corrección de errores:
   - `~/.env` renombrado como `~/.environment`
+  - Limpieza entadas `insecure_registries` de `/etc/docker/daemon.json`
 
 ## 7.2
 
