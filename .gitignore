@@ -5,7 +5,6 @@ facts/*
 .inventory_cache
 *.log
 test.yml
-prepare_post.sh
 
 roles/post_install/defaults/main.yml
 

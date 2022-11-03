@@ -53,7 +53,7 @@ elif grep -i fedora /etc/os-release > /dev/null; then
   source /usr/bin/virtualenvwrapper.sh
 fi
 
-source {{ ansible_user_dir }}/.env
+source {{ ansible_user_dir }}/.environment
 source {{ ansible_user_dir }}/.bash_aliases
 
 complete -C {{ ansible_user_dir }}/vault vault

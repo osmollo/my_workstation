@@ -1,0 +1,11 @@
+---
+
+- name: "[TEST BW] test bitwarden"
+  hosts: localhost
+  connection: local
+  vars:
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+  tasks:
+    - debug:
+        msg: "{{ lookup('bitwarden', 'ae10ccce-2f10-48cb-91f6-af26014ae10b', search='id')[0]['notes'].split('\n\n')[1] }}"

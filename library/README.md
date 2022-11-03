@@ -36,7 +36,7 @@ Este módulo sirve para parsear la configuración de **Gnome** generada con el c
 
 Al módulo se le debe pasar **obligatoriamente** el parámetro `dconf_file`, con la ruta al fichero de la configuración de Gnome. Este fichero se obtiene ejecutando:
 
-```bash
+```shell
 dconf dump / > gnome_config.txt
 ```
 

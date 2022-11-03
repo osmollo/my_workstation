@@ -84,7 +84,6 @@ Por defecto se instala el siguiente software:
 | [Nomad](https://learn.hashicorp.com/tutorials/nomad/install-cli) | nomad | install_nomad | | Orchestration tool for deploying and managing applications |
 | [OBS Studio](https://obsproject.com/es) | obs | install_obs | | Grabación de video y transmissión en vivo |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | | Personalización de ZSH |
-| [Pass](https://www.passwordstore.org/) | pass | install_pass | pass_managers | Gestor de contraseñas |
 | [Podman](https://podman.io/) | podman | install_podman | | Gestor de contenedores |
 | [Postman](https://www.getpostman.com) | postman | install_postman | | Cliente REST API |
 | [Prezto](https://github.com/sorin-ionescu/prezto) | prezto | install_prezto | | Personalización de ZSH (fork mejorado de Oh my Zsh) |
@@ -121,14 +120,14 @@ Por defecto se instala el siguiente software:
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 
-```bash
-ansible-playbook install.yml -e "install_spotify=false install_ohmyzsh=false" --ask-vault-pass
+```shell
+ansible-playbook install.yml -e "install_spotify=false install_ohmyzsh=false"
 ```
 
 En caso contrario, si lo único que se quiere hacer es instalar alguna de las aplicaciones, hay que usar el **tag** correspondiente, que coincide con las variables anteriores. Por ejemplo, para instalar *Visual Studio Code*:
 
-```bash
-ansible-playbook install.yml -t "vscode,dropbox,spotify" --ask-vault-pass
+```shell
+ansible-playbook install.yml -t "vscode,dropbox,spotify"
 ```
 
 En el siguiente punto, se explica cómo generar una configuración específica de usuario con el software que se desea instalar
@@ -137,7 +136,7 @@ En el siguiente punto, se explica cómo generar una configuración específica d
 
 - Las tareas de este repositorio se ejecutan en local, por lo que para poder ejecutar los playbooks es necesario tener instalado `git` y `ansible`:
 
-```bash
+```shell
 # Para Fedora
 sudo dnf install git ansible
 
@@ -150,22 +149,24 @@ sudo pacman -S git ansible
 
 A continuación habrá que clonar este repositorio (da igual el directorio de destino):
 
-```bash
+```shell
 git clone https://github.com/osmollo/my_workstation.git /tmp/repo
 cd /tmp/repo/ansible
-ansible-playbook install.yml --ask-vault-pass
+ansible-playbook install.yml
 ```
 
 No todas las aplicaciones se instalan por defecto, este comportamiento se encuentra definido en el fichero `./roles/extra_software/defaults/main.yml` donde hay una serie de variables `install_` que indican si la correspondiente aplicación se instala o no. Para modificar este comportamiento, puede editarse dicho fichero o cambiar el valor de la variable por `extravars`:
 
-```bash
+```shell
 ansible-playbook install.yml -t chromium -e install_chromium=true
 ```
 
 ### Post instalación
 
-```bash
-ansible-playbook post_install.yml --ask-vault-pass
+Las variables necesarias para la ejecución de este role se encuentran en `./roles/post_install/defaults/main.yml.gpg`
+
+```shell
+ansible-playbook post_install.yml
 ```
 
 [Aquí se puede consultar la documentación de la post instalación](roles/post_install/README.md)
@@ -178,19 +179,19 @@ Una de las primeras tareas que se ejecutan es la actualización de los paquetes 
 
 Hay que exportar la variable `REPO_DISABLE_UPDATES` con valor *1*. Cualquier otro valor se considerará *false* y se actualizarán los paquetes
 
-```bash
+```shell
 export REPO_DISABLE_UPDATES=1
 ```
 
 - Extravars
 
-```bash
+```shell
 ansible-playbook install.yml -e disable_updates=true
 ```
 
 - Fichero
 
-```bash
+```shell
 sudo touch /var/tmp/.update
 ```
 
@@ -200,7 +201,7 @@ sudo touch /var/tmp/.update
 
 ## Ejecución de comandos ansible ad-hoc
 
-```bash
+```shell
 ansible localhost -m shell -a "df -h"
 ```
 
@@ -208,13 +209,13 @@ ansible localhost -m shell -a "df -h"
 
 Para poder actualizar el [CHANGELOG.md](CHANGELOG.md) con los cambios que se han realizado entre 2 tags hay que ejecutar el siguiente comando:
 
-```bash
+```shell
 git log --pretty=oneline <tag_antiguo> <tag_nuevo>
 ```
 
 Y entre el último tag y el último commit:
 
-```bash
+```shell
 git log --pretty=oneline HEAD...tag
 ```
 

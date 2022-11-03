@@ -41,7 +41,7 @@
 - name: "[ENVIRONMENT] create .env"
   template:
     src: "env.j2"
-    dest: "{{ ansible_user_dir }}/.env"
+    dest: "{{ ansible_user_dir }}/.environment"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     mode: 0600
@@ -131,24 +131,13 @@
     - ssh_config
     - config_files
 
-- name: "[ENVIRONMENT] create vault_pass files"
+- name: "[ENVIRONMENT] create Datio vault_pass"
   lineinfile:
-    path: "{{ ansible_user_dir }}/{{ item.name }}"
-    line: "{{ item.content }}"
+    path: "{{ ansible_user_dir }}/.vault_pass"
+    line: "{{ vault_datio_pass }}"
     create: true
     mode: 0600
   no_log: true
-  loop:
-    - name: .vault_pass_personal
-      content: "{{ vault_personal_pass }}"
-    - name: .vault_pass_datio
-      content: "{{ vault_datio_pass }}"
-
-- name: "[ENVIRONMENT] create link to vault_pass file"
-  file:
-    src: "{{ ansible_user_dir }}/.vault_pass_personal"
-    dest: "{{ ansible_user_dir }}/.vault_pass"
-    state: link
 
 - name: "[ENVIRONMENT] configure oh-my-zsh"
   import_tasks: oh_my_zsh.yml

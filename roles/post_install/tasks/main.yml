@@ -116,12 +116,6 @@
     - post_install
     - hp
 
-- name: "configure pass secrets manager"
-  import_tasks: pass.yml
-  tags:
-    - post_install
-    - pass
-
 - name: "configure spotify tui"
   import_tasks: spotify.yml
   tags:
@@ -140,11 +134,13 @@
     - post_install
     - githubcli
 
-- name: "configure Oracle Cloud"
-  import_tasks: oracle_cloud.yml
+- name: "configure ubuntu PRO"
+  become: true
+  import_tasks: ubuntu_pro.yml
+  when: ansible_distribution == 'Ubuntu'
   tags:
     - post_install
-    - oracle_cloud
+    - ubuntu_pro
 
 - name: "clone git repostitories"
   import_tasks: git.yml
