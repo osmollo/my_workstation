@@ -84,7 +84,7 @@ install_mailspring: false
 install_obs: false
 install_copyq: false
 install_fonts: true
-install_trivy: false
+install_trivy: true
 install_ferdi: false
 install_station: false
 install_neovim: true
