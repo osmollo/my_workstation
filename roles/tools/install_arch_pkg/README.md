@@ -4,7 +4,7 @@
 
 Este role sirve para instalar paquetes de **Arch Linux**. Los comandos equivalentes serían:
 
-```bash
+```shell
 git clone {{ aur_url }}/{{ arch_package }}.git
 cd {{ arch_package }}
 makepkg -si --noconfirm

@@ -1,0 +1,98 @@
+---
+
+- name: "[PREPARE_POST] prepare post installation"
+  hosts: localhost
+  connection: local
+  vars:
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+  tasks:
+    - name: "include secrets file"
+      include_vars:
+        file: "{{ playbook_dir | dirname }}/roles/post_install/vars/bw_vars.yml"
+
+    - name: "Dropbox sync"
+      debug:
+        msg: "Sync Dropbox with the following pass: {{ lookup('bitwarden', bw.item1, search='id', field='password') | first }}"
+
+    - name: "get gpg data"
+      set_fact:
+        doc1_filename: "{{ lookup('bitwarden', bw.doc1.id, search='id')[0]['attachments'][0]['fileName'] }}"
+        doc1_passphrase: "{{ lookup('bitwarden', bw.doc1.id, search='id')[0]['fields'][0]['value'] }}"
+        doc2_filename: "{{ lookup('bitwarden', bw.doc2.id, search='id')[0]['attachments'][0]['fileName'] }}"
+        doc2_passphrase: "{{ lookup('bitwarden', bw.doc2.id, search='id')[0]['fields'][0]['value'] }}"
+
+    - name: "download gpg files"
+      command: "{{ item }}"
+      loop:
+        - "bw get attachment {{ bw.doc1.file.id }} --itemid {{ bw.doc1.id }} --output {{ ansible_user_dir }}/{{ doc1_filename }}"
+        - "bw get attachment {{ bw.doc2.file.id }} --itemid {{ bw.doc2.id }} --output {{ ansible_user_dir }}/{{ doc2_filename }}"
+
+    - name: "create directories to uncompress gpg files"
+      file:
+        path: "{{ ansible_user_dir }}/{{ item[:-4] }}"
+        state: directory
+        mode: 0755
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+      loop:
+        - "{{ doc1_filename }}"
+        - "{{ doc2_filename }}"
+
+    - name: "uncompress gpg files"
+      unarchive:
+        src: "{{ item }}"
+        dest: "{{ item[:-4] }}"
+      loop:
+        - "{{ ansible_user_dir }}/{{ doc1_filename }}"
+        - "{{ ansible_user_dir }}/{{ doc2_filename }}"
+
+    - name: "import GPG pub keys"
+      gpg_key:
+        file: "{{ item }}"
+        state: present
+      loop:
+        - "{{ ansible_user_dir }}/{{ doc1_filename[:-4] }}/pub"
+        - "{{ ansible_user_dir }}/{{ doc2_filename[:-4] }}/pub"
+
+    - name: "[PERSONAL] please copy this passphrase"
+      debug: var=doc1_passphrase
+
+    - name: "[PERSONAL] press any key when you are ready"
+      pause:
+
+    - name: "[PERSONAL] import GPG priv key"
+      gpg_key:
+        file: "{{ ansible_user_dir }}/{{ doc1_filename[:-4] }}/priv"
+        trust: '5'
+        state: present
+
+    - name: "[WORK] please copy this passphrase"
+      debug: var=doc2_passphrase
+
+    - name: "[WORK] press any key when you are ready"
+      pause:
+
+    - name: "[WORK] import GPG priv key"
+      gpg_key:
+        file: "{{ ansible_user_dir }}/{{ doc2_filename[:-4] }}/priv"
+        trust: '5'
+        state: present
+
+    - name: "delete previous '{{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml'"
+      file:
+        path: "{{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml"
+        state: absent
+
+    - name: "decrypt roles/post-install/defaults/main.yml.gpg"
+      command: "gpg --batch --yes --output {{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml --decrypt {{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml.gpg"
+
+    - name: "delete temporal files"
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - "{{ ansible_user_dir }}/{{ doc1_filename }}"
+        - "{{ ansible_user_dir }}/{{ doc1_filename[:-4] }}"
+        - "{{ ansible_user_dir }}/{{ doc2_filename }}"
+        - "{{ ansible_user_dir }}/{{ doc2_filename[:-4] }}"

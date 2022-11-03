@@ -5,11 +5,9 @@
   tags:
     - always
 
-###############
-# INSTALACION #
-###############
 
-- hosts: localhost
+- name: "[INSTALL] install all"
+  hosts: localhost
   connection: local
   become: true
   become_method: sudo
@@ -20,36 +18,3 @@
   roles:
     - common
     - extra_software
-  post_tasks:
-    - become: false
-      block:
-        - name: "include secrets file"
-          include_vars:
-            file: roles/post_install/vars/secrets.yml
-
-        - name: "Check if bitwarden-cli is installed"
-          stat:
-            path: /usr/local/bin/bw
-          register: bw_response
-
-        - name: "Generating the script './prepare_post.sh'"
-          template:
-            src: roles/post_install/templates/prepare_post.sh.j2
-            dest: "./prepare_post.sh"
-            mode: 0755
-          when: bw_response.stat.exists
-
-        - name: "[UBUNTU PRO] generate script"
-          template:
-            src: roles/post_install/templates/ubuntu_pro.sh.j2
-            dest: "./ubuntu_pro.sh"
-            mode: 0755
-          when: ansible_distribution == 'Ubuntu'
-
-        - name: "Final step"
-          debug:
-            msg: "Please, execute: './prepare_post.sh'"
-      when: ansible_user in ['ohermosa', 'osmollo', 'yosmollo']
-      tags:
-        - prepare_post
-        - always

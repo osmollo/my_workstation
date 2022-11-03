@@ -2,10 +2,11 @@
 
 ## 7.3
 
+- Integración completa y gestión de secretos con [Bitwarden](https://bitwarden.com/)
 - **Secrethub** ya no se encuentra disponible para su instalación debido a su [fin de vida](https://secrethub.io/)
 - Cambios en repositorios git
-- Script para configurar [Ubuntu PRO](https://discourse.ubuntu.com/t/ubuntu-pro-beta-tutorial/31018)
-- Cambiada la contraseña de **ansible-vault**
+- Configuración de [Ubuntu PRO](https://discourse.ubuntu.com/t/ubuntu-pro-beta-tutorial/31018) en el role `post_install`
+- En el role `post_install` ya no se configura `pass` ni `oracle_cloud`
 - Corrección de errores:
   - `~/.env` renombrado como `~/.environment`
   - Limpieza entadas `insecure_registries` de `/etc/docker/daemon.json`
@@ -21,7 +22,7 @@
 - En la instalación de **VSCode** y **VSCodium** en el role `extra_software` ya no se instalan extensiones
 - Eliminación de los tags `post_*` del playbook `post_install.yml`
 - Framework de configuración de **ZSH** por defecto pasa a ser [oh my zsh!](https://github.com/ohmyzsh/ohmyzsh)
-- Todos los exports de variables de entorno se generan mediante un template y salen fuera de los `${SHELL}rc` 
+- Todos los exports de variables de entorno se generan mediante un template y salen fuera de los `${SHELL}rc`
 - Corrección de errores
   - Entradas de ssh_config
   - Instalación de la última versión de **Kind** (la versión estaba hardcodeada)

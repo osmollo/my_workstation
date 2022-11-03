@@ -5,6 +5,13 @@
   tags:
     - always
 
+
+- name: "[PREPARE_POST] prepare post installation"
+  import_playbook: playbooks/prepare_post.yml
+  tags:
+    - prepare_post
+
+
 ####################
 # POST INSTALACION #
 ####################
