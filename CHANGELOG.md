@@ -16,6 +16,7 @@
 
 - Corrección de errores:
   - Playbook `prepare_post.yml` hace pausa antes de desencriptar `main.yml.gpg` para que se pueda copiar el passphrase
+  - Eliminación de repositorios git
 
 ## 8.0
 
