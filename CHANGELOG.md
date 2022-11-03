@@ -14,6 +14,7 @@
 ## 8.0
 
 - Integración completa y gestión de secretos con [Bitwarden](https://bitwarden.com/)
+  - Ya no se usa `ansible-vault` para el cifrado de secretos
 - **Secrethub** ya no se encuentra disponible para su instalación debido a su [fin de vida](https://secrethub.io/)
 - Cambios en repositorios git
 - Configuración de [Ubuntu PRO](https://discourse.ubuntu.com/t/ubuntu-pro-beta-tutorial/31018) en el role `post_install`
@@ -21,6 +22,7 @@
 - Corrección de errores:
   - `~/.env` renombrado como `~/.environment`
   - Limpieza entadas `insecure_registries` de `/etc/docker/daemon.json`
+  - Refactor de la configuración de **Docker** en el role `post_install`
 
 ## VERSIONES ANTERIORES
 

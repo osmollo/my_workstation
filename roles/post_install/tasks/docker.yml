@@ -4,6 +4,7 @@
   file:
     path: "/home/{{ ansible_user }}/.docker"
     state: directory
+    mode: 0750
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
 
@@ -15,22 +16,22 @@
     group: "{{ ansible_user }}"
     mode: 0600
 
-# - name: "[DOCKER] create daemon.json"
-#   become: true
-#   become_method: sudo
-#   copy:
-#     content: |
-#     {
-#       "insecure-registries": [
+- name: "[DOCKER] create daemon.json"
+  become: true
+  become_method: sudo
+  copy:
+    content: |
+      {
+        "insecure-registries": {{ docker_registries | selectattr('insecure', 'defined') | map(attribute='name') | to_json }}
+      }
+    dest: /etc/docker/daemon.json
+    mode: 0644
+    owner: root
+    group: root
 
-#       ]
-#     }
-#     "{{ docker_daemon_json | to_json }}"
-#     dest: /etc/docker/daemon.json
-
-# - name: "[DOCKER] Restart docker"
-#   become: true
-#   become_method: sudo
-#   systemd:
-#     name: docker
-#     state: restarted
+- name: "[DOCKER] Restart docker"
+  become: true
+  become_method: sudo
+  systemd:
+    name: docker
+    state: restarted
