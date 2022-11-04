@@ -1,6 +1,6 @@
 ---
 
-- name: "[PYTHON] create python-venv directory"
+- name: "[PYTHON] create '{{ python_venv_dir }}' directory"
   file:
     path: "{{ python_venv_dir }}"
     state: directory
@@ -26,4 +26,3 @@
     virtualenv_command: virtualenv
   loop: "{{ git_requirements }}"
   ignore_errors: true
-
