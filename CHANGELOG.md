@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [8.0.1](#801)
   - [8.0](#80)
   - [VERSIONES ANTERIORES](#versiones-anteriores)
     - [Versión 7](#versión-7)
@@ -10,6 +11,14 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 8.0.1
+
+- Corrección de errores:
+  - Cambio del directorio de entornos virtuales de python
+  - Playbook `prepare_post.yml` hace pausa antes de desencriptar `main.yml.gpg` para que se pueda copiar el passphrase
+  - Eliminación de repositorios git
+  - Instalación por defecto de **Trivy**
 
 ## 8.0
 

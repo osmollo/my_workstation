@@ -1,9 +1,9 @@
 mkvenv(){
-  mkdir {{ ansible_user_dir }}/python-venv/$1
+  mkdir {{ ansible_user_dir }}/.virtualenvs/$1
   if [ $# -eq 1 ]; then
-    mkvirtualenv -p /usr/bin/python3  -a {{ ansible_user_dir }}/python-venv/$1 $1
+    mkvirtualenv -p /usr/bin/python3  -a {{ ansible_user_dir }}/.virtualenvs/$1 $1
   else
-    mkvirtualenv -p /usr/bin/python2  -a {{ ansible_user_dir }}/python-venv/$1 $1
+    mkvirtualenv -p /usr/bin/python2  -a {{ ansible_user_dir }}/.virtualenvs/$1 $1
   fi
 }
 
