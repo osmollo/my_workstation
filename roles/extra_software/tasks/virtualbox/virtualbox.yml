@@ -27,11 +27,21 @@
   changed_when: false
   register: extpack_list
 
+- name: "[VIRTUALBOX] get latest version of VirtualBox Extension Pack"
+  uri:
+    url: "{{ virtualbox_extpack_version_url }}"
+    return_content: true
+  register: uri_response
+
+- name: "[VIRTUALBOX] set 'virtualbox_extpack_version' to '{{ uri_response.content.replace('\n', '') }}'"
+  set_fact:
+    virtualbox_extpack_version: "{{ uri_response.content.replace('\n', '') }}"
+
 - name: "[VIRTUALBOX] Download VirtualBox extension pack"
   get_url:
     url: "{{ virtualbox_extension_package }}"
     dest: /tmp/
-    force: yes
+    force: true
   register: download_result
   when: 'extpack_list.stdout == "Extension Packs: 0"'
 
