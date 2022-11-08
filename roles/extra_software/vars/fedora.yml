@@ -31,8 +31,6 @@ megasync_package: "https://mega.nz/linux/repo/Fedora_{{ ansible_distribution_ver
 
 file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"
 
-vivaldi_package: https://downloads.vivaldi.com/stable/vivaldi-stable-{{ vivaldi_version }}.{{ ansible_architecture }}.rpm
-
 protonvpn_dependencies:
   - openvpn
   - dialog

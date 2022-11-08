@@ -1,7 +1,18 @@
 ---
 
+- name: "[VIVALDI] [DEB] install repository for Vivaldi"
+  copy:
+    content: "deb [arch=amd64 signed-by=/usr/share/keyrings/vivaldi.gpg] https://repo.vivaldi.com/stable/deb/ stable main"
+    dest: /etc/apt/sources.list.d/vivaldi.list
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "[VIVALDI] [DEB] install key for Vivaldi repository"
+  shell: curl https://repo.vivaldi.com/archive/linux_signing_key.pub | gpg --dearmor | dd of=/usr/share/keyrings/vivaldi.gpg
+
 - name: "[VIVALDI] [DEB] Install vivaldi"
   apt:
-    deb: "{{ vivaldi_package }}"
+    name: "vivaldi-stable"
     state: present
     update_cache: true

@@ -158,8 +158,6 @@ virtualbox_extension_package: "https://download.virtualbox.org/virtualbox/{{ vir
 dockercompose_package: "https://github.com/docker/compose/releases/download/{{ dockercompose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
 mega_url_base: "https://mega.nz/linux/MEGAsync"
 
-vivaldi_version: 3.3.2022.45-1
-
 prezto_repo: https://github.com/sorin-ionescu/prezto.git
 
 go_dir: /usr/local/go

@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [8.0.2](#802)
   - [8.0.1](#801)
   - [8.0](#80)
   - [VERSIONES ANTERIORES](#versiones-anteriores)
@@ -11,6 +12,11 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 8.0.2
+
+- Corrección de errores:
+  - La versión de [Vivaldi](https://vivaldi.com/es/) estaba hardcodeada, ahora se instala mediante repositorio en **Ubuntu** y **Fedora**
 
 ## 8.0.1
 

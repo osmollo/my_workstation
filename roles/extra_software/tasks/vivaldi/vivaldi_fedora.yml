@@ -1,8 +1,17 @@
 ---
 
+- name: "[VIVALDI] [FEDORA] Add repository file"
+  yum_repository:
+    name: vivaldi
+    description: Vivaldi Browser
+    baseurl: https://repo.vivaldi.com/archive/rpm/$basearch
+    gpgkey: https://repo.vivaldi.com/archive/linux_signing_key.pub
+    gpgcheck: true
+    enabled: true
+
 - name: "[VIVALDI] [FEDORA] Install vivaldi"
   yum:
-    name: "{{ vivaldi_package }}"
+    name: vivaldi-stable
     state: present
     update_cache: true
     disable_gpg_check: true
