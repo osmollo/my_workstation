@@ -18,6 +18,7 @@
 - Corrección de errores:
   - La versión de [Vivaldi](https://vivaldi.com/es/) estaba hardcodeada, ahora se instala mediante repositorio en **Ubuntu** y **Fedora**
   - Corregido el orden en la instalación de **Typora**
+  - Eliminación de la plantilla `docker-ce.repo.j2`
 
 ## 8.0.1
 
