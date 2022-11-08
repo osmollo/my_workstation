@@ -17,6 +17,7 @@
 
 - Corrección de errores:
   - La versión de [Vivaldi](https://vivaldi.com/es/) estaba hardcodeada, ahora se instala mediante repositorio en **Ubuntu** y **Fedora**
+  - Corregido el orden en la instalación de **Typora**
 
 ## 8.0.1
 
