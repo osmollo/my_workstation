@@ -20,8 +20,6 @@ megacmd_dependencies:
 megasync_package: "https://mega.nz/linux/MEGAsync/x{{ linux_distribution | capitalize }}_{{ ansible_distribution_version }}/amd64/megasync-x{{ linux_distribution | capitalize }}_{{ ubuntu_version_long }}_amd64.deb"
 file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"
 
-vivaldi_package: https://downloads.vivaldi.com/stable/vivaldi-stable_{{ vivaldi_version }}_amd64.deb
-
 protonvpn_dependencies:
   - openvpn
   - dialog
