@@ -53,19 +53,19 @@
 
 - block:
     - name: "[FEDORA] Install common packages"
-      yum:
+      dnf:
         name: "{{ common_packages }}"
         state: present
         update_cache: true
 
     - name: "[FEDORA] Install Fedora packages"
-      yum:
+      dnf:
         name: "{{ distro_packages | reject('equalto', '') | list }}"
         state: present
         update_cache: true
 
     - name: "[FEDORA] Install Gnome packages"
-      yum:
+      dnf:
         name: "{{ gnome_packages + gnome_fedora_packages }}"
         state: present
         update_cache: true
@@ -74,7 +74,7 @@
         - desktop_environment == "gnome"
 
     - name: "[FEDORA] Install KDE packages"
-      yum:
+      dnf:
         name: "{{ kde_packages + kde_fedora_packages }}"
         state: present
         update_cache: true
@@ -83,7 +83,7 @@
         - desktop_environment == "kde"
 
     - name: "[FEDORA] Install XFCE packages"
-      yum:
+      dnf:
         name: "{{ xfce_packages + xfce_fedora_packages }}"
         state: present
         update_cache: true

@@ -21,7 +21,7 @@
   failed_when: yum_result.rc != 100
 
 - name: "[VSCODIUM] [FEDORA] Install VSCodium"
-  yum:
+  dnf:
     name: codium
     state: present
     update_cache: true

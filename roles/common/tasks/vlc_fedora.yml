@@ -1,7 +1,7 @@
 ---
 
 - name: "[FEDORA] Install VLC repositories"
-  yum:
+  dnf:
     name:
       - "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version }}.noarch.rpm"
       - "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedora_version }}.noarch.rpm"
@@ -9,7 +9,7 @@
     state: present
 
 - name: "[FEDORA] Install VLC"
-  yum:
+  dnf:
     name: vlc
     state: present
     update_cache: true

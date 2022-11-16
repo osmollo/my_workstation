@@ -5,7 +5,7 @@
     file: "{{ linux_distribution | lower }}.yml"
 
 - name: "[FEDORA] Install Python3 packages"
-  yum:
+  dnf:
     name: "{{ python_packages }}"
     state: present
     update_cache: true

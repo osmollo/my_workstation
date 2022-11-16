@@ -6,7 +6,7 @@
     dest: /etc/yum.repos.d/windscribe.repo
 
 - name: "[WINDSCRIBE] [FEDORA] install windscribe package"
-  yum:
+  dnf:
     name: windscribe-cli
     state: present
     update_cache: true

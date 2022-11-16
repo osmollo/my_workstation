@@ -1,7 +1,7 @@
 ---
 
 - name: "[ATOM] [RPM] Install Atom"
-  yum:
+  dnf:
     name: "{{ atom_rpm_package }}"
     state: present
     disable_gpg_check: true

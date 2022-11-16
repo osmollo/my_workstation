@@ -1,7 +1,7 @@
 ---
 
 - name: "[DUF] [RPM] Install duf"
-  yum:
+  dnf:
     name: "{{ duf_rpm_package }}"
     state: present
     update_cache: true

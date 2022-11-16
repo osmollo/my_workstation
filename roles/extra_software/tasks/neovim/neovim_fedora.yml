@@ -1,7 +1,7 @@
 ---
 
 - name: "[NEOVIM] [FEDORA] install neovim"
-  yum:
+  dnf:
     name:
       - neovim
       - python3-neovim

@@ -10,7 +10,7 @@
   when: linux_distribution == "ubuntu"
 
 - name: "[FZF] [FEDORA] install fzf"
-  yum:
+  dnf:
     name:
       - fzf
       - ripgrep

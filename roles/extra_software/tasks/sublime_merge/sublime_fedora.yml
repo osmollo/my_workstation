@@ -15,7 +15,7 @@
     enabled: true
 
 - name: "[SUBLIME_MERGE] [FEDORA] Install Sublime Merge"
-  yum:
+  dnf:
     name: sublime-merge
     state: present
     update_cache: true

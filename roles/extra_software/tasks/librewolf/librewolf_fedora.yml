@@ -13,7 +13,7 @@
     enabled: true
 
 - name: "[LIBREWOLF] [FEDORA] install librewolf"
-  yum:
+  dnf:
     name: librewolf
     update_cache: true
     state: present

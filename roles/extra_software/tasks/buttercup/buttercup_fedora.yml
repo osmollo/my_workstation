@@ -1,7 +1,7 @@
 ---
 
 - name: "[BUTTERCUP] [RPM] Install buttercup"
-  yum:
+  dnf:
     name: "{{ buttercup_rpm_package }}"
     state: present
     disable_gpg_check: true

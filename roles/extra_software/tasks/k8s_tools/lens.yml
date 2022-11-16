@@ -41,7 +41,7 @@
   when: linux_distribution in ['ubuntu', 'debian']
 
 - name: "[LENS] [FEDORA] install lens package"
-  yum:
+  dnf:
     name: "https://github.com/lensapp/lens/releases/download/{{ lens_version }}/Lens-{{ lens_version[1:] }}.x86_64.rpm"
     state: present
     update_cache: true

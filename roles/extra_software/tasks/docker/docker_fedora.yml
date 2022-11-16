@@ -1,7 +1,7 @@
 ---
 
 - name: "[DOCKER] [FEDORA] Uninstall old docker"
-  yum:
+  dnf:
     name:
       - docker
       - docker-client
@@ -30,7 +30,7 @@
     group: root
 
 - name: "[DOCKER] [FEDORA] Install Docker"
-  yum:
+  dnf:
     name:
       - docker-ce
       - docker-ce-cli

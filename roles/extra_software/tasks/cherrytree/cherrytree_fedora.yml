@@ -1,7 +1,7 @@
 ---
 
 - name: "[CHERRYTREE] [FEDORA] install cherrytree package"
-  yum:
+  dnf:
     name: "{{ cherrytree_package }}"
     state: present
     update_cache: true

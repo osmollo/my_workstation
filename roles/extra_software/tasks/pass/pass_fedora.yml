@@ -1,7 +1,7 @@
 ---
 
 - name: "[PASS] [RPM] Install Pass"
-  yum:
+  dnf:
     name: pass
     state: present
     disable_gpg_check: true

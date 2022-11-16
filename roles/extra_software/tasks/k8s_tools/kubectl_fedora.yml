@@ -6,7 +6,7 @@
     dest: /etc/yum.repos.d/kubernetes.repo
 
 - name: "[KUBECTL] [FEDORA] install kubectl package"
-  yum:
+  dnf:
     name: kubectl
     state: present
     update_cache: true

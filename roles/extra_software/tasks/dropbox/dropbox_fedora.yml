@@ -9,7 +9,7 @@
 - name: "[DROPBOX] [FEDORA] Install Dropbox package"
   vars:
     dropbox_package: "https://www.dropbox.com/download?dl=packages/{{ linux_distribution }}/nautilus-dropbox-{{ dropbox_version.version }}-1.{{ linux_distribution }}.{{ ansible_architecture }}.rpm"
-  yum:
+  dnf:
     name: "{{ dropbox_package }}"
     state: present
     disable_gpg_check: true

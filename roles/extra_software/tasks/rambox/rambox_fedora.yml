@@ -1,7 +1,7 @@
 ---
 
 - name: "[RAMBOX] [RPM] Install rambox"
-  yum:
+  dnf:
     name: "{{ rambox_rpm_package }}"
     state: present
     disable_gpg_check: true

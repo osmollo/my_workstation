@@ -1,7 +1,7 @@
 ---
 
 - name: "[WIREGUARD] [FEDORA] install wireguard"
-  yum:
+  dnf:
     name: wireguard-tools
     state: present
     update_cache: true

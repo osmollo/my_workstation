@@ -1,7 +1,7 @@
 ---
 
 - name: "[GITKRAKEN] [FEDORA] Install Gitkraken"
-  yum:
+  dnf:
     name: "{{ gitkraken_package }}"
     state: present
     disable_gpg_check: true

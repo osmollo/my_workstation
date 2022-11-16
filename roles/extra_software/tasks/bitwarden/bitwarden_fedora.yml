@@ -1,7 +1,7 @@
 ---
 
 - name: "[BITWARDEN] [RPM] Install Bitwarden"
-  yum:
+  dnf:
     name: "{{ bitwarden_rpm_package }}"
     state: present
     disable_gpg_check: true

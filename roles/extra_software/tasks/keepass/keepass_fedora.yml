@@ -1,7 +1,7 @@
 ---
 
 - name: "[KEEPASS] [FEDORA] install KeepassXC package"
-  yum:
+  dnf:
     name: keepassxc
     state: present
     update_cache: true
