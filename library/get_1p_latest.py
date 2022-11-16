@@ -52,7 +52,7 @@ def get_latest():
         get_linux = soup.find_all('p', class_='system linux')[0]
         return get_linux.find_all('a', title='Download for amd64')[0]['href'].split('/')[7]
     else:
-        return None
+        return get_latest()
 
 
 def run_module():

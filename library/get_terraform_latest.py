@@ -67,7 +67,7 @@ def get_latest():
         else:
             return get_fucking_latest(versions)
     else:
-        return None
+        return get_latest()
 
 
 def run_module():

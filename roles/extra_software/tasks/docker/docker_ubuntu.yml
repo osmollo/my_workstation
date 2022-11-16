@@ -25,7 +25,7 @@
 
 - name: "[DOCKER] [DEB] Import repository key"
   apt_key:
-    url: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg"
+    url: "https://download.docker.com/linux/{{ 'debian' if ansible_distribution == 'Debian' else 'ubuntu' }}/gpg"
     keyring: /usr/share/keyrings/docker.gpg
     state: present
 

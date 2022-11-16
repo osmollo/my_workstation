@@ -52,7 +52,7 @@ def get_latest():
         soup = BeautifulSoup(nomachine_text.text, 'html.parser')
         return soup.find_all("div", class_="sec_cell dis_cell")[0].text.replace('\n', '')
     else:
-        return None
+        return get_latest()
 
 
 def run_module():

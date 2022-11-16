@@ -74,7 +74,7 @@ def get_latest(distro, arch):
         else:
             return max(versions, key=major_minor_micro)
     else:
-        return None
+        return get_latest(distro, arch)
 
 
 def run_module():
