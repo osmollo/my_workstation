@@ -20,6 +20,9 @@
 - Soporte para [Fedora 37](https://getfedora.org/es/workstation/) y fin de soporte a versiones anteriores
 - Eliminación de **ACT**
 - Instalación por defecto de **Sublime Text** y **Sublime Merge**
+- Corrección de errores:
+  - Fixes para **Linux Mint**
+  - Fixes al obtener la última version de varias apps
 
 ## 8.0.2
 
