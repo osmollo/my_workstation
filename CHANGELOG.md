@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [8.1](#81)
   - [8.0.2](#802)
   - [8.0.1](#801)
   - [8.0](#80)
@@ -12,6 +13,10 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 8.1
+
+- Instegración con [1Password](https://1password.com/sign-up/eu/)
 
 ## 8.0.2
 
