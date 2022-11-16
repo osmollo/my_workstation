@@ -7,7 +7,6 @@ distro_packages:
   - net-tools
   - bind-utils
   - flatpak
-  - "{{ 'system-config-users' if (fedora_version|int) <= 30 else '' }}"
   - python-devel
   - python3-devel
   - make
@@ -40,11 +39,12 @@ gnome_fedora_packages:
   - wireshark
   - liveusb-creator
   - guake
-  - chrome-gnome-shell
+  - fedora-chromium-config-gnome
   - libgda
   - libgda-sqlite
 
 kde_fedora_packages:
+  - fedora-chromium-config-kde
   - kwalletcli
   - yakuake
 

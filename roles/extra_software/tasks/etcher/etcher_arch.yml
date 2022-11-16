@@ -1,0 +1,8 @@
+---
+
+- name: "[ETCHER] [ARCH] Install etcher"
+  become: false
+  yay:
+    name: "{{ etcher_package }}"
+    state: present
+    update_cache: true

@@ -17,6 +17,9 @@
 ## 8.1
 
 - Instegración con [1Password](https://1password.com/sign-up/eu/)
+- Soporte para [Fedora 37](https://getfedora.org/es/workstation/) y fin de soporte a versiones anteriores
+- Eliminación de **ACT**
+- Instalación por defecto de **Sublime Text** y **Sublime Merge**
 
 ## 8.0.2
 
