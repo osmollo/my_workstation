@@ -20,6 +20,7 @@
 - Soporte para [Fedora 37](https://getfedora.org/es/workstation/) y fin de soporte a versiones anteriores
 - Eliminación de **ACT**
 - Instalación por defecto de **Sublime Text** y **Sublime Merge**
+- Modificación de la ruta del repositorio `my_workstation` en el directorio actual, de __HTTPS__ a __SSH__
 - Corrección de errores:
   - Fixes para **Linux Mint**
   - Fixes al obtener la última version de varias apps
