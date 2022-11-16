@@ -1,0 +1,7 @@
+---
+
+- name: "[ETCHER] [DEB] install Etcher"
+  apt:
+    deb: "{{ etcher_package_deb }}"
+    update_cache: true
+    state: present

@@ -1,0 +1,17 @@
+---
+
+- name: "[ETCHER] Get latest version of Etcher"
+  uri:
+    url: "{{ etcher_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: etcher_latest
+
+- name: "[ETCHER] Set urls for Etcher packages"
+  vars:
+    etcher_version: "{{ etcher_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    etcher_package_rpm: "https://github.com/balena-io/etcher/releases/download/{{ etcher_version }}/balena-etcher-{{ etcher_version[1:] }}.x86_64.rpm"
+    etcher_package_deb: "https://github.com/balena-io/etcher/releases/download/{{ etcher_version }}/balena-etcher_{{ etcher_version[1:] }}_amd64.deb"
+
+- include_tasks: "etcher_{{ linux_distribution }}.yml"

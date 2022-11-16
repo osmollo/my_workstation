@@ -382,7 +382,7 @@
     - protonvpn
 
 - name: "Install Etcher"
-  import_tasks: etcher.yml
+  import_tasks: etcher/etcher.yml
   when: install_etcher
   tags:
     - extra_software
@@ -528,13 +528,6 @@
   tags:
     - extra_software
     - podman
-
-- name: "Install act"
-  import_tasks: act.yml
-  when: install_act
-  tags:
-    - extra_software
-    - act
 
 - name: "Install hashicorp tools"
   import_tasks: hashicorp/hashicorp.yml

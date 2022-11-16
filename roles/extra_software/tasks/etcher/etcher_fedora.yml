@@ -1,0 +1,7 @@
+---
+
+- name: "[ETCHER] [FEDORA] install etcher"
+  yum:
+    name: "{{ etcher_package_rpm }}"
+    update_cache: true
+    state: present

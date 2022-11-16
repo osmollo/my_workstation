@@ -84,11 +84,11 @@
         path: "{{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml"
         state: absent
 
-    - name: "press any key when you are ready"
+    - name: "please, copy again the personal GPG passphrase"
       pause:
 
     - name: "decrypt 'roles/post-install/defaults/main.yml.gpg'"
-      command: "gpg --batch --yes --output {{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml --decrypt {{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml.gpg"
+      command: "gpg --batch --yes --output ../roles/post_install/defaults/main.yml --decrypt ../roles/post_install/defaults/main.yml.gpg"
 
     - name: "delete temporal files"
       file:
