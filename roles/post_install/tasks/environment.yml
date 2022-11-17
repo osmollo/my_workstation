@@ -71,20 +71,6 @@
     - ssh_config
     - ssh_keys
 
-- name: "[ENVIRONMENT] create ssh keys"
-  copy:
-    dest: "{{ item.path }}"
-    content: "{{ item.key }}"
-    mode: "0600"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-  loop: "{{ ssh_keys }}"
-  loop_control:
-    label: "{{ item.path }}"
-  # no_log: true
-  tags:
-    - ssh_keys
-
 - name: "configure ssh entries"
   blockinfile:
     path: "{{ ansible_user_dir }}/.ssh/config"
@@ -117,6 +103,9 @@
       {% endif %}
       {% if item.hostkeyalgorithms is defined %}
         HostKeyAlgorithms {{ item.hostkeyalgorithms }}
+      {% endif %}
+      {% if item.identityagent is defined %}
+        IdentityAgent {{ item.identityagent }}
       {% endif %}
     state: present
     marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
