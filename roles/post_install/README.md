@@ -43,6 +43,12 @@ Los secretos necesarios para la ejecución de este role se encuentran almacenado
 eval $(op signin)
 ```
 
+Si es la primera vez que se ejecuta el comando `op`, será necesario ejecutarlo de la siguiente forma:
+
+```shell
+eval $(op signin -f)
+```
+
 Esto exportará una variable de entorno llamada `OP_SESSION_<example>` que permitirá a **Ansible** acceder a los secretos.
 
 A continuación, será necesario ejecutar el playbook `./playboks/prepare_post.yml` en la misma terminal que se ha ejecutado el comando anterior:

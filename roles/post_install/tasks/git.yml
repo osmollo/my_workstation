@@ -213,9 +213,36 @@
     - name: "[GIT] configure git"
       vars:
         diff_editor: "{{ 'meld' if meld_response.rc == 0 else 'kompare' if kompare_response.rc == 0 }}"
-      template:
-        src: gitconfig.j2
-        dest: "{{ ansible_user_dir }}/.gitconfig"
+      blockinfile:
+        path: "{{ ansible_user_dir }}/.gitconfig"
         mode: 0644
+        create: true
+        block: |
+          [diff]
+            tool = {{ diff_editor }}
+
+          [difftool]
+              prompt = false
+
+          [difftool "{{ diff_editor }}"]
+              cmd = {{ diff_editor }} "$LOCAL" "$REMOTE"
+
+          [merge]
+              tool = {{ diff_editor }}
+
+          [mergetool "{{ diff_editor }}"]
+              cmd = {{ diff_editor }} "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+
+          [user]
+            signingkey = {{ #TODO }}
+
+          [gpg]
+            format = ssh
+
+          [gpg "ssh"]
+            program = "/opt/1Password/op-ssh-sign"
+
+          [commit]
+            gpgsign = true
   tags:
     - git_diff
