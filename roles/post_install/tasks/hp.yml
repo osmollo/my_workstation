@@ -9,3 +9,4 @@
       - printer-driver-hpijs
     state: present
     update_cache: true
+  when: linux_distribution in ['debian', 'ubuntu']

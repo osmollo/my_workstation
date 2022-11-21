@@ -1,15 +1,20 @@
 ---
 
-- name: "[DROPBOX] [FEDORA] get latest dropbox version"
-  get_dropbox_latest:
-    distro: "{{ linux_distribution }}"
-    arch: "{{ ansible_architecture }}"
-  register: dropbox_version
+# - name: "[DROPBOX] [FEDORA] get latest dropbox version"
+#   get_dropbox_latest:
+#     distro: "{{ linux_distribution }}"
+#     arch: "{{ ansible_architecture }}"
+#   register: dropbox_version
 
-- name: "[DROPBOX] [FEDORA] Install Dropbox package"
-  vars:
-    dropbox_package: "https://www.dropbox.com/download?dl=packages/{{ linux_distribution }}/nautilus-dropbox-{{ dropbox_version.version }}-1.{{ linux_distribution }}.{{ ansible_architecture }}.rpm"
-  dnf:
-    name: "{{ dropbox_package }}"
+# - name: "[DROPBOX] [FEDORA] Install Dropbox package"
+#   vars:
+#     dropbox_package: "https://www.dropbox.com/download?dl=packages/{{ linux_distribution }}/nautilus-dropbox-{{ dropbox_version.version }}-1.{{ linux_distribution }}.{{ ansible_architecture }}.rpm"
+#   dnf:
+#     name: "{{ dropbox_package }}"
+#     state: present
+#     disable_gpg_check: true
+
+- name: "[DROPBOX] [FEDORA] Install the Dropbox flatpak"
+  flatpak:
+    name:  "{{ dropbox_flatpak }}"
     state: present
-    disable_gpg_check: true

@@ -159,7 +159,7 @@
       become: true
       vars:
         files_to_update:
-          - "/etc/bash.bashrc"
+          - "{{ '/etc/bash.bashrc' if linux_distribution != 'fedora' else '/etc/bashrc' }}"
           - "{{ '/etc/zsh/zshrc' if  stat_response.stat.exists else '' }}"
       lineinfile:
         path: "{{ item }}"

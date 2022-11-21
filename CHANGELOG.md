@@ -22,6 +22,8 @@
 - Soporte para [Fedora 37](https://getfedora.org/es/workstation/) y fin de soporte a versiones anteriores
   - Uso de `dnf` en lugar de `yum` para las tareas de instalación de paquetes en **Fedora**
   - Mejora en la velocidad de `dnf` en **Fedora**
+  - Se aplica workaround para evitar el problema de dependencias de **Dropbox** en esta versión de **Fedora**: se instala como flatpak
+  - Se deshabilita el chequeo de GPG en el plaquete de instalación de **Etcher**
 - Eliminación de **ACT**
 - Instalación por defecto de **Sublime Text** y **Sublime Merge**
 - Modificación de la ruta del repositorio `my_workstation` en el directorio actual, de __HTTPS__ a __SSH__
@@ -30,6 +32,7 @@
   - Fixes al obtener la última version de varias apps
   - Eliminación del role `tools/telegram`
   - Eliminación del fichero `roles/extra_software/vars/secrets.yml`
+  - Eliminadas las referencias a llaves SSH locales
 
 ## 8.0.2
 

@@ -5,3 +5,4 @@
     name: "{{ etcher_package_rpm }}"
     update_cache: true
     state: present
+    disable_gpg_check: true

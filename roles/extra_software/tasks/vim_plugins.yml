@@ -25,7 +25,6 @@
         repo: https://github.com/VundleVim/Vundle.vim.git
         dest: "{{ ansible_user_dir }}/.vim/bundle/Vundle.vim"
         clone: true
-        key_file: "{{ ssh_dir }}/osmollo"
         accept_hostkey: true
         version: master
       ignore_errors: true
