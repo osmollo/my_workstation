@@ -33,6 +33,7 @@
   - Eliminación del role `tools/telegram`
   - Eliminación del fichero `roles/extra_software/vars/secrets.yml`
   - Eliminadas las referencias a llaves SSH locales
+  - Fixes versiones python
 
 ## 8.0.2
 
