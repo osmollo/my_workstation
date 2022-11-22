@@ -122,7 +122,7 @@
 
 - name: "[ENVIRONMENT] create Datio vault_pass"
   lineinfile:
-    path: "{{ ansible_user_dir }}/.vault_pass"
+    path: "{{ ansible_user_dir }}/.vault_pass_datio"
     line: "{{ vault_datio_pass }}"
     create: true
     mode: 0600

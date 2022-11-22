@@ -19,6 +19,7 @@
 - Instegración con [1Password](https://1password.com/sign-up/eu/)
   - Configuración del agent-ssh para que use las llaves ssh de **1Password**
   - Instalación de la última versión del CLI2
+  - Bash alias para obtener algunos secretos de 1Password
 - Soporte para [Fedora 37](https://getfedora.org/es/workstation/) y fin de soporte a versiones anteriores
   - Uso de `dnf` en lugar de `yum` para las tareas de instalación de paquetes en **Fedora**
   - Mejora en la velocidad de `dnf` en **Fedora**
