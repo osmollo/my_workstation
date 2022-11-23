@@ -18,15 +18,15 @@ DOCUMENTATION = '''
       - Oscar Hermosa (@osmollo)
     requirements:
       - C(op) 1Password command line utility. See U(https://support.1password.com/command-line/)
-    short_description: fetch field values from 1Password
+    short_description: fetch field values from 1Password that matches with specified label
     description:
-      - C(onepassword) wraps the C(op) command line utility to fetch specific field values from 1Password.
+      - C(onepassword) wraps the C(op) command line utility to fetch specific label values from 1Password.
     options:
       _terms:
         description: identifier(s) (UUID, name, or subdomain; case-insensitive) of item(s) to retrieve.
         required: true
-      field:
-        description: field to return from each matching item (case-insensitive).
+      label:
+        description: label to return from each matching item (case-insensitive).
         default: 'password'
       vault:
         description: Vault containing the item to retrieve (case-insensitive). If absent will search all vaults.
@@ -55,7 +55,7 @@ EXAMPLES = """
 
 - name: Retrieve username for HAL when already signed in to 1Password
   ansible.builtin.debug:
-    var: lookup('community.general.onepassword', 'HAL 9000', field='username', vault='Discovery')
+    var: lookup('community.general.onepassword', 'HAL 9000', label='username', vault='Discovery')
 """
 
 RETURN = """
@@ -173,12 +173,12 @@ class LookupModule(LookupBase):
     def run(self, terms, variables=None, **kwargs):
         op = OnePass()
 
-        field = kwargs.get('field', 'password')
+        label = kwargs.get('label', 'password')
         vault = kwargs.get('vault')
         op.assert_logged_in()
 
         values = []
         for term in terms:
-            values.append(op.get_field(term, field, vault))
+            values.append(op.get_field(term, label, vault))
 
         return values

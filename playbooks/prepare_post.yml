@@ -13,16 +13,16 @@
 
     - name: "Dropbox sync"
       debug:
-        msg: "Sync Dropbox with the following pass: {{ lookup('onepassword', op.item1, field='password') }}"
+        msg: "Sync Dropbox with the following pass: {{ lookup('onepassword', op.item1, label='password') }}"
 
     - name: "get gpg data"
       set_fact:
-        doc1_filename: "{{ lookup('onepassword', op.doc1.id, field='name', vault=op.doc1.vault) }}"
-        doc1_passphrase: "{{ lookup('onepassword', op.doc1.id, field='passphrase', vault=op.doc1.vault) }}"
-        doc2_filename: "{{ lookup('onepassword', op.doc2.id, field='name', vault=op.doc2.vault) }}"
-        doc2_passphrase: "{{ lookup('onepassword', op.doc2.id, field='passphrase', vault=op.doc2.vault) }}"
-        doc3_filename: "{{ lookup('onepassword', op.doc3.id, field='name', vault=op.doc3.vault) }}"
-        doc3_passphrase: "{{ lookup('onepassword', op.doc3.id, field='passphrase', vault=op.doc3.vault) }}"
+        doc1_filename: "{{ lookup('onepassword', op.doc1.id, label='name', vault=op.doc1.vault) }}"
+        doc1_passphrase: "{{ lookup('onepassword', op.doc1.id, label='passphrase', vault=op.doc1.vault) }}"
+        doc2_filename: "{{ lookup('onepassword', op.doc2.id, label='name', vault=op.doc2.vault) }}"
+        doc2_passphrase: "{{ lookup('onepassword', op.doc2.id, label='passphrase', vault=op.doc2.vault) }}"
+        doc3_filename: "{{ lookup('onepassword', op.doc3.id, label='name', vault=op.doc3.vault) }}"
+        doc3_passphrase: "{{ lookup('onepassword', op.doc3.id, label='passphrase', vault=op.doc3.vault) }}"
 
     - name: "download gpg files"
       command: "{{ item }}"
