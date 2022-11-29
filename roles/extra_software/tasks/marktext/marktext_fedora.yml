@@ -6,7 +6,8 @@
 #     state: present
 
 - name: "[MARK TEXT] [FEDORA] install MarkText package"
-  yum:
+  dnf:
     name: "{{ marktext_rpm_package }}"
     state: present
     update_cache: true
+    disable_gpg_check: true

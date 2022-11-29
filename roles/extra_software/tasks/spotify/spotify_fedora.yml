@@ -9,7 +9,7 @@
     group: root
 
 - name: "[SPOTIFY] [FEDORA] Install Spotify"
-  yum:
+  dnf:
     name: spotify-client
     state: present
     update_cache: true

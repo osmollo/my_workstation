@@ -2,7 +2,7 @@
 
 
 - name: "[PODMAN] [FEDORA] Install podman"
-  yum:
+  dnf:
     name: "{{ podman_package }}"
     state: present
     update_cache: true

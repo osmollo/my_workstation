@@ -44,15 +44,15 @@ version:
 
 
 def get_latest():
-    cli1p_url = "https://app-updates.agilebits.com/product_history/CLI"
+    cli1p_url = "https://app-updates.agilebits.com/product_history/CLI2"
     cli1p_text = requests.get(cli1p_url)
 
     if cli1p_text.status_code == 200:
         soup = BeautifulSoup(cli1p_text.text, 'html.parser')
-        get_linux = soup.find_all('p', class_='system linux')[0]
+        get_linux = soup.find_all('p', class_='system linux')[1]
         return get_linux.find_all('a', title='Download for amd64')[0]['href'].split('/')[7]
     else:
-        return None
+        return get_latest()
 
 
 def run_module():

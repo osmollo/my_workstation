@@ -9,24 +9,27 @@
   tasks:
     - name: "include secrets file"
       include_vars:
-        file: "{{ playbook_dir | dirname }}/roles/post_install/vars/bw_vars.yml"
+        file: "{{ playbook_dir | dirname }}/roles/post_install/vars/op.yml"
 
     - name: "Dropbox sync"
       debug:
-        msg: "Sync Dropbox with the following pass: {{ lookup('bitwarden', bw.item1, search='id', field='password') | first }}"
+        msg: "Sync Dropbox with the following pass: {{ lookup('onepassword', op.item1, label='password') }}"
 
     - name: "get gpg data"
       set_fact:
-        doc1_filename: "{{ lookup('bitwarden', bw.doc1.id, search='id')[0]['attachments'][0]['fileName'] }}"
-        doc1_passphrase: "{{ lookup('bitwarden', bw.doc1.id, search='id')[0]['fields'][0]['value'] }}"
-        doc2_filename: "{{ lookup('bitwarden', bw.doc2.id, search='id')[0]['attachments'][0]['fileName'] }}"
-        doc2_passphrase: "{{ lookup('bitwarden', bw.doc2.id, search='id')[0]['fields'][0]['value'] }}"
+        doc1_filename: "{{ lookup('onepassword', op.doc1.id, label='name', vault=op.doc1.vault) }}"
+        doc1_passphrase: "{{ lookup('onepassword', op.doc1.id, label='passphrase', vault=op.doc1.vault) }}"
+        doc2_filename: "{{ lookup('onepassword', op.doc2.id, label='name', vault=op.doc2.vault) }}"
+        doc2_passphrase: "{{ lookup('onepassword', op.doc2.id, label='passphrase', vault=op.doc2.vault) }}"
+        doc3_filename: "{{ lookup('onepassword', op.doc3.id, label='name', vault=op.doc3.vault) }}"
+        doc3_passphrase: "{{ lookup('onepassword', op.doc3.id, label='passphrase', vault=op.doc3.vault) }}"
 
     - name: "download gpg files"
       command: "{{ item }}"
       loop:
-        - "bw get attachment {{ bw.doc1.file.id }} --itemid {{ bw.doc1.id }} --output {{ ansible_user_dir }}/{{ doc1_filename }}"
-        - "bw get attachment {{ bw.doc2.file.id }} --itemid {{ bw.doc2.id }} --output {{ ansible_user_dir }}/{{ doc2_filename }}"
+        - "op document get '{{ op.doc1.id }}' --output {{ ansible_user_dir }}/{{ doc1_filename }}"
+        - "op document get '{{ op.doc2.id }}' --output {{ ansible_user_dir }}/{{ doc2_filename }}"
+        - "op document get '{{ op.doc3.id }}' --output {{ ansible_user_dir }}/{{ doc3_filename }}"
 
     - name: "create directories to uncompress gpg files"
       file:
@@ -38,6 +41,7 @@
       loop:
         - "{{ doc1_filename }}"
         - "{{ doc2_filename }}"
+        - "{{ doc3_filename }}"
 
     - name: "uncompress gpg files"
       unarchive:
@@ -46,6 +50,7 @@
       loop:
         - "{{ ansible_user_dir }}/{{ doc1_filename }}"
         - "{{ ansible_user_dir }}/{{ doc2_filename }}"
+        - "{{ ansible_user_dir }}/{{ doc3_filename }}"
 
     - name: "import GPG pub keys"
       gpg_key:
@@ -54,12 +59,12 @@
       loop:
         - "{{ ansible_user_dir }}/{{ doc1_filename[:-4] }}/pub"
         - "{{ ansible_user_dir }}/{{ doc2_filename[:-4] }}/pub"
+        - "{{ ansible_user_dir }}/{{ doc3_filename[:-4] }}/pub"
 
     - name: "[PERSONAL] please copy this passphrase"
       debug: var=doc1_passphrase
 
-    - name: "[PERSONAL] press any key when you are ready"
-      pause:
+    - pause:
 
     - name: "[PERSONAL] import GPG priv key"
       gpg_key:
@@ -70,12 +75,22 @@
     - name: "[WORK] please copy this passphrase"
       debug: var=doc2_passphrase
 
-    - name: "[WORK] press any key when you are ready"
-      pause:
+    - pause:
 
     - name: "[WORK] import GPG priv key"
       gpg_key:
         file: "{{ ansible_user_dir }}/{{ doc2_filename[:-4] }}/priv"
+        trust: '5'
+        state: present
+
+    - name: "[PROTON] please copy this passphrase"
+      debug: var=doc3_passphrase
+
+    - pause:
+
+    - name: "[PROTON] import GPG priv key"
+      gpg_key:
+        file: "{{ ansible_user_dir }}/{{ doc3_filename[:-4] }}/priv"
         trust: '5'
         state: present
 
@@ -84,11 +99,13 @@
         path: "{{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml"
         state: absent
 
-    - name: "press any key when you are ready"
-      pause:
-
     - name: "decrypt 'roles/post-install/defaults/main.yml.gpg'"
-      command: "gpg --batch --yes --output {{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml --decrypt {{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml.gpg"
+      shell: "gpg --batch --yes --output ../roles/post_install/defaults/main.yml --decrypt ../roles/post_install/defaults/main.yml.gpg"
+      register: private_response
+      changed_when: "'not changed' not in private_response.stderr"
+      args:
+        stdin: "{{ doc1_passphrase }}"
+        stdin_add_newline: false
 
     - name: "delete temporal files"
       file:
@@ -99,3 +116,5 @@
         - "{{ ansible_user_dir }}/{{ doc1_filename[:-4] }}"
         - "{{ ansible_user_dir }}/{{ doc2_filename }}"
         - "{{ ansible_user_dir }}/{{ doc2_filename[:-4] }}"
+        - "{{ ansible_user_dir }}/{{ doc3_filename }}"
+        - "{{ ansible_user_dir }}/{{ doc3_filename[:-4] }}"

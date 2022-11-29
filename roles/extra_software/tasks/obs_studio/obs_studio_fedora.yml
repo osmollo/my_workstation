@@ -1,7 +1,7 @@
 ---
 
 - name: "[OBS_STUDIO] [FEDORA] install obs packages"
-  yum:
+  dnf:
     name:
       - "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm"
       - "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm"
@@ -9,7 +9,7 @@
     state: present
 
 - name: "[OBS_STUDIO] [FEDORA] install obs package"
-  yum:
+  dnf:
     name: obs-studio
     state: present
     update_cache: true

@@ -1,7 +1,7 @@
 ---
 
 - name: "[FEDORA] Install zsh"
-  yum:
+  dnf:
     name: zsh
     state: present
   when: linux_distribution == "fedora"

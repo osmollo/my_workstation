@@ -1,7 +1,7 @@
 ---
 
 - name: "[DELUGE] [FEDORA] Install deluge"
-  yum:
+  dnf:
     name: "{{ deluge_package }}"
     state: present
     disable_gpg_check: true

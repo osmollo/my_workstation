@@ -11,14 +11,14 @@
     dest: /etc/yum.repos.d/virtualbox.repo
 
 - name: "[VIRTUALBOX] [FEDORA] Install Virtualbox packages"
-  yum:
+  dnf:
     name: "{{ virtualbox_packages }}"
     state: present
     update_cache: true
     disable_gpg_check: true
 
 - name: "[VAGRANT] [FEDORA] Install Vagrant"
-  yum:
+  dnf:
     name: "{{ vagrant_package }}"
     state: present
     update_cache: true
@@ -27,7 +27,7 @@
     - vagrant
 
 - name: "[VAGRANT] [FEDORA] Uninstall vagrant-libvirt if is installed"
-  yum:
+  dnf:
     name: vagrant-libvirt
     state: absent
     disable_gpg_check: true

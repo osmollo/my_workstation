@@ -10,6 +10,7 @@
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
   - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
   - [Emoji Cheat Sheet](#emoji-cheat-sheet)
+  - [Buy me a coffee](#buy-me-a-coffee)
 
 ## Distribuciones soportadas
 
@@ -32,7 +33,6 @@ Por defecto se instala el siguiente software:
 | **APLICACIÓN** | **TAG** | **VARIABLE** | **GRUPO** | **DESCRIPCIÓN** |
 |--|--|--|--|--|
 | [1Password](https://support.1password.com/cs/getting-started-linux/) | 1password | install_1password | pass_managers | Instala gestor de contraseñas **1Password** |
-| [Act](https://github.com/nektos/act) | act | install_act | | Ejecuta localmente **Github Actions** |
 | [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) | apachedirectory | install_apachedirectory | | Cliente de LDAP |
 | [Authy](https://authy.com/) | authy | install_authy | | Aplicación para 2FA |
 | [Balena Etcher](https://www.balena.io/etcher/) | etcher | install_etcher | | Aplicación para quemar imágenes iso en usb |
@@ -166,6 +166,8 @@ ansible-playbook install.yml -t chromium -e install_chromium=true
 Las variables necesarias para la ejecución de este role se encuentran en `./roles/post_install/defaults/main.yml.gpg`
 
 ```shell
+ansible-playbook playbooks/prepare_post.yml
+
 ansible-playbook post_install.yml
 ```
 
@@ -222,3 +224,9 @@ git log --pretty=oneline HEAD...tag
 ## Emoji Cheat Sheet
 
 [Aquí](https://www.webfx.com/tools/emoji-cheat-sheet/) se puede encontrar la lista de emojis disponibles para **markdown**
+
+## Buy me a coffee
+
+Si te ha sido de ayuda este repositorio, pero sobretodo si te apetece, puedes invitarme a un café
+
+[![buy me a coffee](https://camo.githubusercontent.com/c3f856bacd5b09669157ed4774f80fb9d8622dd45ce8fdf2990d3552db99bd27/68747470733a2f2f7777772e6275796d6561636f666665652e636f6d2f6173736574732f696d672f637573746f6d5f696d616765732f6f72616e67655f696d672e706e67)](https://www.buymeacoffee.com/osmollo)

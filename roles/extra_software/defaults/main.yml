@@ -4,9 +4,8 @@ install_docker: true
 install_dropbox: true
 install_vscode: true
 install_spotify: true
-install_ohmyzsh: "{{ true if 'Manjaro' not in ansible_lsb.id else false }}"
-install_sublimetext: false
-# install_atom: false
+install_ohmyzsh: "{{ true if linux_distribution == 'arch' else false }}"
+install_sublimetext: true
 install_gitkraken: false
 install_telegram: true
 install_slack: false
@@ -45,7 +44,7 @@ install_megacmd: true
 install_megasync: false
 install_vivaldi: false
 install_brave: true
-install_bitwarden: true
+install_bitwarden: false
 install_lexnet: false
 install_pass: false
 install_bucklespring: false
@@ -64,7 +63,7 @@ install_wireguard: false
 install_typora: true
 install_beekeeper: false
 install_kdenlive: false
-install_sublimemerge: false
+install_sublimemerge: true
 install_bfg: true
 install_vscodium: false
 install_tmux: false
@@ -79,7 +78,7 @@ install_consul: false
 install_nomad: false
 install_zoom: false
 install_githubcli: false
-install_1password: false
+install_1password: true
 install_mailspring: false
 install_obs: false
 install_copyq: false
@@ -132,9 +131,11 @@ bottom_latest_url: "https://github.com/ClementTsang/bottom/releases/latest"
 neovim_latest_url: "https://github.com/neovim/neovim/releases/latest"
 marktext_latest_url: "https://github.com/marktext/marktext/releases/latest"
 kind_latest_url: "https://github.com/kubernetes-sigs/kind/releases/latest"
+kubecolor_latest_url: "https://github.com/hidetatz/kubecolor/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 
+dropbox_flatpak: "https://dl.flathub.org/repo/appstream/com.dropbox.Client.flatpakref"
 telegram_flatpak: "https://dl.flathub.org/repo/appstream/org.telegram.desktop.flatpakref"
 slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"
 pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Community.flatpakref"

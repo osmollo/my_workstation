@@ -8,7 +8,7 @@
   when: linux_distribution in ["ubuntu", "debian"]
 
 - name: "[TMUX] [FEDORA] install tmux"
-  yum:
+  dnf:
     name: tmux
     update_cache: true
     state: present

@@ -53,7 +53,7 @@ def get_latest():
             if "linux-amd64.tar.gz" in item["href"]:
                 return os.path.basename(item["href"])[2:].replace('.linux-amd64.tar.gz', '')
     else:
-        return None
+        return get_latest()
 
 
 def run_module():

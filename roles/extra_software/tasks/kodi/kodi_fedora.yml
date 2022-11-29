@@ -1,7 +1,7 @@
 ---
 
 - name: "[KODI] [FEDORA] install rpmfusion packages"
-  yum:
+  dnf:
     name:
       - "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version }}.noarch.rpm"
       - "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedora_version }}.noarch.rpm"
@@ -10,7 +10,7 @@
     state: present
 
 - name: "[KODI] [FEDORA] install kodi"
-  yum:
+  dnf:
     name: kodi
     update_cache: true
     state: present

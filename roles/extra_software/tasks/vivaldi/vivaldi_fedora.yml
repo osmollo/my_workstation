@@ -10,7 +10,7 @@
     enabled: true
 
 - name: "[VIVALDI] [FEDORA] Install vivaldi"
-  yum:
+  dnf:
     name: vivaldi-stable
     state: present
     update_cache: true

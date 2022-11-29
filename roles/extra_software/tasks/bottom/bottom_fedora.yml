@@ -4,7 +4,7 @@
   command: dnf copr enable atim/bottom -y
 
 - name: "[BOTTOM] [RPM] Install bottom"
-  yum:
+  dnf:
     name: bottom
     state: present
     update_cache: true

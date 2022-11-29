@@ -1,7 +1,7 @@
 ---
 
 - name: "[TLP] [FEDORA] Install common TLP packages"
-  yum:
+  dnf:
     name:
       - tlp
       - tlp-rdw
@@ -15,7 +15,7 @@
   when: "'ThinkPad' in ansible_product_version"
 
 - name: "[TLP] [FEDORA] Install TLP repositories for ThinkPads"
-  yum:
+  dnf:
     name:
       - "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_version }}.noarch.rpm"
       - "http://repo.linrunner.de/fedora/tlp/repos/releases/tlp-release.fc{{ fedora_version }}.noarch.rpm"
@@ -24,7 +24,7 @@
   when: "'ThinkPad' in ansible_product_version"
 
 - name: "[TLP] [FEDORA] Install TLP packages for ThinkPads"
-  yum:
+  dnf:
     name:
       - akmod-tp_smapi
       - akmod-acpi_call

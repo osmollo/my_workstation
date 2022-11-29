@@ -37,13 +37,31 @@
 
 ## Paso previo
 
-Antes de poder ejecutar el role, es necesario ejecutar el playbook `./playboks/prepare_post.yml`:
+Los secretos necesarios para la ejecución de este role se encuentran almacenados en [1Password](https://1password.com/tour/). Para poder tener acceso a los mismos hay que ejecutar el siguiente comando:
+
+``shell
+eval $(op signin)
+```
+
+Si es la primera vez que se ejecuta el comando `op`, será necesario ejecutarlo de la siguiente forma:
+
+```shell
+eval $(op signin -f)
+```
+
+Esto exportará una variable de entorno llamada `OP_SESSION_<example>` que permitirá a **Ansible** acceder a los secretos.
+
+A continuación, será necesario ejecutar el playbook `./playboks/prepare_post.yml` en la misma terminal que se ha ejecutado el comando anterior:
 
 ```shell
 ansible-playbook playbooks/prepare_post.yml
 ```
 
-Este playbook importa las claves GPGs y desencripta el fichero `roles/post_install/defaults/main.yml.gpg`.
+Este playbook importa las claves GPGs y desencripta el fichero `roles/post_install/defaults/main.yml.gpg`. Por último, ya se puede ejecutar el playbook `post_install.yml`:
+
+```shell
+ansible-playbook post_install.yml
+```
 
 ## Ejemplo de uso
 

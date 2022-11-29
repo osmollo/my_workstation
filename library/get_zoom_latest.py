@@ -63,7 +63,7 @@ def get_latest():
                 return item.text
         return None
     else:
-        return None
+        return get_latest()
 
 
 def run_module():

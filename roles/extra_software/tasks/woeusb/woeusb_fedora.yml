@@ -1,7 +1,7 @@
 ---
 
 - name: "[WOEUSB] [FEDORA] install woeusb"
-  yum:
+  dnf:
     name: "{{ woeusb_package['v' + (fedora_version | string)] }}"
     state: present
     disable_gpg_check: true

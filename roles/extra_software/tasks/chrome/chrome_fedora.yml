@@ -1,14 +1,14 @@
 ---
 
 - name: "[CHROME] [FEDORA] install google chrome"
-  yum:
+  dnf:
     name: "{{ chrome_package }}"
     state: present
     update_cache: true
     disable_gpg_check: true
 
 - name: "[CHROME] [UBUNTU] Install gnome extension for chrome"
-  yum:
+  dnf:
     name: chrome-gnome-shell
     state: present
     disable_gpg_check: true

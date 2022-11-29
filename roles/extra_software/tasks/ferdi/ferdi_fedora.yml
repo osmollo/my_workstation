@@ -1,7 +1,7 @@
 ---
 
 - name: "[FERDI] [RPM] Install ferdi"
-  yum:
+  dnf:
     name: "{{ ferdi_rpm_package }}"
     state: present
     disable_gpg_check: true

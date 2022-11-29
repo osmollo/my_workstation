@@ -1,7 +1,7 @@
 ---
 
 - name: "[YAKYAK] [FEDORA] Install vivaldi"
-  yum:
+  dnf:
     name: "{{ yakyak_rpm_package }}"
     state: present
     update_cache: true

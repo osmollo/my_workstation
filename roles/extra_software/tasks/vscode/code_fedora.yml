@@ -16,7 +16,7 @@
     state: present
 
 - name: "[VSCODE] [FEDORA] Install Code"
-  yum:
+  dnf:
     name: code
     state: present
     update_cache: true

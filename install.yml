@@ -18,3 +18,9 @@
   roles:
     - common
     - extra_software
+  post_tasks:
+    - name: "replace url repository in .git/config"
+      replace:
+        path: .git/config
+        regexp: "https://github.com/"
+        replace: "git@github.com:"

@@ -1,7 +1,7 @@
 ---
 
 - name: "[NOMACHINE] [FEDORA] install no machine"
-  yum:
+  dnf:
     name: "{{ nomachine_package }}"
     state: present
     update_cache: true

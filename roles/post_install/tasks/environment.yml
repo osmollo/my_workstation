@@ -71,20 +71,6 @@
     - ssh_config
     - ssh_keys
 
-- name: "[ENVIRONMENT] create ssh keys"
-  copy:
-    dest: "{{ item.path }}"
-    content: "{{ item.key }}"
-    mode: "0600"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-  loop: "{{ ssh_keys }}"
-  loop_control:
-    label: "{{ item.path }}"
-  # no_log: true
-  tags:
-    - ssh_keys
-
 - name: "configure ssh entries"
   blockinfile:
     path: "{{ ansible_user_dir }}/.ssh/config"
@@ -118,6 +104,9 @@
       {% if item.hostkeyalgorithms is defined %}
         HostKeyAlgorithms {{ item.hostkeyalgorithms }}
       {% endif %}
+      {% if item.identityagent is defined %}
+        IdentityAgent {{ item.identityagent }}
+      {% endif %}
     state: present
     marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
     create: true
@@ -133,7 +122,7 @@
 
 - name: "[ENVIRONMENT] create Datio vault_pass"
   lineinfile:
-    path: "{{ ansible_user_dir }}/.vault_pass"
+    path: "{{ ansible_user_dir }}/.vault_pass_datio"
     line: "{{ vault_datio_pass }}"
     create: true
     mode: 0600
@@ -170,7 +159,7 @@
       become: true
       vars:
         files_to_update:
-          - "/etc/bash.bashrc"
+          - "{{ '/etc/bash.bashrc' if linux_distribution != 'fedora' else '/etc/bashrc' }}"
           - "{{ '/etc/zsh/zshrc' if  stat_response.stat.exists else '' }}"
       lineinfile:
         path: "{{ item }}"

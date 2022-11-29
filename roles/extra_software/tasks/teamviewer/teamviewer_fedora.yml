@@ -1,7 +1,7 @@
 ---
 
 - name: "[TEAMVIEWER] [FEDORA] install teamviwer package"
-  yum:
+  dnf:
     name: "{{ teamviewer_package }}"
     state: present
     update_cache: true

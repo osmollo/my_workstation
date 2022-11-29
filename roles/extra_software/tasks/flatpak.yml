@@ -1,7 +1,7 @@
 ---
 
 - name: "[FLATPAK] [FEDORA] install flatpak"
-  yum:
+  dnf:
     name: flatpak
     state: present
     update_cache: true

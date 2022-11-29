@@ -1,7 +1,7 @@
 ---
 
 - name: "[JAVA] [FEDORA]: install java package"
-  yum:
+  dnf:
     name: java-11-openjdk
     state: present
     update_cache: true

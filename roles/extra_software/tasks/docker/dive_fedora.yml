@@ -1,7 +1,7 @@
 ---
 
 - name: "[DIVE] [FEDORA] install dive package"
-  yum:
+  dnf:
     name: "{{ dive_rpm_package }}"
     state: present
     update_cache: true

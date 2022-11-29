@@ -1,7 +1,7 @@
 ---
 
 - name: "[CURLIE] [RPM] Install curlie"
-  yum:
+  dnf:
     name: "{{ curlie_rpm_package }}"
     state: present
     update_cache: true
