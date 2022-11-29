@@ -1,0 +1,28 @@
+---
+
+- name: "[KUBECOLOR] Get latest version of kubecolor"
+  uri:
+    url: "{{ kubecolor_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: kubecolor_latest
+
+- name: "[KUBECOLOR] Install kubecolor {{ kubecolor_version }}"
+  vars:
+    kubecolor_version: "{{ kubecolor_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    kubecolor_package: "https://github.com/hidetatz/kubecolor/releases/download/{{ kubecolor_version }}/kubecolor_{{ kubecolor_version [1:] }}_Linux_x86_64.tar.gz"
+
+- name: "[KUBECOLOR] download kubecolor"
+  unarchive:
+    src: "{{ kubecolor_package }}"
+    dest: "/usr/local/bin/"
+    remote_src: true
+
+- name: "[KUBECOLOR] delete useless files"
+  file:
+    path: "/usr/local/bin/{{ item }}"
+    state: absent
+  loop:
+    - LICENSE
+    - README.md

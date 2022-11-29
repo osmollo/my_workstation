@@ -131,6 +131,7 @@ bottom_latest_url: "https://github.com/ClementTsang/bottom/releases/latest"
 neovim_latest_url: "https://github.com/neovim/neovim/releases/latest"
 marktext_latest_url: "https://github.com/marktext/marktext/releases/latest"
 kind_latest_url: "https://github.com/kubernetes-sigs/kind/releases/latest"
+kubecolor_latest_url: "https://github.com/hidetatz/kubecolor/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 

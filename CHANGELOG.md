@@ -25,6 +25,7 @@
   - Mejora en la velocidad de `dnf` en **Fedora**
   - Se aplica workaround para evitar el problema de dependencias de **Dropbox** en esta versión de **Fedora**: se instala como flatpak
   - Se deshabilita el chequeo de GPG en el plaquete de instalación de **Etcher**
+- Instalación de [kubecolor](https://github.com/hidetatz/kubecolor)
 - Eliminación de **ACT**
 - Instalación por defecto de **Sublime Text** y **Sublime Merge**
 - Modificación de la ruta del repositorio `my_workstation` en el directorio actual, de __HTTPS__ a __SSH__

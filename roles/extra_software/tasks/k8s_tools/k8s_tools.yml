@@ -4,6 +4,11 @@
     - name: "[KUBECTL] install for {{ linux_distribution }}"
       include_tasks: "kubectl_{{ linux_distribution }}.yml"
 
+    - name: "[KUBECOLOR] install kubecolor"
+      import_tasks: kubecolor.yml
+      tags:
+        - kubecolor
+
     - name: "[KUBECTL] configure shell"
       block:
         - name: "[KUBECTL] check if .bashrc exists"
