@@ -10,7 +10,7 @@
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
   - [Actualización de CHANGELOG.md](#actualización-de-changelogmd)
   - [Emoji Cheat Sheet](#emoji-cheat-sheet)
-  - [Buy me a coffee](#buy-me-a-coffee)
+  - [Invítame a un café](#invítame-a-un-café)
 
 ## Distribuciones soportadas
 
@@ -225,7 +225,7 @@ git log --pretty=oneline HEAD...tag
 
 [Aquí](https://www.webfx.com/tools/emoji-cheat-sheet/) se puede encontrar la lista de emojis disponibles para **markdown**
 
-## Buy me a coffee
+## Invítame a un café
 
 Si te ha sido de ayuda este repositorio, pero sobretodo si te apetece, puedes invitarme a un café
 
