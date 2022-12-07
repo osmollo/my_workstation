@@ -1,5 +1,10 @@
 ---
 
+- name: "[CHECK OP] check if OP_SESSION_* is defined"
+  import_playbook: playbooks/check_op.yml
+  tags:
+    - always
+
 - name: "[LOAD VARS] setting ansible variables"
   import_playbook: playbooks/load_distro_vars.yml
   tags:

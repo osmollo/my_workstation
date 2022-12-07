@@ -1,0 +1,15 @@
+---
+
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: "[CHECK OP] get all environment variables"
+      shell: env
+      register: response
+
+    - assert:
+        that:
+          - "'OP_SESSION_' in response.stdout"
+        success_msg: "OP_SESSION is defined"
+        fail_msg: "OP SESSION is not defined"
