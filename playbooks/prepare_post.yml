@@ -1,5 +1,7 @@
 ---
 
+- import_playbook: check_op.yml
+
 - name: "[PREPARE_POST] prepare post installation"
   hosts: localhost
   connection: local

@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [8.1.1](#811)
   - [8.1](#81)
   - [8.0.2](#802)
   - [8.0.1](#801)
@@ -13,6 +14,10 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 8.1.1
+
+- Comprobación en `post_install.yml` si la variable `OP_SESSION_*` está definida como variable de entorno en el sistema
 
 ## 8.1
 
