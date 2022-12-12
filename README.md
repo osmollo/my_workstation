@@ -90,6 +90,7 @@ Por defecto se instala el siguiente software:
 | [ProtonVPN](https://protonvpn.com/) | protonvpn | install_protonvpn | | Cliente de VPN |
 | [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | pycharm | install_pycharm | editors | IDE para Python |
 | [Rambox](https://rambox.pro/#home) | rambox | install_rambox | | Gestor de clientes de mensajería |
+| [Rclone](https://rclone.org/) | rclone | install_rclone | | Tool de nubes de almacenamiento |
 | [ripgrep](https://github.com/BurntSushi/ripgrep) | ripgrep | install_ripgrep | | grep vitaminado |
 | [Secrethub](https://secrethub.io) | secrethub | install_secrethub | | Gestor de secretos |
 | [Skype](https://www.skype.com/es/) | skype | install_skype | socials | Cliente de mensajería de Skype |

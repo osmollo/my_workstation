@@ -642,6 +642,13 @@
     - vitaminar
     - vitaminado
 
+- name: "Install rclone"
+  import_tasks: rclone.yml
+  when: install_rclone
+  tags:
+    - extra_software
+    - rclone
+
 - name: "Install singlebox"
   import_tasks: singlebox/singlebox.yml
   when: install_singlebox

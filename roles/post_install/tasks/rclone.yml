@@ -1,0 +1,25 @@
+---
+
+- name: "create rclone directory"
+  file:
+    path: "{{ ansible_user_dir }}/.config/rclone"
+    state: directory
+    mode: 0750
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: "get rclone configuration"
+  become: false
+  onepassword:
+    name: "rclone"
+    label: "notesPlain"
+  delegate_to: localhost
+  register: op_response
+
+- name: "copy rclone config"
+  copy:
+    content: "{{ op_response.onepassword }}"
+    dest: "{{ ansible_user_dir }}/.config/rclone/rclone.conf"
+    mode: 0600
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"

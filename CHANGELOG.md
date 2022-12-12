@@ -19,7 +19,7 @@
 ## 8.2
 
 - Mejora en playbook `playbooks/check_op.yml`: a parte de la variable de entorno __OP_SESSION_*__, se comprueba que el comando `op` funciona correctamente
-
+- Instalación de [rclone](https://rclone.org/)
 
 ## 8.1.1
 

@@ -98,6 +98,7 @@ install_bottom: true
 install_singlebox: false
 install_librewolf: false
 install_marktext: true
+install_rclone: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
