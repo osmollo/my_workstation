@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [8.2](#82)
   - [8.1.1](#811)
   - [8.1](#81)
   - [8.0.2](#802)
@@ -14,6 +15,11 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 8.2
+
+- Mejora en playbook `playbooks/check_op.yml`: a parte de la variable de entorno __OP_SESSION_*__, se comprueba que el comando `op` funciona correctamente
+
 
 ## 8.1.1
 
