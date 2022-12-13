@@ -21,6 +21,8 @@
 - Mejora en playbook `playbooks/check_op.yml`: a parte de la variable de entorno __OP_SESSION_*__, se comprueba que el comando `op` funciona correctamente
 - Instalación de [rclone](https://rclone.org/)
 - Nuevo módulo `onepassword` de **Ansible** para leer secretos de [1Password](https://1password.eu/)
+- Eliminación de la configuración de **Github Actions** para ejecutar __ansible-lint__
+- Eliminación de la configuración de OpenVPN de Trabajo
 
 ## 8.1.1
 
