@@ -12,6 +12,7 @@
     name: https://downloads.rclone.org/rclone-current-linux-amd64.rpm
     state: present
     update_cache: true
+    disable_gpg_check: true
   when: linux_distribution == 'fedora'
 
 - name: "[ARCH] Install rclone"
