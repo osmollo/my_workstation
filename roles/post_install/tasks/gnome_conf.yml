@@ -48,7 +48,7 @@
 
     - name: "[GNOME_CONF] download wallpaper files"
       unarchive:
-        src: https://descargas.osmollo.es/files/mojave_dynamic.zip
+        src: https://files.osmollo.ovh/wallpapers/mojave_dynamic.zip
         dest: "{{ wallpaper_dir }}"
         remote_src: true
       register: wallpaper_download
