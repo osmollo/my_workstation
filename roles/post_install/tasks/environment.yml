@@ -48,6 +48,8 @@
   tags:
     - config_files
     - bash_config
+    - ohmybash
+    - ohmyzsh
 
 - name: "[ENVIRONMENT] create .bashrc"
   template:
@@ -133,6 +135,12 @@
   tags:
     - oh-my-zsh
     - ohmyzsh
+
+- name: "[ENVIRONMENT] configure oh-my-bash"
+  import_tasks: oh_my_bash.yml
+  tags:
+    - oh-my-bash
+    - ohmybash
 
 - name: "[ENVIRONMENT] Create links from Dropbox"
   block:

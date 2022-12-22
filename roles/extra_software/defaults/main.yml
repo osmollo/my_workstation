@@ -5,6 +5,7 @@ install_dropbox: true
 install_vscode: true
 install_spotify: true
 install_ohmyzsh: "{{ true if linux_distribution == 'arch' else false }}"
+install_ohmybash: true
 install_sublimetext: true
 install_gitkraken: false
 install_telegram: true
@@ -135,6 +136,7 @@ kind_latest_url: "https://github.com/kubernetes-sigs/kind/releases/latest"
 kubecolor_latest_url: "https://github.com/hidetatz/kubecolor/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"
 
 dropbox_flatpak: "https://dl.flathub.org/repo/appstream/com.dropbox.Client.flatpakref"
 telegram_flatpak: "https://dl.flathub.org/repo/appstream/org.telegram.desktop.flatpakref"

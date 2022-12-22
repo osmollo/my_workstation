@@ -23,6 +23,7 @@
 - Nuevo módulo `onepassword` de **Ansible** para leer secretos de [1Password](https://1password.eu/)
 - Eliminación de la configuración de **Github Actions** para ejecutar __ansible-lint__
 - Eliminación de la configuración de OpenVPN de Trabajo
+- Instalación de [oh-my-bash!](https://github.com/ohmybash/oh-my-bash)
 - Corrección de errores:
   - Fix [url mojave_dynamic.zip](https://files.osmollo.ovh/wallpapers/mojave_dynamic.zip) para el fondo de escritorio dinámico
 

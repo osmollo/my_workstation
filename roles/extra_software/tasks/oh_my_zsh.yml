@@ -38,3 +38,8 @@
   when:
     - desktop_environment == "kde"
     - linux_distribution in ['ubuntu', 'debian']
+
+- name: "[OHMYZSH] delete temporal file"
+  file:
+    path: /tmp/install.sh
+    state: absent

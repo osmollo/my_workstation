@@ -1,0 +1,92 @@
+---
+
+- name: "[OHMYBASH] check if ~/.bashrc exists"
+  stat:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+  register: stat_response
+
+- name: "[OHMYBASH] creating backup"
+  copy:
+    src: "{{ ansible_env.HOME }}/.bashrc"
+    dest: "{{ ansible_env.HOME }}/.bashrc.bkp"
+    remote_src: true
+  when: stat_response.stat.exists
+
+- name: "[OHMYBASH] delete previous installation"
+  file:
+    path: "{{ ansible_user_dir }}/.{{ item }}"
+    state: absent
+  loop:
+    - bash
+    - oh-my-bash
+
+- name: "[OHMYBASH] install my oh-my-bash fork'"
+  become: true
+  become_method: sudo
+  import_role:
+    name: extra_software
+    tasks_from: oh_my_bash.yml
+  vars:
+    ohmybash_installer: https://raw.githubusercontent.com/osmollo/oh-my-bash/master/tools/install.sh
+
+- name: "[OHMYBASH] delete .bashrc"
+  file:
+    path: "{{ ansible_user_dir }}/.{{ item }}"
+    state: absent
+  loop:
+    - bashrc
+    - bash_history
+    - bash_logout
+    - bash_profile
+  ignore_errors: true
+
+- name: "[OHMYBASH] create link to .bashrc"
+  file:
+    src: "{{ ansible_user_dir }}/.oh-my-bash/bash_config/my_workstation"
+    dest: "{{ ansible_user_dir }}/.bashrc"
+    state: link
+
+- name: "[OHMYBASH] Create new remote for presto original source"
+  shell: "git remote add upstream {{ ohmybash_repo }}"
+  args:
+    chdir: "{{ ansible_user_dir }}/.oh-my-bash"
+  failed_when: false
+  vars:
+    ohmybash_repo: git@github.com:ohmybash/ohmybash.git
+
+- name: "[OHMYBASH] Configure 'user.name' for oh-my-bash repo"
+  shell: "git config user.name {{ git_user_name }}"
+  args:
+    chdir: "{{ ansible_user_dir }}/.oh-my-bash"
+
+- name: "[OHMYBASH] Configure 'user.email' for oh-my-bash repo"
+  shell: "git config user.email {{ git_user_mail_personal }}"
+  args:
+    chdir: "{{ ansible_user_dir }}/.oh-my-bash"
+
+- name: "[OHMYBASH] copy powerline truetype fonts"
+  block:
+    - name: "[OHMYBASH] set fonts directory"
+      set_fact:
+        font_dir: "{{ ansible_user_dir }}/.local/share/fonts"
+
+    - name: "[OHMYBASH] create {{ font_dir }}"
+      file:
+        path: "{{ font_dir }}"
+        state: directory
+
+    - name: "[OHMYBASH] download fonts"
+      get_url:
+        url: "{{ item }}"
+        dest: "{{ ansible_user_dir }}/.local/share/fonts/{{ (item | basename).replace('%20', ' ') }}"
+      loop: "{{ powerline_fonts }}"
+
+    - name: "[OHMYBASH] refresh font cache"
+      shell: "fc-cache -f {{ font_dir }}"
+  tags:
+    - deploy_fonts
+
+- name: "[OHMYBASH] install submodules"
+  shell: git submodule update --init --recursive
+  args:
+    chdir: "{{ ansible_user_dir }}/.oh-my-bash"

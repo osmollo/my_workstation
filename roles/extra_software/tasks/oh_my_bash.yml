@@ -1,0 +1,24 @@
+---
+
+- name: "[OHMYBASH] Download installation script"
+  get_url:
+    url: "{{ ohmybash_installer }}"
+    dest: /tmp/install.sh
+    mode: 0755
+    timeout: 60
+
+- name: "[OHMYBASH] check if previous oh-my-bash exists"
+  stat:
+    path: "{{ ansible_env.HOME }}/.oh-my-bash"
+  register: ohmybashdir_exists
+
+- name: "[OHMYBASH] Install oh-my-bash"
+  become: false
+  become_user: "{{ ansible_user }}"
+  command: bash -c "/tmp/install.sh --unattended"
+  when: not ohmybashdir_exists.stat.exists
+
+- name: "[OHMYBASH] delete temporal file"
+  file:
+    path: /tmp/install.sh
+    state: absent
