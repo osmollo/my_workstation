@@ -6,6 +6,14 @@
     dest: /tmp/install.sh
     mode: 0755
     timeout: 60
+  when: not (from_post_install | default(false))
+
+- name: "[OHMYBASH] replace source repo"
+  replace:
+    path: /tmp/install.sh
+    regexp: "git@github.com:"
+    replace: "https://github.com/"
+  when: from_post_install | default(false)
 
 - name: "[OHMYBASH] check if previous oh-my-bash exists"
   stat:
