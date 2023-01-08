@@ -26,6 +26,7 @@
 - Instalación de [oh-my-bash!](https://github.com/ohmybash/oh-my-bash)
 - Corrección de errores:
   - Fix [url mojave_dynamic.zip](https://files.osmollo.ovh/wallpapers/mojave_dynamic.zip) para el fondo de escritorio dinámico
+  - Fix instalación paquetes **GNOME** en **Arch**
 
 ## 8.1.1
 
