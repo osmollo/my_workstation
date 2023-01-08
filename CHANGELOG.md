@@ -28,6 +28,7 @@
   - Fix [url mojave_dynamic.zip](https://files.osmollo.ovh/wallpapers/mojave_dynamic.zip) para el fondo de escritorio dinámico
   - Fix instalación paquetes **GNOME** en **Arch**
   - Fix repositorio git al instalar **oh-my-zsh** y **oh-my-bash** desde `post_install`
+  - Fix alias `actualiza` en **Arch** para que también actualice paquetes instalados con **yay**
 
 ## 8.1.1
 
