@@ -142,8 +142,7 @@
     - oh-my-bash
     - ohmybash
 
-- name: "[ENVIRONMENT] Create links from Dropbox"
-  block:
+- block:
     - name: "[ENVIRONMENT] Wait until dropbox files exist"
       wait_for:
         path: "{{ item.src }}"
@@ -156,6 +155,9 @@
         dest: "{{ item.dest }}"
         state: link
       loop: "{{ links_to_create }}"
+
+    - name: "[ENVIRONMENT] load tilix configuration"
+      shell: "dconf load / < {{ dropbox_dir }}/backups/gnome/tilix"
 
 - block:
     - name: "[ENVIRONMENT] check if '/etc/zsh/zshrc' exists"
