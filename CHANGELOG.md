@@ -29,6 +29,7 @@
   - Fix instalación paquetes **GNOME** en **Arch**
   - Fix repositorio git al instalar **oh-my-zsh** y **oh-my-bash** desde `post_install`
   - Fix alias `actualiza` en **Arch** para que también actualice paquetes instalados con **yay**
+  - Fix alias `yay` en **Arch**
 
 ## 8.1.1
 
