@@ -19,11 +19,15 @@ distro_packages:
   - vlc
   - patch
   - automake
+  - pkgconf
 
 gnome_arch_packages:
   - wireshark-cli
   - libsecret
   - libgda
+  - gnome-keyring
+  - libgnome-keyring
+  - seahorse
 
 kde_arch_packages:
   - yakuake

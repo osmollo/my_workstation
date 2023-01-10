@@ -32,6 +32,7 @@
   - Fix alias `yay` en **Arch**
   - Importación de la configuración de **Tilix**
   - Fix generando `~/.gitconfig`
+  - Instalación de paquetes/dependencias en **Arch**
 
 ## 8.1.1
 
