@@ -31,6 +31,7 @@
   - Fix alias `actualiza` en **Arch** para que también actualice paquetes instalados con **yay**
   - Fix alias `yay` en **Arch**
   - Importación de la configuración de **Tilix**
+  - Fix generando `~/.gitconfig`
 
 ## 8.1.1
 
