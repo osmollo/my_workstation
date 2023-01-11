@@ -65,25 +65,15 @@
   args:
     chdir: "{{ ansible_user_dir }}/.oh-my-bash"
 
+- name: "[OHMYBASH] replace origin repo url"
+  git_config:
+    repo: '{{ ansible_user_dir }}/.oh-my-bash'
+    scope: 'local'
+    name: 'remote.origin.url'
+    value: 'git@github.com:osmollo/oh-my-bash.git'
+
 - name: "[OHMYBASH] copy powerline truetype fonts"
-  block:
-    - name: "[OHMYBASH] set fonts directory"
-      set_fact:
-        font_dir: "{{ ansible_user_dir }}/.local/share/fonts"
-
-    - name: "[OHMYBASH] create {{ font_dir }}"
-      file:
-        path: "{{ font_dir }}"
-        state: directory
-
-    - name: "[OHMYBASH] download fonts"
-      get_url:
-        url: "{{ item }}"
-        dest: "{{ ansible_user_dir }}/.local/share/fonts/{{ (item | basename).replace('%20', ' ') }}"
-      loop: "{{ powerline_fonts }}"
-
-    - name: "[OHMYBASH] refresh font cache"
-      shell: "fc-cache -f {{ font_dir }}"
+  import_tasks: fonts.yml
   tags:
     - deploy_fonts
 

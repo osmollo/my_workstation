@@ -11,13 +11,13 @@
     dest: /tmp/install.sh
     mode: 0755
     timeout: 60
-  when: not (from_post_install | default(false))
 
 - name: "[OHMYZSH] replace source repo"
-  replace:
-    path: /tmp/install.sh
-    regexp: "git@github.com:"
-    replace: "https://github.com/"
+  git_config:
+    repo: '{{ ansible_user_dir }}/.oh-my-zsh'
+    scope: 'local'
+    name: 'remote.origin.url'
+    value: 'https://github.com/ohmyzsh/ohmyzsh.git'
   when: from_post_install | default(false)
 
 - name: "[OHMYZSH] check if previous oh_my_zsh exists"

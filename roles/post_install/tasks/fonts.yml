@@ -1,0 +1,20 @@
+---
+
+- name: "[FONTS] set fonts directory"
+  set_fact:
+    font_dir: "{{ ansible_user_dir }}/.local/share/fonts"
+
+- name: "[FONTS] create {{ font_dir }}"
+  file:
+    path: "{{ font_dir }}"
+    state: directory
+
+- name: "[FONTS] download fonts"
+  get_url:
+    url: "{{ item }}"
+    dest: "{{ ansible_user_dir }}/.local/share/fonts/{{ (item | basename).replace('%20', ' ') }}"
+  loop: "{{ powerline_fonts }}"
+
+- name: "[FONTS] refresh font cache"
+  shell: "fc-cache -f {{ font_dir }}"
+

@@ -20,7 +20,8 @@
     - extra_software
   post_tasks:
     - name: "replace url repository in .git/config"
-      replace:
-        path: .git/config
-        regexp: "https://github.com/"
-        replace: "git@github.com:"
+      git_config:
+        repo: '{{ playbook_dir }}'
+        scope: 'local'
+        name: 'remote.origin.url'
+        value: 'git@github.com:osmollo/my_workstation.git'
