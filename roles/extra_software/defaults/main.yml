@@ -30,7 +30,7 @@ install_chromium: false
 install_deluge: false
 install_cherrytree: false
 install_k8s_tools: false
-install_kubectl: false
+install_kubectl: true
 install_minikube: false
 install_helm: false
 install_hetznerkube: false
