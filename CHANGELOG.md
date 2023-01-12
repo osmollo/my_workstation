@@ -35,6 +35,7 @@
   - Fix generando `~/.gitconfig`
   - Instalación de paquetes/dependencias en **Arch**
   - Configurar `.ssh/config` para usar **1Password** como gestor de llaves SSH
+  - Fix creación fichero `~/.vault_pass`
 
 ## 8.1.1
 

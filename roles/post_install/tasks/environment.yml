@@ -130,6 +130,12 @@
     mode: 0600
   no_log: true
 
+- name: "[ENVIRONMENT] create link to file"
+  file:
+    src: "{{ ansible_user_dir }}/.vault_pass_datio"
+    dest: "{{ ansible_user_dir }}/.vault_pass"
+    state: link
+
 - name: "[ENVIRONMENT] configure oh-my-zsh"
   import_tasks: oh_my_zsh.yml
   tags:
