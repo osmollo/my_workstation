@@ -25,3 +25,12 @@
         scope: 'local'
         name: 'remote.origin.url'
         value: 'git@github.com:osmollo/my_workstation.git'
+
+    - name: "configure ssh to use 1password"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.ssh/config"
+        line: '  IdentityAgent "~/.1password/agent.sock"'
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+      tags:
+        - ssh_config
