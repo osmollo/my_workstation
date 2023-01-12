@@ -12,14 +12,6 @@
     mode: 0755
     timeout: 60
 
-- name: "[OHMYZSH] replace source repo"
-  git_config:
-    repo: '{{ ansible_user_dir }}/.oh-my-zsh'
-    scope: 'local'
-    name: 'remote.origin.url'
-    value: 'https://github.com/ohmyzsh/ohmyzsh.git'
-  when: from_post_install | default(false)
-
 - name: "[OHMYZSH] check if previous oh_my_zsh exists"
   stat:
     path: "{{ ansible_env.HOME }}/.oh-my-zsh"
@@ -46,6 +38,14 @@
   when:
     - desktop_environment == "kde"
     - linux_distribution in ['ubuntu', 'debian']
+
+- name: "[OHMYZSH] replace source repo"
+  git_config:
+    repo: '{{ ansible_user_dir }}/.oh-my-zsh'
+    scope: 'local'
+    name: 'remote.origin.url'
+    value: 'https://github.com/ohmyzsh/ohmyzsh.git'
+  when: from_post_install | default(false)
 
 - name: "[OHMYZSH] delete temporal file"
   file:

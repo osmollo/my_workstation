@@ -72,11 +72,6 @@
     name: 'remote.origin.url'
     value: 'git@github.com:osmollo/oh-my-bash.git'
 
-- name: "[OHMYBASH] copy powerline truetype fonts"
-  import_tasks: fonts.yml
-  tags:
-    - deploy_fonts
-
 - name: "[OHMYBASH] install submodules"
   shell: git submodule update --init --recursive
   args:

@@ -142,6 +142,11 @@
     - oh-my-bash
     - ohmybash
 
+- name: "[ENVIRONMENT] copy powerline truetype fonts"
+  import_tasks: fonts.yml
+  tags:
+    - deploy_fonts
+
 - block:
     - name: "[ENVIRONMENT] Wait until dropbox files exist"
       wait_for:
