@@ -48,6 +48,8 @@
   tags:
     - config_files
     - bash_config
+    - ohmybash
+    - ohmyzsh
 
 - name: "[ENVIRONMENT] create .bashrc"
   template:
@@ -128,14 +130,30 @@
     mode: 0600
   no_log: true
 
+- name: "[ENVIRONMENT] create link to file"
+  file:
+    src: "{{ ansible_user_dir }}/.vault_pass_datio"
+    dest: "{{ ansible_user_dir }}/.vault_pass"
+    state: link
+
 - name: "[ENVIRONMENT] configure oh-my-zsh"
   import_tasks: oh_my_zsh.yml
   tags:
     - oh-my-zsh
     - ohmyzsh
 
-- name: "[ENVIRONMENT] Create links from Dropbox"
-  block:
+- name: "[ENVIRONMENT] configure oh-my-bash"
+  import_tasks: oh_my_bash.yml
+  tags:
+    - oh-my-bash
+    - ohmybash
+
+- name: "[ENVIRONMENT] copy powerline truetype fonts"
+  import_tasks: fonts.yml
+  tags:
+    - deploy_fonts
+
+- block:
     - name: "[ENVIRONMENT] Wait until dropbox files exist"
       wait_for:
         path: "{{ item.src }}"
@@ -148,6 +166,9 @@
         dest: "{{ item.dest }}"
         state: link
       loop: "{{ links_to_create }}"
+
+    - name: "[ENVIRONMENT] load tilix configuration"
+      shell: "dconf load / < {{ dropbox_dir }}/backups/gnome/tilix"
 
 - block:
     - name: "[ENVIRONMENT] check if '/etc/zsh/zshrc' exists"

@@ -21,6 +21,7 @@ distro_packages:
   - ansible-lint
   - screenfetch
   - vlc
+  - tldr
 
 gnome_debian_packages:
   - network-manager-openvpn-gnome

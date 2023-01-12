@@ -15,7 +15,7 @@
 
     - name: "[ARCH] Install Gnome packages"
       pacman:
-        name: "{{ gnome_packages | difference(['zeal']) }} + {{ gnome_arch_packages }}"
+        name: "{{ gnome_packages | difference(['zeal']) + gnome_arch_packages }}"
         state: present
         update_cache: true
       when:

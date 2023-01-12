@@ -1,38 +1,5 @@
 ---
 
-- name: "[NETWORK] configure datio openvpn"
-  block:
-    - name: "[NETWORK] change openvpn certs permissions"
-      file:
-        path: "{{ item }}"
-        mode: 0600
-      loop: "{{ datio_vpn.values() | list | json_query('[].[p12,key]') | flatten }}"
-
-    - name: "[NETWORK] check if vpn configfile exists"
-      stat:
-        path: "{{ item.value.configfile }}"
-      loop: "{{ datio_vpn | dict2items }}"
-      loop_control:
-        label: "{{ item.value.configfile }}"
-      register: vpn_response
-
-    - name: "[NETWORK] Copy vpn configurations files to NetworkManager"
-      template:
-        src: "{{ item.item.value.template }}"
-        dest: "{{ item.item.value.configfile }}"
-        mode: 0600
-        owner: root
-        group: root
-      no_log: true
-      loop: "{{ vpn_response.results }}"
-      loop_control:
-        label: "{{ item.item.key }}"
-      when:
-        - not item.stat.exists
-      notify: restart NetworkManager
-  tags:
-    - datio_vpn
-
 - name: "[NETWORK] check if protonvpn is installed"
   stat:
     path: /usr/local/bin/protonvpn

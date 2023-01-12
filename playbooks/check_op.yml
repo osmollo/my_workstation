@@ -8,8 +8,14 @@
       shell: env
       register: response
 
+    - name: "[CHECK OP] op functional check"
+      shell: op account get
+      ignore_errors: true
+      register: get_response
+
     - assert:
         that:
           - "'OP_SESSION_' in response.stdout"
-        success_msg: "OP_SESSION is defined"
-        fail_msg: "OP SESSION is not defined"
+          - get_response.rc == 0
+        success_msg: "OP_SESSION is defined and 'op account get' works!"
+        fail_msg: "OP SESSION is not defined or 'op account get' is not working :("

@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [8.2](#82)
   - [8.1.1](#811)
   - [8.1](#81)
   - [8.0.2](#802)
@@ -14,6 +15,29 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 8.2
+
+- Mejora en playbook `playbooks/check_op.yml`: a parte de la variable de entorno __OP_SESSION_*__, se comprueba que el comando `op` funciona correctamente
+- Instalación de [rclone](https://rclone.org/)
+- Nuevo módulo `onepassword` de **Ansible** para leer secretos de [1Password](https://1password.eu/)
+- Eliminación de la configuración de **Github Actions** para ejecutar __ansible-lint__
+- Eliminación de la configuración de OpenVPN de Trabajo
+- Instalación de [oh-my-bash!](https://github.com/ohmybash/oh-my-bash)
+- Instalación de `kubectl` por defecto
+- Instalación de [tldr](https://tldr.sh/)
+- Corrección de errores:
+  - Fix [url mojave_dynamic.zip](https://files.osmollo.ovh/wallpapers/mojave_dynamic.zip) para el fondo de escritorio dinámico
+  - Fix instalación paquetes **GNOME** en **Arch**
+  - Fix repositorio git al instalar **oh-my-zsh** y **oh-my-bash** desde `post_install`
+  - Fix alias `actualiza` en **Arch** para que también actualice paquetes instalados con **yay**
+  - Fix alias `yay` en **Arch**
+  - Importación de la configuración de **Tilix**
+  - Fix generando `~/.gitconfig`
+  - Instalación de paquetes/dependencias en **Arch**
+  - Configurar `.ssh/config` para usar **1Password** como gestor de llaves SSH
+  - Fix creación fichero `~/.vault_pass`
+  - Limpieza de repositorios git para clonar
 
 ## 8.1.1
 

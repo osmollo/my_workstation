@@ -104,35 +104,6 @@
         - item.remote is defined
         - item.no_push is defined
         - item.no_push | bool
-
-    # Create remotes for repositories that have forks
-
-    - name: "[GIT] get repositories to check if have forks"
-      set_fact:
-        repos_to_check: "{{ repos_to_check | default([]) | union([repository_name]) }}"
-      with_items: "{{ git_repositories.home }}"
-      when:
-        - item.forks is defined
-        - item.forks | bool
-      vars:
-        repository_name: "{{ (item.repo | basename).split('.')[0] }}"
-
-    - gitlab_get_forks:
-        gitlab_auth_key: "{{ gitlab_token_access }}"
-        name: "{{ item }}"
-      loop: "{{ repos_to_check }}"
-      register: forks_response
-
-    - name: "[GIT] create new remote for fork repositories"
-      shell: "git remote add {{ item.user }} {{ item.remote }}"
-      args:
-        chdir: "{{ git_dir }}/{{ repo_name }}"
-      changed_when: "'ya existe' not in remote_response.stdout or 'already exists' not in remote_response.stdout"
-      failed_when: false
-      loop: "{{ forks_response | json_query('results[].forks[]') }}"
-      register: remote_response
-      vars:
-        repo_name: "{{ (item.remote | basename).split('.')[0] }}"
   tags:
     - clone_repos
     - create_remotes
@@ -228,7 +199,7 @@
               cmd = {{ diff_editor }} "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
           [user]
-            signingkey = {{ #TODO }}
+            signingkey = {{ lookup('onepassword', 'osmollo', label='public key') }}
 
           [gpg]
             format = ssh

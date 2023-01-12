@@ -87,6 +87,14 @@
     - extra_software
     - spotify
 
+- name: "Install Oh My BASH!"
+  import_tasks: oh_my_bash.yml
+  when:
+    - install_ohmybash
+  tags:
+    - extra_software
+    - ohmybash
+
 - name: "Install Oh My ZSH!"
   import_tasks: oh_my_zsh.yml
   when:
@@ -411,9 +419,9 @@
 
 - name: "Install vim plugins"
   import_tasks: vim_plugins.yml
-  when: 
+  when:
     - install_vimplugins
-    - not install_neovim 
+    - not install_neovim
   tags:
     - extra_software
     - vim
@@ -641,6 +649,13 @@
     - bottom
     - vitaminar
     - vitaminado
+
+- name: "Install rclone"
+  import_tasks: rclone.yml
+  when: install_rclone
+  tags:
+    - extra_software
+    - rclone
 
 - name: "Install singlebox"
   import_tasks: singlebox/singlebox.yml

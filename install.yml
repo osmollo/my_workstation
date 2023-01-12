@@ -20,7 +20,17 @@
     - extra_software
   post_tasks:
     - name: "replace url repository in .git/config"
-      replace:
-        path: .git/config
-        regexp: "https://github.com/"
-        replace: "git@github.com:"
+      git_config:
+        repo: '{{ playbook_dir }}'
+        scope: 'local'
+        name: 'remote.origin.url'
+        value: 'git@github.com:osmollo/my_workstation.git'
+
+    - name: "configure ssh to use 1password"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.ssh/config"
+        line: '  IdentityAgent "~/.1password/agent.sock"'
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+      tags:
+        - ssh_config

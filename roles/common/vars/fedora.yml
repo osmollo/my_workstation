@@ -26,6 +26,7 @@ distro_packages:
   - cronie
   - cronie-anacron
   - screenfetch
+  - tldr
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome
