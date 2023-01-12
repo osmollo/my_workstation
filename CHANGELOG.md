@@ -25,6 +25,7 @@
 - Eliminación de la configuración de OpenVPN de Trabajo
 - Instalación de [oh-my-bash!](https://github.com/ohmybash/oh-my-bash)
 - Instalación de `kubectl` por defecto
+- Instalación de [tldr](https://tldr.sh/)
 - Corrección de errores:
   - Fix [url mojave_dynamic.zip](https://files.osmollo.ovh/wallpapers/mojave_dynamic.zip) para el fondo de escritorio dinámico
   - Fix instalación paquetes **GNOME** en **Arch**
@@ -36,6 +37,7 @@
   - Instalación de paquetes/dependencias en **Arch**
   - Configurar `.ssh/config` para usar **1Password** como gestor de llaves SSH
   - Fix creación fichero `~/.vault_pass`
+  - Limpieza de repositorios git para clonar
 
 ## 8.1.1
 

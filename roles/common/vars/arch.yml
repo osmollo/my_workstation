@@ -20,6 +20,7 @@ distro_packages:
   - patch
   - automake
   - pkgconf
+  - tldr
 
 gnome_arch_packages:
   - wireshark-cli
