@@ -55,7 +55,6 @@ Por defecto se instala el siguiente software:
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | | Cliente de almacenamiento en la nube |
 | [Duf](https://github.com/muesli/duf) | duf | install_duf | | du vitaminado |
 | [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | ecs | install_ecs | | |
-| [Ferdi](https://getferdi.com/) | ferdi | install_ferdi | | Administrador ded clientes de mensajería |
 | [Franz](https://meetfranz.com/) | franz | install_franz | | Administrador de clientes de mensajería |
 | [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | | Buscador difuso de archivos |
 | [Github CLI](https://github.com/cli/cli) | githubcli | install_githubcli | | Cli de consola para [Github](https://github.com) |
@@ -98,7 +97,6 @@ Por defecto se instala el siguiente software:
 | [Slack](https://slack.com/intl/es-es/) | slack | install_slack | socials | Cliente de mensajería para entornos de trabajo |
 | [Singlebox](https://webcatalog.io/singlebox/) | singlebox | install_singlebox | socials | Administrador de clientes de mensajería |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | | Cliente de Spotify |
-| [Station](https://getstation.com/) | station | install_station | | Administrador de clientes de mensajería |
 | [Steam](https://store.steampowered.com/?l=spanish) | steam | install_steam | | Cliente Steam para juegos de PC |
 | [Sublime Merge](https://www.sublimemerge.com/) | sublimemerge | install_sublimemerge | sublime | Cliente gráfico de git |
 | [Sublime Text](https://www.sublimetext.com/) | sublimetext | install_sublimetext | editors/sublime | Editor de textos |

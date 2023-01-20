@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [8.3](#83)
   - [8.2](#82)
   - [8.1.1](#811)
   - [8.1](#81)
@@ -15,6 +16,10 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 8.3
+
+- Ya no se soporta la instalación de **Ferdi** ni **Station** por abandono de dichos proyectos
 
 ## 8.2
 
