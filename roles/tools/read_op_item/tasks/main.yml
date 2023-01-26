@@ -1,0 +1,10 @@
+---
+
+- name: "[READ ONEPASSWORD ITEM] read {{ op_reference }}"
+  command: "op read '{{ op_reference }}'"
+  changed_when: false
+  register: read_response
+
+- name: "[READ ONEPASSWORD ITEM] set variable {{ var_name | default('op_secret') }}"
+  set_fact:
+    "{{ var_name | default('op_secret') }}": "{{ read_response.stdout }}"

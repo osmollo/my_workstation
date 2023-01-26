@@ -20,6 +20,7 @@
 ## 8.3
 
 - Ya no se soporta la instalación de **Ferdi** ni **Station** por abandono de dichos proyectos
+- Simplificación en la lectura de secretos de [1Password](https://1password.eu/) sin usar módulos de **Ansible**
 
 ## 8.2
 
