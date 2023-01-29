@@ -21,6 +21,7 @@
 
 - Ya no se soporta la instalación de **Ferdi** ni **Station** por abandono de dichos proyectos
 - Simplificación en la lectura de secretos de [1Password](https://1password.eu/) sin usar módulos de **Ansible**
+- Instalación de [yq](https://github.com/mikefarah/yq) para parsear __json__, __yaml__ y __xml__ de forma similar a como funciona **jq**
 
 ## 8.2
 

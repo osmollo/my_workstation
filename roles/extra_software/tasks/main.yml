@@ -665,3 +665,10 @@
     - extra_software
     - fonts
     - google_fonts
+
+- name: "Install yq"
+  import_tasks: yq.yml
+  when: install_yq
+  tags:
+    - extra_software
+    - yq

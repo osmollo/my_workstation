@@ -116,6 +116,7 @@ Por defecto se instala el siguiente software:
 | [Wireguard](https://www.wireguard.com/) | wireguard | install_wireguard | | Cliente de VPN |
 | [WoeUSB](https://github.com/slacka/WoeUSB) | woeusb | install_woeusb | | Herramienta para quemar iso de windows en usb |
 | [YakYak](https://github.com/yakyak/yakyak) | yakyak | install_yakyak | | Cliente de mensajería para Hangouts |
+| [yq](https://github.com/mikefarah/yq) | yq | install_yq | | Parseador json, yaml y xml |
 | [Zoom](https://zoom.us/es-es/meetings.html) | zoom | install_zoom | | Cliente de videoconferencia |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
