@@ -102,6 +102,7 @@ install_marktext: true
 install_rclone: true
 install_yq: true
 install_element: false
+install_gopass: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85

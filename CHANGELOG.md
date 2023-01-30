@@ -23,6 +23,7 @@
 - Simplificación en la lectura de secretos de [1Password](https://1password.eu/) sin usar módulos de **Ansible**
 - Instalación de [yq](https://github.com/mikefarah/yq) para parsear __json__, __yaml__ y __xml__ de forma similar a como funciona **jq**
 - Instalación de [Element](https://element.io/) como cliente de mensajería para [matrix.org](https://matrix.org)
+- Instalación de [GOpass](https://github.com/gopasspw/gopass)
 
 ## 8.2
 

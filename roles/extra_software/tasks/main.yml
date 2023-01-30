@@ -359,6 +359,14 @@
     - pass
     - pass_managers
 
+- name: "Install GOPass"
+  import_tasks: gopass/gopass.yml
+  when: install_gopass
+  tags:
+    - extra_software
+    - gopass
+    - pass_managers
+
 - name: "Install Bucklespring"
   import_tasks: bucklespring.yml
   when:

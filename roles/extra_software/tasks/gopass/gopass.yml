@@ -1,0 +1,4 @@
+---
+
+- name: "[GOPASS] install for {{ linux_distribution }}"
+  include_tasks: "gopass_{{ linux_distribution }}.yml"

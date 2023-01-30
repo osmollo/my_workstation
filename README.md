@@ -63,6 +63,7 @@ Por defecto se instala el siguiente software:
 | [GO](https://golang.org/doc/install/source) | go | install_go | | Compilador del lenguaje GO |
 | [Google Chrome](https://www.google.com/intl/es/chrome/) | chrome | install_chrome | browsers | Navegador web |
 | [Google Fonts](https://fonts.google.com/) | google_fonts | install_fonts | | Fuentes tipográficas de Google |
+| [GOpass](https://github.com/gopasspw/gopass) | gopass | install_gopass | pass_managers | Gestor de contraseñas |
 | [Gping](https://github.com/orf/gping) | gping | install_gping | | ping vitaminado |
 | [Hashicorp stask](https://www.hashicorp.com/) | hashicorp | install_hashicorp | | Stack de aplicaciones de **Hashicorp**: **Vault**, **Terraform**, **Consul** y **Nomad** |
 | [Hiri](https://www.hiri.com/) | hiri | install_hiri | | Cliente de correo |
