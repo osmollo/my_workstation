@@ -1,0 +1,5 @@
+---
+
+- name: "[ELEMENT] install for {{ linux_distribution }}"
+  include_tasks: "element_{{ linux_distribution }}.yml"
+  when: linux_distribution in ['debian', 'ubuntu', 'arch']

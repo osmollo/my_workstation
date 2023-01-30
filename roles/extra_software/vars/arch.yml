@@ -63,6 +63,7 @@ librewolf_package: librewolf-bin
 marktext_package: marktext-bin
 etcher_package: balena-etcher
 rclone_package: rclone-bin
+element_package: element-desktop-greentext
 
 protonvpn_dependencies:
   - openvpn

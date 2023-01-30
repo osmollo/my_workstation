@@ -672,3 +672,10 @@
   tags:
     - extra_software
     - yq
+
+- name: "Install Element"
+  import_tasks: element/element.yml
+  when: install_element
+  tags:
+    - extra_software
+    - element

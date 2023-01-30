@@ -1,0 +1,19 @@
+---
+
+- name: "[ELEMENT] [DEB] install gpg key"
+  apt_key:
+    url: https://packages.element.io/debian/element-io-archive-keyring.gpg
+    keyring: /usr/share/keyrings/element-io-archive-keyring.gpg
+    state: present
+
+- name: "[ELEMENT] [DEB] install Element repository"
+  lineinfile:
+    path: /etc/apt/sources.list.d/element-io.list
+    line: "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian/ default main"
+    create: true
+
+- name: "[ELEMENT] [DEB] install Element"
+  apt:
+    name: element-desktop
+    state: present
+    update_cache: true
