@@ -2,11 +2,11 @@
 
 - name: "[GO] check if $GOPATH exists"
   stat:
-    path: "{{ ansible_user_dir }}/go"
+    path: "{{ go_path }}"
   register: gopath_response
 
 - name: "[GO] create $GOPATH"
   file:
-    path: "{{ ansible_user_dir }}/go"
+    path: "{{ go_path }}"
     state: directory
   when: not gopath_response.stat.exists

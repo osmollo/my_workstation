@@ -2,12 +2,12 @@
 
 - name: "[GO] check if previous version is installed"
   stat:
-    path: "{{ go_dir }}"
+    path: "{{ go_root }}"
   register: go_response
 
 - name: "[GO] delete previous version if exists"
   file:
-    path: "{{ go_dir }}"
+    path: "{{ go_root }}"
     state: absent
   when: go_response.stat.exists
 
@@ -24,7 +24,7 @@
 - block:
     - name: "[GO] create GOPATH directory"
       file:
-        path: "{{ ansible_user_dir }}/go"
+        path: "{{ go_path }}"
         state: directory
 
     - name: "[GO] get the default shell for {{ ansible_user }}"
@@ -39,6 +39,6 @@
         state: present
       loop:
         - "export PATH=$PATH:/usr/local/go/bin"
-        - "export GOROOT={{ go_dir }}"
-        - "export GOPATH={{ ansible_user_dir }}/go"
+        - "export GOROOT={{ go_root }}"
+        - "export GOPATH={{ go_path  }}"
   become: false

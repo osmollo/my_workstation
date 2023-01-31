@@ -168,7 +168,8 @@ mega_url_base: "https://mega.nz/linux/MEGAsync"
 
 prezto_repo: https://github.com/sorin-ionescu/prezto.git
 
-go_dir: /usr/local/go
+go_root: /usr/local/go
+go_path: "{{ ansible_user_dir }}/.local/share/go"
 
 vim_plugins:
   - 'VundleVim/Vundle.vim'
