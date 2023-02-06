@@ -26,6 +26,7 @@
 - Instalación de [GOpass](https://github.com/gopasspw/gopass)
 - Corrección de errores:
   - Cambio del directorio `$GOPATH` de `~/go` a `~/.local/share/go`
+  - Cambio alias bash
 
 ## 8.2
 
