@@ -1,0 +1,8 @@
+---
+
+- name: "[DRAWIO] [ARCH] Install draw.io"
+  become: false
+  yay:
+    name: "{{ drawio_package }}"
+    state: present
+    update_cache: true

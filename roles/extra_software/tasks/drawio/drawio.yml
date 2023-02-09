@@ -1,0 +1,20 @@
+---
+
+- name: "[DRAWIO] Get latest version of drawio"
+  uri:
+    url: "{{ drawio_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: drawio_latest
+  when: linux_distribution != "arch"
+
+- name: "[DRAWIO] Set urls for drawio {{ drawio_version }} packages"
+  vars:
+    drawio_version: "{{ drawio_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    drawio_rpm_package: "https://github.com/jgraph/drawio-desktop/releases/download/{{ drawio_version }}/drawio-x86_64-{{ drawio_version[1:] }}.rpm"
+    drawio_deb_package: "https://github.com/jgraph/drawio-desktop/releases/download/{{ drawio_version }}/drawio-amd64-{{ drawio_version[1:] }}.deb"
+  when: linux_distribution != "arch"
+
+- name: "[DRAWIO] install drawio for {{ linux_distribution }}"
+  include_tasks: "drawio_{{ linux_distribution }}.yml"

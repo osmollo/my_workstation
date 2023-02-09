@@ -1,0 +1,8 @@
+---
+
+- name: "[DRAWIO] [FEDORA] install drawio package"
+  dnf:
+    name: "{{ drawio_rpm_package }}"
+    state: present
+    update_cache: true
+    disable_gpg_check: true

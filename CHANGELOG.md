@@ -24,6 +24,7 @@
 - Instalación de [yq](https://github.com/mikefarah/yq) para parsear __json__, __yaml__ y __xml__ de forma similar a como funciona **jq**
 - Instalación de [Element](https://element.io/) como cliente de mensajería para [matrix.org](https://matrix.org)
 - Instalación de [GOpass](https://github.com/gopasspw/gopass)
+- Instalación de [draw.io](https://github.com/jgraph/drawio-desktop)
 - Corrección de errores:
   - Cambio del directorio `$GOPATH` de `~/go` a `~/.local/share/go`
   - Cambio alias bash

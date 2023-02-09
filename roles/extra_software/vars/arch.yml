@@ -64,6 +64,7 @@ marktext_package: marktext-bin
 etcher_package: balena-etcher
 rclone_package: rclone-bin
 element_package: element-desktop-greentext
+drawio_package: drawio-desktop-bin
 
 protonvpn_dependencies:
   - openvpn

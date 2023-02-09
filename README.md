@@ -52,6 +52,7 @@ Por defecto se instala el siguiente software:
 | [curlie](https://github.com/rs/curlie) | curlie | install_curlie | | Curl vitaminado |
 | [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | | Cliente de Torrent |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | | Gestión de contenedores Docker |
+| [Draw.io](https://github.com/jgraph/drawio-desktop) | drawio | install_drawio | | Editor de diagramas |
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | | Cliente de almacenamiento en la nube |
 | [Duf](https://github.com/muesli/duf) | duf | install_duf | | du vitaminado |
 | [Element](https://element.io/) | element | install_element | social | cliente de mensajería para [matrix.org](https://matrix.org) |

@@ -687,3 +687,10 @@
   tags:
     - extra_software
     - element
+
+- name: "Install Draw.io"
+  import_tasks: drawio/drawio.yml
+  when: install_drawio
+  tags:
+    - extra_software
+    - drawio
