@@ -28,6 +28,7 @@
 - Corrección de errores:
   - Cambio del directorio `$GOPATH` de `~/go` a `~/.local/share/go`
   - Cambio alias bash
+  - Cambio obtención de la configuración de `rclone`
 
 ## 8.2
 
