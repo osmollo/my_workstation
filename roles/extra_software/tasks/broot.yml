@@ -1,0 +1,42 @@
+---
+
+- name: "[BROOT] Get latest version of station"
+  uri:
+    url: "{{ broot_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: broot_latest
+
+- name: "[BROOT] set station version"
+  set_fact:
+    broot_version: "{{ broot_latest.url | urlsplit('path') | basename }}"
+
+- name: "[BROOT] create {{ ansible_user_dir }}/AppImage directory"
+  file:
+    path: "/tmp/broot"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: "[BROOT] download broot package {{ broot_version }}"
+  unarchive:
+    src: "https://github.com/Canop/broot/releases/download/{{ broot_version }}/broot_{{ broot_version[1:] }}.zip"
+    dest: "/tmp/broot"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+    remote_src: true
+
+- name: "[BROOT] move binary to /usr/local/bin"
+  copy:
+    src: "/tmp/broot/x86_64-linux/broot"
+    dest: /usr/local/bin/broot
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+    remote_src: true
+
+- name: "[BROOT] delete temporal directory"
+  file:
+    path: "/tmp/broot"
+    state: absent

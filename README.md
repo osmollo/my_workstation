@@ -41,6 +41,7 @@ Por defecto se instala el siguiente software:
 | [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner) | bfg | install_bfg | | Herramienta para trabajar con el histórico de git |
 | [Bitwarden](https://bitwarden.com/) | bitwarden | install_bitwarden | pass_managers | Gestor de contraseñas |
 | [Brave](https://brave-browser.readthedocs.io/en/latest/index.html) | brave | install_brave | browsers | Navegador web |
+| [Broot](https://github.com/Canop/broot) | broot | install_broot | | Terminal file browser |
 | [Bottom](https://github.com/ClementTsang/bottom) | bottom | install_bottom | | top vitaminado |
 | [Bucklespring](https://github.com/zevv/bucklespring) | bucklespring | install_bucklespring | | Herramienta para simular el ruido de un teclado mecánico |
 | [Buttercup](https://buttercup.pw/) | buttercup | install_buttercup | pass_managers | Gestor de contraseñas |

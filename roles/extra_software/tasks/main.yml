@@ -712,3 +712,11 @@
     - extra_software
     - drawio
     - update
+
+- name: "Install broot"
+  import_tasks: broot.yml
+  # when: install_broot
+  tags:
+    - extra_software
+    - broot
+    - update
