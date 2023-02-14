@@ -34,6 +34,7 @@
     - extra_software
     - bitwarden
     - pass_managers
+    - update
 
 - name: "Install Brave"
   import_tasks: brave/brave.yml
@@ -182,6 +183,7 @@
     - extra_software
     - buttercup
     - pass_managers
+    - update
 
 - name: "Install Windscribe client"
   import_tasks: windscribe/windscribe.yml
@@ -271,6 +273,7 @@
   tags:
     - extra_software
     - rambox
+    - update
 
 - name: "Install Franz"
   import_tasks: franz/franz.yml
@@ -278,6 +281,7 @@
   tags:
     - extra_software
     - franz
+    - update
 
 - name: "Install Chromium Browser"
   import_tasks: chromium/chromium.yml
@@ -389,6 +393,7 @@
   tags:
     - extra_software
     - etcher
+    - update
 
 - name: "Install WoeUSB"
   import_tasks: woeusb/woeusb.yml
@@ -410,6 +415,7 @@
   tags:
     - extra_software
     - fzf
+    - update
 
 - name: "Install vim plugins"
   import_tasks: vim_plugins.yml
@@ -428,6 +434,7 @@
     - extra_software
     - neovim
     - nvim
+    - update
 
 - name: "Install authy"
   import_tasks: authy/authy.yml
@@ -442,6 +449,7 @@
   tags:
     - extra_software
     - yakyak
+    - update
 
 - name: "Install hiri"
   import_tasks: hiri/hiri.yml
@@ -558,6 +566,7 @@
   tags:
     - extra_software
     - mailspring
+    - update
 
 - name: "Install OBS Studio"
   import_tasks: obs_studio/obs_studio.yml
@@ -580,6 +589,7 @@
   tags:
     - extra_software
     - trivy
+    - update
 
 - name: "Install LSD"
   import_tasks: lsd/lsd.yml
@@ -589,6 +599,7 @@
     - lsd
     - vitaminar
     - vitaminado
+    - update
 
 - name: "Install gping"
   import_tasks: gping/gping.yml
@@ -607,6 +618,7 @@
     - curlie
     - vitaminar
     - vitaminado
+    - update
 
 - name: "Install bat"
   import_tasks: bat/bat.yml
@@ -616,6 +628,7 @@
     - bat
     - vitaminar
     - vitaminado
+    - update
 
 - name: "Install duf"
   import_tasks: duf/duf.yml
@@ -625,6 +638,7 @@
     - duf
     - vitaminar
     - vitaminado
+    - update
 
 - name: "Install ripgrep"
   import_tasks: ripgrep/ripgrep.yml
@@ -641,6 +655,7 @@
   tags:
     - extra_software
     - bottom
+    - update
     - vitaminar
     - vitaminado
 
@@ -665,6 +680,7 @@
     - extra_software
     - marktext
     - mark_text
+    - update
 
 - name: "Install Typography Fonts"
   import_tasks: fonts/fonts.yml
@@ -680,6 +696,7 @@
   tags:
     - extra_software
     - yq
+    - update
 
 - name: "Install Element"
   import_tasks: element/element.yml
@@ -694,3 +711,4 @@
   tags:
     - extra_software
     - drawio
+    - update

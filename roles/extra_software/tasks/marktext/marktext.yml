@@ -8,7 +8,7 @@
   register: marktext_latest
   when: linux_distribution != "arch"
 
-- name: "[MARK TEXT] Set urls for MarkText packages"
+- name: "[MARK TEXT] Set urls for MarkText {{ marktext_version }} packages"
   vars:
     marktext_version: "{{ marktext_latest.url | urlsplit('path') | basename }}"
   set_fact:

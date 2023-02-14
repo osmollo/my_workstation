@@ -33,7 +33,7 @@
         body_format: raw
       register: bitwardencli_latest
 
-    - name: "[BITWARDEN] Set urls for Bitwarden CLI packages"
+    - name: "[BITWARDEN] Set urls for Bitwarden CLI {{ bitwardencli_version }} packages"
       vars:
         bitwardencli_version: "{{ bitwardencli_latest.url | urlsplit('path') | basename }}"
       set_fact:
@@ -47,3 +47,4 @@
         mode: 0755
   tags:
     - bitwarden_cli
+    - update

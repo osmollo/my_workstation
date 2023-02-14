@@ -8,7 +8,7 @@
   register: mailspring_latest
   when: linux_distribution != "arch"
 
-- name: "[MAILSPRING] Set urls for Mailspring packages"
+- name: "[MAILSPRING] Set urls for Mailspring {{ mailspring_version }} packages"
   vars:
     mailspring_version: "{{ mailspring_latest.url | urlsplit('path') | basename }}"
   set_fact:

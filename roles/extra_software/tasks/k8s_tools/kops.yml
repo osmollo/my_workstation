@@ -12,7 +12,7 @@
     body_format: raw
   register: kops_latest
 
-- name: "[KOPS] Set urls for kops package"
+- name: "[KOPS] Set urls for kops {{ kops_version }} package"
   vars:
     kops_version: "{{ kops_latest.url | urlsplit('path') | basename }}"
   set_fact:

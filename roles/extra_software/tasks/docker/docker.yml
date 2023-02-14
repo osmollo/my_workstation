@@ -20,6 +20,7 @@
   when: linux_distribution != "arch"
   tags:
     - dockercompose
+    - update
 
 - name: "[DIVE] Install Dive"
   block:
@@ -29,7 +30,7 @@
       register: dive_response
       when: linux_distribution != "arch"
 
-    - name: "[DIVE] Set urls for Dive packages"
+    - name: "[DIVE] Set urls for Dive {{ dive_version }} packages"
       vars:
         dive_version: "{{ dive_response.json.tag_name }}"
       set_fact:
@@ -41,3 +42,4 @@
       include_tasks: "dive_{{ linux_distribution }}.yml"
   tags:
     - dive
+    - update

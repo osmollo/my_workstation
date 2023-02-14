@@ -12,7 +12,7 @@
     body_format: raw
   register: hetznerkube_latest
 
-- name: "[HETZNER_KUBE] Set urls for hetzner kube package"
+- name: "[HETZNER_KUBE] Set urls for hetzner kube {{ hetznerkube_version }} package"
   vars:
     hetznerkube_version: "{{ hetznerkube_latest.url | urlsplit('path') | basename }}"
   set_fact:

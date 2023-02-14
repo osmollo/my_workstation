@@ -11,7 +11,7 @@
         body_format: raw
       register: neovim_latest
 
-    - name: "[NEOVIM] Set urls for neovim packages"
+    - name: "[NEOVIM] Set urls for neovim {{ neovim_version }} packages"
       vars:
         neovim_version: "{{ neovim_latest.url | urlsplit('path') | basename }}"
       set_fact:
@@ -35,7 +35,7 @@
     - name: editor
       link: /usr/bin/editor
       path: /usr/bin/nvim
-  when: linux_distribution != 'arch' 
+  when: linux_distribution != 'arch'
 
 - name: "[NEOVIM] install plugins"
   import_tasks: "neovim_plugins.yml"

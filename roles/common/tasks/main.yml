@@ -26,6 +26,7 @@
     - (not stat_response.stat.exists) or (lastupdate.files | length == 1)
   tags:
     - always
+    - update
 
 - name: "disable selinux"
   import_tasks: selinux.yml

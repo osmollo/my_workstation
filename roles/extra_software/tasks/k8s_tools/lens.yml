@@ -7,7 +7,7 @@
     body_format: raw
   register: lens_latest
 
-- name: "[LENS] set lens version"
+- name: "[LENS] set lens version {{ lens_version }}"
   set_fact:
     lens_version: "{{ lens_latest.url | urlsplit('path') | basename }}"
 

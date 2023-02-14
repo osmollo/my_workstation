@@ -25,6 +25,7 @@
 - Instalación de [Element](https://element.io/) como cliente de mensajería para [matrix.org](https://matrix.org)
 - Instalación de [GOpass](https://github.com/gopasspw/gopass)
 - Instalación de [draw.io](https://github.com/jgraph/drawio-desktop)
+- Nuevo tag `update` para actualizar paquetes del sistema y todo el software descargado desde repositorios de [github](https://github.com)
 - Corrección de errores:
   - Cambio del directorio `$GOPATH` de `~/go` a `~/.local/share/go`
   - Cambio alias bash

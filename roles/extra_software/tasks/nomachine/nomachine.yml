@@ -6,7 +6,7 @@
       get_nomachine_latest:
       register: nomachine_response
 
-    - name: "[NOMACHINE] set variable with latest version of nomachine"
+    - name: "[NOMACHINE] set variable with latest version of nomachine {{ nomachine_response.version }}"
       set_fact:
         nomachine_version: "{{ nomachine_response.version }}"
 

@@ -7,7 +7,7 @@
     body_format: raw
   register: dockercompose_latest
 
-- name: "[DOCKER_COMPOSE] Set docker compose version"
+- name: "[DOCKER_COMPOSE] Set docker compose version {{ dockercompose_version }}"
   set_fact:
     dockercompose_version: "{{ dockercompose_latest.url | urlsplit('path') | basename }}"
 
@@ -16,7 +16,7 @@
     path: /usr/local/bin/docker-compose
     state: absent
 
-- name: "[DOCKER_COMPOSE] Download Docker Compose binary"
+- name: "[DOCKER_COMPOSE] Download Docker Compose {{ dockercompose_version }} binary"
   get_url:
     url: "{{ dockercompose_package }}"
     dest: /usr/local/bin/docker-compose

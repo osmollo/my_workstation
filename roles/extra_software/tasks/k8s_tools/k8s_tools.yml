@@ -8,6 +8,7 @@
       import_tasks: kubecolor.yml
       tags:
         - kubecolor
+        - update
 
     - name: "[KUBECTL] configure shell"
       block:
@@ -50,30 +51,35 @@
   when: install_k8s_tools or install_helm
   tags:
     - helm
+    - update
 
 - name: "[HETZNER_KUBE] installation"
   import_tasks: hetzner_kube.yml
   when: install_k8s_tools or install_hetznerkube
   tags:
     - hetznerkube
+    - update
 
 - name: "[KOPS] installation"
   import_tasks: kops.yml
   when: install_k8s_tools or install_kops
   tags:
     - kops
+    - update
 
 - name: "[LENS] installation"
   import_tasks: lens.yml
   when: install_k8s_tools or install_lens
   tags:
     - lens
+    - update
 
 - name: "[KIND] installation"
   import_tasks: kind.yml
   when: install_k8s_tools or install_kind
   tags:
     - kind
+    - update
 
 - name: "[MICROK8S] installation"
   import_tasks: microk8s.yml
@@ -88,9 +94,11 @@
   when: install_k8s_tools or install_kompose
   tags:
     - kompose
+    - update
 
 - name: "[K0s] installation"
   import_tasks: k0s.yml
   when: install_k8s_tools or install_k0s
   tags:
     - k0s
+    - update

@@ -12,7 +12,7 @@
     body_format: raw
   register: helm_latest
 
-- name: "[HELM] Set urls for helm package"
+- name: "[HELM] Set urls for helm {{ helm_version }} package"
   vars:
     helm_version: "{{ helm_latest.url | urlsplit('path') | basename }}"
   set_fact:

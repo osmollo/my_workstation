@@ -8,7 +8,7 @@
   register: rambox_latest
   when: linux_distribution != "arch"
 
-- name: "[RAMBOX] Set urls for rambox packages"
+- name: "[RAMBOX] Set urls for rambox {{ rambox_version }} packages"
   vars:
     rambox_version: "{{ rambox_latest.url | urlsplit('path') | basename }}"
   set_fact:

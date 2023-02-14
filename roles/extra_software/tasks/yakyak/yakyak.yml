@@ -8,7 +8,7 @@
   register: yakyak_latest
   when: linux_distribution != "arch"
 
-- name: "[YAKYAK] Set urls for yakyak packages"
+- name: "[YAKYAK] Set urls for yakyak {{ yakyak_version }} packages"
   vars:
     yakyak_version: "{{ yakyak_latest.url | urlsplit('path') | basename }}"
   set_fact:
