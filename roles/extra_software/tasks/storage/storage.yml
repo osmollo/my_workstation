@@ -1,0 +1,27 @@
+---
+
+- name: "[STORAGE] Install dropbox"
+  import_tasks: dropbox/dropbox.yml
+  when: install_dropbox
+  tags:
+    - dropbox
+
+- name: "[STORAGE] Install MEGAcmd"
+  import_tasks: megacmd/megacmd.yml
+  when: install_megacmd
+  tags:
+    - megacmd
+    - mega
+
+- name: "[STORAGE] Install MEGAsync"
+  import_tasks: megasync/megasync.yml
+  when: install_megasync
+  tags:
+    - megasync
+    - mega
+
+- name: "[STORAGE] Install rclone"
+  import_tasks: rclone.yml
+  when: install_rclone
+  tags:
+    - rclone

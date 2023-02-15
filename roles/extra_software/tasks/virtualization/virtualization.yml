@@ -1,0 +1,7 @@
+---
+
+- name: "[GAMES] Install Virtualbox"
+  import_tasks: virtualbox/virtualbox.yml
+  when: install_virtualbox
+  tags:
+    - virtualbox

@@ -1,0 +1,15 @@
+---
+
+- name: "[GAMES] Install steam"
+  import_tasks: steam.yml
+  when:
+    - install_steam
+    - linux_distribution == "ubuntu"
+  tags:
+    - steam
+
+- name: "[GAMES] Install mame"
+  import_tasks: mame.yml
+  when: install_mame
+  tags:
+    - mame

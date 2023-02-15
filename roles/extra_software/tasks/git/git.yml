@@ -1,0 +1,28 @@
+---
+
+- name: "[GIT] Install Sublime Merge"
+  import_tasks: sublime_merge/sublime.yml
+  when: install_sublimemerge
+  tags:
+    - sublimemerge
+    - sublime_merge
+    - sublime
+
+- name: "[GIT] Install Gitkraken"
+  import_tasks: gitkraken/gitkraken.yml
+  when: install_gitkraken
+  tags:
+    - gitkraken
+
+- name: "Install Github CLI"
+  import_tasks: github_cli/github_cli.yml
+  when: install_githubcli
+  tags:
+    - githubcli
+
+- name: "Install BFG cleaner"
+  import_tasks: bfg.yml
+  when:
+    - install_bfg
+  tags:
+    - bfg

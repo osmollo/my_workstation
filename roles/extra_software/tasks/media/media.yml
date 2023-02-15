@@ -1,0 +1,20 @@
+---
+
+- name: "[MEDIA] Install Spotify"
+  import_tasks: spotify/spotify.yml
+  when: install_spotify
+  tags:
+    - spotify
+
+- name: "[MEDIA] Install kodi"
+  import_tasks: kodi/kodi.yml
+  when: install_kodi
+  tags:
+    - kodi
+
+- name: "[MEDIA] Install OBS Studio"
+  import_tasks: obs_studio/obs_studio.yml
+  when: install_obs
+  tags:
+    - obs
+    - obs_studio

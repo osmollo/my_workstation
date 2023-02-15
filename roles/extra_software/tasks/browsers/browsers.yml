@@ -1,0 +1,39 @@
+---
+
+- name: "[BROWSERS] Install Brave"
+  import_tasks: brave/brave.yml
+  when: install_brave
+  tags:
+    - brave
+
+- name: "[BROWSERS] Install Google Chrome"
+  import_tasks: chrome/chrome.yml
+  when: install_chrome
+  tags:
+    - chrome
+
+- name: "[BROWSERS] Install Chromium Browser"
+  import_tasks: chromium/chromium.yml
+  when: install_chromium
+  tags:
+    - chromium
+
+- name: "[BROWSERS] Install librewolf"
+  import_tasks: librewolf/librewolf.yml
+  when: install_librewolf
+  tags:
+    - librewolf
+
+- name: "[BROWSERS] Install Vivaldi"
+  import_tasks: vivaldi/vivaldi.yml
+  when: install_vivaldi
+  tags:
+    - vivaldi
+
+- name: "[BROWSERS] Install Lexnet"
+  import_tasks: lexnet.yml
+  when:
+    - install_lexnet
+    - linux_distribution == "ubuntu"
+  tags:
+    - lexnet

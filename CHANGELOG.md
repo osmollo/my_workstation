@@ -27,6 +27,7 @@
 - Instalación de [draw.io](https://github.com/jgraph/drawio-desktop)
 - Instalación de [broot](https://github.com/Canop/broot)
 - Nuevo tag `update` para actualizar paquetes del sistema y todo el software descargado desde repositorios de [github](https://github.com)
+- Organización y agrupación de las aplicaciones instaladas en el role `extra_software`
 - Corrección de errores:
   - Cambio del directorio `$GOPATH` de `~/go` a `~/.local/share/go`
   - Cambio alias bash

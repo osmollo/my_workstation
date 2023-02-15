@@ -1,0 +1,21 @@
+---
+
+- name: "[SHELL] Install Prezto"
+  import_tasks: prezto.yml
+  when: install_prezto
+  tags:
+    - prezto
+
+- name: "[SHELL] Install Oh My BASH!"
+  import_tasks: oh_my_bash.yml
+  when:
+    - install_ohmybash
+  tags:
+    - ohmybash
+
+- name: "[SHELL] Install Oh My ZSH!"
+  import_tasks: oh_my_zsh.yml
+  when:
+    - install_ohmyzsh
+  tags:
+    - ohmyzsh

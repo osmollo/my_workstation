@@ -1,0 +1,34 @@
+---
+
+- name: "[DEV] Install Postman"
+  import_tasks: postman/postman.yml
+  when: install_postman
+  tags:
+    - postman
+
+- name: "[DEV] Install Java"
+  import_tasks: java/java.yml
+  when: install_java
+  tags:
+    - java
+    - apachedirectory
+
+- name: "[DEV] Install Apache Directory"
+  import_tasks: apachedirectory.yml
+  when: install_apachedirectory
+  tags:
+    - apachedirectory
+
+- name: "[DEV] Install Go"
+  import_tasks: go.yml
+  when: install_go
+  tags:
+    - go
+
+- name: "[DEV] Install beekeeper"
+  import_tasks: beekeeper.yml
+  when:
+    - install_beekeeper
+    - linux_distribution == "ubuntu"
+  tags:
+    - beekeeper

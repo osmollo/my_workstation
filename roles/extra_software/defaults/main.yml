@@ -104,7 +104,7 @@ install_yq: true
 install_element: false
 install_gopass: false
 install_drawio: false
-install_broot: false
+install_broot: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85

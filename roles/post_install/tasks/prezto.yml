@@ -30,7 +30,7 @@
   become_method: sudo
   import_role:
     name: extra_software
-    tasks_from: prezto.yml
+    tasks_from: shell/prezto.yml
   vars:
     prezto_repo: git@github.com:osmollo/prezto.git
 
@@ -78,4 +78,3 @@
   shell: git submodule update --init --recursive
   args:
     chdir: "{{ ansible_user_dir }}/.zprezto"
-

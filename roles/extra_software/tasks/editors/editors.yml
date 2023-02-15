@@ -1,0 +1,60 @@
+---
+
+- name: "[EDITORS] Install Sublime Text"
+  import_tasks: sublime_text/sublime.yml
+  when: install_sublimetext
+  tags:
+    - sublimetext
+    - sublime_text
+    - sublime
+
+- name: "[EDITORS] Install Visual Studio Code"
+  import_tasks: vscode/code.yml
+  when: install_vscode
+  tags:
+    - vscode
+
+- name: "[EDITORS] Install Visual Studio Codium"
+  import_tasks: vscodium/codium.yml
+  when:
+    - install_vscodium
+    - linux_distribution != "fedora"
+  tags:
+    - vscodium
+
+- name: "[EDITORS] Install PyCharm"
+  import_tasks: pycharm/pycharm.yml
+  when: install_pycharm
+  tags:
+    - pycharm
+
+- name: "[EDITORS] Install Cherrytree"
+  import_tasks: cherrytree/cherrytree.yml
+  when: install_cherrytree
+  tags:
+    - cherrytree
+
+- name: "[EDITORS] Install vim plugins"
+  import_tasks: vim_plugins.yml
+  when:
+    - install_vimplugins
+    - not install_neovim
+  tags:
+    - vim
+    - vimplugins
+
+- name: "[EDITORS] Install Neovim"
+  import_tasks: neovim/neovim.yml
+  when: install_neovim
+  tags:
+    - neovim
+    - nvim
+    - update
+
+- name: "[EDITORS] Install MarkText"
+  import_tasks: marktext/marktext.yml
+  when: install_marktext
+  tags:
+    - marktext
+    - mark_text
+    - update
