@@ -32,6 +32,7 @@
   - Cambio del directorio `$GOPATH` de `~/go` a `~/.local/share/go`
   - Cambio alias bash
   - Cambio obtención de la configuración de `rclone`
+  - Cambios en la configuración de **Neovim**
 
 ## 8.2
 
