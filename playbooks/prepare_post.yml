@@ -17,8 +17,8 @@
       set_fact:
         doc1_filename: "{{ lookup('onepassword', 'op://Private/GPG\ personal/add more/name') }}"
         doc1_passphrase: "{{ lookup('onepassword', 'op://Private/GPG\ personal/add more/passphrase') }}"
-        doc2_filename: "{{ lookup('onepassword', 'op://Office/GPG\ datio/add more/name') }}"
-        doc2_passphrase: "{{ lookup('onepassword', 'op://Office/GPG\ datio/add more/passphrase') }}"
+        doc2_filename: "{{ lookup('onepassword', 'op://Private/GPG\ datio/add more/name') }}"
+        doc2_passphrase: "{{ lookup('onepassword', 'op://Private/GPG\ datio/add more/passphrase') }}"
         doc3_filename: "{{ lookup('onepassword', 'op://Private/GPG\ proton/add more/name') }}"
         doc3_passphrase: "{{ lookup('onepassword', 'op://Private/GPG\ proton/add more/passphrase') }}"
 

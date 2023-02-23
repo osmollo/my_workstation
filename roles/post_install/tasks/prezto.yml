@@ -28,9 +28,7 @@
 - name: "[PREZTO] install ohermosa's prezto fork'"
   become: true
   become_method: sudo
-  import_role:
-    name: extra_software
-    tasks_from: shell/prezto.yml
+  import_tasks: ../extra_software/tasks/shell/prezto.yml
   vars:
     prezto_repo: git@github.com:osmollo/prezto.git
 
