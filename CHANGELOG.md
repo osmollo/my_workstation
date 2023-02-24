@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [8.3.1](#831)
   - [8.3](#83)
   - [8.2](#82)
   - [8.1.1](#811)
@@ -16,6 +17,11 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 8.3.1
+
+- Corrección de errores:
+  - Movidos algunos directorios de apps del role `extra_software` a su ubicación correcta
 
 ## 8.3
 
