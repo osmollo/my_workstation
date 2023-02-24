@@ -1,0 +1,7 @@
+---
+
+- name: "[GOPASS] [ARCH] Install GOPass"
+  pacman:
+    name: gopass
+    state: present
+    update_cache: true

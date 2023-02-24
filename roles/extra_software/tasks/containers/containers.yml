@@ -1,0 +1,20 @@
+---
+
+- name: "[CONTAINERS] Install docker"
+  import_tasks: docker/docker.yml
+  when: install_docker
+  tags:
+    - docker
+
+- name: "[CONTAINERS] Install podman"
+  import_tasks: podman/podman.yml
+  when: install_podman
+  tags:
+    - podman
+
+- name: "[CONTAINERS] Install trivy"
+  import_tasks: trivy/trivy.yml
+  when: install_trivy
+  tags:
+    - trivy
+    - update

@@ -9,33 +9,29 @@
     ansible_user: "{{ lookup('env', 'USER') }}"
     ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
   tasks:
-    - name: "include secrets file"
-      include_vars:
-        file: "{{ playbook_dir | dirname }}/roles/post_install/vars/op.yml"
-
     - name: "Dropbox sync"
       debug:
-        msg: "Sync Dropbox with the following pass: {{ lookup('onepassword', op.item1, label='password') }}"
+        msg: "Sync Dropbox with the following pass: {{ lookup('onepassword', 'op://Private/Dropbox/password') }}"
 
     - name: "get gpg data"
       set_fact:
-        doc1_filename: "{{ lookup('onepassword', op.doc1.id, label='name', vault=op.doc1.vault) }}"
-        doc1_passphrase: "{{ lookup('onepassword', op.doc1.id, label='passphrase', vault=op.doc1.vault) }}"
-        doc2_filename: "{{ lookup('onepassword', op.doc2.id, label='name', vault=op.doc2.vault) }}"
-        doc2_passphrase: "{{ lookup('onepassword', op.doc2.id, label='passphrase', vault=op.doc2.vault) }}"
-        doc3_filename: "{{ lookup('onepassword', op.doc3.id, label='name', vault=op.doc3.vault) }}"
-        doc3_passphrase: "{{ lookup('onepassword', op.doc3.id, label='passphrase', vault=op.doc3.vault) }}"
+        doc1_filename: "{{ lookup('onepassword', 'op://Private/GPG\ personal/add more/name') }}"
+        doc1_passphrase: "{{ lookup('onepassword', 'op://Private/GPG\ personal/add more/passphrase') }}"
+        doc2_filename: "{{ lookup('onepassword', 'op://Private/GPG\ datio/add more/name') }}"
+        doc2_passphrase: "{{ lookup('onepassword', 'op://Private/GPG\ datio/add more/passphrase') }}"
+        doc3_filename: "{{ lookup('onepassword', 'op://Private/GPG\ proton/add more/name') }}"
+        doc3_passphrase: "{{ lookup('onepassword', 'op://Private/GPG\ proton/add more/passphrase') }}"
 
     - name: "download gpg files"
       command: "{{ item }}"
       loop:
-        - "op document get '{{ op.doc1.id }}' --output {{ ansible_user_dir }}/{{ doc1_filename }}"
-        - "op document get '{{ op.doc2.id }}' --output {{ ansible_user_dir }}/{{ doc2_filename }}"
-        - "op document get '{{ op.doc3.id }}' --output {{ ansible_user_dir }}/{{ doc3_filename }}"
+        - "op document get 'GPG personal' --output {{ ansible_user_dir }}/{{ doc1_filename }}.zip"
+        - "op document get 'GPG datio' --output {{ ansible_user_dir }}/{{ doc2_filename }}.zip"
+        - "op document get 'GPG proton' --output {{ ansible_user_dir }}/{{ doc3_filename }}.zip"
 
     - name: "create directories to uncompress gpg files"
       file:
-        path: "{{ ansible_user_dir }}/{{ item[:-4] }}"
+        path: "{{ ansible_user_dir }}/{{ item }}"
         state: directory
         mode: 0755
         owner: "{{ ansible_user }}"
@@ -47,8 +43,8 @@
 
     - name: "uncompress gpg files"
       unarchive:
-        src: "{{ item }}"
-        dest: "{{ item[:-4] }}"
+        src: "{{ item }}.zip"
+        dest: "{{ item }}"
       loop:
         - "{{ ansible_user_dir }}/{{ doc1_filename }}"
         - "{{ ansible_user_dir }}/{{ doc2_filename }}"
@@ -59,9 +55,9 @@
         file: "{{ item }}"
         state: present
       loop:
-        - "{{ ansible_user_dir }}/{{ doc1_filename[:-4] }}/pub"
-        - "{{ ansible_user_dir }}/{{ doc2_filename[:-4] }}/pub"
-        - "{{ ansible_user_dir }}/{{ doc3_filename[:-4] }}/pub"
+        - "{{ ansible_user_dir }}/{{ doc1_filename }}/pub"
+        - "{{ ansible_user_dir }}/{{ doc2_filename }}/pub"
+        - "{{ ansible_user_dir }}/{{ doc3_filename }}/pub"
 
     - name: "[PERSONAL] please copy this passphrase"
       debug: var=doc1_passphrase
@@ -70,7 +66,7 @@
 
     - name: "[PERSONAL] import GPG priv key"
       gpg_key:
-        file: "{{ ansible_user_dir }}/{{ doc1_filename[:-4] }}/priv"
+        file: "{{ ansible_user_dir }}/{{ doc1_filename }}/priv"
         trust: '5'
         state: present
 
@@ -81,7 +77,7 @@
 
     - name: "[WORK] import GPG priv key"
       gpg_key:
-        file: "{{ ansible_user_dir }}/{{ doc2_filename[:-4] }}/priv"
+        file: "{{ ansible_user_dir }}/{{ doc2_filename }}/priv"
         trust: '5'
         state: present
 
@@ -92,7 +88,7 @@
 
     - name: "[PROTON] import GPG priv key"
       gpg_key:
-        file: "{{ ansible_user_dir }}/{{ doc3_filename[:-4] }}/priv"
+        file: "{{ ansible_user_dir }}/{{ doc3_filename }}/priv"
         trust: '5'
         state: present
 
@@ -119,9 +115,9 @@
         path: "{{ item }}"
         state: absent
       loop:
+        - "{{ ansible_user_dir }}/{{ doc1_filename }}.zip"
         - "{{ ansible_user_dir }}/{{ doc1_filename }}"
-        - "{{ ansible_user_dir }}/{{ doc1_filename[:-4] }}"
+        - "{{ ansible_user_dir }}/{{ doc2_filename }}.zip"
         - "{{ ansible_user_dir }}/{{ doc2_filename }}"
-        - "{{ ansible_user_dir }}/{{ doc2_filename[:-4] }}"
+        - "{{ ansible_user_dir }}/{{ doc3_filename }}.zip"
         - "{{ ansible_user_dir }}/{{ doc3_filename }}"
-        - "{{ ansible_user_dir }}/{{ doc3_filename[:-4] }}"

@@ -1,0 +1,28 @@
+---
+
+- name: "[YQ] Get latest version of yq"
+  uri:
+    url: "{{ yq_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: yq_latest
+
+- name: "[YQ] Set url for yq binary"
+  vars:
+    yq_version: "{{ yq_latest.url | urlsplit('path') | basename }}"
+  block:
+    - set_fact:
+        yq_binary: "https://github.com/mikefarah/yq/releases/download/{{ yq_version }}/yq_linux_amd64"
+
+    - name: "[YQ] download yq '{{ yq_version }}' binary"
+      get_url:
+        url: "{{ yq_binary }}"
+        dest: /usr/local/bin/yq
+        mode: 0755
+        owner: root
+        group: root
+
+- name: "[YQ] create alias for yq --> jq"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.bash_aliases"
+    line: "alias jq='/usr/local/bin/yq'"

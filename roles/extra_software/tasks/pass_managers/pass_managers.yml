@@ -1,0 +1,39 @@
+---
+
+- name: "[PASS_MANAGERS] Install Bitwarden"
+  import_tasks: bitwarden/bitwarden.yml
+  when: install_bitwarden
+  tags:
+    - bitwarden
+    - update
+
+- name: "[PASS_MANAGERS] Install 1Password"
+  import_tasks: 1password/1password.yml
+  when: install_1password
+  tags:
+    - 1password
+
+- name: "[PASS_MANAGERS] Install Buttercup"
+  import_tasks: buttercup/buttercup.yml
+  when: install_buttercup
+  tags:
+    - buttercup
+    - update
+
+- name: "[PASS_MANAGERS] Install Pass"
+  import_tasks: pass/pass.yml
+  when: install_pass
+  tags:
+    - pass
+
+- name: "[PASS_MANAGERS] Install GOPass"
+  import_tasks: gopass/gopass.yml
+  when: install_gopass
+  tags:
+    - gopass
+
+- name: "[PASS_MANAGERS] Install Keepass"
+  import_tasks: keepass/keepass.yml
+  when: install_keepass
+  tags:
+    - keepass

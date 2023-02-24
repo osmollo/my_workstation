@@ -168,6 +168,7 @@
     - name: "check if meld is installed"
       command: which meld
       register: meld_response
+      changed_when: false
       ignore_errors: true
 
     - name: "[GIT] check if kompare is installed"
@@ -199,7 +200,7 @@
               cmd = {{ diff_editor }} "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
           [user]
-            signingkey = {{ lookup('onepassword', 'osmollo', label='public key') }}
+            signingkey = {{ lookup('onepassword', 'op://Private/osmollo/public key') }}
 
           [gpg]
             format = ssh

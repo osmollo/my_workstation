@@ -1,0 +1,129 @@
+---
+
+- name: "[TOOLS] Install TLP"
+  import_tasks: tlp/tlp.yml
+  when: install_tlp
+  tags:
+    - tlp
+
+- name: "[TOOLS] Install Bucklespring"
+  import_tasks: bucklespring.yml
+  when:
+    - linux_distribution == "ubuntu" or linux_distribution == "debian"
+    - install_bucklespring
+  tags:
+    - bucklespring
+
+- name: "[TOOLS] Install Etcher"
+  import_tasks: etcher/etcher.yml
+  when: install_etcher
+  tags:
+    - etcher
+    - update
+
+- name: "[TOOLS] Install WoeUSB"
+  import_tasks: woeusb/woeusb.yml
+  when: install_woeusb
+  tags:
+    - woeusb
+
+- name: "[TOOLS] Install FZF"
+  import_tasks: fzf.yml
+  when: install_fzf
+  tags:
+    - fzf
+    - update
+
+- name: "[TOOLS] Install tmux"
+  import_tasks: tmux.yml
+  when: install_tmux
+  tags:
+    - tmux
+
+- name: "[TOOLS] Install LSD"
+  import_tasks: lsd/lsd.yml
+  when: install_lsd
+  tags:
+    - lsd
+    - vitaminar
+    - vitaminado
+    - update
+
+- name: "[TOOLS] Install gping"
+  import_tasks: gping/gping.yml
+  when: install_gping
+  tags:
+    - gping
+    - vitaminar
+    - vitaminado
+
+- name: "[TOOLS] Install curlie"
+  import_tasks: curlie/curlie.yml
+  when: install_curlie
+  tags:
+    - curlie
+    - vitaminar
+    - vitaminado
+    - update
+
+- name: "[TOOLS] Install bat"
+  import_tasks: bat/bat.yml
+  when: install_bat
+  tags:
+    - bat
+    - vitaminar
+    - vitaminado
+    - update
+
+- name: "[TOOLS] Install duf"
+  import_tasks: duf/duf.yml
+  when: install_duf
+  tags:
+    - duf
+    - vitaminar
+    - vitaminado
+    - update
+
+- name: "[TOOLS] Install ripgrep"
+  import_tasks: ripgrep/ripgrep.yml
+  when: install_ripgrep
+  tags:
+    - ripgrep
+    - vitaminar
+    - vitaminado
+
+- name: "[TOOLS] Install bottom"
+  import_tasks: bottom/bottom.yml
+  when: install_bottom
+  tags:
+    - bottom
+    - update
+    - vitaminar
+    - vitaminado
+
+- name: "[TOOLS] Install yq"
+  import_tasks: yq.yml
+  when: install_yq
+  tags:
+    - yq
+    - update
+
+- name: "[TOOLS] Install broot"
+  import_tasks: broot.yml
+  when: install_broot
+  tags:
+    - broot
+    - update
+
+- name: "[TOOLS] Install hashicorp tools"
+  import_tasks: hashicorp/hashicorp.yml
+  when: install_vault or install_terraform or install_consul or install_nomad or install_hashicorp
+  tags:
+    - hashicorp
+
+- name: "[TOOLS] Install Ether Cloud Services Client"
+  import_tasks: ecs.yml
+  when: install_ecs
+  tags:
+    - extra_software
+    - ecs

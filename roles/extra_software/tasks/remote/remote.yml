@@ -1,0 +1,13 @@
+---
+
+- name: "[REMOTE] Install Teamviewer"
+  import_tasks: teamviewer/teamviewer.yml
+  when: install_teamviewer
+  tags:
+    - teamviewer
+
+- name: "[REMOTE] Install No Machine"
+  import_tasks: nomachine/nomachine.yml
+  when: install_nomachine
+  tags:
+    - nomachine

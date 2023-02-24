@@ -1,0 +1,8 @@
+---
+
+- name: "[ELEMENT] [ARCH] install Element"
+  become: false
+  yay:
+    name: "{{ element_package }}"
+    state: present
+    update_cache: true

@@ -1,0 +1,7 @@
+---
+
+- name: "[GOPASS] [RPM] Install GOPass"
+  dnf:
+    name: gopass
+    state: present
+    disable_gpg_check: true

@@ -1,0 +1,7 @@
+---
+
+- name: "[COPYQ] [FEDORA] install copyq package"
+  dnf:
+    name: copyq
+    state: present
+    update_cache: true

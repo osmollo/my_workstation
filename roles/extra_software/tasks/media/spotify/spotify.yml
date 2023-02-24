@@ -1,0 +1,24 @@
+---
+
+- name: "[SPOTIFY] install for {{ linux_distribution }}"
+  include_tasks: "spotify_{{ linux_distribution }}.yml"
+
+- name: "[SPOTIFY] install spotify cli"
+  block:
+    - name: "[SPOTIFY] Get latest version of spotify-tui"
+      uri:
+        url: https://github.com/Rigellute/spotify-tui/releases/latest
+        follow_redirects: safe
+        body_format: raw
+      register: spotifytui_latest
+
+    - name: "[SPOTIFY] download spotify-tui {{ spotifytui_version }} package"
+      vars:
+        spotifytui_version: "{{ spotifytui_latest.url | urlsplit('path') | basename }}"
+      unarchive:
+        src: "https://github.com/Rigellute/spotify-tui/releases/download/{{ spotifytui_version }}/spotify-tui-linux.tar.gz"
+        dest: /usr/local/bin
+        mode: 0755
+        remote_src: true
+  tags:
+    - install_spotify_cli

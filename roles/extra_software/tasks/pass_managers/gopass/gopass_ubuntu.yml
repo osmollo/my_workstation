@@ -1,0 +1,26 @@
+---
+
+- name: "[GOPASS] [DEB] Install GOPass"
+  apt:
+    name: pass
+    state: present
+
+- name: "[GOPASS] [DEB] install gpg key"
+  apt_key:
+    url: https://packages.gopass.pw/repos/gopass/gopass-archive-keyring.gpg
+    keyring: /usr/share/keyrings/gopass-archive-keyring.gpg
+    state: present
+
+- name: "[GOPASS] [DEB] install GOpass repository"
+  lineinfile:
+    path: /etc/apt/sources.list.d/gopass.list
+    line: "deb [signed-by=/usr/share/keyrings/gopass-archive-keyring.gpg] https://packages.gopass.pw/repos/gopass stable main"
+    create: true
+
+- name: "[GOPASS] [DEB] install GOPass"
+  apt:
+    name:
+      - gopass-archive-keyring
+      - gopass
+    state: present
+    update_cache: true

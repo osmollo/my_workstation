@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [8.3](#83)
   - [8.2](#82)
   - [8.1.1](#811)
   - [8.1](#81)
@@ -15,6 +16,24 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 8.3
+
+- Ya no se soporta la instalación de **Ferdi** ni **Station** por abandono de dichos proyectos
+- Simplificación en la lectura de secretos de [1Password](https://1password.eu/) sin usar módulos de **Ansible**
+- Instalación de [yq](https://github.com/mikefarah/yq) para parsear __json__, __yaml__ y __xml__ de forma similar a como funciona **jq**
+- Instalación de [Element](https://element.io/) como cliente de mensajería para [matrix.org](https://matrix.org)
+- Instalación de [GOpass](https://github.com/gopasspw/gopass)
+- Instalación de [draw.io](https://github.com/jgraph/drawio-desktop)
+- Instalación de [broot](https://github.com/Canop/broot)
+- Nuevo tag `update` para actualizar paquetes del sistema y todo el software descargado desde repositorios de [github](https://github.com)
+- Organización y agrupación de las aplicaciones instaladas en el role `extra_software`
+- Nuevos repositorios git
+- Corrección de errores:
+  - Cambio del directorio `$GOPATH` de `~/go` a `~/.local/share/go`
+  - Cambio alias bash
+  - Cambio obtención de la configuración de `rclone`
+  - Cambios en la configuración de **Neovim**
 
 ## 8.2
 

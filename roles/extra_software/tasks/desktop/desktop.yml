@@ -1,0 +1,29 @@
+---
+
+- name: "[DESKTOP] Install kdenlive"
+  import_tasks: kdenlive/kdenlive.yml
+  when:
+    - install_kdenlive
+  tags:
+    - kdenlive
+
+- name: "Install Draw.io"
+  import_tasks: drawio/drawio.yml
+  when: install_drawio
+  tags:
+    - drawio
+    - update
+
+- name: "Install Deluge"
+  import_tasks: deluge/deluge.yml
+  when:
+    - install_deluge
+    - desktop_environment == "gnome"
+  tags:
+    - deluge
+
+- name: "Install CopyQ"
+  import_tasks: copyq/copyq.yml
+  when: install_copyq
+  tags:
+    - copyq      

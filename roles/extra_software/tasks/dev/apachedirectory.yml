@@ -1,0 +1,40 @@
+---
+
+- name: "[ARCH] Install apache directory studio"
+  become: false
+  yay:
+    name: "{{ apachedirectory_package }}"
+    state: present
+    update_cache: true
+  when: linux_distribution == "arch"
+
+- when: linux_distribution != "arch"
+  block:
+    - name: "[APACHEDIRECTORY] Download Apache Directory"
+      unarchive:
+        src: "{{ apachedirectory_url }}"
+        dest: "/home/{{ ansible_user }}"
+        remote_src: true
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+      become: false
+
+    - name: "[APACHEDIRECTORY] Create /usr/share/applications/apachedirectory.desktop"
+      template:
+        src: apachedirectory.desktop.j2
+        dest: /usr/share/applications/apachedirectory.desktop
+        owner: root
+        group: root
+        mode: 0644
+
+    # - name: "[APACHEDIRECTORY] create route to ldap"
+    #   command: ip route add 10.48.193.78 dev vpn
+
+    - name: "[APACHEDIRECTORY] delete alias to ldap"
+      lineinfile:
+        path: /etc/hosts
+        line: "{{ item.ip }}    {{ item.name }}"
+        state: absent
+      loop:
+        - ip: 10.48.193.78
+          name: ldap.secaas.live.es.ether.igrupobbva

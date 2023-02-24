@@ -1,0 +1,104 @@
+---
+
+- block:
+    - name: "[KUBECTL] install for {{ linux_distribution }}"
+      include_tasks: "kubectl_{{ linux_distribution }}.yml"
+
+    - name: "[KUBECOLOR] install kubecolor"
+      import_tasks: kubecolor.yml
+      tags:
+        - kubecolor
+        - update
+
+    - name: "[KUBECTL] configure shell"
+      block:
+        - name: "[KUBECTL] check if .bashrc exists"
+          stat:
+            path: "{{ ansible_user_dir }}/.bashrc"
+          register: bashrc_exists
+
+        - name: "[KUBECTL] insert line in .bashrc"
+          lineinfile:
+            path: "{{ ansible_user_dir }}/.bashrc"
+            line: "source <(kubectl completion bash)"
+            state: present
+          when: bashrc_exists.stat.exists
+
+        - name: "[KUBECTL] check if .zshrc exists"
+          stat:
+            path: "{{ ansible_user_dir }}/.zshrc"
+          register: zshrc_exists
+
+        - name: "[KUBECTL] insert line in .zshrc"
+          lineinfile:
+            path: "{{ ansible_user_dir }}/.zshrc"
+            line: "source <(kubectl completion bash)"
+            state: present
+          when: zshrc_exists.stat.exists
+      become: false
+  when: install_k8s_tools or install_kubectl
+  tags:
+    - kubectl
+
+- name: "[MINIKUBE] install minikube"
+  import_tasks: minikube.yml
+  when: install_k8s_tools or install_minikube
+  tags:
+    - minikube
+
+- name: "[HELM] installation"
+  import_tasks: helm.yml
+  when: install_k8s_tools or install_helm
+  tags:
+    - helm
+    - update
+
+- name: "[HETZNER_KUBE] installation"
+  import_tasks: hetzner_kube.yml
+  when: install_k8s_tools or install_hetznerkube
+  tags:
+    - hetznerkube
+    - update
+
+- name: "[KOPS] installation"
+  import_tasks: kops.yml
+  when: install_k8s_tools or install_kops
+  tags:
+    - kops
+    - update
+
+- name: "[LENS] installation"
+  import_tasks: lens.yml
+  when: install_k8s_tools or install_lens
+  tags:
+    - lens
+    - update
+
+- name: "[KIND] installation"
+  import_tasks: kind.yml
+  when: install_k8s_tools or install_kind
+  tags:
+    - kind
+    - update
+
+- name: "[MICROK8S] installation"
+  import_tasks: microk8s.yml
+  when:
+    - linux_distribution in ['ubuntu', 'debian']
+    - install_k8s_tools or install_microk8s
+  tags:
+    - microk8s
+
+- name: "[KOMPOSE] installation"
+  import_tasks: kompose.yml
+  when: install_k8s_tools or install_kompose
+  tags:
+    - kompose
+    - update
+
+- name: "[K0s] installation"
+  import_tasks: k0s.yml
+  when: install_k8s_tools or install_k0s
+  tags:
+    - k0s
+    - update

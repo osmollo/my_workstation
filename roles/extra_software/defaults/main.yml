@@ -100,6 +100,11 @@ install_singlebox: false
 install_librewolf: false
 install_marktext: true
 install_rclone: true
+install_yq: true
+install_element: false
+install_gopass: false
+install_drawio: false
+install_broot: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -134,6 +139,9 @@ neovim_latest_url: "https://github.com/neovim/neovim/releases/latest"
 marktext_latest_url: "https://github.com/marktext/marktext/releases/latest"
 kind_latest_url: "https://github.com/kubernetes-sigs/kind/releases/latest"
 kubecolor_latest_url: "https://github.com/hidetatz/kubecolor/releases/latest"
+yq_latest_url: "https://github.com/mikefarah/yq/releases/latest"
+drawio_latest_url: "https://github.com/jgraph/drawio-desktop/releases/latest"
+broot_latest_url: "https://github.com/Canop/broot/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"
@@ -164,7 +172,8 @@ mega_url_base: "https://mega.nz/linux/MEGAsync"
 
 prezto_repo: https://github.com/sorin-ionescu/prezto.git
 
-go_dir: /usr/local/go
+go_root: /usr/local/go
+go_path: "{{ ansible_user_dir }}/.local/share/go"
 
 vim_plugins:
   - 'VundleVim/Vundle.vim'

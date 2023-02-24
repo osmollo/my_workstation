@@ -1,0 +1,58 @@
+---
+
+- name: "[SOCIAL] Install Telegram"
+  import_tasks: telegram/telegram.yml
+  when: install_telegram
+  tags:
+    - telegram
+
+- name: "[SOCIAL] Install Slack"
+  import_tasks: slack/slack.yml
+  when: install_slack
+  tags:
+    - slack
+
+- name: "[SOCIAL] Install Skype"
+  import_tasks: skype/skype.yml
+  when: install_skype
+  tags:
+    - skype
+
+- name: "[SOCIAL] Install Rambox"
+  import_tasks: rambox/rambox.yml
+  when: install_rambox
+  tags:
+    - rambox
+    - update
+
+- name: "[SOCIAL] Install Franz"
+  import_tasks: franz/franz.yml
+  when: install_franz
+  tags:
+    - franz
+    - update
+
+- name: "[SOCIAL] Install yakyak"
+  import_tasks: yakyak/yakyak.yml
+  when: install_yakyak
+  tags:
+    - yakyak
+    - update
+
+- name: "[SOCIAL] Install zoom"
+  import_tasks: zoom/zoom.yml
+  when: install_zoom
+  tags:
+    - zoom
+
+- name: "[SOCIAL] Install singlebox"
+  import_tasks: singlebox/singlebox.yml
+  when: install_singlebox
+  tags:
+    - singlebox
+
+- name: "[SOCIAL] Install Element"
+  import_tasks: element/element.yml
+  when: install_element
+  tags:
+    - element

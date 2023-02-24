@@ -1,0 +1,13 @@
+---
+
+- name: "[COPYQ] [UBUNTU] add copyq ppa repository"
+  apt_repository:
+    validate_certs: no
+    repo: 'ppa:hluk/copyq'
+    state: present
+
+- name: "[COPYQ] [UBUNTU] install copyq package"
+  apt:
+    name: copyq
+    state: present
+    update_cache: true

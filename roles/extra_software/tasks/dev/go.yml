@@ -1,0 +1,44 @@
+---
+
+- name: "[GO] check if previous version is installed"
+  stat:
+    path: "{{ go_root }}"
+  register: go_response
+
+- name: "[GO] delete previous version if exists"
+  file:
+    path: "{{ go_root }}"
+    state: absent
+  when: go_response.stat.exists
+
+- name: "[GO] get latest go version"
+  get_go_latest:
+  register: go_response
+
+- name: "[GO] download go {{ go_response.version }}"
+  unarchive:
+    src: "https://dl.google.com/go/go{{ go_response.version }}.linux-amd64.tar.gz"
+    dest: "/usr/local"
+    remote_src: true
+
+- block:
+    - name: "[GO] create GOPATH directory"
+      file:
+        path: "{{ go_path }}"
+        state: directory
+
+    - name: "[GO] get the default shell for {{ ansible_user }}"
+      shell: "basename $(echo $SHELL)"
+      register: shell_response
+      changed_when: false
+
+    - name: "[GO] export environment variables"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.{{ shell_response.stdout }}rc"
+        line: "{{ item }}"
+        state: present
+      loop:
+        - "export PATH=$PATH:/usr/local/go/bin"
+        - "export GOROOT={{ go_root }}"
+        - "export GOPATH={{ go_path  }}"
+  become: false

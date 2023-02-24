@@ -1,0 +1,10 @@
+---
+
+- name: "[COPYQ] [DEBIAN] install copyq packages"
+  apt:
+    name:
+      - copyq
+      - copyq-plugins
+      - copyq-doc
+    state: present
+    update_cache: true

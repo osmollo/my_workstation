@@ -1,0 +1,7 @@
+---
+
+- name: "[DRAWIO] [DEB] install drawio package"
+  apt:
+    deb: "{{ drawio_deb_package }}"
+    state: present
+    update_cache: true

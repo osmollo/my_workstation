@@ -1,0 +1,20 @@
+---
+
+- name: "[VPN] Install Windscribe client"
+  import_tasks: windscribe/windscribe.yml
+  when: install_windscribe
+  tags:
+    - windscribe
+
+- name: "[VPN] Install ProtonVPN"
+  import_tasks: protonvpn.yml
+  when: install_protonvpn
+  tags:
+    - protonvpn
+
+- name: "[VPN] Install wireguard"
+  import_tasks: wireguard/wireguard.yml
+  when:
+    - install_wireguard
+  tags:
+    - wireguard
