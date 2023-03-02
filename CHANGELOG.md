@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [8.3.2](#832)
   - [8.3.1](#831)
   - [8.3](#83)
   - [8.2](#82)
@@ -17,6 +18,14 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 8.3.2
+
+- Corrección de errores:
+  - **Sublime Text** ya no se instala por defecto
+  - Post_install:
+    - Ya no se define la variable `ANSIBLE_VAULT_PASSWORD_FILE` aunque se mantiene la creación del fichero
+    - Ya no se configura **ProtonVPN** en las VPNs del sistema
 
 ## 8.3.1
 

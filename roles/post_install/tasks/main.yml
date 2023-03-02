@@ -95,15 +95,6 @@
     - sublimetext
     - sublimemerge
 
-- name: "configure VPNs"
-  import_tasks: network.yml
-  become: true
-  become_method: sudo
-  when: use_dropxbox | default(true)
-  tags:
-    - post_install
-    - network
-
 - name: "Configure VIM"
   import_tasks: vim.yml
   tags:
