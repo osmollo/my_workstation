@@ -23,6 +23,7 @@
 
 - Corrección de errores:
   - **Sublime Text** ya no se instala por defecto
+  - Instalación del paquete `gnome-shell-extensions` en las distintas distribuciones
   - Post_install:
     - Ya no se define la variable `ANSIBLE_VAULT_PASSWORD_FILE` aunque se mantiene la creación del fichero
     - Ya no se configura **ProtonVPN** en las VPNs del sistema

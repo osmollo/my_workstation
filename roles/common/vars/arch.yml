@@ -29,6 +29,7 @@ gnome_arch_packages:
   - gnome-keyring
   - libgnome-keyring
   - seahorse
+  - gnome-shell-extensions
 
 kde_arch_packages:
   - yakuake

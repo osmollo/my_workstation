@@ -42,6 +42,7 @@ gnome_ubuntu_packages:
   - gnome-shell-extension-manager
   - gir1.2-gda-5.0
   - gir1.2-gsound-1.0
+  - gnome-shell-extensions
 
 kde_ubuntu_packages:
   - kubuntu-restricted-extras
