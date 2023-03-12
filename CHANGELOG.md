@@ -28,6 +28,7 @@
     - Ya no se define la variable `ANSIBLE_VAULT_PASSWORD_FILE` aunque se mantiene la creación del fichero
     - Ya no se configura **ProtonVPN** en las VPNs del sistema
     - Cambio en el orden de la configuración de **git**: `broot` y `git_diff` se ejecutan antes de la clonación de repositorios
+    - Alias para obtener el http status code con ``curl``
 
 ## 8.3.1
 
