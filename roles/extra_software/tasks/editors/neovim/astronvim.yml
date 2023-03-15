@@ -27,6 +27,9 @@
     clone: true
     accept_hostkey: true
 
+- name: "[ASTRONVIM] initialize astronvim"
+  command: "nvim  --headless -c 'quitall'"
+
 - name: "[ASTRONVIM] basic setup"
   command: "nvim -c ':{{ item }}' -c ':qall'"
   loop:
