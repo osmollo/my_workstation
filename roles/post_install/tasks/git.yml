@@ -1,5 +1,84 @@
 ---
 
+- name: "[GIT] install broot"
+  block:
+    - name: "[GIT] download broot binary"
+      become: true
+      get_url:
+        url: "{{ broot_binary_url }}"
+        dest: /usr/local/bin/broot
+        mode: 0755
+
+    - name: "[GIT] create broot config directory"
+      file:
+        path: "{{ ansible_user_dir }}/.config/broot"
+        state: directory
+
+    - name: "[GIT] configure broot"
+      copy:
+        src: git-diff-conf.toml
+        dest: "{{ ansible_user_dir }}/.config/broot/git-diff-conf.toml"
+        mode: 0644
+
+    - name: "[GIT] create alias for broot"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.bash_aliases"
+        create: true
+        state: present
+        line: "alias gg='/usr/local/bin/broot --conf ~/.config/broot/git-diff-conf.toml --git-status'"
+  tags:
+    - broot
+
+- name: "[GIT] configure git diff config"
+  block:
+    - name: "check if meld is installed"
+      command: which meld
+      register: meld_response
+      changed_when: false
+      ignore_errors: true
+
+    - name: "[GIT] check if kompare is installed"
+      command: which kompare
+      register: kompare_response
+      ignore_errors: true
+
+    - name: "[GIT] configure git"
+      vars:
+        diff_editor: "{{ 'meld' if meld_response.rc == 0 else 'kompare' if kompare_response.rc == 0 }}"
+      blockinfile:
+        path: "{{ ansible_user_dir }}/.gitconfig"
+        mode: 0644
+        create: true
+        block: |
+          [diff]
+            tool = {{ diff_editor }}
+
+          [difftool]
+              prompt = false
+
+          [difftool "{{ diff_editor }}"]
+              cmd = {{ diff_editor }} "$LOCAL" "$REMOTE"
+
+          [merge]
+              tool = {{ diff_editor }}
+
+          [mergetool "{{ diff_editor }}"]
+              cmd = {{ diff_editor }} "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+
+          [user]
+            signingkey = {{ lookup('onepassword', 'op://Private/osmollo/public key') }}
+
+          [gpg]
+            format = ssh
+
+          [gpg "ssh"]
+            program = "/opt/1Password/op-ssh-sign"
+
+          [commit]
+            gpgsign = true
+  tags:
+    - git_diff
+
 - block:
     - name: "[GIT] Create {{ git_dir }}"
       file:
@@ -134,81 +213,3 @@
     - clone_repos
     - repos_config
 
-- name: "[GIT] install broot"
-  block:
-    - name: "[GIT] download broot binary"
-      become: true
-      get_url:
-        url: "{{ broot_binary_url }}"
-        dest: /usr/local/bin/broot
-        mode: 0755
-
-    - name: "[GIT] create broot config directory"
-      file:
-        path: "{{ ansible_user_dir }}/.config/broot"
-        state: directory
-
-    - name: "[GIT] configure broot"
-      copy:
-        src: git-diff-conf.toml
-        dest: "{{ ansible_user_dir }}/.config/broot/git-diff-conf.toml"
-        mode: 0644
-
-    - name: "[GIT] create alias for broot"
-      lineinfile:
-        path: "{{ ansible_user_dir }}/.bash_aliases"
-        create: true
-        state: present
-        line: "alias gg='/usr/local/bin/broot --conf ~/.config/broot/git-diff-conf.toml --git-status'"
-  tags:
-    - broot
-
-- name: "[GIT] configure git diff config"
-  block:
-    - name: "check if meld is installed"
-      command: which meld
-      register: meld_response
-      changed_when: false
-      ignore_errors: true
-
-    - name: "[GIT] check if kompare is installed"
-      command: which kompare
-      register: kompare_response
-      ignore_errors: true
-
-    - name: "[GIT] configure git"
-      vars:
-        diff_editor: "{{ 'meld' if meld_response.rc == 0 else 'kompare' if kompare_response.rc == 0 }}"
-      blockinfile:
-        path: "{{ ansible_user_dir }}/.gitconfig"
-        mode: 0644
-        create: true
-        block: |
-          [diff]
-            tool = {{ diff_editor }}
-
-          [difftool]
-              prompt = false
-
-          [difftool "{{ diff_editor }}"]
-              cmd = {{ diff_editor }} "$LOCAL" "$REMOTE"
-
-          [merge]
-              tool = {{ diff_editor }}
-
-          [mergetool "{{ diff_editor }}"]
-              cmd = {{ diff_editor }} "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-
-          [user]
-            signingkey = {{ lookup('onepassword', 'op://Private/osmollo/public key') }}
-
-          [gpg]
-            format = ssh
-
-          [gpg "ssh"]
-            program = "/opt/1Password/op-ssh-sign"
-
-          [commit]
-            gpgsign = true
-  tags:
-    - git_diff

@@ -6,7 +6,7 @@ install_vscode: true
 install_spotify: true
 install_ohmyzsh: "{{ true if linux_distribution == 'arch' else false }}"
 install_ohmybash: true
-install_sublimetext: true
+install_sublimetext: false
 install_gitkraken: false
 install_telegram: true
 install_slack: false

@@ -43,6 +43,7 @@ gnome_fedora_packages:
   - fedora-chromium-config-gnome
   - libgda
   - libgda-sqlite
+  - gnome-extensions-app
 
 kde_fedora_packages:
   - fedora-chromium-config-kde
