@@ -37,9 +37,16 @@
       path: /usr/bin/nvim
   when: linux_distribution != 'arch'
 
-- name: "[NEOVIM] install plugins"
-  import_tasks: "neovim_plugins.yml"
+    #- name: "[NEOVIM] install plugins"
+    #  import_tasks: "neovim_plugins.yml"
+    #  tags:
+    #    - neovim_plugins
+    #    - nvim_plugins
+
+- name: "[NEOVIM] install AstroNvim"
+  import_tasks: astronvim.yml
   tags:
+    - astronvim
     - neovim_plugins
     - nvim_plugins
 

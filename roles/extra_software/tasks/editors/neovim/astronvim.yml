@@ -1,0 +1,40 @@
+---
+
+- name: "[ASTRONVIM] create a backup of nvim config"
+  copy:
+    src: "{{ item }}"
+    dest: "{{ item }}.bak"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    remote_src: true
+  loop:
+    - "{{ ansible_user_dir }}/.config/nvim"
+    - "{{ ansible_user_dir }}/.local/share/nvim"
+
+- name: "[ASTRONVIM] delete current nvim config"
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ ansible_user_dir }}/.config/nvim"
+    - "{{ ansible_user_dir }}/.local/share/nvim"
+
+- name: "[ASTRONVIM] clone astronvim config"
+  git:
+    repo: "https://github.com/AstroNvim/AstroNvim"
+    dest: "{{ ansible_user_dir }}/.config/nvim"
+    depth: 1
+    clone: true
+    accept_hostkey: true
+
+- name: "[ASTRONVIM] basic setup"
+  command: "nvim -c ':{{ item }}' -c ':qall'"
+  loop:
+    # - LspInstall pyright
+    # - LspInstall go-langserver
+    # - LspInstall bash-language-server
+    # - LspInstall dockerfile-language-server-nodejs
+    - TSInstall python
+    - TSInstall go
+    - TSInstall bash
+    - DapInstall python
