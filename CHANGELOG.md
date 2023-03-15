@@ -18,6 +18,7 @@
 
 ## VERSIONES ANTERIORES
 
+### [Versión 8](changelog/v8.md)
 ### [Versión 7](changelog/v7.md)
 ### [Versión 6](changelog/v6.md)
 ### [Versión 5](changelog/v5.md)
