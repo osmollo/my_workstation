@@ -15,6 +15,8 @@
 ## 9.0
 
 - Instalación de [AstroNvim](https://github.com/AstroNvim/AstroNvim) con **Neovim**
+- Post_install:
+  - Eliminación de la variable de entorno `HISTFILE` del fichero `~/.environment`
 
 ## VERSIONES ANTERIORES
 
