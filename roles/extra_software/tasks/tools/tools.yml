@@ -101,6 +101,15 @@
     - vitaminar
     - vitaminado
 
+- name: "[TOOLS] Install erdtree"
+  import_tasks: erdtree.yml
+  when: install_erdtree
+  tags:
+    - erdtree
+    - update
+    - vitaminar
+    - vitaminado
+
 - name: "[TOOLS] Install yq"
   import_tasks: yq.yml
   when: install_yq

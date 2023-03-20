@@ -105,6 +105,7 @@ install_element: false
 install_gopass: false
 install_drawio: false
 install_broot: true
+install_erdtree: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -142,6 +143,7 @@ kubecolor_latest_url: "https://github.com/hidetatz/kubecolor/releases/latest"
 yq_latest_url: "https://github.com/mikefarah/yq/releases/latest"
 drawio_latest_url: "https://github.com/jgraph/drawio-desktop/releases/latest"
 broot_latest_url: "https://github.com/Canop/broot/releases/latest"
+erdtree_latest_url: "https://github.com/solidiquis/erdtree/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"

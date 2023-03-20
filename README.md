@@ -55,6 +55,7 @@ Por defecto se instala el siguiente software:
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | storage | Cliente de almacenamiento en la nube |
 | [Duf](https://github.com/muesli/duf) | duf | install_duf | tools | du vitaminado |
 | [Element](https://element.io/) | element | install_element | social | cliente de mensajería para [matrix.org](https://matrix.org) |
+| [ERDtree](https://github.com/solidiquis/erdtree) | erdtree | install_erdtree | tools | `tree` vitaminado | 
 | [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | ecs | install_ecs | tools | |
 | [Franz](https://meetfranz.com/) | franz | install_franz | social | Administrador de clientes de mensajería |
 | [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | tools | Buscador difuso de archivos |
