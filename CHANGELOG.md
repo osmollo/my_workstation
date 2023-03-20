@@ -17,6 +17,7 @@
 - Instalación de [AstroNvim](https://github.com/AstroNvim/AstroNvim) con **Neovim**
 - Definición de la variable `GNOME_VERSION` en el playbook `load_distro_vars.yml`
 - Instalación de [erdtree](https://github.com/solidiquis/erdtree)
+- Instalación de [procs](https://github.com/dalance/procs/releases/latest) como reemplazo de `ps`
 - Post_install:
   - Eliminación de la variable de entorno `HISTFILE` del fichero `~/.environment`
   - Limpieza repositorios personales

@@ -110,6 +110,15 @@
     - vitaminar
     - vitaminado
 
+- name: "[PROCS] install procs"
+  import_tasks: procs.yml
+  when: install_procs
+  tags:
+    - procs
+    - update
+    - vitaminar
+    - vitaminado
+
 - name: "[TOOLS] Install yq"
   import_tasks: yq.yml
   when: install_yq
