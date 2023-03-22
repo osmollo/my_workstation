@@ -1,0 +1,7 @@
+---
+
+- name: "[STARSHIP] [UBUNTU] install starship using snap"
+  snap:
+    name:
+      - starship
+    state: present

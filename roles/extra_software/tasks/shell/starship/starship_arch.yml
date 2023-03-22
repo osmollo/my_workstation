@@ -1,0 +1,7 @@
+---
+
+- name: "[STARSHIP] [ARCH] install starship package"
+  pacman:
+    name: starship
+    update_cache: true
+    state: present

@@ -106,7 +106,8 @@ install_gopass: false
 install_drawio: false
 install_broot: true
 install_erdtree: true
-install_procs: tree
+install_procs: true
+install_starship: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
