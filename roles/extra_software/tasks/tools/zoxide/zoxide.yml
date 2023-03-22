@@ -17,7 +17,7 @@
         state: present
       when: stat_response.stat.exists
 
- - name: "[ZOXIDE] config zsh"
+- name: "[ZOXIDE] config zsh"
   block:
     - name: "[ZOXIDE] check if .zshrc exists"
       stat:

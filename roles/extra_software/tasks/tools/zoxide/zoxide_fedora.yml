@@ -13,7 +13,7 @@
       repo_gpgcheck=0
       enabled=1
       enabled_metadata=1
-    dest: /etc/yum/etc/yum.repos.d/.repos.d/zoxide.repo
+    dest: /etc/yum.repos.d/zoxide.repo
 
 - name: "[ZOXIDE] [FEDORA] install package"
   dnf:
