@@ -23,6 +23,7 @@
 - Post_install:
   - Eliminación de la variable de entorno `HISTFILE` del fichero `~/.environment`
   - Limpieza repositorios personales
+  - Creación del fichero `.repo` en la instalación de **Bottom**
 
 ## VERSIONES ANTERIORES
 
