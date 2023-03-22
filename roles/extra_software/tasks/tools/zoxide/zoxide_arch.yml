@@ -1,0 +1,7 @@
+---
+
+- name: "[ZOXIDE] [ARCH] install zoxide"
+  pacman:
+    name: zoxide
+    update_cache: true
+    state: present

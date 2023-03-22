@@ -122,6 +122,7 @@ Por defecto se instala el siguiente software:
 | [YakYak](https://github.com/yakyak/yakyak) | yakyak | install_yakyak | social | Cliente de mensajería para Hangouts |
 | [yq](https://github.com/mikefarah/yq) | yq | install_yq | tools | Parseador json, yaml y xml |
 | [Zoom](https://zoom.us/es-es/meetings.html) | zoom | install_zoom | social | Cliente de videoconferencia |
+| [Zoxide](https://github.com/ajeetdsouza/zoxide) | zoxide | install_zoxide | tools | Navegación inteligente por directorios |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

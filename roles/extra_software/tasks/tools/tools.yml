@@ -119,6 +119,12 @@
     - vitaminar
     - vitaminado
 
+- name: "[TOOLS] install zoxide"
+  import_tasks: zoxide/zoxide.yml
+  when: install_zoxide
+  tags:
+    - zoxide
+
 - name: "[TOOLS] Install yq"
   import_tasks: yq.yml
   when: install_yq

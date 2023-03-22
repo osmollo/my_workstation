@@ -1,0 +1,23 @@
+---
+
+- name: "[ZOXIDE] [FEDORA] create repository file"
+  copy:
+    content: |
+      [zoxide]
+      name=Copr repo for zoxide owned by atim
+      baseurl=https://download.copr.fedorainfracloud.org/results/atim/zoxide/fedora-$releasever-$basearch/
+      type=rpm-md
+      skip_if_unavailable=True
+      gpgcheck=1
+      gpgkey=https://download.copr.fedorainfracloud.org/results/atim/zoxide/pubkey.gpg
+      repo_gpgcheck=0
+      enabled=1
+      enabled_metadata=1
+    dest: /etc/yum/etc/yum.repos.d/.repos.d/zoxide.repo
+
+- name: "[ZOXIDE] [FEDORA] install package"
+  dnf:
+    name: zoxide
+    update_cache: true
+    state: present
+

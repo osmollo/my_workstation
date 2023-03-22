@@ -1,0 +1,7 @@
+---
+
+- name: "[ZOXIDE] [DEB] install package"
+  apt:
+    name: zoxide
+    update_cache: true
+    state: present
