@@ -24,6 +24,7 @@
   - Eliminación de la variable de entorno `HISTFILE` del fichero `~/.environment`
   - Limpieza repositorios personales
   - Creación del fichero `.repo` en la instalación de **Bottom**
+  - Creación del fichero `.repo` en la instalación de **gping**
 
 ## VERSIONES ANTERIORES
 

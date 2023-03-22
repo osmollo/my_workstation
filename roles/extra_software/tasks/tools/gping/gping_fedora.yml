@@ -1,7 +1,19 @@
 ---
 
-- name: "[GPING] [FEDORA] enable gping repo"
-  command: dnf copr enable atim/gping -y
+- name: "[GPING] [FEDORA] generate repository file"
+  copy:
+    content: |
+      [gping]
+      name=Copr repo for gping owned by atim
+      baseurl=https://download.copr.fedorainfracloud.org/results/atim/gping/fedora-$releasever-$basearch/
+      type=rpm-md
+      skip_if_unavailable=True
+      gpgcheck=1
+      gpgkey=https://download.copr.fedorainfracloud.org/results/atim/gping/pubkey.gpg
+      repo_gpgcheck=0
+      enabled=1
+      enabled_metadata=1
+    dest: /etc/yum.repos.d/gping.repo
 
 - name: "[GPING] [FEDORA] install gping"
   dnf:
