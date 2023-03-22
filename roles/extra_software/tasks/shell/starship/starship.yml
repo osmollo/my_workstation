@@ -145,3 +145,33 @@
     mode: 0600
   tags:
     - starship_config
+
+- name: "[STARSHIP] config bash"
+  block:
+    - name: "[STARSHIP] check if .bashrc exists"
+      stat:
+        path: "{{ ansible_user_dir }}/.bashrc"
+      register: stat_response
+
+    - name: "[STARSHIP] config starship for bash"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.bashrc"
+        line: 'eval "$(starship init bash)"'
+        state: present
+      when: stat_response.stat.exists
+
+- name: "[STARSHIP] config zsh"
+  block:
+    - name: "[STARSHIP] check if .zshrc exists"
+      stat:
+        path: "{{ ansible_user_dir }}/.zshrc"
+      register: stat_response
+
+    - name: "[STARSHIP] config starship for zsh"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.zshrc"
+        line: 'eval "$(starship init zsh)"'
+        state: present
+      when: stat_response.stat.exists
+  tags:
+    - starship_config
