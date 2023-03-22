@@ -29,4 +29,13 @@
         path: "{{ ansible_user_dir }}/.zshrc"
         line: 'eval "$(zoxide init zsh)"'
         state: present
-      when: stat_response.stat.exists       
+      when: stat_response.stat.exists
+
+- name: "[ZOXIDE] create alias"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.bash_aliases"
+    line: "alias cd='z'"
+    state: present
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+        

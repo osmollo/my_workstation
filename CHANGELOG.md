@@ -16,10 +16,10 @@
 
 - Instalación de [AstroNvim](https://github.com/AstroNvim/AstroNvim) con **Neovim**
 - Definición de la variable `GNOME_VERSION` en el playbook `load_distro_vars.yml`
-- Instalación de [erdtree](https://github.com/solidiquis/erdtree)
+- Instalación de [erdtree](https://github.com/solidiquis/erdtree) como reemplazo de `tree`
 - Instalación de [procs](https://github.com/dalance/procs/releases/latest) como reemplazo de `ps`
 - Instalación de [starship](https://starship.rs/es-ES/) para la gestión del prompt
-- Instalación de [zoxide](https://github.com/ajeetdsouza/zoxide) para la navegación inteligente por directorios
+- Instalación de [zoxide](https://github.com/ajeetdsouza/zoxide) como reemplazo de `cd`
 - Post_install:
   - Eliminación de la variable de entorno `HISTFILE` del fichero `~/.environment`
   - Limpieza repositorios personales
