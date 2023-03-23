@@ -7,7 +7,7 @@
     body_format: raw
   register: erdtree_latest
 
-- name: "[ERDTREE] download nerdtree package '{{ erdtree_version }}'"
+- name: "[ERDTREE] download erdtree package '{{ erdtree_version }}'"
   vars:
     erdtree_version: "{{ erdtree_latest.url | urlsplit('path') | basename }}"
     erdtree_package: "https://github.com/solidiquis/erdtree/releases/download/{{ erdtree_version }}/et-{{ erdtree_version }}-x86_64-unknown-linux-gnu.tar.gz"
@@ -50,5 +50,5 @@
 - name: "[ERDTREE] create alias for tree --> erdtree"
   lineinfile:
     path: "{{ ansible_user_dir }}/.bash_aliases"
-    line: "alias tree='/usr/local/bin/erdtree'"
+    line: "alias tree='/usr/local/bin/et'"
 
