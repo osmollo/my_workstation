@@ -65,6 +65,7 @@ etcher_package: balena-etcher
 rclone_package: rclone-bin
 element_package: element-desktop-greentext
 drawio_package: drawio-desktop-bin
+edge_package: microsoft-edge-stable-bin
 
 protonvpn_dependencies:
   - openvpn

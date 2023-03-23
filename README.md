@@ -54,6 +54,7 @@ Por defecto se instala el siguiente software:
 | [Draw.io](https://github.com/jgraph/drawio-desktop) | drawio | install_drawio | desktop | Editor de diagramas |
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | storage | Cliente de almacenamiento en la nube |
 | [Duf](https://github.com/muesli/duf) | duf | install_duf | tools | du vitaminado |
+| [Edge](https://www.microsoft.com/en-us/edge/download?form=MA13FW&ch) | edge | install_edge | browsers | Navegador Microsoft Edge |
 | [Element](https://element.io/) | element | install_element | social | cliente de mensajería para [matrix.org](https://matrix.org) |
 | [ERDtree](https://github.com/solidiquis/erdtree) | erdtree | install_erdtree | tools | `tree` vitaminado | 
 | [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | ecs | install_ecs | tools | |

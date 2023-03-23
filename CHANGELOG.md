@@ -20,6 +20,7 @@
 - Instalación de [procs](https://github.com/dalance/procs/releases/latest) como reemplazo de `ps`
 - Instalación de [starship](https://starship.rs/es-ES/) para la gestión del prompt
 - Instalación de [zoxide](https://github.com/ajeetdsouza/zoxide) como reemplazo de `cd`
+- Instalación de [Microsoft Edge](https://www.microsoft.com/en-us/edge/download?form=MA13FW&ch)
 - Post_install:
   - Eliminación de la variable de entorno `HISTFILE` del fichero `~/.environment`
   - Limpieza repositorios personales

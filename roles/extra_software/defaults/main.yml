@@ -109,6 +109,7 @@ install_erdtree: true
 install_procs: true
 install_starship: true
 install_zoxide: true
+install_edge: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85

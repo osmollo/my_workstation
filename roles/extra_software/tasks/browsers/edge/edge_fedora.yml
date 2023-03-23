@@ -1,0 +1,19 @@
+---
+
+- name: "[EDGE] [FEDORA] create repository file"
+  copy:
+    content: |
+      [microsoft-edge]
+      name=microsoft-edge
+      baseurl=https://packages.microsoft.com/yumrepos/edge/
+      enabled=1
+      gpgcheck=1
+      gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+    dest: /etc/yum.repos.d/microsoft-edge.repo
+
+- name: "[EDGE] [FEDORA] install Microsoft Edge"
+  dnf:
+    name: microsoft-edge-stable
+    state: present
+    update_cache: true
+      
