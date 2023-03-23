@@ -25,6 +25,7 @@
   - Limpieza repositorios personales
   - Creación del fichero `.repo` en la instalación de **Bottom**
   - Creación del fichero `.repo` en la instalación de **gping**
+  - URLs del changelog corregidas
 
 ## VERSIONES ANTERIORES
 
