@@ -65,9 +65,6 @@
           [mergetool "{{ diff_editor }}"]
               cmd = {{ diff_editor }} "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
-          [user]
-            signingkey = {{ lookup('onepassword', 'op://Private/osmollo/public key') }}
-
           [gpg]
             format = ssh
 
@@ -97,6 +94,49 @@
       ignore_errors: true
   tags:
     - clone_repos
+
+- name: "[GIT] configure repositories"
+  block:
+    - name: "[GIT] Configure user name"
+      git_config:
+        name: user.name
+        scope: global
+        value: "{{ git_config.user_name }}"
+
+    - name: "[GIT] Configure user email in HOME repositories"
+      git_config:
+        name: user.email
+        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+        scope: local
+        value: "{{ git_config.user_email_home }}"
+      loop: "{{ git_repositories.home }}"
+
+    - name: "[GIT] Configure user email in WORK repositories"
+      git_config:
+        name: user.email
+        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+        scope: local
+        value: "{{ git_config.user_email_work }}"
+      loop: "{{ git_repositories.work }}"
+
+    - name: "[GIT] Configure ssh signinkey in HOME repositories"
+      git_config:
+        name: user.signingkey
+        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo  | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+        scope: local
+        value: "{{ lookup('onepassword', 'op://Private/osmollo/public key') }}"
+      loop: "{{ git_repositories.home }}"
+
+    - name: "[GIT] Configure ssh signinkey in WORK repositories"
+      git_config:
+        name: user.signingkey
+        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo  | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+        scope: local
+        value: "{{ lookup('onepassword', 'op://Private/bbva/public key') }}"
+      loop: "{{ git_repositories.work }}"
+  tags:
+    - clone_repos
+    - repos_config
 
 - name: "[GIT] Create remotes for repositories"
   block:
@@ -187,29 +227,4 @@
     - clone_repos
     - create_remotes
 
-- block:
-    - name: "[GIT] Configure user name"
-      git_config:
-        name: user.name
-        scope: global
-        value: "{{ git_user_name }}"
-
-    - name: "[GIT] Configure user email in BBVA repositories"
-      git_config:
-        name: user.email
-        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-        scope: local
-        value: "{{ git_user_mail_work }}"
-      loop: "{{ git_repositories.work }}"
-
-    - name: "[GIT] Configure user email in personal repositories"
-      git_config:
-        name: user.email
-        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-        scope: local
-        value: "{{ git_user_mail_personal }}"
-      loop: "{{ git_repositories.home }}"
-  tags:
-    - clone_repos
-    - repos_config
 

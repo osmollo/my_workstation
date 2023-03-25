@@ -27,6 +27,8 @@
   - Creación del fichero `.repo` en la instalación de **Bottom**
   - Creación del fichero `.repo` en la instalación de **gping**
   - URLs del changelog corregidas
+  - Optimización del clonado y configuración de repositorios
+  - Configuración de llave SSH para la firma de commits en repositorios git en según sean repositorios personales o de trabajo
 
 ## VERSIONES ANTERIORES
 
