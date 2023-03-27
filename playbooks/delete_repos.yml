@@ -34,7 +34,7 @@
       vars:
         repo_name: "{{ item }}"
         repo_state: absent
-        gitlab_token: "{{ gitlab_token_access }}"
+        gitlab_token: "{{ git_tokens.gitlab }}"
       loop:
         - argos
         - iluvatar
@@ -46,7 +46,7 @@
       vars:
         repo_name: "{{ item }}"
         repo_state: absent
-        github_token: "{{ github_token_access }}"
+        github_token: "{{ git_tokens.github }}"
       loop:
         - fkrva_argos
         - mlyid_iluvatar

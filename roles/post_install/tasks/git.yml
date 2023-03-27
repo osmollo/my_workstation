@@ -146,7 +146,7 @@
       include_role:
         name: tools/github_repo
       vars:
-        github_token: "{{ github_token_access }}"
+        github_token: "{{ git_tokens.github }}"
         repo_name: "{{ (item.repo | basename).split('.')[0] }}"
         repo_private: true
         repo_state: present
@@ -159,7 +159,7 @@
       include_role:
         name: tools/gitlab_repo
       vars:
-        gitlab_token: "{{ gitlab_token_access }}"
+        gitlab_token: "{{ git_tokens.gitlab }}"
         repo_name: "{{ (item.repo | basename).split('.')[0] }}"
         visibility: private
         repo_state: present
@@ -183,7 +183,7 @@
       include_role:
         name: tools/github_repo
       vars:
-        github_token: "{{ github_token_access }}"
+        github_token: "{{ git_tokens.github }}"
         repo_name: "{{ (item.repo | basename).split('.')[0] }}"
         repo_private: true
         repo_state: present
@@ -196,7 +196,7 @@
       include_role:
         name: tools/gitlab_repo
       vars:
-        gitlab_token: "{{ gitlab_token_access }}"
+        gitlab_token: "{{ git_tokens.gitlab }}"
         repo_name: "{{ (item.repo | basename).split('.')[0] }}"
         repo_private: private
         repo_state: present
