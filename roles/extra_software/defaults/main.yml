@@ -163,10 +163,6 @@ franz_flatpak: "https://flathub.org/repo/appstream/com.meetfranz.Franz.flatpakre
 kdenlive_flatpak: "https://dl.flathub.org/repo/appstream/org.kde.kdenlive.flatpakref"
 marktext_flatpak: "https://dl.flathub.org/repo/appstream/com.github.marktext.marktext.flatpakref"
 
-ecs_cli_package: "ecs-cli-0.3.17.tar.gz"
-ecs_cli_url: "https://globaldevtools.bbva.com/artifactory/semaas-global-bin/releases/ecs-cli/{{ ecs_cli_package }}"
-ecs_cli_doc_url: "https://platform.bbva.com/en-us/developers/ether-cli/documentation/03-getting-started"
-
 apachedirectory_url: "https://ftp.cixug.es/apache/directory/studio/2.0.0.v20210213-M16/ApacheDirectoryStudio-2.0.0.v20210213-M16-linux.gtk.x86_64.tar.gz"
 
 deluge_package: deluge

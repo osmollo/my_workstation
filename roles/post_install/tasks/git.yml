@@ -132,7 +132,7 @@
         name: user.signingkey
         repo: "{{ item.dest | default(git_dir + '/' + ((item.repo  | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
         scope: local
-        value: "{{ lookup('onepassword', 'op://Private/bbva/public key') }}"
+        value: "{{ lookup('onepassword', 'op://Private/securitas/public key') }}"
       loop: "{{ git_repositories.work }}"
   tags:
     - clone_repos

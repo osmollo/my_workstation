@@ -146,10 +146,3 @@
   when: install_vault or install_terraform or install_consul or install_nomad or install_hashicorp
   tags:
     - hashicorp
-
-- name: "[TOOLS] Install Ether Cloud Services Client"
-  import_tasks: ecs.yml
-  when: install_ecs
-  tags:
-    - extra_software
-    - ecs

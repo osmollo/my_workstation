@@ -122,20 +122,6 @@
     - ssh_config
     - config_files
 
-- name: "[ENVIRONMENT] create Datio vault_pass"
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.vault_pass_datio"
-    line: "{{ vault_datio_pass }}"
-    create: true
-    mode: 0600
-  no_log: true
-
-- name: "[ENVIRONMENT] create link to file"
-  file:
-    src: "{{ ansible_user_dir }}/.vault_pass_datio"
-    dest: "{{ ansible_user_dir }}/.vault_pass"
-    state: link
-
 - name: "[ENVIRONMENT] configure oh-my-zsh"
   import_tasks: oh_my_zsh.yml
   tags:
