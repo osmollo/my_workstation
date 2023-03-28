@@ -18,7 +18,9 @@
     remote_src: true
 
 - name: "[PROCS] create alias for ps --> procs"
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.bash_aliases"
-    line: "alias ps='/usr/local/bin/procs'"
+  vars:
+    alias_name: ps
+    alias_command: /usr/local/bin/procs
+  import_role:
+    name: tools/create_alias
 

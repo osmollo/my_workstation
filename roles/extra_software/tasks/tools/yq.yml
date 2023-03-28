@@ -23,6 +23,8 @@
         group: root
 
 - name: "[YQ] create alias for yq --> jq"
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.bash_aliases"
-    line: "alias jq='/usr/local/bin/yq'"
+  vars:
+    alias_name: jq
+    alias_command: /usr/local/bin/yq
+  import_role:
+    name: tools/create_alias

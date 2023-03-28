@@ -4,9 +4,8 @@
   include_tasks: "bat_{{ linux_distribution }}.yml"
 
 - name: "[BAT] create alias"
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.bash_aliases"
-    line: "alias cat='{{ 'batcat' if linux_distribution in ['debian', 'ubuntu'] else 'bat' }} --paging=never --decorations=never'"
-    state: present
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+  vars:
+    alias_name: cat
+    alias_command: "{{ 'batcat' if linux_distribution in ['debian', 'ubuntu'] else 'bat' }} --paging=never --decorations=never"
+  import_role:
+    name: tools/create_alias

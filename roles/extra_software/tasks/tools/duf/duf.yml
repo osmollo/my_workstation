@@ -20,9 +20,8 @@
   include_tasks: "duf_{{ linux_distribution }}.yml"
 
 - name: "[DUF] create alias"
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.bash_aliases"
-    line: "alias du='duf'"
-    state: present
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+  vars:
+    alias_name: du
+    alias_command: duf
+  import_role:
+    name: tools/create_alias

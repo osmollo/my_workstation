@@ -21,11 +21,11 @@
         mode: 0644
 
     - name: "[GIT] create alias for broot"
-      lineinfile:
-        path: "{{ ansible_user_dir }}/.bash_aliases"
-        create: true
-        state: present
-        line: "alias gg='/usr/local/bin/broot --conf ~/.config/broot/git-diff-conf.toml --git-status'"
+      vars:
+        alias_name: gg
+        alias_command: '/usr/local/bin/broot --conf ~/.config/broot/git-diff-conf.toml --git-status' 
+      import_role:
+        name: tools/create_alias
   tags:
     - broot
 

@@ -32,10 +32,9 @@
       when: stat_response.stat.exists
 
 - name: "[ZOXIDE] create alias"
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.bash_aliases"
-    line: "alias cd='z'"
-    state: present
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+  vars:
+    alias_name: cd
+    alias_command: z
+  import_role:
+    name: tools/create_alias
         

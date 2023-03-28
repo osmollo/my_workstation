@@ -19,10 +19,8 @@
   include_tasks: "lsd_{{ linux_distribution }}.yml"
 
 - name: "[LSD] create alias"
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.bash_aliases"
-    line: "alias ls='lsd'"
-    regexp: '^alias ls='
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-    create: true
+  vars:
+    alias_name: ls
+    alias_command: lsd
+  import_role:
+    name: tools/create_alias

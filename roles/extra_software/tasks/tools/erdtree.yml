@@ -48,7 +48,9 @@
     mode: 0640
 
 - name: "[ERDTREE] create alias for tree --> erdtree"
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.bash_aliases"
-    line: "alias tree='/usr/local/bin/et'"
+  vars:
+    alias_name: tree
+    alias_command: '/usr/local/bin/et'
+  import_role:
+    name: tools/create_alias
 
