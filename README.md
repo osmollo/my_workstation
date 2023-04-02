@@ -104,6 +104,7 @@ Por defecto se instala el siguiente software:
 | [Steam](https://store.steampowered.com/?l=spanish) | steam | install_steam | games | Cliente Steam para juegos de PC |
 | [Sublime Merge](https://www.sublimemerge.com/) | sublimemerge | install_sublimemerge | git | Cliente gráfico de git |
 | [Sublime Text](https://www.sublimetext.com/) | sublimetext | install_sublimetext | editors | Editor de textos |
+| [Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software) | teams | install_teams | social | Gestor de comunicaciones Microsoft Teams |
 | [Teamviewer](https://www.teamviewer.com/es/) | teamviewer | install_teamviewer | remotes | Cliente de escritorio remoto |
 | [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | social | Cliente de escritorio de mensajería Telegram |
 | [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) | terraform | install_terraform | tools | Creación de infraestructura |

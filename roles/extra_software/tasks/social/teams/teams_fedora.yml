@@ -1,0 +1,6 @@
+---
+
+- name: "[TEAMS] [FEDORA] Install the Microsoft Teams flatpak"
+  flatpak:
+    name:  "{{ teams_flatpak }}"
+    state: present

@@ -1,0 +1,4 @@
+---
+
+- name: "[TEAMS] install Microsoft Teams"
+  include_tasks: "teams_{{ linux_distribution }}.yml"

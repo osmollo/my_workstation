@@ -110,6 +110,7 @@ install_procs: true
 install_starship: true
 install_zoxide: true
 install_edge: false
+install_teams: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -162,6 +163,7 @@ skype_flatpak: "https://flathub.org/repo/appstream/com.skype.Client.flatpakref"
 franz_flatpak: "https://flathub.org/repo/appstream/com.meetfranz.Franz.flatpakref"
 kdenlive_flatpak: "https://dl.flathub.org/repo/appstream/org.kde.kdenlive.flatpakref"
 marktext_flatpak: "https://dl.flathub.org/repo/appstream/com.github.marktext.marktext.flatpakref"
+teams_flatpak: "https://dl.flathub.org/repo/appstream/com.github.IsmaelMartinez.teams_for_linux.flatpakref"
 
 apachedirectory_url: "https://ftp.cixug.es/apache/directory/studio/2.0.0.v20210213-M16/ApacheDirectoryStudio-2.0.0.v20210213-M16-linux.gtk.x86_64.tar.gz"
 

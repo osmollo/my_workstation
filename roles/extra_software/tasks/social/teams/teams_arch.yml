@@ -1,0 +1,8 @@
+---
+
+- name: "[TEAMS] [ARCH] install Microsoft Teams"
+  become: false
+  yay:
+    name: "{{ teams_package }}"
+    state: present
+    update_cache: true

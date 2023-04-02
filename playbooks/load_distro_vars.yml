@@ -162,6 +162,7 @@
         - name: "[GNOME] get gnome-shell version"
           command: gnome-shell --version
           register: gnome_response
+          changed_when: false
 
         - name: "[GNOME] set GNOME_VERSION variable"
           set_fact:
