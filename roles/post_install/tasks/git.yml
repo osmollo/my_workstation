@@ -141,7 +141,6 @@
 - name: "[GIT] Create remotes for repositories"
   block:
     # create remotes for repositories copied in other platforms
-
     - name: "[GIT] Create github repositories for WORK"
       include_role:
         name: tools/github_repo
@@ -168,7 +167,7 @@
         - item.remote == "gitlab"
       with_items: "{{ git_repositories.work }}"
 
-    - name: "[GIT] Create new remote for work repositories"
+    - name: "[GIT] Create new remote for WORK repositories"
       shell: "git remote add {{ item.remote }} {{ remote_url }}"
       args:
         chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
@@ -205,7 +204,7 @@
         - item.remote == "gitlab"
       with_items: "{{ git_repositories.home }}"
 
-    - name: "[GIT] Create new remote for home repositories"
+    - name: "[GIT] Create new remote for HOME repositories"
       shell: "git remote add {{ item.remote }} {{ remote_url }}"
       args:
         chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
