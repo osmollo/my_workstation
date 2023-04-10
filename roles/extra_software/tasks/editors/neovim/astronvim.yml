@@ -19,7 +19,7 @@
   loop:
     - repo: "https://github.com/AstroNvim/AstroNvim"
       dest: "{{ ansible_user_dir }}/.config/nvim"
-    - repo: "git@github.com:osmollo/astronvim_user.git"
+    - repo: "https://github.com/osmollo/astronvim_user.git"
       dest: "{{ ansible_user_dir }}/.config/nvim/lua/user"
 
 - name: "[ASTRONVIM] initialize astronvim"

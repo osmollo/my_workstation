@@ -34,6 +34,7 @@
   - Configuración de llave SSH para la firma de commits en repositorios git en según sean repositorios personales o de trabajo
   - Ordenación de los tokens de git
   - Instalación de `python-setuptools` en **Arch**
+  - Repositorio configuración de usuario de **Astronvim** usa __https__ en vez de __ssh__
 
 ## VERSIONES ANTERIORES
 
