@@ -33,6 +33,7 @@
   - Optimización del clonado y configuración de repositorios
   - Configuración de llave SSH para la firma de commits en repositorios git en según sean repositorios personales o de trabajo
   - Ordenación de los tokens de git
+  - Instalación de `python-setuptools` en **Arch**
 
 ## VERSIONES ANTERIORES
 

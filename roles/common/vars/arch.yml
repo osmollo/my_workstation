@@ -21,6 +21,7 @@ distro_packages:
   - automake
   - pkgconf
   - tldr
+  - python-setuptools
 
 gnome_arch_packages:
   - wireshark-cli
