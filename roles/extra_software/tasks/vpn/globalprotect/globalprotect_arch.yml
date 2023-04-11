@@ -1,0 +1,7 @@
+---
+
+- name: "[GLOBALPROTECT] [ARCH] install package"
+  pacman:
+    name: globalprotect-openconnect
+    state: present
+    update_cache: true

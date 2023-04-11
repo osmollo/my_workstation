@@ -18,3 +18,10 @@
     - install_wireguard
   tags:
     - wireguard
+
+- name: "[VPN] Install globalprotect"
+  import_tasks: globalprotect/globalprotect.yml
+  when:
+    - install_globalprotect
+  tags:
+    - globalprotect

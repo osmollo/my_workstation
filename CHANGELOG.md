@@ -24,6 +24,7 @@
 - Nuevo role `tools/create_alias` para la creación de alias en `~/.bash_aliases`
 - Eliminación de todas las configuraciones deprecadas de trabajo
 - Instalación de [Microsoft Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software)
+- Instalación de [GlobalProtect](https://github.com/yuezk/GlobalProtect-openconnect)
 - Post_install:
   - Eliminación de la variable de entorno `HISTFILE` del fichero `~/.environment`
   - Limpieza repositorios personales
