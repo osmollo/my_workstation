@@ -73,19 +73,6 @@
     - ssh_config
     - ssh_keys
 
-- name: "[ENVIRONMENT] save ssh key to disk"
-  vars:
-    ssh_key:
-      key: "{{ lookup('onepassword', 'op://Private/osmollo/clave privada' )}}"
-      type: "{{ lookup('onepassword', 'op://Private/osmollo/key type' )}}"
-  copy:
-    content: "{{ ssh_key.key }}"
-    dest: "{{ ssh_dir }}/id_{{ ssh_key.type }}"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-    mode: 0600
-  no_log: true
-
 - name: "[ENVIRONMENT] configure oh-my-zsh"
   vars:
     ansible_ssh_private_key_file: "{{ ssh_dir }}/id_rsa"

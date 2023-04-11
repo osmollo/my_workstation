@@ -23,10 +23,3 @@
     ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
   roles:
     - post_install
-  post_tasks:
-    - name: "delete ssh key"
-      file:
-        path: "{{ ssh_dir }}/id_rsa"
-        state: absent
-      tags:
-        - always
