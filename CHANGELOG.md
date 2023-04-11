@@ -25,6 +25,11 @@
 - Eliminación de todas las configuraciones deprecadas de trabajo
 - Instalación de [Microsoft Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software)
 - Instalación de [GlobalProtect](https://github.com/yuezk/GlobalProtect-openconnect)
+- Corrección de errores:
+  - Instalación de [Lens](https://docs.k8slens.dev/getting-started/install-lens/)
+  - Varios fixes con `TODO` para revisar en el futuro
+  - Instalación de `python-setuptools` en **Arch**
+  - Repositorio configuración de usuario de **Astronvim** usa __https__ en vez de __ssh__
 - Post_install:
   - Eliminación de la variable de entorno `HISTFILE` del fichero `~/.environment`
   - Limpieza repositorios personales
@@ -34,9 +39,6 @@
   - Optimización del clonado y configuración de repositorios
   - Configuración de llave SSH para la firma de commits en repositorios git en según sean repositorios personales o de trabajo
   - Ordenación de los tokens de git
-  - Instalación de `python-setuptools` en **Arch**
-  - Repositorio configuración de usuario de **Astronvim** usa __https__ en vez de __ssh__
-  - Varios fixes con `TODO` para revisar en el futuro
 
 ## VERSIONES ANTERIORES
 

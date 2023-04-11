@@ -35,7 +35,7 @@ install_minikube: false
 install_helm: false
 install_hetznerkube: false
 install_kops: false
-install_lens: false
+install_lens: true
 install_kind: false
 install_microk8s: false
 install_kompose: false

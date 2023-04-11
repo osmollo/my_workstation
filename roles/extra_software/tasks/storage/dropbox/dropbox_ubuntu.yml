@@ -1,6 +1,6 @@
 ---
 
-#TODO: dropbox 22-12-05 tiene errores de dependencias en ubuntu 22.04
+# TODO: dropbox 22-12-05 tiene errores de dependencias en ubuntu 22.04
 
 #- name: "[DROPBOX] [DEB] get latest dropbox version"
 #  get_dropbox_latest:
