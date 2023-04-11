@@ -35,6 +35,7 @@
   - Ordenación de los tokens de git
   - Instalación de `python-setuptools` en **Arch**
   - Repositorio configuración de usuario de **Astronvim** usa __https__ en vez de __ssh__
+  - Varios fixes con `TODO` para revisar en el futuro
 
 ## VERSIONES ANTERIORES
 
