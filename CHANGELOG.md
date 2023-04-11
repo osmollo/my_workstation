@@ -39,7 +39,7 @@
   - Optimización del clonado y configuración de repositorios
   - Configuración de llave SSH para la firma de commits en repositorios git en según sean repositorios personales o de trabajo
   - Ordenación de los tokens de git
-  - Clonar repositorios de configuracón de shell por __HTTPS__ y dejar configurado __SSH__ al finalizar
+  - Clonado `oh-my-zsh` y `oh-my-bash`
 
 ## VERSIONES ANTERIORES
 

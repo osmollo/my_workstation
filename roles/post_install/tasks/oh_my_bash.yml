@@ -74,3 +74,11 @@
   shell: git submodule update --init --recursive
   args:
     chdir: "{{ ansible_user_dir }}/.oh-my-bash"
+
+- name: "[OHMYBASH] Configure ssh signinkey in WORK repositories"
+  git_config:
+    name: user.signingkey
+    repo: "{{ ansible_user_dir }}/.oh-my-bash"
+    scope: local
+    value: "{{ lookup('onepassword', 'op://Private/osmollo/public key') }}"
+
