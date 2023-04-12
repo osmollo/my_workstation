@@ -49,6 +49,7 @@ Por defecto se instala el siguiente software:
 | [Consul](https://learn.hashicorp.com/tutorials/consul/install-cli) | consul | install_consul | tools | Service discovery |
 | [CopyQ](https://hluk.github.io/CopyQ/) | copyq | install_copyq | | Gestor de portapapeles |
 | [curlie](https://github.com/rs/curlie) | curlie | install_curlie | tools | Curl vitaminado |
+| [DBeaver](https://dbeaver.io/) | dbeaver | install_dbeaver | dev | Manager de conexiones a BBDD |
 | [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | desktop| Cliente de Torrent |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | containers | Gestión de contenedores Docker |
 | [Draw.io](https://github.com/jgraph/drawio-desktop) | drawio | install_drawio | desktop | Editor de diagramas |
@@ -56,7 +57,7 @@ Por defecto se instala el siguiente software:
 | [Duf](https://github.com/muesli/duf) | duf | install_duf | tools | du vitaminado |
 | [Edge](https://www.microsoft.com/en-us/edge/download?form=MA13FW&ch) | edge | install_edge | browsers | Navegador Microsoft Edge |
 | [Element](https://element.io/) | element | install_element | social | cliente de mensajería para [matrix.org](https://matrix.org) |
-| [ERDtree](https://github.com/solidiquis/erdtree) | erdtree | install_erdtree | tools | `tree` vitaminado | 
+| [ERDtree](https://github.com/solidiquis/erdtree) | erdtree | install_erdtree | tools | `tree` vitaminado |
 | [Franz](https://meetfranz.com/) | franz | install_franz | social | Administrador de clientes de mensajería |
 | [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | tools | Buscador difuso de archivos |
 | [Github CLI](https://github.com/cli/cli) | githubcli | install_githubcli | git | Cli de consola para [Github](https://github.com) |
@@ -101,7 +102,7 @@ Por defecto se instala el siguiente software:
 | [Slack](https://slack.com/intl/es-es/) | slack | install_slack | social | Cliente de mensajería para entornos de trabajo |
 | [Singlebox](https://webcatalog.io/singlebox/) | singlebox | install_singlebox | social | Administrador de clientes de mensajería |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | media | Cliente de Spotify |
-| [Starship](https://starship.rs/es-ES/) | starship | install_starship | shell | Gestor de configuración del prompt | 
+| [Starship](https://starship.rs/es-ES/) | starship | install_starship | shell | Gestor de configuración del prompt |
 | [Steam](https://store.steampowered.com/?l=spanish) | steam | install_steam | games | Cliente Steam para juegos de PC |
 | [Sublime Merge](https://www.sublimemerge.com/) | sublimemerge | install_sublimemerge | git | Cliente gráfico de git |
 | [Sublime Text](https://www.sublimetext.com/) | sublimetext | install_sublimetext | editors | Editor de textos |

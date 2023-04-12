@@ -1,0 +1,16 @@
+---
+
+- name: "[DBEAVER] [FEDORA] Get latest version of dbeaver"
+  uri:
+    url: "{{ dbeaver_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: dbeaver_latest
+
+- name: "[DBEAVER] Set urls for dbeaver packages"
+  vars:
+    dbeaver_version: "{{ dbeaver_latest.url | urlsplit('path') | basename }}"
+  dnf:
+    name: "https://github.com/dbeaver/dbeaver/releases/download/{{ dbeaver_version }}/dbeaver-ce-{{ dbeaver_version }}-stable.x86_64.rpm"
+    state: present
+    update_cache: true

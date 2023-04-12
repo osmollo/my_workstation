@@ -68,6 +68,7 @@ drawio_package: drawio-desktop-bin
 edge_package: microsoft-edge-stable-bin
 teams_package: teams-for-linux
 lens_package: lens
+dbeaver_package: dbeaver-le
 
 protonvpn_dependencies:
   - openvpn
