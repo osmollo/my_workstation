@@ -40,6 +40,7 @@
   - Configuración de llave SSH para la firma de commits en repositorios git en según sean repositorios personales o de trabajo
   - Ordenación de los tokens de git
   - Clonado `oh-my-zsh` y `oh-my-bash`
+  - Nuevas entradas en `~/.ssh/config`
 
 ## VERSIONES ANTERIORES
 
