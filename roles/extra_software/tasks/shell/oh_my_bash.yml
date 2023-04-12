@@ -23,7 +23,7 @@
   become: false
   become_user: "{{ ansible_user }}"
   environment:
-    REPO: "{{ 'osmollo/ohmyzsh' if from_post_install else 'ohmyzsh/ohmyzsh' }}"
+    REPO: "{{ 'osmollo/ohmyzsh' if from_post_install | default(false) else 'ohmyzsh/ohmyzsh' }}"
   command: bash -c "/tmp/install.sh --unattended"
   when: not ohmybashdir_exists.stat.exists
 
