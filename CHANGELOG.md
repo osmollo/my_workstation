@@ -41,6 +41,7 @@
   - Ordenación de los tokens de git
   - Clonado `oh-my-zsh` y `oh-my-bash`
   - Nuevas entradas en `~/.ssh/config`
+  - Cambio en el orden del playbook `prepare_post.yml` para desencriptar nada más importar la llave privada
 
 ## VERSIONES ANTERIORES
 

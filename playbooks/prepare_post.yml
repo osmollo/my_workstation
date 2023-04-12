@@ -64,6 +64,14 @@
         trust: '5'
         state: present
 
+    - name: "decrypt 'roles/post-install/defaults/main.yml.gpg'"
+      shell: "gpg --batch --yes --output ../roles/post_install/defaults/main.yml --decrypt ../roles/post_install/defaults/main.yml.gpg"
+      register: private_response
+      changed_when: "'not changed' not in private_response.stderr"
+      args:
+        stdin: "{{ doc1_passphrase }}"
+        stdin_add_newline: false
+
     - name: "[PROTON] please copy this passphrase"
       debug: var=doc3_passphrase
 
@@ -79,19 +87,6 @@
       file:
         path: "{{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml"
         state: absent
-
-    - name: "[PERSONAL] please copy this passphrase"
-      debug: var=doc1_passphrase
-
-    - pause:
-
-    - name: "decrypt 'roles/post-install/defaults/main.yml.gpg'"
-      shell: "gpg --batch --yes --output ../roles/post_install/defaults/main.yml --decrypt ../roles/post_install/defaults/main.yml.gpg"
-      register: private_response
-      changed_when: "'not changed' not in private_response.stderr"
-      args:
-        stdin: "{{ doc1_passphrase }}"
-        stdin_add_newline: false
 
     - name: "delete temporal files"
       file:
