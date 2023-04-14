@@ -23,7 +23,7 @@
     - name: "[GIT] create alias for broot"
       vars:
         alias_name: gg
-        alias_command: '/usr/local/bin/broot --conf ~/.config/broot/git-diff-conf.toml --git-status' 
+        alias_command: '/usr/local/bin/broot --conf ~/.config/broot/git-diff-conf.toml --git-status'
       import_role:
         name: tools/create_alias
   tags:
@@ -132,7 +132,7 @@
         name: user.signingkey
         repo: "{{ item.dest | default(git_dir + '/' + ((item.repo  | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
         scope: local
-        value: "{{ lookup('onepassword', 'op://Private/securitas/public key') }}"
+        value: "{{ lookup('onepassword', 'op://Private/securitas ed25519/public key') }}"
       loop: "{{ git_repositories.work }}"
   tags:
     - clone_repos
@@ -225,5 +225,3 @@
   tags:
     - clone_repos
     - create_remotes
-
-
