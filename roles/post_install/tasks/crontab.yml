@@ -1,17 +1,5 @@
 ---
 
-- name: "[CRONTAB] create crontab entries"
-  cron:
-    name: "{{ item.name }}"
-    job: "{{ item.job }}"
-    minute: "{{ item.minute }}"
-    hour: "{{ item.hour | default('*') }}"
-  loop:
-    - name: "bbva_to_github"
-      job: "{{ dropbox_dir }}/bin/datio/bbva_to_github.py"
-      minute: "00"
-      hour: "15,23"
-
 - name: "[CRONTAB] create crontab entries for gnome"
   cron:
     name: "{{ item.name }}"

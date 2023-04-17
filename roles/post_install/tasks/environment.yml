@@ -73,6 +73,25 @@
     - ssh_config
     - ssh_keys
 
+- name: "[ENVIRONMENT] configure oh-my-zsh"
+  vars:
+    ansible_ssh_private_key_file: "{{ ssh_dir }}/id_rsa"
+  import_tasks: oh_my_zsh.yml
+  tags:
+    - oh-my-zsh
+    - ohmyzsh
+
+- name: "[ENVIRONMENT] configure oh-my-bash"
+  import_tasks: oh_my_bash.yml
+  tags:
+    - oh-my-bash
+    - ohmybash
+
+- name: "[ENVIRONMENT] copy powerline truetype fonts"
+  import_tasks: fonts.yml
+  tags:
+    - deploy_fonts
+
 - name: "configure ssh entries"
   blockinfile:
     path: "{{ ansible_user_dir }}/.ssh/config"
@@ -121,37 +140,6 @@
   tags:
     - ssh_config
     - config_files
-
-- name: "[ENVIRONMENT] create Datio vault_pass"
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.vault_pass_datio"
-    line: "{{ vault_datio_pass }}"
-    create: true
-    mode: 0600
-  no_log: true
-
-- name: "[ENVIRONMENT] create link to file"
-  file:
-    src: "{{ ansible_user_dir }}/.vault_pass_datio"
-    dest: "{{ ansible_user_dir }}/.vault_pass"
-    state: link
-
-- name: "[ENVIRONMENT] configure oh-my-zsh"
-  import_tasks: oh_my_zsh.yml
-  tags:
-    - oh-my-zsh
-    - ohmyzsh
-
-- name: "[ENVIRONMENT] configure oh-my-bash"
-  import_tasks: oh_my_bash.yml
-  tags:
-    - oh-my-bash
-    - ohmybash
-
-- name: "[ENVIRONMENT] copy powerline truetype fonts"
-  import_tasks: fonts.yml
-  tags:
-    - deploy_fonts
 
 - block:
     - name: "[ENVIRONMENT] Wait until dropbox files exist"

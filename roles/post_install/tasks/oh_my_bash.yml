@@ -54,12 +54,12 @@
     ohmybash_repo: git@github.com:ohmybash/ohmybash.git
 
 - name: "[OHMYBASH] Configure 'user.name' for oh-my-bash repo"
-  shell: "git config user.name {{ git_user_name }}"
+  shell: "git config user.name {{ git_config.user_name }}"
   args:
     chdir: "{{ ansible_user_dir }}/.oh-my-bash"
 
 - name: "[OHMYBASH] Configure 'user.email' for oh-my-bash repo"
-  shell: "git config user.email {{ git_user_mail_personal }}"
+  shell: "git config user.email {{ git_config.user_email_home }}"
   args:
     chdir: "{{ ansible_user_dir }}/.oh-my-bash"
 
@@ -74,3 +74,11 @@
   shell: git submodule update --init --recursive
   args:
     chdir: "{{ ansible_user_dir }}/.oh-my-bash"
+
+- name: "[OHMYBASH] Configure ssh signinkey in WORK repositories"
+  git_config:
+    name: user.signingkey
+    repo: "{{ ansible_user_dir }}/.oh-my-bash"
+    scope: local
+    value: "{{ lookup('onepassword', 'op://Private/osmollo/public key') }}"
+

@@ -1,0 +1,19 @@
+---
+
+- name: "[CREATE_ALIAS] check if 'alias_name' and 'alias_command' are defined"
+  assert:
+    that:
+      - alias_name is defined
+      - alias_command is defined
+    fail_msg: "'alias_name' and 'alias_commando' must be defined"
+
+- name: "[CREATE_ALIAS] create alias"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.bash_aliases"
+    create: true
+    regexp: "^alias {{ alias_name }}="
+    line: "alias {{ alias_name }}='{{ alias_command }}'"
+    state: present
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0640

@@ -1,0 +1,7 @@
+---
+
+- name: "[TEAMS] [DEB] install Microsoft Teams with snap"
+  snap:
+    name: 
+      - teams-for-linux
+    state: present

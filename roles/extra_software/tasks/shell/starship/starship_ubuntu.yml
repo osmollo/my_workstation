@@ -1,0 +1,9 @@
+---
+
+# TODO: canal edge?
+- name: "[STARSHIP] [UBUNTU] install starship using snap"
+  snap:
+    name:
+      - starship
+    channel: latest/edge
+    state: present

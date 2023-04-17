@@ -1,0 +1,8 @@
+---
+
+- name: "[EDGE] [ARCH] install Microsoft Edge"
+  become: false
+  yay:
+    name: "{{ edge_package }}"
+    state: present
+    update_cache: true

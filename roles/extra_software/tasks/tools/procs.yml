@@ -1,0 +1,26 @@
+---
+
+- name: "[PROCS] Get latest version of procs"
+  uri:
+    url: "{{ procs_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: procs_latest
+
+- name: "[PROCS] download nprocs package '{{ procs_version }}'"
+  vars:
+    procs_version: "{{ procs_latest.url | urlsplit('path') | basename }}"
+    procs_package: "https://github.com/dalance/procs/releases/download/{{ procs_version }}/procs-{{ procs_version }}-x86_64-linux.zip"
+  unarchive:
+    src: "{{ procs_package }}"
+    dest: /usr/local/bin
+    mode: 0755
+    remote_src: true
+
+- name: "[PROCS] create alias for ps --> procs"
+  vars:
+    alias_name: ps
+    alias_command: /usr/local/bin/procs
+  import_role:
+    name: tools/create_alias
+

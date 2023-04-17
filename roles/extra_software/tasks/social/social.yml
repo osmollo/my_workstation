@@ -56,3 +56,9 @@
   when: install_element
   tags:
     - element
+
+- name: "[SOCIAL] Install Teams"
+  import_tasks: teams/teams.yml
+  when: install_teams
+  tags:
+    - teams

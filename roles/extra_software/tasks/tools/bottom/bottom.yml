@@ -19,9 +19,8 @@
   include_tasks: "bottom_{{ linux_distribution }}.yml"
 
 - name: "[BOTTOM] create alias"
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.bash_aliases"
-    line: "alias top='btm'"
-    state: present
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+  vars:
+    alias_name: top
+    alias_command: btm
+  import_role:
+    name: tools/create_alias

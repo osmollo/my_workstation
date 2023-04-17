@@ -32,3 +32,10 @@
     - linux_distribution == "ubuntu"
   tags:
     - beekeeper
+
+- name: "[DEV] Install DBeaver"
+  import_tasks: dbeaver/dbeaver.yml
+  when:
+    - install_dbeaver
+  tags:
+    - dbeaver

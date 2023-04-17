@@ -31,7 +31,7 @@
   become_method: sudo
   import_tasks: ../extra_software/tasks/shell/oh_my_zsh.yml
   vars:
-    ohmyzsh_installer: https://raw.githubusercontent.com/osmollo/oh-my-zsh/master/tools/install.sh
+    ohmyzsh_installer: https://raw.githubusercontent.com/osmollo/ohmyzsh/master/tools/install.sh
     from_post_install: true
 
 - name: "[OHMYZSH] delete .zshrc"
@@ -59,12 +59,12 @@
     ohmyzsh_repo: git@github.com:ohmyzsh/ohmyzsh.git
 
 - name: "[OHMYZSH] Configure 'user.name' for oh-my-zsh repo"
-  shell: "git config user.name {{ git_user_name }}"
+  shell: "git config user.name {{ git_config.user_name }}"
   args:
     chdir: "{{ ansible_user_dir }}/.oh-my-zsh"
 
 - name: "[OHMYZSH] Configure 'user.email' for oh-my-zsh repo"
-  shell: "git config user.email {{ git_user_mail_personal }}"
+  shell: "git config user.email {{ git_config.user_email_home }}"
   args:
     chdir: "{{ ansible_user_dir }}/.oh-my-zsh"
 
@@ -73,9 +73,22 @@
     repo: '{{ ansible_user_dir }}/.oh-my-zsh'
     scope: 'local'
     name: 'remote.origin.url'
-    value: 'git@github.com:osmollo/oh-my-zsh.git'
+    value: 'git@github.com:osmollo/ohmyzsh.git'
 
-- name: "[OHMYZSH] install submodules"
-  shell: git submodule update --init --recursive
-  args:
-    chdir: "{{ ansible_user_dir }}/.oh-my-zsh"
+- name: "[OHMYZSH] Configure ssh signinkey in WORK repositories"
+  git_config:
+    name: user.signingkey
+    repo: "{{ ansible_user_dir }}/.oh-my-zsh"
+    scope: local
+    value: "{{ lookup('onepassword', 'op://Private/osmollo/public key') }}"
+
+- name: "[OHMYZSH] install plugins"
+  git:
+    repo: "{{ item }}"
+    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/{{ (item | urlsplit('path') | split('/'))[-1] }}"
+    clone: true
+    accept_hostkey: true
+  loop:
+    - "https://github.com/zsh-users/zsh-autosuggestions"
+    - "https://github.com/zsh-users/zsh-syntax-highlighting"
+    - "https://github.com/unixorn/fzf-zsh-plugin"

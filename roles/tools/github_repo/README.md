@@ -23,7 +23,7 @@ El role puede recibir los siguientes parámetros:
       include_role:
         name: tools/github_repo
       vars:
-        github_token: "{{ github_token_access }}"
+        github_token: "{{ git_tokens.github }}"
         repo_name: "example_repo"
         repo_private: true
         repo_state: present

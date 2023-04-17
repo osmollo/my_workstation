@@ -1,0 +1,8 @@
+---
+
+- name: "[DBEAVER] [ARCH] Install DBeaver"
+  become: false
+  yay:
+    name: "{{ dbeaver_package }}"
+    state: present
+    update_cache: true

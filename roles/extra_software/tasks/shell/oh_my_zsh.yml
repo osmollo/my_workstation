@@ -23,6 +23,7 @@
   environment:
     CHSH: yes
     RUNZSH: yes
+    REPO: "{{ 'osmollo/ohmyzsh' if from_post_install | default(false) else 'ohmyzsh/ohmyzsh' }}"
   command: /tmp/install.sh --unattended
   when: not ohmyzshdir_exists.stat.exists
 

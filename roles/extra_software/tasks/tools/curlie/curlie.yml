@@ -20,9 +20,8 @@
   include_tasks: "curlie_{{ linux_distribution }}.yml"
 
 - name: "[CURLIE] create alias"
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.bash_aliases"
-    line: "alias curl='curlie'"
-    state: present
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+  vars:
+    alias_name: curl
+    alias_command: curlie
+  import_role:
+    name: tools/create_alias

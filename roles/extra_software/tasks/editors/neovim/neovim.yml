@@ -2,21 +2,6 @@
 
 # https://linuxfacil.mx/blog/neovim/como-configurar-neovim-como-vscode-para-python/
 
-- when: linux_distribution in ['ubuntu', 'debian']
-  block:
-    - name: "[NEOVIM] Get latest version of neovim"
-      uri:
-        url: "{{ neovim_latest_url }}"
-        follow_redirects: safe
-        body_format: raw
-      register: neovim_latest
-
-    - name: "[NEOVIM] Set urls for neovim {{ neovim_version }} packages"
-      vars:
-        neovim_version: "{{ neovim_latest.url | urlsplit('path') | basename }}"
-      set_fact:
-        neovim_deb_package: "https://github.com/neovim/neovim/releases/download/{{ neovim_version }}/nvim-linux64.deb"
-
 - name: "[NEOVIM] install for {{ linux_distribution }}"
   include_tasks: "neovim_{{ linux_distribution }}.yml"
 
@@ -37,16 +22,22 @@
       path: /usr/bin/nvim
   when: linux_distribution != 'arch'
 
-- name: "[NEOVIM] install plugins"
-  import_tasks: "neovim_plugins.yml"
+    #- name: "[NEOVIM] install plugins"
+    #  import_tasks: "neovim_plugins.yml"
+    #  tags:
+    #    - neovim_plugins
+    #    - nvim_plugins
+
+- name: "[NEOVIM] install AstroNvim"
+  import_tasks: astronvim.yml
   tags:
+    - astronvim
     - neovim_plugins
     - nvim_plugins
 
 - name: "[NEOVIM] create alias"
-  lineinfile:
-    path: "{{ ansible_user_dir }}/.bash_aliases"
-    line: "alias vim='nvim'"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-    create: true
+  vars:
+    alias_name: vim
+    alias_command: nvim
+  import_role:
+    name: tools/create_alias

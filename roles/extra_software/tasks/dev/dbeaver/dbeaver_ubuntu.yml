@@ -1,0 +1,21 @@
+---
+
+- name: "[DBEAVER] [DEB] save apt key"
+  apt_key:
+    url: https://dbeaver.io/debs/dbeaver.gpg.key
+    keyring: /usr/share/keyrings/dbeaver.gpg
+    state: present
+
+- name: "[DBEAVER] [DEB] create repository file"
+  copy:
+    content: "deb https://dbeaver.io/debs/dbeaver-ce /"
+    dest: /etc/apt/sources.list.d/dbeaver.list
+    owner: root
+    group: root
+
+- name: "[DBEAVER] [DEB] install DBeaver"
+  apt:
+    name:
+      - dbeaver-ce
+    state: present
+    update_cache: true

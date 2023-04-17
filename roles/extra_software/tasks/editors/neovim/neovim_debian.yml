@@ -1,4 +1,19 @@
 ---
+- name: "[NEOVIM] Get latest version of neovim"
+  uri:
+    url: "{{ neovim_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: neovim_latest
+
+# TODO: nvim-linux64.deb ya no se distribuye desde la 0.9.0
+- name: "[NEOVIM] Set urls for neovim {{ neovim_version }} packages"
+  vars:
+    neovim_version: "{{ neovim_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    # neovim_deb_package: "https://github.com/neovim/neovim/releases/download/{{ neovim_version }}/nvim-linux64.deb"
+    neovim_deb_package: "https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb"
+
 
 - name: "[NEOVIM] [DEBIAN] Install neovim"
   apt:

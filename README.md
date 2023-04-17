@@ -49,17 +49,20 @@ Por defecto se instala el siguiente software:
 | [Consul](https://learn.hashicorp.com/tutorials/consul/install-cli) | consul | install_consul | tools | Service discovery |
 | [CopyQ](https://hluk.github.io/CopyQ/) | copyq | install_copyq | | Gestor de portapapeles |
 | [curlie](https://github.com/rs/curlie) | curlie | install_curlie | tools | Curl vitaminado |
+| [DBeaver](https://dbeaver.io/) | dbeaver | install_dbeaver | dev | Manager de conexiones a BBDD |
 | [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | desktop| Cliente de Torrent |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | containers | Gestión de contenedores Docker |
 | [Draw.io](https://github.com/jgraph/drawio-desktop) | drawio | install_drawio | desktop | Editor de diagramas |
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | storage | Cliente de almacenamiento en la nube |
 | [Duf](https://github.com/muesli/duf) | duf | install_duf | tools | du vitaminado |
+| [Edge](https://www.microsoft.com/en-us/edge/download?form=MA13FW&ch) | edge | install_edge | browsers | Navegador Microsoft Edge |
 | [Element](https://element.io/) | element | install_element | social | cliente de mensajería para [matrix.org](https://matrix.org) |
-| [Ether Cloud Service Client](https://platform.bbva.com/en-us/developers/ether-cli/documentation/01-what-is) | ecs | install_ecs | tools | |
+| [ERDtree](https://github.com/solidiquis/erdtree) | erdtree | install_erdtree | tools | `tree` vitaminado |
 | [Franz](https://meetfranz.com/) | franz | install_franz | social | Administrador de clientes de mensajería |
 | [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | tools | Buscador difuso de archivos |
 | [Github CLI](https://github.com/cli/cli) | githubcli | install_githubcli | git | Cli de consola para [Github](https://github.com) |
 | [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | git | Cliente gráfico de git |
+| [GlobalProtect](https://github.com/yuezk/GlobalProtect-openconnect) | globalprotect  | install_globalprotect | vpn | Cliente VPN |
 | [GO](https://golang.org/doc/install/source) | go | install_go | dev | Compilador del lenguaje GO |
 | [Google Chrome](https://www.google.com/intl/es/chrome/) | chrome | install_chrome | browsers | Navegador web |
 | [Google Fonts](https://fonts.google.com/) | google_fonts | install_fonts | | Fuentes tipográficas de Google |
@@ -89,6 +92,7 @@ Por defecto se instala el siguiente software:
 | [Podman](https://podman.io/) | podman | install_podman | containers | Gestor de contenedores |
 | [Postman](https://www.getpostman.com) | postman | install_postman | dev | Cliente REST API |
 | [Prezto](https://github.com/sorin-ionescu/prezto) | prezto | install_prezto | shell | Personalización de ZSH (fork mejorado de Oh my Zsh) |
+| [PROCS](https://github.com/dalance/procs/releases/latest) | procs | install_procs | tools | Reemplazo de `ps` |
 | [ProtonVPN](https://protonvpn.com/) | protonvpn | install_protonvpn | vpn | Cliente de VPN |
 | [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | pycharm | install_pycharm | editors | IDE para Python |
 | [Rambox](https://rambox.pro/#home) | rambox | install_rambox | social | Gestor de clientes de mensajería |
@@ -98,9 +102,11 @@ Por defecto se instala el siguiente software:
 | [Slack](https://slack.com/intl/es-es/) | slack | install_slack | social | Cliente de mensajería para entornos de trabajo |
 | [Singlebox](https://webcatalog.io/singlebox/) | singlebox | install_singlebox | social | Administrador de clientes de mensajería |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | media | Cliente de Spotify |
+| [Starship](https://starship.rs/es-ES/) | starship | install_starship | shell | Gestor de configuración del prompt |
 | [Steam](https://store.steampowered.com/?l=spanish) | steam | install_steam | games | Cliente Steam para juegos de PC |
 | [Sublime Merge](https://www.sublimemerge.com/) | sublimemerge | install_sublimemerge | git | Cliente gráfico de git |
 | [Sublime Text](https://www.sublimetext.com/) | sublimetext | install_sublimetext | editors | Editor de textos |
+| [Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software) | teams | install_teams | social | Gestor de comunicaciones Microsoft Teams |
 | [Teamviewer](https://www.teamviewer.com/es/) | teamviewer | install_teamviewer | remotes | Cliente de escritorio remoto |
 | [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | social | Cliente de escritorio de mensajería Telegram |
 | [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) | terraform | install_terraform | tools | Creación de infraestructura |
@@ -119,6 +125,7 @@ Por defecto se instala el siguiente software:
 | [YakYak](https://github.com/yakyak/yakyak) | yakyak | install_yakyak | social | Cliente de mensajería para Hangouts |
 | [yq](https://github.com/mikefarah/yq) | yq | install_yq | tools | Parseador json, yaml y xml |
 | [Zoom](https://zoom.us/es-es/meetings.html) | zoom | install_zoom | social | Cliente de videoconferencia |
+| [Zoxide](https://github.com/ajeetdsouza/zoxide) | zoxide | install_zoxide | tools | Navegación inteligente por directorios |
 
 En caso de que no se quiera instalar alguna de las anteriores aplicaciones, se puede indicar a través de las `extravars` con la correspondiente **variable** a `false`. Por ejemplo, para instalar todo el software extra excepto *Spotify* y *Oh my zsh!*:
 

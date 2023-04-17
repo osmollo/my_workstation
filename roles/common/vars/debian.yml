@@ -22,6 +22,7 @@ distro_packages:
   - screenfetch
   - vlc
   - tldr
+  - remmina
 
 gnome_debian_packages:
   - network-manager-openvpn-gnome

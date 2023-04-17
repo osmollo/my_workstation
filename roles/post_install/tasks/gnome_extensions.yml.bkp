@@ -1,0 +1,14 @@
+---
+
+- name: "[GNOME EXTENSIONS] create gnome extensions directory"
+  file:
+    path: "{{ ansible_user_dir }}/.local/share/gnome-shell/extensions"
+    state: directory
+
+- name: "[GNOME EXTENSIONS] unzip gnome extension file"
+  unarchive:
+    src: "https://url_to_file"
+    dest: "{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/dash-to-dock"
+    remote_src: true
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"

@@ -19,3 +19,10 @@
     - install_ohmyzsh
   tags:
     - ohmyzsh
+
+- name: "[SHELL] Install starship"
+  import_tasks: starship/starship.yml
+  when:
+    - install_starship
+  tags:
+    - starship

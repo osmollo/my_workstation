@@ -17,8 +17,6 @@
       set_fact:
         doc1_filename: "{{ lookup('onepassword', 'op://Private/GPG\ personal/add more/name') }}"
         doc1_passphrase: "{{ lookup('onepassword', 'op://Private/GPG\ personal/add more/passphrase') }}"
-        doc2_filename: "{{ lookup('onepassword', 'op://Private/GPG\ datio/add more/name') }}"
-        doc2_passphrase: "{{ lookup('onepassword', 'op://Private/GPG\ datio/add more/passphrase') }}"
         doc3_filename: "{{ lookup('onepassword', 'op://Private/GPG\ proton/add more/name') }}"
         doc3_passphrase: "{{ lookup('onepassword', 'op://Private/GPG\ proton/add more/passphrase') }}"
 
@@ -26,7 +24,6 @@
       command: "{{ item }}"
       loop:
         - "op document get 'GPG personal' --output {{ ansible_user_dir }}/{{ doc1_filename }}.zip"
-        - "op document get 'GPG datio' --output {{ ansible_user_dir }}/{{ doc2_filename }}.zip"
         - "op document get 'GPG proton' --output {{ ansible_user_dir }}/{{ doc3_filename }}.zip"
 
     - name: "create directories to uncompress gpg files"
@@ -38,7 +35,6 @@
         group: "{{ ansible_user }}"
       loop:
         - "{{ doc1_filename }}"
-        - "{{ doc2_filename }}"
         - "{{ doc3_filename }}"
 
     - name: "uncompress gpg files"
@@ -47,7 +43,6 @@
         dest: "{{ item }}"
       loop:
         - "{{ ansible_user_dir }}/{{ doc1_filename }}"
-        - "{{ ansible_user_dir }}/{{ doc2_filename }}"
         - "{{ ansible_user_dir }}/{{ doc3_filename }}"
 
     - name: "import GPG pub keys"
@@ -56,7 +51,6 @@
         state: present
       loop:
         - "{{ ansible_user_dir }}/{{ doc1_filename }}/pub"
-        - "{{ ansible_user_dir }}/{{ doc2_filename }}/pub"
         - "{{ ansible_user_dir }}/{{ doc3_filename }}/pub"
 
     - name: "[PERSONAL] please copy this passphrase"
@@ -70,16 +64,18 @@
         trust: '5'
         state: present
 
-    - name: "[WORK] please copy this passphrase"
-      debug: var=doc2_passphrase
+    - name: "delete previous '{{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml'"
+      file:
+        path: "{{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml"
+        state: absent
 
-    - pause:
-
-    - name: "[WORK] import GPG priv key"
-      gpg_key:
-        file: "{{ ansible_user_dir }}/{{ doc2_filename }}/priv"
-        trust: '5'
-        state: present
+    - name: "decrypt 'roles/post-install/defaults/main.yml.gpg'"
+      shell: "gpg --batch --yes --output ../roles/post_install/defaults/main.yml --decrypt ../roles/post_install/defaults/main.yml.gpg"
+      register: private_response
+      changed_when: "'not changed' not in private_response.stderr"
+      args:
+        stdin: "{{ doc1_passphrase }}"
+        stdin_add_newline: false
 
     - name: "[PROTON] please copy this passphrase"
       debug: var=doc3_passphrase
@@ -92,24 +88,6 @@
         trust: '5'
         state: present
 
-    - name: "delete previous '{{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml'"
-      file:
-        path: "{{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml"
-        state: absent
-
-    - name: "[PERSONAL] please copy this passphrase"
-      debug: var=doc1_passphrase
-
-    - pause:
-
-    - name: "decrypt 'roles/post-install/defaults/main.yml.gpg'"
-      shell: "gpg --batch --yes --output ../roles/post_install/defaults/main.yml --decrypt ../roles/post_install/defaults/main.yml.gpg"
-      register: private_response
-      changed_when: "'not changed' not in private_response.stderr"
-      args:
-        stdin: "{{ doc1_passphrase }}"
-        stdin_add_newline: false
-
     - name: "delete temporal files"
       file:
         path: "{{ item }}"
@@ -117,7 +95,5 @@
       loop:
         - "{{ ansible_user_dir }}/{{ doc1_filename }}.zip"
         - "{{ ansible_user_dir }}/{{ doc1_filename }}"
-        - "{{ ansible_user_dir }}/{{ doc2_filename }}.zip"
-        - "{{ ansible_user_dir }}/{{ doc2_filename }}"
         - "{{ ansible_user_dir }}/{{ doc3_filename }}.zip"
         - "{{ ansible_user_dir }}/{{ doc3_filename }}"

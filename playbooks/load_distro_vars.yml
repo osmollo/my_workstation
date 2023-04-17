@@ -156,6 +156,21 @@
       when:
         desktop_environment is undefined
 
+    - name: "[GNOME] set GNOME_VERSION variable"
+      when: desktop_environment == "gnome"
+      block:
+        - name: "[GNOME] get gnome-shell version"
+          command: gnome-shell --version
+          register: gnome_response
+          changed_when: false
+
+        - name: "[GNOME] set GNOME_VERSION variable"
+          set_fact:
+            GNOME_VERSION: "{{ gnome_response.stdout.split(' ')[2].split('.')[0] }}"
+
+        - name: "[GNOME] version"
+          debug: var=GNOME_VERSION
+
     - block:
         - name: "get xserver"
           shell: "loginctl show-session $(loginctl | awk '/tty/ {print $1}') -p Type | awk -F= '{print $2}'"

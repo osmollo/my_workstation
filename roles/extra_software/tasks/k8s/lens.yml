@@ -1,48 +1,50 @@
 ---
 
-- name: "[LENS] Get latest version of lens"
-  uri:
-    url: "{{ lens_latest_url }}"
-    follow_redirects: safe
-    body_format: raw
-  register: lens_latest
-
-- name: "[LENS] set lens version {{ lens_version }}"
-  set_fact:
-    lens_version: "{{ lens_latest.url | urlsplit('path') | basename }}"
-
-- name: "[LENS] install Lens on Arch"
+- when: linux_distribution in ['debian', 'ubuntu']
   block:
-    - name: "[LENS] create {{ ansible_user_dir }}/AppImage directory"
-      file:
-        path: "{{ appimage_dir }}"
-        state: directory
-        owner: "{{ ansible_user }}"
-        group: "{{ ansible_user }}"
+    - name: "[LENS] [DEB] save apt key"
+      apt_key:
+        url: https://downloads.k8slens.dev/keys/gpg
+        keyring: /usr/share/keyrings/lens-archive-keyring.gpg 
+        state: present
 
-    - name: "[LENS] download lens appimage"
-      get_url:
-        url: "https://github.com/lensapp/lens/releases/download/{{ lens_version }}/Lens-{{ lens_version[1:] }}.x86_64.AppImage"
-        dest: "{{ appimage_dir }}/Lens.AppImage"
-        owner: "{{ ansible_user }}"
-        group: "{{ ansible_user }}"
-        mode: 0755
+    - name: "[LENS] [DEB] create repository file"
+      copy:
+        content: "deb [arch=amd64 signed-by=/usr/share/keyrings/lens-archive-keyring.gpg] https://downloads.k8slens.dev/apt/debian stable main"
+        dest: /etc/apt/sources.list.d/lens.list
+        owner: root
+        group: root
+      
+    - name: "[LENS] [DEB] install Lens"
+      apt:
+        name: 
+          - lens
+        state: present
+        update_cache: true
 
-    - name: "[LENS] how to run"
-      debug:
-        msg: "Puedes ejecutar Lens con el comando: '{{ appimage_dir }}/Lens.AppImage'"
-  when: linux_distribution == "arch"
+- when: linux_distribution == 'fedora'
+  block:
+    - name: "[LENS] [FEDORA] create repository file"
+      copy:
+        content: |
+          [lens-repo]
+          name=Lens Repo
+          baseurl=https://downloads.k8slens.dev/rpm/packages
+          enabled=1
+          gpgcheck=1
+          gpgkey=https://downloads.k8slens.dev/keys/gpg
+        dest: /etc/yum.repos.d/lens.repo
 
-- name: "[LENS] [UBUNTU] install lens package"
-  apt:
-    deb: "https://github.com/lensapp/lens/releases/download/{{ lens_version }}/Lens-{{ lens_version[1:] }}.amd64.deb"
+    - name: "[LENS] [FEDORA] install Lens"
+      dnf:
+        name: lens
+        state: present
+        update_cache: true
+
+- when: linux_distribution == 'arch'
+  become: false
+  name: "[LENS] [ARCH] install Lens"
+  yay:
+    name: "{{ lens_package }}"
     state: present
     update_cache: true
-  when: linux_distribution in ['ubuntu', 'debian']
-
-- name: "[LENS] [FEDORA] install lens package"
-  dnf:
-    name: "https://github.com/lensapp/lens/releases/download/{{ lens_version }}/Lens-{{ lens_version[1:] }}.x86_64.rpm"
-    state: present
-    update_cache: true
-  when: linux_distribution == 'fedora'

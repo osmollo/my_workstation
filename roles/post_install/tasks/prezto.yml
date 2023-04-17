@@ -41,12 +41,12 @@
     prezto_repo: git@github.com:sorin-ionescu/prezto.git
 
 - name: "[PREZTO] Configure 'user.name' for prezto repo"
-  shell: "git config user.name {{ git_user_name }}"
+  shell: "git config user.name {{ git_config.user_name }}"
   args:
     chdir: "{{ ansible_user_dir }}/.zprezto"
 
 - name: "[PREZTO] Configure 'user.email'' for prezto repo"
-  shell: "git config user.email {{ git_user_mail_personal }}"
+  shell: "git config user.email {{ git_config.user_email_home }}"
   args:
     chdir: "{{ ansible_user_dir }}/.zprezto"
 

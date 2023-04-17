@@ -101,6 +101,32 @@
     - vitaminar
     - vitaminado
 
+- name: "[TOOLS] Install erdtree"
+  import_tasks: erdtree.yml
+  when: install_erdtree
+  tags:
+    - erdtree
+    - update
+    - vitaminar
+    - vitaminado
+
+- name: "[PROCS] install procs"
+  import_tasks: procs.yml
+  when: install_procs
+  tags:
+    - procs
+    - update
+    - vitaminar
+    - vitaminado
+
+- name: "[TOOLS] install zoxide"
+  import_tasks: zoxide/zoxide.yml
+  when: install_zoxide
+  tags:
+    - zoxide
+    - vitaminar
+    - vitaminado
+
 - name: "[TOOLS] Install yq"
   import_tasks: yq.yml
   when: install_yq
@@ -120,10 +146,3 @@
   when: install_vault or install_terraform or install_consul or install_nomad or install_hashicorp
   tags:
     - hashicorp
-
-- name: "[TOOLS] Install Ether Cloud Services Client"
-  import_tasks: ecs.yml
-  when: install_ecs
-  tags:
-    - extra_software
-    - ecs

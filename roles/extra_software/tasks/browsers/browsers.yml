@@ -30,6 +30,12 @@
   tags:
     - vivaldi
 
+- name: "[EDGE] Install Microsoft Edge"
+  import_tasks: edge/edge.yml
+  when: install_edge
+  tags:
+    - edge
+
 - name: "[BROWSERS] Install Lexnet"
   import_tasks: lexnet.yml
   when:

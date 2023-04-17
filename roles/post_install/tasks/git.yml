@@ -21,11 +21,11 @@
         mode: 0644
 
     - name: "[GIT] create alias for broot"
-      lineinfile:
-        path: "{{ ansible_user_dir }}/.bash_aliases"
-        create: true
-        state: present
-        line: "alias gg='/usr/local/bin/broot --conf ~/.config/broot/git-diff-conf.toml --git-status'"
+      vars:
+        alias_name: gg
+        alias_command: '/usr/local/bin/broot --conf ~/.config/broot/git-diff-conf.toml --git-status'
+      import_role:
+        name: tools/create_alias
   tags:
     - broot
 
@@ -65,9 +65,6 @@
           [mergetool "{{ diff_editor }}"]
               cmd = {{ diff_editor }} "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
-          [user]
-            signingkey = {{ lookup('onepassword', 'op://Private/osmollo/public key') }}
-
           [gpg]
             format = ssh
 
@@ -98,15 +95,57 @@
   tags:
     - clone_repos
 
+- name: "[GIT] configure repositories"
+  block:
+    - name: "[GIT] Configure user name"
+      git_config:
+        name: user.name
+        scope: global
+        value: "{{ git_config.user_name }}"
+
+    - name: "[GIT] Configure user email in HOME repositories"
+      git_config:
+        name: user.email
+        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+        scope: local
+        value: "{{ git_config.user_email_home }}"
+      loop: "{{ git_repositories.home }}"
+
+    - name: "[GIT] Configure user email in WORK repositories"
+      git_config:
+        name: user.email
+        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+        scope: local
+        value: "{{ git_config.user_email_work }}"
+      loop: "{{ git_repositories.work }}"
+
+    - name: "[GIT] Configure ssh signinkey in HOME repositories"
+      git_config:
+        name: user.signingkey
+        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo  | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+        scope: local
+        value: "{{ lookup('onepassword', 'op://Private/osmollo/public key') }}"
+      loop: "{{ git_repositories.home }}"
+
+    - name: "[GIT] Configure ssh signinkey in WORK repositories"
+      git_config:
+        name: user.signingkey
+        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo  | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+        scope: local
+        value: "{{ lookup('onepassword', 'op://Private/securitas ed25519/public key') }}"
+      loop: "{{ git_repositories.work }}"
+  tags:
+    - clone_repos
+    - repos_config
+
 - name: "[GIT] Create remotes for repositories"
   block:
     # create remotes for repositories copied in other platforms
-
     - name: "[GIT] Create github repositories for WORK"
       include_role:
         name: tools/github_repo
       vars:
-        github_token: "{{ github_token_access }}"
+        github_token: "{{ git_tokens.github }}"
         repo_name: "{{ (item.repo | basename).split('.')[0] }}"
         repo_private: true
         repo_state: present
@@ -119,7 +158,7 @@
       include_role:
         name: tools/gitlab_repo
       vars:
-        gitlab_token: "{{ gitlab_token_access }}"
+        gitlab_token: "{{ git_tokens.gitlab }}"
         repo_name: "{{ (item.repo | basename).split('.')[0] }}"
         visibility: private
         repo_state: present
@@ -128,7 +167,7 @@
         - item.remote == "gitlab"
       with_items: "{{ git_repositories.work }}"
 
-    - name: "[GIT] Create new remote for work repositories"
+    - name: "[GIT] Create new remote for WORK repositories"
       shell: "git remote add {{ item.remote }} {{ remote_url }}"
       args:
         chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
@@ -143,7 +182,7 @@
       include_role:
         name: tools/github_repo
       vars:
-        github_token: "{{ github_token_access }}"
+        github_token: "{{ git_tokens.github }}"
         repo_name: "{{ (item.repo | basename).split('.')[0] }}"
         repo_private: true
         repo_state: present
@@ -156,7 +195,7 @@
       include_role:
         name: tools/gitlab_repo
       vars:
-        gitlab_token: "{{ gitlab_token_access }}"
+        gitlab_token: "{{ git_tokens.gitlab }}"
         repo_name: "{{ (item.repo | basename).split('.')[0] }}"
         repo_private: private
         repo_state: present
@@ -165,7 +204,7 @@
         - item.remote == "gitlab"
       with_items: "{{ git_repositories.home }}"
 
-    - name: "[GIT] Create new remote for home repositories"
+    - name: "[GIT] Create new remote for HOME repositories"
       shell: "git remote add {{ item.remote }} {{ remote_url }}"
       args:
         chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
@@ -186,30 +225,3 @@
   tags:
     - clone_repos
     - create_remotes
-
-- block:
-    - name: "[GIT] Configure user name"
-      git_config:
-        name: user.name
-        scope: global
-        value: "{{ git_user_name }}"
-
-    - name: "[GIT] Configure user email in BBVA repositories"
-      git_config:
-        name: user.email
-        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-        scope: local
-        value: "{{ git_user_mail_work }}"
-      loop: "{{ git_repositories.work }}"
-
-    - name: "[GIT] Configure user email in personal repositories"
-      git_config:
-        name: user.email
-        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-        scope: local
-        value: "{{ git_user_mail_personal }}"
-      loop: "{{ git_repositories.home }}"
-  tags:
-    - clone_repos
-    - repos_config
-

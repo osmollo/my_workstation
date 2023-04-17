@@ -1,0 +1,40 @@
+---
+
+- name: "[ZOXIDE] install zoxide"
+  include_tasks: "zoxide_{{ linux_distribution }}.yml"
+
+- name: "[ZOXIDE] config bash"
+  block:
+    - name: "[ZOXIDE] check if .bashrc exists"
+      stat:
+        path: "{{ ansible_user_dir }}/.bashrc"
+      register: stat_response
+
+    - name: "[ZOXIDE] config zoxide for bash"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.bashrc"
+        line: 'eval "$(zoxide init bash)"'
+        state: present
+      when: stat_response.stat.exists
+
+- name: "[ZOXIDE] config zsh"
+  block:
+    - name: "[ZOXIDE] check if .zshrc exists"
+      stat:
+        path: "{{ ansible_user_dir }}/.zshrc"
+      register: stat_response
+
+    - name: "[ZOXIDE] config zoxide for zsh"
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.zshrc"
+        line: 'eval "$(zoxide init zsh)"'
+        state: present
+      when: stat_response.stat.exists
+
+- name: "[ZOXIDE] create alias"
+  vars:
+    alias_name: cd
+    alias_command: z
+  import_role:
+    name: tools/create_alias
+        

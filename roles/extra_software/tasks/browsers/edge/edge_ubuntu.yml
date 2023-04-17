@@ -1,0 +1,13 @@
+---
+
+- name: "[EDGE] [DEB] create repository file"
+  copy:
+    content: |
+      deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main
+    dest: /etc/apt/sources.list.d/microsoft_edge.list
+
+- name: "[EDGE] [DEB] install Microsoft Edge package"
+  apt:
+    name: microsoft-edge-stable
+    state: present
+    update_cache: true

@@ -1,0 +1,15 @@
+---
+
+- name: "[GLOBALPROTECT] [DEB] install repository"
+  apt_repository:
+    validate_certs: false
+    repo: 'ppa:yuezk/globalprotect-openconnect'
+    state: present
+
+- name: "[GLOBALPROTECT] [DEB] install GlobalProtect package"
+  apt:
+    name:
+      - globalprotect-openconnect
+    state: present
+    update_cache: true
+

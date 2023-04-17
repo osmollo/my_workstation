@@ -1,14 +1,17 @@
 ---
 
-- name: "[DROPBOX] [DEB] get latest dropbox version"
-  get_dropbox_latest:
-    distro: "{{ linux_distribution }}"
-    arch: "{{ ansible_architecture }}"
-  register: dropbox_version
+# TODO: dropbox 22-12-05 tiene errores de dependencias en ubuntu 22.04
+
+#- name: "[DROPBOX] [DEB] get latest dropbox version"
+#  get_dropbox_latest:
+#    distro: "{{ linux_distribution }}"
+#    arch: "{{ ansible_architecture }}"
+#  register: dropbox_version
 
 - name: "[DROPBOX] [DEB] Install Dropbox package {{ dropbox_version.version }}"
   vars:
-    dropbox_package: "https://www.dropbox.com/download?dl=packages/{{ linux_distribution }}/dropbox_{{ dropbox_version.version }}_amd64.deb"
+    #    dropbox_package: "https://www.dropbox.com/download?dl=packages/{{ linux_distribution }}/dropbox_{{ dropbox_version.version }}_amd64.deb"
+    dropbox_package: "https://linux.dropbox.com/packages/debian/dropbox_2020.03.04_amd64.deb"
   apt:
     deb: "{{ dropbox_package }}"
     state: present
