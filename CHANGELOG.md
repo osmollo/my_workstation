@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [9.1](#91)
   - [9.0](#90)
   - [VERSIONES ANTERIORES](#versiones-anteriores)
     - [Versión 8](#versión-8)
@@ -11,6 +12,10 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 9.1
+
+- Actualizadas las versiones de algunos github actions
 
 ## 9.0
 
