@@ -22,6 +22,7 @@ distro_packages:
   - pkgconf
   - tldr
   - python-setuptools
+  -	remmina
 
 gnome_arch_packages:
   - wireshark-cli

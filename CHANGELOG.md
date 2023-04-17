@@ -26,6 +26,7 @@
 - Instalación de [Microsoft Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software)
 - Instalación de [GlobalProtect](https://github.com/yuezk/GlobalProtect-openconnect)
 - Instalación de [DBeaver](https://dbeaver.io/)
+- Instalación de **remmina** en el role `common` para conexión a escritorios remotos
 - Corrección de errores:
   - Instalación de [Lens](https://docs.k8slens.dev/getting-started/install-lens/)
   - Varios fixes con `TODO` para revisar en el futuro
