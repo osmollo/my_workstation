@@ -16,6 +16,8 @@
 ## 9.1
 
 - Actualizadas las versiones de algunos github actions
+- Post_install:
+  - Entradas en `~/.ssh/config`
 
 ## 9.0
 
