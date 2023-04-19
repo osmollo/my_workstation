@@ -19,6 +19,7 @@
 - Post_install:
   - Entradas en `~/.ssh/config`
   - Simplificación de las entradas de ssh
+  - Nuevos repositorios git
 
 ## 9.0
 
