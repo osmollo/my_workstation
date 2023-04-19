@@ -20,6 +20,7 @@
   - Entradas en `~/.ssh/config`
   - Simplificación de las entradas de ssh
   - Nuevos repositorios git
+  - Restauración de la configuración de **DBeaver**
 
 ## 9.0
 

@@ -1,0 +1,12 @@
+---
+
+- name: "[DBEAVER] delete original directory"
+  file:
+    path: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General"
+    state: absent
+
+- name: "[DBEAVER] create link"
+  file:
+    src: "{{ dropbox_dir }}/backups/dbeaver"
+    dest: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General"
+    state: link

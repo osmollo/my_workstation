@@ -13,6 +13,12 @@
     - post_install
     - rclone
 
+- name: "restore dbeaver connections"
+  import_tasks: dbeaver.yml
+  tags:
+    - post_install
+    - dbeaver
+
 - name: "create secrets"
   import_tasks: secrets.yml
   when: desktop_environment != "foobar"
