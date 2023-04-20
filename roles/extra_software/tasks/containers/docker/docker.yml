@@ -15,13 +15,6 @@
     enabled: true
     state: restarted
 
-- name: "[DOCKER_COMPOSE] Download Docker Compose binary"
-  import_tasks: docker_compose.yml
-  when: linux_distribution != "arch"
-  tags:
-    - dockercompose
-    - update
-
 - name: "[DIVE] Install Dive"
   block:
     - name: "[DIVE] Get latest version of Dive"

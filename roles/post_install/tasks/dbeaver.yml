@@ -5,6 +5,14 @@
     path: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General"
     state: absent
 
+- name: "[DBEAVER] create path"
+  file:
+    path: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+
 - name: "[DBEAVER] create link"
   file:
     src: "{{ dropbox_dir }}/backups/dbeaver"

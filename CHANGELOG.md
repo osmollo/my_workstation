@@ -15,6 +15,8 @@
 
 ## 9.1
 
+- Soportado [Fedora 38](https://docs.fedoraproject.org/en-US/releases/f38/)
+- Instalación del plugin **compose** para docker, en lugar de `docker-compose`
 - Actualizadas las versiones de algunos github actions
 - Post_install:
   - Entradas en `~/.ssh/config`
