@@ -206,6 +206,7 @@
 
     - name: "[GIT] Create new remote for HOME repositories"
       shell: "git remote add {{ item.remote }} {{ remote_url }}"
+      changed_when: false
       args:
         chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
       with_items: "{{ git_repositories.home }}"
@@ -217,6 +218,7 @@
 
     - name: "[GIT] Delete push for remote"
       shell: "git remote set-url --push {{ item.remote }} no_push"
+      changed_when: false
       with_items: "{{ git_repositories.home }}"
       when:
         - item.remote is defined
