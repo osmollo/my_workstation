@@ -23,6 +23,7 @@
   - Simplificación de las entradas de ssh
   - Nuevos repositorios git
   - Restauración de la configuración de **DBeaver**
+  - Login en [Mega](https://mega.io/es/) con 2FA activado 
 
 ## 9.0
 

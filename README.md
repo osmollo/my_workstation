@@ -172,11 +172,16 @@ ansible-playbook install.yml -t chromium -e install_chromium=true
 
 ### Post instalación
 
-Las variables necesarias para la ejecución de este role se encuentran en `./roles/post_install/defaults/main.yml.gpg`
+Las variables necesarias para la ejecución de este role se encuentran en `./roles/post_install/defaults/main.yml.gpg`. Para poder tener acceso a todos los secretos necesarios para la configuración, es necesario ejecutar el siguiente comando:
+
+```shell
+eval $(op signin)
+```
+
+Y a continuación ejecutar los siguientes playbooks:
 
 ```shell
 ansible-playbook playbooks/prepare_post.yml
-
 ansible-playbook post_install.yml
 ```
 
