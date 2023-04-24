@@ -169,6 +169,7 @@
 
     - name: "[GIT] Create new remote for WORK repositories"
       shell: "git remote add {{ item.remote }} {{ remote_url }}"
+      changed_when: false
       args:
         chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
       with_items: "{{ git_repositories.work }}"
