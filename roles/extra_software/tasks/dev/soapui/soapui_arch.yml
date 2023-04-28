@@ -1,0 +1,8 @@
+---
+
+- name: "[SOAPUI] [ARCH] install SoapUI"
+  become: false
+  yay:
+    name: "{{ soapui_package }}"
+    state: present
+    update_cache: true

@@ -1,0 +1,4 @@
+---
+
+- include_tasks: "soapui_{{ linux_distribution }}.yml"
+  when: linux_distribution in ['fedora', 'arch']

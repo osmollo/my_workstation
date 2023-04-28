@@ -35,7 +35,12 @@
 
 - name: "[DEV] Install DBeaver"
   import_tasks: dbeaver/dbeaver.yml
-  when:
-    - install_dbeaver
+  when: install_dbeaver
   tags:
     - dbeaver
+
+- name: "[DEV] install SoapUI"
+  import_tasks: soapui/soapui.yml
+  when: install_soapui
+  tags:
+    - soapui

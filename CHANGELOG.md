@@ -18,6 +18,7 @@
 - Soportado [Fedora 38](https://docs.fedoraproject.org/en-US/releases/f38/)
 - Instalación del plugin **compose** para docker, en lugar de `docker-compose`
 - Actualizadas las versiones de algunos github actions
+- Instalación de [SoapUI](https://www.soapui.org/)
 - Post_install:
   - Entradas en `~/.ssh/config`
   - Simplificación de las entradas de ssh
