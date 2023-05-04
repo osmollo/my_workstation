@@ -19,6 +19,7 @@
 - Instalación del plugin **compose** para docker, en lugar de `docker-compose`
 - Actualizadas las versiones de algunos github actions
 - Instalación de [SoapUI](https://www.soapui.org/)
+- Subido a 20 el valor `max_parallel_downloads` en la configuración de __DNF__ para **Fedora**
 - Post_install:
   - Entradas en `~/.ssh/config`
   - Simplificación de las entradas de ssh
