@@ -49,3 +49,4 @@
   loop: "{{ firefox_customizations if mozilla_browser == 'FIREFOX' else librewolf_customizations if mozilla_browser == 'LIBREWOLF' }}"
   loop_control:
     label: "{{ item.regex }}"
+  ignore_errors: true

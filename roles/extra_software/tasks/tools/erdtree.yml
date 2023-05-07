@@ -10,7 +10,7 @@
 - name: "[ERDTREE] download erdtree package '{{ erdtree_version }}'"
   vars:
     erdtree_version: "{{ erdtree_latest.url | urlsplit('path') | basename }}"
-    erdtree_package: "https://github.com/solidiquis/erdtree/releases/download/{{ erdtree_version }}/et-{{ erdtree_version }}-x86_64-unknown-linux-gnu.tar.gz"
+    erdtree_package: "https://github.com/solidiquis/erdtree/releases/download/{{ erdtree_version }}/erd-{{ erdtree_version }}-x86_64-unknown-linux-gnu.tar.gz"
   unarchive:
     src: "{{ erdtree_package }}"
     dest: /usr/local/bin
@@ -53,4 +53,3 @@
     alias_command: '/usr/local/bin/et'
   import_role:
     name: tools/create_alias
-

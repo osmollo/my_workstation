@@ -1,7 +1,19 @@
 ---
 
-- name: "[ZOXIDE] [DEB] install package"
-  apt:
-    name: zoxide
-    update_cache: true
-    state: present
+- tags:
+    - update
+  block:
+    - name: "[ZOXIDE] Get latest version of Zoxide"
+      uri:
+        url: "{{ zoxide_latest_url }}"
+        follow_redirects: safe
+        body_format: raw
+      register: zoxide_latest
+
+    - name: "[ZOXIDE] [DEB] install Zoxide {{ zoxide_version[1:] }}"
+      vars:
+        zoxide_version: "{{ zoxide_latest.url | urlsplit('path') | basename }}"
+      apt:
+        deb: "https://github.com/ajeetdsouza/zoxide/releases/download/{{ zoxide_version }}/zoxide_{{ zoxide_version[1:] }}_amd64.deb"
+        update_cache: true
+        state: present

@@ -49,7 +49,7 @@ install_bitwarden: false
 install_lexnet: false
 install_pass: false
 install_bucklespring: false
-install_protonvpn: true
+install_protonvpn: false
 install_prezto: false
 install_etcher: false
 install_woeusb: false
@@ -154,6 +154,7 @@ broot_latest_url: "https://github.com/Canop/broot/releases/latest"
 erdtree_latest_url: "https://github.com/solidiquis/erdtree/releases/latest"
 procs_latest_url: "https://github.com/dalance/procs/releases/latest"
 dbeaver_latest_url: "https://github.com/dbeaver/dbeaver/releases/latest"
+zoxide_latest_url: "https://github.com/ajeetdsouza/zoxide/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"

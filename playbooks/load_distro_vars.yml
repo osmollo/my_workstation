@@ -100,8 +100,26 @@
         ubuntu_version_long: "{{ ubuntu_versions[ubuntu_codename] }}"
       vars:
         ubuntu_versions:
-          jammy: "22.04"
+          lunar: "23.04"
       when: linux_distribution == "ubuntu"
+
+    - name: "Is Ubuntu LTS?"
+      when: linux_distribution == "ubuntu"
+      block:
+        - name: "Read /etc/os-release"
+          shell: |
+            set -o pipefail
+            grep "VERSION=" /etc/os-release
+          args:
+            executable: /bin/bash
+          register: response_lts
+          changed_when: false
+
+        - name: "Set variable 'ubuntu_lts' to '{{ is_lts }}'"
+          vars:
+            is_lts: "{{ 'LTS' in response_lts.stdout }}"
+          set_fact:
+            ubuntu_lts: "{{ is_lts }}"
 
     - name: "Set FEDORA_VERSION variable"
       set_fact:

@@ -2,6 +2,8 @@
 
 - name: "[BAT] [ARCH] Install bat"
   pacman:
-    name: bat
+    name: 
+      - bat
+      - bat-extras
     state: present
     update_cache: true
