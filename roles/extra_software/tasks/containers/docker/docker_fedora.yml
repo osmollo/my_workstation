@@ -35,5 +35,14 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
+      - docker-compose-plugin
     state: present
     update_cache: true
+
+- name: "[DOCKER] [FEDORA] create alias"
+  vars:
+    alias_name: docker-compose
+    alias_command: docker compose
+  import_role:
+    name: tools/create_alias
+      

@@ -13,6 +13,12 @@
     - post_install
     - rclone
 
+- name: "restore dbeaver connections"
+  import_tasks: dbeaver.yml
+  tags:
+    - post_install
+    - dbeaver
+
 - name: "create secrets"
   import_tasks: secrets.yml
   when: desktop_environment != "foobar"
@@ -135,7 +141,9 @@
 - name: "configure ubuntu PRO"
   become: true
   import_tasks: ubuntu_pro.yml
-  when: ansible_distribution == 'Ubuntu'
+  when:
+    - ansible_distribution == 'Ubuntu'
+    - ubuntu_lts | default(False)
   tags:
     - post_install
     - ubuntu_pro

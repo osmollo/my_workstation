@@ -169,6 +169,7 @@
 
     - name: "[GIT] Create new remote for WORK repositories"
       shell: "git remote add {{ item.remote }} {{ remote_url }}"
+      changed_when: false
       args:
         chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
       with_items: "{{ git_repositories.work }}"
@@ -204,11 +205,14 @@
         - item.remote == "gitlab"
       with_items: "{{ git_repositories.home }}"
 
-    - name: "[GIT] Create new remote for HOME repositories"
+    - name: "[GIT] Create new remote for repositories"
       shell: "git remote add {{ item.remote }} {{ remote_url }}"
+      changed_when: false
       args:
         chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-      with_items: "{{ git_repositories.home }}"
+      with_items:
+        - "{{ git_repositories.home }}"
+        - "{{ git_repositories.work }}"
       when: item.remote is defined
       register: remote_response
       failed_when: false
@@ -217,6 +221,7 @@
 
     - name: "[GIT] Delete push for remote"
       shell: "git remote set-url --push {{ item.remote }} no_push"
+      changed_when: false
       with_items: "{{ git_repositories.home }}"
       when:
         - item.remote is defined

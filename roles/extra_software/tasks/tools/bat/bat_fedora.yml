@@ -1,7 +1,28 @@
 ---
 
+- name: "[BAT] [RPM] install bat-extras repository file"
+  copy:
+    content: |
+      [copr:copr.fedorainfracloud.org:awood:bat-extras]
+      name=Copr repo for bat-extras owned by awood
+      baseurl=https://download.copr.fedorainfracloud.org/results/awood/bat-extras/fedora-$releasever-$basearch/
+      type=rpm-md
+      skip_if_unavailable=True
+      gpgcheck=1
+      gpgkey=https://download.copr.fedorainfracloud.org/results/awood/bat-extras/pubkey.gpg
+      repo_gpgcheck=0
+      enabled=1
+      enabled_metadata=1
+    dest: "/etc/yum.repos.d/bat_extras.repo"
+    mode: 0644
+    owner: root
+    group: root
+
 - name: "[BAT] [RPM] Install bat"
   dnf:
-    name: bat
+    name: 
+      - bat
+      - bat-extras
     state: present
     update_cache: true
+

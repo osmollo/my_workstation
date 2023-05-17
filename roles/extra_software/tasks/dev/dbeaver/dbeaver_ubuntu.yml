@@ -8,7 +8,7 @@
 
 - name: "[DBEAVER] [DEB] create repository file"
   copy:
-    content: "deb https://dbeaver.io/debs/dbeaver-ce /"
+    content: "deb [arch=amd64 signed-by=/usr/share/keyrings/dbeaver.gpg] https://dbeaver.io/debs/dbeaver-ce /"
     dest: /etc/apt/sources.list.d/dbeaver.list
     owner: root
     group: root

@@ -75,7 +75,7 @@
     name: 'remote.origin.url'
     value: 'git@github.com:osmollo/ohmyzsh.git'
 
-- name: "[OHMYZSH] Configure ssh signinkey in WORK repositories"
+- name: "[OHMYZSH] Configure ssh signinkey"
   git_config:
     name: user.signingkey
     repo: "{{ ansible_user_dir }}/.oh-my-zsh"

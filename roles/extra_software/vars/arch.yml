@@ -69,6 +69,7 @@ edge_package: microsoft-edge-stable-bin
 teams_package: teams-for-linux
 lens_package: lens
 dbeaver_package: dbeaver-le
+soapui_package: soapui
 
 protonvpn_dependencies:
   - openvpn

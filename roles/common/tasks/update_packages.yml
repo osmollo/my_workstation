@@ -16,7 +16,7 @@
         line: "{{ item }}"
         state: present
       loop:
-        - max_parallel_downloads=10
+        - max_parallel_downloads=20
         - fastestmirror=True
 
     - name: "[FEDORA] update all packages to the latest version"

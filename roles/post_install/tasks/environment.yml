@@ -119,11 +119,11 @@
       {% if item.identity_file is defined %}
         IdentityFile {{ item.identity_file }}
       {% endif %}
-      {% if item.pubkeyacceptedkeytypes is defined %}
-        PubkeyAcceptedKeyTypes {{ item.pubkeyacceptedkeytypes }}
+      {% if item.type is defined %}
+        PubkeyAcceptedKeyTypes {{ item.type }}
       {% endif %}
-      {% if item.hostkeyalgorithms is defined %}
-        HostKeyAlgorithms {{ item.hostkeyalgorithms }}
+      {% if item.type is defined %}
+        HostKeyAlgorithms {{ item.type }}
       {% endif %}
       {% if item.identityagent is defined %}
         IdentityAgent {{ item.identityagent }}

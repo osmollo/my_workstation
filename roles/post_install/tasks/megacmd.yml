@@ -12,8 +12,16 @@
       ignore_errors: true
       register: login_status
 
+# TODO: In future versions of op cli, the next task could be deleted
+
+    - name: "[MEGACMD] get otp code"
+      command: op item get mega.nz --otp
+      register: otp_response
+
     - name: "[MEGACMD] Configure megacmd client"
-      shell: "mega-login {{ mega.user }} {{ mega.password }}"
+# TODO: in future versions of op cli, this line could be uncommented
+      # shell: "mega-login {{ mega.user }} {{ mega.password }} --auth-code={{ lookup('onepassword', mega.otp) }}"
+      shell: "mega-login {{ mega.user }} {{ mega.password }} --auth-code={{ otp_response.stdout }}"
       no_log: true
       when: "'Already logged in' not in login_status.stdout"
   when: mega_response.stat.exists

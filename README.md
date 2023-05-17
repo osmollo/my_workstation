@@ -101,6 +101,7 @@ Por defecto se instala el siguiente software:
 | [Skype](https://www.skype.com/es/) | skype | install_skype | social | Cliente de mensajería de Skype |
 | [Slack](https://slack.com/intl/es-es/) | slack | install_slack | social | Cliente de mensajería para entornos de trabajo |
 | [Singlebox](https://webcatalog.io/singlebox/) | singlebox | install_singlebox | social | Administrador de clientes de mensajería |
+| [SoapUI](https://www.soapui.org/) | soapui | install_soapui | dev | Cliente API SoapUI |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | media | Cliente de Spotify |
 | [Starship](https://starship.rs/es-ES/) | starship | install_starship | shell | Gestor de configuración del prompt |
 | [Steam](https://store.steampowered.com/?l=spanish) | steam | install_steam | games | Cliente Steam para juegos de PC |
@@ -172,11 +173,16 @@ ansible-playbook install.yml -t chromium -e install_chromium=true
 
 ### Post instalación
 
-Las variables necesarias para la ejecución de este role se encuentran en `./roles/post_install/defaults/main.yml.gpg`
+Las variables necesarias para la ejecución de este role se encuentran en `./roles/post_install/defaults/main.yml.gpg`. Para poder tener acceso a todos los secretos necesarios para la configuración, es necesario ejecutar el siguiente comando:
+
+```shell
+eval $(op signin)
+```
+
+Y a continuación ejecutar los siguientes playbooks:
 
 ```shell
 ansible-playbook playbooks/prepare_post.yml
-
 ansible-playbook post_install.yml
 ```
 

@@ -2,15 +2,9 @@
 
 - name: "[DOCKER] [ARCH] Install docker"
   pacman:
-    name: "docker"
+    name: 
+      - "docker"
+      - "docker-compose"
     state: present
     update_cache: true
-
-- name: "[DOCKER] [ARCH] Install docker-compose"
-  pacman:
-    name: "docker-compose"
-    state: present
-    update_cache: true
-  tags:
-    - dockercompose
 

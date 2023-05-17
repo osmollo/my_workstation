@@ -26,11 +26,38 @@
     update_cache: true
   when: linux_distribution == "arch"
 
-- name: "Install setuptools python module"
-  pip:
-    name:
-      - setuptools
+- when: linux_distribution != "ubuntu"
+  block:
+    - name: "Install setuptools python module"
+      pip:
+        name:
+          - setuptools
 
-- name: "Install python modules"
-  pip:
-    name: "{{ python_modules }}"
+    - name: "Install python modules"
+      pip:
+        name: "{{ python_modules }}"
+
+- when: linux_distribution == "ubuntu"
+  block:
+    - name: "Install setuptools"
+      apt:
+        name: python3-setuptools
+        state: present
+        update_cache: true
+
+    - name: "Install python modules"
+      vars:
+        prefix: "python3-"
+        quitar:
+          - pylint
+          - docker-py
+          - gitpython
+        poner:
+          - pylint-common
+          - docker
+          - git
+        to_install: "{{ [prefix] | product(python_modules | difference(quitar) + poner) | map('join') | list }}"
+      apt:
+        name: "{{ to_install }}"
+        state: present
+        update_cache: true

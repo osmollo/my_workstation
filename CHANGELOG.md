@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [9.1](#91)
   - [9.0](#90)
   - [VERSIONES ANTERIORES](#versiones-anteriores)
     - [Versión 8](#versión-8)
@@ -11,6 +12,26 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 9.1
+
+- Soportado [Fedora 38](https://docs.fedoraproject.org/en-US/releases/f38/)
+- Soportado [Ubuntu 23.04](https://ubuntu.com/download/desktop)
+- Instalación del plugin **compose** para docker, en lugar de `docker-compose`
+- Actualizadas las versiones de algunos github actions
+- Instalación de [SoapUI](https://www.soapui.org/)
+- Subido a 20 el valor `max_parallel_downloads` en la configuración de __DNF__ para **Fedora**
+- Instalación de [bat-extras](https://github.com/eth-p/bat-extras)
+- Post_install:
+  - Entradas en `~/.ssh/config`
+  - Simplificación de las entradas de ssh
+  - Nuevos repositorios git
+  - Restauración de la configuración de **DBeaver**
+  - Login en [Mega](https://mega.io/es/) con 2FA activado
+  - Nuevo login en registry de docker
+- Corrección de errores:
+  - Instalación de **Postman** y **SoapUI** por defecto
+  - No existe `docker-scan-plugin` para fedora
 
 ## 9.0
 

@@ -1,10 +1,15 @@
 ---
 
 - name: "[GLOBALPROTECT] [DEB] install repository"
-  apt_repository:
-    validate_certs: false
-    repo: 'ppa:yuezk/globalprotect-openconnect'
-    state: present
+  copy:
+    content: 'deb [arch=amd64 signed-by=/usr/share/keyrings/globalprotect.gpg] http://ppa.launchpad.net/yuezk/globalprotect-openconnect/ubuntu lunar main'
+    dest: /etc/apt/sources.list.d/globalprotect.list
+
+- name: "[GLOBALPROTECT] [DEB] install gpg key"
+  apt_key:
+    id: 7937C393082992E5D6E4A60453FC26B43838D761
+    keyring: /usr/share/keyrings/globalprotect.gpg
+    keyserver: keyserver.ubuntu.com
 
 - name: "[GLOBALPROTECT] [DEB] install GlobalProtect package"
   apt:
@@ -12,4 +17,3 @@
       - globalprotect-openconnect
     state: present
     update_cache: true
-
