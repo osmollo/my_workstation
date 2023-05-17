@@ -36,7 +36,6 @@
       - docker-ce-cli
       - containerd.io
       - docker-compose-plugin
-      - docker-scan-plugin
     state: present
     update_cache: true
 

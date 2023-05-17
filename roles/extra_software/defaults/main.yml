@@ -20,7 +20,7 @@ install_chrome: false
 install_teamviewer: true
 install_nomachine: false
 install_ecs: false
-install_postman: false
+install_postman: true
 install_skype: false
 install_java: false
 install_apachedirectory: false
@@ -113,7 +113,7 @@ install_edge: false
 install_teams: true
 install_globalprotect: true
 install_dbeaver: true
-install_soapui: false
+install_soapui: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85

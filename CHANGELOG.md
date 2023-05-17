@@ -29,6 +29,9 @@
   - Restauración de la configuración de **DBeaver**
   - Login en [Mega](https://mega.io/es/) con 2FA activado
   - Nuevo login en registry de docker
+- Corrección de errores:
+  - Instalación de **Postman** y **SoapUI** por defecto
+  - No existe `docker-scan-plugin` para fedora
 
 ## 9.0
 
