@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [9.2](#92)
   - [9.1](#91)
   - [9.0](#90)
   - [VERSIONES ANTERIORES](#versiones-anteriores)
@@ -12,6 +13,11 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 9.2
+
+- Post_install:
+  - Nuevos repositorios git
 
 ## 9.1
 
