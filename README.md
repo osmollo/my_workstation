@@ -111,6 +111,7 @@ Por defecto se instala el siguiente software:
 | [Teamviewer](https://www.teamviewer.com/es/) | teamviewer | install_teamviewer | remotes | Cliente de escritorio remoto |
 | [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | social | Cliente de escritorio de mensajería Telegram |
 | [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) | terraform | install_terraform | tools | Creación de infraestructura |
+| [Thincast](https://thincast.com/en/) | thincast | install_thincast | remote | Cliente de escritorio remoto |
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | tools | Gestión de batería (sólo para Thinkpad) |
 | [Tmux](http://www.sromero.org/wiki/linux/aplicaciones/tmux) | tmux | install_tmux | tools | Multiplexador de terminal avanzado |
 | [Trivy](https://github.com/aquasecurity/trivy) | trivy | install_trivy | containers | Scanner de vulnerabilidades de contenedores docker |

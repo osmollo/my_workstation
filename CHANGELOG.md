@@ -16,6 +16,7 @@
 
 ## 9.2
 
+- Instalación de [Thincast](https://thincast.com/en/)
 - Post_install:
   - Nuevos repositorios git
 

@@ -1,0 +1,7 @@
+---
+
+- name: "[THINCAST] [DEB] Install Thincast using snap"
+  snap:
+    name:
+      - thincast-client
+    state: present

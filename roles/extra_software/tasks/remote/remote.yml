@@ -11,3 +11,9 @@
   when: install_nomachine
   tags:
     - nomachine
+
+- name: "[REMOTE] Install Thincast"
+  import_tasks: thincast/thincast.yml
+  when: install_thincast
+  tags:
+    - thincast

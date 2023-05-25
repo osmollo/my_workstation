@@ -114,6 +114,7 @@ install_teams: true
 install_globalprotect: true
 install_dbeaver: true
 install_soapui: true
+install_thincast: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
