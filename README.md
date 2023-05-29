@@ -62,6 +62,7 @@ Por defecto se instala el siguiente software:
 | [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | tools | Buscador difuso de archivos |
 | [Github CLI](https://github.com/cli/cli) | githubcli | install_githubcli | git | Cli de consola para [Github](https://github.com) |
 | [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | git | Cliente gráfico de git |
+| [Gitnuro](https://gitnuro.jetpackduba.com/) | gitnuro | install_gitnuro | git | Cliente gráfico de git |
 | [GlobalProtect](https://github.com/yuezk/GlobalProtect-openconnect) | globalprotect  | install_globalprotect | vpn | Cliente VPN |
 | [GO](https://golang.org/doc/install/source) | go | install_go | dev | Compilador del lenguaje GO |
 | [Google Chrome](https://www.google.com/intl/es/chrome/) | chrome | install_chrome | browsers | Navegador web |

@@ -26,3 +26,9 @@
     - install_bfg
   tags:
     - bfg
+
+- name: "Install Gitnuro"
+  import_tasks: gitnuro.yml
+  when: install_gitnuro
+  tags:
+    - gitnuro
