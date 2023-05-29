@@ -19,20 +19,23 @@
 - name: "[PULSAR] install pulsar for {{ linux_distribution }}"
   include_tasks: "pulsar_{{ linux_distribution }}.yml"
 
-# - name: "[PULSAR] install packages"
-#   block:
-#     - name: "[PULSAR] get json with packages"
-#       uri:
-#         url: "{{ pulsar_packages_url }}"
-#       register: packages_response
-#
-#     - name: "[PULSAR] Install packages for Atom"
-#       become: false
-#       become_user: "{{ ansible_user }}"
-#       vars:
-#         id_query: "[].name"
-#       command: "apm install {{ item }}"
-#       loop: "{{ packages_response.json | default([]) | json_query(id_query) | list }}"
-#       ignore_errors: true
-#   tags:
-#     - pulsar_extensions
+- name: "[PULSAR] install packages"
+  block:
+    - name: "[PULSAR] get json with packages"
+      uri:
+        url: "{{ pulsar_packages_url }}"
+        return_content: true
+      register: packages_response
+
+    - name: "[PULSAR] Install packages for Pulsar"
+      become: false
+      become_user: "{{ ansible_user }}"
+      vars:
+        id_query: "[].name"
+      command: "pulsar -p install {{ item.key }}@{{ item.value.version }}"
+      loop: "{{ packages_response.content | from_json | dict2items }}"
+      loop_control:
+        label: "{{ item.key }}@{{ item.value.version }}"
+      ignore_errors: true
+  tags:
+    - pulsar_extensions

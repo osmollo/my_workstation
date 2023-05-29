@@ -22,6 +22,7 @@
 - Corrección de errores:
   - **Sublime merge** ya no se instala por defecto
   - Instalación de **Spotify** en **Fedora** con flatpak
+  - Instalación de extensiones en **Pulsar**
 - Post_install:
   - Nuevos repositorios git
 

@@ -209,7 +209,7 @@ lexnet_packages:
   - pcsc-tools
   - libglade2-dev
 
-atom_packages_url: https://gist.githubusercontent.com/osmollo/854b27da91246625596f8839cc365713/raw/packages.json
+pulsar_packages_url: "https://gist.githubusercontent.com/osmollo/b1d2a48a2e8e9b54e72c7888aab0f5d3/raw/bfaca636c6cdbb97d0e619569b7857f19ffdd058/packages.json"
 
 appimage_dir: "{{ ansible_user_dir }}/AppImage"
 
