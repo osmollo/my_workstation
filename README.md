@@ -94,6 +94,7 @@ Por defecto se instala el siguiente software:
 | [Prezto](https://github.com/sorin-ionescu/prezto) | prezto | install_prezto | shell | Personalización de ZSH (fork mejorado de Oh my Zsh) |
 | [PROCS](https://github.com/dalance/procs/releases/latest) | procs | install_procs | tools | Reemplazo de `ps` |
 | [ProtonVPN](https://protonvpn.com/) | protonvpn | install_protonvpn | vpn | Cliente de VPN |
+| [Pulsar](https://pulsar-edit.dev/) | pulsar | install_pulsar | editors | Editor de texto basado en **Atom** |
 | [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | pycharm | install_pycharm | editors | IDE para Python |
 | [Rambox](https://rambox.pro/#home) | rambox | install_rambox | social | Gestor de clientes de mensajería |
 | [Rclone](https://rclone.org/) | rclone | install_rclone | storage | Tool de nubes de almacenamiento |

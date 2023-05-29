@@ -71,6 +71,7 @@ lens_package: lens
 dbeaver_package: dbeaver-le
 soapui_package: soapui
 thincast_package: tlclient
+pulsar_package: pulsar-bin
 
 protonvpn_dependencies:
   - openvpn

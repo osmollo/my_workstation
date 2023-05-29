@@ -1,0 +1,8 @@
+---
+
+- name: "[PULSAR] [ARCH] Install Pulsar"
+  become: false
+  yay:
+    name: "{{ pulsar_package }}"
+    state: present
+    update_cache: true

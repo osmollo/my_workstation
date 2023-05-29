@@ -1,5 +1,11 @@
 ---
 
+- name: "[PULSAR] Install Pulsar"
+  import_tasks: pulsar/pulsar.yml
+  when: install_pulsar
+  tags:
+    - pulsar
+
 - name: "[EDITORS] Install Sublime Text"
   import_tasks: sublime_text/sublime.yml
   when: install_sublimetext

@@ -17,6 +17,7 @@
 ## 9.2
 
 - Instalación de [Thincast](https://thincast.com/en/)
+- Instalación de [Pulsar](https://pulsar-edit.dev/)
 - Post_install:
   - Nuevos repositorios git
 
