@@ -18,8 +18,10 @@
 
 - Instalación de [Thincast](https://thincast.com/en/)
 - Instalación de [Pulsar](https://pulsar-edit.dev/)
-- **Sublime merge** ya no se instala por defecto
 - Instalación de [Gitnuro](https://gitnuro.jetpackduba.com/)
+- Corrección de errores:
+  - **Sublime merge** ya no se instala por defecto
+  - Instalación de **Spotify** en **Fedora** con flatpak
 - Post_install:
   - Nuevos repositorios git
 
