@@ -29,6 +29,8 @@
 
 - name: "Install Gitnuro"
   import_tasks: gitnuro.yml
-  when: install_gitnuro
+  when:
+    - install_gitnuro
+    - linux_distribution in ["fedora"]
   tags:
     - gitnuro
