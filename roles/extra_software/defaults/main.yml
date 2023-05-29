@@ -64,7 +64,7 @@ install_wireguard: false
 install_typora: true
 install_beekeeper: false
 install_kdenlive: false
-install_sublimemerge: true
+install_sublimemerge: false
 install_bfg: true
 install_vscodium: false
 install_tmux: false
