@@ -36,6 +36,7 @@
     - name: "Install python modules"
       pip:
         name: "{{ python_modules }}"
+        extra_args: --user
 
 - when: linux_distribution == "ubuntu"
   block:

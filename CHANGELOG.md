@@ -23,6 +23,7 @@
   - **Sublime merge** ya no se instala por defecto
   - Instalación de **Spotify** en **Fedora** con flatpak
   - Instalación de extensiones en **Pulsar**
+  - Instalación de librerías de **Python** con el argumento `--user`
 - Post_install:
   - Nuevos repositorios git
   - Modificación del alias `actualiza` para que actualice también las apps de *Snap* (**Ubuntu**) o de *Flatpak* (**Fedora**)

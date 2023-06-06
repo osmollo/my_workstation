@@ -21,6 +21,7 @@
 - name: "[NEOVIM] install python modules for neovim"
   pip:
     name: '{{ item }}'
+  extra_args: --user
   loop:
     - 'python-lsp-server[all]'
 
