@@ -1,0 +1,66 @@
+---
+
+- name: "[GIT] Clone git repositorie '{{ item.repo }}'"
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+    clone: true
+    accept_hostkey: true
+  ignore_errors: true
+
+- name: "[GIT] Configure user email"
+  git_config:
+    name: user.email
+    repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+    scope: local
+    value: "{{ git_config_user_email }}"
+
+- name: "[GIT] Configure ssh signinkey"
+  git_config:
+    name: user.signingkey
+    repo: "{{ item.dest | default(git_dir + '/' + ((item.repo  | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+    scope: local
+    value: "{{ git_config_signingkey }}"
+
+- name: "[GIT] Create github repository"
+  include_role:
+    name: tools/github_repo
+  vars:
+    github_token: "{{ git_tokens.github }}"
+    repo_name: "{{ (item.repo | basename).split('.')[0] }}"
+    repo_private: true
+    repo_state: present
+  when:
+    - item.remote is defined
+    - item.remote == "github"
+
+- name: "[GIT] Create gitlab repository"
+  include_role:
+    name: tools/gitlab_repo
+  vars:
+    gitlab_token: "{{ git_tokens.gitlab }}"
+    repo_name: "{{ (item.repo | basename).split('.')[0] }}"
+    visibility: private
+    repo_state: present
+  when:
+    - item.remote is defined
+    - item.remote == "gitlab"
+
+- name: "[GIT] Create new remote"
+  shell: "git remote add {{ item.remote }} {{ remote_url }}"
+  changed_when: false
+  args:
+    chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+  when: item.remote is defined
+  register: remote_response
+  failed_when: false
+  vars:
+    remote_url: "git@{{ item.remote }}.com:osmollo/{{ (item.repo | basename).split('.')[0] }}.git"
+
+- name: "[GIT] Delete push for remote"
+  shell: "git remote set-url --push {{ item.remote }} no_push"
+  changed_when: false
+  when:
+    - item.remote is defined
+    - item.no_push is defined
+    - item.no_push | bool

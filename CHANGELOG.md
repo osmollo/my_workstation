@@ -27,6 +27,7 @@
 - Post_install:
   - Nuevos repositorios git
   - Modificación del alias `actualiza` para que actualice también las apps de *Snap* (**Ubuntu**) o de *Flatpak* (**Fedora**)
+  - Simplificación del clonado de repositorios git
 
 ## 9.1
 
