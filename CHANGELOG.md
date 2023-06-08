@@ -28,6 +28,7 @@
   - Nuevos repositorios git
   - Modificación del alias `actualiza` para que actualice también las apps de *Snap* (**Ubuntu**) o de *Flatpak* (**Fedora**)
   - Simplificación del clonado de repositorios git
+  - Docker login con 2FA
 
 ## 9.1
 
