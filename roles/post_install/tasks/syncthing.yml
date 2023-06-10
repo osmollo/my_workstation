@@ -1,0 +1,42 @@
+---
+
+- name: "[SYNCTHING] get api key"
+  shell: grep apikey {{ ansible_user_dir }}/.config/syncthing/config.xml | sed -n 's:.*<apikey>\(.*\)</apikey>.*:\1:p'
+  register: syncthing_apikey_raw
+  changed_when: false
+
+- name: "[SYNCTHING] set syncthing_apikey"
+  set_fact:
+    syncthing_apikey: "{{ syncthing_apikey_raw.stdout }}"
+
+- name: "[SYNCTHING] get system config"
+  uri:
+    url: "http://127.0.0.1:8384/rest/system/config"
+    return_content: true
+    headers:
+      X-API-Key: "{{ syncthing_apikey }}"
+  register: syncthing_config_raw
+  check_mode: false
+
+- name: "[SYNCTHING] post config"
+  uri:
+    url: "http://127.0.0.1:8384/rest/system/config"
+    method: POST
+    return_content: true
+    headers:
+      Content-Type: "application/json"
+      X-API-Key: "{{ syncthing_apikey }}"
+    body: "{{ syncthing_config | to_json }}"
+    body_format: "json"
+  when: syncthing_config != syncthing_config_old
+
+- name: "[SYNCTHING] syncthing restart"
+  uri:
+    url: "http://127.0.0.1:8384/rest/system/restart"
+    method: POST
+    return_content: true
+    headers:
+      X-API-Key: "{{ syncthing_apikey }}"
+  when: syncthing_config != syncthing_config_old
+
+## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2

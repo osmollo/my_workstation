@@ -19,6 +19,7 @@
 - Instalación de [Thincast](https://thincast.com/en/)
 - Instalación de [Pulsar](https://pulsar-edit.dev/)
 - Instalación de [Gitnuro](https://gitnuro.jetpackduba.com/)
+- Instalación de [Syncthing](https://syncthing.net)
 - Corrección de errores:
   - **Sublime merge** ya no se instala por defecto
   - Instalación de **Spotify** en **Fedora** con flatpak
@@ -29,6 +30,7 @@
   - Modificación del alias `actualiza` para que actualice también las apps de *Snap* (**Ubuntu**) o de *Flatpak* (**Fedora**)
   - Simplificación del clonado de repositorios git
   - Docker login con 2FA
+  - Configuración de **Syncthing**
 
 ## 9.1
 

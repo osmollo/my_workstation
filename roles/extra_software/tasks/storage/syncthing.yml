@@ -1,0 +1,71 @@
+---
+
+- name: "[SYNCTHING] [FEDORA] install syncthing"
+  dnf:
+    name: syncthing
+    state: present
+    update_cache: true
+  when: linux_distribution == 'fedora'
+
+- name: "[SYNCTHING] [DEB] install syncthing"
+  block:
+    - name: "[SYCNTHIING] [DEB] save apt key"
+      apt_key:
+        url: https://syncthing.net/release-key.txt
+        state: present
+
+    - name: "[SYNCTHING] [DEB] create repository file"
+      copy:
+        content: deb https://apt.syncthing.net/ syncthing stable
+        dest: /etc/apt/sources.list.d/syncthing.list
+        mode: 0644
+
+    - name: "[SYNCTHING] [DEB] install package"
+      apt:
+        name: syncthing
+        state: present
+        update_cache: true
+  when: linux_distribution in ['debian', 'ubuntu']
+
+- name: "[SYNCTHING] [ARCH] Install syncthing"
+  pacman:
+    name: syncthing
+    state: present
+    update_cache: true
+  when: linux_distribution == 'arch'
+
+- name: "[SYNCTHING] create systemd unit"
+  copy:
+    content: |
+      [Unit]
+      Description=Syncthing - Open Source Continuous File Synchronization for %I
+      Documentation=http://docs.syncthing.net/
+      After=network.target
+
+      [Service]
+      Environment=STNORESTART=yes
+      User={{ ansible_user }}
+      ExecStart=/usr/bin/syncthing -no-browser -logflags=0
+      Restart=on-failure
+      SuccessExitStatus=2 3 4
+      RestartForceExitStatus=3 4
+
+      [Install]
+      WantedBy=multi-user.target
+    dest: /usr/lib/systemd/system/syncthing.service
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "[SYNCTHING] enable and start syncthing"
+  systemd:
+    name: "syncthing.service"
+    daemon_reload: true
+    enabled: true
+    state: started
+
+- name: "[SYNCTHING] wait for syncthing up and running"
+  wait_for:
+    port: 8384
+    delay: 3
+    timeout: 5

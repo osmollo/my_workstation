@@ -25,3 +25,9 @@
   when: install_rclone
   tags:
     - rclone
+
+- name: "[STORAGE] install syncthing"
+  import_tasks: syncthing.yml
+  when: install_syncthing
+  tags:
+    - syncthing
