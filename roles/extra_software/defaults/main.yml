@@ -114,7 +114,7 @@ install_teams: true
 install_globalprotect: true
 install_dbeaver: true
 install_soapui: true
-install_thincast: true
+install_thincast: false
 install_pulsar: false
 install_gitnuro: false
 install_syncthing: true
