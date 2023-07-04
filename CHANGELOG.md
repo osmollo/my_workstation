@@ -31,6 +31,7 @@
   - Simplificación del clonado de repositorios git
   - Docker login con 2FA
   - Configuración de **Syncthing**
+  - Nuevas entradas ssh_config
 
 ## 9.1
 
