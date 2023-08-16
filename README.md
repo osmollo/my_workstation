@@ -62,6 +62,7 @@ Por defecto se instala el siguiente software:
 | [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | tools | Buscador difuso de archivos |
 | [Github CLI](https://github.com/cli/cli) | githubcli | install_githubcli | git | Cli de consola para [Github](https://github.com) |
 | [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | git | Cliente gráfico de git |
+| [Gitnuro](https://gitnuro.jetpackduba.com/) | gitnuro | install_gitnuro | git | Cliente gráfico de git |
 | [GlobalProtect](https://github.com/yuezk/GlobalProtect-openconnect) | globalprotect  | install_globalprotect | vpn | Cliente VPN |
 | [GO](https://golang.org/doc/install/source) | go | install_go | dev | Compilador del lenguaje GO |
 | [Google Chrome](https://www.google.com/intl/es/chrome/) | chrome | install_chrome | browsers | Navegador web |
@@ -94,6 +95,7 @@ Por defecto se instala el siguiente software:
 | [Prezto](https://github.com/sorin-ionescu/prezto) | prezto | install_prezto | shell | Personalización de ZSH (fork mejorado de Oh my Zsh) |
 | [PROCS](https://github.com/dalance/procs/releases/latest) | procs | install_procs | tools | Reemplazo de `ps` |
 | [ProtonVPN](https://protonvpn.com/) | protonvpn | install_protonvpn | vpn | Cliente de VPN |
+| [Pulsar](https://pulsar-edit.dev/) | pulsar | install_pulsar | editors | Editor de texto basado en **Atom** |
 | [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | pycharm | install_pycharm | editors | IDE para Python |
 | [Rambox](https://rambox.pro/#home) | rambox | install_rambox | social | Gestor de clientes de mensajería |
 | [Rclone](https://rclone.org/) | rclone | install_rclone | storage | Tool de nubes de almacenamiento |
@@ -107,10 +109,12 @@ Por defecto se instala el siguiente software:
 | [Steam](https://store.steampowered.com/?l=spanish) | steam | install_steam | games | Cliente Steam para juegos de PC |
 | [Sublime Merge](https://www.sublimemerge.com/) | sublimemerge | install_sublimemerge | git | Cliente gráfico de git |
 | [Sublime Text](https://www.sublimetext.com/) | sublimetext | install_sublimetext | editors | Editor de textos |
+| [Syncthing](https://syncthing.net) | syncthing | install_syncthing | storage | Sincronización entre varios servidores |
 | [Teams](https://www.microsoft.com/en-us/microsoft-teams/group-chat-software) | teams | install_teams | social | Gestor de comunicaciones Microsoft Teams |
 | [Teamviewer](https://www.teamviewer.com/es/) | teamviewer | install_teamviewer | remotes | Cliente de escritorio remoto |
 | [Telegram Desktop](https://telegram.org/) | telegram | install_telegram | social | Cliente de escritorio de mensajería Telegram |
 | [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) | terraform | install_terraform | tools | Creación de infraestructura |
+| [Thincast](https://thincast.com/en/) | thincast | install_thincast | remote | Cliente de escritorio remoto |
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | tools | Gestión de batería (sólo para Thinkpad) |
 | [Tmux](http://www.sromero.org/wiki/linux/aplicaciones/tmux) | tmux | install_tmux | tools | Multiplexador de terminal avanzado |
 | [Trivy](https://github.com/aquasecurity/trivy) | trivy | install_trivy | containers | Scanner de vulnerabilidades de contenedores docker |

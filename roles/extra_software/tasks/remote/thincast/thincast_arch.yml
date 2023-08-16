@@ -1,0 +1,8 @@
+---
+
+- name: "[THINCAS] [ARCH] Install Thincast"
+  become: false
+  yay:
+    name: "{{ thincast_package }}"
+    state: present
+    update_cache: true

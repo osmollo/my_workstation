@@ -1,0 +1,7 @@
+---
+
+- name: "[THINCAST] [FEDORA] Install Thincast flatpak"
+  flatpak:
+    name:  "{{ thincast_flatpak }}"
+    state: present
+

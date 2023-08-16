@@ -64,7 +64,7 @@ install_wireguard: false
 install_typora: true
 install_beekeeper: false
 install_kdenlive: false
-install_sublimemerge: true
+install_sublimemerge: false
 install_bfg: true
 install_vscodium: false
 install_tmux: false
@@ -114,6 +114,10 @@ install_teams: true
 install_globalprotect: true
 install_dbeaver: true
 install_soapui: true
+install_thincast: false
+install_pulsar: false
+install_gitnuro: false
+install_syncthing: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -155,6 +159,7 @@ erdtree_latest_url: "https://github.com/solidiquis/erdtree/releases/latest"
 procs_latest_url: "https://github.com/dalance/procs/releases/latest"
 dbeaver_latest_url: "https://github.com/dbeaver/dbeaver/releases/latest"
 zoxide_latest_url: "https://github.com/ajeetdsouza/zoxide/releases/latest"
+pulsar_latest_url: "https://github.com/pulsar-edit/pulsar/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"
@@ -205,7 +210,7 @@ lexnet_packages:
   - pcsc-tools
   - libglade2-dev
 
-atom_packages_url: https://gist.githubusercontent.com/osmollo/854b27da91246625596f8839cc365713/raw/packages.json
+pulsar_packages_url: "https://gist.githubusercontent.com/osmollo/b1d2a48a2e8e9b54e72c7888aab0f5d3/raw/bfaca636c6cdbb97d0e619569b7857f19ffdd058/packages.json"
 
 appimage_dir: "{{ ansible_user_dir }}/AppImage"
 

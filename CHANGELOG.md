@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [9.2](#92)
   - [9.1](#91)
   - [9.0](#90)
   - [VERSIONES ANTERIORES](#versiones-anteriores)
@@ -12,6 +13,25 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 9.2
+
+- Instalación de [Thincast](https://thincast.com/en/)
+- Instalación de [Pulsar](https://pulsar-edit.dev/)
+- Instalación de [Gitnuro](https://gitnuro.jetpackduba.com/)
+- Instalación de [Syncthing](https://syncthing.net)
+- Corrección de errores:
+  - **Sublime merge** ya no se instala por defecto
+  - Instalación de **Spotify** en **Fedora** con flatpak
+  - Instalación de extensiones en **Pulsar**
+  - Instalación de librerías de **Python** con el argumento `--user`
+- Post_install:
+  - Nuevos repositorios git
+  - Modificación del alias `actualiza` para que actualice también las apps de *Snap* (**Ubuntu**) o de *Flatpak* (**Fedora**)
+  - Simplificación del clonado de repositorios git
+  - Docker login con 2FA
+  - Configuración de **Syncthing**
+  - Nuevas entradas ssh_config
 
 ## 9.1
 

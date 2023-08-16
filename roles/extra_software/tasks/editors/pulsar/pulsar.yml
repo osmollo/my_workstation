@@ -1,0 +1,41 @@
+---
+
+- name: "[PULSAR] Get latest version of Pulsar"
+  uri:
+    url: "{{ pulsar_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: pulsar_latest
+  when: linux_distribution != "arch"
+
+- name: "[PULSAR] Set urls for Atom packages"
+  vars:
+    pulsar_version: "{{ pulsar_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    pulsar_rpm_package: "https://github.com/pulsar-edit/pulsar/releases/download/{{ pulsar_version }}/Linux.pulsar-{{ pulsar_version[1:] }}.x86_64.rpm"
+    pulsar_deb_package: "https://github.com/pulsar-edit/pulsar/releases/download/{{ pulsar_version }}/Linux.pulsar_{{ pulsar_version[1:] }}_amd64.deb"
+  when: linux_distribution != "arch"
+
+- name: "[PULSAR] install pulsar for {{ linux_distribution }}"
+  include_tasks: "pulsar_{{ linux_distribution }}.yml"
+
+- name: "[PULSAR] install packages"
+  block:
+    - name: "[PULSAR] get json with packages"
+      uri:
+        url: "{{ pulsar_packages_url }}"
+        return_content: true
+      register: packages_response
+
+    - name: "[PULSAR] Install packages for Pulsar"
+      become: false
+      become_user: "{{ ansible_user }}"
+      vars:
+        id_query: "[].name"
+      command: "pulsar -p install {{ item.key }}@{{ item.value.version }}"
+      loop: "{{ packages_response.content | from_json | dict2items }}"
+      loop_control:
+        label: "{{ item.key }}@{{ item.value.version }}"
+      ignore_errors: true
+  tags:
+    - pulsar_extensions

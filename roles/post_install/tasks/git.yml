@@ -76,26 +76,9 @@
   tags:
     - git_diff
 
-- block:
-    - name: "[GIT] Create {{ git_dir }}"
-      file:
-        path: "{{ git_dir }}"
-        state: directory
-
-    - name: "[GIT] Clone git repositories"
-      git:
-        repo: "{{ item.repo }}"
-        dest: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-        clone: true
-        accept_hostkey: true
-      with_items:
-        - "{{ git_repositories.home }}"
-        - "{{ git_repositories.work }}"
-      ignore_errors: true
+- name: "[GIT] clone repositories"
   tags:
-    - clone_repos
-
-- name: "[GIT] configure repositories"
+    - git_clone
   block:
     - name: "[GIT] Configure user name"
       git_config:
@@ -103,130 +86,39 @@
         scope: global
         value: "{{ git_config.user_name }}"
 
-    - name: "[GIT] Configure user email in HOME repositories"
-      git_config:
-        name: user.email
-        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-        scope: local
-        value: "{{ git_config.user_email_home }}"
-      loop: "{{ git_repositories.home }}"
+    - name: "[GIT] Create {{ git_dir }}"
+      file:
+        path: "{{ git_dir }}"
+        state: directory
+        mode: 0750
 
-    - name: "[GIT] Configure user email in WORK repositories"
-      git_config:
-        name: user.email
-        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-        scope: local
-        value: "{{ git_config.user_email_work }}"
+    - name: "[GIT] get WORK git server"
+      set_fact:
+        git_server: "{{ git_repositories.work[0].repo | urlsplit('hostname') }}"
+
+    - name: "[GIT] check connectivity"
+      wait_for:
+        host: "{{ git_server }}"
+        port: 22
+        state: started
+        delay: 0
+        timeout: 3
+      ignore_errors: true
+      register: git_work_response
+
+    - name: "[GIT] [WORK] clone repository"
+      include_tasks: git_clone.yml
       loop: "{{ git_repositories.work }}"
+      when: not git_work_response.failed
+      vars:
+        git_config_user_email: "{{ git_config.user_email_work }}"
+        git_config_signingkey: "{{ lookup('onepassword', 'op://Private/securitas ed25519/public key') }}"
+        git_work: true
 
-    - name: "[GIT] Configure ssh signinkey in HOME repositories"
-      git_config:
-        name: user.signingkey
-        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo  | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-        scope: local
-        value: "{{ lookup('onepassword', 'op://Private/osmollo/public key') }}"
+    - name: "[GIT] [HOME] clone repository"
+      include_tasks: git_clone.yml
       loop: "{{ git_repositories.home }}"
-
-    - name: "[GIT] Configure ssh signinkey in WORK repositories"
-      git_config:
-        name: user.signingkey
-        repo: "{{ item.dest | default(git_dir + '/' + ((item.repo  | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-        scope: local
-        value: "{{ lookup('onepassword', 'op://Private/securitas ed25519/public key') }}"
-      loop: "{{ git_repositories.work }}"
-  tags:
-    - clone_repos
-    - repos_config
-
-- name: "[GIT] Create remotes for repositories"
-  block:
-    # create remotes for repositories copied in other platforms
-    - name: "[GIT] Create github repositories for WORK"
-      include_role:
-        name: tools/github_repo
       vars:
-        github_token: "{{ git_tokens.github }}"
-        repo_name: "{{ (item.repo | basename).split('.')[0] }}"
-        repo_private: true
-        repo_state: present
-      when:
-        - item.remote is defined
-        - item.remote == "github"
-      with_items: "{{ git_repositories.work }}"
-
-    - name: "[GIT] Create gitlab repositories for WORK"
-      include_role:
-        name: tools/gitlab_repo
-      vars:
-        gitlab_token: "{{ git_tokens.gitlab }}"
-        repo_name: "{{ (item.repo | basename).split('.')[0] }}"
-        visibility: private
-        repo_state: present
-      when:
-        - item.remote is defined
-        - item.remote == "gitlab"
-      with_items: "{{ git_repositories.work }}"
-
-    - name: "[GIT] Create new remote for WORK repositories"
-      shell: "git remote add {{ item.remote }} {{ remote_url }}"
-      changed_when: false
-      args:
-        chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-      with_items: "{{ git_repositories.work }}"
-      when: item.remote is defined
-      register: remote_response
-      failed_when: false
-      vars:
-        remote_url: "git@{{ item.remote }}.com:osmollo/{{ (item.repo | basename).split('.')[0] }}.git"
-
-    - name: "[GIT] Create github repositories for HOME"
-      include_role:
-        name: tools/github_repo
-      vars:
-        github_token: "{{ git_tokens.github }}"
-        repo_name: "{{ (item.repo | basename).split('.')[0] }}"
-        repo_private: true
-        repo_state: present
-      when:
-        - item.remote is defined
-        - item.remote == "github"
-      with_items: "{{ git_repositories.home }}"
-
-    - name: "[GIT] Create gitlab repositories for HOME"
-      include_role:
-        name: tools/gitlab_repo
-      vars:
-        gitlab_token: "{{ git_tokens.gitlab }}"
-        repo_name: "{{ (item.repo | basename).split('.')[0] }}"
-        repo_private: private
-        repo_state: present
-      when:
-        - item.remote is defined
-        - item.remote == "gitlab"
-      with_items: "{{ git_repositories.home }}"
-
-    - name: "[GIT] Create new remote for repositories"
-      shell: "git remote add {{ item.remote }} {{ remote_url }}"
-      changed_when: false
-      args:
-        chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
-      with_items:
-        - "{{ git_repositories.home }}"
-        - "{{ git_repositories.work }}"
-      when: item.remote is defined
-      register: remote_response
-      failed_when: false
-      vars:
-        remote_url: "git@{{ item.remote }}.com:osmollo/{{ (item.repo | basename).split('.')[0] }}.git"
-
-    - name: "[GIT] Delete push for remote"
-      shell: "git remote set-url --push {{ item.remote }} no_push"
-      changed_when: false
-      with_items: "{{ git_repositories.home }}"
-      when:
-        - item.remote is defined
-        - item.no_push is defined
-        - item.no_push | bool
-  tags:
-    - clone_repos
-    - create_remotes
+        git_config_user_email: "{{ git_config.user_email_home }}"
+        git_config_signingkey: "{{ lookup('onepassword', 'op://Private/osmollo/public key') }}"
+        git_work: false

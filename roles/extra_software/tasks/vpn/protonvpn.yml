@@ -24,3 +24,4 @@
   pip:
     name:
       - protonvpn-cli
+    extra_args: --user

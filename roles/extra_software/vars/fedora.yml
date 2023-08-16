@@ -57,4 +57,6 @@ kdenlive_flatpak: "https://dl.flathub.org/repo/appstream/org.kde.kdenlive.flatpa
 marktext_flatpak: "https://dl.flathub.org/repo/appstream/com.github.marktext.marktext.flatpakref"
 teams_flatpak: "https://dl.flathub.org/repo/appstream/com.github.IsmaelMartinez.teams_for_linux.flatpakref"
 soapui_flatpak: "https://dl.flathub.org/repo/appstream/org.soapui.SoapUI.flatpakref"
-  
+thincast_flatpak: "https://dl.flathub.org/repo/appstream/com.thincast.client.flatpakref"
+gitnuro_flatpak: "https://dl.flathub.org/repo/appstream/com.jetpackduba.Gitnuro.flatpakref"
+spotify_flatpak: "https://dl.flathub.org/repo/appstream/com.spotify.Client.flatpakref"

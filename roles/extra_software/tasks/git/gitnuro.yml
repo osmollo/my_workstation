@@ -1,0 +1,6 @@
+---
+
+- name: "[GITNURO] [FEDORA] Install Gitnuro flatpak"
+  flatpak:
+    name:  "{{ gitnuro_flatpak }}"
+    state: present

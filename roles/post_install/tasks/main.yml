@@ -1,5 +1,11 @@
 ---
 
+- name: "configure syncthing"
+  import_tasks: syncthing.yml
+  tags:
+    - post_install
+    - syncthing
+
 - name: "configure environment"
   import_tasks: environment.yml
   tags:

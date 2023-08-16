@@ -1,16 +1,6 @@
 ---
 
-- name: "[SPOTIFY] [FEDORA] Copy repository file"
-  copy:
-    src: spotify.repo
-    dest: /etc/yum.repos.d/fedora-spotify.repo
-    mode: 0644
-    owner: root
-    group: root
-
 - name: "[SPOTIFY] [FEDORA] Install Spotify"
-  dnf:
-    name: spotify-client
+  flatpak:
+    name:  "{{ spotify_flatpak }}"
     state: present
-    update_cache: true
-    disable_gpg_check: true

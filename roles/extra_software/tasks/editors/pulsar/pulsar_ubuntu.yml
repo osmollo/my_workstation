@@ -1,0 +1,6 @@
+---
+
+- name: "[PULSAR] [DEB] Install Pulsar"
+  apt:
+    deb: "{{ pulsar_deb_package }}"
+    state: present

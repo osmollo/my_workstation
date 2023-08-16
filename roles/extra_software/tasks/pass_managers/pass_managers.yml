@@ -12,6 +12,7 @@
   when: install_1password
   tags:
     - 1password
+    - update
 
 - name: "[PASS_MANAGERS] Install Buttercup"
   import_tasks: buttercup/buttercup.yml
