@@ -43,8 +43,7 @@
     visibility: private
     repo_state: present
   when:
-    - item.remote is defined
-    - item.remote == "gitlab"
+    - (item.remote is defined and item.remote == "gitlab") or (git_work | bool)
 
 - name: "[GIT] Create new remote"
   shell: "git remote add {{ item.remote }} {{ remote_url }}"

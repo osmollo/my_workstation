@@ -113,6 +113,7 @@
       vars:
         git_config_user_email: "{{ git_config.user_email_work }}"
         git_config_signingkey: "{{ lookup('onepassword', 'op://Private/securitas ed25519/public key') }}"
+        git_work: true
 
     - name: "[GIT] [HOME] clone repository"
       include_tasks: git_clone.yml
@@ -120,5 +121,4 @@
       vars:
         git_config_user_email: "{{ git_config.user_email_home }}"
         git_config_signingkey: "{{ lookup('onepassword', 'op://Private/osmollo/public key') }}"
-
-
+        git_work: false
