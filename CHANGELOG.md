@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [9.3](#93)
   - [9.2](#92)
   - [9.1](#91)
   - [9.0](#90)
@@ -13,6 +14,11 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 9.3
+
+- Post_install:
+  - Nuevas configuraciones SSH
 
 ## 9.2
 
