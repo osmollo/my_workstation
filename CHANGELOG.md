@@ -17,6 +17,8 @@
 
 ## 9.3
 
+- Corrección de errores:
+  - Creación de remote por defecto
 - Post_install:
   - Nuevas configuraciones SSH
 
