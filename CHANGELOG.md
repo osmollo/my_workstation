@@ -21,6 +21,7 @@
   - Creación de remote por defecto
 - Post_install:
   - Nuevas configuraciones SSH
+  - Actualiza los remotos de git después de crearlos
 
 ## 9.2
 

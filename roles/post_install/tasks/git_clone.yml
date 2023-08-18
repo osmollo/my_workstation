@@ -56,6 +56,16 @@
   vars:
     remote_url: "git@{{ item.remote | default('gitlab') }}.com:osmollo/{{ (item.repo | basename).split('.')[0] }}.git"
 
+- name: "[GIT] update remote"
+  shell: "git push {{ item.remote | default('gitlab') }} --{{ push_opt }}"
+  loop:
+    - "tags"
+    - "all"
+  loop_control:
+    loop_var: push_opt
+  when: item.remote is defined or git_work
+  changed_when: false
+
 - name: "[GIT] Delete push for remote"
   shell: "git remote set-url --push {{ item.remote }} no_push"
   changed_when: false
