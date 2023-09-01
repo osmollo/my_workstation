@@ -22,6 +22,8 @@
 - Post_install:
   - Nuevas configuraciones SSH
   - Actualiza los remotos de git después de crearlos
+  - Nuevo grupo de repositorios en el clonado: `git.legacy`
+  - Nuevos tags `git_work`, `git_home` y `git_legacy`
 
 ## 9.2
 
