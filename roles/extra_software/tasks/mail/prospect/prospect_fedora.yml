@@ -1,0 +1,7 @@
+---
+
+- name: "[PROSPECT] [RPM] Install Prospect Mail"
+  dnf:
+    name: "{{ prospect_rpm_package }}"
+    state: present
+    disable_gpg_check: true

@@ -94,6 +94,7 @@ Por defecto se instala el siguiente software:
 | [Postman](https://www.getpostman.com) | postman | install_postman | dev | Cliente REST API |
 | [Prezto](https://github.com/sorin-ionescu/prezto) | prezto | install_prezto | shell | Personalización de ZSH (fork mejorado de Oh my Zsh) |
 | [PROCS](https://github.com/dalance/procs/releases/latest) | procs | install_procs | tools | Reemplazo de `ps` |
+| [Prospect Mail](https://github.com/julian-alarcon/prospect-mail) | prospect | install_prospect | mail | Cliente de mail para Outlook |
 | [ProtonVPN](https://protonvpn.com/) | protonvpn | install_protonvpn | vpn | Cliente de VPN |
 | [Pulsar](https://pulsar-edit.dev/) | pulsar | install_pulsar | editors | Editor de texto basado en **Atom** |
 | [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | pycharm | install_pycharm | editors | IDE para Python |

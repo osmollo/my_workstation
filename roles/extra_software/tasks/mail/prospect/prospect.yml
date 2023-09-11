@@ -1,0 +1,20 @@
+---
+
+- name: "[PROSPECT] Get latest version of Prospect Mail"
+  uri:
+    url: "{{ prospect_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: prospect_latest
+  when: linux_distribution != "arch"
+
+- name: "[PROSPECT] Set urls for Prospect ({{ prospect_version }}) packages"
+  vars:
+    prospect_version: "{{ prospect_latest.url | urlsplit('path') | basename }}"
+  set_fact:
+    prospect_rpm_package: "https://github.com/julian-alarcon/prospect-mail/releases/download/{{ prospect_version }}/prospect-mail-{{ prospect_version[1:] }}.x86_64.rpm"
+    prospect_deb_package: "https://github.com/julian-alarcon/prospect-mail/releases/download/{{ prospect_version }}/prospect-mail_{{ prospect_version[1:] }}_amd64.deb"
+  when: linux_distribution != "arch"
+
+- name: "[PROSPECT] install prospect for {{ linux_distribution }}"
+  include_tasks: "prospect_{{ linux_distribution }}.yml"

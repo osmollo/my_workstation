@@ -8,7 +8,7 @@
   register: pulsar_latest
   when: linux_distribution != "arch"
 
-- name: "[PULSAR] Set urls for Atom packages"
+- name: "[PULSAR] Set urls for Pulsar packages"
   vars:
     pulsar_version: "{{ pulsar_latest.url | urlsplit('path') | basename }}"
   set_fact:

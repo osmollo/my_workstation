@@ -12,3 +12,9 @@
   tags:
     - mailspring
     - update
+
+- name: "[MAIL] Install Prospect Mail"
+  import_tasks: prospect/prospect.yml
+  when: install_prospect
+  tags:
+    - prospect

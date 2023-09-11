@@ -17,6 +17,7 @@
 
 ## 9.3
 
+- Instalación de [Prospect Mail](https://github.com/julian-alarcon/prospect-mail)
 - Corrección de errores:
   - Creación de remote por defecto
   - Alias `decrypt_my_defaults` lee passphrase de 1Password
