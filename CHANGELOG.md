@@ -18,6 +18,7 @@
 ## 9.3
 
 - Instalación de [Prospect Mail](https://github.com/julian-alarcon/prospect-mail)
+- Sin soporte para **Hiri** por estar sin mantenimiento desde 2018
 - Corrección de errores:
   - Creación de remote por defecto
   - Alias `decrypt_my_defaults` lee passphrase de 1Password

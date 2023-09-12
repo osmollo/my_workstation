@@ -1,11 +1,5 @@
 ---
 
-- name: "[MAIL] Install hiri"
-  import_tasks: hiri/hiri.yml
-  when: install_hiri
-  tags:
-    - hiri
-
 - name: "[MAIL] Install Mailspring"
   import_tasks: mailspring/mailspring.yml
   when: install_mailspring

@@ -1,8 +1,0 @@
----
-
-- name: "[HIRI] [FEDORA] Install vivaldi"
-  dnf:
-    name: "{{ yakyak_rpm_package }}"
-    state: present
-    update_cache: true
-    disable_gpg_check: true
