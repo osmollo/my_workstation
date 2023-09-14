@@ -64,3 +64,9 @@
     - marktext
     - mark_text
     - update
+
+- name: "[EDITORS] Install Trilium"
+  import_tasks: trilium.yml
+  when: install_trilium
+  tags:
+    - trilium

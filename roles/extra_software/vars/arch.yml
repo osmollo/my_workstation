@@ -73,6 +73,7 @@ soapui_package: soapui
 thincast_package: tlclient
 pulsar_package: pulsar-bin
 prospect_package: prospect-mail-bin
+trilium_package: trilium-bin
 
 protonvpn_dependencies:
   - openvpn

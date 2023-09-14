@@ -118,6 +118,7 @@ Por defecto se instala el siguiente software:
 | [Thincast](https://thincast.com/en/) | thincast | install_thincast | remote | Cliente de escritorio remoto |
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | tools | Gestión de batería (sólo para Thinkpad) |
 | [Tmux](http://www.sromero.org/wiki/linux/aplicaciones/tmux) | tmux | install_tmux | tools | Multiplexador de terminal avanzado |
+| [Trilium Notes](https://github.com/zadam/trilium) | trilium | install_trilium | editors | Editor de notas |
 | [Trivy](https://github.com/aquasecurity/trivy) | trivy | install_trivy | containers | Scanner de vulnerabilidades de contenedores docker |
 | [Vault](https://learn.hashicorp.com/tutorials/vault/getting-started-install) | vault | install_vault | tools | Cliente/Servidor de gestión de secretos |
 | [Vim plugins](https://vimawesome.com/) | vimplugins | install_vimplugins | editors | Instalación de plugins de VIM |
