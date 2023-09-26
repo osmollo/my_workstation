@@ -28,6 +28,7 @@
   - Actualiza los remotos de git después de crearlos
   - Nuevo grupo de repositorios en el clonado: `git.legacy`
   - Nuevos tags `git_work`, `git_home` y `git_legacy`
+  - El tag `update` ya no ejecuta toda la instalación de **1Password** para actualizarla sino solo el _CLI_
 
 ## 9.2
 
