@@ -57,7 +57,7 @@
     remote_url: "git@{{ item.remote | default('gitlab') }}.com:osmollo/{{ (item.repo | basename).split('.')[0] }}.git"
 
 - name: "[GIT] update remote"
-  shell: "git push {{ item.remote | default('gitlab') }} --{{ push_opt }}"
+  shell: "git push {{ item.remote | default('gitlab') }} --{{ push_opt }} --force"
   loop:
     - "tags"
     - "all"

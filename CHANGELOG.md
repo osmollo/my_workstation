@@ -23,6 +23,7 @@
 - Corrección de errores:
   - Creación de remote por defecto
   - Alias `decrypt_my_defaults` lee passphrase de 1Password
+  - Uso de `--force` al pushear repositorios
 - Post_install:
   - Nuevas configuraciones SSH
   - Actualiza los remotos de git después de crearlos
