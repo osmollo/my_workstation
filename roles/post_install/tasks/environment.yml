@@ -28,12 +28,7 @@
     - "{{ ansible_user_dir }}/.zsh_history"
 
 - name: "[ENVIRONMENT] create .bash_aliases"
-  template:
-    src: bash_aliases.j2
-    dest: "{{ ansible_user_dir }}/.bash_aliases"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-    mode: 0600
+  import_tasks: bash_aliases.yml
   tags:
     - config_files
     - bash_aliases
@@ -93,50 +88,7 @@
     - deploy_fonts
 
 - name: "configure ssh entries"
-  blockinfile:
-    path: "{{ ansible_user_dir }}/.ssh/config"
-    block: |
-      Host {{ item.name }}
-        ForwardAgent yes
-      {% if item.serveraliveinternal is defined %}
-        ServerAliveInternal {{ item.serveraliveinternal }}
-      {% endif %}
-      {% if item.serveralivecountmax is defined %}
-        ServerAliveCountMax {{ item.serveralivecountmax }}
-      {% endif %}
-      {% if item.stricthostkeychecking is defined %}
-        StrictHostKeyChecking {{ item.stricthostkeychecking }}
-      {% endif %}
-      {% if item.forwardagent is defined %}
-        ForwardAgent {{ item.forwardagent }}
-      {% endif %}
-      {% if item.hostname is defined %}
-        Hostname {{ item.hostname }}
-      {% endif %}
-      {% if item.user is defined %}
-        User {{ item.user }}
-      {% endif %}
-      {% if item.identity_file is defined %}
-        IdentityFile {{ item.identity_file }}
-      {% endif %}
-      {% if item.type is defined %}
-        PubkeyAcceptedKeyTypes {{ item.type }}
-      {% endif %}
-      {% if item.type is defined %}
-        HostKeyAlgorithms {{ item.type }}
-      {% endif %}
-      {% if item.identityagent is defined %}
-        IdentityAgent {{ item.identityagent }}
-      {% endif %}
-    state: present
-    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
-    create: true
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-    mode: 0600
-  loop: "{{ ssh_config_entries }}"
-  loop_control:
-    label: "{{ item.name }}"
+  import_tasks: ssh_config.yml
   tags:
     - ssh_config
     - config_files

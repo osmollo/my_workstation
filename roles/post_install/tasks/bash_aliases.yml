@@ -1,0 +1,9 @@
+- name: "[ENVIRONMENT] create .bash_aliases"
+  template:
+    src: bash_aliases.j2
+    dest: "{{ ansible_user_dir }}/.bash_aliases"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0600
+
+

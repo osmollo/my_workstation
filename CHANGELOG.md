@@ -20,6 +20,10 @@
 - Instalación de [Prospect Mail](https://github.com/julian-alarcon/prospect-mail)
 - Instalación de [Trilium Notes](https://github.com/zadam/trilium)
 - Sin soporte para **Hiri** por estar sin mantenimiento desde 2018
+- Nuevo playbook `user_config.yml` para las siguientes configuraciones de mi usuario:
+    - alias de bash/zsh
+    - configuración de ssh
+    - clonación de repositorios git
 - Corrección de errores:
   - Creación de remote por defecto
   - Alias `decrypt_my_defaults` lee passphrase de 1Password
