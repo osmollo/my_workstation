@@ -106,13 +106,20 @@
       ignore_errors: true
       register: git_work_response
 
-    - name: "[GIT] [WORK] clone repository"
+    - name: "[GIT] [WORK] get project repositories"
+      get_bitbucket_repos:
+        host: "{{ bitbucket_conn.host }}"
+        token: "{{ bitbucket_conn.token }}"
+        projects: "{{ bitbucket_conn.projects }}"
+      register: bitbucket_repos
+
+    - name: "[GIT] [WORK] clone repositories"
       include_tasks:
         file: git_clone.yml
         apply:
           tags:
             - git_work
-      loop: "{{ git_repositories.work }}"
+      loop: "{{ git_repositories.work + bitbucket_repos.repositories }}"
       when: not git_work_response.failed
       vars:
         git_config_user_email: "{{ git_config.user_email_work }}"
