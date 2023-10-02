@@ -1,0 +1,22 @@
+---
+
+- name: "[TRILIUM] [ARCH] install Trilium"
+  become: false
+  yay:
+    name: "{{ trilium_package }}"
+    state: present
+    update_cache: true
+  when: linux_distribution == 'arch'
+
+- name: "[TRILIUM] [FEDORA] Install trilium"
+  flatpak:
+    name:  "{{ trilium_flatpak }}"
+    state: present
+  when: linux_distribution == 'fedora'
+
+- name: "[TRILIUM] [DEB] install Trilium"
+  snap:
+    name:
+      - trilium
+    state: present
+  when: linux_distribution in ['debian', 'ubuntu']

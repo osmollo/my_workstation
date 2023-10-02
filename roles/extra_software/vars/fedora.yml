@@ -60,3 +60,4 @@ soapui_flatpak: "https://dl.flathub.org/repo/appstream/org.soapui.SoapUI.flatpak
 thincast_flatpak: "https://dl.flathub.org/repo/appstream/com.thincast.client.flatpakref"
 gitnuro_flatpak: "https://dl.flathub.org/repo/appstream/com.jetpackduba.Gitnuro.flatpakref"
 spotify_flatpak: "https://dl.flathub.org/repo/appstream/com.spotify.Client.flatpakref"
+trilium_flatpak: "https://dl.flathub.org/repo/appstream/com.github.zadam.trilium.flatpakref"

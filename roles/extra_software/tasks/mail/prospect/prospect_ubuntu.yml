@@ -1,0 +1,6 @@
+---
+
+- name: "[PROSPECT] [DEB] Install Prospect Mail"
+  apt:
+    deb: "{{ prospect_deb_package }}"
+    state: present

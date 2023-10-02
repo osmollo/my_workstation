@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [9.3](#93)
   - [9.2](#92)
   - [9.1](#91)
   - [9.0](#90)
@@ -13,6 +14,27 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 9.3
+
+- Instalación de [Prospect Mail](https://github.com/julian-alarcon/prospect-mail)
+- Instalación de [Trilium Notes](https://github.com/zadam/trilium)
+- Sin soporte para **Hiri** por estar sin mantenimiento desde 2018
+- Nuevo playbook `user_config.yml` para las siguientes configuraciones de mi usuario:
+  - alias de bash/zsh
+  - configuración de ssh
+  - clonación de repositorios git
+- Nuevo módulo [get_bitbucket_repos](library/get_bitbucket_repos.py)
+- Corrección de errores:
+  - Creación de remote por defecto
+  - Alias `decrypt_my_defaults` lee passphrase de 1Password
+  - Uso de `--force` al pushear repositorios
+- Post_install:
+  - Nuevas configuraciones SSH
+  - Actualiza los remotos de git después de crearlos
+  - Nuevo grupo de repositorios en el clonado: `git.legacy`
+  - Nuevos tags `git_work`, `git_home` y `git_legacy`
+  - El tag `update` ya no ejecuta toda la instalación de **1Password** para actualizarla sino solo el _CLI_
 
 ## 9.2
 

@@ -1,7 +1,0 @@
----
-
-- name: "[HIRI] [DEB] Install hiri using snap"
-  snap:
-    name:
-      - hiri
-    state: present

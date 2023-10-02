@@ -94,6 +94,7 @@ Por defecto se instala el siguiente software:
 | [Postman](https://www.getpostman.com) | postman | install_postman | dev | Cliente REST API |
 | [Prezto](https://github.com/sorin-ionescu/prezto) | prezto | install_prezto | shell | Personalización de ZSH (fork mejorado de Oh my Zsh) |
 | [PROCS](https://github.com/dalance/procs/releases/latest) | procs | install_procs | tools | Reemplazo de `ps` |
+| [Prospect Mail](https://github.com/julian-alarcon/prospect-mail) | prospect | install_prospect | mail | Cliente de mail para Outlook |
 | [ProtonVPN](https://protonvpn.com/) | protonvpn | install_protonvpn | vpn | Cliente de VPN |
 | [Pulsar](https://pulsar-edit.dev/) | pulsar | install_pulsar | editors | Editor de texto basado en **Atom** |
 | [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | pycharm | install_pycharm | editors | IDE para Python |
@@ -117,6 +118,7 @@ Por defecto se instala el siguiente software:
 | [Thincast](https://thincast.com/en/) | thincast | install_thincast | remote | Cliente de escritorio remoto |
 | [TLP](https://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) | tlp | install_tlp | tools | Gestión de batería (sólo para Thinkpad) |
 | [Tmux](http://www.sromero.org/wiki/linux/aplicaciones/tmux) | tmux | install_tmux | tools | Multiplexador de terminal avanzado |
+| [Trilium Notes](https://github.com/zadam/trilium) | trilium | install_trilium | editors | Editor de notas |
 | [Trivy](https://github.com/aquasecurity/trivy) | trivy | install_trivy | containers | Scanner de vulnerabilidades de contenedores docker |
 | [Vault](https://learn.hashicorp.com/tutorials/vault/getting-started-install) | vault | install_vault | tools | Cliente/Servidor de gestión de secretos |
 | [Vim plugins](https://vimawesome.com/) | vimplugins | install_vimplugins | editors | Instalación de plugins de VIM |

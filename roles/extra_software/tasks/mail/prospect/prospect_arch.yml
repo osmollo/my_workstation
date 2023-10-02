@@ -1,0 +1,8 @@
+---
+
+- name: "[PROSPECT] [ARCH] Install Prospect mail"
+  become: false
+  yay:
+    name: "{{ prospect_package }}"
+    state: present
+    update_cache: true
