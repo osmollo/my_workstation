@@ -79,6 +79,7 @@
 - name: "[GIT] clone repositories"
   tags:
     - git_clone
+    - git_work
   block:
     - name: "[GIT] Configure user name"
       git_config:
@@ -112,6 +113,7 @@
         token: "{{ bitbucket_conn.token }}"
         projects: "{{ bitbucket_conn.projects }}"
       register: bitbucket_repos
+      when: not git_work_response.failed
 
     - name: "[GIT] [WORK] clone repositories"
       include_tasks:
