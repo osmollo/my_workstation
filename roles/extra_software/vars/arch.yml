@@ -56,7 +56,7 @@ mailspring_package: mailspring
 trivy_package: trivy-bin
 ferdi_package: ferdi-bin
 neovim_package: neovim
-op_package: 1password
+op_package: 1password-beta
 kubectl_package: kubectl-bin
 appimage_launcher_package: appimagelauncher
 librewolf_package: librewolf-bin

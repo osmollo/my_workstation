@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [9.4](#94)
   - [9.3.1](#931)
   - [9.3](#93)
   - [9.2](#92)
@@ -15,6 +16,11 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 9.4
+
+- Corrección de errores:
+  - Instalación de versión **beta** de `1Password` en **Arch**
 
 ## 9.3.1
 
