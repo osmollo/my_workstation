@@ -67,7 +67,7 @@ element_package: element-desktop-greentext
 drawio_package: drawio-desktop-bin
 edge_package: microsoft-edge-stable-bin
 teams_package: teams-for-linux
-lens_package: lens
+lens_package: lens-bin
 dbeaver_package: dbeaver-le
 soapui_package: soapui
 thincast_package: tlclient

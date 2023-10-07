@@ -52,6 +52,11 @@ def query_package(module, pkg, state):
   if local_check_rc != 0:
     return False, False, False
 
+  # No need to check for the repo version in some situations
+  # Indicate the package is out-of-date, because we chose not to check
+  if state == 'present' or state == 'absent':
+    return True, False, False
+
   local_version = get_version(local_check_stdout)
 
   repo_check_cmd = 'yay -Si %s' % pkg
@@ -97,7 +102,12 @@ def upgrade(module):
 def get_sudo_user(module):
   # ansible sets the SUDO_USER environment variable.  Default to using this,
   # checking USER and then `logname` as backups.
-  user = os.environ.get('SUDO_USER') or os.environ.get('USER')
+  user = os.environ.get('SUDO_USER')
+
+  # If ansible is run as root with become_user set, use the specified user
+  # instead of root.
+  if not user or user == 'root':
+    user = os.environ.get('USER')
 
   if not user:
     rc, stdout, _ = module.run_command('logname', check_rc=True)
@@ -130,7 +140,7 @@ def install_packages(module, pkgs, state):
   message = ''
 
   sudo_user = get_sudo_user(module)
-  cmd = 'sudo -u %s yay --noconfirm -S %s'
+  cmd = 'yay --noconfirm -S %s'
 
   for pkg in pkgs:
     installed, updated, latest_error = query_package(module, pkg, state)
@@ -140,7 +150,7 @@ def install_packages(module, pkgs, state):
     if installed and (state == 'present' or (state == 'latest' and updated)):
         continue
 
-    rc, _, stderr = module.run_command(cmd % (sudo_user, pkg), check_rc=False)
+    rc, _, stderr = module.run_command(cmd % (pkg), check_rc=False)
 
     if rc != 0:
       module.fail_json(msg='Failed to install package %s, because: %s' % (pkg, stderr))
@@ -260,3 +270,4 @@ def main():
 
 from ansible.module_utils.basic import *
 main()
+

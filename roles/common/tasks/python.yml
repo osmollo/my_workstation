@@ -4,49 +4,74 @@
   include_vars:
     file: "{{ linux_distribution | lower }}.yml"
 
-- name: "[FEDORA] Install Python3 packages"
-  dnf:
-    name: "{{ python_packages }}"
-    state: present
-    update_cache: true
-  when: linux_distribution == "fedora"
-
-- name: "[DEB] Install Python3 packages"
-  apt:
-    name: "{{ python_packages }}"
-    state: present
-    update_cache: true
-    autoclean: true
-  when: linux_distribution in ["ubuntu", "debian"]
-
-- name: "[ARCH] Install Python3 packages"
-  pacman:
-    name: "{{ python_packages }}"
-    state: present
-    update_cache: true
-  when: linux_distribution == "arch"
-
-- when: linux_distribution != "ubuntu"
+- when: linux_distribution == "fedora"
   block:
+    - name: "[FEDORA] Install Python3 packages"
+      dnf:
+        name: "{{ python_packages }}"
+        state: present
+        update_cache: true
+
     - name: "Install setuptools python module"
-      pip:
-        name:
-          - setuptools
+        pip:
+          name:
+            - setuptools
 
     - name: "Install python modules"
       pip:
         name: "{{ python_modules }}"
         extra_args: --user
 
-- when: linux_distribution == "ubuntu"
+
+- when: linux_distribution == "arch"
   block:
-    - name: "Install setuptools"
+    - name: "[ARCH] Install Python3 packages"
+      pacman:
+        name: "{{ python_packages }}"
+        state: present
+        update_cache: true
+
+    - name: "[ARCH] Install setuptools python module"
+      pacman:
+        name: python-setuptools
+        state: present
+
+    - name: "[ARCH] Install python modules"
+      vars:
+        prefix: "python-"
+        quitar:
+          - pylint
+          - docker-py
+          - gitpython
+          - flake8
+          - pep8
+        poner:
+          - lxml
+          - jmespath
+          - docker
+          - beautifulsoup4
+        to_install: "{{ [prefix] | product(python_modules | difference(quitar) + poner) | map('join') | list }}"
+      pacman:
+        name: "{{ to_install }}"
+        state: present
+        update_cache: true
+
+- when: linux_distribution in ['ubuntu', 'debian']
+  block:
+    - name: "[DEB] Install Python3 packages"
+      apt:
+        name: "{{ python_packages }}"
+        state: present
+        update_cache: true
+        autoclean: true
+
+    - name: "[DEB] Install setuptools"
       apt:
         name: python3-setuptools
         state: present
         update_cache: true
 
-    - name: "Install python modules"
+    - name: "[DEB] Install python modules"
       vars:
         prefix: "python3-"
         quitar:

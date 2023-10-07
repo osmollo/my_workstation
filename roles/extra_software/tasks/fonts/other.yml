@@ -6,7 +6,7 @@
     state: directory
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
-    recurse:
+    recurse: true
   loop:
     - "{{ ansible_user_dir }}/.fonts"
     - "{{ ansible_user_dir }}/.fonts/nerd_fonts"

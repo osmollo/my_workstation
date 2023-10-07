@@ -20,7 +20,10 @@
 ## 9.4
 
 - Corrección de errores:
+  - Fixes para instalación en **Arch**
   - Instalación de versión **beta** de `1Password` en **Arch**
+  - Fix creación directorio `/etc/docker` para **Docker**
+  - Ya no se instala **Trivy** por defecto
 
 ## 9.3.1
 
