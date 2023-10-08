@@ -22,6 +22,7 @@
 - Nuevo playbook `playbooks/debian_sudo.yml` para configurar __sudo__
 - Soporte para **Debian 13 (Trixie)**
 - Corrección de errores:
+  - Instalación de **DBeaver** y **Global Protect** en **Debian**
   - Instalación de **Spotify** en **Debian** como snap
   - Fixes para instalación en **Arch**
   - Instalación de versión **beta** de `1Password` en **Arch**
