@@ -145,7 +145,7 @@ k0s_latest_url: https://github.com/k0sproject/k0s/releases/latest
 trivy_latest_url: "https://github.com/aquasecurity/trivy/releases/latest"
 ferdi_latest_url: "https://github.com/getferdi/ferdi/releases/latest"
 station_latest_url: "https://github.com/getstation/desktop-app/releases/latest"
-lsd_latest_url: "https://github.com/Peltoche/lsd/releases/latest"
+lsd_latest_url: "https://github.com/lsd-rs/lsd/releases/latest"
 curlie_latest_url: "https://github.com/rs/curlie/releases/latest"
 bat_latest_url: "https://github.com/sharkdp/bat/releases/latest"
 duf_latest_url: "https://github.com/muesli/duf/releases/latest"
