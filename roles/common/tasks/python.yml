@@ -13,9 +13,9 @@
         update_cache: true
 
     - name: "Install setuptools python module"
-        pip:
-          name:
-            - setuptools
+      pip:
+        name:
+          - setuptools
 
     - name: "Install python modules"
       pip:
