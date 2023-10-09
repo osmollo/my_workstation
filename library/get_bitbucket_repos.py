@@ -86,7 +86,7 @@ def get_project_repos(host, user, token, project):
     return output
 
 
-def get_latest(host, user=None, token=None, projects=[]):
+def get_repositories(host, user=None, token=None, projects=[]):
     output = []
     all_projects = get_projects(host, user, token)
     if projects == []:
@@ -128,10 +128,10 @@ def run_module():
         supports_check_mode=True
     )
 
-    result['repositories'] = get_latest(module.params['host'],
-                                        module.params['user'],
-                                        module.params['token'],
-                                        module.params['projects'])
+    result['repositories'] = get_repositories(module.params['host'],
+                                              module.params['user'],
+                                              module.params['token'],
+                                              module.params['projects'])
     module.exit_json(**result)
 
 
