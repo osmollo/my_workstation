@@ -1,0 +1,17 @@
+---
+
+- set_fact:
+    file_url: "https://dl.eviware.com/soapuios/5.7.1/SoapUI-x64-5.7.1.sh"
+    soapui_script: "{{ (file_url | urlsplit('path') | split('/'))[-1] }}"
+
+- name: "[SOAPUI] [DEB] download installation script"
+  get_url:
+    url: "{{ file_url }}"
+    dest: "{{ ansible_user_dir }}/{{ soapui_script }}"
+    mode: 0755
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: "[SOAPUI] [DEB] execute installation script"
+  command: "{{ ansible_user_dir }}/{{ soapui_script }}"
+

@@ -21,6 +21,7 @@
 
 - Nuevo playbook `playbooks/debian_sudo.yml` para configurar __sudo__
 - Soporte para **Debian 13 (Trixie)**
+- Instalación de **SoapUI** para **Debian** y **Ubuntu**
 - Corrección de errores:
   - Fix en la instalación de **lsd** porque ha cambiado el nombre del repositorio
   - Instalación de **DBeaver** y **Global Protect** en **Debian**
