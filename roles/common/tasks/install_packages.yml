@@ -236,4 +236,12 @@
       when:
         - desktop_environment is defined
         - desktop_environment == "xfce"
+
+    - name: "[DEBIAN] add flatpak repository"
+      command: "flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo"
+      register: response
+
+    - name: "[DEBIAN] restart the system"
+      reboot:
+      when: response.changed
   when: linux_distribution == "debian"

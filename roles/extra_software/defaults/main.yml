@@ -224,3 +224,22 @@ google_fonts_package: https://github.com/google/fonts/archive/main.zip
 
 neovim_config_dir: "{{ ansible_user_dir }}/.config/nvim"
 python_venv_dir: "{{ ansible_user_dir }}/.virtualenvs"
+
+  
+dropbox_flatpak: "https://dl.flathub.org/repo/appstream/com.dropbox.Client.flatpakref"
+telegram_flatpak: "https://dl.flathub.org/repo/appstream/org.telegram.desktop.flatpakref"
+slack_flatpak: "https://flathub.org/repo/appstream/com.slack.Slack.flatpakref"
+pycharm_flatpak: "https://flathub.org/repo/appstream/com.jetbrains.PyCharm-Community.flatpakref"
+postman_flatpak: "https://flathub.org/repo/appstream/com.getpostman.Postman.flatpakref"
+skype_flatpak: "https://flathub.org/repo/appstream/com.skype.Client.flatpakref"
+franz_flatpak: "https://flathub.org/repo/appstream/com.meetfranz.Franz.flatpakref"
+kdenlive_flatpak: "https://dl.flathub.org/repo/appstream/org.kde.kdenlive.flatpakref"
+marktext_flatpak: "https://dl.flathub.org/repo/appstream/com.github.marktext.marktext.flatpakref"
+teams_flatpak: "https://dl.flathub.org/repo/appstream/com.github.IsmaelMartinez.teams_for_linux.flatpakref"
+soapui_flatpak: "https://dl.flathub.org/repo/appstream/org.soapui.SoapUI.flatpakref"
+thincast_flatpak: "https://dl.flathub.org/repo/appstream/com.thincast.client.flatpakref"
+gitnuro_flatpak: "https://dl.flathub.org/repo/appstream/com.jetpackduba.Gitnuro.flatpakref"
+spotify_flatpak: "https://dl.flathub.org/repo/appstream/com.spotify.Client.flatpakref"
+trilium_flatpak: "https://dl.flathub.org/repo/appstream/com.github.zadam.trilium.flatpakref"
+
+
