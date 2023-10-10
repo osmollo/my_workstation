@@ -1,6 +1,6 @@
 ---
 
-- name: "[GIT] Clone git repositorie '{{ item.repo }}'"
+- name: "[GIT] Clone git repository '{{ item.repo }}'"
   git:
     repo: "{{ item.repo }}"
     dest: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
