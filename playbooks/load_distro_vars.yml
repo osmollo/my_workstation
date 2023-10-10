@@ -212,6 +212,7 @@
             state: present
           check_mode: true
           ignore_errors: true
+          changed_when: false
           register: response
 
         - fail:
