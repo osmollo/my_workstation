@@ -25,6 +25,7 @@
 - Instalación de **SoapUI** para **Debian** y **Ubuntu**
 - **Debian** deja de usar **snap** en favor de **flatpak**
 - Corrección de errores:
+  - Fix configuración __bash__
   - Fix en la instalación de **lsd** porque ha cambiado el nombre del repositorio
   - Instalación de **DBeaver** y **Global Protect** en **Debian**
   - Instalación de **Spotify** en **Debian** como snap
