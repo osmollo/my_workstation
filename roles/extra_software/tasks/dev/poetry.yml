@@ -1,7 +1,15 @@
 ---
 
+- name: "[POETRY] download installation script"
+  get_url:
+    url: https://install.python-poetry.org/
+    dest: /tmp/poetry.sh
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+
 - name: "[POETRY] install poetry"
-  command: "curl -sSL https://install.python-poetry.org | python3 -"
+  command: "python3 /tmp/poetry.sh"
 
 - name: "[POETRY] get the default shell for {{ ansible_user }}"
   shell: "basename $(echo $SHELL)"
@@ -14,3 +22,7 @@
     line: "export PATH=$PATH:{{ ansible_user_dir }}/.local/bin"
     state: present
 
+- name: "[POETRY] delete installation script"
+  file:
+    path: "/tmp/poetry.sh"
+    state: absent
