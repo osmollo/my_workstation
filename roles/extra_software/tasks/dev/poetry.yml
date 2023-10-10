@@ -1,0 +1,16 @@
+---
+
+- name: "[POETRY] install poetry"
+  command: "curl -sSL https://install.python-poetry.org | python3 -"
+
+- name: "[POETRY] get the default shell for {{ ansible_user }}"
+  shell: "basename $(echo $SHELL)"
+  register: shell_response
+  changed_when: false
+
+- name: "[POETRY] include poetry directory in PATH"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.{{ shell_response.stdout }}rc"
+    line: "export PATH=$PATH:{{ ansible_user_dir }}/.local/bin"
+    state: present
+

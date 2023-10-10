@@ -120,6 +120,7 @@ install_gitnuro: false
 install_syncthing: true
 install_prospect: false
 install_trilium: true
+install_poetry: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
