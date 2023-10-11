@@ -79,23 +79,30 @@
 - name: "[GIT] clone repositories"
   tags:
     - git_clone
-    - git_work
   block:
     - name: "[GIT] Configure user name"
       git_config:
         name: user.name
         scope: global
         value: "{{ git_config.user_name }}"
+      tags:
+        - git_work
+        - git_legacy
 
     - name: "[GIT] Create {{ git_dir }}"
       file:
         path: "{{ git_dir }}"
         state: directory
         mode: 0750
+      tags:
+        - git_work
+        - git_legacy
 
     - name: "[GIT] get WORK git server"
       set_fact:
         git_server: "{{ git_repositories.work[0].repo | urlsplit('hostname') }}"
+      tags:
+        - git_work
 
     - name: "[GIT] check connectivity"
       wait_for:
@@ -106,6 +113,8 @@
         timeout: 3
       ignore_errors: true
       register: git_work_response
+      tags:
+        - git_work
 
     - name: "[GIT] [WORK] get project repositories"
       get_bitbucket_repos:
@@ -114,6 +123,8 @@
         projects: "{{ bitbucket_conn.projects }}"
       register: bitbucket_repos
       when: not git_work_response.failed
+      tags:
+        - git_work
 
     - name: "[GIT] [WORK] clone repositories"
       include_tasks:
