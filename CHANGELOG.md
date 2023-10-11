@@ -20,6 +20,7 @@
 ## 9.4
 
 - Instalación de [Poetry](https://python-poetry.org/) para **Python**
+- Instalación de [Helix editor](https://helix-editor.com/)
 - Nuevo playbook `playbooks/debian_sudo.yml` para configurar __sudo__
 - Soporte para **Debian 13 (Trixie)**
 - Instalación de **SoapUI** para **Debian** y **Ubuntu**

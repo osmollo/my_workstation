@@ -1,5 +1,22 @@
 ---
 
+- name: "[PYCHARM] [FEDORA] copy pycharm repo file"
+  copy:
+    content: |
+      [PyCharm]
+      name=Copr repo for PyCharm owned by phracek
+      baseurl=https://download.copr.fedorainfracloud.org/results/phracek/PyCharm/fedora-$releasever-$basearch/
+      type=rpm-md
+      skip_if_unavailable=True
+      gpgcheck=1
+      gpgkey=https://download.copr.fedorainfracloud.org/results/phracek/PyCharm/pubkey.gpg
+      repo_gpgcheck=0
+      enabled=1
+      enabled_metadata=1
+    dest: /etc/yum.repos.d/pycharm.repo
+    owner: root
+    dest: root      
+
 - name: "[PYCHARM] [FEDORA] Install the PyCharm flatpak"
   flatpak:
     name:  "{{ pycharm_flatpak }}"

@@ -70,6 +70,7 @@ Por defecto se instala el siguiente software:
 | [GOpass](https://github.com/gopasspw/gopass) | gopass | install_gopass | pass_managers | Gestor de contraseñas |
 | [Gping](https://github.com/orf/gping) | gping | install_gping | tools | ping vitaminado |
 | [Hashicorp stask](https://www.hashicorp.com/) | hashicorp | install_hashicorp | tools | Stack de aplicaciones de **Hashicorp**: **Vault**, **Terraform**, **Consul** y **Nomad** |
+| [Helix](https://helix-editor.com/) | helix | install_helix | editors | Helix text editor |
 | [Hiri](https://www.hiri.com/) | hiri | install_hiri | mail | Cliente de correo |
 | [Java](https://openjdk.java.net/) | java | install_java | dev | Lenguaje Java |
 | [k8s_tools](https://kubernetes.io/docs/reference/tools/) | k8s_tools | install_k8s_tools | k8s | Herramientas de Kubernetes |

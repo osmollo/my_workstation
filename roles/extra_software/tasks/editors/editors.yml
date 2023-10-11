@@ -70,3 +70,10 @@
   when: install_trilium
   tags:
     - trilium
+
+- name: "[EDITORS] install Helix"
+  import_tasks: helix/helix.yml
+  when: install_helix
+  tags:
+    - helix
+

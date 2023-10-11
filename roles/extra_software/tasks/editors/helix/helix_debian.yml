@@ -1,0 +1,6 @@
+---
+
+- name: "[HELIX] [DEBIAN] install helix with flatpak"
+  flatpak:
+    name: "{{ helix_flatpak }}"
+    state: present

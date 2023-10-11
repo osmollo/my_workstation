@@ -1,0 +1,7 @@
+---
+
+- name: "[HELIX] [ARCH] install helix"
+  pacman:
+    name: helix
+    update_cache: true
+    state: present

@@ -1,0 +1,24 @@
+---
+
+- name: "[HELIX] [FEDORA] copy helix repo file"
+  copy:
+    content: |
+      [helix]
+      name=Copr repo for helix owned by varlad
+      baseurl=https://download.copr.fedorainfracloud.org/results/varlad/helix/fedora-$releasever-$basearch/
+      type=rpm-md
+      skip_if_unavailable=True
+      gpgcheck=1
+      gpgkey=https://download.copr.fedorainfracloud.org/results/varlad/helix/pubkey.gpg
+      repo_gpgcheck=0
+      enabled=1
+      enabled_metadata=1
+    dest: /etc/yum.repos.d/helix.repo
+    owner: root
+    group: root
+
+- name: "[HELIX] [FEDORA] install helix package"
+  dnf:
+    name: helix
+    state: present
+    update_cache: true
