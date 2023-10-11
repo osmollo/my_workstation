@@ -35,6 +35,7 @@
   - Ya no se instala **Trivy** por defecto
 - Post_install:
   - Nuevas entradas configuración SSH
+  - Comprueba que se haya desencriptado 'roles/post_install/defaults/main.yml.gpg' antes de ejecutar la post instalación
 
 ## 9.3.1
 
