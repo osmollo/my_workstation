@@ -33,6 +33,8 @@
   - Instalación de versión **beta** de `1Password` en **Arch**
   - Fix creación directorio `/etc/docker` para **Docker**
   - Ya no se instala **Trivy** por defecto
+- Post_install:
+  - Nuevas entradas configuración SSH
 
 ## 9.3.1
 
