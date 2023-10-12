@@ -1,8 +1,21 @@
 ---
 
 - block:
-    - name: "[KUBECTL] install for {{ linux_distribution }}"
-      include_tasks: "kubectl_{{ linux_distribution }}.yml"
+    - name: "[KUBECTL] get latest version"
+      vars:
+        version_url: "https://dl.k8s.io/release/stable.txt"
+      uri:
+        url: "{{ version_url }}"
+        return_content: true
+      register: uri_response
+
+    - name: "[KUBECTL] download kubectl '{{ uri_response.content }}'"
+      get_url:
+        url: "https://dl.k8s.io/release/{{ uri_response.content }}/bin/linux/amd64/kubectl"
+        dest: "/usr/local/bin"
+        owner: root
+        group: root
+        mode: 0755
 
     - name: "[KUBECOLOR] install kubecolor"
       import_tasks: kubecolor.yml

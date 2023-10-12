@@ -25,6 +25,7 @@
 - Soporte para **Debian 13 (Trixie)**
 - Instalación de **SoapUI** para **Debian** y **Ubuntu**
 - **Debian** deja de usar **snap** en favor de **flatpak**
+- Instalación de **kubectl** descargando el binario oficial en lugar de usar repositorios
 - Corrección de errores:
   - Fix configuración __bash__
   - Fix en la instalación de **lsd** porque ha cambiado el nombre del repositorio
