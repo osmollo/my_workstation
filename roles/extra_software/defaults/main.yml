@@ -40,6 +40,7 @@ install_kind: false
 install_microk8s: false
 install_kompose: false
 install_k0s: false
+install_kor: true
 install_flatpak: true
 install_megacmd: true
 install_megasync: false
@@ -165,6 +166,7 @@ dbeaver_latest_url: "https://github.com/dbeaver/dbeaver/releases/latest"
 zoxide_latest_url: "https://github.com/ajeetdsouza/zoxide/releases/latest"
 pulsar_latest_url: "https://github.com/pulsar-edit/pulsar/releases/latest"
 prospect_latest_url: "https://github.com/julian-alarcon/prospect-mail/releases/latest"
+kor_latest_url: "https://github.com/yonahd/kor/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"

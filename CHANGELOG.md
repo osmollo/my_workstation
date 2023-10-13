@@ -26,6 +26,7 @@
 - Instalación de **SoapUI** para **Debian** y **Ubuntu**
 - **Debian** deja de usar **snap** en favor de **flatpak**
 - Instalación de **kubectl** descargando el binario oficial en lugar de usar repositorios
+- Instalación de [Kor](https://github.com/yonahd/kor) dentro de las __tools de k8s__
 - Corrección de errores:
   - Fix configuración __bash__
   - Fix en la instalación de **lsd** porque ha cambiado el nombre del repositorio

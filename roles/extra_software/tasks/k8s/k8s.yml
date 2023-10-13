@@ -115,3 +115,36 @@
   tags:
     - k0s
     - update
+
+- name: "[KOR] installation"
+  tags:
+    - kor
+  when: install_k8s_tools or install_kor
+  block:
+    - name: "[KOR] Get latest version of kor"
+      uri:
+        url: "{{ kor_latest_url }}"
+        follow_redirects: safe
+        body_format: raw
+      register: kor_latest
+
+    - name: "[KOR] download kor '{{ kor_version }}'"
+      vars:
+        kor_version: "{{ kor_latest.url | urlsplit('path') | basename }}"
+      unarchive:
+        src: "https://github.com/yonahd/kor/releases/download/{{ kor_version }}/kor_Linux_x86_64.tar.gz"
+        dest: /usr/local/bin
+        owner: root
+        group: root
+        mode: 0755
+        remote_src: true
+
+    - name: "[KOR] delete useless files"
+      file:
+        path: "/usr/local/bin/{{ item }}"
+        state: absent
+      loop:
+        - LICENSE
+        - README.md
+    
+    
