@@ -2,10 +2,8 @@
 
 - block:
     - name: "[KUBECTL] get latest version"
-      vars:
-        version_url: "https://dl.k8s.io/release/stable.txt"
       uri:
-        url: "{{ version_url }}"
+        url: "{{ kubectl_latest_url }}"
         return_content: true
       register: uri_response
 

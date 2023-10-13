@@ -128,6 +128,7 @@ tlp_battery_min: 75
 tlp_battery_max: 85
 
 # atom_latest_url: "https://github.com/atom/atom/releases/latest"
+kubectl_latest_url: "https://dl.k8s.io/release/stable.txt"
 rambox_latest_url: "https://github.com/ramboxapp/community-edition/releases/latest"
 buttercup_latest_url: "https://github.com/buttercup/buttercup-desktop/releases/latest"
 franz_latest_url: "https://github.com/meetfranz/franz/releases/latest"
