@@ -36,6 +36,7 @@
   - Instalación de versión **beta** de `1Password` en **Arch**
   - Fix creación directorio `/etc/docker` para **Docker**
   - Ya no se instala **Trivy** por defecto
+  - `get_bitbucket_repositories` ya no devuelve sólo 25 repositorios
 - Post_install:
   - Nuevas entradas configuración SSH
   - Comprueba que se haya desencriptado 'roles/post_install/defaults/main.yml.gpg' antes de ejecutar la post instalación

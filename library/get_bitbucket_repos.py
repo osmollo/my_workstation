@@ -76,7 +76,7 @@ def get_projects(host, user, token):
 
 def get_project_repos(host, user, token, project):
     output = []
-    bitbucket_url = f"https://{host}/rest/api/1.0/projects/{project}/repos"
+    bitbucket_url = f"https://{host}/rest/api/1.0/projects/{project}/repos/?limit=5000"
     response = get_bitbucket_response(bitbucket_url, user, token)
     if response:
         for repo in response:
