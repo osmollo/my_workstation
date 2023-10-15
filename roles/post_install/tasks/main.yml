@@ -13,6 +13,13 @@
     - environment
     - env
 
+- name: "configure neovim"
+  import_tasks: neovim.yml
+  tags:
+    - post_install
+    - neovim
+    - nvim
+
 - name: "configure rclone"
   import_tasks: rclone.yml
   tags:
