@@ -20,11 +20,3 @@
     - repo: "https://github.com/AstroNvim/AstroNvim"
       dest: "{{ ansible_user_dir }}/.config/nvim"
 
-- name: "[ASTRONVIM] initialize astronvim"
-  command: "{{ item }}"
-  loop:
-    - "nvim --headless -c 'quitall'"
-    - "nvim -c ':TSInstall python' -c 'qall'"
-    - "nvim -c ':TSInstall go' -c 'qall'"
-    - "nvim -c ':TSInstall bash' -c 'qall'"
-    - "nvim -c ':DapInstall python' -c 'qall'"
