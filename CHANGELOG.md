@@ -43,6 +43,7 @@
   - Nuevas entradas configuración SSH
   - Comprueba que se haya desencriptado 'roles/post_install/defaults/main.yml.gpg' antes de ejecutar la post instalación
   - Fix en tags `git_work` y `git_legacy`
+  - Borrado del directorio por defecto de **Syncthing**
 
 ## 9.3.1
 

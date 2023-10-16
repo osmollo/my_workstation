@@ -1,4 +1,4 @@
-# ---
+---
 
 - name: "[SYNCTHING] get device id"
   xml:
@@ -19,47 +19,47 @@
     syncthing_device_id: "{{ xml_response1.matches[0].device.id }}"
     syncthing_apikey: "{{ xml_response2.matches[0].apikey }}"
 
-- name: "[SYNCTHING] get current config"
+- debug: 
+    msg: "DEVIDE ID: {{ syncthing_device_id }}"
+
+- debug: 
+    msg: "API KEY: {{ syncthing_apikey }}"
+
+- name: "[SYNCTHING] get folders info"
   uri:
-    url: http://localhost:8384/rest/config
+    url: http://localhost:8384/rest/config/folders
+    return_content: true
     headers:
       X-API-Key: "{{ syncthing_apikey }}"
-    return_content: true
-  register: syncthing_config
+  register: folders_response
 
-- name: "[SYNCTHING] set syncthing old config"
-  set_fact:
-    syncthing_old_config: "{{ syncthing_config.json }}"
+- name: "[SYNCTHING] delete default folder Sync"
+  uri:
+    url: http://localhost:8384/rest/config/folders/{{ item.id }}
+    headers:
+      X-API-Key: "{{ syncthing_apikey }}"
+    method: DELETE
+  loop: "{{ folders_response.json }}"
+  when: item.id == 'default'
 
+- name: "[SYNCTHING] delete local directory"
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  loop: "{{ folders_response.json }}"
+  when: item.id == 'default'
 
-# - name: "[SYNCTHING] get system config"
-#   uri:
-#     url: "http://127.0.0.1:8384/rest/system/config"
-#     return_content: true
-#     headers:
-#       X-API-Key: "{{ syncthing_apikey }}"
-#   register: syncthing_config_raw
-#   check_mode: false
+- name: "[SYNCTHING] create new folder"
+  uri:
+    url: http://localhost:8384/rest/config/folders
+    method: POST
+    headers:
+      X-API-Key: "{{ syncthing_apikey }}"
+    body_format: json
+    body:
+      id: "{{ 999999999999999999999 | random | to_uuid }}"
+      label: "syncthing directory"
+      path: "{{ ansible_user_dir }}/syncthing"
+      devices:
+        - devideID: "{{ syncthing_device_id }}"
 
-# - name: "[SYNCTHING] post config"
-#   uri:
-#     url: "http://127.0.0.1:8384/rest/system/config"
-#     method: POST
-#     return_content: true
-#     headers:
-#       Content-Type: "application/json"
-#       X-API-Key: "{{ syncthing_apikey }}"
-#     body: "{{ syncthing_config | to_json }}"
-#     body_format: "json"
-#   when: syncthing_config != syncthing_config_old
-
-# - name: "[SYNCTHING] syncthing restart"
-#   uri:
-#     url: "http://127.0.0.1:8384/rest/system/restart"
-#     method: POST
-#     return_content: true
-#     headers:
-#       X-API-Key: "{{ syncthing_apikey }}"
-#   when: syncthing_config != syncthing_config_old
-
-# ## vim: foldmethod=marker:tabstop=2:shiftwidth=2:softtabstop=2
