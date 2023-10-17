@@ -20,5 +20,8 @@
         dest: /usr/local/bin
         mode: 0755
         remote_src: true
+      register: unarchive_response
+      until: unarchive_response is succeeded
+      retries: 5
   tags:
     - install_spotify_cli

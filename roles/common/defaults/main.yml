@@ -28,7 +28,6 @@ python_modules:
   - pylint
   - flake8
   - pycodestyle
-  - lxml
   - jedi
 
 bad_snap_packages:

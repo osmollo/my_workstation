@@ -1,8 +1,0 @@
----
-
-- name: "[KUBECTL] [ARCH] Install kubectl"
-  become: false
-  yay:
-    name: "{{ kubectl_package }}"
-    state: present
-    update_cache: true

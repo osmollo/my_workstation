@@ -25,6 +25,12 @@
   tags:
     - go
 
+- name: "[DEV] Install Python"
+  import_tasks: poetry.yml
+  when: install_poetry
+  tags:
+    - poetry
+
 - name: "[DEV] Install beekeeper"
   import_tasks: beekeeper.yml
   when:

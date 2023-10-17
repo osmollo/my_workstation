@@ -1,0 +1,21 @@
+---
+
+- hosts: localhost
+  connection: local
+  become: true
+  become_method: su
+  vars:
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+  tasks:
+    - name: "[DEBIAN] Add {{ ansible_user }} to group sudo"
+      user:
+        name: "{{ ansible_user }}"
+        groups: sudo
+        append: true
+      register: response
+
+    - debug: 
+        msg: "Por favor, cierra sesión para que se apliquen los cambios"
+      when: 
+        - response.changed

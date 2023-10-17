@@ -1,0 +1,14 @@
+---
+
+- name: "[HELIX] [UBUNTU] add helix ppa repository"
+  apt_repository:
+    validate_certs: no
+    repo: 'ppa:maveonair/helix-editor'
+    state: present
+
+- name: "[HELIX] [UBUNTU] install Helix package"
+  apt:
+    name: helix
+    state: present
+    update_cache: true
+

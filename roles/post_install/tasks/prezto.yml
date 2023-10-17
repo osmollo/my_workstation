@@ -32,7 +32,7 @@
   vars:
     prezto_repo: git@github.com:osmollo/prezto.git
 
-- name: "[PREZTO] Create new remote for presto original source"
+- name: "[PREZTO] Create new remote for prezto original source"
   shell: "git remote add upstream {{ prezto_repo }}"
   args:
     chdir: "{{ ansible_user_dir }}/.zprezto"

@@ -1,0 +1,37 @@
+---
+
+- name: "[NEOVIM] delete previous user config"
+  file:
+    path: "{{ ansible_user_dir }}/.config/nvim/lua/user"
+    state: absent
+
+- name: "[NEOVIM] use my astronvim config"
+  become: false
+  git:
+    repo: "git@github.com:osmollo/astronvim_user.git"
+    dest: "{{ ansible_user_dir }}/.config/nvim/lua/user"
+    depth: 1
+    clone: true
+    accept_hostkey: true
+
+- name: "[NEOVIM] Configure ssh user.name"
+  git_config:
+    name: user.name
+    repo: "{{ ansible_user_dir }}/.config/nvim/lua/user"
+    scope: local
+    value: "{{ git_config.user_name }}"
+
+- name: "[NEOVIM] Configure ssh user.email"
+  git_config:
+    name: user.email
+    repo: "{{ ansible_user_dir }}/.config/nvim/lua/user"
+    scope: local
+    value: "{{ git_config.user_email_home }}"
+
+- name: "[NEOVIM] configure ssh signinkey"
+  git_config:
+    name: user.signingkey
+    repo: "{{ ansible_user_dir }}/.config/nvim/lua/user"
+    scope: local
+    value: "{{ lookup('onepassword', 'op://private/osmollo/public key') }}"
+

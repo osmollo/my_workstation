@@ -12,11 +12,11 @@
   flatpak:
     name:  "{{ trilium_flatpak }}"
     state: present
-  when: linux_distribution == 'fedora'
+  when: linux_distribution in ['fedora', 'debian']
 
 - name: "[TRILIUM] [DEB] install Trilium"
   snap:
     name:
       - trilium
     state: present
-  when: linux_distribution in ['debian', 'ubuntu']
+  when: linux_distribution in ['ubuntu']

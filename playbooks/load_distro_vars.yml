@@ -68,8 +68,8 @@
         debian_version: "{{ debian_versions[debian_codename] }}"
       vars:
         debian_versions:
-          bullseye: "11"
           bookworm: "12"
+          trixie: "13"
       when:
         - linux_distribution == "debian"
         - ansible_distribution != "Deepin 20"
@@ -199,3 +199,25 @@
         - name: "Set XSERVER variable"
           set_fact:
             xserver: "{{  get_xserver.stdout }}"
+
+    - when: linux_distribution == "debian" 
+      vars:
+        ansible_user: "{{ lookup('env', 'USER') }}"
+      block: 
+        - name: "check if '{{ ansible_user }}' has sudo permissions"
+          become: true
+          lineinfile:
+            name: /etc/sudoers
+            line: "{{ ansible_user }}  ALL=(ALL:ALL) ALL"
+            state: present
+          check_mode: true
+          ignore_errors: true
+          changed_when: false
+          register: response
+
+        - fail:
+            msg: "Por favor, ejecuta el playbook 'playbooks/debian_sudo.yml y cierra sesión antes de continuar"
+          when: response.failed
+
+
+#      failed_when: (conf is changed) or (conf is failed)

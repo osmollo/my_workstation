@@ -28,6 +28,7 @@ distro_packages:
   - screenfetch
   - tldr
   - remmina
+  - python3-jmespath
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome

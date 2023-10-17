@@ -45,7 +45,7 @@
     dest: "{{ ansible_user_dir }}/.bashrc"
     state: link
 
-- name: "[OHMYBASH] Create new remote for presto original source"
+- name: "[OHMYBASH] Create new remote for oh-my-bash original source"
   shell: "git remote add upstream {{ ohmybash_repo }}"
   args:
     chdir: "{{ ansible_user_dir }}/.oh-my-bash"

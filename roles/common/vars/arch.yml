@@ -22,7 +22,7 @@ distro_packages:
   - pkgconf
   - tldr
   - python-setuptools
-  -	remmina
+  - remmina
 
 gnome_arch_packages:
   - wireshark-cli
@@ -45,4 +45,4 @@ python_packages:
   - python-virtualenv
   - python-virtualenvwrapper
 
-kwalletcli_package: kwalletcli
+kwalletcli_package: kwalletcli-bin

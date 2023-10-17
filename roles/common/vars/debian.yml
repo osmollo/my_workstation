@@ -10,8 +10,7 @@ distro_packages:
   - dnsutils
   - python3-dev
   - build-essential
-  - snap
-  - snapd
+  - flatpak
   - firewall-config
   - net-tools
   - python3-jmespath
@@ -33,12 +32,14 @@ gnome_debian_packages:
   - python3-psutil
   - wireshark
   - chrome-gnome-shell
+  - gnome-software-plugin-flatpak
   - gir1.2-gda-5.0
   - gir1.2-gsound-1.0
 
 kde_debian_packages:
   - yakuake
   - kwalletcli
+  - plasma-discover-backend-flatpak
 
 xfce_debian_packages: []
 

@@ -46,17 +46,6 @@
     - ohmybash
     - ohmyzsh
 
-- name: "[ENVIRONMENT] create .bashrc"
-  template:
-    src: "bashrc.j2"
-    dest: "{{ ansible_user_dir }}/.bashrc"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-    mode: 0600
-  tags:
-    - config_files
-    - bash_config
-
 - name: "[ENVIRONMENT] create .ssh directory"
   file:
     path: "{{ ssh_dir }}"

@@ -1,12 +1,18 @@
 ---
 
-- name: "[DOCKER] Create user config directory"
+- name: "[DOCKER] Create docker directories"
+  become: true
   file:
-    path: "/home/{{ ansible_user }}/.docker"
+    path: "{{ item.path }}"
     state: directory
     mode: 0750
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.owner }}"
+  loop:
+    - path: "/home/{{ ansible_user }}/.docker"
+      owner: "{{ ansible_user }}"
+    - path: "/etc/docker"
+      owner: root
 
 - name: "[DOCKER] create config.json"
   template:

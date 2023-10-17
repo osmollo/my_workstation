@@ -70,6 +70,7 @@ Por defecto se instala el siguiente software:
 | [GOpass](https://github.com/gopasspw/gopass) | gopass | install_gopass | pass_managers | Gestor de contraseñas |
 | [Gping](https://github.com/orf/gping) | gping | install_gping | tools | ping vitaminado |
 | [Hashicorp stask](https://www.hashicorp.com/) | hashicorp | install_hashicorp | tools | Stack de aplicaciones de **Hashicorp**: **Vault**, **Terraform**, **Consul** y **Nomad** |
+| [Helix](https://helix-editor.com/) | helix | install_helix | editors | Helix text editor |
 | [Hiri](https://www.hiri.com/) | hiri | install_hiri | mail | Cliente de correo |
 | [Java](https://openjdk.java.net/) | java | install_java | dev | Lenguaje Java |
 | [k8s_tools](https://kubernetes.io/docs/reference/tools/) | k8s_tools | install_k8s_tools | k8s | Herramientas de Kubernetes |
@@ -91,6 +92,7 @@ Por defecto se instala el siguiente software:
 | [Oh my BASH!](https://ohmybash.nntoan.com/) | ohmybash | install_ohmybash | shell | Personalización de BASH |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | shell | Personalización de ZSH |
 | [Podman](https://podman.io/) | podman | install_podman | containers | Gestor de contenedores |
+| [Poetry](https://python-poetry.org/) | poetry | install_poetry | dev | Gestor de proyectos para Python |
 | [Postman](https://www.getpostman.com) | postman | install_postman | dev | Cliente REST API |
 | [Prezto](https://github.com/sorin-ionescu/prezto) | prezto | install_prezto | shell | Personalización de ZSH (fork mejorado de Oh my Zsh) |
 | [PROCS](https://github.com/dalance/procs/releases/latest) | procs | install_procs | tools | Reemplazo de `ps` |

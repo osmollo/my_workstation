@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [9.4](#94)
   - [9.3.1](#931)
   - [9.3](#93)
   - [9.2](#92)
@@ -15,6 +16,34 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 9.4
+
+- Instalación de [Poetry](https://python-poetry.org/) para **Python**
+- Instalación de [Helix editor](https://helix-editor.com/)
+- Nuevo playbook `playbooks/debian_sudo.yml` para configurar __sudo__
+- Soporte para **Debian 13 (Trixie)**
+- Instalación de **SoapUI** para **Debian** y **Ubuntu**
+- **Debian** deja de usar **snap** en favor de **flatpak**
+- Instalación de **kubectl** descargando el binario oficial en lugar de usar repositorios
+- Instalación de [Kor](https://github.com/yonahd/kor) dentro de las __tools de k8s__
+- Corrección de errores:
+  - Fix configuración __bash__
+  - Fix en la instalación de **lsd** porque ha cambiado el nombre del repositorio
+  - Instalación de **DBeaver** y **Global Protect** en **Debian**
+  - Instalación de **Spotify** en **Debian** como snap
+  - Fixes para instalación en **Arch**
+  - Instalación de versión **beta** de `1Password` en **Arch**
+  - Fix creación directorio `/etc/docker` para **Docker**
+  - Ya no se instala **Trivy** por defecto
+  - `get_bitbucket_repositories` ya no devuelve sólo 25 repositorios
+  - Configuración de usuario de **Astronvim** se pasa a `post_install`
+  - Reintentos al descargar el paquete de **spotify-tui**
+- Post_install:
+  - Nuevas entradas configuración SSH
+  - Comprueba que se haya desencriptado 'roles/post_install/defaults/main.yml.gpg' antes de ejecutar la post instalación
+  - Fix en tags `git_work` y `git_legacy`
+  - Borrado del directorio por defecto de **Syncthing**
 
 ## 9.3.1
 
