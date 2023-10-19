@@ -1,24 +1,5 @@
 ---
 
-- hosts: localhost
-  connection: local
-  tasks:
-    - name: "check if 'roles/post_install/defaults/main.yml' exists"
-      stat:
-        path: "{{ playbook_dir }}/roles/post_install/defaults/main.yml"
-      register: stat_response
-
-    - fail:
-        msg: "YOU MUST TO DECRYPT '{{ playbook_dir }}/roles/post_install/defaults/main.yml.gpg"
-      when: not stat_response.stat.exists
-  tags:
-    - always
-
-- name: "[CHECK OP] check if OP_SESSION_* is defined"
-  import_playbook: playbooks/check_op.yml
-  tags:
-    - always
-
 - name: "[LOAD VARS] setting ansible variables"
   import_playbook: playbooks/load_distro_vars.yml
   tags:
