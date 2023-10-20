@@ -20,6 +20,7 @@
 
 ## 9.5
 
+- Instalación de [kube capacity](https://github.com/robscott/kube-capacity)
 - Post_install:
   - Nuevas entradas SSH
 
