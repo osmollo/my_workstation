@@ -23,6 +23,7 @@
 - Instalación de [kube capacity](https://github.com/robscott/kube-capacity)
 - Post_install:
   - Nuevas entradas SSH
+  - Configuración de **Helix Editor**
 
 ## 9.4
 

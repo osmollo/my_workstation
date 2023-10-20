@@ -20,6 +20,12 @@
     - neovim
     - nvim
 
+- name: "configure helix"
+  import_tasks: helix.yml
+  tags:
+    - post_install
+    - helix
+
 - name: "configure rclone"
   import_tasks: rclone.yml
   tags:
