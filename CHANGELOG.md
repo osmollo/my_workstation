@@ -24,6 +24,7 @@
 - Post_install:
   - Nuevas entradas SSH
   - Configuración de **Helix Editor**
+  - Nuevo alias `helix` para `hx`
 
 ## 9.4
 
