@@ -33,9 +33,9 @@
     - config_files
     - bash_aliases
 
-- name: "[ENVIRONMENT] create .env"
+- name: "[ENVIRONMENT] create .environment"
   template:
-    src: "env.j2"
+    src: "environment.j2"
     dest: "{{ ansible_user_dir }}/.environment"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"

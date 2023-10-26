@@ -28,6 +28,7 @@
   - Configuración de **Helix Editor**
   - Nuevo alias `helix` para `hx`
   - Renovación tokens git
+  - Cambio en la configuración de $SHELL
 
 ## 9.4
 

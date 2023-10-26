@@ -1,86 +1,12 @@
 ---
 
-- name: "[OHMYZSH] check if ~/.zshrc exists"
-  stat:
-    path: "{{ ansible_env.HOME }}/.zshrc"
-  register: stat_response
-
-- name: "[OHMYZSH] creating backup"
+- name: "[OHMYZSH] copy zshrc"
   copy:
-    src: "{{ ansible_env.HOME }}/.zshrc"
-    dest: "{{ ansible_env.HOME }}/.zshrc.bkp"
-    remote_src: true
-  when: stat_response.stat.exists
-
-- name: "[OHMYZSH] delete previous installation"
-  file:
-    path: "{{ ansible_user_dir }}/.{{ item }}"
-    state: absent
-  loop:
-    - zlogin
-    - zlogout
-    - zprezto
-    - zpreztorc
-    - zprofile
-    - zshenv
-    - zshrc
-    - oh-my-zsh
-
-- name: "[OHMYZSH] install my oh-my-zsh fork'"
-  become: true
-  become_method: sudo
-  import_tasks: ../extra_software/tasks/shell/oh_my_zsh.yml
-  vars:
-    ohmyzsh_installer: https://raw.githubusercontent.com/osmollo/ohmyzsh/master/tools/install.sh
-    from_post_install: true
-
-- name: "[OHMYZSH] delete .zshrc"
-  file:
-    path: "{{ ansible_user_dir }}/.{{ item }}"
-    state: absent
-  loop:
-    - zshrc
-    - zhistory
-    - zsh_history
-  ignore_errors: true
-
-- name: "[OHMYZSH] create link to .zshrc"
-  file:
-    src: "{{ ansible_user_dir }}/.oh-my-zsh/zsh_config/my_workstation"
+    src: "shell/zsh"
     dest: "{{ ansible_user_dir }}/.zshrc"
-    state: link
-
-- name: "[OHMYZSH] Create new remote for oh-my-zsh original source"
-  shell: "git remote add upstream {{ ohmyzsh_repo }}"
-  args:
-    chdir: "{{ ansible_user_dir }}/.oh-my-zsh"
-  failed_when: false
-  vars:
-    ohmyzsh_repo: git@github.com:ohmyzsh/ohmyzsh.git
-
-- name: "[OHMYZSH] Configure 'user.name' for oh-my-zsh repo"
-  shell: "git config user.name {{ git_config.user_name }}"
-  args:
-    chdir: "{{ ansible_user_dir }}/.oh-my-zsh"
-
-- name: "[OHMYZSH] Configure 'user.email' for oh-my-zsh repo"
-  shell: "git config user.email {{ git_config.user_email_home }}"
-  args:
-    chdir: "{{ ansible_user_dir }}/.oh-my-zsh"
-
-- name: "[OHMYZSH] replace origin repo url"
-  git_config:
-    repo: '{{ ansible_user_dir }}/.oh-my-zsh'
-    scope: 'local'
-    name: 'remote.origin.url'
-    value: 'git@github.com:osmollo/ohmyzsh.git'
-
-- name: "[OHMYZSH] Configure ssh signinkey"
-  git_config:
-    name: user.signingkey
-    repo: "{{ ansible_user_dir }}/.oh-my-zsh"
-    scope: local
-    value: "{{ lookup('onepassword', 'op://Private/osmollo/public key') }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0640
 
 - name: "[OHMYZSH] install plugins"
   git:
