@@ -25,6 +25,7 @@
   - Nuevas entradas SSH
   - Configuración de **Helix Editor**
   - Nuevo alias `helix` para `hx`
+  - Renovación tokens git
 
 ## 9.4
 
