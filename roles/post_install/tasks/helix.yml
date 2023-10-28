@@ -10,8 +10,13 @@
 
 - name: "[HELIX] generate helix configfile"
   copy:
-    src: helix_config.toml
-    dest: "{{ ansible_user_dir }}/.config/helix/config.toml"
+    src: "{{ item.src }}"
+    dest: "{{ ansible_user_dir }}/.config/helix/{{ item.dest }}"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     mode: 0640
+  loop:
+    - src: helix_config.toml
+      dest: config.toml
+    - src: helix_languages.toml
+      dest: languages.toml
