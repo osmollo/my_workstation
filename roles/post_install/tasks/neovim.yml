@@ -2,8 +2,11 @@
 
 - name: "[NEOVIM] delete previous user config"
   file:
-    path: "{{ ansible_user_dir }}/.config/nvim/lua/user"
+    path: "{{ item }}"
     state: absent
+  loop:
+    - "{{ ansible_user_dir }}/.config/nvim/lua/user"
+    - "{{ ansible_user_dir }}/.local/share/nvim"
 
 - name: "[NEOVIM] use my astronvim config"
   become: false
