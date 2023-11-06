@@ -17,24 +17,21 @@
     clone: true
     accept_hostkey: true
 
-- name: "[NEOVIM] Configure ssh user.name"
+- name: "[NEOVIM] configure repo"
   git_config:
-    name: user.name
+    name: "{{ item.name }}"
     repo: "{{ ansible_user_dir }}/.config/nvim/lua/user"
     scope: local
-    value: "{{ git_config.user_name }}"
+    value: "{{ item.value }}"
+  loop:
+    - name: user.name
+      value: "{{ git_config.user_name }}"
+    - name: user.email
+      value: "{{ git_config.user_email_home }}"
+    - name: user.signingkey
+      value: "{{ lookup('onepassword', 'op://private/osmollo/public key') }}"
+  loop_control:
+    label: "{{ item.name }}"
 
-- name: "[NEOVIM] Configure ssh user.email"
-  git_config:
-    name: user.email
-    repo: "{{ ansible_user_dir }}/.config/nvim/lua/user"
-    scope: local
-    value: "{{ git_config.user_email_home }}"
-
-- name: "[NEOVIM] configure ssh signinkey"
-  git_config:
-    name: user.signingkey
-    repo: "{{ ansible_user_dir }}/.config/nvim/lua/user"
-    scope: local
-    value: "{{ lookup('onepassword', 'op://private/osmollo/public key') }}"
-
+- name: "[NEOVIM] initializing neovim"
+  command: "nvim --headless +q"

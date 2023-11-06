@@ -21,6 +21,7 @@
 ## 9.5
 
 - Instalación de [kube capacity](https://github.com/robscott/kube-capacity)
+- Inicialización de **Neovim** después de su configuración
 - Corrección de errores:
   - Instalación de **oh-my-zsh** cuando la distro no sea **Arch**
 - Post_install:
