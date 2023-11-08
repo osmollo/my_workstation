@@ -124,6 +124,7 @@ install_trilium: true
 install_poetry: true
 install_helix: false
 install_kube_capacity: true
+install_snyk: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -170,6 +171,7 @@ pulsar_latest_url: "https://github.com/pulsar-edit/pulsar/releases/latest"
 prospect_latest_url: "https://github.com/julian-alarcon/prospect-mail/releases/latest"
 kor_latest_url: "https://github.com/yonahd/kor/releases/latest"
 kubecapacity_latest_url: "https://github.com/robscott/kube-capacity/releases/latest"
+snyk_latest_url: "https://github.com/snyk/cli/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"
