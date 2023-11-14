@@ -25,6 +25,7 @@
 - Instalación de [Snyk CLI](https://snyk.io/)
 - Corrección de errores:
   - Instalación de **oh-my-zsh** cuando la distro no sea **Arch**
+  - Instalación definitiva de **Docker** y **MegaCMD** en **Fedora**
 - Post_install:
   - Nuevas entradas SSH
   - Configuración de **Helix Editor**
