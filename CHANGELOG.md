@@ -32,6 +32,7 @@
   - Nuevo alias `helix` para `hx`
   - Renovación tokens git
   - Cambio en la configuración de $SHELL
+  - Nuevos repositorios git
 
 ## 9.4
 
