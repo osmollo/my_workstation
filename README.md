@@ -101,6 +101,7 @@ Por defecto se instala el siguiente software:
 | [Pulsar](https://pulsar-edit.dev/) | pulsar | install_pulsar | editors | Editor de texto basado en **Atom** |
 | [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=linux) | pycharm | install_pycharm | editors | IDE para Python |
 | [Rambox](https://rambox.pro/#home) | rambox | install_rambox | social | Gestor de clientes de mensajería |
+| [Rancher CLI](https://ranchermanager.docs.rancher.com/reference-guides/cli-with-rancher/rancher-cli) | rancher | install_rancher | k8s | CLI para Rancher |
 | [Rclone](https://rclone.org/) | rclone | install_rclone | storage | Tool de nubes de almacenamiento |
 | [ripgrep](https://github.com/BurntSushi/ripgrep) | ripgrep | install_ripgrep | tools | grep vitaminado |
 | [Singlebox](https://webcatalog.io/singlebox/) | singlebox | install_singlebox | social | Administrador de clientes de mensajería |

@@ -1,0 +1,43 @@
+---
+
+- name: "[RANCHER] get latest version of rancher CLI"
+  uri:
+    url: "{{ rancher_latest_url }}"
+  register: rancher_info
+
+- name: "[RANCHER] create temporal directory"
+  file:
+    path: "/tmp/directory"
+    state: directory
+
+- name: "[RANCHER] Download rancher cli '{{ rancher_version }}'"
+  vars:
+    rancher_version: "{{ rancher_info.url.split('/')[-1] }}"
+    rancher_package: "https://github.com/rancher/cli/releases/download/{{ rancher_version }}/rancher-linux-amd64-{{ rancher_version }}.tar.gz"
+  unarchive:
+    src: "{{ rancher_package }}"
+    dest: /tmp/directory
+    remote_src: true
+
+- name: "[RANCHER] get rancher binary path"
+  find:
+    paths: "/tmp/directory"
+    recurse: true
+    file_type: file
+    use_regex: true
+    patterns: ["rancher"]
+  register: find_response
+
+- name: "[RANCHER] copy rancher binary to /usr/local/bin"
+  copy:
+    src: "{{ find_response.files[0].path }}"
+    dest: /usr/local/bin/rancher
+    owner: root
+    group: root
+    mode: 0755
+    remote_src: true
+
+- name: "[RANCHER] delete temporal files"
+  file:
+    path: /tmp/directory
+    state: absent

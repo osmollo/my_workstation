@@ -175,4 +175,11 @@
       loop:
         - LICENSE
         - README.md
-    
+
+- name: "[RANCHER] install Rancher CLI"
+  import_tasks: rancher.yml
+  when: install_rancher
+  tags:
+    - install_rancher
+    - install_rancher_cli
+    - install_ranchercli
