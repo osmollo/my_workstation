@@ -1,24 +1,14 @@
 ---
 
-- name: "[SNYK] Get latest version of Snyk CLI"
-  uri:
-    url: "{{ snyk_latest_url }}"
-    follow_redirects: safe
-    body_format: raw
-  register: snyk_latest
+- name: "[SNYK] delete previous version"
+  file:
+    path: "/usr/local/bin/snyk"
+    state: absent
 
-- name: "[SNYK] Download Snyk CLI '{{ snyk_version }}'"
-  vars:
-    snyk_version: "{{ snyk_latest.url | urlsplit('path') | basename }}"
-    snyk_package: "https://github.com/snyk/cli/releases/download/{{ snyk_version }}/snyk-linux"
+- name: "[SNYK] Download Snyk CLI"
   get_url:
-    url: "{{ snyk_package }}"
+    url: "{{ snyk_latest_url }}"
     dest: /usr/local/bin/snyk
     owner: root
     group: root
     mode: 0755
-
-
-
-
-

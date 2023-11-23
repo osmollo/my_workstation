@@ -26,6 +26,7 @@
 - Corrección de errores:
   - Instalación de **oh-my-zsh** cuando la distro no sea **Arch**
   - Instalación definitiva de **Docker** y **MegaCMD** en **Fedora**
+  - Instalación de **Snyk** de site oficial en vez de [Github](https://github.com/snyk/cli/releases)
 - Post_install:
   - Nuevas entradas SSH
   - Configuración de **Helix Editor**
