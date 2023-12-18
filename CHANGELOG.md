@@ -35,6 +35,7 @@
   - Renovación tokens git
   - Cambio en la configuración de $SHELL
   - Nuevos repositorios git
+  - Soporte para repositorios con el mismo nombre pero de distintos proyectos
 
 ## 9.4
 

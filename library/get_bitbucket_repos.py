@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+import os.path
+import operator
 import requests
 from ansible.module_utils.basic import AnsibleModule
 from requests.auth import HTTPBasicAuth
@@ -31,6 +33,7 @@ EXAMPLES = '''
     host: foo.bar.bitbucket.com
     user: foo
     token: bar
+    git_directory: /foo/bar/git
     projects:
         - foo1
         - foo2
@@ -74,7 +77,7 @@ def get_projects(host, user, token):
     return []
 
 
-def get_project_repos(host, user, token, project):
+def get_project_repos(host, user, token, project, git_directory):
     output = []
     bitbucket_url = f"https://{host}/rest/api/1.0/projects/{project}/repos/?limit=5000"
     response = get_bitbucket_response(bitbucket_url, user, token)
@@ -82,19 +85,35 @@ def get_project_repos(host, user, token, project):
         for repo in response:
             for clone in repo['links']['clone']:
                 if clone['name'] == 'ssh':
-                    output.append({"repo": clone['href']})
+                    output.append({
+                        "repo": clone['href'],
+                        "dest": os.path.join(git_directory,
+                                             clone['href'].split('/')[-1].split('.')[0])
+                    })
     return output
 
 
-def get_repositories(host, user=None, token=None, projects=[]):
+def process_duplicates(list_of_repos):
+    temp = [os.path.basename(x['dest']) for x in list_of_repos]
+    for i in range(len(list_of_repos)):
+        basename = os.path.basename(list_of_repos[i]['dest'])
+        if operator.countOf(temp, basename) > 1:
+            project = list_of_repos[i]['repo'].split('/')[3]
+            list_of_repos[i]['dest'] = list_of_repos[i]['dest'].replace(basename,
+                                                                        f'{project}_{basename}')
+    return list_of_repos
+
+
+def get_repositories(host, user=None, token=None, projects=[], git_directory=None):
     output = []
+    tmp = {}
     all_projects = get_projects(host, user, token)
     if projects == []:
         projects = all_projects
     for project in projects:
         if project in all_projects:
-            output += get_project_repos(host, user, token, project)
-    return output
+            output += get_project_repos(host, user, token, project, git_directory)
+    return process_duplicates(output)
 
 
 def run_module():
@@ -115,6 +134,10 @@ def run_module():
         "projects": {
             "default": [],
             "type": "list"
+        },
+        "git_directory": {
+            "required": True,
+            "type": "str"
         }
     }
 
@@ -131,7 +154,8 @@ def run_module():
     result['repositories'] = get_repositories(module.params['host'],
                                               module.params['user'],
                                               module.params['token'],
-                                              module.params['projects'])
+                                              module.params['projects'],
+                                              module.params['git_directory'])
     module.exit_json(**result)
 
 

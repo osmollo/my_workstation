@@ -1,9 +1,18 @@
 ---
 
+- name: "[GIT] set git destination directory"
+  set_fact:
+    git_dest_dir: "{{ item.dest | default(git_dir + '/' + (item.repo | urlsplit('path')).split('/')[-1].split('.')[0]) }}"
+
+- name: "[GIT] creating directory '{{ git_dest_dir }}'"
+  file:
+    path: "{{ git_dest_dir }}"
+    state: directory
+
 - name: "[GIT] Clone git repository '{{ item.repo }}'"
   git:
     repo: "{{ item.repo }}"
-    dest: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+    dest: "{{ git_dest_dir }}"
     clone: true
     accept_hostkey: true
   ignore_errors: true
@@ -11,14 +20,14 @@
 - name: "[GIT] Configure user email"
   git_config:
     name: user.email
-    repo: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+    repo: "{{ git_dest_dir }}"
     scope: local
     value: "{{ git_config_user_email }}"
 
 - name: "[GIT] Configure ssh signinkey"
   git_config:
     name: user.signingkey
-    repo: "{{ item.dest | default(git_dir + '/' + ((item.repo  | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+    repo: "{{ git_dest_dir }}"
     scope: local
     value: "{{ git_config_signingkey }}"
 
@@ -49,7 +58,7 @@
   shell: "git remote add {{ item.remote |default('gitlab') }} {{ remote_url }}"
   changed_when: false
   args:
-    chdir: "{{ item.dest | default(git_dir + '/' + ((item.repo | urlsplit('path')).split('/')[-1].split('.')[0])) }}"
+    chdir: "{{ git_dest_dir }}"
   when: item.remote is defined or git_work
   register: remote_response
   failed_when: false
