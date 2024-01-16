@@ -1,0 +1,52 @@
+- name: "[FISH] change shell for user '{{ ansible_user }}'"
+  become: true
+  user:
+    name: "{{ ansible_user }}"
+    shell: /usr/bin/fish
+
+- name: "[FISH] delete previous history"
+  file:
+    path: "{{ ansible_user_dir }}/.local/share/fish/fish_history"
+    state: absent
+
+- name: "[FISH] create '{{ ansible_user_dir }}/.local/share/fish'"
+  file:
+    path: "{{ ansible_user_dir }}/.local/share/fish"
+    state: directory
+
+- name: "[FISH] create link to fish history"
+  file:
+    src: "{{ dropbox_dir }}/backups/fish/fish_history"
+    dest: "{{ ansible_user_dir }}/.local/share/fish/fish_history"
+    state: link
+
+- name: "[FISH] copy fish directories"
+  copy:
+    src: "fish/"
+    dest: "{{ ansible_user_dir }}/.config/fish/"
+
+- name: "[FISH] create function directory"
+  file:
+    path: "{{ ansible_user_dir }}/.config/fish/{{ item }}"
+    state: directory
+  loop:
+    - functions
+    - conf.d
+    - completions
+
+- name: "[FISH] create aliases and functions"
+  template:
+    src: "{{ item.src }}.j2"
+    dest: "{{ ansible_user_dir }}/.config/fish/{{ item.dest }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0600
+  loop:
+    - src: fish/conf.d/aliases.fish
+      dest: conf.d/aliases.fish
+    - src: fish/functions/functions.fish
+      dest: functions/functions.fish
+    - src: fish/config.fish
+      dest: config.fish
+  tags:
+    - bash_aliases

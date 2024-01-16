@@ -1,0 +1,46 @@
+---
+
+
+- name: "[FEDORA] Install fish"
+  dnf:
+    name:
+      - fish
+      - util-linux-user
+    state: present
+  when: linux_distribution == "fedora"
+
+- block:
+    - name: "[UBUNTU] add ppa repository for fish"
+      apt_repository:
+        repo: 'ppa:fish-shell/release-3'
+        state: present
+        codename: "{{ ubuntu_codename }}"
+
+    - name: "[UBUNTU] install fish"
+      apt:
+        name: fish
+        state: present
+        update_cache: true
+  when: linux_distribution == "ubuntu"
+
+- block:
+    - name: "[DEBIAN] copy repository file"
+      copy:
+        content: "deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_{{ debian_version }}/ /"
+        dest: "/etc/apt/sources.list.d/fish.list"
+
+    - name: "[DEBIAN] download gpg key"
+      shell: curl https://download.opensuse.org/repositories/shells:fish:release:3/Debian_12/Release.key | gpg --dearmor | dd of=/usr/share/keyrings/fish.gpg
+
+    - name: "[DEBIAN] install fish"
+      apt:
+        name: fish
+        update_cache: true
+        state: present
+  when: linux_distribution == "debian"
+
+- name: "[ARCH] Install fish"
+  pacman:
+    name: fish
+    state: present
+  when: linux_distribution == "arch"
