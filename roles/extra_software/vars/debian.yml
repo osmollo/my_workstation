@@ -31,3 +31,4 @@ wireguard_packages:
   - wireguard
 
 podman_package: podman
+globalprotect_package: "https://launchpad.net/~yuezk/+archive/ubuntu/globalprotect-openconnect/+files/globalprotect-openconnect_1.4.9-ppa1~ubuntu22.10_amd64.deb"

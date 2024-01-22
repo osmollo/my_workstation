@@ -1,22 +1,6 @@
 ---
 
-- name: "[GLOBALPROTECT] [FEDORA] generate repository file"
-  copy:
-    content: |
-      [globalprotect]
-      name=Copr repo for globalprotect-openconnect owned by yuezk
-      baseurl=https://download.copr.fedorainfracloud.org/results/yuezk/globalprotect-openconnect/fedora-$releasever-$basearch/
-      type=rpm-md
-      skip_if_unavailable=True
-      gpgcheck=1
-      gpgkey=https://download.copr.fedorainfracloud.org/results/yuezk/globalprotect-openconnect/pubkey.gpg
-      repo_gpgcheck=0
-      enabled=1
-      enabled_metadata=1
-    dest: /etc/yum.repos.d/globalprotect.repo
-
-- name: "[GLOBALPROTECT] [FEDORA] install globalprotect"
+- name: "[GLOBALPROTECT] [FEDORA] install package"
   dnf:
-    name: globalprotect-openconnect
+    name: "{{ globalprotect_package }}"
     state: present
-    update_cache: true

@@ -24,6 +24,7 @@
 - Inicialización de **Neovim** después de su configuración
 - Instalación de [Snyk CLI](https://snyk.io/)
 - Instalación de [Rancher CLI](https://ranchermanager.docs.rancher.com/reference-guides/cli-with-rancher/rancher-cli)
+- Downgrade de [GlobalProtect Openconnect](https://github.com/yuezk/GlobalProtect-openconnect/tree/1.x) a la versión 1.4.X por breaking changes en la actualización a la v2.X
 - Corrección de errores:
   - Instalación de **oh-my-zsh** cuando la distro no sea **Arch**
   - Instalación definitiva de **Docker** y **MegaCMD** en **Fedora**
