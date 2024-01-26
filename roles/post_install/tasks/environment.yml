@@ -89,10 +89,10 @@
         timeout: "{{ wait_dropbox_sync }}"
       loop: "{{ links_to_create }}"
 
-    - name: "[ENVIRONMENT] configure fish shell"
-      import_tasks: fish.yml
-      tags:
-        - fish
+#    - name: "[ENVIRONMENT] configure fish shell"
+#      import_tasks: fish.yml
+#      tags:
+#        - fish
 
     - name: "[ENVIRONMENT] Create links from Dropbox"
       file:
