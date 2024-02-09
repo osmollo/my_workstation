@@ -121,6 +121,7 @@
         host: "{{ bitbucket_conn.host }}"
         token: "{{ bitbucket_conn.token }}"
         projects: "{{ bitbucket_conn.projects }}"
+        git_directory: "{{ git_dir }}"
       register: bitbucket_repos
       when: not git_work_response.failed
       tags:

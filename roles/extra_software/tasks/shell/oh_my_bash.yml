@@ -7,13 +7,6 @@
     mode: 0755
     timeout: 60
 
-- name: "[OHMYBASH] replace repository"
-  replace:
-    path: /tmp/install.sh
-    regexp: 'ohmybash/oh-my-bash'
-    replace: 'osmollo/oh-my-bash'
-  when: from_post_install | default(false)
-
 - name: "[OHMYBASH] check if previous oh-my-bash exists"
   stat:
     path: "{{ ansible_env.HOME }}/.oh-my-bash"
@@ -23,17 +16,9 @@
   become: false
   become_user: "{{ ansible_user }}"
   environment:
-    REPO: "{{ 'osmollo/ohmyzsh' if from_post_install | default(false) else 'ohmyzsh/ohmyzsh' }}"
+    REPO: "ohmyzsh/ohmyzsh"
   command: bash -c "/tmp/install.sh --unattended"
   when: not ohmybashdir_exists.stat.exists
-
-- name: "[OHMYBASH] replace source repo"
-  git_config:
-    repo: '{{ ansible_user_dir }}/.oh-my-bash'
-    scope: 'local'
-    name: 'remote.origin.url'
-    value: 'https://github.com/ohmybash/oh-my-bash.git'
-  when: from_post_install | default(false)
 
 - name: "[OHMYBASH] delete temporal file"
   file:

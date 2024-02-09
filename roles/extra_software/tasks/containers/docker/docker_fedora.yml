@@ -15,14 +15,12 @@
       - docker-engine
     state: absent
 
-# TODO: deshacer cuando haya repos de docker para fedora 39
 - name: "[DOCKER] [FEDORA] Copy repository file for Docker-CE"
   copy:
     content: |
       [docker-ce-stable]
       name=Docker CE Stable - $basearch
-      #baseurl=https://download.docker.com/linux/{{ linux_distribution }}/$releasever/$basearch/stable
-      baseurl=https://download.docker.com/linux/{{ linux_distribution }}/38/x86_64/stable
+      baseurl=https://download.docker.com/linux/{{ linux_distribution }}/$releasever/$basearch/stable
       enabled=1
       gpgcheck=1
       gpgkey=https://download.docker.com/linux/{{ linux_distribution }}/gpg
@@ -47,4 +45,3 @@
     alias_command: docker compose
   import_role:
     name: tools/create_alias
-      

@@ -1,0 +1,14 @@
+---
+
+- name: "[SNYK] delete previous version"
+  file:
+    path: "/usr/local/bin/snyk"
+    state: absent
+
+- name: "[SNYK] Download Snyk CLI"
+  get_url:
+    url: "{{ snyk_latest_url }}"
+    dest: /usr/local/bin/snyk
+    owner: root
+    group: root
+    mode: 0755

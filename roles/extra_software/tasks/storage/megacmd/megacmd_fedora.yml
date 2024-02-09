@@ -1,10 +1,8 @@
 ---
 
-# TODO: descomentar cuando haya paquete para fedora 39
 - name: "[MEGA_CMD] [FEDORA] install megacmd package"
   dnf:
-    name: "https://mega.nz/linux/repo/Fedora_38/x86_64/megacmd-Fedora_38.x86_64.rpm"
-    # name: "{{ megacmd_package }}"
+    name: "{{ megacmd_package }}"
     state: present
     update_cache: true
     disable_gpg_check: true

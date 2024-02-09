@@ -50,3 +50,11 @@
   when: install_soapui
   tags:
     - soapui
+
+- name: "[DEV] install Snyk CLI"
+  import_tasks: snyk.yml
+  when: install_snyk
+  tags:
+    - snyk
+    - snykcli
+    - snyk_cli

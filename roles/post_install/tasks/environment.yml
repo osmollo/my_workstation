@@ -33,9 +33,9 @@
     - config_files
     - bash_aliases
 
-- name: "[ENVIRONMENT] create .env"
+- name: "[ENVIRONMENT] create .environment"
   template:
-    src: "env.j2"
+    src: "environment.j2"
     dest: "{{ ansible_user_dir }}/.environment"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
@@ -89,6 +89,11 @@
         timeout: "{{ wait_dropbox_sync }}"
       loop: "{{ links_to_create }}"
 
+#    - name: "[ENVIRONMENT] configure fish shell"
+#      import_tasks: fish.yml
+#      tags:
+#        - fish
+
     - name: "[ENVIRONMENT] Create links from Dropbox"
       file:
         src: "{{ item.src }}"
@@ -98,22 +103,3 @@
 
     - name: "[ENVIRONMENT] load tilix configuration"
       shell: "dconf load / < {{ dropbox_dir }}/backups/gnome/tilix"
-
-- block:
-    - name: "[ENVIRONMENT] check if '/etc/zsh/zshrc' exists"
-      stat:
-        path: /etc/zsh/zshrc
-      register: stat_response
-
-    - name: "[ENVIRONMENT] execute screenfetch"
-      become: true
-      vars:
-        files_to_update:
-          - "{{ '/etc/bash.bashrc' if linux_distribution != 'fedora' else '/etc/bashrc' }}"
-          - "{{ '/etc/zsh/zshrc' if  stat_response.stat.exists else '' }}"
-      lineinfile:
-        path: "{{ item }}"
-        line: screenfetch
-      loop: "{{ files_to_update | reject('equalto', '') | list }}"
-  tags:
-    - screenfetch

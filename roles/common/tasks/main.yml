@@ -88,6 +88,12 @@
     - common
     - zsh
 
+- name: "install fish"
+  import_tasks: fish.yml
+  tags:
+    - common
+    - fish
+
 - name: "[ARCH] install yay package"
   import_tasks: yay.yml
   when: linux_distribution == "arch"

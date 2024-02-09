@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [9.5](#95)
   - [9.4](#94)
   - [9.3.1](#931)
   - [9.3](#93)
@@ -16,6 +17,26 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 9.5
+
+- Instalación de [kube capacity](https://github.com/robscott/kube-capacity)
+- Inicialización de **Neovim** después de su configuración
+- Instalación de [Snyk CLI](https://snyk.io/)
+- Instalación de [Rancher CLI](https://ranchermanager.docs.rancher.com/reference-guides/cli-with-rancher/rancher-cli)
+- Downgrade de [GlobalProtect Openconnect](https://github.com/yuezk/GlobalProtect-openconnect/tree/1.x) a la versión 1.4.X por breaking changes en la actualización a la v2.X
+- Corrección de errores:
+  - Instalación de **oh-my-zsh** cuando la distro no sea **Arch**
+  - Instalación definitiva de **Docker** y **MegaCMD** en **Fedora**
+  - Instalación de **Snyk** de site oficial en vez de [Github](https://github.com/snyk/cli/releases)
+- Post_install:
+  - Nuevas entradas SSH
+  - Configuración de **Helix Editor**
+  - Nuevo alias `helix` para `hx`
+  - Renovación tokens git
+  - Cambio en la configuración de $SHELL
+  - Nuevos repositorios git
+  - Soporte para repositorios con el mismo nombre pero de distintos proyectos
 
 ## 9.4
 

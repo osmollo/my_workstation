@@ -1,0 +1,5 @@
+{% for alias in bash_aliases %}
+{% if alias.name != 'cd' %}
+alias {{ alias.name }}='{{ alias.command | replace("#", "\"") | replace("%%", "\'") }}'
+{% endif %}
+{% endfor %}
