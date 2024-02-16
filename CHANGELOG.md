@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [9.6](#96)
   - [9.5](#95)
   - [9.4](#94)
   - [9.3.1](#931)
@@ -17,6 +18,11 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 9.6
+
+- Post_install:
+    - Nuevo alias `logs_graphql`
 
 ## 9.5
 
