@@ -23,6 +23,7 @@
 
 - Post_install:
     - Nuevo alias `logs_graphql`
+    - Nuevos alias para conexiones ssh a grupos de servidores
 
 ## 9.5
 
