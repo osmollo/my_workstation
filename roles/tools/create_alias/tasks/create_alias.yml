@@ -9,7 +9,7 @@
 
 - name: "[CREATE_ALIAS] create alias"
   lineinfile:
-    path: "{{ ansible_user_dir }}/.bash_aliases"
+    path: "{{ ansible_user_dir }}/.aliases"
     create: true
     regexp: "^alias {{ alias_name }}="
     line: "alias {{ alias_name }}='{{ alias_command }}'"

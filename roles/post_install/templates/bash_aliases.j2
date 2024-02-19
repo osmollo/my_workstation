@@ -23,6 +23,6 @@ docker_ip(){
 }
 {% endraw %}
 
-{% for alias in bash_aliases %}
+{% for alias in shell_aliases %}
 alias {{ alias.name }}='{{ alias.command | replace("#", "\"") | replace("%%", "\'") }}'
 {% endfor %}

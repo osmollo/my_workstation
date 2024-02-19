@@ -22,6 +22,6 @@
         name: post_install
         tasks_from: "{{ item }}"
       loop:
-        - bash_aliases.yml
+        - shell_aliases.yml
         - ssh_config.yml
         - git.yml

@@ -27,11 +27,12 @@
     - "{{ ansible_user_dir }}/.zhistory"
     - "{{ ansible_user_dir }}/.zsh_history"
 
-- name: "[ENVIRONMENT] create .bash_aliases"
-  import_tasks: bash_aliases.yml
+- name: "[ENVIRONMENT] create .aliases"
+  import_tasks: shell_aliases.yml
   tags:
     - config_files
     - bash_aliases
+    - shell_aliases
 
 - name: "[ENVIRONMENT] create .environment"
   template:
