@@ -9,7 +9,8 @@
 
 - name: "[DBEAVER] Install DBeaver"
   vars:
-    dbeaver_version: "{{ dbeaver_latest.url | urlsplit('path') | basename }}"
+    # dbeaver_version: "{{ dbeaver_latest.url | urlsplit('path') | basename }}"
+    dbeaver_version: "23.2.5"
   dnf:
     name: "https://github.com/dbeaver/dbeaver/releases/download/{{ dbeaver_version }}/dbeaver-ce-{{ dbeaver_version }}-stable.x86_64.rpm"
     state: present
