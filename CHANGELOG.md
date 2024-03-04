@@ -21,6 +21,7 @@
 
 ## 9.6
 
+- Instalación de [Neovim](https://neovim.io/) en **Ubuntu** mediante repositorio ppa
 - `bash_aliases` es renombrado a `shell_aliases`
 - Post_install:
   - Nuevo alias `logs_graphql`

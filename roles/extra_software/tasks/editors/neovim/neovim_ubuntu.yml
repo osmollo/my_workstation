@@ -1,6 +1,12 @@
 ---
 
-- name: "[NEOVIM] [UBUNTU] Install Neovim"
-  apt:
-    deb: "https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb"
+- name: "[NEOVIM] add ppa repository for neovim"
+  apt_repository:
+    repo: 'ppa:neovim-ppa/stable'
     state: present
+
+- name: "[NEOVIM] install neovim package"
+  apt:
+    name: neovim
+    state: present
+    update_cache: true
