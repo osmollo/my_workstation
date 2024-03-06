@@ -23,6 +23,7 @@
 
 - Instalación de [Neovim](https://neovim.io/) en **Ubuntu** mediante repositorio ppa
 - `bash_aliases` es renombrado a `shell_aliases`
+- Soporte para **Linux Mint LMDE** basada en **Debian**
 - Post_install:
   - Nuevo alias `logs_graphql`
   - Nuevos alias para conexiones ssh a grupos de servidores
