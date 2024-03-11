@@ -5,61 +5,68 @@
     path: "/home/{{ ansible_user }}/.config/syncthing/config.xml"
     xpath: /configuration/device
     content: attribute
+  ignore_errors: true
   register: xml_response1
 
-- name: "[SYNCTHING] get api key"
-  xml:
-    path: "/home/{{ ansible_user }}/.config/syncthing/config.xml"
-    xpath: /configuration/gui/apikey
-    content: text
-  register: xml_response2
+- debug:
+    msg: "You must to execute syncthing first"
+  when: xml_response1.failed
 
-- name: "[SYNCTHING] set syncthing variables"
-  set_fact:
-    syncthing_device_id: "{{ xml_response1.matches[0].device.id }}"
-    syncthing_apikey: "{{ xml_response2.matches[0].apikey }}"
+- when: not xml_response1.failed
+  block:
+    - name: "[SYNCTHING] get api key"
+      xml:
+        path: "/home/{{ ansible_user }}/.config/syncthing/config.xml"
+        xpath: /configuration/gui/apikey
+        content: text
+      register: xml_response2
 
-- debug: 
-    msg: "DEVIDE ID: {{ syncthing_device_id }}"
+    - name: "[SYNCTHING] set syncthing variables"
+      set_fact:
+        syncthing_device_id: "{{ xml_response1.matches[0].device.id }}"
+        syncthing_apikey: "{{ xml_response2.matches[0].apikey }}"
 
-- debug: 
-    msg: "API KEY: {{ syncthing_apikey }}"
+    - debug: 
+        msg: "DEVIDE ID: {{ syncthing_device_id }}"
 
-- name: "[SYNCTHING] get folders info"
-  uri:
-    url: http://localhost:8384/rest/config/folders
-    return_content: true
-    headers:
-      X-API-Key: "{{ syncthing_apikey }}"
-  register: folders_response
+    - debug: 
+        msg: "API KEY: {{ syncthing_apikey }}"
 
-- name: "[SYNCTHING] delete default folder Sync"
-  uri:
-    url: http://localhost:8384/rest/config/folders/{{ item.id }}
-    headers:
-      X-API-Key: "{{ syncthing_apikey }}"
-    method: DELETE
-  loop: "{{ folders_response.json }}"
-  when: item.id == 'default'
+    - name: "[SYNCTHING] get folders info"
+      uri:
+        url: http://localhost:8384/rest/config/folders
+        return_content: true
+        headers:
+          X-API-Key: "{{ syncthing_apikey }}"
+      register: folders_response
 
-- name: "[SYNCTHING] delete local directory"
-  file:
-    path: "{{ item.path }}"
-    state: absent
-  loop: "{{ folders_response.json }}"
-  when: item.id == 'default'
+    - name: "[SYNCTHING] delete default folder Sync"
+      uri:
+        url: http://localhost:8384/rest/config/folders/{{ item.id }}
+        headers:
+          X-API-Key: "{{ syncthing_apikey }}"
+        method: DELETE
+      loop: "{{ folders_response.json }}"
+      when: item.id == 'default'
 
-- name: "[SYNCTHING] create new folder"
-  uri:
-    url: http://localhost:8384/rest/config/folders
-    method: POST
-    headers:
-      X-API-Key: "{{ syncthing_apikey }}"
-    body_format: json
-    body:
-      id: "{{ 999999999999999999999 | random | to_uuid }}"
-      label: "syncthing directory"
-      path: "{{ ansible_user_dir }}/syncthing"
-      devices:
-        - devideID: "{{ syncthing_device_id }}"
+    - name: "[SYNCTHING] delete local directory"
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ folders_response.json }}"
+      when: item.id == 'default'
+
+    - name: "[SYNCTHING] create new folder"
+      uri:
+        url: http://localhost:8384/rest/config/folders
+        method: POST
+        headers:
+          X-API-Key: "{{ syncthing_apikey }}"
+        body_format: json
+        body:
+          id: "{{ 999999999999999999999 | random | to_uuid }}"
+          label: "syncthing directory"
+          path: "{{ ansible_user_dir }}/syncthing"
+          devices:
+            - devideID: "{{ syncthing_device_id }}"
 
