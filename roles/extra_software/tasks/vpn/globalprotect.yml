@@ -12,9 +12,19 @@
       command: "./install-{{ linux_distribution }}.sh"
       args:
         chdir: "/tmp/globalprotect-openconnect-1.4.9/scripts"
+      ignore_errors: true
       register: command_response
+    
+    - debug: var=command2_response
 
-    - debug: var=command_response
+    - name: "[GLOBALPROTECT] execute installation script"
+      command: "./install-{{ linux_distribution }}.sh"
+      args:
+        chdir: "/tmp/globalprotect-openconnect-1.4.9/scripts"
+      ignore_errors: true
+      register: command2_response
+
+    - debug: var=command2_response
 
     - name: "[GLOBALPROTECT] delete temporal files"
       file:
