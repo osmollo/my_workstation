@@ -1,13 +1,23 @@
 ---
 
-- name: "[GLOBALPROTECT] uncompress globalprotect package"
-  unarchive:
-    src: "{{ globalprotect_package }}"
-    dest: /tmp
-    remote_src: true
+- when: linux_distribution in ['debian', 'ubuntu', 'fedora']
+  block:
+    - name: "[GLOBALPROTECT] uncompress globalprotect package"
+      unarchive:
+        src: "{{ globalprotect_package }}"
+        dest: /tmp
+        remote_src: true
 
-- name: "[GLOBALPROTECT] execute installation script"
-  command: "./install-{{ linux_distribution }}.sh"
-    args:
-      chdir: "/tmp/globalprotect-openconnect-1.4.9/scripts"
-  when: linux_distribution in ['debian', 'ubuntu', 'fedora']
+    - name: "[GLOBALPROTECT] execute installation script"
+      command: "./install-{{ linux_distribution }}.sh"
+      args:
+        chdir: "/tmp/globalprotect-openconnect-1.4.9/scripts"
+      register: command_response
+
+    - debug: var=command_response
+
+    - name: "[GLOBALPROTECT] delete temporal files"
+      file:
+        path: "/tmp/globalprotect-openconnect-1.4.9"
+        state: absent
+  
