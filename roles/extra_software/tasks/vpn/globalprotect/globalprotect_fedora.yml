@@ -1,6 +1,0 @@
----
-
-- name: "[GLOBALPROTECT] [FEDORA] install package"
-  dnf:
-    name: "{{ globalprotect_package }}"
-    state: present

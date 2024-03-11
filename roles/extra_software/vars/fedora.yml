@@ -44,4 +44,3 @@ wireguard_packages:
 typora_dir: /opt/typora
 typora_package: https://typora.io/linux/Typora-linux-x64.tar.gz
 podman_package: podman
-globalprotect_package: "https://download.copr.fedorainfracloud.org/results/yuezk/globalprotect-openconnect/fedora-39-x86_64/04489385-globalprotect-openconnect-snapshot/globalprotect-openconnect-snapshot-1.4.6+2snapshot.g5714063-1.1.x86_64.rpm"

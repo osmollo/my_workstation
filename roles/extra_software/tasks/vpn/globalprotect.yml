@@ -1,0 +1,13 @@
+---
+
+- name: "[GLOBALPROTECT] uncompress globalprotect package"
+  unarchive:
+    src: "{{ globalprotect_package }}"
+    dest: /tmp
+    remote_src: true
+
+- name: "[GLOBALPROTECT] execute installation script"
+  command: "./install-{{ linux_distribution }}.sh"
+    args:
+      chdir: "/tmp/globalprotect-openconnect-1.4.9/scripts"
+  when: linux_distribution in ['debian', 'ubuntu', 'fedora']

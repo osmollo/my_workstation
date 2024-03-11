@@ -252,3 +252,5 @@ gitnuro_flatpak: "https://dl.flathub.org/repo/appstream/com.jetpackduba.Gitnuro.
 spotify_flatpak: "https://dl.flathub.org/repo/appstream/com.spotify.Client.flatpakref"
 trilium_flatpak: "https://dl.flathub.org/repo/appstream/com.github.zadam.trilium.flatpakref"
 helix_flatpak: "https://dl.flathub.org/repo/appstream/com.helix_editor.Helix.flatpakref"
+
+globalprotect_package: "https://github.com/yuezk/GlobalProtect-openconnect/releases/download/v1.4.9/globalprotect-openconnect-1.4.9.tar.gz"

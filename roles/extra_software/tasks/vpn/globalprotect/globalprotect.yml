@@ -1,3 +1,0 @@
----
-
-- include_tasks: "globalprotect_{{ linux_distribution }}.yml"

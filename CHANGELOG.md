@@ -22,6 +22,7 @@
 ## 9.6
 
 - Instalación de [Neovim](https://neovim.io/) en **Ubuntu** mediante repositorio ppa
+- **Global Protect VPN** se instala en todas las distribuciones compilando el código ya que a partir de la v2 se ha vuelto de pago
 - `bash_aliases` es renombrado a `shell_aliases`
 - Soporte para **Linux Mint LMDE** basada en **Debian**
 - Post_install:
