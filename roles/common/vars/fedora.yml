@@ -49,7 +49,6 @@ gnome_fedora_packages:
 
 kde_fedora_packages:
   - fedora-chromium-config-kde
-  - kwalletcli
   - yakuake
 
 xfce_fedora_packages: []

@@ -38,13 +38,6 @@
     - post_install
     - dbeaver
 
-- name: "create secrets"
-  import_tasks: secrets.yml
-  when: desktop_environment != "foobar"
-  tags:
-    - post_install
-    - secrets
-
 - name: "configure megacmd client"
   import_tasks: megacmd.yml
   tags:

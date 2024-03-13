@@ -64,16 +64,6 @@
       when:
         - desktop_environment is defined
         - desktop_environment == "xfce"
-
-    - name: "[ARCH] install kwalletcli package"
-      become: false
-      yay:
-        name: "{{ kwalletcli_package }}"
-        state: present
-        update_cache: true
-      when:
-        - desktop_environment is defined
-        - desktop_environment == "kde"
   when: linux_distribution == "arch"
 
 - block:

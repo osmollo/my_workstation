@@ -25,6 +25,7 @@
 - **Global Protect VPN** se instala en todas las distribuciones compilando el código ya que a partir de la v2 se ha vuelto de pago
 - `bash_aliases` es renombrado a `shell_aliases`
 - Soporte para **Linux Mint LMDE** basada en **Debian**
+- Ya no se instala el paquete **kwalletcli**
 - Post_install:
   - Nuevo alias `logs_graphql`
   - Nuevos alias para conexiones ssh a grupos de servidores

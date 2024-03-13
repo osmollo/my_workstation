@@ -44,5 +44,3 @@ python_packages:
   - ipython
   - python-virtualenv
   - python-virtualenvwrapper
-
-kwalletcli_package: kwalletcli-bin
