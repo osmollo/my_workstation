@@ -40,3 +40,15 @@
         export FZF_DEFAULT_COMMAND='rg --files'
         export FZF_DEFAULT_OPTS='-m --height 50% --border'
       fi
+
+- name: "[FZF] create fzf directory"
+  file:
+    path: "{{ ansible_user_dir }}/.fzf/shell"
+    state: directory
+
+- name: "[FZF] copy fzf-shell-keybindings.zsh"
+  uri:
+    url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh
+    dest: "{{ ansible_user_dir }}/.fzf/shell/key-bindings.zsh"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"

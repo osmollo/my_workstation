@@ -26,6 +26,8 @@
 - `bash_aliases` es renombrado a `shell_aliases`
 - Soporte para **Linux Mint LMDE** basada en **Debian**
 - Ya no se instala el paquete **kwalletcli**
+- Corrección de errores:
+  - Creación del fichero `~/.fzf/shell/key-bindings.zsh`
 - Post_install:
   - Nuevo alias `logs_graphql`
   - Nuevos alias para conexiones ssh a grupos de servidores
