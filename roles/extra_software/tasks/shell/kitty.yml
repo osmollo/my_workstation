@@ -1,0 +1,46 @@
+---
+
+- name: "[KITTY] [DEB] install kitty"
+  apt:
+    name: kitty
+    update_cache: true
+    state: present
+  when: linux_distribution in ['debian', 'ubuntu']
+
+- name: "[KITTY] [FEDORA] install kitty"
+  dnf:
+    name: kitty
+    update_cache: true
+    state: present
+  when: linux_distribution == 'fedora'
+
+- name: "[KITTY] [ARCH] install kitty"
+  pacman:
+    name: kitty
+    update_cache: true
+    state: present
+  when: linux_distribution == 'arch'
+
+- name: "[KITTY] create config directory"
+  file:
+    path: "{{ ansible_user_dir }}/.config/{{ item }}"
+    state: directory
+  loop:
+    - "kitty"
+    - "kitty/color_schemes"
+
+- name: "[KITTY] copy config files"
+  copy:
+    src: "kitty/{{ item.src }}"
+    dest: "{{ ansible_user_dir }}/.config/kitty/{{ item.dest }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  loop:
+    - src: kitty.conf
+      dest: kitty.conf
+    - src: diff.conf
+      dest: diff.conf
+    - src: github.conf
+      dest: color_schemes/github.conf
+    - src: dracula.conf
+      dest: color_schemes/dracula.conf

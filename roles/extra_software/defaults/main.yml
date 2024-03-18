@@ -126,6 +126,7 @@ install_helix: false
 install_kube_capacity: true
 install_snyk: true
 install_rancher: true
+install_kitty: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
