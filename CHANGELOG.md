@@ -27,6 +27,7 @@
 - Soporte para **Linux Mint LMDE** basada en **Debian**
 - Ya no se instala el paquete **kwalletcli**
 - Instalación y configuración de [Kitty](https://sw.kovidgoyal.net/kitty/)
+- Instalación de **unixODBC**
 - Corrección de errores:
   - Creación del fichero `~/.fzf/shell/key-bindings.zsh`
 - Post_install:

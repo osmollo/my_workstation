@@ -27,6 +27,7 @@ distro_packages:
   - vlc
   - tldr
   - remmina
+  - unixodbc
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras

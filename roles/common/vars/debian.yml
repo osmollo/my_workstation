@@ -22,6 +22,7 @@ distro_packages:
   - vlc
   - tldr
   - remmina
+  - unixodbc
 
 gnome_debian_packages:
   - network-manager-openvpn-gnome

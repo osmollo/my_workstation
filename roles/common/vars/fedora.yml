@@ -29,6 +29,7 @@ distro_packages:
   - tldr
   - remmina
   - python3-jmespath
+  - unixODBC
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome

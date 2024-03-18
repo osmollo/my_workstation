@@ -23,6 +23,7 @@ distro_packages:
   - tldr
   - python-setuptools
   - remmina
+  - unixodbc
 
 gnome_arch_packages:
   - wireshark-cli
