@@ -31,6 +31,7 @@
 - Corrección de errores:
   - Creación del fichero `~/.fzf/shell/key-bindings.zsh`
 - Post_install:
+  - Nuevas entradas en `ssh_config`
   - Nuevo alias `logs_graphql`
   - Nuevos alias para conexiones ssh a grupos de servidores
   - Fix al instalar **syncthing** cuando no se ha ejecutado previamente y no puede recuperar el id
