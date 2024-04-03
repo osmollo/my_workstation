@@ -7,19 +7,18 @@
         src: "{{ globalprotect_package }}"
         dest: /tmp
         remote_src: true
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
 
     - name: "[GLOBALPROTECT] execute installation script"
-      shell: "./install-{{ linux_distribution }}.sh"
+      shell: "./scripts/install-{{ linux_distribution }}.sh"
       args:
-        chdir: "/tmp/globalprotect-openconnect-1.4.9/scripts"
+        chdir: "/tmp/globalprotect-openconnect-1.4.9"
       ignore_errors: true
       register: command_response
-    
-    - debug: var=command_response
 
     - name: "[GLOBALPROTECT] delete temporal files"
       file:
         path: "/tmp/globalprotect-openconnect-1.4.9"
         state: absent
-      when: not command_response.failed
-  
+      when: command_response.changed and not command_response.failed
