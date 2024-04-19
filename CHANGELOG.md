@@ -30,12 +30,14 @@
 - Instalación de **unixODBC**
 - Corrección de errores:
   - Creación del fichero `~/.fzf/shell/key-bindings.zsh`
+  - URL para clonar el repositorio de **AstroNVIM**
 - Post_install:
   - Nuevas entradas en `ssh_config`
   - Nuevo alias `logs_graphql`
   - Nuevos alias para conexiones ssh a grupos de servidores
   - Fix al instalar **syncthing** cuando no se ha ejecutado previamente y no puede recuperar el id
   - Aumentado el tamaño del historial de la shell a 5.000.000 de entradas
+  - Ruta de **1password** con credenciales de **Mega**
 
 ## 9.5
 

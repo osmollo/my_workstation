@@ -17,7 +17,7 @@
     clone: true
     accept_hostkey: true
   loop:
-    - repo: "https://github.com/AstroNvim/AstroNvim"
+    - repo: "https://github.com/AstroNvim/template"
       dest: "{{ ansible_user_dir }}/.config/nvim"
 
 - name: "[ASTRONVIM] initializing neovim"
