@@ -31,6 +31,7 @@
 - Corrección de errores:
   - Creación del fichero `~/.fzf/shell/key-bindings.zsh`
   - URL para clonar el repositorio de **AstroNVIM**
+  - Instalación de **Global Protect VPN**
 - Post_install:
   - Nuevas entradas en `ssh_config`
   - Nuevo alias `logs_graphql`
