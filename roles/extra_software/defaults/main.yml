@@ -13,7 +13,7 @@ install_slack: false
 install_tlp: false
 install_virtualbox: false
 install_pycharm: false
-install_keepass: false
+install_keepass: true
 install_buttercup: false
 install_windscribe: false
 install_chrome: false
