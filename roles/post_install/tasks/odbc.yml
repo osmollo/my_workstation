@@ -1,0 +1,30 @@
+---
+
+- when: linux_distribution == 'fedora'
+  block:
+    - name: "[FEDORA] install dependencies"
+      dnf:
+        name:
+          - unixODBC
+          - unixODBC-devel
+          - freetds
+          - freetds-devel
+        state: present
+        update_cache: true
+
+    - name: "[FEDORA] create FreeTDS entry in '/etc/odbcinst.ini'"
+      blockinfile:
+        path: /etc/odbcinst.ini
+        create: true
+        append_newline: true
+        prepend_newline: true
+        block: |
+          # Driver from the freetds-libs package
+          # Setup from the unixODBC package
+          [FreeTDS]
+          Description     = Free Sybase & MS SQL Driver
+          Driver          = /usr/lib/libtdsodbc.so
+          Setup           = /usr/lib/libtdsS.so
+          Driver64        = /usr/lib64/libtdsodbc.so
+          Setup64         = /usr/lib64/libtdsS.so
+          Port            = 1433

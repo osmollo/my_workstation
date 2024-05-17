@@ -40,6 +40,7 @@
   - Aumentado el tamaño del historial de la shell a 5.000.000 de entradas
   - Ruta de **1password** con credenciales de **Mega**
   - Cambio en apps instaladas por defecto
+  - Configuración __ODBC__ para **Python**
 
 ## 9.5
 
