@@ -32,6 +32,7 @@
   - Creación del fichero `~/.fzf/shell/key-bindings.zsh`
   - URL para clonar el repositorio de **AstroNVIM**
   - Instalación de **Global Protect VPN**
+  - Instalación de **1Password Beta** en **Fedora**
 - Post_install:
   - Nuevas entradas en `ssh_config`
   - Nuevo alias `logs_graphql`
