@@ -7,6 +7,14 @@ mkvenv(){
   fi
 }
 
+logs_graphql(){
+  for POD in $(kubectl --kubeconfig ~/kubeconfig/${1}.yaml get pods  | grep graphql | awk '{ print $1 }'); do
+    echo -e "\e[0;32m######### $POD #########\e[0m"
+    kubectl --kubeconfig ~/kubeconfig/${1}.yaml exec $POD -ti -- df -h /logs/owalogs/graphql
+    echo ""
+  done
+}
+
 {% raw %}
 docker_ip(){
   for CONTAINER in $(docker ps --format "{{.Names}}"); do
@@ -15,6 +23,6 @@ docker_ip(){
 }
 {% endraw %}
 
-{% for alias in bash_aliases %}
+{% for alias in shell_aliases %}
 alias {{ alias.name }}='{{ alias.command | replace("#", "\"") | replace("%%", "\'") }}'
 {% endfor %}

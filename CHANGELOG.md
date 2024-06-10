@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [9.6](#96)
   - [9.5](#95)
   - [9.4](#94)
   - [9.3.1](#931)
@@ -17,6 +18,31 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 9.6
+
+- Instalación de [Neovim](https://neovim.io/) en **Ubuntu** mediante repositorio ppa
+- **Global Protect VPN** se instala en todas las distribuciones compilando el código ya que a partir de la v2 se ha vuelto de pago
+- `bash_aliases` es renombrado a `shell_aliases`
+- Soporte para **Linux Mint LMDE** basada en **Debian**
+- Ya no se instala el paquete **kwalletcli**
+- Instalación y configuración de [Kitty](https://sw.kovidgoyal.net/kitty/)
+- Instalación de **unixODBC**
+- Corrección de errores:
+  - Creación del fichero `~/.fzf/shell/key-bindings.zsh`
+  - URL para clonar el repositorio de **AstroNVIM**
+  - Instalación de **Global Protect VPN**
+  - Instalación de **1Password Beta** en **Fedora**
+  - **Mega** login
+- Post_install:
+  - Nuevas entradas en `ssh_config`
+  - Nuevo alias `logs_graphql`
+  - Nuevos alias para conexiones ssh a grupos de servidores
+  - Fix al instalar **syncthing** cuando no se ha ejecutado previamente y no puede recuperar el id
+  - Aumentado el tamaño del historial de la shell a 5.000.000 de entradas
+  - Ruta de **1password** con credenciales de **Mega**
+  - Cambio en apps instaladas por defecto
+  - Configuración __ODBC__ para **Python**
 
 ## 9.5
 

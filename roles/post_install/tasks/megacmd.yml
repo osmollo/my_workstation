@@ -15,7 +15,7 @@
 # TODO: In future versions of op cli, the next task could be deleted
 
     - name: "[MEGACMD] get otp code"
-      command: op item get mega.nz --otp
+      command: op item get "mega.nz oscar" --otp
       register: otp_response
 
     - name: "[MEGACMD] Configure megacmd client"

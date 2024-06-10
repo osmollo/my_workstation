@@ -26,3 +26,10 @@
     - install_starship
   tags:
     - starship
+
+- name: "[SHELL] install kitty"
+  import_tasks: kitty.yml
+  when:
+    - install_kitty
+  tags:
+    - kitty

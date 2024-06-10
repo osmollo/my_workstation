@@ -8,6 +8,7 @@
         debian_based:
           - "Debian"
           - "Deepin 20"
+          - "LMDE"
         ubuntu_based:
           - "Ubuntu"
           - "Linux Mint"
@@ -47,7 +48,7 @@
     - name: "Get Debian CODENAME"
       shell: |
         set -o pipefail
-        grep VERSION_CODENAME /etc/os-release | awk -F'=' '{ print $2 }'
+        grep DEBIAN_CODENAME /etc/os-release | awk -F'=' '{ print $2 }'
       args:
         executable: /bin/bash
       register: debian_response
@@ -200,10 +201,10 @@
           set_fact:
             xserver: "{{  get_xserver.stdout }}"
 
-    - when: linux_distribution == "debian" 
+    - when: linux_distribution == "debian"
       vars:
         ansible_user: "{{ lookup('env', 'USER') }}"
-      block: 
+      block:
         - name: "check if '{{ ansible_user }}' has sudo permissions"
           become: true
           lineinfile:
@@ -218,6 +219,5 @@
         - fail:
             msg: "Por favor, ejecuta el playbook 'playbooks/debian_sudo.yml y cierra sesión antes de continuar"
           when: response.failed
-
 
 #      failed_when: (conf is changed) or (conf is failed)

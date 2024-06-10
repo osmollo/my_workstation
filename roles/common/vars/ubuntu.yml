@@ -27,6 +27,7 @@ distro_packages:
   - vlc
   - tldr
   - remmina
+  - unixodbc
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras
@@ -47,7 +48,6 @@ gnome_ubuntu_packages:
 
 kde_ubuntu_packages:
   - kubuntu-restricted-extras
-  - kwalletcli
   - usb-creator-kde
 
 xfce_ubuntu_packages:

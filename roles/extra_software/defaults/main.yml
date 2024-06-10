@@ -13,7 +13,7 @@ install_slack: false
 install_tlp: false
 install_virtualbox: false
 install_pycharm: false
-install_keepass: false
+install_keepass: true
 install_buttercup: false
 install_windscribe: false
 install_chrome: false
@@ -126,6 +126,7 @@ install_helix: false
 install_kube_capacity: true
 install_snyk: true
 install_rancher: true
+install_kitty: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -252,3 +253,5 @@ gitnuro_flatpak: "https://dl.flathub.org/repo/appstream/com.jetpackduba.Gitnuro.
 spotify_flatpak: "https://dl.flathub.org/repo/appstream/com.spotify.Client.flatpakref"
 trilium_flatpak: "https://dl.flathub.org/repo/appstream/com.github.zadam.trilium.flatpakref"
 helix_flatpak: "https://dl.flathub.org/repo/appstream/com.helix_editor.Helix.flatpakref"
+
+globalprotect_package: "https://github.com/yuezk/GlobalProtect-openconnect/releases/download/v1.4.9/globalprotect-openconnect-1.4.9.tar.gz"

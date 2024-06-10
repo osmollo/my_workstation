@@ -29,6 +29,7 @@ distro_packages:
   - tldr
   - remmina
   - python3-jmespath
+  - unixODBC
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome
@@ -49,7 +50,6 @@ gnome_fedora_packages:
 
 kde_fedora_packages:
   - fedora-chromium-config-kde
-  - kwalletcli
   - yakuake
 
 xfce_fedora_packages: []

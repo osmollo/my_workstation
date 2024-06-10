@@ -1,6 +1,0 @@
----
-
-- name: "[GLOBALPROTECT] [DEB] install GlobalProtect package"
-  apt:
-    deb: "{{ globalprotect_package }}"
-    state: present

@@ -26,6 +26,14 @@
     - post_install
     - helix
 
+- name: "configure ODBC for python"
+  import_tasks: odbc.yml
+  become: true
+  tags:
+    - post_install
+    - odbc
+    - python
+
 - name: "configure rclone"
   import_tasks: rclone.yml
   tags:
@@ -37,13 +45,6 @@
   tags:
     - post_install
     - dbeaver
-
-- name: "create secrets"
-  import_tasks: secrets.yml
-  when: desktop_environment != "foobar"
-  tags:
-    - post_install
-    - secrets
 
 - name: "configure megacmd client"
   import_tasks: megacmd.yml
