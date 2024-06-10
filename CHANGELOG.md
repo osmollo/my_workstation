@@ -33,6 +33,7 @@
   - URL para clonar el repositorio de **AstroNVIM**
   - Instalación de **Global Protect VPN**
   - Instalación de **1Password Beta** en **Fedora**
+  - **Mega** login
 - Post_install:
   - Nuevas entradas en `ssh_config`
   - Nuevo alias `logs_graphql`
