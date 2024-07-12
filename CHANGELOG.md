@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [9.7](#97)
   - [9.6](#96)
   - [9.5](#95)
   - [9.4](#94)
@@ -18,6 +19,10 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 9.7
+
+- Instalación de [Obsidian](https://obsidian.md/)
 
 ## 9.6
 

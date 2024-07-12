@@ -1,0 +1,18 @@
+- when: linux_distribution in ["debian", "ubuntu"]
+  block:
+    - name: "[OBSIDIAN] Get latest version of Obsidian"
+      uri:
+        url: "{{ obsidian_latest_url }}"
+        follow_redirects: safe
+        body_format: raw
+      register: obsidian_latest
+
+    - name: "[OBSIDIAN] Set urls for Obsidian packages"
+      vars:
+        obsidian_version: "{{ obsidian_latest.url | urlsplit('path') | basename }}"
+      set_fact:
+        obsidian_deb_package: "https://github.com/obsidianmd/obsidian-releases/releases/download/{{ obsidian_version }}/obsidian-{{ obsidian_version[1:] }}-amd64.deb"
+      when: linux_distribution != "arch"
+
+- name: "[OBSIDIAN] install obsidian for {{ linux_distribution }}"
+  include_tasks: "obsidian_{{ linux_distribution }}.yml"

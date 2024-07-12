@@ -127,6 +127,7 @@ install_kube_capacity: true
 install_snyk: true
 install_rancher: true
 install_kitty: true
+install_obsidian: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -175,6 +176,7 @@ kor_latest_url: "https://github.com/yonahd/kor/releases/latest"
 kubecapacity_latest_url: "https://github.com/robscott/kube-capacity/releases/latest"
 snyk_latest_url: "https://static.snyk.io/cli/latest/snyk-linux"
 rancher_latest_url: "https://github.com/rancher/cli/releases/latest"
+obsidian_latest_url: "https://github.com/obsidianmd/obsidian-releases/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"
@@ -253,5 +255,6 @@ gitnuro_flatpak: "https://dl.flathub.org/repo/appstream/com.jetpackduba.Gitnuro.
 spotify_flatpak: "https://dl.flathub.org/repo/appstream/com.spotify.Client.flatpakref"
 trilium_flatpak: "https://dl.flathub.org/repo/appstream/com.github.zadam.trilium.flatpakref"
 helix_flatpak: "https://dl.flathub.org/repo/appstream/com.helix_editor.Helix.flatpakref"
+obsidian_flatpak: "https://dl.flathub.org/repo/appstream/md.obsidian.Obsidian.flatpakref"
 
 globalprotect_package: "https://github.com/yuezk/GlobalProtect-openconnect/releases/download/v1.4.9/globalprotect-openconnect-1.4.9.tar.gz"

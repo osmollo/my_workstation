@@ -65,6 +65,12 @@
     - mark_text
     - update
 
+- name: "[EDITORS] Install Obsidian"
+  import_tasks: obsidian/obsidian.yml
+  when: install_obsidian
+  tags:
+    - obsidian
+
 - name: "[EDITORS] Install Trilium"
   import_tasks: trilium.yml
   when: install_trilium
@@ -76,4 +82,3 @@
   when: install_helix
   tags:
     - helix
-

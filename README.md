@@ -89,6 +89,7 @@ Por defecto se instala el siguiente software:
 | [NoMachine](https://www.nomachine.com/es/) | nomachine | install_nomachine | remotes | Cliente de escritorio remoto |
 | [Nomad](https://learn.hashicorp.com/tutorials/nomad/install-cli) | nomad | install_nomad | tools | Orchestration tool for deploying and managing applications |
 | [OBS Studio](https://obsproject.com/es) | obs | install_obs | media | Grabación de video y transmissión en vivo |
+| [Obsidian](https://obsidian.md/) | obsidian | install_obsidian | editors | Gestor de notas |
 | [Oh my BASH!](https://ohmybash.nntoan.com/) | ohmybash | install_ohmybash | shell | Personalización de BASH |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | shell | Personalización de ZSH |
 | [Podman](https://podman.io/) | podman | install_podman | containers | Gestor de contenedores |
