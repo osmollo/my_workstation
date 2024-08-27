@@ -1,7 +1,6 @@
 ---
 
-- when: linux_distribution in ['debian', 'ubuntu', 'fedora']
-  become: false
+- become: false
   block:
     - name: "[GLOBALPROTECT] uncompress globalprotect package"
       unarchive:
