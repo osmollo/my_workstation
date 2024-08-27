@@ -74,6 +74,7 @@
     loop_var: push_opt
   when: item.remote is defined or git_work
   changed_when: false
+  ignore_errors: true
 
 - name: "[GIT] Delete push for remote"
   shell: "git remote set-url --push {{ item.remote }} no_push"

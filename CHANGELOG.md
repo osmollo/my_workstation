@@ -25,6 +25,7 @@
 - Instalación de [Obsidian](https://obsidian.md/)
 - Post_install:
   - Nuevos proyectos bitbucket
+  - Fix: si actualizar el remoto de git falla, no provoca la salida del playbook
 
 ## 9.6
 
