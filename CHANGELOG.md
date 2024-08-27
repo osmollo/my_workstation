@@ -23,6 +23,8 @@
 ## 9.7
 
 - Instalación de [Obsidian](https://obsidian.md/)
+- Post_install:
+  - Nuevos proyectos bitbucket
 
 ## 9.6
 
