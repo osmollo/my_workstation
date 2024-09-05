@@ -18,14 +18,14 @@
   import_tasks: vscode/code.yml
   when: install_vscode
   tags:
+    - code
     - vscode
 
 - name: "[EDITORS] Install Visual Studio Codium"
   import_tasks: vscodium/codium.yml
-  when:
-    - install_vscodium
-    - linux_distribution != "fedora"
+  when: install_vscodium
   tags:
+    - codium
     - vscodium
 
 - name: "[EDITORS] Install PyCharm"

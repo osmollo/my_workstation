@@ -1,8 +1,16 @@
 ---
 
-- name: "[VSCODIUM] [FEDORA] Copy repository file"
+- name: "[VSCODIUM] [FEDORA] copy repository file"
   copy:
-    src: codium.repo
+    content: |
+      [VSCodium_repo]
+      name=download.vscodium.com
+      baseurl=https://download.vscodium.com/rpms/
+      enabled=1
+      gpgcheck=1
+      repo_gpgcheck=1
+      gpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
+      metadata_expire=1h
     dest: /etc/yum.repos.d/codium.repo
     owner: root
     group: root
@@ -14,11 +22,6 @@
   rpm_key:
     key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
     state: present
-
-- name: "[VSCODIUM] [FEDORA] check update"
-  shell: yum check-update
-  register: yum_result
-  failed_when: yum_result.rc != 100
 
 - name: "[VSCODIUM] [FEDORA] Install VSCodium"
   dnf:

@@ -25,6 +25,7 @@
 - Instalación de [Obsidian](https://obsidian.md/)
 - Corrección de errores:
   - Instalación de **GlobalProtect** desde paquete _tar.gz_ para todas las distribuciones
+  - Instalación de **VSCode** y **VSCodium**
 - Post_install:
   - Nuevos proyectos bitbucket
   - Fix: si actualizar el remoto de git falla, no provoca la salida del playbook
