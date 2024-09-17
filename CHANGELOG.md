@@ -29,6 +29,7 @@
 - Post_install:
   - Nuevos proyectos bitbucket
   - Fix: si actualizar el remoto de git falla, no provoca la salida del playbook
+  - Creación de remotes en repositorios de trabajo `*helm-values*`
 
 ## 9.6
 
