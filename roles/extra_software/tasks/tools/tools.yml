@@ -141,6 +141,13 @@
     - broot
     - update
 
+- name: "[TOOLS] install dog"
+  import_tasks: dog.yml
+  when: install_dog
+  tags:
+    - dog
+    - update
+
 - name: "[TOOLS] Install hashicorp tools"
   import_tasks: hashicorp/hashicorp.yml
   when: install_vault or install_terraform or install_consul or install_nomad or install_hashicorp

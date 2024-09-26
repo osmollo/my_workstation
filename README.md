@@ -51,6 +51,7 @@ Por defecto se instala el siguiente software:
 | [curlie](https://github.com/rs/curlie) | curlie | install_curlie | tools | Curl vitaminado |
 | [DBeaver](https://dbeaver.io/) | dbeaver | install_dbeaver | dev | Manager de conexiones a BBDD |
 | [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | desktop| Cliente de Torrent |
+| [Dog](https://github.com/ogham/dog) | dog | install_dog | tools | Alternativa a `dig` en __Rust__ |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | containers | Gestión de contenedores Docker |
 | [Draw.io](https://github.com/jgraph/drawio-desktop) | drawio | install_drawio | desktop | Editor de diagramas |
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | storage | Cliente de almacenamiento en la nube |
@@ -73,6 +74,7 @@ Por defecto se instala el siguiente software:
 | [Helix](https://helix-editor.com/) | helix | install_helix | editors | Helix text editor |
 | [Hiri](https://www.hiri.com/) | hiri | install_hiri | mail | Cliente de correo |
 | [Java](https://openjdk.java.net/) | java | install_java | dev | Lenguaje Java |
+| [jql](https://github.com/yamafaktory/jql) | jql | install_jql | tools | alternativa en __Rust__ a `jq` |
 | [k8s_tools](https://kubernetes.io/docs/reference/tools/) | k8s_tools | install_k8s_tools | k8s | Herramientas de Kubernetes |
 | [KDEnlive](https://kdenlive.org/es/descargar/)| kdenlive | install_kdenlive | desktop | Editor de video para KDE |
 | [KeepassXC](https://keepassxc.org/download/) | keepass | install_keepass | pass_managers | Gestor de contraseñas |
