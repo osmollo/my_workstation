@@ -180,6 +180,7 @@ snyk_latest_url: "https://static.snyk.io/cli/latest/snyk-linux"
 rancher_latest_url: "https://github.com/rancher/cli/releases/latest"
 obsidian_latest_url: "https://github.com/obsidianmd/obsidian-releases/releases/latest"
 dog_latest_url: "https://github.com/ogham/dog/releases/latest"
+jql_latest_url: "https://github.com/yamafaktory/jql/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"

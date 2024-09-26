@@ -1,0 +1,7 @@
+---
+
+- name: "[JQL] [FEDORA] install jql package"
+  dnf:
+    name: jql
+    state: present
+    update_cache: true

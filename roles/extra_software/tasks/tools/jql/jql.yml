@@ -1,0 +1,11 @@
+---
+
+- name: "[JQL] install for {{ linux_distribution }}"
+  include_tasks: "jql_{{ linux_distribution }}.yml"
+
+- name: "[JQL] create alias"
+  vars:
+    alias_name: jq
+    alias_command: jql
+  import_role:
+    name: tools/create_alias

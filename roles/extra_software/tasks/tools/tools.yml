@@ -148,6 +148,13 @@
     - dog
     - update
 
+- name: "[TOOLS] install jql"
+  import_tasks: jql/jql.yml
+  when: install_jql
+  tags:
+    - jql
+    - update
+
 - name: "[TOOLS] Install hashicorp tools"
   import_tasks: hashicorp/hashicorp.yml
   when: install_vault or install_terraform or install_consul or install_nomad or install_hashicorp
