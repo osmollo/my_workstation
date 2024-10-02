@@ -33,6 +33,7 @@
   - Nuevos proyectos bitbucket
   - Fix: si actualizar el remoto de git falla, no provoca la salida del playbook
   - Creación de remotes en repositorios de trabajo `*helm-values*`
+  - Nuevos __alias__ para la shell: `get_readiness` y `get_liveness`
 
 ## 9.6
 
