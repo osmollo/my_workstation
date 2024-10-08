@@ -1,0 +1,8 @@
+---
+
+- name: "[RUSTDESK] [ARCH] Install Rust Desk"
+  become: false
+  yay:
+    name: "{{ rustdesk_package }}"
+    state: present
+    update_cache: true

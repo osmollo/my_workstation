@@ -107,6 +107,7 @@ Por defecto se instala el siguiente software:
 | [Rancher CLI](https://ranchermanager.docs.rancher.com/reference-guides/cli-with-rancher/rancher-cli) | rancher | install_rancher | k8s | CLI para Rancher |
 | [Rclone](https://rclone.org/) | rclone | install_rclone | storage | Tool de nubes de almacenamiento |
 | [ripgrep](https://github.com/BurntSushi/ripgrep) | ripgrep | install_ripgrep | tools | grep vitaminado |
+| [Rust Desk](https://rustdesk.com/index.html) | rustdesk | install_rustdesk | remote | Cliente de escritorio remoto |
 | [Singlebox](https://webcatalog.io/singlebox/) | singlebox | install_singlebox | social | Administrador de clientes de mensajería |
 | [Skype](https://www.skype.com/es/) | skype | install_skype | social | Cliente de mensajería de Skype |
 | [Slack](https://slack.com/intl/es-es/) | slack | install_slack | social | Cliente de mensajería para entornos de trabajo |
