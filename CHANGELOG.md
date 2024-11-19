@@ -25,6 +25,7 @@
 - Instalación de [Obsidian](https://obsidian.md/)
 - Instalación de [Rust Desk](https://rustdesk.com/index.html)
   - **Rust Desk** reemplaza a **Teamviewer** como aplicación de escritorio remoto por defecto
+- Ya no se instala por defecto **Trilium Notes**
 - Reemplazo de binarios nativos de linux por alternativas en __Rust__:
   - `dig` por [dog](https://github.com/ogham/dog/releases/latest)
   - `jq` por [jql](https://github.com/yamafaktory/jql)

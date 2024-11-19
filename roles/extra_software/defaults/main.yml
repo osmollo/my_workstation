@@ -120,7 +120,7 @@ install_pulsar: false
 install_gitnuro: false
 install_syncthing: true
 install_prospect: false
-install_trilium: true
+install_trilium: false
 install_poetry: true
 install_helix: false
 install_kube_capacity: true
