@@ -1,0 +1,8 @@
+---
+
+- name: "[LAZY_DOCKER] [ARCH] Install Lazy Docker"
+  become: false
+  yay:
+    name: "{{ lazydocker_package }}"
+    state: present
+    update_cache: true
