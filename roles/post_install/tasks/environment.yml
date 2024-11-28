@@ -104,3 +104,6 @@
 
     - name: "[ENVIRONMENT] load tilix configuration"
       shell: "dconf load / < {{ dropbox_dir }}/backups/gnome/tilix"
+
+    - name: "[ENVIRONMENT] configure warp-terminal"
+      import_tasks: warp.yml

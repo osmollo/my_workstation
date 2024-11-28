@@ -27,6 +27,7 @@
   - **Rust Desk** reemplaza a **Teamviewer** como aplicación de escritorio remoto por defecto
 - Instalación de [Lazy Docker](https://github.com/jesseduffield/lazydocker)
 - Ya no se instala por defecto **Trilium Notes**
+- Instalación de [Warp terminal](https://www.warp.dev/)
 - Reemplazo de binarios nativos de linux por alternativas en __Rust__:
   - `dig` por [dog](https://github.com/ogham/dog/releases/latest)
   - `jq` por [jql](https://github.com/yamafaktory/jql)
@@ -39,6 +40,7 @@
   - Creación de remotes en repositorios de trabajo `*helm-values*`
   - Nuevos __alias__ para la shell: `get_readiness` y `get_liveness`
   - Instalación del plugin para zsh [zsh-async](https://github.com/osmollo/zsh-async)
+  - Configuración de **Warp Terminal**
 
 ## 9.6
 

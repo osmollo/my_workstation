@@ -135,6 +135,7 @@ Por defecto se instala el siguiente software:
 | [Visual Studio Code](https://code.visualstudio.com/) | vscode | install_vscode | editors | Editor de textos |
 | [Visual Studio Codium](https://vscodium.com/) | vscodium | install_vscodium | editors | Editor de textos libre pasado en VS Code |
 | [Vivaldi](https://vivaldi.com/es/) | vivaldi | install_vivaldi | browsers | Navegador web |
+| [Warp Terminal](https://www.warp.dev/) | warp | install_warp | shell | Emulador de terminal |
 | [Windscribe](https://windscribe.com/) | windscribe | install_windscribe | vpn | Cliente de VPN |
 | [Wireguard](https://www.wireguard.com/) | wireguard | install_wireguard | vpn | Cliente de VPN |
 | [WoeUSB](https://github.com/slacka/WoeUSB) | woeusb | install_woeusb | tools | Herramienta para quemar iso de windows en usb |
