@@ -10,3 +10,4 @@
     has_downloads: "{{ has_downloads | default(false) }}"
     state: "{{ repo_state | default('present') }}"
   register: result
+  ignore_errors: true

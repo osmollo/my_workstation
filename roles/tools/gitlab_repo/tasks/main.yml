@@ -9,3 +9,4 @@
     wiki_enabled: "{{ wiki_enabled | default(false) }}"
     state: "{{ repo_state | default('present') }}"
   register: result
+  ignore_errors: true
