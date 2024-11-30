@@ -41,6 +41,7 @@
   - Nuevos __alias__ para la shell: `get_readiness` y `get_liveness`
   - Instalación del plugin para zsh [zsh-async](https://github.com/osmollo/zsh-async)
   - Configuración de **Warp Terminal**
+  - Actualizadas las rutas de los tokens de servidores git
 
 ## 9.6
 
