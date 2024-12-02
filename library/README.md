@@ -1,31 +1,31 @@
 # library
 
 - [library](#library)
-  - [dconf_to_list](#dconf_to_list)
+  - [dconf\_to\_list](#dconf_to_list)
     - [INPUT](#input)
     - [OUTPUT](#output)
     - [Ejemplo de uso](#ejemplo-de-uso)
-  - [get_1p_latest](#get_1p_latest)
+  - [get\_1p\_latest](#get_1p_latest)
     - [Ejemplo de uso](#ejemplo-de-uso-1)
-  - [get_go_latest](#get_go_latest)
+  - [get\_go\_latest](#get_go_latest)
     - [Ejemplo de uso](#ejemplo-de-uso-2)
-  - [get_nomachine_latest](#get_nomachine_latest)
+  - [get\_nomachine\_latest](#get_nomachine_latest)
     - [Ejemplo de uso](#ejemplo-de-uso-3)
-  - [get_zoom_latest](#get_zoom_latest)
+  - [get\_zoom\_latest](#get_zoom_latest)
     - [Ejemplo de uso](#ejemplo-de-uso-4)
-  - [github_repo](#github_repo)
+  - [github\_repo](#github_repo)
     - [Ejemplo de uso](#ejemplo-de-uso-5)
-  - [gitlab_repo](#gitlab_repo)
+  - [gitlab\_repo](#gitlab_repo)
     - [Ejemplo de uso](#ejemplo-de-uso-6)
-  - [gitlab_get_forks](#gitlab_get_forks)
+  - [gitea\_repo](#gitea_repo)
     - [Ejemplo de uso](#ejemplo-de-uso-7)
-  - [gitlab_get_repos](#gitlab_get_repos)
+  - [gitlab\_get\_repos](#gitlab_get_repos)
     - [Ejemplo de uso](#ejemplo-de-uso-8)
   - [yay](#yay)
     - [Ejemplo de uso](#ejemplo-de-uso-9)
-  - [protonvpn_fastest](#protonvpn_fastest)
+  - [protonvpn\_fastest](#protonvpn_fastest)
     - [Ejemplo de uso](#ejemplo-de-uso-10)
-  - [bfg_url](#bfg_url)
+  - [bfg\_url](#bfg_url)
     - [Ejemplo de uso](#ejemplo-de-uso-11)
 
 ## dconf_to_list
@@ -192,16 +192,18 @@ Este módulo crea o elimina un repositorio en [Gitlab](https://www.gitlab.com)
   register: result
 ```
 
-## gitlab_get_forks
+## gitea_repo
 
-Este módulo devuelve los forks existentes para el repositorio indicado
+Este módulo crea o elimina un repositorio en [Gitea](https://about.gitea.com/)
 
 ### Ejemplo de uso
 
 ```yaml
-- gitlab_get_forks:
+- gitlab_repo:
     gitlab_auth_key: "{{ gitlab_token }}"
-    name: "{{ repo_name}}"
+    name: "{{ repo_name }}"
+    private: "{{ private | default(private) }}"
+    state: "{{ repo_state | default(present) }}"
   register: result
 ```
 

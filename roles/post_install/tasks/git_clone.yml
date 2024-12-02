@@ -31,7 +31,7 @@
     scope: local
     value: "{{ git_config_signingkey }}"
 
-- name: "[GIT_CLONE] Create github repository"
+- name: "[GIT_CLONE] [GITHUB] Create github repository"
   include_role:
     name: tools/github_repo
   vars:
@@ -43,10 +43,19 @@
     - item.remote is defined
     - item.remote == "github"
 
-- name: "[GIT_CLONE] create gitlab remote for non-helm-value repository"
+- name: "[GIT_CLONE] [GITEA] Create github repository"
+  include_role:
+    name: tools/gitea_repo
+  vars:
+    gitea_token: "{{ git_tokens.gitea }}"
+    repo_name: "{{ (item.repo | basename).split('.')[0] }}"
+    repo_private: true
+    repo_state: present
+
+- name: "[GIT_CLONE] not-helm-value repository"
   when: "'helm-values' not in item.repo"
   block:
-    - name: "[GIT_CLONE] Create gitlab repository '{{ (item.repo | basename).split('.')[0] }}'"
+    - name: "[GIT_CLONE] [GITLAB] Create gitlab repository '{{ (item.repo | basename).split('.')[0] }}'"
       include_role:
         name: tools/gitlab_repo
       vars:
@@ -57,8 +66,8 @@
       when:
         - (item.remote is defined and item.remote == "gitlab") or (git_work | bool)
 
-    - name: "[GIT_CLONE] Create new remote '{{ remote_url }}'"
-      shell: "git remote add {{ item.remote |default('gitlab') }} {{ remote_url }}"
+    - name: "[GIT_CLONE] [GITLAB] Create new remote '{{ remote_url }}'"
+      shell: "git remote add {{ item.remote | default('gitlab') }} {{ remote_url }}"
       changed_when: false
       args:
         chdir: "{{ git_dest_dir }}"
@@ -68,12 +77,34 @@
       vars:
         remote_url: "git@{{ item.remote | default('gitlab') }}.com:osmollo/{{ (item.repo | basename).split('.')[0] }}.git"
 
-- name: "[GIT_CLONE] create gitlab remote for helm-value repository"
+    - name: "[GIT_CLONE] [GITEA] Create gitea repository '{{ (item.repo | basename).split('.')[0] }}'"
+      include_role:
+        name: tools/gitea_repo
+      vars:
+        gitea_token: "{{ git_tokens.gitea }}"
+        repo_name: "{{ (item.repo | basename).split('.')[0] }}"
+        visibility: private
+        repo_state: present
+      when:
+        - (item.remote is defined and item.remote == "gitea") or (git_work | bool)
+
+    - name: "[GIT_CLONE] [GITEA] Create new remote '{{ remote_url }}'"
+      shell: "git remote add {{ item.remote | default('gitea') }} {{ remote_url }}"
+      changed_when: false
+      args:
+        chdir: "{{ git_dest_dir }}"
+      when: item.remote is defined or git_work
+      register: remote_response
+      failed_when: false
+      vars:
+        remote_url: "git@{{ item.remote | default('gitea') }}.com:osmollo/{{ (item.repo | basename).split('.')[0] }}.git"
+
+- name: "[GIT_CLONE] helm-value repository"
   when: "'helm-values' in item.repo"
   vars:
     helm_repo_name: "{{ (item.repo | urlsplit('path')).split('/')[1] + '_' + (item.repo | urlsplit('path')).split('/')[-1].split('.')[0] }}"
   block:
-    - name: "[GIT_CLONE] Create gitlab repository '{{ helm_repo_name }}'"
+    - name: "[GIT_CLONE] [GITLAB] Create gitlab repository '{{ helm_repo_name }}'"
       include_role:
         name: tools/gitlab_repo
       vars:
@@ -84,8 +115,8 @@
       when:
         - (item.remote is defined and item.remote == "gitlab") or (git_work | bool)
 
-    - name: "[GIT_CLONE] Create new remote '{{ remote_url }}'"
-      shell: "git remote add {{ item.remote |default('gitlab') }} {{ remote_url }}"
+    - name: "[GIT_CLONE] [GITLAB] Create new remote '{{ remote_url }}'"
+      shell: "git remote add {{ item.remote | default('gitlab') }} {{ remote_url }}"
       changed_when: false
       args:
         chdir: "{{ git_dest_dir }}"
@@ -94,6 +125,28 @@
       failed_when: false
       vars:
         remote_url: "git@{{ item.remote | default('gitlab') }}.com:osmollo/{{ helm_repo_name }}.git"
+
+    - name: "[GIT_CLONE] [GITEA] Create gitea repository '{{ helm_repo_name }}'"
+      include_role:
+        name: tools/gitea_repo
+      vars:
+        gitea_token: "{{ git_tokens.gitea }}"
+        repo_name: "{{ helm_repo_name }}"
+        visibility: private
+        repo_state: present
+      when:
+        - (item.remote is defined and item.remote == "gitea") or (git_work | bool)
+
+    - name: "[GIT_CLONE] [GITEA] Create new remote '{{ remote_url }}'"
+      shell: "git remote add {{ item.remote | default('gitea') }} {{ remote_url }}"
+      changed_when: false
+      args:
+        chdir: "{{ git_dest_dir }}"
+      when: item.remote is defined or git_work
+      register: remote_response
+      failed_when: false
+      vars:
+        remote_url: "git@{{ item.remote | default('gitea') }}.com:osmollo/{{ helm_repo_name }}.git"
 
 - name: "[GIT_CLONE] update remote"
   shell: "git push {{ item.remote | default('gitlab') }} --{{ push_opt }} --force"
