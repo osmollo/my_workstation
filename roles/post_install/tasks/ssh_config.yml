@@ -1,3 +1,16 @@
+- name: "[ENVIRONMENT] change policy"
+  become: true
+  command: update-crypto-policies --set LEGACY
+  changed_when: false
+
+- name: "[ENVIRONMENT] export RSA key"
+  copy:
+    content: "{{ lookup('onepassword', 'op://ssh/securitas_rsa/clave privada') }}"
+    dest: "{{ ansible_user_dir }}/.ssh/securitas_rsa"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0600
+
 - name: "[ENVIRONMENT] configure ssh entries"
   template:
     src: "ssh_config.j2"

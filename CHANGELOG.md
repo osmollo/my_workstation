@@ -43,6 +43,7 @@
   - Instalación del plugin para zsh [zsh-async](https://github.com/osmollo/zsh-async)
   - Configuración de **Warp Terminal**
   - Actualizadas las rutas de los tokens de servidores git
+  - Exportación de clave RSA para servidores antiguos que la necesiten
 
 ## 9.6
 
