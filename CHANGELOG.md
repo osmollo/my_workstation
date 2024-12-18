@@ -28,7 +28,6 @@
 - Instalación de [Lazy Docker](https://github.com/jesseduffield/lazydocker)
 - Ya no se instala por defecto **Trilium Notes**
 - Instalación de [Warp terminal](https://www.warp.dev/)
-- Soporte para configurar _git remotes_ en [Gitea](https://about.gitea.com/)
 - Reemplazo de binarios nativos de linux por alternativas en __Rust__:
   - `dig` por [dog](https://github.com/ogham/dog/releases/latest)
   - `jq` por [jql](https://github.com/yamafaktory/jql)
