@@ -31,6 +31,7 @@
 - Reemplazo de binarios nativos de linux por alternativas en __Rust__:
   - `dig` por [dog](https://github.com/ogham/dog/releases/latest)
   - `jq` por [jql](https://github.com/yamafaktory/jql)
+- Desactivada la instalación por defecto de **Syncthing**
 - Corrección de errores:
   - Instalación de **GlobalProtect** desde paquete _tar.gz_ para todas las distribuciones
   - Instalación de **VSCode** y **VSCodium**
