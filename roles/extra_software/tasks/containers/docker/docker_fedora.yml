@@ -14,15 +14,14 @@
       - docker-engine-selinux
       - docker-engine
     state: absent
+  ignore_errors: true
 
 - name: "[DOCKER] [FEDORA] Copy repository file for Docker-CE"
   copy:
     content: |
       [docker-ce-stable]
       name=Docker CE Stable - $basearch
-      # TODO: uncomment when fedora 40 was released
-      # baseurl=https://download.docker.com/linux/{{ linux_distribution }}/$releasever/$basearch/stable
-      baseurl=https://download.docker.com/linux/{{ linux_distribution }}/39/$basearch/stable
+      baseurl=https://download.docker.com/linux/{{ linux_distribution }}/$releasever/$basearch/stable
       enabled=1
       gpgcheck=1
       gpgkey=https://download.docker.com/linux/{{ linux_distribution }}/gpg
