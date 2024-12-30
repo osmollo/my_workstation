@@ -133,6 +133,7 @@ install_jql: false
 install_rustdesk: true
 install_lazydocker: true
 install_warp: true
+install_ghostty: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85

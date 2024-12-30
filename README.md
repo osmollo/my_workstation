@@ -61,6 +61,7 @@ Por defecto se instala el siguiente software:
 | [ERDtree](https://github.com/solidiquis/erdtree) | erdtree | install_erdtree | tools | `tree` vitaminado |
 | [Franz](https://meetfranz.com/) | franz | install_franz | social | Administrador de clientes de mensajería |
 | [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | tools | Buscador difuso de archivos |
+| [GHOSTTY](https://ghostty.org/) | ghostty | install_ghostty | shell | Terminal emulator |
 | [Github CLI](https://github.com/cli/cli) | githubcli | install_githubcli | git | Cli de consola para [Github](https://github.com) |
 | [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | git | Cliente gráfico de git |
 | [Gitnuro](https://gitnuro.jetpackduba.com/) | gitnuro | install_gitnuro | git | Cliente gráfico de git |

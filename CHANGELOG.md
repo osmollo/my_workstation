@@ -26,6 +26,7 @@
 - Instalación de [Rust Desk](https://rustdesk.com/index.html)
   - **Rust Desk** reemplaza a **Teamviewer** como aplicación de escritorio remoto por defecto
 - Instalación de [Lazy Docker](https://github.com/jesseduffield/lazydocker)
+- Instalación de [Ghostty](https://ghostty.org/)
 - Ya no se instala por defecto **Trilium Notes**
 - Instalación de [Warp terminal](https://www.warp.dev/)
 - Reemplazo de binarios nativos de linux por alternativas en __Rust__:

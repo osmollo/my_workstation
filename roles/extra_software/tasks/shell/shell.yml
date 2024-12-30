@@ -43,3 +43,13 @@
     - warp
     - warp_terminal
     - warpterminal
+
+- name: "[GHOSTTY] install Ghostty Terminal"
+  import_tasks: ghostty.yml
+  when:
+    - install_ghostty
+  tags:
+    - ghostty
+    - ghostty_terminal
+    - ghosttyterminal
+
