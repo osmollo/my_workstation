@@ -33,3 +33,23 @@
     - install_kitty
   tags:
     - kitty
+
+- name: "[WARP] install Warp Terminal"
+  import_tasks: warp.yml
+  when:
+    - install_warp
+    - linux_distribution != 'arch'
+  tags:
+    - warp
+    - warp_terminal
+    - warpterminal
+
+- name: "[GHOSTTY] install Ghostty Terminal"
+  import_tasks: ghostty.yml
+  when:
+    - install_ghostty
+  tags:
+    - ghostty
+    - ghostty_terminal
+    - ghosttyterminal
+

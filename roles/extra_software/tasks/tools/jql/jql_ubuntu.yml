@@ -1,0 +1,43 @@
+---
+
+- name: "[JQL] [DEB] Get latest version of jql"
+  uri:
+    url: "{{ jql_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: jql_latest
+
+- name: "[JQL] [DEB] set jql version"
+  set_fact:
+    jql_version: "{{ jql_latest.url | urlsplit('path') | basename }}"
+
+- name: "[JQL] [DEB] create temporal directory"
+  file:
+    path: "/tmp/jql"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0750
+
+- name: "[JQL] [DEB] download dog package {{ jql_version }}"
+  unarchive:
+    src: "https://github.com/yamafaktory/jql/releases/download/jql-{{ jql_version }}/jql-{{ jql_version }}-x86_64-unknown-linux-musl.tar.gz"
+    dest: "/tmp/jql"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+    remote_src: true
+
+- name: "[JQL] [DEB] move binary to /usr/local/bin"
+  copy:
+    src: "/tmp/jql/jql"
+    dest: /usr/local/bin/jql
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+    remote_src: true
+
+- name: "[JQL] [DEB] delete temporal directory"
+  file:
+    path: "/tmp/jql"
+    state: absent

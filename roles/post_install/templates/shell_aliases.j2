@@ -7,6 +7,30 @@ mkvenv(){
   fi
 }
 
+get_liveness(){
+  export K8SCLUS=$1
+  export MS=$2
+
+  for LINE in "$(kubectl --kubeconfig ~/kubeconfig/${K8SCLUS}.yaml get pods -o wide | grep ${MS})"; do
+    POD=$(echo $LINE | awk '{ print $1 }')
+    IP=$(echo $LINE | awk '{ print $6 }')
+    echo "kubectl --kubeconfig ~/kubeconfig/${K8SCLUS}.yaml exec -t ${POD} -- curl -s \"http://${IP}:8080/${MS}/actuator/health/liveness\""
+    kubectl --kubeconfig ~/kubeconfig/${K8SCLUS}.yaml exec -t ${POD} -- curl -s "http://${IP}:8080/${MS}/actuator/health/liveness"
+  done
+}
+
+get_readiness(){
+  export K8SCLUS=$1
+  export MS=$2
+
+  for LINE in "$(kubectl --kubeconfig ~/kubeconfig/${K8SCLUS}.yaml get pods -o wide | grep ${MS})"; do
+    POD=$(echo $LINE | awk '{ print $1 }')
+    IP=$(echo $LINE | awk '{ print $6 }')
+    echo "kubectl --kubeconfig ~/kubeconfig/${K8SCLUS}.yaml exec -t ${POD} -- curl -s \"http://${IP}:8080/${MS}/actuator/health/readiness\""
+    kubectl --kubeconfig ~/kubeconfig/${K8SCLUS}.yaml exec -t ${POD} -- curl -s "http://${IP}:8080/${MS}/actuator/health/readiness"
+  done
+}
+
 logs_graphql(){
   for POD in $(kubectl --kubeconfig ~/kubeconfig/${1}.yaml get pods  | grep graphql | awk '{ print $1 }'); do
     echo -e "\e[0;32m######### $POD #########\e[0m"

@@ -1,0 +1,14 @@
+---
+
+- name: "[WARP] delete config directory"
+  file:
+    path: "{{ ansible_user_dir }}/.config/warp-terminal"
+    state: absent
+
+- name: "[WARP] create link for config directory"
+  file:
+    src: "{{ dropbox_dir }}/backups/warp-terminal"
+    dest: "{{ ansible_user_dir }}/.config/warp-terminal"
+    state: link
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"

@@ -25,9 +25,7 @@ vagrant_package:
 
 chromium_package: chromium
 
-# TODO: uncomment when Fedora 40 was released
-# megacmd_package: "https://mega.nz/linux/repo/Fedora_{{ ansible_distribution_version }}/{{ ansible_architecture }}/megacmd-Fedora_{{ ansible_distribution_version }}.{{ ansible_architecture }}.rpm"
-megacmd_package: "https://mega.nz/linux/repo/Fedora_39/{{ ansible_architecture }}/megacmd-Fedora_39.{{ ansible_architecture }}.rpm"
+megacmd_package: "https://mega.nz/linux/repo/Fedora_{{ ansible_distribution_version }}/{{ ansible_architecture }}/megacmd-Fedora_{{ ansible_distribution_version }}.{{ ansible_architecture }}.rpm"
 
 megasync_package: "https://mega.nz/linux/repo/Fedora_{{ ansible_distribution_version }}/{{ ansible_architecture }}/megasync-4.6.6-2.1.{{ ansible_architecture }}.rpm"
 

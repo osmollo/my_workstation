@@ -1,0 +1,36 @@
+---
+
+- when: linux_distribution == 'fedora'
+  block:
+    - name: "[GHOSTTY] [FEDORA] create repository file"
+      copy:
+        content: |
+          [GHOSTTY]
+          name=Repo for ghostty owned by pgdev
+          baseurl=https://download.copr.fedorainfracloud.org/results/pgdev/ghostty/fedora-$releasever-$basearch/
+          type=rpm-md
+          skip_if_unavailable=True
+          gpgcheck=1
+          gpgkey=https://download.copr.fedorainfracloud.org/results/pgdev/ghostty/pubkey.gpg
+          repo_gpgcheck=0
+          enabled=1
+          enabled_metadata=1
+        dest: /etc/yum.repos.d/ghostty.repo
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: "[GHOSTTY] [FEDORA] install ghostty in Fedora"
+      dnf:
+        name: ghostty
+        state: present
+        update_cache: true
+
+- when: linux_distribution == 'arch'
+  block:
+    - name: "[GHOSTTY] [ARCH] Install ghostty in Arch"
+      pacman:
+        name: "ghostty"
+        state: present
+        update_cache: true
+

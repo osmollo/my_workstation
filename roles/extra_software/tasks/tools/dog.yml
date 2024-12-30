@@ -1,0 +1,50 @@
+---
+
+- name: "[DOG] Get latest version of dog"
+  uri:
+    url: "{{ dog_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: dog_latest
+
+- name: "[DOG] set dog version"
+  set_fact:
+    dog_version: "{{ dog_latest.url | urlsplit('path') | basename }}"
+
+- name: "[DOG] create temporal directory"
+  file:
+    path: "/tmp/dog"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0750
+
+- name: "[DOG] download dog package {{ dog_version }}"
+  unarchive:
+    src: "https://github.com/ogham/dog/releases/download/{{ dog_version }}/dog-{{ dog_version }}-x86_64-unknown-linux-gnu.zip"
+    dest: "/tmp/dog"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+    remote_src: true
+
+- name: "[DOG] move binary to /usr/local/bin"
+  copy:
+    src: "/tmp/dog/bin/dog"
+    dest: /usr/local/bin/dog
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+    remote_src: true
+
+- name: "[DOG] delete temporal directory"
+  file:
+    path: "/tmp/dog"
+    state: absent
+
+- name: "[DOG] create alias"
+  vars:
+    alias_name: dig
+    alias_command: dog
+  import_role:
+    name: tools/create_alias

@@ -1,0 +1,8 @@
+---
+
+- name: "[JQL] [ARCH] Install jql"
+  become: false
+  yay:
+    name: "jql"
+    state: present
+    update_cache: true

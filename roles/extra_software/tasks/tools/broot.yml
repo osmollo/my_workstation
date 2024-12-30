@@ -1,13 +1,13 @@
 ---
 
-- name: "[BROOT] Get latest version of station"
+- name: "[BROOT] Get latest version of broot"
   uri:
     url: "{{ broot_latest_url }}"
     follow_redirects: safe
     body_format: raw
   register: broot_latest
 
-- name: "[BROOT] set station version"
+- name: "[BROOT] set broot version"
   set_fact:
     broot_version: "{{ broot_latest.url | urlsplit('path') | basename }}"
 

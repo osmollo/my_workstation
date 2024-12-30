@@ -17,7 +17,7 @@ install_keepass: true
 install_buttercup: false
 install_windscribe: false
 install_chrome: false
-install_teamviewer: true
+install_teamviewer: false
 install_nomachine: false
 install_ecs: false
 install_postman: true
@@ -118,15 +118,22 @@ install_soapui: true
 install_thincast: false
 install_pulsar: false
 install_gitnuro: false
-install_syncthing: true
+install_syncthing: false
 install_prospect: false
-install_trilium: true
+install_trilium: false
 install_poetry: true
 install_helix: false
 install_kube_capacity: true
 install_snyk: true
 install_rancher: true
 install_kitty: true
+install_obsidian: false
+install_dog: false
+install_jql: false
+install_rustdesk: true
+install_lazydocker: true
+install_warp: true
+install_ghostty: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -175,6 +182,11 @@ kor_latest_url: "https://github.com/yonahd/kor/releases/latest"
 kubecapacity_latest_url: "https://github.com/robscott/kube-capacity/releases/latest"
 snyk_latest_url: "https://static.snyk.io/cli/latest/snyk-linux"
 rancher_latest_url: "https://github.com/rancher/cli/releases/latest"
+obsidian_latest_url: "https://github.com/obsidianmd/obsidian-releases/releases/latest"
+dog_latest_url: "https://github.com/ogham/dog/releases/latest"
+jql_latest_url: "https://github.com/yamafaktory/jql/releases/latest"
+rustdesk_latest_url: "https://github.com/rustdesk/rustdesk/releases/latest"
+lazydocker_latest_url: "https://github.com/jesseduffield/lazydocker/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"
@@ -253,5 +265,7 @@ gitnuro_flatpak: "https://dl.flathub.org/repo/appstream/com.jetpackduba.Gitnuro.
 spotify_flatpak: "https://dl.flathub.org/repo/appstream/com.spotify.Client.flatpakref"
 trilium_flatpak: "https://dl.flathub.org/repo/appstream/com.github.zadam.trilium.flatpakref"
 helix_flatpak: "https://dl.flathub.org/repo/appstream/com.helix_editor.Helix.flatpakref"
+obsidian_flatpak: "https://dl.flathub.org/repo/appstream/md.obsidian.Obsidian.flatpakref"
+rustdesk_flatpak: "https://dl.flathub.org/repo/appstream/com.rustdesk.RustDesk.flatpakref"
 
 globalprotect_package: "https://github.com/yuezk/GlobalProtect-openconnect/releases/download/v1.4.9/globalprotect-openconnect-1.4.9.tar.gz"

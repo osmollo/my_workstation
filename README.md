@@ -51,6 +51,7 @@ Por defecto se instala el siguiente software:
 | [curlie](https://github.com/rs/curlie) | curlie | install_curlie | tools | Curl vitaminado |
 | [DBeaver](https://dbeaver.io/) | dbeaver | install_dbeaver | dev | Manager de conexiones a BBDD |
 | [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | desktop| Cliente de Torrent |
+| [Dog](https://github.com/ogham/dog) | dog | install_dog | tools | Alternativa a `dig` en __Rust__ |
 | [Docker](https://docs.docker.com/install/linux/docker-ce/) | docker | install_docker | containers | Gestión de contenedores Docker |
 | [Draw.io](https://github.com/jgraph/drawio-desktop) | drawio | install_drawio | desktop | Editor de diagramas |
 | [Dropbox](https://www.dropbox.com/) | dropbox | install_dropbox | storage | Cliente de almacenamiento en la nube |
@@ -60,6 +61,7 @@ Por defecto se instala el siguiente software:
 | [ERDtree](https://github.com/solidiquis/erdtree) | erdtree | install_erdtree | tools | `tree` vitaminado |
 | [Franz](https://meetfranz.com/) | franz | install_franz | social | Administrador de clientes de mensajería |
 | [FZF](https://github.com/junegunn/fzf) | fzf | install_fzf | tools | Buscador difuso de archivos |
+| [GHOSTTY](https://ghostty.org/) | ghostty | install_ghostty | shell | Terminal emulator |
 | [Github CLI](https://github.com/cli/cli) | githubcli | install_githubcli | git | Cli de consola para [Github](https://github.com) |
 | [Gitkraken](https://www.gitkraken.com/git-client) | gitkraken | install_gitkraken | git | Cliente gráfico de git |
 | [Gitnuro](https://gitnuro.jetpackduba.com/) | gitnuro | install_gitnuro | git | Cliente gráfico de git |
@@ -73,10 +75,12 @@ Por defecto se instala el siguiente software:
 | [Helix](https://helix-editor.com/) | helix | install_helix | editors | Helix text editor |
 | [Hiri](https://www.hiri.com/) | hiri | install_hiri | mail | Cliente de correo |
 | [Java](https://openjdk.java.net/) | java | install_java | dev | Lenguaje Java |
+| [jql](https://github.com/yamafaktory/jql) | jql | install_jql | tools | alternativa en __Rust__ a `jq` |
 | [k8s_tools](https://kubernetes.io/docs/reference/tools/) | k8s_tools | install_k8s_tools | k8s | Herramientas de Kubernetes |
 | [KDEnlive](https://kdenlive.org/es/descargar/)| kdenlive | install_kdenlive | desktop | Editor de video para KDE |
 | [KeepassXC](https://keepassxc.org/download/) | keepass | install_keepass | pass_managers | Gestor de contraseñas |
 | [Kodi](https://kodi.tv/) | kodi | install_kodi | media | Media center |
+| [LazyDocker](https://github.com/jesseduffield/lazydocker) | lazydocker | install_lazydocker | tools | Tools for Docker |
 | [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | browsers | Firefox 50.1 + Java para acceder a Lexnet (sólo para abogados) |
 | [Librewolf](https://librewolf.net/) | librewolf | install_librewolf | browsers | Navegador web Librewolf (fork de Firefox) |
 | [LSD](https://github.com/Peltoche/lsd) | lsd | install_lsd | tools | binario para listar directorios |
@@ -89,6 +93,7 @@ Por defecto se instala el siguiente software:
 | [NoMachine](https://www.nomachine.com/es/) | nomachine | install_nomachine | remotes | Cliente de escritorio remoto |
 | [Nomad](https://learn.hashicorp.com/tutorials/nomad/install-cli) | nomad | install_nomad | tools | Orchestration tool for deploying and managing applications |
 | [OBS Studio](https://obsproject.com/es) | obs | install_obs | media | Grabación de video y transmissión en vivo |
+| [Obsidian](https://obsidian.md/) | obsidian | install_obsidian | editors | Gestor de notas |
 | [Oh my BASH!](https://ohmybash.nntoan.com/) | ohmybash | install_ohmybash | shell | Personalización de BASH |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | shell | Personalización de ZSH |
 | [Podman](https://podman.io/) | podman | install_podman | containers | Gestor de contenedores |
@@ -104,6 +109,7 @@ Por defecto se instala el siguiente software:
 | [Rancher CLI](https://ranchermanager.docs.rancher.com/reference-guides/cli-with-rancher/rancher-cli) | rancher | install_rancher | k8s | CLI para Rancher |
 | [Rclone](https://rclone.org/) | rclone | install_rclone | storage | Tool de nubes de almacenamiento |
 | [ripgrep](https://github.com/BurntSushi/ripgrep) | ripgrep | install_ripgrep | tools | grep vitaminado |
+| [Rust Desk](https://rustdesk.com/index.html) | rustdesk | install_rustdesk | remote | Cliente de escritorio remoto |
 | [Singlebox](https://webcatalog.io/singlebox/) | singlebox | install_singlebox | social | Administrador de clientes de mensajería |
 | [Skype](https://www.skype.com/es/) | skype | install_skype | social | Cliente de mensajería de Skype |
 | [Slack](https://slack.com/intl/es-es/) | slack | install_slack | social | Cliente de mensajería para entornos de trabajo |
@@ -130,6 +136,7 @@ Por defecto se instala el siguiente software:
 | [Visual Studio Code](https://code.visualstudio.com/) | vscode | install_vscode | editors | Editor de textos |
 | [Visual Studio Codium](https://vscodium.com/) | vscodium | install_vscodium | editors | Editor de textos libre pasado en VS Code |
 | [Vivaldi](https://vivaldi.com/es/) | vivaldi | install_vivaldi | browsers | Navegador web |
+| [Warp Terminal](https://www.warp.dev/) | warp | install_warp | shell | Emulador de terminal |
 | [Windscribe](https://windscribe.com/) | windscribe | install_windscribe | vpn | Cliente de VPN |
 | [Wireguard](https://www.wireguard.com/) | wireguard | install_wireguard | vpn | Cliente de VPN |
 | [WoeUSB](https://github.com/slacka/WoeUSB) | woeusb | install_woeusb | tools | Herramienta para quemar iso de windows en usb |

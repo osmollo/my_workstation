@@ -1,0 +1,17 @@
+---
+
+- name: "[RUSTDESK] Get latest version of Rust Desk"
+  uri:
+    url: "{{ rustdesk_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: rustdesk_latest
+
+- name: "[RUSTDESK] Set urls for Rust Desk package"
+  vars:
+    rustdesk_version: "{{ rustdesk_latest.url | urlsplit('path') | basename }}"
+    rustdesk_deb_package: "https://github.com/rustdesk/rustdesk/releases/download/{{ rustdesk_version }}/rustdesk-{{ rustdesk_version }}-x86_64.deb"
+  apt:
+    deb: "{{ rustdesk_deb_package }}"
+    state: present
+    update_cache: true

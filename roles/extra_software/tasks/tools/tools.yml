@@ -141,8 +141,30 @@
     - broot
     - update
 
+- name: "[TOOLS] install dog"
+  import_tasks: dog.yml
+  when: install_dog
+  tags:
+    - dog
+    - update
+
+- name: "[TOOLS] install jql"
+  import_tasks: jql/jql.yml
+  when: install_jql
+  tags:
+    - jql
+    - update
+
 - name: "[TOOLS] Install hashicorp tools"
   import_tasks: hashicorp/hashicorp.yml
   when: install_vault or install_terraform or install_consul or install_nomad or install_hashicorp
   tags:
     - hashicorp
+
+- name: "[LAZY_DOCKER] Install Lazy Docker"
+  import_tasks: lazy_docker/lazy_docker.yml
+  when: install_lazydocker
+  tags:
+    - lazydocker
+    - lazy_docker
+    - update

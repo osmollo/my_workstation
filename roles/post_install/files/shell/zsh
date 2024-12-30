@@ -143,3 +143,21 @@ if type rg &> /dev/null; then
 fi
 # END ANSIBLE MANAGED BLOCK
 
+# ZSH ASYNC
+source ~/.oh-my-zsh/custom/plugins/zsh-async/async.zsh
+# Initialize zsh-async
+async_init
+# Start workers that will report job completion
+async_start_worker kubeguardog_worker -n
+
+# Define a function to process the result of the job
+completed_callback() {
+	print $@
+}
+
+# Register our callback function to run when the job completes
+async_register_callback kubeguardog_worker completed_callback
+
+# Start the job
+async_job kubeguardog_worker docker run -t --rm --network host -v ~/kubeconfig/es1kibss.yaml:/kubeconfig.yaml -e NAMESPACE=owa-ns osmollo/kubeguardog:latest
+async_job kubeguardog_worker docker run -t --rm --network host -v ~/kubeconfig/es2kibss.yaml:/kubeconfig.yaml -e NAMESPACE=owa-ns osmollo/kubeguardog:latest

@@ -17,3 +17,10 @@
   when: install_thincast
   tags:
     - thincast
+
+- name: "[RUSTDESK] Install Rust Desk"
+  import_tasks: rustdesk/rustdesk.yml
+  when: install_rustdesk
+  tags:
+    - rustdesk
+    - rust_desk

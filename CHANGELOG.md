@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [9.7](#97)
   - [9.6](#96)
   - [9.5](#95)
   - [9.4](#94)
@@ -18,6 +19,33 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 9.7
+
+- Instalación de [Obsidian](https://obsidian.md/)
+- Instalación de [Rust Desk](https://rustdesk.com/index.html)
+  - **Rust Desk** reemplaza a **Teamviewer** como aplicación de escritorio remoto por defecto
+- Instalación de [Lazy Docker](https://github.com/jesseduffield/lazydocker)
+- Instalación de [Ghostty](https://ghostty.org/)
+- Ya no se instala por defecto **Trilium Notes**
+- Instalación de [Warp terminal](https://www.warp.dev/)
+- Reemplazo de binarios nativos de linux por alternativas en __Rust__:
+  - `dig` por [dog](https://github.com/ogham/dog/releases/latest)
+  - `jq` por [jql](https://github.com/yamafaktory/jql)
+- Desactivada la instalación por defecto de **Syncthing**
+- Soporte para **Fedora 41**
+- Corrección de errores:
+  - Instalación de **GlobalProtect** desde paquete _tar.gz_ para todas las distribuciones
+  - Instalación de **VSCode** y **VSCodium**
+- Post_install:
+  - Nuevos proyectos bitbucket
+  - Fix: si actualizar el remoto de git falla, no provoca la salida del playbook
+  - Creación de remotes en repositorios de trabajo `*helm-values*`
+  - Nuevos __alias__ para la shell: `get_readiness` y `get_liveness`
+  - Instalación del plugin para zsh [zsh-async](https://github.com/osmollo/zsh-async)
+  - Configuración de **Warp Terminal**
+  - Actualizadas las rutas de los tokens de servidores git
+  - Exportación de clave RSA para servidores antiguos que la necesiten
 
 ## 9.6
 

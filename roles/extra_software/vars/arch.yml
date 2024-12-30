@@ -73,6 +73,9 @@ thincast_package: tlclient
 pulsar_package: pulsar-bin
 prospect_package: prospect-mail-bin
 trilium_package: trilium-bin
+obsidian_package: obsidian-bin
+rustdesk_package: rustdesk
+lazydocker_package: lazydocker
 
 protonvpn_dependencies:
   - openvpn

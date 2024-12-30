@@ -1,15 +1,15 @@
 ---
 
-- name: "[GIT] set git destination directory"
+- name: "[GIT_CLONE] set git destination directory"
   set_fact:
     git_dest_dir: "{{ item.dest | default(git_dir + '/' + (item.repo | urlsplit('path')).split('/')[-1].split('.')[0]) }}"
 
-- name: "[GIT] creating directory '{{ git_dest_dir }}'"
+- name: "[GIT_CLONE] creating directory '{{ git_dest_dir }}'"
   file:
     path: "{{ git_dest_dir }}"
     state: directory
 
-- name: "[GIT] Clone git repository '{{ item.repo }}'"
+- name: "[GIT_CLONE] Clone git repository '{{ item.repo }}'"
   git:
     repo: "{{ item.repo }}"
     dest: "{{ git_dest_dir }}"
@@ -17,21 +17,21 @@
     accept_hostkey: true
   ignore_errors: true
 
-- name: "[GIT] Configure user email"
+- name: "[GIT_CLONE] Configure user email"
   git_config:
     name: user.email
     repo: "{{ git_dest_dir }}"
     scope: local
     value: "{{ git_config_user_email }}"
 
-- name: "[GIT] Configure ssh signinkey"
+- name: "[GIT_CLONE] Configure ssh signinkey"
   git_config:
     name: user.signingkey
     repo: "{{ git_dest_dir }}"
     scope: local
     value: "{{ git_config_signingkey }}"
 
-- name: "[GIT] Create github repository"
+- name: "[GIT_CLONE] [GITHUB] Create github repository"
   include_role:
     name: tools/github_repo
   vars:
@@ -43,29 +43,59 @@
     - item.remote is defined
     - item.remote == "github"
 
-- name: "[GIT] Create gitlab repository"
-  include_role:
-    name: tools/gitlab_repo
-  vars:
-    gitlab_token: "{{ git_tokens.gitlab }}"
-    repo_name: "{{ (item.repo | basename).split('.')[0] }}"
-    visibility: private
-    repo_state: present
-  when:
-    - (item.remote is defined and item.remote == "gitlab") or (git_work | bool)
+- name: "[GIT_CLONE] not-helm-value repository"
+  when: "'helm-values' not in item.repo"
+  block:
+    - name: "[GIT_CLONE] [GITLAB] Create gitlab repository '{{ (item.repo | basename).split('.')[0] }}'"
+      include_role:
+        name: tools/gitlab_repo
+      vars:
+        gitlab_token: "{{ git_tokens.gitlab }}"
+        repo_name: "{{ (item.repo | basename).split('.')[0] }}"
+        visibility: private
+        repo_state: present
+      when:
+        - (item.remote is defined and item.remote == "gitlab") or (git_work | bool)
 
-- name: "[GIT] Create new remote"
-  shell: "git remote add {{ item.remote |default('gitlab') }} {{ remote_url }}"
-  changed_when: false
-  args:
-    chdir: "{{ git_dest_dir }}"
-  when: item.remote is defined or git_work
-  register: remote_response
-  failed_when: false
-  vars:
-    remote_url: "git@{{ item.remote | default('gitlab') }}.com:osmollo/{{ (item.repo | basename).split('.')[0] }}.git"
+    - name: "[GIT_CLONE] [GITLAB] Create new remote '{{ remote_url }}'"
+      shell: "git remote add {{ item.remote | default('gitlab') }} {{ remote_url }}"
+      changed_when: false
+      args:
+        chdir: "{{ git_dest_dir }}"
+      when: item.remote is defined or git_work
+      register: remote_response
+      failed_when: false
+      vars:
+        remote_url: "git@{{ item.remote | default('gitlab') }}.com:osmollo/{{ (item.repo | basename).split('.')[0] }}.git"
 
-- name: "[GIT] update remote"
+- name: "[GIT_CLONE] helm-value repository"
+  when: "'helm-values' in item.repo"
+  vars:
+    helm_repo_name: "{{ (item.repo | urlsplit('path')).split('/')[1] + '_' + (item.repo | urlsplit('path')).split('/')[-1].split('.')[0] }}"
+  block:
+    - name: "[GIT_CLONE] [GITLAB] Create gitlab repository '{{ helm_repo_name }}'"
+      include_role:
+        name: tools/gitlab_repo
+      vars:
+        gitlab_token: "{{ git_tokens.gitlab }}"
+        repo_name: "{{ helm_repo_name }}"
+        visibility: private
+        repo_state: present
+      when:
+        - (item.remote is defined and item.remote == "gitlab") or (git_work | bool)
+
+    - name: "[GIT_CLONE] [GITLAB] Create new remote '{{ remote_url }}'"
+      shell: "git remote add {{ item.remote | default('gitlab') }} {{ remote_url }}"
+      changed_when: false
+      args:
+        chdir: "{{ git_dest_dir }}"
+      when: item.remote is defined or git_work
+      register: remote_response
+      failed_when: false
+      vars:
+        remote_url: "git@{{ item.remote | default('gitlab') }}.com:osmollo/{{ helm_repo_name }}.git"
+
+- name: "[GIT_CLONE] update remote"
   shell: "git push {{ item.remote | default('gitlab') }} --{{ push_opt }} --force"
   loop:
     - "tags"
@@ -74,8 +104,9 @@
     loop_var: push_opt
   when: item.remote is defined or git_work
   changed_when: false
+  ignore_errors: true
 
-- name: "[GIT] Delete push for remote"
+- name: "[GIT_CLONE] Delete push for remote"
   shell: "git remote set-url --push {{ item.remote }} no_push"
   changed_when: false
   when:

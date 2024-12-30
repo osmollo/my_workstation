@@ -1,0 +1,8 @@
+---
+
+- name: "[OBSIDIAN] [ARCH] Install Obsidian"
+  become: false
+  yay:
+    name: "{{ obsidian_package }}"
+    state: present
+    update_cache: true

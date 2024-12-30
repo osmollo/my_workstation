@@ -1,0 +1,4 @@
+---
+
+- name: "[RUSTDESK] install for {{ linux_distribution }}"
+  include_tasks: "rustdesk_{{ linux_distribution }}.yml"
