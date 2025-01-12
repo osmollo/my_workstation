@@ -23,7 +23,8 @@
 
 ## 9.8
 
-- Create default config for **Ghostty**
+- Crear configuración por defecto para **Ghostty**
+- Instalación de **Ghostty** por defecto
 - Post_install:
   - Actualización de alias
 
