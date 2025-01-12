@@ -34,3 +34,10 @@
         state: present
         update_cache: true
 
+- name: "[GHOSTTY] copy configuration"
+  copy:
+    src: ghostty.config
+    dest: "{{ ansible_user_dir }}/.config/ghostty/config"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0644
