@@ -25,6 +25,7 @@
 
 - Crear configuración por defecto para **Ghostty**
 - Instalación de **Ghostty** por defecto
+- Cambio en el fichero `.repo` de **Brave Browser**
 - Post_install:
   - Actualización de alias
 
