@@ -28,6 +28,7 @@ distro_packages:
   - tldr
   - remmina
   - unixodbc
+  - wireguard
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras

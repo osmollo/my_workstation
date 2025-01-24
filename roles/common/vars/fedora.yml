@@ -30,6 +30,7 @@ distro_packages:
   - remmina
   - python3-jmespath
   - unixODBC
+  - wireguard-tools
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome

@@ -26,6 +26,7 @@
 - Crear configuración por defecto para **Ghostty**
 - Instalación de **Ghostty** por defecto
 - Cambio en el fichero `.repo` de **Brave Browser**
+- Instalación de **Wireguard** por defecto
 - Post_install:
   - Actualización de alias
 

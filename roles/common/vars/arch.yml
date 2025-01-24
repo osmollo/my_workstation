@@ -24,6 +24,7 @@ distro_packages:
   - python-setuptools
   - remmina
   - unixodbc
+  - wireguard-tools
 
 gnome_arch_packages:
   - wireshark-cli

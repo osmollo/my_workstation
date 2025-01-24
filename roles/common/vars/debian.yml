@@ -23,6 +23,7 @@ distro_packages:
   - tldr
   - remmina
   - unixodbc
+  - wireguard
 
 gnome_debian_packages:
   - network-manager-openvpn-gnome
