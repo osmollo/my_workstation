@@ -73,6 +73,9 @@
 
           [commit]
             gpgsign = true
+          
+          [help]
+            autocorrect = immediate
   tags:
     - git_diff
 

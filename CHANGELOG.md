@@ -29,6 +29,7 @@
 - Instalación de **Wireguard** por defecto
 - Post_install:
   - Actualización de alias
+  - Activación de autocorrección en el cliente de `git`
 
 ## 9.7
 
