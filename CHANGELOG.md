@@ -30,6 +30,7 @@
 - Post_install:
   - Actualización de alias
   - Activación de autocorrección en el cliente de `git`
+  - Eliminadas las entradas de `ssh_config` del repositorio `my_servers`
 
 ## 9.7
 
