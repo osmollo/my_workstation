@@ -31,6 +31,7 @@
   - Actualización de alias
   - Activación de autocorrección en el cliente de `git`
   - Eliminadas las entradas de `ssh_config` del repositorio `my_servers`
+  - Configuración ssh-agent de **1Password**
 
 ## 9.7
 
