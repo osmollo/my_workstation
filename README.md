@@ -89,6 +89,8 @@ Por defecto se instala el siguiente software:
 | [MarkText](https://github.com/marktext/marktext) | marktext | install_marktext | editors | Editor de Markdown |
 | [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | storage | Cliente de almacenamiento en la nube de Mega |
 | [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | storage | Cliente de almacenamiento en la nube de Mega para terminal |
+| [Mullvad Browser](https://mullvad.net/es/browser) | mullvad_browser | install_mullvad_browser | browsers | Navegador web |
+| [Mullvad VPN](https://mullvad.net/es/vpn) | mullvad | install_mullvad | vpn | Cliente de VPN Mullvad |
 | [NeoVim](https://neovim.io/) | neovim | install_neovim | editors | Editor de texto |
 | [NoMachine](https://www.nomachine.com/es/) | nomachine | install_nomachine | remotes | Cliente de escritorio remoto |
 | [Nomad](https://learn.hashicorp.com/tutorials/nomad/install-cli) | nomad | install_nomad | tools | Orchestration tool for deploying and managing applications |

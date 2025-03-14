@@ -27,11 +27,13 @@
 - Instalación de **Ghostty** por defecto
 - Cambio en el fichero `.repo` de **Brave Browser**
 - Instalación de **Wireguard** por defecto
+- Instalación de [Mullvad VPN](https://mullvad.net/es/vpn)
 - Post_install:
   - Actualización de alias
   - Activación de autocorrección en el cliente de `git`
   - Eliminadas las entradas de `ssh_config` del repositorio `my_servers`
   - Configuración ssh-agent de **1Password**
+  - Nuevos alias de shell
 
 ## 9.7
 

@@ -33,6 +33,7 @@
     - config_files
     - bash_aliases
     - shell_aliases
+    - aliases
 
 - name: "[ENVIRONMENT] create .environment"
   template:

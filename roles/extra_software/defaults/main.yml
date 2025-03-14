@@ -134,6 +134,7 @@ install_rustdesk: true
 install_lazydocker: true
 install_warp: true
 install_ghostty: true
+install_mullvad: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85
