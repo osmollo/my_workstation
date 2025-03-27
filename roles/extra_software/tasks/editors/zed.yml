@@ -1,0 +1,14 @@
+---
+
+- name: "[ZED] [ARCH] install zed"
+  pacman:
+    name: zed
+    state: present
+    update_cache: true
+  when: linux_distribution == 'arch'
+
+- name: "[ZED] [FEDORA] install zed"
+  flatpak:
+    name: "{{ zed_flatpak }}"
+    state: present
+  when: linux_distribution == 'fedora'

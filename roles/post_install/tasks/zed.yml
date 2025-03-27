@@ -1,0 +1,17 @@
+---
+
+- name: "[ZED] create app directory"
+  file:
+    path: "{{ ansible_user_dir }}/.var/app/dev.zed.Zed/config/zed"
+    state: directory
+
+- name: "[ZED] delete file"
+  file:
+    path: "{{ ansible_user_dir }}/.var/app/dev.zed.Zed/config/zed"
+    state: absent
+
+- name: "[ZED] create link to config file"
+  copy:
+    src: "{{ dropbox_dir }}/backups/zed"
+    dest: "{{ ansible_user_dir }}/.var/app/dev.zed.Zed/config/zed"
+    state: symlink

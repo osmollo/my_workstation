@@ -144,6 +144,7 @@ Por defecto se instala el siguiente software:
 | [WoeUSB](https://github.com/slacka/WoeUSB) | woeusb | install_woeusb | tools | Herramienta para quemar iso de windows en usb |
 | [YakYak](https://github.com/yakyak/yakyak) | yakyak | install_yakyak | social | Cliente de mensajería para Hangouts |
 | [yq](https://github.com/mikefarah/yq) | yq | install_yq | tools | Parseador json, yaml y xml |
+| [Zed](https://zed.dev/) | zed | install_zed | editors | Editor Zed |
 | [Zoom](https://zoom.us/es-es/meetings.html) | zoom | install_zoom | social | Cliente de videoconferencia |
 | [Zoxide](https://github.com/ajeetdsouza/zoxide) | zoxide | install_zoxide | tools | Navegación inteligente por directorios |
 

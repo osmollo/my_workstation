@@ -29,6 +29,7 @@
 - Instalación de **Wireguard** por defecto
 - Instalación de [Mullvad VPN](https://mullvad.net/es/vpn)
 - Instalación de [Mullvad Browser](https://mullvad.net/es/browser)
+- Instalación de [Zed](https://zed.dev/)
 - Post_install:
   - Actualización de alias
   - Activación de autocorrección en el cliente de `git`

@@ -82,3 +82,9 @@
   when: install_helix
   tags:
     - helix
+
+- name: "[EDITORS] install Zed"
+  import_tasks: zed.yml
+  when: install_zed
+  tags:
+    - zed

@@ -136,6 +136,7 @@ install_warp: true
 install_ghostty: true
 install_mullvad_vpn: false
 install_mullvad_browser: false
+install_zed: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -269,5 +270,6 @@ trilium_flatpak: "https://dl.flathub.org/repo/appstream/com.github.zadam.trilium
 helix_flatpak: "https://dl.flathub.org/repo/appstream/com.helix_editor.Helix.flatpakref"
 obsidian_flatpak: "https://dl.flathub.org/repo/appstream/md.obsidian.Obsidian.flatpakref"
 rustdesk_flatpak: "https://dl.flathub.org/repo/appstream/com.rustdesk.RustDesk.flatpakref"
+zed_flatpak: "https://dl.flathub.org/repo/appstream/dev.zed.Zed.flatpakref"
 
 globalprotect_package: "https://github.com/yuezk/GlobalProtect-openconnect/releases/download/v1.4.9/globalprotect-openconnect-1.4.9.tar.gz"
