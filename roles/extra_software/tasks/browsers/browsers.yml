@@ -43,3 +43,10 @@
     - linux_distribution == "ubuntu"
   tags:
     - lexnet
+
+- name: "[BROWSERS] Install Mullvad Browser"
+  import_tasks: mullvad_browser.yml
+  when: install_mullvad_browser
+  tags:
+    - mullvad
+    - mullvad_browser

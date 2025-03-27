@@ -26,9 +26,10 @@
   tags:
     - globalprotect
 
-- name: "[VPN] Install mullvad"
-  import_tasks: mullvad.yml
+- name: "[VPN] Install mullvad VPN"
+  import_tasks: mullvad_vpn.yml
   when:
-    - install_mullvad
+    - install_mullvad_vpn
   tags:
     - mullvad
+    - mullvad_vpn
