@@ -59,6 +59,9 @@
           [difftool "{{ diff_editor }}"]
               cmd = {{ diff_editor }} "$LOCAL" "$REMOTE"
 
+          [branch]
+              sort = commiterdate
+
           [merge]
               tool = {{ diff_editor }}
 

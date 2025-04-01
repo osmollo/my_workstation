@@ -36,6 +36,7 @@
   - Eliminadas las entradas de `ssh_config` del repositorio `my_servers`
   - Configuración ssh-agent de **1Password**
   - Nuevos alias de shell
+  - Configuración `git branch` en el cliente git
 
 ## 9.7
 
