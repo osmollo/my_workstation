@@ -37,6 +37,8 @@
   - Configuración ssh-agent de **1Password**
   - Nuevos alias de shell
   - Configuración `git branch` en el cliente git
+- Corrección de errores:
+  - Fix multiples errores al instalar **Manjaro**
 
 ## 9.7
 

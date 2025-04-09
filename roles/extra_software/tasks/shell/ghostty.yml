@@ -34,6 +34,13 @@
         state: present
         update_cache: true
 
+- name: "[GHOSTTY] create directory"
+  file:
+    path: "{{ ansible_user_dir }}/.config/ghostty"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
 - name: "[GHOSTTY] copy configuration"
   copy:
     src: ghostty.config

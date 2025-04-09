@@ -16,27 +16,29 @@
         state: present
         update_cache: true
 
-    - set_fact:
-        srcdir: "{{ ansible_user_dir }}/.src"
+    - become: false
+      block:
+        - set_fact:
+            srcdir: "{{ ansible_user_dir }}/.src"
 
-    - name: "[ARCH] Create '{{ srcdir }}'"
-      file:
-        path: "{{ srcdir }}"
-        owner: "{{ ansible_user }}"
-        group: "{{ ansible_user }}"
-        state: directory
+        - name: "[ARCH] Create '{{ srcdir }}'"
+          file:
+            path: "{{ srcdir }}"
+            owner: "{{ ansible_user }}"
+            group: "{{ ansible_user }}"
+            state: directory
 
-    - name: "[ARCH] Clone yay"
-      git:
-        repo: https://aur.archlinux.org/yay-bin.git
-        dest: "{{ srcdir }}/yay"
-        update: true
+        - name: "[ARCH] Clone yay"
+          git:
+            repo: https://aur.archlinux.org/yay-bin.git
+            dest: "{{ srcdir }}/yay"
+            update: true
 
-    - name: "[ARCH] Build and install yay"
-      command:
-        chdir: "{{ srcdir }}/yay"
-        cmd: "makepkg -sfi --noconfirm"
-        creates: /usr/bin/yay
+        - name: "[ARCH] Build and install yay"
+          command:
+            chdir: "{{ srcdir }}/yay"
+            cmd: "makepkg -sfi --noconfirm"
+            creates: /usr/bin/yay
 
     - name: "[ARCH] Install Gnome packages"
       pacman:

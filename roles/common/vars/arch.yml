@@ -25,11 +25,12 @@ distro_packages:
   - remmina
   - unixodbc
   - wireguard-tools
+  - base-devel
 
 gnome_arch_packages:
   - wireshark-cli
   - libsecret
-  - libgda
+  - libgda6
   - gnome-keyring
   - libgnome-keyring
   - seahorse
