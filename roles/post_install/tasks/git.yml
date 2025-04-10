@@ -60,7 +60,7 @@
               cmd = {{ diff_editor }} "$LOCAL" "$REMOTE"
 
           [branch]
-              sort = commiterdate
+              sort = -committerdate
 
           [merge]
               tool = {{ diff_editor }}
@@ -81,6 +81,7 @@
             autocorrect = immediate
   tags:
     - git_diff
+    - git_config
 
 - name: "[GIT] clone repositories"
   tags:
