@@ -11,7 +11,7 @@
     state: absent
 
 - name: "[ZED] create link to config file"
-  copy:
+  file:
     src: "{{ dropbox_dir }}/backups/zed"
     dest: "{{ ansible_user_dir }}/.var/app/dev.zed.Zed/config/zed"
-    state: symlink
+    state: link

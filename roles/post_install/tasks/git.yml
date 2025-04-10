@@ -144,7 +144,7 @@
       when: not git_work_response.failed
       vars:
         git_config_user_email: "{{ git_config.user_email_work }}"
-        git_config_signingkey: "{{ lookup('onepassword', 'op://Private/securitas ed25519/public key') }}"
+        git_config_signingkey: "{{ lookup('onepassword', 'op://ssh/securitas ed25519/public key') }}"
         git_work: true
       tags:
         - git_work
@@ -158,7 +158,7 @@
       loop: "{{ git_repositories.home }}"
       vars:
         git_config_user_email: "{{ git_config.user_email_home }}"
-        git_config_signingkey: "{{ lookup('onepassword', 'op://Private/osmollo/public key') }}"
+        git_config_signingkey: "{{ lookup('onepassword', 'op://ssh/osmollo/public key') }}"
         git_work: false
       tags:
         - git_home
@@ -172,7 +172,7 @@
       loop: "{{ git_repositories.legacy }}"
       vars:
         git_config_user_email: "{{ git_config.user_email_home }}"
-        git_config_signingkey: "{{ lookup('onepassword', 'op://Private/osmollo/public key') }}"
+        git_config_signingkey: "{{ lookup('onepassword', 'op://ssh/osmollo/public key') }}"
         git_work: true
       tags:
         - git_legacy

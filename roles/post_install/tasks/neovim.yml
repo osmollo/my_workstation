@@ -29,7 +29,7 @@
     - name: user.email
       value: "{{ git_config.user_email_home }}"
     - name: user.signingkey
-      value: "{{ lookup('onepassword', 'op://private/osmollo/public key') }}"
+      value: "{{ lookup('onepassword', 'op://ssh/osmollo/public key') }}"
   loop_control:
     label: "{{ item.name }}"
 

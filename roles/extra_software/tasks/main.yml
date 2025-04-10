@@ -7,6 +7,56 @@
   tags:
     - always
 
+- import_tasks: browsers/browsers.yml
+  tags:
+    - extra_software
+    - browsers
+
+- import_tasks: pass_managers/pass_managers.yml
+  tags:
+    - extra_software
+    - pass_managers
+
+- import_tasks: editors/editors.yml
+  tags:
+    - extra_software
+    - editors
+
+- import_tasks: social/social.yml
+  tags:
+    - extra_software
+    - social
+
+- import_tasks: shell/shell.yml
+  tags:
+    - extra_software
+    - shell
+
+- import_tasks: containers/containers.yml
+  tags:
+    - extra_software
+    - containers
+
+- import_tasks: storage/storage.yml
+  tags:
+    - extra_software
+    - storage
+
+- import_tasks: media/media.yml
+  tags:
+    - extra_software
+    - media
+
+- import_tasks: vpn/vpn.yml
+  tags:
+    - extra_software
+    - vpn
+
+- import_tasks: git/git.yml
+  tags:
+    - extra_software
+    - git
+
 - import_tasks: remote/remote.yml
   tags:
     - extra_software

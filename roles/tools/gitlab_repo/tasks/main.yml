@@ -1,7 +1,7 @@
 ---
 
-- name: "[GITEA] creating '{{ repo_name }}' repository"
-  gitea_repo:
+- name: "[GITLAB] creating '{{ repo_name }}' repository"
+  gitlab_repo:
     gitlab_auth_key: "{{ gitea_token }}"
     name: "{{ repo_name }}"
     visibility: "{{ visibility | default('private') }}"

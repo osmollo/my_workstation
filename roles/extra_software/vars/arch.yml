@@ -75,7 +75,7 @@ prospect_package: prospect-mail-bin
 trilium_package: trilium-bin
 obsidian_package: obsidian-bin
 rustdesk_package: rustdesk
-lazydocker_package: lazydocker
+lazydocker_package: lazydocker-bin
 
 protonvpn_dependencies:
   - openvpn
