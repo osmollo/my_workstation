@@ -23,7 +23,7 @@
 
         - name: "[ARCH] Create '{{ srcdir }}'"
           file:
-            path: "{{ srcdir }}"
+            path: "{{ srcdir }}/yay"
             owner: "{{ ansible_user }}"
             group: "{{ ansible_user }}"
             state: directory
