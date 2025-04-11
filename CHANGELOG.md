@@ -41,6 +41,7 @@
   - Fix multiples errores al instalar **Manjaro**
   - Instalación de **KeepasXC** en **Arch** desde repositorio oficial en vez de AUR
   - Instalación de **Deluge** en **Arch** desde repositorio oficial en vez de AUR
+  - Desactivación de ejecución de script asíncronos en zsh
 
 ## 9.7
 
