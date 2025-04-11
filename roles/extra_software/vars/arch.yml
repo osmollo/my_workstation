@@ -21,7 +21,6 @@ slack_package: slack-desktop
 rambox_package: rambox-bin
 pycharm_package: pycharm-community-eap
 yay_package: yay-bin
-vagrant_package: vagrant-git
 nomachine_package: nomachine
 gitkraken_package: gitkraken
 sublimetext_package: sublime-text-4
