@@ -12,7 +12,6 @@ ohmyzsh_package: oh-my-zsh-git
 cherrytree_package: cherrytree
 postman_package: postman-bin
 teamviewer_package: teamviewer
-keepass_package: keepassxc-git
 buttercup_package: buttercup-desktop
 virtualbox_package: virtualbox-bin
 tlp_package: tlp-git
