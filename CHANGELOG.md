@@ -40,6 +40,7 @@
 - Corrección de errores:
   - Fix multiples errores al instalar **Manjaro**
   - Instalación de **KeepasXC** en **Arch** desde repositorio oficial en vez de AUR
+  - Instalación de **Deluge** en **Arch** desde repositorio oficial en vez de AUR
 
 ## 9.7
 

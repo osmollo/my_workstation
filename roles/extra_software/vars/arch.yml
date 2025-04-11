@@ -27,7 +27,6 @@ gitkraken_package: gitkraken
 sublimetext_package: sublime-text-4
 sublimemerge_package: sublime-merge
 franz_package: franz-bin
-deluge_package: deluge-git
 windscribe_package: windscribe-cli
 apachedirectory_package: apachedirectorystudio
 java_package: jre-openjdk
