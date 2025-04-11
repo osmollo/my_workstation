@@ -1,6 +1,14 @@
 ---
 
+- name: "[GLOBALPROTECT] install package"
+  pacman:
+    name: globalprotect-openconnect=1.4.9-2
+    state: present
+    update_cache: true
+  when: linux_distribution == 'arch'
+
 - become: false
+  when: linux_distribution != 'arch'
   block:
     - name: "[GLOBALPROTECT] uncompress globalprotect package"
       unarchive:
