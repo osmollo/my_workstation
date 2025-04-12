@@ -37,6 +37,8 @@
   - Configuración ssh-agent de **1Password**
   - Nuevos alias de shell
   - Configuración `git branch` en el cliente git
+  - Instalación de **oh-my-zsh** también en **Arch** por defecto
+  - Ya no se configura **Syncthing**
 - Corrección de errores:
   - Fix multiples errores al instalar **Manjaro**
   - Instalación de **KeepasXC** en **Arch** desde repositorio oficial en vez de AUR
