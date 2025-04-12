@@ -46,6 +46,7 @@
   - Instalación de **Deluge** en **Arch** desde repositorio oficial en vez de AUR
   - Desactivación de ejecución de script asíncronos en zsh
   - Instalación de **Global Protect** en **Arch** usando pacman
+  - Corregido el token usado para crear los repositorios remotos
 
 ## 9.7
 
