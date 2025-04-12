@@ -39,6 +39,7 @@
   - Configuración `git branch` en el cliente git
   - Instalación de **oh-my-zsh** también en **Arch** por defecto
   - Ya no se configura **Syncthing**
+  - Creación de link al script que actualza remote
 - Corrección de errores:
   - Fix multiples errores al instalar **Manjaro**
   - Instalación de **KeepasXC** en **Arch** desde repositorio oficial en vez de AUR

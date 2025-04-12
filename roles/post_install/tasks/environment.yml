@@ -142,3 +142,12 @@
 
     - name: "[ENVIRONMENT] configure warp-terminal"
       import_tasks: warp.yml
+
+    - name: "[ENVIRONMENT] link to 'update_remote.sh'"
+      file:
+        src: "{{ dropbox_dir }}/bin/osmollo/update_remote.sh"
+        dest: "{{ git_dir }}/update_remote.sh"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: 0755
+        state: link
