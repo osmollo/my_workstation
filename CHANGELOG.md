@@ -41,6 +41,7 @@
   - Ya no se configura **Syncthing**
   - Creación de link al script que actualza remote
   - Fix url repositorio [my_alpine](https://github.com/osmollo/my_alpine)
+  - Nueva función en `shell_aliases`
 - Corrección de errores:
   - Fix multiples errores al instalar **Manjaro**
   - Instalación de **KeepasXC** en **Arch** desde repositorio oficial en vez de AUR
