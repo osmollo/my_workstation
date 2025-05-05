@@ -26,6 +26,7 @@ distro_packages:
   - unixodbc
   - wireguard-tools
   - base-devel
+  - arc-scan
 
 gnome_arch_packages:
   - wireshark-cli

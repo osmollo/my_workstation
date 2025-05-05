@@ -24,6 +24,7 @@ distro_packages:
   - remmina
   - unixodbc
   - wireguard
+  - arp-scan
 
 gnome_debian_packages:
   - network-manager-openvpn-gnome

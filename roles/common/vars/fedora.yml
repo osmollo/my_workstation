@@ -31,6 +31,7 @@ distro_packages:
   - python3-jmespath
   - unixODBC
   - wireguard-tools
+  - arp-scan
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome

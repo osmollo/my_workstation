@@ -29,6 +29,7 @@ distro_packages:
   - remmina
   - unixodbc
   - wireguard
+  - arp-scan
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras
