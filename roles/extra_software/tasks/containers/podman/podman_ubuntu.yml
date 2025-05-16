@@ -3,17 +3,16 @@
 - name: "[PODMAN] [UBUNTU] generate podman.list"
   copy:
     content: |
-      deb [signed-by=/usr/share/keyrings/podman.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ubuntu_version_long }}/ /
+      deb [signed-by=/etc/apt/trusted.gpg.d/podman.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ubuntu_version_long }}/ /
     dest: /etc/apt/sources.list.d/podman.list
     mode: 0644
     owner: root
     group: root
 
 - name: "[PODMAN] [UBUNTU] Import repository key"
-  apt_key:
+  get_url:
     url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ubuntu_version_long }}/Release.key"
-    keyring: /usr/share/keyrings/podman.gpg
-    state: present
+    dest: /etc/apt/trusted.gpg.d/podman.gpg
 
 - name: "[PODMAN] [UBUNTU] install podman"
   apt:

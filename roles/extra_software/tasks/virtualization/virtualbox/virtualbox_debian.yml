@@ -3,17 +3,16 @@
 - name: "[VIRTUALBOX] [DEBIAN] Create repository file for Virtualbox"
   lineinfile:
     path: /etc/apt/sources.list.d/virtualbox.list
-    line: "deb [signed-by=/usr/share/keyrings/virtualbox.gpg] https://download.virtualbox.org/virtualbox/debian {{ debian_codename }} contrib"
+    line: "deb [signed-by=/etc/apt/trusted.gpg.d/virtualbox.gpg] https://download.virtualbox.org/virtualbox/debian {{ debian_codename }} contrib"
     create: true
     owner: root
     group: root
     mode: 0644
 
 - name: "[VIRTUALBOX] [DEBIAN] Import repository key"
-  apt_key:
+  get_url:
     url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
-    keyring: /usr/share/keyrings/virtualbox.gpg
-    state: present
+    dest: /etc/apt/trusted.gpg.d/virtualbox.gpg
 
 - name: "[VIRTUALBOX] [DEBIAN] Install Virtualbox and Vagrant packages"
   apt:

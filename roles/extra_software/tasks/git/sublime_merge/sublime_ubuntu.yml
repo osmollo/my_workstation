@@ -1,10 +1,9 @@
 ---
 
 - name: "[SUBLIME_MERGE] [DEB] Import repository key"
-  apt_key:
+  get_url:
     url: https://download.sublimetext.com/sublimehq-pub.gpg
-    keyring: /usr/share/keyrings/sublime.gpg
-    state: present
+    dest: /etc/apt/trusted.gpg.d/sublime.gpg
 
 - name: "[SUBLIME_MERGE] [DEB] Install dependencies"
   apt:
@@ -14,7 +13,7 @@
 
 - name: "[SUBLIME_MERGE] [DEB] Copy repositort file"
   copy:
-    content: "deb [signed-by=/usr/share/keyrings/sublime.gpg] https://download.sublimetext.com/ apt/stable/"
+    content: "deb [signed-by=/etc/apt/trusted.gpg.d/sublime.gpg] https://download.sublimetext.com/ apt/stable/"
     dest: /etc/apt/sources.list.d/sublime.list
     owner: root
     group: root

@@ -101,7 +101,7 @@
         ubuntu_version_long: "{{ ubuntu_versions[ubuntu_codename] }}"
       vars:
         ubuntu_versions:
-          lunar: "23.04"
+          plucky: "25.04"
       when: linux_distribution == "ubuntu"
 
     - name: "Is Ubuntu LTS?"

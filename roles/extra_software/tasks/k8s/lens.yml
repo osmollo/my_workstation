@@ -3,14 +3,13 @@
 - when: linux_distribution in ['debian', 'ubuntu']
   block:
     - name: "[LENS] [DEB] save apt key"
-      apt_key:
+      get_url:
         url: https://downloads.k8slens.dev/keys/gpg
-        keyring: /usr/share/keyrings/lens-archive-keyring.gpg 
-        state: present
+        dest: /etc/apt/trusted.gpg.d/lens.gpg 
 
     - name: "[LENS] [DEB] create repository file"
       copy:
-        content: "deb [arch=amd64 signed-by=/usr/share/keyrings/lens-archive-keyring.gpg] https://downloads.k8slens.dev/apt/debian stable main"
+        content: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/lens.gpg] https://downloads.k8slens.dev/apt/debian stable main"
         dest: /etc/apt/sources.list.d/lens.list
         owner: root
         group: root

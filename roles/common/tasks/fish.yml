@@ -9,18 +9,11 @@
     state: present
   when: linux_distribution == "fedora"
 
-- block:
-    - name: "[UBUNTU] add ppa repository for fish"
-      apt_repository:
-        repo: 'ppa:fish-shell/release-3'
-        state: present
-        codename: "{{ ubuntu_codename }}"
-
-    - name: "[UBUNTU] install fish"
-      apt:
-        name: fish
-        state: present
-        update_cache: true
+- name: "[UBUNTU] install fish"
+  apt:
+    name: fish
+    state: present
+    update_cache: true
   when: linux_distribution == "ubuntu"
 
 - block:

@@ -1,7 +1,7 @@
 ---
 
 - vars:
-    librewolf_keyring_file: /etc/apt/trusted.gpg.d/librewolf-keyring.gpg
+    librewolf_keyring_file: /etc/apt/trusted.gpg.d/librewolf.gpg
   when: 
     - (ubuntu_version is defined and ubuntu_version | int == 22) or (debian_version is defined and debian_version | int == 11)
   block:

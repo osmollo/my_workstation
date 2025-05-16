@@ -2,7 +2,7 @@
 
 - name: "[VSCODIUM] [DEB] Copy repository file"
   copy:
-    content: "deb [signed-by=/usr/share/keyrings/vscodium.gpg] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/ vscodium main"
+    content: "deb [signed-by=/etc/apt/trusted.gpg.d/vscodium.gpg] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/ vscodium main"
     dest: /etc/apt/sources.list.d/vscodium.list
     mode: 0644
     owner: root
@@ -11,10 +11,9 @@
     - vscodium_repo
 
 - name: "[VSCODIUM] [DEB] Import repository key"
-  apt_key:
+  get_url:
     url: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
-    keyring: /usr/share/keyrings/vscodium.gpg
-    state: present
+    dest: /etc/apt/trusted.gpg.d/vscodium.gpg
 
 - name: "[VSCODIUM] [DEB] Install VSCodium package"
   apt:

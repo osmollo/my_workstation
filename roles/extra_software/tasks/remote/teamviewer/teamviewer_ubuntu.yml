@@ -7,14 +7,14 @@
     update_cache: true
 
 - name: "[TEAMVIEWER] [DEB] save apt key"
-  apt_key:
+  get_url:
     url: https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc
-    keyring: /usr/share/keyrings/teamviewer.gpg
+    dest: /etc/apt/trusted.gpg.d/teamviewer.asc
     state: present
 
 - name: "[TEAMVIEWER] [DEB] modify reposirory file"
   copy:
-    content: "deb [signed-by=/usr/share/keyrings/teamviewer.gpg] https://linux.teamviewer.com/deb stable main"
+    content: "deb [signed-by=/etc/apt/trusted.gpg.d/teamviewer.asc] https://linux.teamviewer.com/deb stable main"
     dest: /etc/apt/sources.list.d/teamviewer.list
     owner: root
     group: root

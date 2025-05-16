@@ -10,10 +10,10 @@
 - name: "[SYNCTHING] [DEB] install syncthing"
   block:
     - name: "[SYCNTHIING] [DEB] save apt key"
-      apt_key:
+      get_url:
         url: https://syncthing.net/release-key.txt
-        state: present
-
+        dest: /etc/apt/trusted.gpg.d/syncthing.asc
+        
     - name: "[SYNCTHING] [DEB] create repository file"
       copy:
         content: deb https://apt.syncthing.net/ syncthing stable

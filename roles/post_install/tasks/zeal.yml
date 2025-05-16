@@ -6,6 +6,35 @@
     update_cache: true
   when: linux_distribution == 'arch'
 
+- name: "[DEBIAN] install Zeal for Debian"
+  apt:
+    name: zeal
+    update_cache: true
+    state: present
+  when: linux_distribution == 'debian'
+
+- name: "[UBUNTU] install Zeal for Ubuntu"
+  block:
+    - name: "[UBUNTU] install kodi repository"
+      apt_repository:
+        validate_certs: no
+        repo: 'ppa:zeal-developers/ppa'
+        state: present
+
+    - name: "[UBUNTU] install Zeal"
+      apt:
+        name: zeal
+        update_cache: true
+        state: present
+  when: linux_distribution == 'ubuntu'  
+
+- name: "[FEDORA] install Zeal for Fedora"
+  dnf:
+    name: zeal
+    update_cache: true
+    state: present
+  when: linux_distribution == 'fedora'
+
 - name: "[ZEAL] download docset"
   include_role:
     name: tools/download_docset

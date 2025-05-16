@@ -3,14 +3,13 @@
 - name: "[GPING] [DEB] install gping repository"
   copy:
     content: |
-      deb [signed-by=/usr/share/keyrings/gping.gpg] http://packages.azlux.fr/debian/ buster main
+      deb [signed-by=/etc/apt/trusted.gpg.d/gping.gpg] http://packages.azlux.fr/debian/ buster main
     dest: /etc/apt/sources.list.d/gping.list
 
 - name: "[GPING] [DEB] add repository key"
-  apt_key:
+  get_url:
     url: https://azlux.fr/repo.gpg.key
-    keyring: /usr/share/keyrings/gping.gpg
-    state: present
+    dest: /etc/apt/trusted.gpg.d/gping.gpg
 
 - name: "[GPING] [DEB] install gping"
   apt:
