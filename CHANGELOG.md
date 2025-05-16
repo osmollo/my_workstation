@@ -31,6 +31,7 @@
 - Instalación de [Mullvad Browser](https://mullvad.net/es/browser)
 - Instalación de [Zed](https://zed.dev/)
 - Instalación de **arp-scan**
+- Revisión de software instalado por defecto en el role `extra_software`
 - Post_install:
   - Actualización de alias
   - Activación de autocorrección en el cliente de `git`
