@@ -32,6 +32,7 @@
 - Instalación de [Zed](https://zed.dev/)
 - Instalación de **arp-scan**
 - Revisión de software instalado por defecto en el role `extra_software`
+- Soporte para **Fedora 42**
 - Post_install:
   - Actualización de alias
   - Activación de autocorrección en el cliente de `git`
