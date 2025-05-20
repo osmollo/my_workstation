@@ -33,6 +33,7 @@
 - Instalación de **arp-scan**
 - Revisión de software instalado por defecto en el role `extra_software`
 - Soporte de **Ubuntu 25.04**
+- Cambio del icono del lanzador de **Global Protect VPN** en **GNOME**
 - Post_install:
   - Actualización de alias
   - Activación de autocorrección en el cliente de `git`
