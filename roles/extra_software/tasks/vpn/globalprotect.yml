@@ -39,3 +39,27 @@
         path: "/tmp/globalprotect-openconnect-1.4.9"
         state: absent
       when: command_response.changed and not command_response.failed
+
+- when: desktop_environment == "gnome"
+  vars:
+    icon_path: /var/tmp/globalprotect/icon
+  tags:
+    - globalprotect_icon
+  block:
+    - name: "[GLOBALPROTECT] create directory"
+      file:
+        path: "{{ icon_path }}"
+        state: directory
+
+    - name: "[GLOBALPROTECT] copy icon"
+      copy:
+        src: vpn-icon.png
+        dest: "{{ icon_path }}/globalprotect.png"
+        owner: root
+        group: root
+
+    - name: "[GLOBALPROTECT] edit application icon"
+      lineinfile:
+        path: "/usr/share/applications/com.yuezk.qt.gpclient.desktop"
+        regexp: "^Icon="
+        line: "Icon={{ icon_path }}/globalprotect.png"
