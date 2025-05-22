@@ -47,6 +47,7 @@
   - Fix url repositorio [my_alpine](https://github.com/osmollo/my_alpine)
   - Nueva función en `shell_aliases`
   - Muestra extensiones de **Gnome** para instalar
+  - Cambio en la configuración de la foto de perfil del usuario
 - Corrección de errores:
   - Fix multiples errores al instalar **Manjaro**
   - Instalación de **KeepasXC** en **Arch** desde repositorio oficial en vez de AUR

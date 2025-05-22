@@ -24,7 +24,7 @@ description:
     - "return the latest version of terraform parsing the url https://releases.hashicorp.com/terraform"
 
 author:
-    - Oscar Hermosa (ohermosa@gmail.com)
+    - Oscar Hermosa (osmollo@proton.me)
 '''
 
 EXAMPLES = '''

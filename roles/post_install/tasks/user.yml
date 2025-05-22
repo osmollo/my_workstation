@@ -11,16 +11,21 @@
       become: true
       become_method: sudo
       copy:
-        src: "{{ item.src }}"
-        dest: "{{ item.dest }}"
+        src: user.jpg
+        dest: "/var/lib/AccountsService/icons/{{ ansible_user }}"
         mode: 0644
         owner: root
         group: root
-      loop:
-        - src: ohermosa.png
-          dest: /var/lib/AccountsService/icons/ohermosa
-        - src: ohermosa.file
-          dest: /var/lib/AccountsService/users/ohermosa
+
+    - name: "[USER] Set profile photo for user '{{ ansible_user }}'"
+      become: true
+      become_method: sudo
+      copy:
+        src: user.file
+        dest: "/var/lib/AccountsService/users/{{ ansible_user }}"
+        mode: 0644
+        owner: root
+        group: root
   when:
     - desktop_environment == "gnome"
     - use_dropbox

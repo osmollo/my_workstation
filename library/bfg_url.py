@@ -24,7 +24,7 @@ description:
     the url https://rtyley.github.io/bfg-repo-cleaner/#usage"
 
 author:
-    - Oscar Hermosa (ohermosa@gmail.com)
+    - Oscar Hermosa (osmollo@proton.me)
 '''
 
 EXAMPLES = '''
