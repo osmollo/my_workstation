@@ -143,6 +143,11 @@
     - name: "[ENVIRONMENT] configure warp-terminal"
       import_tasks: warp.yml
 
+    - name: "[ENVIRONMENT] create '{{ git_dir }}'"
+      file:
+        path: "{{ git_dir }}"
+        state: directory
+
     - name: "[ENVIRONMENT] link to 'update_remote.sh'"
       file:
         src: "{{ dropbox_dir }}/bin/osmollo/update_remote.sh"

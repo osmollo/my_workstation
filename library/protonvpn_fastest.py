@@ -32,7 +32,7 @@ options:
         required: true
 
 author:
-    - Oscar Hermosa (ohermosa@gmail.com)
+    - Oscar Hermosa (osmollo@proton.me)
 '''
 
 EXAMPLES = '''

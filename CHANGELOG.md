@@ -33,6 +33,7 @@
 - Instalación de **arp-scan**
 - Revisión de software instalado por defecto en el role `extra_software`
 - Soporte de **Ubuntu 25.04**
+- Soporte para **Fedora 42**
 - Cambio del icono del lanzador de **Global Protect VPN** en **GNOME**
 - Post_install:
   - Actualización de alias
@@ -47,6 +48,7 @@
   - Fix url repositorio [my_alpine](https://github.com/osmollo/my_alpine)
   - Nueva función en `shell_aliases`
   - Muestra extensiones de **Gnome** para instalar
+  - Cambio en la configuración de la foto de perfil del usuario
 - Corrección de errores:
   - Fix multiples errores al instalar **Manjaro**
   - Instalación de **KeepasXC** en **Arch** desde repositorio oficial en vez de AUR
