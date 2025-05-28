@@ -1,0 +1,24 @@
+---
+
+- name: "[WARP] [DEB] download key"
+  get_url:
+    url: "https://pkg.cloudflareclient.com/pubkey.gpg"
+    dest: "/etc/apt/trusted.gpg.d/cloudflare-warp.gpg"
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: "[WARP] [DEB] add cloudflare repo"
+  copy:
+    dest: "/etc/apt/sources.list.d/cloudflare-client.list"
+    content: |
+      deb [signed-by=/etc/apt/trusted.gpg.d/cloudflare-warp.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: "[WARP] [DEB] install cloudflare-warp"
+  apt:
+    name: cloudflare-warp
+    state: present
+    update_cache: true

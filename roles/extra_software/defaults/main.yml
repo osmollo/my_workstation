@@ -137,6 +137,7 @@ install_ghostty: false
 install_mullvad_vpn: false
 install_mullvad_browser: false
 install_zed: true
+install_cloudfare_warp: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85

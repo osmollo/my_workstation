@@ -1,0 +1,4 @@
+---
+
+- name: "[WARP] install for {{ linux_distribution }}"
+  include_tasks: "warp_{{ linux_distribution }}.yml"
