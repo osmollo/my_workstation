@@ -33,3 +33,14 @@
   tags:
     - mullvad
     - mullvad_vpn
+
+
+- name: "[VPN] Install Cloudflare WARP"
+  import_tasks: warp/warp.yml
+  when:
+    - install_cloudflare_warp
+  tags:
+    - cloudflare_warp
+    - warp
+    - cloudflare-warp
+    - cloudflare

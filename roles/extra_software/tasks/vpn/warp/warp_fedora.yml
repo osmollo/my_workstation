@@ -1,0 +1,14 @@
+---
+
+- name: "[WARP] download repo file"
+  get_url:
+    url: "https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo"
+    dest: "/etc/yum.repos.d/cloudflare-client.repo"
+    owner: root
+    group: root
+
+- name: "[WARP] install cloudflare-warp"
+  dnf:
+    name: cloudflare-warp
+    state: present
+    update_cache: true
