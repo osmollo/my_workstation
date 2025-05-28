@@ -39,6 +39,7 @@
   import_tasks: warp/warp.yml
   when:
     - install_cloudflare_warp
+    - linux_distribution in ['debian', 'ubuntu', 'fedora']
   tags:
     - cloudflare_warp
     - warp
