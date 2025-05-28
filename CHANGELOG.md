@@ -34,6 +34,7 @@
 - Revisión de software instalado por defecto en el role `extra_software`
 - Soporte para **Fedora 42**
 - Cambio del icono del lanzador de **Global Protect VPN** en **GNOME**
+- Instalación de [Cloudflare WARP](https://one.one.one.one/)
 - Post_install:
   - Actualización de alias
   - Activación de autocorrección en el cliente de `git`
