@@ -35,6 +35,7 @@
 - Soporte para **Fedora 42**
 - Cambio del icono del lanzador de **Global Protect VPN** en **GNOME**
 - Instalación de [Cloudflare WARP](https://one.one.one.one/)
+- Instalación de `shellcheck`
 - Post_install:
   - Actualización de alias
   - Activación de autocorrección en el cliente de `git`
@@ -66,7 +67,7 @@
 - Instalación de [Ghostty](https://ghostty.org/)
 - Ya no se instala por defecto **Trilium Notes**
 - Instalación de [Warp terminal](https://www.warp.dev/)
-- Reemplazo de binarios nativos de linux por alternativas en __Rust__:
+- Reemplazo de binarios nativos de linux por alternativas en **Rust**:
   - `dig` por [dog](https://github.com/ogham/dog/releases/latest)
   - `jq` por [jql](https://github.com/yamafaktory/jql)
 - Desactivada la instalación por defecto de **Syncthing**
@@ -78,7 +79,7 @@
   - Nuevos proyectos bitbucket
   - Fix: si actualizar el remoto de git falla, no provoca la salida del playbook
   - Creación de remotes en repositorios de trabajo `*helm-values*`
-  - Nuevos __alias__ para la shell: `get_readiness` y `get_liveness`
+  - Nuevos **alias** para la shell: `get_readiness` y `get_liveness`
   - Instalación del plugin para zsh [zsh-async](https://github.com/osmollo/zsh-async)
   - Configuración de **Warp Terminal**
   - Actualizadas las rutas de los tokens de servidores git
@@ -107,7 +108,7 @@
   - Aumentado el tamaño del historial de la shell a 5.000.000 de entradas
   - Ruta de **1password** con credenciales de **Mega**
   - Cambio en apps instaladas por defecto
-  - Configuración __ODBC__ para **Python**
+  - Configuración **ODBC** para **Python**
 
 ## 9.5
 
@@ -133,14 +134,14 @@
 
 - Instalación de [Poetry](https://python-poetry.org/) para **Python**
 - Instalación de [Helix editor](https://helix-editor.com/)
-- Nuevo playbook `playbooks/debian_sudo.yml` para configurar __sudo__
+- Nuevo playbook `playbooks/debian_sudo.yml` para configurar **sudo**
 - Soporte para **Debian 13 (Trixie)**
 - Instalación de **SoapUI** para **Debian** y **Ubuntu**
 - **Debian** deja de usar **snap** en favor de **flatpak**
 - Instalación de **kubectl** descargando el binario oficial en lugar de usar repositorios
-- Instalación de [Kor](https://github.com/yonahd/kor) dentro de las __tools de k8s__
+- Instalación de [Kor](https://github.com/yonahd/kor) dentro de las **tools de k8s**
 - Corrección de errores:
-  - Fix configuración __bash__
+  - Fix configuración **bash**
   - Fix en la instalación de **lsd** porque ha cambiado el nombre del repositorio
   - Instalación de **DBeaver** y **Global Protect** en **Debian**
   - Instalación de **Spotify** en **Debian** como snap
@@ -197,7 +198,7 @@
   - Instalación de librerías de **Python** con el argumento `--user`
 - Post_install:
   - Nuevos repositorios git
-  - Modificación del alias `actualiza` para que actualice también las apps de *Snap* (**Ubuntu**) o de *Flatpak* (**Fedora**)
+  - Modificación del alias `actualiza` para que actualice también las apps de _Snap_ (**Ubuntu**) o de _Flatpak_ (**Fedora**)
   - Simplificación del clonado de repositorios git
   - Docker login con 2FA
   - Configuración de **Syncthing**
@@ -210,7 +211,7 @@
 - Instalación del plugin **compose** para docker, en lugar de `docker-compose`
 - Actualizadas las versiones de algunos github actions
 - Instalación de [SoapUI](https://www.soapui.org/)
-- Subido a 20 el valor `max_parallel_downloads` en la configuración de __DNF__ para **Fedora**
+- Subido a 20 el valor `max_parallel_downloads` en la configuración de **DNF** para **Fedora**
 - Instalación de [bat-extras](https://github.com/eth-p/bat-extras)
 - Post_install:
   - Entradas en `~/.ssh/config`
@@ -242,7 +243,7 @@
   - Instalación de [Lens](https://docs.k8slens.dev/getting-started/install-lens/)
   - Varios fixes con `TODO` para revisar en el futuro
   - Instalación de `python-setuptools` en **Arch**
-  - Repositorio configuración de usuario de **Astronvim** usa __https__ en vez de __ssh__
+  - Repositorio configuración de usuario de **Astronvim** usa **https** en vez de **ssh**
 - Post_install:
   - Eliminación de la variable de entorno `HISTFILE` del fichero `~/.environment`
   - Limpieza repositorios personales
@@ -259,10 +260,17 @@
 ## VERSIONES ANTERIORES
 
 ### [Versión 8](changelog/v8.md)
+
 ### [Versión 7](changelog/v7.md)
+
 ### [Versión 6](changelog/v6.md)
+
 ### [Versión 5](changelog/v5.md)
+
 ### [Versión 4](changelog/v4.md)
+
 ### [Versión 3](changelog/v3.md)
+
 ### [Versión 2](changelog/v2.md)
+
 ### [Versión 1](changelog/v1.md)

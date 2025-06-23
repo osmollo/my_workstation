@@ -1,5 +1,4 @@
 ---
-
 distro_packages:
   - openvpn
   - networkmanager-openvpn
@@ -27,6 +26,7 @@ distro_packages:
   - wireguard-tools
   - base-devel
   - arc-scan
+  - shellcheck
 
 gnome_arch_packages:
   - wireshark-cli

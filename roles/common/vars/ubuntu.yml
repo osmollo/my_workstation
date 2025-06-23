@@ -1,5 +1,4 @@
 ---
-
 distro_packages:
   - python-apt-common
   - aptitude
@@ -30,6 +29,7 @@ distro_packages:
   - unixodbc
   - wireguard
   - arp-scan
+  - shellcheck
 
 gnome_ubuntu_packages:
   - ubuntu-restricted-extras

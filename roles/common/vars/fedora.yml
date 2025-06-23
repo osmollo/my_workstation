@@ -1,5 +1,4 @@
 ---
-
 distro_packages:
   - openvpn
   - NetworkManager-openvpn
@@ -32,6 +31,7 @@ distro_packages:
   - unixODBC
   - wireguard-tools
   - arp-scan
+  - shellcheck
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome
