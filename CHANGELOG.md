@@ -36,6 +36,7 @@
 - Cambio del icono del lanzador de **Global Protect VPN** en **GNOME**
 - Instalación de [Cloudflare WARP](https://one.one.one.one/)
 - Instalación de `shellcheck`
+- Instalación de [ZAP](https://github.com/srevinsaju/zap) para gestionar `AppImage`
 - Post_install:
   - Actualización de alias
   - Activación de autocorrección en el cliente de `git`

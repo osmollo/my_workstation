@@ -138,6 +138,7 @@ install_mullvad_vpn: false
 install_mullvad_browser: false
 install_zed: true
 install_cloudflare_warp: true
+install_zap: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -196,6 +197,8 @@ ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"
 
 apachedirectory_url: "https://ftp.cixug.es/apache/directory/studio/2.0.0.v20210213-M16/ApacheDirectoryStudio-2.0.0.v20210213-M16-linux.gtk.x86_64.tar.gz"
+
+zap_binary_url: "https://github.com/srevinsaju/zap/releases/download/continuous/zap-amd64"
 
 deluge_package: deluge
 cherrytree_package: cherrytree

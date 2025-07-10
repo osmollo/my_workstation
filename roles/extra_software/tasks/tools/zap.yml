@@ -1,0 +1,10 @@
+---
+
+- name: "[TOOLS] [ZAP] download binary"
+  get_url:
+    url: "{{ zap_binary_url }}"
+    dest: "/usr/local/bin/zap"
+    mode: 0755
+
+
+
