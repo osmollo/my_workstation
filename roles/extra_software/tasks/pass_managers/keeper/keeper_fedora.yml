@@ -1,0 +1,19 @@
+---
+
+- name: "[KEEPER] [FEDORA] create repository file"
+  copy:
+    content: |
+      [keeper-security]
+      name=keeper-security
+      baseurl=https://download.keepersecurity.com/desktop_electron/Linux/repo/rpm/
+      enabled=1
+      gpgcheck=1
+      gpgkey=https://download.keepersecurity.com/desktop_electron/Linux/signing.pub
+    dest: /etc/yum.repos.d/keeper.repo
+    mode: 0640
+
+- name: "[KEEPER] [FEDORA] install keeper"
+  dnf:
+    name: keeperpasswordmanager
+    update_cache: true
+    state: present

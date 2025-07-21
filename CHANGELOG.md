@@ -37,6 +37,7 @@
 - Instalación de [Cloudflare WARP](https://one.one.one.one/)
 - Instalación de `shellcheck`
 - Instalación de [ZAP](https://github.com/srevinsaju/zap) para gestionar `AppImage`
+- Instalación de [Keeper](https://www.keepersecurity.com/es_ES/)
 - Post_install:
   - Actualización de alias
   - Activación de autocorrección en el cliente de `git`

@@ -21,7 +21,7 @@
 | Debian | [Enlace](https://www.debian.org/distrib/netinst#smallcd) |
 | Deepin | [Enlace](https://www.deepin.org/en/download/) |
 | Linux Mint | [Enlace](https://www.linuxmint.com/download.php) |
-| Pop!_OS | [Enlace](https://pop.system76.com/)
+| Pop!_OS | [Enlace](https://pop.system76.com/) |
 | KDE Neon | [Enlace](https://neon.kde.org/download) |
 | Arch Linux | [Enlace](https://www.archlinux.org/releng/releases) |
 | Manjaro | [Enlace](https://manjaro.org/download/) |
@@ -79,6 +79,7 @@ Por defecto se instala el siguiente software:
 | [k8s_tools](https://kubernetes.io/docs/reference/tools/) | k8s_tools | install_k8s_tools | k8s | Herramientas de Kubernetes |
 | [KDEnlive](https://kdenlive.org/es/descargar/)| kdenlive | install_kdenlive | desktop | Editor de video para KDE |
 | [KeepassXC](https://keepassxc.org/download/) | keepass | install_keepass | pass_managers | Gestor de contraseñas |
+| [Keeper](https://www.keepersecurity.com/es_ES/) | keeper | install_keeper | pass_managers | Gestor de contraseñas |
 | [Kodi](https://kodi.tv/) | kodi | install_kodi | media | Media center |
 | [LazyDocker](https://github.com/jesseduffield/lazydocker) | lazydocker | install_lazydocker | tools | Tools for Docker |
 | [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | browsers | Firefox 50.1 + Java para acceder a Lexnet (sólo para abogados) |
