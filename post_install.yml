@@ -37,3 +37,10 @@
     ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
   roles:
     - post_install
+  post_tasks:
+    - name: "GNOME EXTENSIONS TO INSTALL"
+      debug:
+        msg: "{{ gnome_extensions }}"
+      tags:
+        - always
+

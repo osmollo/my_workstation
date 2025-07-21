@@ -1,8 +1,7 @@
 ---
 
 - name: "[DELUGE] [ARCH] Install deluge"
-  become: false
-  yay:
-    name: "{{ deluge_package }}"
+  pacman:
+    name: deluge
     state: present
     update_cache: true

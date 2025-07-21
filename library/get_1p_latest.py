@@ -23,7 +23,7 @@ description:
     - "return the latest version of 1password cli parsing the url https://app-updates.agilebits.com/product_history/CLI"
 
 author:
-    - Oscar Hermosa (ohermosa@gmail.com)
+    - Oscar Hermosa (osmollo@proton.me)
 '''
 
 EXAMPLES = '''

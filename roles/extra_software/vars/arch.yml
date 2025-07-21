@@ -12,7 +12,6 @@ ohmyzsh_package: oh-my-zsh-git
 cherrytree_package: cherrytree
 postman_package: postman-bin
 teamviewer_package: teamviewer
-keepass_package: keepassxc-git
 buttercup_package: buttercup-desktop
 virtualbox_package: virtualbox-bin
 tlp_package: tlp-git
@@ -22,13 +21,11 @@ slack_package: slack-desktop
 rambox_package: rambox-bin
 pycharm_package: pycharm-community-eap
 yay_package: yay-bin
-vagrant_package: vagrant-git
 nomachine_package: nomachine
 gitkraken_package: gitkraken
 sublimetext_package: sublime-text-4
 sublimemerge_package: sublime-merge
 franz_package: franz-bin
-deluge_package: deluge-git
 windscribe_package: windscribe-cli
 apachedirectory_package: apachedirectorystudio
 java_package: jre-openjdk
@@ -75,7 +72,7 @@ prospect_package: prospect-mail-bin
 trilium_package: trilium-bin
 obsidian_package: obsidian-bin
 rustdesk_package: rustdesk
-lazydocker_package: lazydocker
+lazydocker_package: lazydocker-bin
 
 protonvpn_dependencies:
   - openvpn

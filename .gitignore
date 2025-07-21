@@ -10,3 +10,4 @@ roles/post_install/defaults/main.yml
 
 hetzner.log
 .vscode
+.zed

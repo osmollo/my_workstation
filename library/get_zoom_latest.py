@@ -24,7 +24,7 @@ description:
     - "return the latest version of zoom client parsing the url https://support.zoom.us/hc/en-us/articles/205759689"
 
 author:
-    - Oscar Hermosa (ohermosa@gmail.com)
+    - Oscar Hermosa (osmollo@proton.me)
 '''
 
 EXAMPLES = '''

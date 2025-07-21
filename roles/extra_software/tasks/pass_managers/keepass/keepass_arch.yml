@@ -1,8 +1,7 @@
 ---
 
 - name: "[KEEPASS] [ARCH] Install keepass"
-  become: false
-  yay:
-    name: "{{ keepass_package }}"
+  pacman:
+    name: keepassxc
     state: present
     update_cache: true

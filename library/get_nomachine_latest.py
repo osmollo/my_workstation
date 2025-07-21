@@ -24,7 +24,7 @@ description:
       the url https://www.nomachine.com/download/download&id=5"
 
 author:
-    - Oscar Hermosa (ohermosa@gmail.com)
+    - Oscar Hermosa (osmollo@proton.me)
 '''
 
 EXAMPLES = '''

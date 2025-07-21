@@ -1,5 +1,4 @@
 ---
-
 distro_packages:
   - openvpn
   - NetworkManager-openvpn
@@ -30,6 +29,9 @@ distro_packages:
   - remmina
   - python3-jmespath
   - unixODBC
+  - wireguard-tools
+  - arp-scan
+  - shellcheck
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome

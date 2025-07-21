@@ -25,3 +25,23 @@
     - install_globalprotect
   tags:
     - globalprotect
+
+- name: "[VPN] Install mullvad VPN"
+  import_tasks: mullvad_vpn.yml
+  when:
+    - install_mullvad_vpn
+  tags:
+    - mullvad
+    - mullvad_vpn
+
+
+- name: "[VPN] Install Cloudflare WARP"
+  import_tasks: warp/warp.yml
+  when:
+    - install_cloudflare_warp
+    - linux_distribution in ['debian', 'ubuntu', 'fedora']
+  tags:
+    - cloudflare_warp
+    - warp
+    - cloudflare-warp
+    - cloudflare

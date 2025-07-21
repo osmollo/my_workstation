@@ -42,9 +42,19 @@ logs_graphql(){
 {% raw %}
 docker_ip(){
   for CONTAINER in $(docker ps --format "{{.Names}}"); do
-    echo "$(docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}\t\t $CONTAINER" $CONTAINER)"
+    echo -e "$(docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}\t\t $CONTAINER" $CONTAINER)"
   done
 }
+
+docker_network(){
+  docker network ls --format "{{.Name}}\t{{.Driver}}" | while IFS=$'\t' read -r name driver; do
+    if [[ "$driver" != "host" && "$driver" != "none" ]]; then
+      subnet=$(docker network inspect "$name" --format '{{range .IPAM.Config}}{{.Subnet}}{{end}}')
+      echo -e "$name\t$subnet"
+    fi
+  done | column -t
+}
+
 {% endraw %}
 
 {% for alias in shell_aliases %}

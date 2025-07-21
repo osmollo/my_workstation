@@ -4,9 +4,9 @@ install_docker: true
 install_dropbox: true
 install_vscode: true
 install_spotify: true
-install_ohmyzsh: "{{ true if linux_distribution != 'arch' else false }}"
+install_ohmyzsh: true
 install_ohmybash: true
-install_sublimetext: false
+install_sublimetext: true
 install_gitkraken: false
 install_telegram: true
 install_slack: false
@@ -20,7 +20,7 @@ install_chrome: false
 install_teamviewer: false
 install_nomachine: false
 install_ecs: false
-install_postman: true
+install_postman: false
 install_skype: false
 install_java: false
 install_apachedirectory: false
@@ -35,7 +35,7 @@ install_minikube: false
 install_helm: false
 install_hetznerkube: false
 install_kops: false
-install_lens: true
+install_lens: false
 install_kind: false
 install_microk8s: false
 install_kompose: false
@@ -99,8 +99,8 @@ install_ripgrep: true
 install_bottom: true
 install_singlebox: false
 install_librewolf: false
-install_marktext: true
-install_rclone: true
+install_marktext: false
+install_rclone: false
 install_yq: true
 install_element: false
 install_gopass: false
@@ -124,9 +124,9 @@ install_trilium: false
 install_poetry: true
 install_helix: false
 install_kube_capacity: true
-install_snyk: true
-install_rancher: true
-install_kitty: true
+install_snyk: false
+install_rancher: false
+install_kitty: false
 install_obsidian: false
 install_dog: false
 install_jql: false
@@ -134,6 +134,12 @@ install_rustdesk: true
 install_lazydocker: true
 install_warp: true
 install_ghostty: false
+install_mullvad_vpn: false
+install_mullvad_browser: false
+install_zed: true
+install_cloudflare_warp: true
+install_zap: true
+install_keeper: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -193,6 +199,8 @@ ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/maste
 
 apachedirectory_url: "https://ftp.cixug.es/apache/directory/studio/2.0.0.v20210213-M16/ApacheDirectoryStudio-2.0.0.v20210213-M16-linux.gtk.x86_64.tar.gz"
 
+zap_binary_url: "https://github.com/srevinsaju/zap/releases/download/continuous/zap-amd64"
+
 deluge_package: deluge
 cherrytree_package: cherrytree
 
@@ -203,8 +211,6 @@ mega_url_base: "https://mega.nz/linux/MEGAsync"
 
 prezto_repo: https://github.com/sorin-ionescu/prezto.git
 
-go_root: /usr/local/go
-go_path: "{{ ansible_user_dir }}/.local/share/go"
 
 vim_plugins:
   - 'VundleVim/Vundle.vim'
@@ -267,5 +273,6 @@ trilium_flatpak: "https://dl.flathub.org/repo/appstream/com.github.zadam.trilium
 helix_flatpak: "https://dl.flathub.org/repo/appstream/com.helix_editor.Helix.flatpakref"
 obsidian_flatpak: "https://dl.flathub.org/repo/appstream/md.obsidian.Obsidian.flatpakref"
 rustdesk_flatpak: "https://dl.flathub.org/repo/appstream/com.rustdesk.RustDesk.flatpakref"
+zed_flatpak: "https://dl.flathub.org/repo/appstream/dev.zed.Zed.flatpakref"
 
 globalprotect_package: "https://github.com/yuezk/GlobalProtect-openconnect/releases/download/v1.4.9/globalprotect-openconnect-1.4.9.tar.gz"

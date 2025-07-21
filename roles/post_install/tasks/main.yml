@@ -1,10 +1,10 @@
 ---
 
-- name: "configure syncthing"
-  import_tasks: syncthing.yml
-  tags:
-    - post_install
-    - syncthing
+#- name: "configure syncthing"
+#  import_tasks: syncthing.yml
+#  tags:
+#    - post_install
+#    - syncthing
 
 - name: "configure environment"
   import_tasks: environment.yml
@@ -19,6 +19,12 @@
     - post_install
     - neovim
     - nvim
+
+- name: "configure zed"
+  import_tasks: zed.yml
+  tags:
+    - post_install
+    - zed
 
 - name: "configure helix"
   import_tasks: helix.yml

@@ -1,5 +1,4 @@
 ---
-
 distro_packages:
   - libsecret-tools
   - aptitude
@@ -23,6 +22,9 @@ distro_packages:
   - tldr
   - remmina
   - unixodbc
+  - wireguard
+  - arp-scan
+  - shellcheck
 
 gnome_debian_packages:
   - network-manager-openvpn-gnome

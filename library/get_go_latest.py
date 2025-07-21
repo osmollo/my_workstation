@@ -23,7 +23,7 @@ description:
     - "return the latest version of go parsing the url https://golang.org/dl"
 
 author:
-    - Oscar Hermosa (ohermosa@gmail.com)
+    - Oscar Hermosa (osmollo@proton.me)
 '''
 
 EXAMPLES = '''

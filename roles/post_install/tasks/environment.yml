@@ -33,6 +33,7 @@
     - config_files
     - bash_aliases
     - shell_aliases
+    - aliases
 
 - name: "[ENVIRONMENT] create .environment"
   template:
@@ -83,6 +84,40 @@
     - ssh_config
     - config_files
 
+- name: "configure 1Password ssh-agent"
+  tags:
+    - 1password
+    - 1password_agent
+    - 1password_sshagent
+    - 1password_ssh_agent
+  block:
+    - name: "create 1Password directory"
+      file:
+        path: "{{ ansible_user_dir }}/.config/1Password/ssh"
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: 0700
+
+    - name: "create 1Password agent configuration file"
+      copy:
+        content: |
+          [[ssh-keys]]
+          item = "osmollo"
+          vault = "ssh"
+          
+          [[ssh-keys]]
+          item = "securitas ed25519"
+          vault = "ssh"
+          
+          [[ssh-keys]]
+          item = "nagios"
+          vault = "ssh"
+        dest: "{{ ansible_user_dir }}/.config/1Password/ssh/agent.toml"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: 0600
+
 - block:
     - name: "[ENVIRONMENT] Wait until dropbox files exist"
       wait_for:
@@ -107,3 +142,17 @@
 
     - name: "[ENVIRONMENT] configure warp-terminal"
       import_tasks: warp.yml
+
+    - name: "[ENVIRONMENT] create '{{ git_dir }}'"
+      file:
+        path: "{{ git_dir }}"
+        state: directory
+
+    - name: "[ENVIRONMENT] link to 'update_remote.sh'"
+      file:
+        src: "{{ dropbox_dir }}/bin/osmollo/update_remote.sh"
+        dest: "{{ git_dir }}/update_remote.sh"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: 0755
+        state: link

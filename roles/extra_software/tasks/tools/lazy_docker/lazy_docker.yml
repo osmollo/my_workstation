@@ -15,29 +15,29 @@
       set_fact:
         lazydocker_package: "https://github.com/jesseduffield/lazydocker/releases/download/{{ lazydocker_version }}/lazydocker_{{ lazydocker_version[1:] }}_Linux_x86_64.tar.gz"
 
-- name: "[LAZY_DOCKER] download archive"
-  unarchive:
-    src: "{{ lazydocker_package }}"
-    dest: "/tmp"
-    remote_src: true
+    - name: "[LAZY_DOCKER] download archive"
+      unarchive:
+        src: "{{ lazydocker_package }}"
+        dest: "/tmp"
+        remote_src: true
 
-- name: "[LAZY_DOCKER] move binary"
-  copy:
-    src: "/tmp/lazydocker"
-    dest: /usr/local/bin/lazydocker
-    remote_src: true
-    mode: 0755
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+    - name: "[LAZY_DOCKER] move binary"
+      copy:
+        src: "/tmp/lazydocker"
+        dest: /usr/local/bin/lazydocker
+        remote_src: true
+        mode: 0755
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
 
-- name: "[LAZY_DOCKER] delete temporal files"
-  file:
-    path: "/tmp/{{ item }}"
-    state: absent
-  loop:
-    - lazydocker
-    - LICENSE
-    - README.md
+    - name: "[LAZY_DOCKER] delete temporal files"
+      file:
+        path: "/tmp/{{ item }}"
+        state: absent
+      loop:
+        - lazydocker
+        - LICENSE
+        - README.md
 
 - name: "[LAZY_DOCKER] install for {{ linux_distribution }}"
   include_tasks: "lazy_docker_{{ linux_distribution }}.yml"

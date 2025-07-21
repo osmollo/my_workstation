@@ -1,5 +1,4 @@
 ---
-
 distro_packages:
   - openvpn
   - networkmanager-openvpn
@@ -24,11 +23,15 @@ distro_packages:
   - python-setuptools
   - remmina
   - unixodbc
+  - wireguard-tools
+  - base-devel
+  - arc-scan
+  - shellcheck
 
 gnome_arch_packages:
   - wireshark-cli
   - libsecret
-  - libgda
+  - libgda6
   - gnome-keyring
   - libgnome-keyring
   - seahorse

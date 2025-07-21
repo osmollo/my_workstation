@@ -25,7 +25,7 @@
     - zshenv
     - zshrc
 
-- name: "[PREZTO] install ohermosa's prezto fork'"
+- name: "[PREZTO] install osmollo's prezto fork'"
   become: true
   become_method: sudo
   import_tasks: ../extra_software/tasks/shell/prezto.yml

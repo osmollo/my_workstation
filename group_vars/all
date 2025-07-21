@@ -1,0 +1,4 @@
+---
+
+go_root: /usr/local/go
+go_path: "{{ ansible_user_dir }}/.local/share/go"

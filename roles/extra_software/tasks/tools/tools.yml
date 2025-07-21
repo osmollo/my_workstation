@@ -168,3 +168,10 @@
     - lazydocker
     - lazy_docker
     - update
+
+- name: "[ZAP] Install Zap"
+  import_tasks: zap.yml
+  when: install_zap
+  tags:
+    - zap
+    - update

@@ -21,7 +21,7 @@
 | Debian | [Enlace](https://www.debian.org/distrib/netinst#smallcd) |
 | Deepin | [Enlace](https://www.deepin.org/en/download/) |
 | Linux Mint | [Enlace](https://www.linuxmint.com/download.php) |
-| Pop!_OS | [Enlace](https://pop.system76.com/)
+| Pop!_OS | [Enlace](https://pop.system76.com/) |
 | KDE Neon | [Enlace](https://neon.kde.org/download) |
 | Arch Linux | [Enlace](https://www.archlinux.org/releng/releases) |
 | Manjaro | [Enlace](https://manjaro.org/download/) |
@@ -79,6 +79,7 @@ Por defecto se instala el siguiente software:
 | [k8s_tools](https://kubernetes.io/docs/reference/tools/) | k8s_tools | install_k8s_tools | k8s | Herramientas de Kubernetes |
 | [KDEnlive](https://kdenlive.org/es/descargar/)| kdenlive | install_kdenlive | desktop | Editor de video para KDE |
 | [KeepassXC](https://keepassxc.org/download/) | keepass | install_keepass | pass_managers | Gestor de contraseñas |
+| [Keeper](https://www.keepersecurity.com/es_ES/) | keeper | install_keeper | pass_managers | Gestor de contraseñas |
 | [Kodi](https://kodi.tv/) | kodi | install_kodi | media | Media center |
 | [LazyDocker](https://github.com/jesseduffield/lazydocker) | lazydocker | install_lazydocker | tools | Tools for Docker |
 | [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | browsers | Firefox 50.1 + Java para acceder a Lexnet (sólo para abogados) |
@@ -89,6 +90,8 @@ Por defecto se instala el siguiente software:
 | [MarkText](https://github.com/marktext/marktext) | marktext | install_marktext | editors | Editor de Markdown |
 | [MEGA sync](https://mega.nz/sync) | megasync | install_megasync | storage | Cliente de almacenamiento en la nube de Mega |
 | [MEGAcmd](https://mega.nz/cmd) | megacmd | install_megacmd | storage | Cliente de almacenamiento en la nube de Mega para terminal |
+| [Mullvad Browser](https://mullvad.net/es/browser) | mullvad_browser | install_mullvad_browser | browsers | Navegador web |
+| [Mullvad VPN](https://mullvad.net/es/vpn) | mullvad | install_mullvad | vpn | Cliente de VPN Mullvad |
 | [NeoVim](https://neovim.io/) | neovim | install_neovim | editors | Editor de texto |
 | [NoMachine](https://www.nomachine.com/es/) | nomachine | install_nomachine | remotes | Cliente de escritorio remoto |
 | [Nomad](https://learn.hashicorp.com/tutorials/nomad/install-cli) | nomad | install_nomad | tools | Orchestration tool for deploying and managing applications |
@@ -136,12 +139,15 @@ Por defecto se instala el siguiente software:
 | [Visual Studio Code](https://code.visualstudio.com/) | vscode | install_vscode | editors | Editor de textos |
 | [Visual Studio Codium](https://vscodium.com/) | vscodium | install_vscodium | editors | Editor de textos libre pasado en VS Code |
 | [Vivaldi](https://vivaldi.com/es/) | vivaldi | install_vivaldi | browsers | Navegador web |
+| [Warp Cloudflare](https://one.one.one.one/) | warp | install_cloudflare_warp | vpn | Securización de conexiones |
 | [Warp Terminal](https://www.warp.dev/) | warp | install_warp | shell | Emulador de terminal |
 | [Windscribe](https://windscribe.com/) | windscribe | install_windscribe | vpn | Cliente de VPN |
 | [Wireguard](https://www.wireguard.com/) | wireguard | install_wireguard | vpn | Cliente de VPN |
 | [WoeUSB](https://github.com/slacka/WoeUSB) | woeusb | install_woeusb | tools | Herramienta para quemar iso de windows en usb |
 | [YakYak](https://github.com/yakyak/yakyak) | yakyak | install_yakyak | social | Cliente de mensajería para Hangouts |
 | [yq](https://github.com/mikefarah/yq) | yq | install_yq | tools | Parseador json, yaml y xml |
+| [Zap](https://github.com/srevinsaju/zap) | zap | zap_install | tools | Gestor de AppImage |
+| [Zed](https://zed.dev/) | zed | install_zed | editors | Editor Zed |
 | [Zoom](https://zoom.us/es-es/meetings.html) | zoom | install_zoom | social | Cliente de videoconferencia |
 | [Zoxide](https://github.com/ajeetdsouza/zoxide) | zoxide | install_zoxide | tools | Navegación inteligente por directorios |
 

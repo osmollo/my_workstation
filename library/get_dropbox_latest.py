@@ -25,7 +25,7 @@ description:
       the url https://linux.dropbox.com/packages/{{ distro }}"
 
 author:
-    - Oscar Hermosa (ohermosa@gmail.com)
+    - Oscar Hermosa (osmollo@proton.me)
 '''
 
 EXAMPLES = '''

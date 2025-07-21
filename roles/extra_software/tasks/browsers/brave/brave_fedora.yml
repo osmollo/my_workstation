@@ -1,20 +1,23 @@
 ---
 
-- name: "[BRAVE] [FEDORA] Add Brave repository"
-  yum_repository:
-    description: "Brave Browser Repository"
-    name: brave-browser
-    baseurl: "https://brave-browser-rpm-release.s3.brave.com/{{ ansible_architecture }}/"
-    enabled: true
-
-- name: "[BRAVE] [FEDORA] Import Brave key"
-  rpm_key:
-    key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-    state: present
-
+- name: "[BRAVE] [FEDORA] Copy Brave repository file"
+  copy:
+    content: |
+      [brave-browser]
+      name=Brave Browser
+      enabled=1
+      gpgcheck=1
+      gpgkey=https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+      baseurl=https://brave-browser-rpm-release.s3.brave.com/$basearch
+    dest: /etc/yum.repos.d/brave-browser.repo
+    mode: 0644
+    owner: root
+    group: root
+  
 - name: "[BRAVE] [FEDORA] Install Brave"
   dnf:
     name: brave-browser
     state: present
     update_cache: true
     disable_gpg_check: true
+

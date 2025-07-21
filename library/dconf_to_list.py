@@ -30,19 +30,19 @@ options:
         required: false
 
 author:
-    - Oscar Hermosa (ohermosa@gmail.com)
+    - Oscar Hermosa (osmollo@proton.me)
 '''
 
 EXAMPLES = '''
 # Get key and values from all paths of dconf dump
 - name: "Get all paths"
   dconf_to_list:
-    dconf_file: "/home/ohermosa/Dropbox/datio/gnome_dconf"
+    dconf_file: "~/Dropbox/datio/gnome_dconf"
 
 # Get Keys and values from several paths of dconf dump
 - name: "Get interesting paths of dconf"
   dconf_to_list:
-    dconf_file: "/home/ohermosa/Dropbox/datio/gnome_dconf"
+    dconf_file: "~/Dropbox/datio/gnome_dconf"
     paths_to_restore:
       - com/gexperts/Tilix
       - org/gtk/settings/file-chooser
