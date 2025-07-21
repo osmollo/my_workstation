@@ -1,0 +1,7 @@
+- name: "[ENVIRONMENT] create .aliases"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.aliases"
+    line: "alias {{ alias.name }}='{{ alias.command }}'"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0600

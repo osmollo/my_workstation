@@ -5,6 +5,7 @@
   - [Software extra instalado](#software-extra-instalado)
   - [¿Cómo se usa?](#cómo-se-usa)
     - [Post instalación](#post-instalación)
+    - [WORK](#work)
     - [Deshabilitar actualizaciones](#deshabilitar-actualizaciones)
   - [Otros playbooks](#otros-playbooks)
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
@@ -196,6 +197,8 @@ ansible-playbook install.yml -t chromium -e install_chromium=true
 
 ### Post instalación
 
+Este playbook se usa para cualquier configuración personal del pc
+
 Las variables necesarias para la ejecución de este role se encuentran en `./roles/post_install/defaults/main.yml.gpg`. Para poder tener acceso a todos los secretos necesarios para la configuración, es necesario ejecutar el siguiente comando:
 
 ```shell
@@ -209,7 +212,22 @@ ansible-playbook playbooks/prepare_post.yml
 ansible-playbook post_install.yml
 ```
 
-[Aquí se puede consultar la documentación de la post instalación](roles/post_install/README.md)
+### WORK
+
+Este playbook se usa para las configuraciones de trabajo
+
+Las variables necesarias para la ejecución de este role se encuentran en `./roles/work/defaults/main.yml.gpg`. Para poder tener acceso a todos los secretos necesarios para la configuración, es necesario ejecutar el siguiente comando:
+
+```shell
+eval $(op signin)
+```
+
+Y a continuación ejecutar los siguientes playbooks:
+
+```shell
+ansible-playbook playbooks/prepare_post.yml
+ansible-playbook work.yml
+```
 
 ### Deshabilitar actualizaciones
 

@@ -1,0 +1,46 @@
+---
+
+- name: "install extra software"
+  include_tasks: extra_software.yml
+  tags:
+    - work
+    - extra_software
+
+- name: "configure environment"
+  import_tasks: environment.yml
+  tags:
+    - work
+    - environment
+    - env
+
+- name: "configure ODBC for python"
+  import_tasks: odbc.yml
+  become: true
+  tags:
+    - work
+    - odbc
+    - python
+
+- name: "restore dbeaver connections"
+  import_tasks: dbeaver.yml
+  tags:
+    - work
+    - dbeaver
+
+- name: "configure docker"
+  import_tasks: docker.yml
+  tags:
+    - work
+    - docker
+
+- name: "create crontab jobs"
+  import_tasks: crontab.yml
+  tags:
+    - work
+    - crontab
+
+- name: "clone git repostitories"
+  import_tasks: git.yml
+  tags:
+    - work
+    - git

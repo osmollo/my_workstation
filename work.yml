@@ -1,0 +1,39 @@
+---
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: "check if 'roles/work/defaults/main.yml' exists"
+      stat:
+        path: "{{ playbook_dir }}/roles/work/defaults/main.yml"
+      register: stat_response
+
+    - fail:
+        msg: "YOU MUST TO DECRYPT '{{ playbook_dir }}/roles/work/defaults/main.yml.gpg"
+      when: not stat_response.stat.exists
+  tags:
+    - always
+
+- name: "[CHECK OP] check if OP_SESSION_* is defined"
+  import_playbook: playbooks/check_op.yml
+  tags:
+    - always
+
+- name: "[LOAD VARS] setting ansible variables"
+  import_playbook: playbooks/load_distro_vars.yml
+  tags:
+    - always
+
+###############
+# WORK CONFIG #
+###############
+
+- hosts: localhost
+  connection: local
+  become: false
+  vars:
+    disable_updates: "{{ lookup('env', 'REPO_DISABLE_UPDATES') | default(false) | bool }}"
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+  roles:
+    - work

@@ -1,0 +1,45 @@
+---
+
+- name: "[ENVIRONMENT] Configure /etc/hosts"
+  become: true
+  become_method: sudo
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item.ip }}    {{ item.host }}"
+    mode: 0644
+  loop: "{{ etc_hosts }}"
+  tags:
+    - etc_hosts
+
+- name: "[ENVIRONMENT] create .aliases"
+  import_tasks: shell_aliases.yml
+  tags:
+    - config_files
+    - bash_aliases
+    - shell_aliases
+    - aliases
+
+- name: "configure ssh entries"
+  import_tasks: ssh_config.yml
+  tags:
+    - ssh_config
+    - config_files
+
+- block:
+    - name: "[ENVIRONMENT] Wait until dropbox files exist"
+      wait_for:
+        path: "{{ item.src }}"
+        timeout: "{{ wait_dropbox_sync }}"
+      loop: "{{ links_to_create }}"
+
+    - name: "[ENVIRONMENT] Create links from Dropbox"
+      file:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+        state: link
+      loop: "{{ links_to_create }}"
+
+    - name: "[ENVIRONMENT] create '{{ git_dir }}'"
+      file:
+        path: "{{ git_dir }}"
+        state: directory

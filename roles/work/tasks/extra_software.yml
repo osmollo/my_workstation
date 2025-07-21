@@ -1,0 +1,19 @@
+---
+
+- vars:
+    install_keepass: true
+    install_teams: true
+    install_globalprotect: true
+    install_dbeaver: true
+    install_soapui: true
+    install_keeper: true
+  include_role:
+    name: extra_software
+    tasks_from: "{{ item }}"
+  look:
+    - pass_managers/keepass/keepass.yml
+    - social/teams/teams.yml
+    - vpn/globalprotect.yml
+    - dev/dbeaver/dbeaver.yml
+    - dev/soapui/soapui.yml
+    - pass_managers/keeper/keeper.yml

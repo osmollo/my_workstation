@@ -1,0 +1,65 @@
+---
+
+- name: "[GIT] clone repositories"
+  tags:
+    - git_clone
+  block:
+    - name: "[GIT] Configure user name"
+      git_config:
+        name: user.name
+        scope: global
+        value: "{{ git_config.user_name }}"
+      tags:
+        - git_work
+
+    - name: "[GIT] Create {{ git_dir }}"
+      file:
+        path: "{{ git_dir }}"
+        state: directory
+        mode: 0750
+      tags:
+        - git_work
+
+    - name: "[GIT] get WORK git server"
+      set_fact:
+        git_server: "{{ git_repositories.work[0].repo | urlsplit('hostname') }}"
+      tags:
+        - git_work
+
+    - name: "[GIT] check connectivity"
+      wait_for:
+        host: "{{ git_server }}"
+        port: 22
+        state: started
+        delay: 0
+        timeout: 3
+      ignore_errors: true
+      register: git_work_response
+      tags:
+        - git_work
+
+    - name: "[GIT] [WORK] get project repositories"
+      get_bitbucket_repos:
+        host: "{{ bitbucket_conn.host }}"
+        token: "{{ bitbucket_conn.token }}"
+        projects: "{{ bitbucket_conn.projects }}"
+        git_directory: "{{ git_dir }}"
+      register: bitbucket_repos
+      when: not git_work_response.failed
+      tags:
+        - git_work
+
+    - name: "[GIT] [WORK] clone repositories"
+      include_role:
+        name: tools/git_clone
+        apply:
+          tags:
+            - git_work
+      loop: "{{ git_repositories.work + bitbucket_repos.repositories }}"
+      when: not git_work_response.failed
+      vars:
+        git_config_user_email: "{{ git_config.user_email_work }}"
+        git_config_signingkey: "{{ lookup('onepassword', 'op://ssh/securitas ed25519/public key') }}"
+        git_work: true
+      tags:
+        - git_work

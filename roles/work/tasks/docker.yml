@@ -1,0 +1,43 @@
+---
+
+- name: "[DOCKER] Create docker directories"
+  become: true
+  file:
+    path: "{{ item.path }}"
+    state: directory
+    mode: 0750
+    owner: "{{ item.owner }}"
+    group: "{{ item.owner }}"
+  loop:
+    - path: "/home/{{ ansible_user }}/.docker"
+      owner: "{{ ansible_user }}"
+    - path: "/etc/docker"
+      owner: root
+
+- name: "[DOCKER] create config.json"
+  template:
+    src: "docker_config.json.j2"
+    dest: "/home/{{ ansible_user }}/.docker/config.json"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0600
+
+- name: "[DOCKER] create daemon.json"
+  become: true
+  become_method: sudo
+  copy:
+    content: |
+      {
+        "insecure-registries": {{ docker_registries | selectattr('insecure', 'defined') | map(attribute='name') | to_json }}
+      }
+    dest: /etc/docker/daemon.json
+    mode: 0644
+    owner: root
+    group: root
+
+- name: "[DOCKER] Restart docker"
+  become: true
+  become_method: sudo
+  systemd:
+    name: docker
+    state: restarted
