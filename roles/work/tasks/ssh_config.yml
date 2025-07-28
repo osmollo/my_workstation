@@ -3,6 +3,7 @@
 - name: "[ENVIRONMENT] configure ssh entries"
   blockinfile:
     path: "{{ ansible_user_dir }}/.ssh/config"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }} #"
     block: |
       Host {{ item.name }}
         ForwardAgent yes
@@ -32,7 +33,7 @@
         PubkeyAcceptedKeyTypes {{ item.type }}
         HostKeyAlgorithms {{ item.type }}
       {% endif %}
-      IdentityAgent ~/.config/Keeper Password Manager/keeper-ssh-agent.sock
+      IdentityAgent ~/.1password/agent.sock
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     mode: 0600

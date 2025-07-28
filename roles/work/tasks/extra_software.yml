@@ -16,4 +16,4 @@
     - vpn/globalprotect.yml
     - dev/dbeaver/dbeaver.yml
     - dev/soapui/soapui.yml
-    - pass_managers/keeper/keeper.yml
+#    - pass_managers/keeper/keeper.yml
