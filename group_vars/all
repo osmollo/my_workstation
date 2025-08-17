@@ -2,3 +2,10 @@
 
 go_root: /usr/local/go
 go_path: "{{ ansible_user_dir }}/.local/share/go"
+
+dropbox_dir: "{{ ansible_user_dir }}/Dropbox"
+git_dir: "{{ ansible_user_dir }}/git"
+kde_backup_dir: "{{ dropbox_dir }}/backups/kde"
+ssh_dir: "{{ ansible_user_dir }}/.ssh"
+
+

@@ -15,7 +15,7 @@
 
 ## 10.0
 
-- Creación de role independiente para configuraciones de trabajo
+- Creación de [role independiente](./roles/work) para configuraciones de trabajo
 - Ya no se instala por defecto el gestor de contraseñas **Keeper**
 
 ## VERSIONES ANTERIORES
