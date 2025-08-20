@@ -59,7 +59,7 @@
       when: not git_work_response.failed
       vars:
         git_config_user_email: "{{ git_config.user_email_work }}"
-        git_config_signingkey: "{{ lookup('onepassword', 'op://ssh/securitas ed25519/public key') }}"
+        git_config_signingkey: "{{ lookup('onepassword', 'op://Trabajo/securitas ed25519/public key') }}"
         git_work: true
       tags:
         - git_work

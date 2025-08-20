@@ -104,15 +104,7 @@
         content: |
           [[ssh-keys]]
           item = "osmollo"
-          vault = "ssh"
-          
-          [[ssh-keys]]
-          item = "securitas ed25519"
-          vault = "ssh"
-          
-          [[ssh-keys]]
-          item = "nagios"
-          vault = "ssh"
+          vault = "Private"
         dest: "{{ ansible_user_dir }}/.config/1Password/ssh/agent.toml"
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"

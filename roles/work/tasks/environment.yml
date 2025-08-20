@@ -25,6 +25,22 @@
     - ssh_config
     - config_files
 
+- name: "create 1Password agent configuration file"
+  blockinfile:
+    content: |
+      [[ssh-keys]]
+      item = "securitas ed25519"
+      vault = "Trabajo"
+
+      [[ssh-keys]]
+      item = "nagios"
+      vault = "Trabajo"      
+    path: "{{ ansible_user_dir }}/.config/1Password/ssh/agent.toml"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0600
+
+
 - block:
     - name: "[ENVIRONMENT] Wait until dropbox files exist"
       wait_for:

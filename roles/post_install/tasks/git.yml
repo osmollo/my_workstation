@@ -112,7 +112,7 @@
       loop: "{{ git_repositories.home }}"
       vars:
         git_config_user_email: "{{ git_config.user_email_home }}"
-        git_config_signingkey: "{{ lookup('onepassword', 'op://ssh/osmollo/public key') }}"
+        git_config_signingkey: "{{ lookup('onepassword', 'op://Private/osmollo/public key') }}"
         git_work: false
       tags:
         - git_home
@@ -126,7 +126,7 @@
       loop: "{{ git_repositories.legacy }}"
       vars:
         git_config_user_email: "{{ git_config.user_email_home }}"
-        git_config_signingkey: "{{ lookup('onepassword', 'op://ssh/osmollo/public key') }}"
+        git_config_signingkey: "{{ lookup('onepassword', 'op://Private/osmollo/public key') }}"
         git_work: true
       tags:
         - git_legacy
