@@ -17,6 +17,8 @@
 
 - Creación de [role independiente](./roles/work) para configuraciones de trabajo
 - Ya no se instala por defecto el gestor de contraseñas **Keeper**
+- Corrección de errores:
+  - Definición de variables que habían desaparecido 
 
 ## VERSIONES ANTERIORES
 
