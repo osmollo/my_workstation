@@ -32,6 +32,7 @@ distro_packages:
   - wireguard-tools
   - arp-scan
   - shellcheck
+  - python3-passlib
 
 gnome_fedora_packages:
   - NetworkManager-openvpn-gnome
