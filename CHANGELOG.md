@@ -17,8 +17,9 @@
 
 - Creación de [role independiente](./roles/work) para configuraciones de trabajo
 - Ya no se instala por defecto el gestor de contraseñas **Keeper**
+- Instalación de [Zen Browser](https://zen-browser.app/)
 - Corrección de errores:
-  - Definición de variables que habían desaparecido 
+  - Definición de variables que habían desaparecido
 
 ## VERSIONES ANTERIORES
 

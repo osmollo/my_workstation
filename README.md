@@ -149,6 +149,7 @@ Por defecto se instala el siguiente software:
 | [yq](https://github.com/mikefarah/yq) | yq | install_yq | tools | Parseador json, yaml y xml |
 | [Zap](https://github.com/srevinsaju/zap) | zap | zap_install | tools | Gestor de AppImage |
 | [Zed](https://zed.dev/) | zed | install_zed | editors | Editor Zed |
+| [Zen Browser](https://zen-browser.app/) | zen_browser | install_zen | browsers | Navegador web |
 | [Zoom](https://zoom.us/es-es/meetings.html) | zoom | install_zoom | social | Cliente de videoconferencia |
 | [Zoxide](https://github.com/ajeetdsouza/zoxide) | zoxide | install_zoxide | tools | Navegación inteligente por directorios |
 

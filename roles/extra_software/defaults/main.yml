@@ -140,6 +140,7 @@ install_zed: true
 install_cloudflare_warp: true
 install_zap: true
 install_keeper: false
+install_zen: false
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -274,5 +275,6 @@ helix_flatpak: "https://dl.flathub.org/repo/appstream/com.helix_editor.Helix.fla
 obsidian_flatpak: "https://dl.flathub.org/repo/appstream/md.obsidian.Obsidian.flatpakref"
 rustdesk_flatpak: "https://dl.flathub.org/repo/appstream/com.rustdesk.RustDesk.flatpakref"
 zed_flatpak: "https://dl.flathub.org/repo/appstream/dev.zed.Zed.flatpakref"
+zen_flatpak: "https://dl.flathub.org/repo/appstream/app.zen_browser.zen.flatpakref"
 
 globalprotect_package: "https://github.com/yuezk/GlobalProtect-openconnect/releases/download/v1.4.9/globalprotect-openconnect-1.4.9.tar.gz"
