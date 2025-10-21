@@ -48,3 +48,29 @@
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     mode: 0644
+
+- name: "[GHOSTTY] download systemd unit"
+  copy:
+    dest: /usr/lib/systemd/system/ghostty.service
+    content: |
+      [Unit]
+      Description=Ghostty terminal
+      After=graphical-session.target
+      After=dbus.socket
+      Requires=dbus.socket
+
+      [Service]
+      Type=notify-reload
+      ReloadSignal=SIGUSR2
+      ExecStart=ghostty --gtk-single-instance=true --initial-window=false
+
+      [Install]
+      WantedBy=graphical-session.target      
+
+- name: "[GHOSTTY] enable systemd unit"
+  systemd:
+    name: ghostty
+    state: started
+    enabled: true
+    daemon_reload: true
+

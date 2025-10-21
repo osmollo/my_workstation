@@ -18,8 +18,11 @@
 - Creación de [role independiente](./roles/work) para configuraciones de trabajo
 - Ya no se instala por defecto el gestor de contraseñas **Keeper**
 - Instalación de [Zen Browser](https://zen-browser.app/)
+- Actualizada la configuración por defecto de [Ghostty](https://ghostty.org/)
 - Corrección de errores:
   - Definición de variables que habían desaparecido
+- Cambios en post_install:
+  - Eliminada la configuración de **Gimp** (pertenecía a Gimp 2.0)
 
 ## VERSIONES ANTERIORES
 

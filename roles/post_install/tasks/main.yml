@@ -114,12 +114,6 @@
     - vim
     - vimplugins
 
-- name: "Configure Gimp"
-  import_tasks: gimp.yml
-  tags:
-    - post_install
-    - gimp
-
 - name: "install HP packages"
   import_tasks: hp.yml
   tags:
