@@ -88,3 +88,9 @@
   when: install_zed
   tags:
     - zed
+
+- name: "[EDITORS] install Cursor"
+  import_tasks: cursor.yml
+  when: install_cursor
+  tags:
+    - cursor
