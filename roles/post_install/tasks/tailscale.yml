@@ -1,0 +1,4 @@
+---
+
+- name: "[TAILSCALE] authenticate tailscale"
+  command: tailscale up --authkey={{ lookup('onepassword', 'op://Private/Tailscale/add more/auth key') }} --hostname={{ ansible_hostname }}

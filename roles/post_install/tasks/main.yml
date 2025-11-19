@@ -7,6 +7,12 @@
     - environment
     - env
 
+- name: "configure tailscale"
+  import_tasks: tailscale.yml
+  tags:
+    - post_install
+    - tailscale
+
 - name: "configure neovim"
   import_tasks: neovim.yml
   tags:

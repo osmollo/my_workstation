@@ -94,6 +94,13 @@
     - common
     - fish
 
+- name: "install tailscale"
+  import_tasks: "tailscale.yml"
+  tags:
+    - common
+    - tailscale
+    - install_packages
+
 - name: "[ARCH] install yay package"
   import_tasks: yay.yml
   when: linux_distribution == "arch"

@@ -20,6 +20,7 @@
 - Instalación de [Zen Browser](https://zen-browser.app/)
 - Actualizada la configuración por defecto de [Ghostty](https://ghostty.org/)
 - Instalación del editor [Cursor](https://cursor.com/)
+- Instalación de [Tailscale](https://tailscale.com/)
 - Corrección de errores:
   - Definición de variables que habían desaparecido
 - Cambios en post_install:

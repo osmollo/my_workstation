@@ -1,0 +1,66 @@
+---
+
+- when: linux_distribution in ['ubuntu', 'debian']
+  block:
+    - name: "[TAILSCALE] [DEB] Download Tailscale GPG Key"
+      uri:
+        dest: /usr/share/keyrings/tailscale-archive-keyring.gpg
+        url: "https://pkgs.tailscale.com/stable/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}.noarmor.gpg "
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: "[TAILSCALE] [DEB] Add Tailscale repository"
+      copy:
+        content: |
+            # Tailscale packages for {{ ansible_distribution }} {{ ansible_distribution_release }}
+            deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} main
+        dest: /etc/apt/sources.list.d/tailscale.list
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: "[TAILSCALE] [DEB] Install Tailscale"
+      apt:
+        name:
+          - tailscale
+          - tailscale-archive-keyring
+        update_cache: true
+        state: present
+
+- when: linux_distribution in ['fedora']
+  block:
+    - name: "[TAILSCALE] [FEDORA] create repository file"
+      copy:
+        content: |
+          [tailscale-stable]
+          name=Tailscale stable
+          baseurl=https://pkgs.tailscale.com/stable/fedora/$basearch
+          enabled=1
+          type=rpm
+          repo_gpgcheck=1
+          gpgcheck=1
+          gpgkey=https://pkgs.tailscale.com/stable/fedora/repo.gpg
+        dest: /etc/yum.repos.d/tailscale.repo
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: "[TAILSCALE] [FEDORA] Install Tailscale"
+      dnf:
+        name: tailscale
+        state: present
+        update_cache: true
+
+- when: linux_distribution in ['arch']
+  name: "[TAILSCALE] Install Tailscale"
+  pacman:
+    name: tailscale
+    state: present
+    update_cache: true
+
+- name: "[TAILSCALE] enable and start tailscale service"
+  systemd:
+    name: tailscaled
+    enabled: true
+    state: started
