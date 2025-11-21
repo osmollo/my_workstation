@@ -105,6 +105,10 @@
           [[ssh-keys]]
           item = "osmollo"
           vault = "Private"
+
+          [[ssh-keys]]
+          item = "my_servers"
+          vault = "Private"
         dest: "{{ ansible_user_dir }}/.config/1Password/ssh/agent.toml"
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
