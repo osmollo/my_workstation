@@ -22,6 +22,7 @@
 - Instalación del editor [Cursor](https://cursor.com/)
 - Instalación de [Tailscale](https://tailscale.com/)
 - Nuevas entradas en `.gitignore`
+- Instalación de [Google Antigravity](https://antigravity.google.com/)
 - Corrección de errores:
   - Definición de variables que habían desaparecido
 - Cambios en post_install:

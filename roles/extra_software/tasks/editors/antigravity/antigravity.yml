@@ -1,0 +1,22 @@
+---
+
+- name: "[GOOGLE ANTIGRAVITY] install Google Antigravity for {{ linux_distribution }}"
+  include_tasks: "antigravity_{{ linux_distribution }}.yml"
+
+- name: "[GOOGLE ANTIGRAVITY] check if applicacion file exists"
+  stat:
+    path: "/usr/share/applications/antigravity.desktop"
+  register: antigravity_file
+
+- when: antigravity_file.stat.exists
+  block:
+    - name: "[GOOGLE ANTIGRAVITY] copy app icon"
+      copy:
+        src: "google-antigravity.png"
+        dest: /usr/share/antigravity/google-antigravity.png
+
+    - name: "[GOOGLE ANTIGRAVITY] update application file"
+      lineinfile:
+        path: "/usr/share/applications/antigravity.desktop"
+        regexp: "^Icon="
+        line: "^Icon=/usr/share/antigravity/google-antigravity.png"

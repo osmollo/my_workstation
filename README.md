@@ -34,6 +34,7 @@ Por defecto se instala el siguiente software:
 | **APLICACIÓN** | **TAG** | **VARIABLE** | **GRUPO** | **DESCRIPCIÓN** |
 |--|--|--|--|--|
 | [1Password](https://support.1password.com/cs/getting-started-linux/) | 1password | install_1password | pass_managers | Instala gestor de contraseñas **1Password** |
+| [Antigravity](https://antigravity.google/) | antigravity | install_antigravity | editors | IDE de Google |
 | [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) | apachedirectory | install_apachedirectory | dev | Cliente de LDAP |
 | [Balena Etcher](https://www.balena.io/etcher/) | etcher | install_etcher | tools | Aplicación para quemar imágenes iso en usb |
 | [Bat](https://github.com/sharkdp/bat) | bat | install_bat | tools | cat vitaminado |
