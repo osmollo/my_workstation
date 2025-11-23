@@ -2,6 +2,8 @@ facts/*
 *.retry
 .vagrant
 .vscode
+.ansible
+.zed
 .inventory_cache
 *.log
 test.yml
