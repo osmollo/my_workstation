@@ -98,6 +98,11 @@
     - extra_software
     - desktop
 
+- import_tasks: security/security.yml
+  tags:
+    - extra_software
+    - security
+
 - name: "Install Typography Fonts"
   import_tasks: fonts/fonts.yml
   when: install_fonts

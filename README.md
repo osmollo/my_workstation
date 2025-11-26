@@ -52,6 +52,7 @@ Por defecto se instala el siguiente software:
 | [CopyQ](https://hluk.github.io/CopyQ/) | copyq | install_copyq | | Gestor de portapapeles |
 | [curlie](https://github.com/rs/curlie) | curlie | install_curlie | tools | Curl vitaminado |
 | [Cursor](https://cursor.com/) | cursor | install_cursor | editors | Editor de texto |
+| [Dangezrone](https://dangerzone.rocks/) | dangerzone | install_dangerzone | security | Sandbox para corregir ficheros |
 | [DBeaver](https://dbeaver.io/) | dbeaver | install_dbeaver | dev | Manager de conexiones a BBDD |
 | [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | desktop| Cliente de Torrent |
 | [Dog](https://github.com/ogham/dog) | dog | install_dog | tools | Alternativa a `dig` en __Rust__ |

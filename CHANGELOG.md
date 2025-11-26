@@ -23,6 +23,7 @@
 - Instalación de [Tailscale](https://tailscale.com/)
 - Nuevas entradas en `.gitignore`
 - Instalación de [Google Antigravity](https://antigravity.google.com/)
+- Instalación de [Dangerzone](https://dangerzone.rocks/)
 - Corrección de errores:
   - Definición de variables que habían desaparecido
 - Cambios en post_install:

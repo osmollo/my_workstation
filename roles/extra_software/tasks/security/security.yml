@@ -1,0 +1,8 @@
+---
+
+- name: "[SECURITY] Install Dangerzone"
+  import_tasks: dangerzone/dangerzone.yml
+  when:
+    - install_dangerzone
+  tags:
+    - dangerzone
