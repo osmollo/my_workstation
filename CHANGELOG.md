@@ -24,6 +24,7 @@
 - Nuevas entradas en `.gitignore`
 - Instalación de [Google Antigravity](https://antigravity.google.com/)
 - Instalación de [Dangerzone](https://dangerzone.rocks/)
+- Instalación de [ProtonVPN GUI](https://protonvpn.com/) en lugar de __CLI__
 - Corrección de errores:
   - Definición de variables que habían desaparecido
 - Cambios en post_install:

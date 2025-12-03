@@ -2,23 +2,80 @@
 
 - name: "[PROTONVPN] [ARCH] installing protonvpn dependencies"
   pacman:
-    name: "{{ protonvpn_dependencies }}"
+    name: proton-vpn-gtk-app
     state: present
   when: linux_distribution == "arch"
 
 - name: "[PROTONVPN] [DEB] installing protonvpn dependencies"
-  apt:
-    name: "{{ protonvpn_dependencies }}"
-    update_cache: true
-    state: present
   when: linux_distribution in ["debian", "ubuntu"]
+  block:
+    - name: "[PROTONVPN] [DEB] add protonvpn repository"
+      copy:
+        dest: /etc/apt/sources.list.d/protonvpn.sources
+        content: |
+          Types: deb
+          URIs: https://repo.protonvpn.com/debian
+          Suites: stable
+          Components: main
+          Signed-By: /usr/share/keyrings/protonvpn-stable-archive-keyring.gpg
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: "[PROTONVPN] [DEB] install protonvpn"
+      apt:
+        name: protonvpn-stable-release
+        update_cache: true
+        state: present
+
+    - name: "[PROTONVPN] [DEB] install protonvpn for GNOME"
+      apt:
+        name:
+          - proton-vpn-gnome-desktop
+          - libayatana-appindicator3-1
+          - gir1.2-ayatanaappindicator3-0.1
+          - gnome-shell-extension-appindicator
+        update_cache: true
+        state: present
+      when: desktop_environment == "gnome"
+      ignore_errors: true
 
 - name: "[PROTONVPN] [FEDORA] installing protonvpn dependencies"
-  dnf:
-    name: "{{ protonvpn_dependencies }}"
-    update_cache: true
-    state: present
   when: linux_distribution == "fedora"
+  block:
+    - name: "[PROTONVPN] [FEDORA] create repository file"
+      copy:
+        dest: /etc/yum.repos.d/protonvpn.repo
+        content: |
+          [protonvpn-fedora-stable]
+          name = ProtonVPN Fedora Stable repository
+          baseurl = https://repo.protonvpn.com/fedora-$releasever-stable
+          enabled = 1
+          gpgcheck = 1
+          repo_gpgcheck=0
+          skip_if_unavailable=true
+          gpgkey = https://repo.protonvpn.com/fedora-$releasever-stable/public_key.asc
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: "[PROTONVPN] [FEDORA] install protonvpn"
+      dnf:
+        name: protonvpn-stable-release
+        update_cache: true
+        state: present
+
+    - name: "[PROTONVPN] [FEDORA] install protonvpn for GNOME"
+      dnf:
+        name:
+          - proton-vpn-gnome-desktop
+          - libappindicator-gtk3
+          - gnome-shell-extension-appindicator
+          - gnome-extensions-app
+        update_cache: true
+        state: present
+      when: desktop_environment == "gnome"
+      ignore_errors: true
 
 - name: "[PROTONVPN] Install protonvpn-cli"
   pip:
