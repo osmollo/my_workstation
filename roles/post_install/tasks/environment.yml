@@ -115,10 +115,10 @@
         mode: 0600
 
 - block:
-    - name: "[ENVIRONMENT] Wait until dropbox files exist"
+    - name: "[ENVIRONMENT] Wait until MEGASYNC files exist"
       wait_for:
         path: "{{ item.src }}"
-        timeout: "{{ wait_dropbox_sync }}"
+        timeout: "{{ wait_megasync_sync }}"
       loop: "{{ links_to_create }}"
 
 #    - name: "[ENVIRONMENT] configure fish shell"
@@ -126,7 +126,7 @@
 #      tags:
 #        - fish
 
-    - name: "[ENVIRONMENT] Create links from Dropbox"
+    - name: "[ENVIRONMENT] Create links from MEGASYNC"
       file:
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
@@ -134,7 +134,7 @@
       loop: "{{ links_to_create }}"
 
     - name: "[ENVIRONMENT] load tilix configuration"
-      shell: "dconf load / < {{ dropbox_dir }}/backups/gnome/tilix"
+      shell: "dconf load / < {{ megasync_dir }}/backups/gnome/tilix"
 
     - name: "[ENVIRONMENT] configure warp-terminal"
       import_tasks: warp.yml
@@ -146,7 +146,7 @@
 
     - name: "[ENVIRONMENT] link to 'update_remote.sh'"
       file:
-        src: "{{ dropbox_dir }}/bin/osmollo/update_remote.sh"
+        src: "{{ megasync_dir }}/bin/osmollo/update_remote.sh"
         dest: "{{ git_dir }}/update_remote.sh"
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"

@@ -1,5 +1,17 @@
 ---
 
+- name: "[MEGASYNC] [FEDORA] Add MEGASYNC repository"
+  copy:
+    dest: /etc/yum.repos.d/megasync.repo
+    content: |
+      [MEGAsync]
+      name=MEGAsync
+      baseurl=https://mega.nz/linux/repo/Fedora_$releasever/
+      gpgkey=https://mega.nz/linux/repo/Fedora_$releasever/repodata/repomd.xml.key
+      gpgcheck=1
+      enabled=1
+    mode: 0640
+
 - name: "[MEGASYNC] [FEDORA] install megasync package"
   dnf:
     name: "{{ megasync_package }}"

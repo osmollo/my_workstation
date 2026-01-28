@@ -106,7 +106,7 @@
 
 - name: "configure sublime"
   import_tasks: sublime.yml
-  when: use_dropbox
+  when: use_megasync
   tags:
     - post_install
     - sublime

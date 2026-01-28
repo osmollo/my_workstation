@@ -29,7 +29,8 @@
   - Definición de variables que habían desaparecido
 - Cambios en post_install:
   - Eliminada la configuración de **Gimp** (pertenecía a Gimp 2.0)
-  - Cambio configuración agente 1Password
+  - Cambio configuración agente **1Password**
+  - Deja de usarse **Dropbox** en favor de **MegaSync**
 
 ## VERSIONES ANTERIORES
 

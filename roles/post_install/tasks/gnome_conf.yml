@@ -1,12 +1,12 @@
 ---
 
 - name: "[GNOME_CONF] restore config"
-  when: use_dropbox
+  when: use_megasync
   block:
-    - name: "[GNOME_CONF] Wait until file exist in Dropbox"
+    - name: "[GNOME_CONF] Wait until file exist in MEGASYNC"
       wait_for:
         path: "{{ gnome_config_file }}"
-        timeout: "{{ wait_dropbox_sync }}"
+        timeout: "{{ wait_megasync_sync }}"
 
     - name: "[GNOME_CONF] Parse dconf dump for general"
       dconf_to_list:
