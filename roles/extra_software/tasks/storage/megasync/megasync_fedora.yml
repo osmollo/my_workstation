@@ -14,14 +14,7 @@
 
 - name: "[MEGASYNC] [FEDORA] install megasync package"
   dnf:
-    name: "{{ megasync_package }}"
+    name: megasync
     state: present
     update_cache: true
     disable_gpg_check: true
-
-- name: "[MEGASYNC] [FEDORA] Install megasync for file manager"
-  dnf:
-    name: "{{ file_manager_plugin }}"
-    state: present
-    disable_gpg_check: true
-  when: file_manager_plugin is defined

@@ -132,16 +132,16 @@ install_dog: false
 install_jql: false
 install_rustdesk: true
 install_lazydocker: true
-install_warp: true
+install_warp: false
 install_ghostty: false
 install_mullvad_vpn: false
 install_mullvad_browser: false
 install_zed: true
 install_cloudflare_warp: true
-install_zap: true
+install_zap: false
 install_keeper: false
 install_zen: false
-install_cursor: true
+install_cursor: false
 install_antigravity: false
 install_dangerzone: true
 

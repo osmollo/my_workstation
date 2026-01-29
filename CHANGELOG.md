@@ -25,12 +25,16 @@
 - Instalación de [Google Antigravity](https://antigravity.google.com/)
 - Instalación de [Dangerzone](https://dangerzone.rocks/)
 - Instalación de [ProtonVPN GUI](https://protonvpn.com/) en lugar de __CLI__
+- Paquetes que ya no se instalan en **Fedora**: `srm` y `openvpn` 
 - Corrección de errores:
   - Definición de variables que habían desaparecido
+  - Corrección instalacion de **MegaSYNC**
+  - Fixed enlace instalación de **Kor**
 - Cambios en post_install:
   - Eliminada la configuración de **Gimp** (pertenecía a Gimp 2.0)
   - Cambio configuración agente **1Password**
   - Deja de usarse **Dropbox** en favor de **MegaSync**
+  - Ya no se instala por defecto: `warp terminal`, `cursor` y `zed` 
 
 ## VERSIONES ANTERIORES
 

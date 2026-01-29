@@ -29,7 +29,7 @@
 
 - name: "[BROOT] move binary to /usr/local/bin"
   copy:
-    src: "/tmp/broot/x86_64-linux/broot"
+    src: "/tmp/broot/x86_64-unknown-linux-musl/broot"
     dest: /usr/local/bin/broot
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"

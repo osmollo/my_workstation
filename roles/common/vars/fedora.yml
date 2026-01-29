@@ -1,6 +1,5 @@
 ---
 distro_packages:
-  - openvpn
   - NetworkManager-openvpn
   - libsecret
   - net-tools
@@ -14,7 +13,6 @@ distro_packages:
   - gcc-c++
   - kernel-devel
   - firewall-config
-  - srm
   - nss-tools
   - fira-code-fonts
   - ansible-lint
