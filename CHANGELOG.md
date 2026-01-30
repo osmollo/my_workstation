@@ -34,7 +34,7 @@
   - Eliminada la configuración de **Gimp** (pertenecía a Gimp 2.0)
   - Cambio configuración agente **1Password**
   - Deja de usarse **Dropbox** en favor de **MegaSync**
-  - Ya no se instala por defecto: `warp terminal`, `cursor` y `zed` 
+  - Ya no se instala por defecto: `warp terminal`, `cursor`, `tailscale` y `zed` 
 
 ## VERSIONES ANTERIORES
 
