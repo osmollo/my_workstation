@@ -32,12 +32,6 @@
     - post_install
     - rclone
 
-- name: "configure megacmd client"
-  import_tasks: megacmd.yml
-  tags:
-    - post_install
-    - megacmd
-
 - name: "Customize firefox"
   vars:
     mozilla_browser: FIREFOX
