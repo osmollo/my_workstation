@@ -36,6 +36,8 @@
   - Deja de usarse **Dropbox** en favor de **MegaSync**
   - Ya no se instala por defecto: `warp terminal`, `cursor`, `tailscale` y `zed` 
   - Ya no se configura `megacmd` porque se usa la autenticación de `megasync`
+- Cambios en work:
+  - Se han corregido errores de variables en el playbook
 
 ## VERSIONES ANTERIORES
 

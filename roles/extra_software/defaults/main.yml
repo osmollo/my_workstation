@@ -136,7 +136,7 @@ install_warp: false
 install_ghostty: false
 install_mullvad_vpn: false
 install_mullvad_browser: false
-install_zed: true
+install_zed: false
 install_cloudflare_warp: true
 install_zap: false
 install_keeper: false

@@ -10,8 +10,8 @@
   include_role:
     name: extra_software
     tasks_from: "{{ item }}"
-  look:
-    - pass_managers/keepass/keepass.yml
+  loop:
+    - pass_managers/keeper/keeper.yml
     - social/teams/teams.yml
     - vpn/globalprotect.yml
     - dev/dbeaver/dbeaver.yml
