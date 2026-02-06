@@ -21,7 +21,7 @@
       become: true
       become_method: sudo
       copy:
-        src: user.file
+        src: user.jpg
         dest: "/var/lib/AccountsService/users/{{ ansible_user }}"
         mode: 0644
         owner: root
