@@ -37,6 +37,7 @@
   - Ya no se instala por defecto: `warp terminal`, `cursor`, `tailscale` y `zed` 
   - Ya no se configura `megacmd` porque se usa la autenticación de `megasync`
   - Nuevo proyecto de repositorios de trabajo
+  - Fix al crear links para la configuración de **dbeaver**
 - Cambios en work:
   - Se han corregido errores de variables en el playbook
 
