@@ -30,6 +30,7 @@
   - Definición de variables que habían desaparecido
   - Corrección instalacion de **MegaSYNC**
   - Fixed enlace instalación de **Kor**
+  - El playbook `playbooks/prepare_post.yml` mueve al final el desencriptado de `defaults/main.yml.gpg` y lo hace tanto para `post_install` como para `work`
 - Cambios en post_install:
   - Eliminada la configuración de **Gimp** (pertenecía a Gimp 2.0)
   - Cambio configuración agente **1Password**
