@@ -41,6 +41,7 @@
   - Fix al crear links para la configuración de **dbeaver**
 - Cambios en work:
   - Se han corregido errores de variables en el playbook
+  - Errores corregidos en los links que se deben crear
 
 ## VERSIONES ANTERIORES
 

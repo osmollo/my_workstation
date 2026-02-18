@@ -40,13 +40,11 @@
     group: "{{ ansible_user }}"
     mode: 0600
 
-
 - block:
     - name: "[ENVIRONMENT] Wait until MEGASYNC files exist"
       wait_for:
-        path: "{{ item.src }}"
+        path: "{{ megasync_dir }}/securitas/kubeconfig"
         timeout: "{{ wait_megasync_sync }}"
-      loop: "{{ links_to_create }}"
 
     - name: "[ENVIRONMENT] Create links from MEGASYNC"
       file:

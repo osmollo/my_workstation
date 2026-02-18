@@ -7,7 +7,7 @@
 
 - name: "[DBEAVER] create path"
   file:
-    path: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6"
+    path: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General"
     state: directory
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
@@ -15,6 +15,15 @@
 
 - name: "[DBEAVER] create link"
   file:
-    src: "{{ megasync_dir }}/backups/dbeaver"
-    dest: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General"
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
     state: link
+  loop:
+    - src: "{{ megasync_dir }}/backups/dbeaver/project"
+      dest: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General/.project"
+    - src: "{{ megasync_dir }}/backups/dbeaver/dbeaver"
+      dest: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General/.dbeaver"
+    - src: "{{ megasync_dir }}/backups/dbeaver/settings"
+      dest: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General/.settings"
+    - src: "{{ megasync_dir }}/backups/dbeaver/Scripts"
+      dest: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General/Scripts"
