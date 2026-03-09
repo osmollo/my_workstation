@@ -20,12 +20,12 @@
 - Instalación de [Zen Browser](https://zen-browser.app/)
 - Actualizada la configuración por defecto de [Ghostty](https://ghostty.org/)
 - Instalación del editor [Cursor](https://cursor.com/)
-- Instalación de [Tailscale](https://tailscale.com/)
+- Instalación de [Netbird](https://netbird.io/)
 - Nuevas entradas en `.gitignore`
 - Instalación de [Google Antigravity](https://antigravity.google.com/)
 - Instalación de [Dangerzone](https://dangerzone.rocks/)
 - Instalación de [ProtonVPN GUI](https://protonvpn.com/) en lugar de __CLI__
-- Paquetes que ya no se instalan en **Fedora**: `srm` y `openvpn` 
+- Paquetes que ya no se instalan en **Fedora**: `srm` y `openvpn`
 - Corrección de errores:
   - Definición de variables que habían desaparecido
   - Corrección instalacion de **MegaSYNC**
@@ -35,7 +35,7 @@
   - Eliminada la configuración de **Gimp** (pertenecía a Gimp 2.0)
   - Cambio configuración agente **1Password**
   - Deja de usarse **Dropbox** en favor de **MegaSync**
-  - Ya no se instala por defecto: `warp terminal`, `cursor`, `tailscale` y `zed` 
+  - Ya no se instala por defecto: `warp terminal`, `cursor`, `tailscale` y `zed`
   - Ya no se configura `megacmd` porque se usa la autenticación de `megasync`
   - Nuevo proyecto de repositorios de trabajo
   - Fix al crear links para la configuración de **dbeaver**

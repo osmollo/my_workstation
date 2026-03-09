@@ -94,11 +94,11 @@
     - common
     - fish
 
-- name: "install tailscale"
-  import_tasks: "tailscale.yml"
+- name: "install netbird"
+  import_tasks: "netbird.yml"
   tags:
     - common
-    - tailscale
+    - netbird
     - install_packages
 
 - name: "[ARCH] install yay package"
