@@ -50,3 +50,13 @@
   tags:
     - mullvad
     - mullvad_browser
+
+- name: "[BROWSERS] Install Zen Browser"
+  import_tasks: zen_browser.yml
+  when:
+    - install_zen
+    - linux_distribution == "fedora"
+  tags:
+    - zen
+    - zenbrowser
+    - zen_browser

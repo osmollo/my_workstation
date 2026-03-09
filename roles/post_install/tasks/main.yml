@@ -1,11 +1,5 @@
 ---
 
-#- name: "configure syncthing"
-#  import_tasks: syncthing.yml
-#  tags:
-#    - post_install
-#    - syncthing
-
 - name: "configure environment"
   import_tasks: environment.yml
   tags:
@@ -32,31 +26,11 @@
     - post_install
     - helix
 
-- name: "configure ODBC for python"
-  import_tasks: odbc.yml
-  become: true
-  tags:
-    - post_install
-    - odbc
-    - python
-
 - name: "configure rclone"
   import_tasks: rclone.yml
   tags:
     - post_install
     - rclone
-
-- name: "restore dbeaver connections"
-  import_tasks: dbeaver.yml
-  tags:
-    - post_install
-    - dbeaver
-
-- name: "configure megacmd client"
-  import_tasks: megacmd.yml
-  tags:
-    - post_install
-    - megacmd
 
 - name: "Customize firefox"
   vars:
@@ -120,7 +94,7 @@
 
 - name: "configure sublime"
   import_tasks: sublime.yml
-  when: use_dropbox
+  when: use_megasync
   tags:
     - post_install
     - sublime
@@ -133,12 +107,6 @@
     - post_install
     - vim
     - vimplugins
-
-- name: "Configure Gimp"
-  import_tasks: gimp.yml
-  tags:
-    - post_install
-    - gimp
 
 - name: "install HP packages"
   import_tasks: hp.yml

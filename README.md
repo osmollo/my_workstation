@@ -5,6 +5,7 @@
   - [Software extra instalado](#software-extra-instalado)
   - [¿Cómo se usa?](#cómo-se-usa)
     - [Post instalación](#post-instalación)
+    - [WORK](#work)
     - [Deshabilitar actualizaciones](#deshabilitar-actualizaciones)
   - [Otros playbooks](#otros-playbooks)
   - [Ejecución de comandos ansible ad-hoc](#ejecución-de-comandos-ansible-ad-hoc)
@@ -33,6 +34,7 @@ Por defecto se instala el siguiente software:
 | **APLICACIÓN** | **TAG** | **VARIABLE** | **GRUPO** | **DESCRIPCIÓN** |
 |--|--|--|--|--|
 | [1Password](https://support.1password.com/cs/getting-started-linux/) | 1password | install_1password | pass_managers | Instala gestor de contraseñas **1Password** |
+| [Antigravity](https://antigravity.google/) | antigravity | install_antigravity | editors | IDE de Google |
 | [Apache Directory Studio](https://directory.apache.org/studio/downloads.html) | apachedirectory | install_apachedirectory | dev | Cliente de LDAP |
 | [Balena Etcher](https://www.balena.io/etcher/) | etcher | install_etcher | tools | Aplicación para quemar imágenes iso en usb |
 | [Bat](https://github.com/sharkdp/bat) | bat | install_bat | tools | cat vitaminado |
@@ -49,6 +51,8 @@ Por defecto se instala el siguiente software:
 | [Consul](https://learn.hashicorp.com/tutorials/consul/install-cli) | consul | install_consul | tools | Service discovery |
 | [CopyQ](https://hluk.github.io/CopyQ/) | copyq | install_copyq | | Gestor de portapapeles |
 | [curlie](https://github.com/rs/curlie) | curlie | install_curlie | tools | Curl vitaminado |
+| [Cursor](https://cursor.com/) | cursor | install_cursor | editors | Editor de texto |
+| [Dangezrone](https://dangerzone.rocks/) | dangerzone | install_dangerzone | security | Sandbox para corregir ficheros |
 | [DBeaver](https://dbeaver.io/) | dbeaver | install_dbeaver | dev | Manager de conexiones a BBDD |
 | [Deluge Torrent](https://deluge-torrent.org/) | deluge | install_deluge | desktop| Cliente de Torrent |
 | [Dog](https://github.com/ogham/dog) | dog | install_dog | tools | Alternativa a `dig` en __Rust__ |
@@ -148,6 +152,7 @@ Por defecto se instala el siguiente software:
 | [yq](https://github.com/mikefarah/yq) | yq | install_yq | tools | Parseador json, yaml y xml |
 | [Zap](https://github.com/srevinsaju/zap) | zap | zap_install | tools | Gestor de AppImage |
 | [Zed](https://zed.dev/) | zed | install_zed | editors | Editor Zed |
+| [Zen Browser](https://zen-browser.app/) | zen_browser | install_zen | browsers | Navegador web |
 | [Zoom](https://zoom.us/es-es/meetings.html) | zoom | install_zoom | social | Cliente de videoconferencia |
 | [Zoxide](https://github.com/ajeetdsouza/zoxide) | zoxide | install_zoxide | tools | Navegación inteligente por directorios |
 
@@ -196,6 +201,8 @@ ansible-playbook install.yml -t chromium -e install_chromium=true
 
 ### Post instalación
 
+Este playbook se usa para cualquier configuración personal del pc
+
 Las variables necesarias para la ejecución de este role se encuentran en `./roles/post_install/defaults/main.yml.gpg`. Para poder tener acceso a todos los secretos necesarios para la configuración, es necesario ejecutar el siguiente comando:
 
 ```shell
@@ -209,7 +216,22 @@ ansible-playbook playbooks/prepare_post.yml
 ansible-playbook post_install.yml
 ```
 
-[Aquí se puede consultar la documentación de la post instalación](roles/post_install/README.md)
+### WORK
+
+Este playbook se usa para las configuraciones de trabajo
+
+Las variables necesarias para la ejecución de este role se encuentran en `./roles/work/defaults/main.yml.gpg`. Para poder tener acceso a todos los secretos necesarios para la configuración, es necesario ejecutar el siguiente comando:
+
+```shell
+eval $(op signin)
+```
+
+Y a continuación ejecutar los siguientes playbooks:
+
+```shell
+ansible-playbook playbooks/prepare_post.yml
+ansible-playbook work.yml
+```
 
 ### Deshabilitar actualizaciones
 

@@ -94,6 +94,13 @@
     - common
     - fish
 
+- name: "install netbird"
+  import_tasks: "netbird.yml"
+  tags:
+    - common
+    - netbird
+    - install_packages
+
 - name: "[ARCH] install yay package"
   import_tasks: yay.yml
   when: linux_distribution == "arch"

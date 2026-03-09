@@ -130,7 +130,7 @@
       vars:
         kor_version: "{{ kor_latest.url | urlsplit('path') | basename }}"
       unarchive:
-        src: "https://github.com/yonahd/kor/releases/download/{{ kor_version }}/kor_Linux_x86_64.tar.gz"
+        src: "https://github.com/yonahd/kor/releases/download/{{ kor_version }}/{{ kor_version }}.tgz"
         dest: /usr/local/bin
         owner: root
         group: root

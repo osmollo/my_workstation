@@ -1,0 +1,32 @@
+---
+
+- name: "[FEDORA] [CURSOR] Install Cursor in Fedora"
+  when: linux_distribution == "fedora"
+  block:
+    - name: "[FEDORA] [CURSOR] create repository file"
+      copy:
+        dest: /etc/yum.repos.d/cursor.repo
+        content: |
+          [cursor]
+          name=Cursor
+          baseurl=https://downloads.cursor.com/yumrepo
+          enabled=1
+          gpgcheck=1
+          gpgkey=https://downloads.cursor.com/keys/anysphere.asc
+          repo_gpgcheck=1
+        mode: 0600
+        owner: root
+        group: root
+        
+    - name: "[FEDORA] [CURSOR] install Cursor"
+      dnf:
+        name: cursor
+        update_cache: true
+        state: present
+
+- name: "[DEB] [CURSOR] install Cursor in Debian systems"
+  when: linux_distribution in ['debian', 'ubuntu']
+  apt:
+    deb: https://downloads.cursor.com/production/45fd70f3fe72037444ba35c9e51ce86a1977ac11/linux/x64/deb/amd64/deb/cursor_2.0.34_amd64.deb
+    update_cache: true
+    state: present

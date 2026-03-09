@@ -52,7 +52,7 @@ ENABLE_CORRECTION="true"
 # * '[yyyy-mm-dd]'   # [yyyy-mm-dd] + [time] with colors
 # If not set, the default value is 'yyyy-mm-dd'.
 # HIST_STAMPS='yyyy-mm-dd'
-export HISTFILE="$HOME/Dropbox/backups/bash/bash_history"
+export HISTFILE="$HOME/MEGA/backups/bash/bash_history"
 # Uncomment the following line if you do not want OMB to overwrite the existing
 # aliases by the default OMB aliases defined in lib/*.sh
 # OMB_DEFAULT_ALIASES="check"
@@ -104,7 +104,7 @@ plugins=(
 
 # Which plugins would you like to conditionally load? (plugins can be found in ~/.oh-my-bash/plugins/*)
 # Custom plugins may be added to ~/.oh-my-bash/custom/plugins/
-# Example format: 
+# Example format:
 #  if [ "$DISPLAY" ] || [ "$SSH" ]; then
 #      plugins+=(tmux-autoattach)
 #  fi

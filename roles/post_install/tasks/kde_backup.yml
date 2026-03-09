@@ -1,9 +1,9 @@
 ---
 
-- name: "[KDE_BACKUP] [KDE] Wait until dropbox files exist"
+- name: "[KDE_BACKUP] [KDE] Wait until MEGASYNC files exist"
   wait_for:
     path: "{{ kde_backup_dir }}"
-    timeout: "{{ wait_dropbox_sync }}"
+    timeout: "{{ wait_megasync_sync }}"
 
 - name: "[KDE_BACKUP] [KDE] search kde config files not backed up yet"
   find:

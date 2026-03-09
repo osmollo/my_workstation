@@ -9,9 +9,9 @@
     ansible_user: "{{ lookup('env', 'USER') }}"
     ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
   tasks:
-    - name: "Dropbox sync"
+    - name: "MEGASYNC sync"
       debug:
-        msg: "Sync Dropbox with the following pass: {{ lookup('onepassword', 'op://Private/Dropbox/password') }}"
+        msg: "Configure MEGASYNC please"
 
     - name: "get gpg data"
       set_fact:
@@ -69,14 +69,6 @@
         path: "{{ playbook_dir | dirname }}/roles/post_install/defaults/main.yml"
         state: absent
 
-    - name: "decrypt 'roles/post-install/defaults/main.yml.gpg'"
-      shell: "gpg --batch --yes --output ../roles/post_install/defaults/main.yml --decrypt ../roles/post_install/defaults/main.yml.gpg"
-      register: private_response
-      changed_when: "'not changed' not in private_response.stderr"
-      args:
-        stdin: "{{ doc1_passphrase }}"
-        stdin_add_newline: false
-
     - name: "[PROTON] please copy this passphrase"
       debug: var=doc3_passphrase
 
@@ -97,3 +89,19 @@
         - "{{ ansible_user_dir }}/{{ doc1_filename }}"
         - "{{ ansible_user_dir }}/{{ doc3_filename }}.zip"
         - "{{ ansible_user_dir }}/{{ doc3_filename }}"
+
+    - name: "decrypt 'roles/post-install/defaults/main.yml.gpg'"
+      shell: "gpg --batch --yes --output ../roles/post_install/defaults/main.yml --decrypt ../roles/post_install/defaults/main.yml.gpg"
+      register: private_response
+      changed_when: "'not changed' not in private_response.stderr"
+      args:
+        stdin: "{{ doc1_passphrase }}"
+        stdin_add_newline: false
+
+    - name: "decrypt 'roles/work/defaults/main.yml.gpg'"
+      shell: "gpg --batch --yes --output ../roles/work/defaults/main.yml --decrypt ../roles/work/defaults/main.yml.gpg"
+      register: private_response
+      changed_when: "'not changed' not in private_response.stderr"
+      args:
+        stdin: "{{ doc1_passphrase }}"
+        stdin_add_newline: false

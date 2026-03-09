@@ -1,7 +1,7 @@
 ---
 
 install_docker: true
-install_dropbox: true
+install_dropbox: false
 install_vscode: true
 install_spotify: true
 install_ohmyzsh: true
@@ -43,14 +43,14 @@ install_k0s: false
 install_kor: true
 install_flatpak: true
 install_megacmd: true
-install_megasync: false
+install_megasync: true
 install_vivaldi: false
 install_brave: true
 install_bitwarden: false
 install_lexnet: false
 install_pass: false
 install_bucklespring: false
-install_protonvpn: false
+install_protonvpn: true
 install_prezto: false
 install_etcher: false
 install_woeusb: false
@@ -132,14 +132,18 @@ install_dog: false
 install_jql: false
 install_rustdesk: true
 install_lazydocker: true
-install_warp: true
+install_warp: false
 install_ghostty: false
 install_mullvad_vpn: false
 install_mullvad_browser: false
-install_zed: true
+install_zed: false
 install_cloudflare_warp: true
-install_zap: true
-install_keeper: true
+install_zap: false
+install_keeper: false
+install_zen: false
+install_cursor: false
+install_antigravity: false
+install_dangerzone: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -274,5 +278,6 @@ helix_flatpak: "https://dl.flathub.org/repo/appstream/com.helix_editor.Helix.fla
 obsidian_flatpak: "https://dl.flathub.org/repo/appstream/md.obsidian.Obsidian.flatpakref"
 rustdesk_flatpak: "https://dl.flathub.org/repo/appstream/com.rustdesk.RustDesk.flatpakref"
 zed_flatpak: "https://dl.flathub.org/repo/appstream/dev.zed.Zed.flatpakref"
+zen_flatpak: "https://dl.flathub.org/repo/appstream/app.zen_browser.zen.flatpakref"
 
 globalprotect_package: "https://github.com/yuezk/GlobalProtect-openconnect/releases/download/v1.4.9/globalprotect-openconnect-1.4.9.tar.gz"

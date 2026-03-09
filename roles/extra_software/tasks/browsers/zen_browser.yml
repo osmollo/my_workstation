@@ -1,0 +1,6 @@
+---
+
+- name: "[ZEN_BROWSER] install Zen Browser"
+  flatpak:
+    name: "{{ zen_flatpak }}"
+    state: present

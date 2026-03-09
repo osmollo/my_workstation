@@ -1,0 +1,29 @@
+---
+
+- name: "[DBEAVER] delete original directory"
+  file:
+    path: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General"
+    state: absent
+
+- name: "[DBEAVER] create path"
+  file:
+    path: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
+
+- name: "[DBEAVER] create link"
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - src: "{{ megasync_dir }}/backups/dbeaver/project"
+      dest: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General/.project"
+    - src: "{{ megasync_dir }}/backups/dbeaver/dbeaver"
+      dest: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General/.dbeaver"
+    - src: "{{ megasync_dir }}/backups/dbeaver/settings"
+      dest: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General/.settings"
+    - src: "{{ megasync_dir }}/backups/dbeaver/Scripts"
+      dest: "{{ ansible_user_dir }}/.local/share/DBeaverData/workspace6/General/Scripts"

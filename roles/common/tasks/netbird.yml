@@ -1,0 +1,61 @@
+---
+
+- when: linux_distribution in ['ubuntu', 'debian']
+  block:
+    - name: "[NETBIRD] [DEB] save apt key"
+      apt_key:
+        url: https://pkgs.netbird.io/debian/public.key
+        keyring: /usr/share/keyrings/netbird-archive-keyring.gpg
+        state: present
+
+    - name: "[NETBIRD] [DEB] copy repository file"
+      copy:
+        content: |
+          deb [signed-by=/usr/share/keyrings/netbird-archive-keyring.gpg] https://pkgs.netbird.io/debian stable main
+        dest: "/etc/apt/sources.list.d/netbird.list"
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: "[NETBIRD] [DEB] install netbird"
+      apt:
+        name: netbird
+        state: present
+        update_cache: true
+
+- when: linux_distribution in ['fedora']
+  block:
+    - name: "[NETBIRD] [FEDORA] create repository file"
+      copy:
+        content: |
+          [netbird]
+          name=netbird
+          baseurl=https://pkgs.netbird.io/yum/
+          enabled=1
+          gpgcheck=0
+          gpgkey=https://pkgs.netbird.io/yum/repodata/repomd.xml.key
+          repo_gpgcheck=1
+        dest: /etc/yum.repos.d/netbird.repo
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: "[NETBIRD] [FEDORA] Install netbird"
+      dnf:
+        name: netbird
+        state: present
+        update_cache: true
+
+- when: linux_distribution in ['arch']
+  name: "[NETBIRD] [ARCH] Install netbird"
+  become: false
+  yay:
+    name: netbird
+    state: present
+    update_cache: true
+
+- name: "[NETBIRD] enable and start netbird service"
+  systemd:
+    name: netbird
+    enabled: true
+    state: started

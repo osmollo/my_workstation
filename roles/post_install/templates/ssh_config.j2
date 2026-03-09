@@ -23,7 +23,6 @@ Host {{ item.name }}
   IdentityFile {{ item.identity_file }}
 {% endif %}
 {% if item.type is defined %}
-  IdentityFile ~/.ssh/securitas_rsa
   PubkeyAcceptedKeyTypes {{ item.type }}
   HostKeyAlgorithms {{ item.type }}
 {% endif %}

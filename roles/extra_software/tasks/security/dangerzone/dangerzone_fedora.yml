@@ -1,0 +1,13 @@
+---
+
+- name: "[DANGERZONE] [FEDORA] download repository file"
+  get_url:
+    url: "https://packages.freedom.press/yum-tools-prod/dangerzone/dangerzone.repo"
+    dest: /etc/yum.repos.d/dangerzone.repo
+    mode: 0644
+
+- name: "[DANGERZONE] [FEDORA] install dangerzone"
+  dnf:
+    name: dangerzone
+    state: present
+    update_cache: true

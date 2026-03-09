@@ -4,8 +4,8 @@
   block:
     - name: "[USER] Wait until guarroman photo exists"
       wait_for:
-        path: "{{ dropbox_dir }}/fotos/guarroman.png"
-        timeout: "{{ wait_dropbox_sync }}"
+        path: "{{ megasync_dir }}/fotos/guarroman.png"
+        timeout: "{{ wait_megasync_sync }}"
 
     - name: "[USER] Set profile photo for user '{{ ansible_user }}'"
       become: true
@@ -21,11 +21,11 @@
       become: true
       become_method: sudo
       copy:
-        src: user.file
+        src: user.jpg
         dest: "/var/lib/AccountsService/users/{{ ansible_user }}"
         mode: 0644
         owner: root
         group: root
   when:
     - desktop_environment == "gnome"
-    - use_dropbox
+    - use_megasync

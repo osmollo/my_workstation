@@ -1,0 +1,20 @@
+---
+
+- name: "[DANGERZONE] [DEB] save apt key"
+  apt_key:
+    keyserver: keys.openpgp.org
+    id: DE28AB241FA48260FAC9B8BAA7C9B38522604281
+    keyring: /usr/share/keyrings/dangerzone.gpg
+
+- name: "[DANGERZONE] [DEB] create repository file"
+  copy:
+    content: |
+      deb [signed-by=/usr/share/keyrings/dangerzone.gpg] https://packages.freedom.press/apt-tools-prod {{ ansible_distribution_release }} main
+    dest: /etc/apt/sources.list.d/dangerzone.list
+    mode: 0644
+
+- name: "[DANGERZONE] [DEB] install dangerzone"
+  apt:
+    name: dangerzone
+    state: present
+    update_cache: true

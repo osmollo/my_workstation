@@ -1,0 +1,20 @@
+---
+
+- name: "[fedora] install google antigravity repository file"
+  copy:
+    content: |
+      [antigravity]
+      name=Antigravity RPM Repository
+      baseurl=https://us-central1-yum.pkg.dev/projects/antigravity-auto-updater-dev/antigravity-rpm
+      enabled=1
+      gpgcheck=0
+    dest: /etc/yum.repos.d/antigravity.repo
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "[FEDORA] install google antigravity"
+  dnf:
+    name: antigravity
+    state: present
+    update_cache: true

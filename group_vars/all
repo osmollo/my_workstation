@@ -2,3 +2,12 @@
 
 go_root: /usr/local/go
 go_path: "{{ ansible_user_dir }}/.local/share/go"
+
+megasync_dir: "{{ ansible_user_dir }}/MEGA"
+git_dir: "{{ ansible_user_dir }}/git"
+kde_backup_dir: "{{ megasync_dir }}/backups/kde"
+ssh_dir: "{{ ansible_user_dir }}/.ssh"
+
+git_tokens:
+  github: "{{ lookup('onepassword', 'op://Private/github.com/TOKENS/my_workstation') }}"
+  gitlab: "{{ lookup('onepassword', 'op://Employee/gitlab.com/TOKENS/my_workstation') }}"

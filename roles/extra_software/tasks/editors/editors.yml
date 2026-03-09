@@ -88,3 +88,16 @@
   when: install_zed
   tags:
     - zed
+
+- name: "[EDITORS] install Cursor"
+  import_tasks: cursor.yml
+  when: install_cursor
+  tags:
+    - cursor
+
+- name: "[EDITORS] install Google Antigravity"
+  import_tasks: antigravity/antigravity.yml
+  when: install_antigravity
+  tags:
+    - antigravity
+    - google_antigravity

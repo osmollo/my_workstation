@@ -1,0 +1,55 @@
+---
+
+- name: "[ENVIRONMENT] configure ssh entries"
+  blockinfile:
+    path: "{{ ansible_user_dir }}/.ssh/config"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }} #"
+    block: |
+      Host {{ item.name }}
+        ForwardAgent yes
+      {% if item.serveraliveinternal is defined %}
+        ServerAliveInternal {{ item.serveraliveinternal }}
+      {% endif %}
+      {% if item.serveralivecountmax is defined %}
+        ServerAliveCountMax {{ item.serveralivecountmax }}
+      {% endif %}
+      {% if item.stricthostkeychecking is defined %}
+        StrictHostKeyChecking {{ item.stricthostkeychecking }}
+      {% endif %}
+      {% if item.forwardagent is defined %}
+        ForwardAgent {{ item.forwardagent }}
+      {% endif %}
+      {% if item.hostname is defined %}
+        Hostname {{ item.hostname }}
+      {% endif %}
+      {% if item.user is defined %}
+        User {{ item.user }}
+      {% endif %}
+      {% if item.identity_file is defined %}
+        IdentityFile {{ item.identity_file }}
+      {% endif %}
+      {% if item.type is defined %}
+        IdentityFile ~/.ssh/securitas_rsa
+        PubkeyAcceptedKeyTypes {{ item.type }}
+        HostKeyAlgorithms {{ item.type }}
+      {% endif %}
+      IdentityAgent ~/.1password/agent.sock
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0600
+  loop: "{{ ssh_config_entries }}"
+
+- name: "[ENVIRONMENT] change policy"
+  become: true
+  command: update-crypto-policies --set LEGACY
+  changed_when: false
+  when: linux_distribution != "arch"
+
+- name: "[ENVIRONMENT] export RSA key"
+  copy:
+    content: "{{ lookup('onepassword', 'op://Trabajo/securitas_rsa/clave privada') }}"
+    dest: "{{ ansible_user_dir }}/.ssh/securitas_rsa"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0600
+  

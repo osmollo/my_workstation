@@ -11,6 +11,6 @@
 
 - name: "[ZED] create link to config file"
   file:
-    src: "{{ dropbox_dir }}/backups/zed"
+    src: "{{ megasync_dir }}/backups/zed"
     dest: "{{ ansible_user_dir }}/.config/zed"
     state: link

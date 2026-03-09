@@ -1,0 +1,19 @@
+---
+
+- name: "[DEB] save apt key"
+  apt_key:
+  shell: curl -fsSL https://us-central1-apt.pkg.dev/doc/repo-signing-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/antigravity.gpg
+
+- name: "[DEB] install google antigravity repository file"
+  copy:
+    content: "deb [signed-by=/usr/share/keyrings/antigravity.gpg] https://us-central1-apt.pkg.dev/projects/antigravity-auto-updater-dev/ antigravity-debian main"
+    dest: /etc/apt/sources.list.d/antigravity.list
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "[DEB] install google antigravity"
+  apt:
+    name: antigravity
+    state: present
+    update_cache: true

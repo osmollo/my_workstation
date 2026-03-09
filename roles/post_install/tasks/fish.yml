@@ -16,7 +16,7 @@
 
 - name: "[FISH] create link to fish history"
   file:
-    src: "{{ dropbox_dir }}/backups/fish/fish_history"
+    src: "{{ megasync_dir }}/backups/fish/fish_history"
     dest: "{{ ansible_user_dir }}/.local/share/fish/fish_history"
     state: link
 
