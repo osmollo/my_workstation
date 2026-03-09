@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [10.1](#101)
   - [10.0](#100)
   - [VERSIONES ANTERIORES](#versiones-anteriores)
     - [Version 9](#version-9)
@@ -12,6 +13,8 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 10.1
 
 ## 10.0
 
