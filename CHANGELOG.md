@@ -16,6 +16,8 @@
 
 ## 10.1
 
+- Cambios en `post_install`:
+  - Configuración de `netbird`
 - Cambios en `work`:
   - Poder clonar todos los repos de un projecton con __extra_vars__ `clone_project`
 
