@@ -16,6 +16,9 @@
 
 ## 10.1
 
+- Cambios en `work`:
+  - Poder clonar todos los repos de un projecton con __extra_vars__ `clone_project`
+
 ## 10.0
 
 - Creación de [role independiente](./roles/work) para configuraciones de trabajo

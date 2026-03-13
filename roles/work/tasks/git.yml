@@ -37,17 +37,19 @@
       register: git_work_response
       tags:
         - git_work
+        - clone_project
 
     - name: "[GIT] [WORK] get project repositories"
       get_bitbucket_repos:
         host: "{{ bitbucket_conn.host }}"
         token: "{{ bitbucket_conn.token }}"
-        projects: "{{ bitbucket_conn.projects }}"
+        projects: "{{ clone_project | default(bitbucket_conn.projects) }}"
         git_directory: "{{ git_dir }}"
       register: bitbucket_repos
       when: not git_work_response.failed
       tags:
         - git_work
+        - clone_project
 
     - name: "[GIT] [WORK] clone repositories"
       include_role:
