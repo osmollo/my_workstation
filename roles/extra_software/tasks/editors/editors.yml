@@ -97,7 +97,7 @@
 
 - name: "[EDITORS] install Google Antigravity"
   import_tasks: antigravity/antigravity.yml
-  when: install_antigravity
+  when: install_antigravity | bool
   tags:
     - antigravity
     - google_antigravity

@@ -142,7 +142,7 @@ install_zap: false
 install_keeper: false
 install_zen: false
 install_cursor: false
-install_antigravity: false
+install_antigravity: true
 install_dangerzone: true
 
 tlp_battery_min: 75
