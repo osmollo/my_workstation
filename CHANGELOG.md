@@ -19,6 +19,7 @@
 - Soporte para **Fedora 44**
 - Cambios en `extra_software`:
   - **Zed** instalado por defecto
+  - Instalación de **Claude CLI**
 - Cambios en `post_install`:
   - Configuración de `netbird`
 - Cambios en `work`:

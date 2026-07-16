@@ -67,6 +67,11 @@
     - extra_software
     - dev
 
+- import_tasks: ia/ia.yml
+  tags:
+    - extra_software
+    - ia
+
 - import_tasks: k8s/k8s.yml
   tags:
     - extra_software

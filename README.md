@@ -48,6 +48,7 @@ Por defecto se instala el siguiente software:
 | [Buttercup](https://buttercup.pw/) | buttercup | install_buttercup | pass_managers | Gestor de contraseñas |
 | [Cherrytree](https://www.giuspen.com/cherrytree/) | cherrytree | install_cherrytree | editors | Editor de textos |
 | [Chromium Browser](https://chromium.woolyss.com/download/es/) | chromium | install_chromium| browsers | Navegador web libre basado en Chrome |
+| [Claude CLI](https://claude.ai) | claude_cli | install_claude_cli | ia | CLI para [Claude](https://code.claude.com/docs/es/cli-reference) |
 | [Consul](https://learn.hashicorp.com/tutorials/consul/install-cli) | consul | install_consul | tools | Service discovery |
 | [CopyQ](https://hluk.github.io/CopyQ/) | copyq | install_copyq | | Gestor de portapapeles |
 | [curlie](https://github.com/rs/curlie) | curlie | install_curlie | tools | Curl vitaminado |
