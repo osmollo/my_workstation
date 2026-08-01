@@ -104,6 +104,7 @@ Por defecto se instala el siguiente software:
 | [Obsidian](https://obsidian.md/) | obsidian | install_obsidian | editors | Gestor de notas |
 | [Oh my BASH!](https://ohmybash.nntoan.com/) | ohmybash | install_ohmybash | shell | Personalización de BASH |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | shell | Personalización de ZSH |
+| [OpenCode](https://opencode.ai/es) | opencode | install_opencode | ia | IDE para trabajar con IA |
 | [Podman](https://podman.io/) | podman | install_podman | containers | Gestor de contenedores |
 | [Poetry](https://python-poetry.org/) | poetry | install_poetry | dev | Gestor de proyectos para Python |
 | [Postman](https://www.getpostman.com) | postman | install_postman | dev | Cliente REST API |

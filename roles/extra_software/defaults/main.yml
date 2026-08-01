@@ -144,6 +144,8 @@ install_zen: false
 install_cursor: false
 install_antigravity: true
 install_dangerzone: true
+install_claude: true
+install_opencode: true
 
 tlp_battery_min: 75
 tlp_battery_max: 85
@@ -197,6 +199,7 @@ dog_latest_url: "https://github.com/ogham/dog/releases/latest"
 jql_latest_url: "https://github.com/yamafaktory/jql/releases/latest"
 rustdesk_latest_url: "https://github.com/rustdesk/rustdesk/releases/latest"
 lazydocker_latest_url: "https://github.com/jesseduffield/lazydocker/releases/latest"
+opencode_latest_url: "https://github.com/anomalyco/opencode/releases/latest"
 
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"

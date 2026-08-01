@@ -20,6 +20,7 @@
 - Cambios en `extra_software`:
   - **Zed** instalado por defecto
   - Instalación de **Claude CLI**
+  - Instalación de **Open Code**
 - Cambios en `post_install`:
   - Configuración de `netbird`
 - Cambios en `work`:
