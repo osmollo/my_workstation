@@ -17,6 +17,7 @@
 ## 10.1
 
 - Soporte para **Fedora 44**
+- Nuevo fichero [AGENTS.md](./AGENTS.md)
 - Cambios en `extra_software`:
   - **Zed** instalado por defecto
   - Instalación de **Claude CLI**
