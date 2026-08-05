@@ -29,6 +29,7 @@
   - Poder clonar todos los repos de un projecton con __extra_vars__ `clone_project`
 - Correccción de errores:
   - Se regeneran los ficheros `gpg` de los roles `post_install` y `work` para que se encripten con la clave gpg correcta
+  - Corrección detectando si se trata de **Ubuntu LTS**
 
 ## 10.0
 
