@@ -1,0 +1,98 @@
+---
+
+## CONFIGURACIÓN ALMACÉN CERTIFICADOS LINUX
+
+- name: "[CERTS] [FEDORA] install nss-tools"
+  become: true
+  dnf:
+    name: nss-tools
+    update_cache: true
+    state: present
+  when: linux_distribution == 'fedora'
+
+- name: "[CERTS] [DEB] install nss-tools"
+  become: true
+  apt:
+    name: libnss3-tools
+    update_cache: true
+    state: present
+  when: linux_distribution in ['debian', 'ubuntu']
+
+- name: "[CERTS] [ARCH] install nss-tools"
+  become: true
+  pacman:
+    name: nss
+    update_cache: true
+    state: present
+  when: linux_distribution == 'arch'
+
+- name: "[CERTS] create directory"
+  file:
+    path: "{{ ansible_user_dir }}/.pki/nssdb"
+    state: directory
+    mode: 0750
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: "[CERTS] import FNMT certificate"
+  vars:
+    fnmt_filename: fnmt_cert.p12
+    nssdb_password_file: "{{ ansible_user_dir }}/.pki/nssdb.pass"
+    fnmt_password_file: "{{ ansible_user_dir }}/.pki/fnmt_cert.pass"
+  block:
+    - name: "[CERTS] get cert passphrase"
+      set_fact:
+        fnmt_passphrase: "{{ lookup('onepassword', 'op://Private/Certificado FNMT/add more/t7vtjfmh76xeunqbbjzyx4ibfy') }}"
+
+    - name: "[CERTS] write NSS DB password file"
+      copy:
+        content: "{{ lookup('onepassword', 'op://Private/Certificado FNMT/iwt6j5egitmrfmqlnoqi7nr42u') }}\n"
+        dest: "{{ nssdb_password_file }}"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0600'
+      no_log: true
+
+    - name: "[CERTS] write PKCS12 password file"
+      copy:
+        content: "{{ fnmt_passphrase }}\n"
+        dest: "{{ fnmt_password_file }}"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0600'
+      no_log: true
+
+    - name: "[CERTS] download cert file"
+      command: "op document get 'Certificado FNMT' --output {{ ansible_user_dir }}/{{ fnmt_filename }} --force"
+
+    - name: "[CERTS] check if NSS database exists"
+      stat:
+        path: "{{ ansible_user_dir }}/.pki/nssdb/cert9.db"
+      register: nssdb_database
+
+    - name: "[CERTS] list imported certificates"
+      command: certutil -L -d sql:{{ ansible_user_dir }}/.pki/nssdb
+      register: certutil_list
+      changed_when: false
+      when: nssdb_database.stat.exists
+
+    - name: "[CERTS] import certificate"
+      import_pkcs12:
+        database: "{{ ansible_user_dir }}/.pki/nssdb"
+        pkcs12_file: "{{ ansible_user_dir }}/{{ fnmt_filename }}"
+        nssdb_password: "{{ lookup('onepassword', 'op://Private/Certificado FNMT/iwt6j5egitmrfmqlnoqi7nr42u') }}"
+        pkcs12_password: "{{ fnmt_passphrase }}"
+      when: >-
+        not nssdb_database.stat.exists or
+        'FNMT' not in certutil_list.stdout
+      no_log: true
+
+    - name: "[CERTS] remove temporary password files"
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - "{{ nssdb_password_file }}"
+        - "{{ fnmt_password_file }}"
+        - "{{ ansible_user_dir }}/{{ fnmt_filename }}"
+      no_log: true
