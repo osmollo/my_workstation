@@ -125,6 +125,7 @@ Por defecto se instala el siguiente software:
 | [Snyk](https://snyk.io/) | snyk | install_snyk | dev | Buscador de vulnerabilidades |
 | [SoapUI](https://www.soapui.org/) | soapui | install_soapui | dev | Cliente API SoapUI |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | media | Cliente de Spotify |
+| [SSHub](https://github.com/Petyok/SSHub) | sshub | install_sshub | tools | Gestor de conexiones SSH |
 | [Starship](https://starship.rs/es-ES/) | starship | install_starship | shell | Gestor de configuración del prompt |
 | [Steam](https://store.steampowered.com/?l=spanish) | steam | install_steam | games | Cliente Steam para juegos de PC |
 | [Sublime Merge](https://www.sublimemerge.com/) | sublimemerge | install_sublimemerge | git | Cliente gráfico de git |
