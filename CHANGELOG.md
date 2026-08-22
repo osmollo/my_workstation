@@ -14,6 +14,8 @@
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
 
+## 10.2
+
 ## 10.1
 
 - Soporte para **Fedora 44**
