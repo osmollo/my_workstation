@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [10.1](#101)
   - [10.0](#100)
   - [VERSIONES ANTERIORES](#versiones-anteriores)
     - [Version 9](#version-9)
@@ -12,6 +13,25 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 10.1
+
+- Soporte para **Fedora 44**
+- Nuevo fichero [AGENTS.md](./AGENTS.md)
+- Instalación de [SSHub](https://github.com/Petyok/SSHub)
+- Modificación de **GitHub Action** para generación de release
+- Cambios en `extra_software`:
+  - **Zed** instalado por defecto
+  - Instalación de **Claude CLI**
+  - Instalación de **Open Code**
+- Cambios en `post_install`:
+  - Configuración de `netbird`
+  - Configuración almacén de certificados en __Linux__
+- Cambios en `work`:
+  - Poder clonar todos los repos de un projecton con __extra_vars__ `clone_project`
+- Correccción de errores:
+  - Se regeneran los ficheros `gpg` de los roles `post_install` y `work` para que se encripten con la clave gpg correcta
+  - Corrección detectando si se trata de **Ubuntu LTS**
 
 ## 10.0
 

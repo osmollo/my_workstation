@@ -175,3 +175,10 @@
   tags:
     - zap
     - update
+
+- name: "[SSHUB] install sshub"
+  import_tasks: sshub.yml
+  when: install_sshub
+  tags:
+    - sshub
+    - update

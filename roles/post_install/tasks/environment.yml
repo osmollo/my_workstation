@@ -152,3 +152,10 @@
         group: "{{ ansible_user }}"
         mode: 0755
         state: link
+
+- name: "[ENVIRONMENT] register netbird"
+  command: "netbird up --setup-key {{ lookup('onepassword', 'op://Private/netbird/add more/SETUP KEY') }}"
+  ignore_errors: true
+  tags:
+    - netbird
+      

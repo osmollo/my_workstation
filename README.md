@@ -48,6 +48,7 @@ Por defecto se instala el siguiente software:
 | [Buttercup](https://buttercup.pw/) | buttercup | install_buttercup | pass_managers | Gestor de contraseñas |
 | [Cherrytree](https://www.giuspen.com/cherrytree/) | cherrytree | install_cherrytree | editors | Editor de textos |
 | [Chromium Browser](https://chromium.woolyss.com/download/es/) | chromium | install_chromium| browsers | Navegador web libre basado en Chrome |
+| [Claude CLI](https://claude.ai) | claude_cli | install_claude_cli | ia | CLI para [Claude](https://code.claude.com/docs/es/cli-reference) |
 | [Consul](https://learn.hashicorp.com/tutorials/consul/install-cli) | consul | install_consul | tools | Service discovery |
 | [CopyQ](https://hluk.github.io/CopyQ/) | copyq | install_copyq | | Gestor de portapapeles |
 | [curlie](https://github.com/rs/curlie) | curlie | install_curlie | tools | Curl vitaminado |
@@ -103,6 +104,7 @@ Por defecto se instala el siguiente software:
 | [Obsidian](https://obsidian.md/) | obsidian | install_obsidian | editors | Gestor de notas |
 | [Oh my BASH!](https://ohmybash.nntoan.com/) | ohmybash | install_ohmybash | shell | Personalización de BASH |
 | [Oh my ZSH!](https://ohmyz.sh/) | ohmyzsh | install_ohmyzsh | shell | Personalización de ZSH |
+| [OpenCode](https://opencode.ai/es) | opencode | install_opencode | ia | IDE para trabajar con IA |
 | [Podman](https://podman.io/) | podman | install_podman | containers | Gestor de contenedores |
 | [Poetry](https://python-poetry.org/) | poetry | install_poetry | dev | Gestor de proyectos para Python |
 | [Postman](https://www.getpostman.com) | postman | install_postman | dev | Cliente REST API |
@@ -123,6 +125,7 @@ Por defecto se instala el siguiente software:
 | [Snyk](https://snyk.io/) | snyk | install_snyk | dev | Buscador de vulnerabilidades |
 | [SoapUI](https://www.soapui.org/) | soapui | install_soapui | dev | Cliente API SoapUI |
 | [Spotify](https://www.spotify.com/es/premium/?checkout=false) | spotify | install_spotify | media | Cliente de Spotify |
+| [SSHub](https://github.com/Petyok/SSHub) | sshub | install_sshub | tools | Gestor de conexiones SSH |
 | [Starship](https://starship.rs/es-ES/) | starship | install_starship | shell | Gestor de configuración del prompt |
 | [Steam](https://store.steampowered.com/?l=spanish) | steam | install_steam | games | Cliente Steam para juegos de PC |
 | [Sublime Merge](https://www.sublimemerge.com/) | sublimemerge | install_sublimemerge | git | Cliente gráfico de git |

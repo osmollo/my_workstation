@@ -1,0 +1,23 @@
+---
+
+- name: "[SSHUB] get latest version of sshub"
+  uri:
+    url: "{{ sshub_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: sshub_latest
+
+- name: "[SSHUB] download sshub {{ sshub_version }}"
+  vars:
+    sshub_version: "{{ sshub_latest.url | urlsplit('path') | basename }}"
+  unarchive:
+    src: "https://github.com/Petyok/SSHub/releases/download/{{ sshub_version }}/sshub-{{ sshub_version }}-x86_64-unknown-linux-gnu.tar.gz"
+    dest: "/usr/local/bin"
+    remote_src: true
+
+- name: "[SSHUB] ensure sshub binary permissions"
+  file:
+    path: "/usr/local/bin/sshub"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755

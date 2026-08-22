@@ -1,0 +1,22 @@
+---
+
+- name: "[CLAUDE_CLI] [FEDORA] copy reposiotry file"
+  copy:
+    dest: "/etc/yum.repos.d/claude_cli.repo"
+    content: |
+      [claude-code]
+      name=Claude Code
+      baseurl=https://downloads.claude.ai/claude-code/rpm/stable
+      enabled=1
+      gpgcheck=1
+      repo_gpgcheck=0
+      gpgkey=https://downloads.claude.ai/keys/claude-code.asc
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "[CLAUDE_CLI] [FEDORA] install claude cli"
+  dnf:
+    name: claude
+    state: present
+    update_cache: true

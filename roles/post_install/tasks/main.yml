@@ -7,6 +7,12 @@
     - environment
     - env
 
+- name: "configure certs"
+  import_tasks: certs.yml
+  tags:
+    - post_install
+    - certs
+
 - name: "configure neovim"
   import_tasks: neovim.yml
   tags:

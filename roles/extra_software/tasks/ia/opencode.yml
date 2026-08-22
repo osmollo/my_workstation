@@ -1,0 +1,23 @@
+---
+
+- name: "[OPENCODE] get latest version of OpenCode"
+  uri:
+    url: "{{ opencode_latest_url }}"
+    follow_redirects: safe
+    body_format: raw
+  register: opencode_latest
+
+- name: "[OPENCODE] download OpenCode {{ opencode_version }}"
+  vars:
+    opencode_version: "{{ opencode_latest.url | urlsplit('path') | basename }}"
+  unarchive:
+    src: "https://github.com/anomalyco/opencode/releases/download/{{ opencode_version }}/opencode-linux-x64.tar.gz"
+    dest: "/usr/local/bin"
+    remote_src: true
+
+- name: "[OPENCODE] ensure OpenCode binary permissions"
+  file:
+    path: "/usr/local/bin/opencode"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0755
