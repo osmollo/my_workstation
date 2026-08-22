@@ -19,6 +19,7 @@
 - Soporte para **Fedora 44**
 - Nuevo fichero [AGENTS.md](./AGENTS.md)
 - Instalación de [SSHub](https://github.com/Petyok/SSHub)
+- Modificación de **GitHub Action** para generación de release
 - Cambios en `extra_software`:
   - **Zed** instalado por defecto
   - Instalación de **Claude CLI**

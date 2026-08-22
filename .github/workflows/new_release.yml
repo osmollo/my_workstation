@@ -2,36 +2,49 @@ name: New Release
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
+    paths:
+      - release.json
+      - CHANGELOG.md
+
+permissions:
+  contents: write
 
 jobs:
   create_release:
     name: Create release
     runs-on: ubuntu-latest
     steps:
-    - name: Check out code into the Go module directory
-      uses: actions/checkout@v3
+      - name: Check out repository
+        uses: actions/checkout@v4
 
-    - name: Read release.json
-      uses: notiz-dev/github-action-json-property@release
-      id: package_info
-      with:
-        path: 'release.json'
-        prop_path: 'version'
+      - name: Read version and release notes
+        id: release
+        shell: bash
+        run: |
+          set -euo pipefail
 
-    - name: Show version number
-      run: echo "Version is ${{ steps.package_info.outputs.prop }}"
+          version="$(jq -er '.version | strings | select(length > 0)' release.json)"
+          awk -v heading="## ${version}" '
+            $0 == heading { found = 1; next }
+            found && /^## / { exit }
+            found { print }
+            END {
+              if (!found) {
+                print "No changelog section found for version " heading > "/dev/stderr"
+                exit 1
+              }
+            }
+          ' CHANGELOG.md > release-notes.md
 
-    # - name: "Build Changelog"
-    #   id: build_changelog
-    #   uses: scottbrenner/generate-changelog-action@master
+          test -s release-notes.md
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
 
-    - name: Create Release
-      id: create_release
-      uses: ncipollo/release-action@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag: "v${{ steps.package_info.outputs.prop }}"
-        name: Release v${{ steps.package_info.outputs.prop }}
-        # body: ${{ steps.build_changelog.outputs.changelog }}
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag: v${{ steps.release.outputs.version }}
+          name: Release v${{ steps.release.outputs.version }}
+          bodyFile: release-notes.md
