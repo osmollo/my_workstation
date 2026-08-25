@@ -16,6 +16,10 @@
 
 ## 10.2
 
+- Cambios en `work`:
+  - Nueva entrada en `.ssh/config`
+  - Fix typo en configuración ssh
+
 ## 10.1
 
 - Soporte para **Fedora 44**
