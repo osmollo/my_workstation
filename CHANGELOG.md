@@ -16,6 +16,7 @@
 
 ## 10.2
 
+- Soporte para **Ubuntu 26.04 LTS**
 - Cambios en `work`:
   - Nueva entrada en `.ssh/config`
   - Fix typo en configuración ssh

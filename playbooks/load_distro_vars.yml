@@ -101,12 +101,12 @@
         ubuntu_version_long: "{{ ubuntu_versions[ubuntu_codename] }}"
       vars:
         ubuntu_versions:
-          lunar: "23.04"
+          resolute: "26.04"
       when: linux_distribution == "ubuntu"
 
     - name: "Set Ubuntu LTS fact"
       set_fact:
-        ubuntu_lts: "{{ 'LTS' in ansible_distribution_release }}"
+        ubuntu_lts: "{{ 'resolute' in ansible_distribution_release }}"
       when: linux_distribution == "ubuntu"
 
     - name: "Set FEDORA_VERSION variable"

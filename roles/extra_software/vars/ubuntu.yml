@@ -17,7 +17,7 @@ megacmd_dependencies:
   - libmms0
   - libtinyxml2-9
 
-megasync_package: "https://mega.nz/linux/MEGAsync/x{{ linux_distribution | capitalize }}_{{ ansible_distribution_version }}/amd64/megasync-x{{ linux_distribution | capitalize }}_{{ ubuntu_version_long }}_amd64.deb"
+megasync_package: "https://mega.nz/linux/repo/x{{ linux_distribution | capitalize }}_{{ ansible_distribution_version }}/amd64/megasync-x{{ linux_distribution | capitalize }}_{{ ubuntu_version_long }}_amd64.deb"
 file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"
 
 protonvpn_dependencies:
