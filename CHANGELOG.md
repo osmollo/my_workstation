@@ -14,6 +14,19 @@
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
 
+## 10.2
+
+- Soporte para **Ubuntu 26.04 LTS**
+- Borrado instalación de **Lexnet**
+- Workflow de **Github** para checkear sintaxis antes de mergear PRs a `master`
+- La variable `ansible_user_dir`se define mediante variable de entorno del sistema
+- Cambios en `post_install`:
+  - Sincronización de extensiones de **Zed**
+  - Configuración de **Opencode**
+- Cambios en `work`:
+  - Nueva entrada en `.ssh/config`
+  - Fix typo en configuración ssh
+
 ## 10.1
 
 - Soporte para **Fedora 44**

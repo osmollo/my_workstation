@@ -47,7 +47,6 @@ install_megasync: true
 install_vivaldi: false
 install_brave: true
 install_bitwarden: false
-install_lexnet: false
 install_pass: false
 install_bucklespring: false
 install_protonvpn: true
@@ -238,19 +237,6 @@ vim_plugins:
   - 'valloric/youcompleteme'
   - 'hashivim/vim-terraform'
   - 'juliosueiras/vim-terraform-completion'
-
-firefox_esr_version: 50.1.0
-firefox_esr_url: "https://download-installer.cdn.mozilla.net/pub/firefox/releases/{{ firefox_esr_version }}/linux-x86_64/es-ES/firefox-{{ firefox_esr_version }}.tar.bz2"
-firefox_esr_dir: /opt/firefox
-firefox_esr_binary: "{{ firefox_esr_dir }}/firefox"
-java_lexnet_package: "https://descargas.lexdefensa.es/jdk-8u241-linux-x64.tar.gz"
-lexnet_firefox_profile: lexnet
-lexnet_packages:
-  - libccid
-  - libpcsclite1
-  - pcscd
-  - pcsc-tools
-  - libglade2-dev
 
 pulsar_packages_url: "https://gist.githubusercontent.com/osmollo/b1d2a48a2e8e9b54e72c7888aab0f5d3/raw/bfaca636c6cdbb97d0e619569b7857f19ffdd058/packages.json"
 

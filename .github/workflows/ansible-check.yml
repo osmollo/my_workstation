@@ -1,0 +1,74 @@
+name: Ansible Checks
+
+on:
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Ansible
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14.7"
+
+      - name: Install Ansible tooling
+        run: >-
+          python -m pip install
+          "ansible-core==2.18.18rc1"
+          "ansible-lint==25.*"
+          "ansible-compat==25.8.1"
+          "ruamel.yaml==0.18.16"
+
+      - name: Install Ansible collections
+        run: >-
+          ansible-galaxy collection install
+          community.general:==10.7.6
+          ansible.posix:==1.6.2
+
+      - name: Check install playbook syntax
+        run: ansible-playbook --syntax-check install.yml
+
+      - name: Check post-install playbook syntax
+        run: ansible-playbook --syntax-check post_install.yml
+
+      - name: Check work playbook syntax
+        run: ansible-playbook --syntax-check work.yml
+
+  lint:
+    name: Lint Ansible
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Ansible lint tooling
+        run: >-
+          python -m pip install
+          "ansible-core==2.18.*"
+          "ansible-lint==25.*"
+
+      - name: Install Ansible collections
+        run: >-
+          ansible-galaxy collection install
+          community.general:==10.7.6
+          ansible.posix:==1.6.2
+
+      - name: Run Ansible lint
+        env:
+          ANSIBLE_CONFIG: ${{ github.workspace }}/.github/ansible-lint.cfg
+        run: ansible-lint --offline install.yml post_install.yml work.yml playbooks/ roles/
