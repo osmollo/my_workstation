@@ -26,6 +26,12 @@
     - post_install
     - zed
 
+- name: "configure opencode"
+  import_tasks: opencode.yml
+  tags:
+    - post_install
+    - opencode
+
 - name: "configure helix"
   import_tasks: helix.yml
   tags:

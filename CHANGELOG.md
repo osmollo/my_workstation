@@ -20,6 +20,7 @@
 - Borrado instalación de **Lexnet**
 - Cambios en `post_install`:
   - Corrección menos en post configuración de **Zed**
+  - Configuración de **Opencode**
 - Cambios en `work`:
   - Nueva entrada en `.ssh/config`
   - Fix typo en configuración ssh
