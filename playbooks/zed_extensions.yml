@@ -1,0 +1,55 @@
+---
+
+- name: Manage Zed extensions
+  hosts: localhost
+  connection: local
+  become: false
+  gather_facts: false
+  vars:
+    zed_extensions_mode: ""
+    zed_extensions_file: "{{ lookup('env', 'HOME') }}/MEGA/backups/zed/zed_extensions.yml"
+    zed_extensions_dir: "{{ lookup('env', 'XDG_DATA_HOME') | default(lookup('env', 'HOME') + '/.local/share', true) }}/zed/extensions/installed"
+  tasks:
+    - name: Validate Zed extensions mode
+      ansible.builtin.assert:
+        that:
+          - zed_extensions_mode in ['export', 'install']
+        fail_msg: >-
+          Set zed_extensions_mode to export or install.
+          Example: ansible-playbook playbooks/zed_extensions.yml -e zed_extensions_mode=export
+
+    - name: List installed Zed extensions
+      ansible.builtin.find:
+        paths: "{{ zed_extensions_dir }}"
+        file_type: directory
+        recurse: false
+      register: zed_installed_extensions
+      changed_when: false
+      when: zed_extensions_mode == 'export'
+
+    - name: Save installed Zed extensions
+      ansible.builtin.copy:
+        dest: "{{ zed_extensions_file }}"
+        mode: '0644'
+        content: |
+          ---
+          zed_extensions:
+          {% for extension in zed_installed_extensions.files | map(attribute='path') | map('basename') | sort %}
+            - {{ extension | to_json }}
+          {% endfor %}
+      when: zed_extensions_mode == 'export'
+
+    - name: Load Zed extensions list
+      ansible.builtin.include_vars:
+        file: "{{ zed_extensions_file }}"
+        name: zed_extensions_data
+      when: zed_extensions_mode == 'install'
+
+    - name: Install Zed extensions
+      ansible.builtin.unarchive:
+        src: "https://github.com/zed-industries/extensions/releases/download/{{ item }}/{{ item }}.tar.gz"
+        dest: "{{ zed_extensions_dir }}/{{ item }}"
+        remote_src: true
+        creates: "{{ zed_extensions_dir }}/{{ item }}/extension.toml"
+      loop: "{{ zed_extensions_data.zed_extensions | default([]) }}"
+      when: zed_extensions_mode == 'install'

@@ -19,6 +19,7 @@
 - Soporte para **Ubuntu 26.04 LTS**
 - Borrado instalación de **Lexnet**
 - Workflow de **Github** para checkear sintaxis antes de mergear PRs a `master`
+- Nuevo playbook [zed_extensions.yml](playbooks/zed_extensions.yml) para instalar extensiones de **Zed**
 - Cambios en `post_install`:
   - Corrección menos en post configuración de **Zed**
   - Configuración de **Opencode**
