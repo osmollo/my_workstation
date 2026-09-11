@@ -1,8 +1,5 @@
+---
 exclude_paths:
-  - roles/common/defaults/
-  - roles/extra_software/defaults/
-  - roles/post_install/defaults/
-  - roles/work/defaults/
-quiet: true
+  - library/
 skip_list:
-  - '204'
+  - args[module]
