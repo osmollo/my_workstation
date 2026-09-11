@@ -1,12 +1,20 @@
 ---
 
-- name: "[ZED] delete directory"
+- name: "[ZED] delete zed directories"
   file:
-    path: "{{ ansible_user_dir }}/.config/zed"
+    path: "{{ item }}"
     state: absent
+  loop:
+    - "{{ ansible_user_dir }}/.config/zed"
+    - "{{ ansible_user_dir }}/.local/share/zed/extensions"
 
 - name: "[ZED] create link to config directory"
   file:
-    src: "{{ megasync_dir }}/backups/zed"
-    dest: "{{ ansible_user_dir }}/.config/zed"
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
     state: link
+  loop:
+    - src: "{{ megasync_dir }}/backups/zed"
+      dest: "{{ ansible_user_dir }}/.config/zed"
+    - src: "{{ megasync_dir }}/backups/zed_extensions"
+      dest: "{{ ansible_user_dir }}/.local/share/zed/extensions"

@@ -8,7 +8,6 @@
   - [kde_backup.yml](#kde_backupyml)
   - [restore_desktop_config.yml](#restore_desktop_configyml)
   - [prepare_post.yml](#prepare_postyml)
-  - [zed_extensions.yml](#zed_extensionsyml)
 
 ## delete_repos.yml
 
@@ -64,20 +63,4 @@ Este playbook importa las claves GPG y desencripta el fichero `roles/post_instal
 
 ```shell
 ansible-playbook playbooks/prepare_post.yml
-```
-
-## zed_extensions.yml
-
-Exporta las extensiones instaladas de **Zed** a `~/MEGA/backups/zed/zed_extensions.yml` o instala las extensiones definidas en ese fichero.
-
-Para exportar las extensiones del equipo actual:
-
-```shell
-ANSIBLE_BECOME_ASK_PASS=false ansible-playbook playbooks/zed_extensions.yml -e zed_extensions_mode=export
-```
-
-Para instalar las extensiones guardadas:
-
-```shell
-ANSIBLE_BECOME_ASK_PASS=false ansible-playbook playbooks/zed_extensions.yml -e zed_extensions_mode=install
 ```
