@@ -1,0 +1,37 @@
+name: Ansible Checks
+
+on:
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Ansible
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install Ansible tooling
+        run: python -m pip install ansible ansible-lint
+
+      - name: Check install playbook syntax
+        run: ansible-playbook --syntax-check install.yml
+
+      - name: Check post-install playbook syntax
+        run: ansible-playbook --syntax-check post_install.yml
+
+      - name: Check work playbook syntax
+        run: ansible-playbook --syntax-check work.yml
+
+      - name: Run Ansible lint
+        run: ansible-lint

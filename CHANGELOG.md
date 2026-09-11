@@ -18,6 +18,7 @@
 
 - Soporte para **Ubuntu 26.04 LTS**
 - Borrado instalación de **Lexnet**
+- Workflow de **Github** para checkear sintaxis antes de mergear PRs a `master`
 - Cambios en `post_install`:
   - Corrección menos en post configuración de **Zed**
   - Configuración de **Opencode**
