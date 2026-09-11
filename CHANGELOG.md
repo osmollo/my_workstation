@@ -18,6 +18,8 @@
 
 - Soporte para **Ubuntu 26.04 LTS**
 - Borrado instalación de **Lexnet**
+- Cambios en `post_install`:
+  - Corrección menos en post configuración de **Zed**
 - Cambios en `work`:
   - Nueva entrada en `.ssh/config`
   - Fix typo en configuración ssh
