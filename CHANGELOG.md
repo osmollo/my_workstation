@@ -26,6 +26,7 @@
 - Cambios en `post_install`:
   - Sincronización de extensiones de **Zed**
   - Configuración de **Opencode**
+  - Configuración de **Claude**
 - Cambios en `work`:
   - Nueva entrada en `.ssh/config`
   - Fix typo en configuración ssh
