@@ -23,6 +23,8 @@
 - La variable `ansible_user_dir`se define mediante variable de entorno del sistema
 - Instalación de **Claude Code** en **Ubuntu**
 - Añadido [CLAUDE.md](./CLAUDE.md)
+- Corrección de errores:
+  - Fix en la instalación de **Claude**
 - Cambios en `post_install`:
   - Sincronización de extensiones de **Zed**
   - Configuración de **Opencode**

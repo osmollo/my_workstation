@@ -1,6 +1,6 @@
 ---
 
-- name: "[CLAUDE_CLI] [DEB] install prerequisites"
+- name: "[CLAUDE] [DEB] install prerequisites"
   apt:
     name:
       - apt-transport-https
@@ -9,7 +9,7 @@
     state: present
     update_cache: true
 
-- name: "[CLAUDE_CLI] [DEB] create keyrings directory"
+- name: "[CLAUDE] [DEB] create keyrings directory"
   file:
     path: /etc/apt/keyrings
     state: directory
@@ -17,7 +17,7 @@
     group: root
     mode: 0755
 
-- name: "[CLAUDE_CLI] [DEB] download repository signing key"
+- name: "[CLAUDE] [DEB] download repository signing key"
   get_url:
     url: "{{ claude_cli_key_url }}"
     dest: /etc/apt/keyrings/claude-code.asc
@@ -25,12 +25,12 @@
     group: root
     mode: 0644
 
-- name: "[CLAUDE_CLI] [DEB] read repository signing key fingerprint"
+- name: "[CLAUDE] [DEB] read repository signing key fingerprint"
   command: gpg --show-keys --with-colons /etc/apt/keyrings/claude-code.asc
   register: claude_cli_key_check
   changed_when: false
 
-- name: "[CLAUDE_CLI] [DEB] check repository signing key fingerprint"
+- name: "[CLAUDE] [DEB] check repository signing key fingerprint"
   assert:
     that:
       - claude_cli_key_fingerprint in claude_cli_key_check.stdout
@@ -39,7 +39,7 @@
       expected fingerprint {{ claude_cli_key_fingerprint }}
     success_msg: "Claude Code signing key fingerprint verified"
 
-- name: "[CLAUDE_CLI] [DEB] copy repository file"
+- name: "[CLAUDE] [DEB] copy repository file"
   copy:
     content: >-
       deb [signed-by=/etc/apt/keyrings/claude-code.asc]
@@ -52,7 +52,7 @@
   tags:
     - claude_cli_repo
 
-- name: "[CLAUDE_CLI] [DEB] install claude cli"
+- name: "[CLAUDE] [DEB] install claude cli"
   apt:
     name: claude-code
     state: present
