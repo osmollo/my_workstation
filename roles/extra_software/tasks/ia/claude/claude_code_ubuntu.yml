@@ -1,0 +1,59 @@
+---
+
+- name: "[CLAUDE_CLI] [DEB] install prerequisites"
+  apt:
+    name:
+      - apt-transport-https
+      - curl
+      - gnupg
+    state: present
+    update_cache: true
+
+- name: "[CLAUDE_CLI] [DEB] create keyrings directory"
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: "[CLAUDE_CLI] [DEB] download repository signing key"
+  get_url:
+    url: "{{ claude_cli_key_url }}"
+    dest: /etc/apt/keyrings/claude-code.asc
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "[CLAUDE_CLI] [DEB] read repository signing key fingerprint"
+  command: gpg --show-keys --with-colons /etc/apt/keyrings/claude-code.asc
+  register: claude_cli_key_check
+  changed_when: false
+
+- name: "[CLAUDE_CLI] [DEB] check repository signing key fingerprint"
+  assert:
+    that:
+      - claude_cli_key_fingerprint in claude_cli_key_check.stdout
+    fail_msg: >-
+      The signing key downloaded from {{ claude_cli_key_url }} does not match the
+      expected fingerprint {{ claude_cli_key_fingerprint }}
+    success_msg: "Claude Code signing key fingerprint verified"
+
+- name: "[CLAUDE_CLI] [DEB] copy repository file"
+  copy:
+    content: >-
+      deb [signed-by=/etc/apt/keyrings/claude-code.asc]
+      https://downloads.claude.ai/claude-code/apt/{{ claude_cli_channel }}
+      {{ claude_cli_channel }} main
+    dest: /etc/apt/sources.list.d/claude-code.list
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - claude_cli_repo
+
+- name: "[CLAUDE_CLI] [DEB] install claude cli"
+  apt:
+    name: claude-code
+    state: present
+    update_cache: true

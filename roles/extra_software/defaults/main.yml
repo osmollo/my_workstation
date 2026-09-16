@@ -202,6 +202,12 @@ lazydocker_latest_url: "https://github.com/jesseduffield/lazydocker/releases/lat
 opencode_latest_url: "https://github.com/anomalyco/opencode/releases/latest"
 sshub_latest_url: "https://github.com/Petyok/SSHub/releases/latest"
 
+# Claude Code release channel: "latest" (every release as soon as it ships)
+# or "stable" (about a week old, skips releases with major regressions)
+claude_cli_channel: "latest"
+claude_cli_key_url: "https://downloads.claude.ai/keys/claude-code.asc"
+claude_cli_key_fingerprint: "31DDDE24DDFAB679F42D7BD2BAA929FF1A7ECACE"
+
 ohmyzsh_installer: "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 ohmybash_installer: "https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh"
 

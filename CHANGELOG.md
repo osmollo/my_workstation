@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [10.2](#102)
   - [10.1](#101)
   - [10.0](#100)
   - [VERSIONES ANTERIORES](#versiones-anteriores)
@@ -20,6 +21,7 @@
 - Borrado instalación de **Lexnet**
 - Workflow de **Github** para checkear sintaxis antes de mergear PRs a `master`
 - La variable `ansible_user_dir`se define mediante variable de entorno del sistema
+- Instalación de **Claude Code** en **Ubuntu**
 - Cambios en `post_install`:
   - Sincronización de extensiones de **Zed**
   - Configuración de **Opencode**
