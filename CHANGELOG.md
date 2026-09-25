@@ -17,7 +17,7 @@
 
 ## 10.2
 
-- Soporte para **Ubuntu 26.04 LTS**
+- ~~Soporte para **Ubuntu 26.04 LTS**~~
 - Borrado instalación de **Lexnet**
 - Workflow de **Github** para checkear sintaxis antes de mergear PRs a `master`
 - La variable `ansible_user_dir`se define mediante variable de entorno del sistema
