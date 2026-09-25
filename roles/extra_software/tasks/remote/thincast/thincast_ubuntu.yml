@@ -5,3 +5,4 @@
     name:
       - thincast-client
     state: present
+  when: linux_distribution == "ubuntu"

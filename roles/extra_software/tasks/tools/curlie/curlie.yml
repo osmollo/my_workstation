@@ -6,7 +6,7 @@
     follow_redirects: safe
     body_format: raw
   register: curlie_latest
-  when: linux_distribution in ["debian", "ubuntu", "fedora"]
+  when: linux_distribution in ["debian", "ubuntu", "ubuntu_no_snap", "fedora"]
 
 - name: "[CURLIE] Install curlie {{ curlie_version }}"
   vars:

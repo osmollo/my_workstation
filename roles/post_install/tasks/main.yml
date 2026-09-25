@@ -26,6 +26,19 @@
     - post_install
     - zed
 
+- name: "configure opencode"
+  import_tasks: opencode.yml
+  tags:
+    - post_install
+    - opencode
+
+- name: "configure claude"
+  import_tasks: claude.yml
+  when: use_megasync
+  tags:
+    - post_install
+    - claude
+
 - name: "configure helix"
   import_tasks: helix.yml
   tags:

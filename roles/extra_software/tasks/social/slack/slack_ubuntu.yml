@@ -5,4 +5,5 @@
     name:
       - slack
     state: present
+  when: linux_distribution == "ubuntu"
     classic: true

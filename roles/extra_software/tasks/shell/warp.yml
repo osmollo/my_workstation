@@ -5,7 +5,7 @@
     deb: https://releases.warp.dev/stable/v0.2024.11.19.08.02.stable_03/warp-terminal_0.2024.11.19.08.02.stable.03_amd64.deb
     state: present
     update_cache: true
-  when: linux_distribution in ['debian', 'ubuntu']
+  when: linux_distribution in ['debian', 'ubuntu', 'ubuntu_no_snap']
 
 - name: "[WARP] [FEDORA] install Warp Terminal"
   dnf:

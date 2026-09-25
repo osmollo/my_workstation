@@ -28,7 +28,7 @@
 {{ mega_url_base }}/{{ ansible_distribution }}_{{ ansible_distribution_version }}/{{ ansible_architecture }}/dolphin-megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.{{ ansible_architecture }}.rpm
 {% endif %}
 
-{% elif linux_distribution == "ubuntu" %}
+{% elif linux_distribution in ["ubuntu", "ubuntu_no_snap"] %}
 
 {% if desktop_environment == "cinnamon" %}
 {{ mega_url_base }}/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/amd64/nemo-megasync-x{{ ansible_distribution }}_{{ ansible_distribution_version }}_amd64.deb

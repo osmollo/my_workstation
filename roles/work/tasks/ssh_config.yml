@@ -33,7 +33,7 @@
         PubkeyAcceptedKeyTypes {{ item.type }}
         HostKeyAlgorithms {{ item.type }}
       {% endif %}
-      IdentityAgent ~/.1password/agent.sock
+        IdentityAgent ~/.1password/agent.sock
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     mode: 0600

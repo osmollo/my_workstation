@@ -5,3 +5,4 @@
     name: authy
     state: present
     channel: latest/beta
+  when: linux_distribution == "ubuntu"
