@@ -1,5 +1,5 @@
 ---
 
-- name: "[KODI] install for {{ linux_distribution }}"
-  include_tasks: "kodi_{{ linux_distribution }}.yml"
+- name: "[KODI] install for {{ linux_distribution_package }}"
+  include_tasks: "kodi_{{ linux_distribution_package }}.yml"
   when: linux_distribution != "arch"

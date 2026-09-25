@@ -16,5 +16,5 @@
     drawio_deb_package: "https://github.com/jgraph/drawio-desktop/releases/download/{{ drawio_version }}/drawio-amd64-{{ drawio_version[1:] }}.deb"
   when: linux_distribution != "arch"
 
-- name: "[DRAWIO] install drawio for {{ linux_distribution }}"
-  include_tasks: "drawio_{{ linux_distribution }}.yml"
+- name: "[DRAWIO] install drawio for {{ linux_distribution_package }}"
+  include_tasks: "drawio_{{ linux_distribution_package }}.yml"

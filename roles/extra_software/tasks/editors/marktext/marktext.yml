@@ -16,5 +16,5 @@
     marktext_deb_package: "https://github.com/marktext/marktext/releases/download/{{ marktext_version }}/marktext-amd64.deb"
   when: linux_distribution != "arch"
 
-- name: "[MARK TEXT] install for {{ linux_distribution }}"
-  include_tasks: "marktext_{{ linux_distribution }}.yml"
+- name: "[MARK TEXT] install for {{ linux_distribution_package }}"
+  include_tasks: "marktext_{{ linux_distribution_package }}.yml"

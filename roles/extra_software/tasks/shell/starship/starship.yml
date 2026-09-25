@@ -1,7 +1,7 @@
 ---
 
 - name: "[STARSHIP] install starship"
-  include_tasks: "starship_{{ linux_distribution }}.yml"
+  include_tasks: "starship_{{ linux_distribution_package }}.yml"
 
 - name: "[STARSHIP] create starship config directory"
   become: false

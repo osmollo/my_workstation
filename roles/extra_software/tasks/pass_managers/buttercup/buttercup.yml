@@ -13,5 +13,5 @@
     buttercup_version: "{{ buttercup_latest.url | urlsplit('path') | basename }}"
   when: linux_distribution != "arch"
 
-- name: "[BUTTERCUP] install for {{ linux_distribution }}"
-  include_tasks: "buttercup_{{ linux_distribution }}.yml"
+- name: "[BUTTERCUP] install for {{ linux_distribution_package }}"
+  include_tasks: "buttercup_{{ linux_distribution_package }}.yml"

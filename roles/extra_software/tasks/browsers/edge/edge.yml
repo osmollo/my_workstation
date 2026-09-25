@@ -1,4 +1,4 @@
 ---
 
 - name: "[EDGE] instalación de Microsoft Edge"
-  include_tasks: "edge_{{ linux_distribution }}.yml"
+  include_tasks: "edge_{{ linux_distribution_package }}.yml"

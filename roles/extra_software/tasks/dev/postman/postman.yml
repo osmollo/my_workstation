@@ -1,4 +1,4 @@
 ---
 
-- name: "[POSTMAN] install for {{ linux_distribution }}"
-  include_tasks: "postman_{{ linux_distribution }}.yml"
+- name: "[POSTMAN] install for {{ linux_distribution_package }}"
+  include_tasks: "postman_{{ linux_distribution_package }}.yml"

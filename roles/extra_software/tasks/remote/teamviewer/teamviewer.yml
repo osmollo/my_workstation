@@ -1,4 +1,4 @@
 ---
 
-- name: "[TEAMVIEWER] install for {{ linux_distribution }}"
-  include_tasks: "teamviewer_{{ linux_distribution }}.yml"
+- name: "[TEAMVIEWER] install for {{ linux_distribution_package }}"
+  include_tasks: "teamviewer_{{ linux_distribution_package }}.yml"

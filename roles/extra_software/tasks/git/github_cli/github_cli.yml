@@ -1,4 +1,4 @@
 ---
 
-- name: "[GITHUB_CLI] install for {{ linux_distribution }}"
-  include_tasks: "github_cli_{{ linux_distribution }}.yml"
+- name: "[GITHUB_CLI] install for {{ linux_distribution_package }}"
+  include_tasks: "github_cli_{{ linux_distribution_package }}.yml"

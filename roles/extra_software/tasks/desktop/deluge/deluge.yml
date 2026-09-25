@@ -1,7 +1,7 @@
 ---
 
-- name: "[DELUGE] install for {{ linux_distribution }}"
-  include_tasks: "deluge_{{ linux_distribution }}.yml"
+- name: "[DELUGE] install for {{ linux_distribution_package }}"
+  include_tasks: "deluge_{{ linux_distribution_package }}.yml"
 
 - name: "[DELUGE] Create deluge config directory"
   file:

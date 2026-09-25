@@ -1,7 +1,7 @@
 ---
 
-- name: "[BAT] install for {{ linux_distribution }}"
-  include_tasks: "bat_{{ linux_distribution }}.yml"
+- name: "[BAT] install for {{ linux_distribution_package }}"
+  include_tasks: "bat_{{ linux_distribution_package }}.yml"
 
 - name: "[BAT] create alias"
   vars:

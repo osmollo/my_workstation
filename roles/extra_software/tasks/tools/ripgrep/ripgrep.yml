@@ -1,7 +1,7 @@
 ---
 
-- name: "[RIPGREP] install for {{ linux_distribution }}"
-  include_tasks: "ripgrep_{{ linux_distribution }}.yml"
+- name: "[RIPGREP] install for {{ linux_distribution_package }}"
+  include_tasks: "ripgrep_{{ linux_distribution_package }}.yml"
 
 - name: "[RIPGREP] create alias"
   vars:

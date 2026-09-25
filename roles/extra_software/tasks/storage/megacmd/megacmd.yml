@@ -1,4 +1,4 @@
 ---
 
-- name: "[MEGA_CMD] install for {{ linux_distribution }}"
-  include_tasks: "megacmd_{{ linux_distribution }}.yml"
+- name: "[MEGA_CMD] install for {{ linux_distribution_package }}"
+  include_tasks: "megacmd_{{ linux_distribution_package }}.yml"

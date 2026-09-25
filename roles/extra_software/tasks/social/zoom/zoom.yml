@@ -1,4 +1,4 @@
 ---
 
-- name: "[ZOOM] install for {{ linux_distribution }}"
-  include_tasks: "zoom_{{ linux_distribution }}.yml"
+- name: "[ZOOM] install for {{ linux_distribution_package }}"
+  include_tasks: "zoom_{{ linux_distribution_package }}.yml"

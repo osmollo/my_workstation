@@ -14,5 +14,5 @@
         obsidian_deb_package: "https://github.com/obsidianmd/obsidian-releases/releases/download/{{ obsidian_version }}/obsidian-{{ obsidian_version[1:] }}-amd64.deb"
       when: linux_distribution != "arch"
 
-- name: "[OBSIDIAN] install obsidian for {{ linux_distribution }}"
-  include_tasks: "obsidian_{{ linux_distribution }}.yml"
+- name: "[OBSIDIAN] install obsidian for {{ linux_distribution_package }}"
+  include_tasks: "obsidian_{{ linux_distribution_package }}.yml"

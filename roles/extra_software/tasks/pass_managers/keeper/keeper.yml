@@ -1,4 +1,4 @@
 ---
 
-- name: "[KEEPER] install for {{ linux_distribution }}"
-  include_tasks: "keeper_{{ linux_distribution }}.yml"
+- name: "[KEEPER] install for {{ linux_distribution_package }}"
+  include_tasks: "keeper_{{ linux_distribution_package }}.yml"

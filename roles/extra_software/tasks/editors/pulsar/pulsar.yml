@@ -16,8 +16,8 @@
     pulsar_deb_package: "https://github.com/pulsar-edit/pulsar/releases/download/{{ pulsar_version }}/Linux.pulsar_{{ pulsar_version[1:] }}_amd64.deb"
   when: linux_distribution != "arch"
 
-- name: "[PULSAR] install pulsar for {{ linux_distribution }}"
-  include_tasks: "pulsar_{{ linux_distribution }}.yml"
+- name: "[PULSAR] install pulsar for {{ linux_distribution_package }}"
+  include_tasks: "pulsar_{{ linux_distribution_package }}.yml"
 
 - name: "[PULSAR] install packages"
   block:

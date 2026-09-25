@@ -16,5 +16,5 @@
     prospect_deb_package: "https://github.com/julian-alarcon/prospect-mail/releases/download/{{ prospect_version }}/prospect-mail_{{ prospect_version[1:] }}_amd64.deb"
   when: linux_distribution != "arch"
 
-- name: "[PROSPECT] install prospect for {{ linux_distribution }}"
-  include_tasks: "prospect_{{ linux_distribution }}.yml"
+- name: "[PROSPECT] install prospect for {{ linux_distribution_package }}"
+  include_tasks: "prospect_{{ linux_distribution_package }}.yml"

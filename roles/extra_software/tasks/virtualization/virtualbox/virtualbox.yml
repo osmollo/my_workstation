@@ -5,8 +5,8 @@
     path: /usr/bin/python
   register: pre_response
 
-- name: "[VIRTUALBOX] install virtualbox for {{ linux_distribution }}"
-  include_tasks: "virtualbox_{{ linux_distribution }}.yml"
+- name: "[VIRTUALBOX] install virtualbox for {{ linux_distribution_package }}"
+  include_tasks: "virtualbox_{{ linux_distribution_package }}.yml"
 
 - name: "[VIRTUALBOX] Adding {{ ansible_user }} to group vboxusers"
   user:

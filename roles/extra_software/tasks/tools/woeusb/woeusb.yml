@@ -1,5 +1,5 @@
 ---
 
-- name: "[WOEUSB] install for {{ linux_distribution }}"
-  include_tasks: "woeusb_{{ linux_distribution }}.yml"
+- name: "[WOEUSB] install for {{ linux_distribution_package }}"
+  include_tasks: "woeusb_{{ linux_distribution_package }}.yml"
   when: linux_distribution != 'debian'

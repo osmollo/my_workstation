@@ -16,6 +16,6 @@
     mailspring_deb_package: "https://github.com/Foundry376/Mailspring/releases/download/{{ mailspring_version }}/mailspring-{{ mailspring_version }}-amd64.deb"
   when: linux_distribution != "arch"
 
-- name: "[MAILSPRING] install for {{ linux_distribution }}"
-  include_tasks: "mailspring_{{ linux_distribution }}.yml"
+- name: "[MAILSPRING] install for {{ linux_distribution_package }}"
+  include_tasks: "mailspring_{{ linux_distribution_package }}.yml"
   when: linux_distribution != "arch"

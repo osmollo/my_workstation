@@ -18,8 +18,8 @@
         bitwarden_deb_package: "https://github.com/bitwarden/desktop/releases/download/{{ bitwarden_version }}/Bitwarden-{{ bitwarden_version[1:] }}-amd64.deb"
       when: linux_distribution != "arch"
 
-    - name: "[BITWARDEN] install for {{ linux_distribution }}"
-      include_tasks: "bitwarden_{{ linux_distribution }}.yml"
+    - name: "[BITWARDEN] install for {{ linux_distribution_package }}"
+      include_tasks: "bitwarden_{{ linux_distribution_package }}.yml"
   tags:
     - bitwarden_desktop
 
