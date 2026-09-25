@@ -16,5 +16,5 @@
     rambox_deb_package: "https://github.com/ramboxapp/community-edition/releases/download/{{ rambox_version }}/Rambox-{{ rambox_version }}-linux-amd64.deb"
   when: linux_distribution != "arch"
 
-- name: "[RAMBOX] install for {{ linux_distribution_package }}"
-  include_tasks: "rambox_{{ linux_distribution_package }}.yml"
+- name: "[RAMBOX] install for {{ linux_distribution }}"
+  include_tasks: "rambox_{{ linux_distribution }}.yml"

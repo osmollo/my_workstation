@@ -1,7 +1,7 @@
 ---
 
-- name: "[CHROME] install for {{ linux_distribution_package }}"
-  include_tasks: "chrome_{{ linux_distribution_package }}.yml"
+- name: "[CHROME] install for {{ linux_distribution }}"
+  include_tasks: "chrome_{{ linux_distribution }}.yml"
 
 # - name: "[CHROME] enable flag if Wayland is in use"
 #   become: false

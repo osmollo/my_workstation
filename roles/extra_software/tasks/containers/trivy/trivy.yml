@@ -16,4 +16,4 @@
   when: linux_distribution != "arch"
 
 - name: "[TRIVY] install trivy {{ trivy_version }}"
-  include_tasks: "trivy_{{ linux_distribution_package }}.yml"
+  include_tasks: "trivy_{{ linux_distribution }}.yml"

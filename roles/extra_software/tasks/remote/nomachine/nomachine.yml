@@ -10,5 +10,5 @@
       set_fact:
         nomachine_version: "{{ nomachine_response.version }}"
 
-- name: "[NOMACHINE] install for {{ linux_distribution_package }}"
-  include_tasks: "nomachine_{{ linux_distribution_package }}.yml"
+- name: "[NOMACHINE] install for {{ linux_distribution }}"
+  include_tasks: "nomachine_{{ linux_distribution }}.yml"

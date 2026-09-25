@@ -1,4 +1,4 @@
 ---
 
-- name: "[VSCODIUM] install for {{ linux_distribution_package }}"
-  include_tasks: "codium_{{ linux_distribution_package }}.yml"
+- name: "[VSCODIUM] install for {{ linux_distribution }}"
+  include_tasks: "codium_{{ linux_distribution }}.yml"

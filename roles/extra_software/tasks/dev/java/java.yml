@@ -1,4 +1,4 @@
 ---
 
-- name: "[JAVA] install for {{ linux_distribution_package }}"
-  include_tasks: "java_{{ linux_distribution_package }}.yml"
+- name: "[JAVA] install for {{ linux_distribution }}"
+  include_tasks: "java_{{ linux_distribution }}.yml"

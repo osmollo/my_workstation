@@ -1,4 +1,4 @@
 ---
 
-- name: "[KEEPASS] install for {{ linux_distribution_package }}"
-  include_tasks: "keepass_{{ linux_distribution_package }}.yml"
+- name: "[KEEPASS] install for {{ linux_distribution }}"
+  include_tasks: "keepass_{{ linux_distribution }}.yml"

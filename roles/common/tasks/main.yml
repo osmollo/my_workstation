@@ -37,7 +37,7 @@
 
 - name: "include vars file for linux distribution"
   include_vars:
-    file: "{{ linux_distribution_package | lower }}.yml"
+    file: "{{ linux_distribution | lower }}.yml"
   tags:
     - common
     - install_packages
@@ -57,7 +57,7 @@
   apt:
     name: apt-transport-https
     state: present
-  when: linux_distribution in ["ubuntu", "ubuntu_no_snap", "debian"]
+  when: linux_distribution in ["ubuntu", "debian"]
   tags:
     - common
     - install_packages

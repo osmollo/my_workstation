@@ -1,4 +1,4 @@
 ---
 
 - name: "[SKYPE] install for {{ linux distribution }}"
-  include_tasks: "skype_{{ linux_distribution_package }}.yml"
+  include_tasks: "skype_{{ linux_distribution }}.yml"

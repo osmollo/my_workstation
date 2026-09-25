@@ -1,4 +1,4 @@
 ---
 
-- name: "[PASS] install for {{ linux_distribution_package }}"
-  include_tasks: "pass_{{ linux_distribution_package }}.yml"
+- name: "[PASS] install for {{ linux_distribution }}"
+  include_tasks: "pass_{{ linux_distribution }}.yml"

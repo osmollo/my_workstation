@@ -1,5 +1,5 @@
 ---
 
-- name: "[HELIX] install helix for {{ linux_distribution_package }}"
-  include_tasks: "helix_{{ linux_distribution_package }}.yml"
+- name: "[HELIX] install helix for {{ linux_distribution }}"
+  include_tasks: "helix_{{ linux_distribution }}.yml"
 

@@ -10,7 +10,7 @@
   apt:
     name: zsh
     state: present
-  when: linux_distribution in ["ubuntu", "ubuntu_no_snap", "debian"]
+  when: linux_distribution in ["ubuntu", "debian"]
 
 - name: "[ARCH] Install zsh"
   pacman:

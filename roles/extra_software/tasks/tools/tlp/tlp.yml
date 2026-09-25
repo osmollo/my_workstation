@@ -1,7 +1,7 @@
 ---
 
-- name: "[TLP] install for {{ linux_distribution_package }}"
-  include_tasks: "tlp_{{ linux_distribution_package }}.yml"
+- name: "[TLP] install for {{ linux_distribution }}"
+  include_tasks: "tlp_{{ linux_distribution }}.yml"
 
 - name: "[TLP] Configure TLP"
   template:

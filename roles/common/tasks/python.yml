@@ -56,7 +56,7 @@
         state: present
         update_cache: true
 
-- when: linux_distribution in ['ubuntu', 'ubuntu_no_snap', 'debian']
+- when: linux_distribution in ['ubuntu', 'debian']
   block:
     - name: "[DEB] Install Python3 packages"
       apt:

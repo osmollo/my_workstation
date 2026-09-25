@@ -1,4 +1,4 @@
 ---
 
-- name: "[OBS_STUDIO] install for {{ linux_distribution_package }}"
-  include_tasks: "obs_studio_{{ linux_distribution_package }}.yml"
+- name: "[OBS_STUDIO] install for {{ linux_distribution }}"
+  include_tasks: "obs_studio_{{ linux_distribution }}.yml"

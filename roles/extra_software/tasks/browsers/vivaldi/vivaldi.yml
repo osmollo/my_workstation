@@ -1,4 +1,4 @@
 ---
 
-- name: "[VIVALDI] install for {{ linux_distribution_package }}"
-  include_tasks: "vivaldi_{{ linux_distribution_package }}.yml"
+- name: "[VIVALDI] install for {{ linux_distribution }}"
+  include_tasks: "vivaldi_{{ linux_distribution }}.yml"

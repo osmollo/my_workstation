@@ -1,4 +1,4 @@
 ---
 
-- name: "[TELEGRAM] install for {{ linux_distribution_package }}"
-  include_tasks: "telegram_{{ linux_distribution_package }}.yml"
+- name: "[TELEGRAM] install for {{ linux_distribution }}"
+  include_tasks: "telegram_{{ linux_distribution }}.yml"

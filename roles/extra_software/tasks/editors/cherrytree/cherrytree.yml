@@ -1,4 +1,4 @@
 ---
 
-- name: "[CHERRYTREE] install for {{ linux_distribution_package }}"
-  include_tasks: "cherrytree_{{ linux_distribution_package }}.yml"
+- name: "[CHERRYTREE] install for {{ linux_distribution }}"
+  include_tasks: "cherrytree_{{ linux_distribution }}.yml"

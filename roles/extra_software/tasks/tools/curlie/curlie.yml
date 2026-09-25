@@ -16,8 +16,8 @@
     curlie_rpm_package: "https://github.com/rs/curlie/releases/download/{{  curlie_version }}/curlie_{{ curlie_version[1:] }}_linux_amd64.rpm"
   when: linux_distribution in ["debian", "ubuntu", "fedora"]
 
-- name: "[CURLIE] install for {{ linux_distribution_package }}"
-  include_tasks: "curlie_{{ linux_distribution_package }}.yml"
+- name: "[CURLIE] install for {{ linux_distribution }}"
+  include_tasks: "curlie_{{ linux_distribution }}.yml"
 
 - name: "[CURLIE] create alias"
   vars:

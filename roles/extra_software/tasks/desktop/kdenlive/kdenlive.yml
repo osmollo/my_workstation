@@ -1,5 +1,5 @@
 ---
 
-- name: "[KDENLIVE] install for {{ linux_distribution_package }}"
-  include_tasks: "kdenlive_{{ linux_distribution_package }}.yml"
+- name: "[KDENLIVE] install for {{ linux_distribution }}"
+  include_tasks: "kdenlive_{{ linux_distribution }}.yml"
   when: linux_distribution in ["ubuntu", "fedora"]

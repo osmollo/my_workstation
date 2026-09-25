@@ -1,7 +1,7 @@
 ---
 
-- name: "[PODMAN] install for {{ linux_distribution_package }}"
-  include_tasks: "podman_{{ linux_distribution_package }}.yml"
+- name: "[PODMAN] install for {{ linux_distribution }}"
+  include_tasks: "podman_{{ linux_distribution }}.yml"
 
 - name: "[PODMAN_COMPOSE] Install podman compose"
   vars:

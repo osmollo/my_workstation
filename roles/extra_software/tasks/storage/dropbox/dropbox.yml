@@ -1,4 +1,4 @@
 ---
 
-- name: "[DROPBOX] install for {{ linux_distribution_package }}"
-  include_tasks: "dropbox_{{ linux_distribution_package }}.yml"
+- name: "[DROPBOX] install for {{ linux_distribution }}"
+  include_tasks: "dropbox_{{ linux_distribution }}.yml"

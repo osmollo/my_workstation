@@ -39,6 +39,6 @@
         - LICENSE
         - README.md
 
-- name: "[LAZY_DOCKER] install for {{ linux_distribution_package }}"
-  include_tasks: "lazy_docker_{{ linux_distribution_package }}.yml"
+- name: "[LAZY_DOCKER] install for {{ linux_distribution }}"
+  include_tasks: "lazy_docker_{{ linux_distribution }}.yml"
   when: linux_distribution == 'arch'

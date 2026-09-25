@@ -1,7 +1,7 @@
 ---
 
 - name: "[ZOXIDE] install zoxide"
-  include_tasks: "zoxide_{{ linux_distribution_package }}.yml"
+  include_tasks: "zoxide_{{ linux_distribution }}.yml"
 
 - name: "[ZOXIDE] config bash"
   block:

@@ -15,8 +15,8 @@
     bottom_deb_package: "https://github.com/ClementTsang/bottom/releases/download/{{  bottom_version }}/bottom_{{  bottom_version }}_amd64.deb"
   when: linux_distribution in ["debian", "ubuntu"]
 
-- name: "[BOTTOM] install for {{ linux_distribution_package }}"
-  include_tasks: "bottom_{{ linux_distribution_package }}.yml"
+- name: "[BOTTOM] install for {{ linux_distribution }}"
+  include_tasks: "bottom_{{ linux_distribution }}.yml"
 
 - name: "[BOTTOM] create alias"
   vars:

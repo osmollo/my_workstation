@@ -16,8 +16,8 @@
     atom_deb_package: "https://github.com/atom/atom/releases/download/{{ atom_version }}/atom-amd64.deb"
   when: linux_distribution != "arch"
 
-- name: "[ATOM] install atom for {{ linux_distribution_package }}"
-  include_tasks: "atom_{{ linux_distribution_package }}.yml"
+- name: "[ATOM] install atom for {{ linux_distribution }}"
+  include_tasks: "atom_{{ linux_distribution }}.yml"
 
 - name: "[ATOM] install packages"
   block:

@@ -2,8 +2,8 @@
 
 # https://linuxfacil.mx/blog/neovim/como-configurar-neovim-como-vscode-para-python/
 
-- name: "[NEOVIM] install for {{ linux_distribution_package }}"
-  include_tasks: "neovim_{{ linux_distribution_package }}.yml"
+- name: "[NEOVIM] install for {{ linux_distribution }}"
+  include_tasks: "neovim_{{ linux_distribution }}.yml"
 
 - name: "[NEOVIM] Alternative link for neovim"
   alternatives:

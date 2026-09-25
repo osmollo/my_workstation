@@ -1,5 +1,5 @@
 ---
 
 - name: "[AUTHY] install for {{ linux distribution }}"
-  include_tasks: "authy_{{ linux_distribution_package }}.yml"
+  include_tasks: "authy_{{ linux_distribution }}.yml"
   when: linux_distribution in ["arch", "ubuntu"]

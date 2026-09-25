@@ -14,4 +14,4 @@
     etcher_package_rpm: "https://github.com/balena-io/etcher/releases/download/{{ etcher_version }}/balena-etcher-{{ etcher_version[1:] }}.x86_64.rpm"
     etcher_package_deb: "https://github.com/balena-io/etcher/releases/download/{{ etcher_version }}/balena-etcher_{{ etcher_version[1:] }}_amd64.deb"
 
-- include_tasks: "etcher_{{ linux_distribution_package }}.yml"
+- include_tasks: "etcher_{{ linux_distribution }}.yml"

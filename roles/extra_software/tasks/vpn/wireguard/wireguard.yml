@@ -1,4 +1,4 @@
 ---
 
-- name: "[WIREGUARD] install for {{ linux_distribution_package }}"
-  include_tasks: "wireguard_{{ linux_distribution_package }}.yml"
+- name: "[WIREGUARD] install for {{ linux_distribution }}"
+  include_tasks: "wireguard_{{ linux_distribution }}.yml"

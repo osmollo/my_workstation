@@ -1,4 +1,4 @@
 ---
 
-- name: "[DANGERZONE] install for {{ linux_distribution_package }}"
-  include_tasks: "dangerzone_{{ linux_distribution_package }}.yml"
+- name: "[DANGERZONE] install for {{ linux_distribution }}"
+  include_tasks: "dangerzone_{{ linux_distribution }}.yml"

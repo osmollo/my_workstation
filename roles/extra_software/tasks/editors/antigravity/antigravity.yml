@@ -1,7 +1,7 @@
 ---
 
-- name: "[GOOGLE ANTIGRAVITY] install Google Antigravity for {{ linux_distribution_package }}"
-  include_tasks: "antigravity_{{ linux_distribution_package }}.yml"
+- name: "[GOOGLE ANTIGRAVITY] install Google Antigravity for {{ linux_distribution }}"
+  include_tasks: "antigravity_{{ linux_distribution }}.yml"
 
 - name: "[GOOGLE ANTIGRAVITY] check if applicacion file exists"
   stat:

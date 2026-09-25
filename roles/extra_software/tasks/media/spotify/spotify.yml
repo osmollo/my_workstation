@@ -1,7 +1,7 @@
 ---
 
-- name: "[SPOTIFY] install for {{ linux_distribution_package }}"
-  include_tasks: "spotify_{{ linux_distribution_package }}.yml"
+- name: "[SPOTIFY] install for {{ linux_distribution }}"
+  include_tasks: "spotify_{{ linux_distribution }}.yml"
 
 - name: "[SPOTIFY] install spotify cli"
   block:

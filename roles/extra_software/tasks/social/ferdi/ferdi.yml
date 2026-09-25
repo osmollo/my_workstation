@@ -15,5 +15,5 @@
     ferdi_deb_package: "https://github.com/getferdi/ferdi/releases/download/{{ ferdi_version }}/ferdi_{{ ferdi_version[1:] }}_amd64.deb"
   when: linux_distribution != "arch"
 
-- name: "[FERDI] install for {{ linux_distribution_package }}"
-  include_tasks: "ferdi_{{ linux_distribution_package }}.yml"
+- name: "[FERDI] install for {{ linux_distribution }}"
+  include_tasks: "ferdi_{{ linux_distribution }}.yml"
