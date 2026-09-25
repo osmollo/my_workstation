@@ -176,7 +176,7 @@
       when:
         - desktop_environment is defined
         - desktop_environment == "xfce"
-  when: linux_distribution == "ubuntu"
+  when: linux_distribution in ["ubuntu", "ubuntu_no_snap"]
 
 - block:
     - name: "[DEBIAN] Install common packages"

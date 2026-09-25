@@ -9,15 +9,15 @@
     update_cache: true
 
 - name: "[BRAVE] [DEB] install gpg key"
-  apt_key:
-    id: D8BAD4DE7EE17AF52A834B2D0BB75829C2D4E821
-    url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
-    keyring: /etc/apt/trusted.gpg.d/brave-browser-release.gpg
+  get_url:
+    url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    dest: /usr/share/keyrings/brave-browser-archive-keyring.gpg
+    mode: "0644"
 
 - name: "[BRAVE] [DEB] install brave repository"
   lineinfile:
     path: /etc/apt/sources.list.d/brave-browser-release.list
-    line: "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"
+    line: "deb [arch=amd64 signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"
     create: true
 
 - name: "[BRAVE] [DEB] install brave browser"

@@ -5,4 +5,5 @@
     name:
       - pycharm-community
     state: present
+  when: linux_distribution == "ubuntu"
     classic: true

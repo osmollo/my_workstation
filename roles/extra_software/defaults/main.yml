@@ -49,7 +49,7 @@ install_brave: true
 install_bitwarden: false
 install_pass: false
 install_bucklespring: false
-install_protonvpn: true
+install_protonvpn: false
 install_prezto: false
 install_etcher: false
 install_woeusb: false
@@ -136,12 +136,12 @@ install_ghostty: false
 install_mullvad_vpn: false
 install_mullvad_browser: false
 install_zed: true
-install_cloudflare_warp: true
+install_cloudflare_warp: false
 install_zap: false
 install_keeper: false
 install_zen: false
 install_cursor: false
-install_antigravity: true
+install_antigravity: false
 install_dangerzone: true
 install_claude: true
 install_opencode: true

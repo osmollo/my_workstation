@@ -18,6 +18,7 @@
 ## 10.2
 
 - ~~Soporte para **Ubuntu 26.04 LTS**~~
+- Soporte para distribuciones basadas en **Ubuntu** pero que no usan paquetes __snap__ (**Linux Mint**, **Pop!_OS** y **Elementary OS**)
 - Borrado instalación de **Lexnet**
 - Workflow de **Github** para checkear sintaxis antes de mergear PRs a `master`
 - La variable `ansible_user_dir`se define mediante variable de entorno del sistema
@@ -25,6 +26,7 @@
 - Añadido [CLAUDE.md](./CLAUDE.md)
 - Corrección de errores:
   - Fix en la instalación de **Claude**
+  - Corrección enlaces de descarga de múltiples [tools](roles/extra_software/tasks/tools/)
 - Cambios en `post_install`:
   - Sincronización de extensiones de **Zed**
   - Configuración de **Opencode**
