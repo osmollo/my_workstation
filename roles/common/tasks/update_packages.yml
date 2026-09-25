@@ -7,7 +7,7 @@
     update_cache: true
     force_apt_get: true
     autoclean: true
-  when: linux_distribution in ["debian", "ubuntu"]
+  when: linux_distribution in ["debian", "ubuntu", "ubuntu_no_snap"]
 
 - block:
     - name: "[FEDORA] improve dnf"

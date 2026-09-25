@@ -1,6 +1,6 @@
 ---
 
-- when: linux_distribution in ['ubuntu', 'debian']
+- when: linux_distribution in ['ubuntu', 'ubuntu_no_snap', 'debian']
   block:
     - name: "[MULLVAD_BROWSER] [DEB] download asc file"
       get_url:

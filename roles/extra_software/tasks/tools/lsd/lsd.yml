@@ -6,14 +6,14 @@
     follow_redirects: safe
     body_format: raw
   register: lsd_latest
-  when: linux_distribution in ["debian", "ubuntu"]
+  when: linux_distribution in ["debian", "ubuntu", "ubuntu_no_snap"]
 
 - name: "[LSD] Install lsd {{ lsd_version }}"
   vars:
     lsd_version: "{{ lsd_latest.url | urlsplit('path') | basename }}"
   set_fact:
     lsd_deb_package: "https://github.com/lsd-rs/lsd/releases/download/{{ lsd_version }}/lsd-musl_{{ lsd_version[1:] }}_amd64.deb"
-  when: linux_distribution in ["debian", "ubuntu"]
+  when: linux_distribution in ["debian", "ubuntu", "ubuntu_no_snap"]
 
 - name: "[LSD] install for {{ linux_distribution }}"
   include_tasks: "lsd_{{ linux_distribution }}.yml"

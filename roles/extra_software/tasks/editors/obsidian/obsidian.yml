@@ -1,4 +1,4 @@
-- when: linux_distribution in ["debian", "ubuntu"]
+- when: linux_distribution in ["debian", "ubuntu", "ubuntu_no_snap"]
   block:
     - name: "[OBSIDIAN] Get latest version of Obsidian"
       uri:
