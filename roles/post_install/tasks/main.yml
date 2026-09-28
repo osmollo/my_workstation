@@ -19,6 +19,7 @@
     - post_install
     - neovim
     - nvim
+  when: ubuntu_codename == 'resolute'
 
 - name: "configure zed"
   import_tasks: zed.yml
