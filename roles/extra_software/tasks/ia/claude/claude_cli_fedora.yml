@@ -1,6 +1,6 @@
 ---
 
-- name: "[CLAUDE_CLI] [FEDORA] copy reposiotry file"
+- name: "[CLAUDE] [FEDORA] copy reposiotry file"
   copy:
     dest: "/etc/yum.repos.d/claude_cli.repo"
     content: |
@@ -15,8 +15,8 @@
     group: root
     mode: 0644
 
-- name: "[CLAUDE_CLI] [FEDORA] install claude cli"
+- name: "[CLAUDE] [FEDORA] install claude cli"
   dnf:
-    name: claude
+    name: claude-code
     state: present
     update_cache: true

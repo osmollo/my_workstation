@@ -1,7 +1,6 @@
 ---
 
 - name: "[DEB] save apt key"
-  apt_key:
   shell: curl -fsSL https://us-central1-apt.pkg.dev/doc/repo-signing-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/antigravity.gpg
 
 - name: "[DEB] install google antigravity repository file"

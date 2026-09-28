@@ -6,6 +6,6 @@
 - name: "[BAT] create alias"
   vars:
     alias_name: cat
-    alias_command: "{{ 'batcat' if linux_distribution in ['debian', 'ubuntu'] else 'bat' }} --paging=never --decorations=never"
+    alias_command: "{{ 'batcat' if linux_distribution in ['debian', 'ubuntu', 'ubuntu_no_snap'] else 'bat' }} --paging=never --decorations=never"
   import_role:
     name: tools/create_alias

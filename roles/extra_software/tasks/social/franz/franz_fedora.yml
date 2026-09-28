@@ -2,5 +2,5 @@
 
 - name: "[FRANZ] [FEDORA] Install the franz flatpak"
   flatpak:
-    name:  "{{ franz_flatpak }}"
+    name: com.meetfranz.Franz
     state: present

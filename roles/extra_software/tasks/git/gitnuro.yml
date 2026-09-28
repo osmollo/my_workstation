@@ -2,5 +2,5 @@
 
 - name: "[GITNURO] [FEDORA] Install Gitnuro flatpak"
   flatpak:
-    name:  "{{ gitnuro_flatpak }}"
+    name: com.jetpackduba.Gitnuro
     state: present

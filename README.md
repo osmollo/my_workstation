@@ -87,7 +87,6 @@ Por defecto se instala el siguiente software:
 | [Keeper](https://www.keepersecurity.com/es_ES/) | keeper | install_keeper | pass_managers | Gestor de contraseñas |
 | [Kodi](https://kodi.tv/) | kodi | install_kodi | media | Media center |
 | [LazyDocker](https://github.com/jesseduffield/lazydocker) | lazydocker | install_lazydocker | tools | Tools for Docker |
-| [Lexnet](https://lexnet.justicia.es) | lexnet | install_lexnet | browsers | Firefox 50.1 + Java para acceder a Lexnet (sólo para abogados) |
 | [Librewolf](https://librewolf.net/) | librewolf | install_librewolf | browsers | Navegador web Librewolf (fork de Firefox) |
 | [LSD](https://github.com/Peltoche/lsd) | lsd | install_lsd | tools | binario para listar directorios |
 | [Mailspring](https://getmailspring.com/) | mailspring | install_mailspring | mail | Cliente de correo electrónico |

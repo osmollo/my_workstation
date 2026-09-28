@@ -2,5 +2,5 @@
 
 - name: "[SLACK] [FEDORA] Install the Slack flatpak"
   flatpak:
-    name:  "{{ slack_flatpak }}"
+    name: com.slack.Slack
     state: present

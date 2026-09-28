@@ -25,7 +25,7 @@
         name: syncthing
         state: present
         update_cache: true
-  when: linux_distribution in ['debian', 'ubuntu']
+  when: linux_distribution in ['debian', 'ubuntu', 'ubuntu_no_snap']
 
 - name: "[SYNCTHING] [ARCH] Install syncthing"
   pacman:

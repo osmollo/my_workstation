@@ -1,0 +1,30 @@
+---
+
+- name: "[CLAUDE] create '{{ ansible_user_dir }}/.claude'"
+  file:
+    path: "{{ ansible_user_dir }}/.claude"
+    state: directory
+
+- name: "[CLAUDE] list files/directories in megasync backup directory"
+  find:
+    paths: "{{ megasync_dir }}/backups/claude"
+    file_type: any
+    hidden: true
+  register: claude_backup_files
+
+- name: "[CLAUDE] remove existing files/directories before linking"
+  file:
+    path: "{{ ansible_user_dir }}/.claude/{{ item.path | basename }}"
+    state: absent
+  loop: "{{ claude_backup_files.files }}"
+  loop_control:
+    label: "{{ item.path | basename }}"
+
+- name: "[CLAUDE] create links to megasync backup directory"
+  file:
+    src: "{{ item.path }}"
+    dest: "{{ ansible_user_dir }}/.claude/{{ item.path | basename }}"
+    state: link
+  loop: "{{ claude_backup_files.files }}"
+  loop_control:
+    label: "{{ item.path | basename }}"
