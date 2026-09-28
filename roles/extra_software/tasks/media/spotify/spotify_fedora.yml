@@ -2,5 +2,5 @@
 
 - name: "[SPOTIFY] [FEDORA] Install Spotify"
   flatpak:
-    name:  "{{ spotify_flatpak }}"
+    name: com.spotify.Client
     state: present

@@ -2,5 +2,5 @@
 
 - name: "[RUSTDESK] [FEDORA] Install Rust Desk"
   flatpak:
-    name:  "{{ rustdesk_flatpak }}"
+    name: com.rustdesk.RustDesk
     state: present

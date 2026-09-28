@@ -24,6 +24,7 @@
 - La variable `ansible_user_dir`se define mediante variable de entorno del sistema
 - Instalación de **Claude Code** en **Ubuntu**
 - Añadido [CLAUDE.md](./CLAUDE.md)
+- Ya no se guardan en variables las URLs de los paquetes **Flatpak** sino que se usan directamente los IDs en las correspondientes tareas
 - Corrección de errores:
   - Fix en la instalación de **Claude**
   - Corrección enlaces de descarga de múltiples [tools](roles/extra_software/tasks/tools/)
