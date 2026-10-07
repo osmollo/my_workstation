@@ -43,8 +43,10 @@
     - item.remote is defined
     - item.remote == "github"
 
-- name: "[GIT_CLONE] not-helm-value repository"
-  when: "'helm-values' not in item.repo"
+- name: "[GIT_CLONE] not 'helm-value' neither 'ccdd-portainer-stack' repository"
+  when:
+    - "'helm-values' not in item.repo"
+    -  "'ccdd-portainer-stack' not in item.repo"
   block:
     - name: "[GIT_CLONE] [GITLAB] Create gitlab repository '{{ (item.repo | basename).split('.')[0] }}'"
       include_role:
@@ -68,8 +70,8 @@
       vars:
         remote_url: "git@{{ item.remote | default('gitlab') }}.com:osmollo/{{ (item.repo | basename).split('.')[0] }}.git"
 
-- name: "[GIT_CLONE] helm-value repository"
-  when: "'helm-values' in item.repo"
+- name: "[GIT_CLONE] 'helm-value' or 'ccdd-portainer-stack' repository"
+  when: "'helm-values' in item.repo or 'ccdd-portainer-stack' in item.repo"
   vars:
     helm_repo_name: "{{ (item.repo | urlsplit('path')).split('/')[1] + '_' + (item.repo | urlsplit('path')).split('/')[-1].split('.')[0] }}"
   block:

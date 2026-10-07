@@ -37,6 +37,7 @@
 - Cambios en `work`:
   - Nueva entrada en `.ssh/config`
   - Fix typo en configuración ssh
+  - Excepción clonado repositorios git `ccdd-portainer-stack
 
 ## 10.1
 
