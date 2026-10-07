@@ -1,6 +1,7 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
+  - [10.2](#102)
   - [10.1](#101)
   - [10.0](#100)
   - [VERSIONES ANTERIORES](#versiones-anteriores)
@@ -13,6 +14,30 @@
     - [Versión 3](#versión-3)
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
+
+## 10.2
+
+- ~~Soporte para **Ubuntu 26.04 LTS**~~
+- Soporte para distribuciones atómicas:
+  - [**Fedora Kinoite**](https://fedoraproject.org/atomic-desktops/kinoite/)
+- Soporte para distribuciones basadas en **Ubuntu** pero que no usan paquetes __snap__ (**Linux Mint**, **Pop!_OS** y **Elementary OS**)
+- Borrado instalación de **Lexnet**
+- Workflow de **Github** para checkear sintaxis antes de mergear PRs a `master`
+- La variable `ansible_user_dir`se define mediante variable de entorno del sistema
+- Instalación de **Claude Code** en **Ubuntu**
+- Añadido [CLAUDE.md](./CLAUDE.md)
+- Ya no se guardan en variables las URLs de los paquetes **Flatpak** sino que se usan directamente los IDs en las correspondientes tareas
+- Corrección de errores:
+  - Fix en la instalación de **Claude**
+  - Corrección enlaces de descarga de múltiples [tools](roles/extra_software/tasks/tools/)
+- Cambios en `post_install`:
+  - Sincronización de extensiones de **Zed**
+  - Configuración de **Opencode**
+  - Configuración de **Claude**
+- Cambios en `work`:
+  - Nueva entrada en `.ssh/config`
+  - Fix typo en configuración ssh
+  - Excepción clonado repositorios git `ccdd-portainer-stack
 
 ## 10.1
 
