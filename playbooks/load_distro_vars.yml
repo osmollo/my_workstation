@@ -11,10 +11,11 @@
           - "LMDE"
         ubuntu_based:
           - "Ubuntu"
-          - "Linux Mint"
           - "KDE neon"
-          - "elementary OS"
+        ubuntu_no_snap_based:
+          - "Linux Mint"
           - "Pop!_OS"
+          - "elementary OS"
         fedora_based:
           - "Fedora"
         arch_based:
@@ -24,6 +25,11 @@
       set_fact:
         linux_distribution: "debian"
       when: ansible_distribution in debian_based
+
+    - name: "[UBUNTU NO SNAP] Set LINUX_DISTRIBUTION variable"
+      set_fact:
+        linux_distribution: "ubuntu_no_snap"
+      when: ansible_distribution in ubuntu_no_snap_based
 
     - name: "[UBUNTU] Set LINUX_DISTRIBUTION variable"
       set_fact:
@@ -88,12 +94,12 @@
         executable: /bin/bash
       register: response_codename
       changed_when: false
-      when: linux_distribution == "ubuntu"
+      when: linux_distribution in ["ubuntu", "ubuntu_no_snap"]
 
     - name: "Set UBUNTU_CODENAME variable"
       set_fact:
         ubuntu_codename: "{{ response_codename.stdout }}"
-      when: linux_distribution == "ubuntu"
+      when: linux_distribution in ["ubuntu", "ubuntu_no_snap"]
 
     - name: "Set UBUNTU_VERSION variable"
       set_fact:
@@ -101,13 +107,14 @@
         ubuntu_version_long: "{{ ubuntu_versions[ubuntu_codename] }}"
       vars:
         ubuntu_versions:
-          lunar: "23.04"
-      when: linux_distribution == "ubuntu"
+          "noble": "24.04"
+          resolute: "26.04"
+      when: linux_distribution in ["ubuntu", "ubuntu_no_snap"]
 
     - name: "Set Ubuntu LTS fact"
       set_fact:
-        ubuntu_lts: "{{ 'LTS' in ansible_distribution_release }}"
-      when: linux_distribution == "ubuntu"
+        ubuntu_lts: "{{ 'resolute' in ansible_distribution_release }}"
+      when: linux_distribution in ["ubuntu", "ubuntu_no_snap"]
 
     - name: "Set FEDORA_VERSION variable"
       set_fact:

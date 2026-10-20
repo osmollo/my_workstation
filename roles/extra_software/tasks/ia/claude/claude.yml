@@ -1,3 +1,7 @@
 ---
 
+- include_tasks: "claude_code_{{ linux_distribution }}.yml"
+  when: linux_distribution in ['debian', 'ubuntu', 'ubuntu_no_snap']
+
 - include_tasks: "claude_cli_{{ linux_distribution }}.yml"
+  when: linux_distribution in ['fedora']

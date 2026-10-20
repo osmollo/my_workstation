@@ -9,6 +9,6 @@
 
 - name: "[ZED] [FEDORA] install zed"
   flatpak:
-    name: "{{ zed_flatpak }}"
+    name: dev.zed.Zed
     state: present
   when: linux_distribution == 'fedora'

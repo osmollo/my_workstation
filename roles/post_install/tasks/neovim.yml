@@ -34,4 +34,4 @@
     label: "{{ item.name }}"
 
 - name: "[NEOVIM] initializing neovim"
-  command: "nvim --headless +q"
+  command: "nvim --headless '+qa!'"

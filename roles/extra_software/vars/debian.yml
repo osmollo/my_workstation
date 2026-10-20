@@ -15,7 +15,7 @@ megacmd_dependencies:
   - libzen0v5
   - libcrypto++8
   - libmms0
-  - libtinyxml2-9
+  - libtinyxml2-10
 
 megasync_package: "https://mega.nz/linux/MEGAsync/{{ ansible_distribution }}_{{ ansible_distribution_version }}.0/amd64/megasync-{{ ansible_distribution }}_{{ ansible_distribution_version }}.0_amd64.deb"
 file_manager_plugin: "{{ lookup('template', 'megasync.j2') | replace('\n', '') }}"

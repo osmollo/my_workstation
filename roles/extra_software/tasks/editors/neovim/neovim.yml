@@ -34,6 +34,7 @@
     - astronvim
     - neovim_plugins
     - nvim_plugins
+  when: ubuntu_codename == 'resolute'
 
 - name: "[NEOVIM] create alias"
   vars:

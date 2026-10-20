@@ -5,7 +5,7 @@
     name: kitty
     update_cache: true
     state: present
-  when: linux_distribution in ['debian', 'ubuntu']
+  when: linux_distribution in ['debian', 'ubuntu', 'ubuntu_no_snap']
 
 - name: "[KITTY] [FEDORA] install kitty"
   dnf:

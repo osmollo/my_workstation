@@ -2,9 +2,9 @@
 
 - name: "install package"
   apt:
-    name: "ubuntu-advantage-tools=27.11.2~{{ ansible_distribution_version }}.1"
+    name: ubuntu-advantage-tools
     update_cache: true
-    state: present
+    state: latest
 
 - name: "execute pro command"
   command: pro security-status
