@@ -7,6 +7,12 @@
     - environment
     - env
 
+- name: "configure netbird"
+  import_tasks: netbird.yml
+  tags:
+    - post_install
+    - netbird
+
 - name: "configure certs"
   import_tasks: certs.yml
   tags:

@@ -1,0 +1,8 @@
+---
+
+- name: "[NETBIRD] register server and assign groups"
+  command: >-
+    netbird up
+    --setup-key {{ lookup('onepassword', 'op://Private/netbird/SETUP KEY') }}
+    --groups clients,workstation
+  ignore_errors: true

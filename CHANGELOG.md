@@ -34,6 +34,7 @@
   - Sincronización de extensiones de **Zed**
   - Configuración de **Opencode**
   - Configuración de **Claude**
+  - Fichero independiente para **Netbird**
 - Cambios en `work`:
   - Nueva entrada en `.ssh/config`
   - Fix typo en configuración ssh
