@@ -68,11 +68,22 @@
           [mergetool "{{ diff_editor }}"]
               cmd = {{ diff_editor }} "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
+{% if ansible_virtualization_type | default ('') == 'wsl' %}
+          [core]
+                  sshCommand = /mnt/c/Windows/System32/OpenSSH/ssh.exe
+
+          [gpg]
+            format = ssh
+
+          [gpg "ssh"]
+            program = "/mnt/c/Users/osmol/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe"
+{% else %}
           [gpg]
             format = ssh
 
           [gpg "ssh"]
             program = "/opt/1Password/op-ssh-sign"
+{%endif%}
 
           [commit]
             gpgsign = true

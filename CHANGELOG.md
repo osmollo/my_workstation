@@ -36,6 +36,7 @@
   - Configuración de **Opencode**
   - Configuración de **Claude**
   - Fichero independiente para **Netbird**
+  - Soporte **WSL**
 - Cambios en `work`:
   - Nueva entrada en `.ssh/config`
   - Fix typo en configuración ssh
