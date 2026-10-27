@@ -43,7 +43,9 @@
   become: true
   command: update-crypto-policies --set LEGACY
   changed_when: false
-  when: linux_distribution != "arch"
+  when: 
+    - linux_distribution != "arch"
+    - not is_wsl
 
 - name: "[ENVIRONMENT] export RSA key"
   copy:

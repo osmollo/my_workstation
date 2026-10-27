@@ -3,6 +3,10 @@
 - hosts: localhost
   connection: local
   tasks:
+    - name: "Detect WSL"
+      set_fact:
+        is_wsl: "{{ 'microsoft' in (ansible_facts['kernel'] | lower) or ansible_virtualization_type | default('') == 'wsl' }}"
+
     - name: "Set compatible distributions"
       set_fact:
         debian_based:

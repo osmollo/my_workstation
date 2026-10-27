@@ -25,25 +25,62 @@
     - ssh_config
     - config_files
 
-- name: "create 1Password agent configuration file"
-  blockinfile:
-    content: |
-      [[ssh-keys]]
-      item = "securitas ed25519"
-      vault = "Trabajo"
+- name: "[1PASSWORD] Native Linux agent configuration file"
+  when: not is_wsl
+  block:
+    - name: "create 1Password agent configuration file"
+      blockinfile:
+        content: &op_agent_keys |
+          [[ssh-keys]]
+          item = "securitas ed25519"
+          vault = "Trabajo"
 
-      [[ssh-keys]]
-      item = "nagios"
-      vault = "Trabajo"
-    path: "{{ ansible_user_dir }}/.config/1Password/ssh/agent.toml"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-    mode: 0600
+          [[ssh-keys]]
+          item = "nagios"
+          vault = "Trabajo"
+        path: "{{ ansible_user_dir }}/.config/1Password/ssh/agent.toml"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: "0600"
 
-- block:
+- name: "[1PASSWORD] WSL: agent configuration file on Windows side"
+  when: is_wsl
+  block:
+    - name: "[ENVIRONMENT] get Windows 1Password agent.toml path"
+      shell: >-
+        wslpath -u "$(cmd.exe /c 'echo %LOCALAPPDATA%' 2>/dev/null | tr -d '\r')/1Password/config/ssh/agent.toml"
+      args:
+        chdir: /mnt/c
+      register: op_agent_toml
+      changed_when: false
+
+    - name: "[ENVIRONMENT] create 1Password agent configuration file (Windows)"
+      blockinfile:
+        content: |
+          [[ssh-keys]]
+          vault = "Private"
+
+          [[ssh-keys]]
+          item = "securitas ed25519"
+          vault = "Trabajo"
+
+          [[ssh-keys]]
+          item = "nagios"
+          vault = "Trabajo"
+        path: "{{ op_agent_toml.stdout }}"
+        create: true
+
+    - name: "[ENVIRONMENT] Create links from Windows MegaSync"
+      file:
+        src: "/mnt/c/Users/osmol/Documents/MEGA/verisure/kubeconfig"
+        dest: "{{ ansible_user_dir }}/kubeconfig"
+        state: link
+
+- when: not is_wsl
+  block:
     - name: "[ENVIRONMENT] Wait until MEGASYNC files exist"
       wait_for:
-        path: "{{ megasync_dir }}/securitas/kubeconfig"
+        path: "{{ megasync_dir }}/verisure/kubeconfig"
         timeout: "{{ wait_megasync_sync }}"
 
     - name: "[ENVIRONMENT] Create links from MEGASYNC"

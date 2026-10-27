@@ -28,6 +28,7 @@
 - Añadido [CLAUDE.md](./CLAUDE.md)
 - Ya no se guardan en variables las URLs de los paquetes **Flatpak** sino que se usan directamente los IDs en las correspondientes tareas
 - Ya no se instala el plugin de **MegaSync** para cada gestor de ficheros
+- Soporte **WSL**
 - Corrección de errores:
   - Fix en la instalación de **Claude**
   - Corrección enlaces de descarga de múltiples [tools](roles/extra_software/tasks/tools/)
@@ -36,7 +37,6 @@
   - Configuración de **Opencode**
   - Configuración de **Claude**
   - Fichero independiente para **Netbird**
-  - Soporte **WSL**
 - Cambios en `work`:
   - Nueva entrada en `.ssh/config`
   - Fix typo en configuración ssh

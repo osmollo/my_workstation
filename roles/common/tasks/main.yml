@@ -30,7 +30,9 @@
 
 - name: "disable selinux"
   import_tasks: selinux.yml
-  when: linux_distribution == "fedora"
+  when:
+    - linux_distribution == "fedora"
+    - not is_wsl
   tags:
     - common
     - disable_selinux

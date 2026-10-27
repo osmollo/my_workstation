@@ -66,6 +66,13 @@
       when:
         - desktop_environment is defined
         - desktop_environment == "xfce"
+    
+    - name: "[ARCH] install packages for WSL distributions"
+      pacman:
+        name: "{{ wsl_arch_packages }}"
+        state: present
+        update_cache: true
+      when: is_wsl
   when: linux_distribution == "arch"
 
 - block:
@@ -120,6 +127,13 @@
 
     - name: "[FEDORA]add flatpak remote"
       shell: "flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo"
+
+    - name: "[FEDORA] install packages for WSL distributions"
+      dnf:
+        name: "{{ wsl_fedora_packages }}"
+        state: present
+        update_cache: true
+      when: is_wsl
   when: linux_distribution == "fedora"
 
 - block:
@@ -176,6 +190,13 @@
       when:
         - desktop_environment is defined
         - desktop_environment == "xfce"
+    
+    - name: "[UBUNTU] install packages for WSL distributions"
+      apt:
+        name: "{{ wsl_ubuntu_packages }}"
+        state: present
+        update_cache: true
+      when: is_wsl        
   when: linux_distribution in ["ubuntu", "ubuntu_no_snap"]
 
 - block:
@@ -230,4 +251,11 @@
     - name: "[DEBIAN] restart the system"
       reboot:
       when: response.changed
+
+    - name: "[DEBIAN] install packages for WSL distributions"
+      apt:
+        name: "{{ wsl_debian_packages }}"
+        state: present
+        update_cache: true
+      when: is_wsl       
   when: linux_distribution == "debian"
