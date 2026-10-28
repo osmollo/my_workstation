@@ -1,0 +1,134 @@
+---
+
+# Workstation setup for a WSL instance in a single run:
+#
+#   ansible-playbook wsl.yml -K
+#
+# Instead of filtering by tag, each step imports only the task files it needs (tasks_from):
+#
+#   install     common (whole role) + extra_software/tasks/wsl.yml (1password_cli, oh_my_zsh, starship,
+#               kubectl and kubecolor, tools)
+#   prepare     playbooks/prepare_post.yml (imports the GPG keys and decrypts the roles' defaults)
+#   post_install  environment, docker, git
+#   work          environment, docker, git
+#
+# post_install and work use include_role (dynamic) on purpose: the roles' defaults/main.yml are
+# decrypted by prepare_post during this same run, so they must be read when the task is reached,
+# not when the playbook is parsed (which is what import_role would do).
+
+- name: "[WSL] checks before running"
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: "this playbook is only for WSL instances"
+      assert:
+        that:
+          - >-
+            'microsoft' in (lookup('file', '/proc/sys/kernel/osrelease', errors='ignore') | default('', true) | lower)
+            or (lookup('env', 'WSL_DISTRO_NAME') | length > 0)
+        fail_msg: "This is not a WSL distribution (kernel '{{ lookup('file', '/proc/sys/kernel/osrelease', errors='ignore') }}'), wsl.yml is only for WSL instances."
+        success_msg: "WSL distribution detected"
+
+- name: "[LOAD VARS] setting ansible variables"
+  import_playbook: playbooks/load_distro_vars.yml
+
+###########
+# INSTALL #
+###########
+
+- name: "[INSTALL] common packages and selected extra software"
+  hosts: localhost
+  connection: local
+  become: true
+  become_method: sudo
+  vars:
+    disable_updates: "{{ lookup('env', 'REPO_DISABLE_UPDATES') | default(false) | bool }}"
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "{{ lookup('env', 'HOME') }}"
+  tasks:
+    - name: "[COMMON] common role"
+      import_role:
+        name: common
+
+    # 1password_cli, oh_my_zsh, starship, kubectl/kubecolor and tools (see extra_software/tasks/wsl.yml)
+    - name: "[EXTRA_SOFTWARE] subset for WSL"
+      import_role:
+        name: extra_software
+        tasks_from: wsl.yml
+
+###########
+# PREPARE #
+###########
+
+- name: "[PREPARE_POST] GPG keys and decrypted defaults"
+  import_playbook: playbooks/prepare_post.yml
+
+####################
+# POST INSTALACION #
+####################
+
+- name: "[POST_INSTALL] environment, docker and git"
+  hosts: localhost
+  connection: local
+  become: false
+  vars:
+    disable_updates: "{{ lookup('env', 'REPO_DISABLE_UPDATES') | default(false) | bool }}"
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "{{ lookup('env', 'HOME') }}"
+  tasks:
+    - name: "check if 'roles/post_install/defaults/main.yml' exists"
+      stat:
+        path: "{{ playbook_dir }}/roles/post_install/defaults/main.yml"
+      register: post_install_defaults
+
+    - name: "the roles' defaults must be decrypted"
+      fail:
+        msg: "YOU MUST TO DECRYPT '{{ playbook_dir }}/roles/post_install/defaults/main.yml.gpg"
+      when: not post_install_defaults.stat.exists
+
+    - name: "[POST_INSTALL] {{ post_install_file }}"
+      include_role:
+        name: post_install
+        tasks_from: "{{ post_install_file }}"
+      loop:
+        - environment.yml
+        - docker.yml
+        - git.yml
+        - netbird.yml
+      loop_control:
+        loop_var: post_install_file
+
+###############
+# WORK CONFIG #
+###############
+
+- name: "[WORK] environment, docker and git"
+  hosts: localhost
+  connection: local
+  become: false
+  vars:
+    disable_updates: "{{ lookup('env', 'REPO_DISABLE_UPDATES') | default(false) | bool }}"
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "{{ lookup('env', 'HOME') }}"
+  tasks:
+    - name: "check if 'roles/work/defaults/main.yml' exists"
+      stat:
+        path: "{{ playbook_dir }}/roles/work/defaults/main.yml"
+      register: work_defaults
+
+    - name: "the roles' defaults must be decrypted"
+      fail:
+        msg: "YOU MUST TO DECRYPT '{{ playbook_dir }}/roles/work/defaults/main.yml.gpg"
+      when: not work_defaults.stat.exists
+
+    - name: "[WORK] {{ work_file }}"
+      include_role:
+        name: work
+        tasks_from: "{{ work_file }}"
+      loop:
+        - environment.yml
+        - docker.yml
+        - git.yml
+      loop_control:
+        loop_var: work_file
