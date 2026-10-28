@@ -43,6 +43,7 @@
   - Excepción clonado repositorios git `ccdd-portainer-stack
   - Fix certificado Artifactory
   - Fix ssh_config para WSL
+  - Alias `ssh`, `ssh-add` y `scp` para **wsl**
 
 ## 10.1
 
