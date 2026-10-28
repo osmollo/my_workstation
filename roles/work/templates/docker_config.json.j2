@@ -1,0 +1,7 @@
+{% set cfg = docker_existing_config | default({}) %}
+{% set auths = cfg.auths | default({}) %}
+{% for registry in docker_registries %}
+{% set _ = auths.update({registry.name: {'auth': registry.auth | b64encode}}) %}
+{% endfor %}
+{% set _ = cfg.update({'auths': auths}) %}
+{{ cfg | to_nice_json }}

@@ -41,6 +41,7 @@
   - Nueva entrada en `.ssh/config`
   - Fix typo en configuración ssh
   - Excepción clonado repositorios git `ccdd-portainer-stack
+  - Fix certificado Artifactory
 
 ## 10.1
 
