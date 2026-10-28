@@ -42,6 +42,7 @@
   - Fix typo en configuración ssh
   - Excepción clonado repositorios git `ccdd-portainer-stack
   - Fix certificado Artifactory
+  - Fix ssh_config para WSL
 
 ## 10.1
 
