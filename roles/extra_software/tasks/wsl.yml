@@ -32,5 +32,12 @@
     install_kor: false
     install_kube_capacity: false
 
+# post_install/work (docker.yml) configure and restart the docker service, so the engine must exist
+- name: "[CONTAINERS] Install docker"
+  import_tasks: containers/docker/docker.yml
+  when: install_docker
+  tags:
+    - docker
+
 - name: "[TOOLS] install tools"
   import_tasks: tools/tools.yml

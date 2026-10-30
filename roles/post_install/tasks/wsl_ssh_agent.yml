@@ -72,6 +72,19 @@
     mode: "0644"
   register: agent_bridge_unit
 
+# WSL shells don't always open a logind session, so without linger there is no user manager
+# (/run/user/<uid>) and `systemctl --user` fails with "Failed to connect to user scope bus".
+- name: "[WSL_SSH_AGENT] enable linger so the systemd user manager is always running"
+  command: "loginctl enable-linger {{ ansible_user }}"
+  args:
+    creates: "/var/lib/systemd/linger/{{ ansible_user }}"
+  become: true
+
+- name: "[WSL_SSH_AGENT] wait for the systemd user bus"
+  wait_for:
+    path: "/run/user/{{ ansible_facts.user_uid | default(lookup('pipe', 'id -u')) }}/bus"
+    timeout: 30
+
 - name: "[WSL_SSH_AGENT] enable and start the bridge"
   systemd:
     name: 1password-agent-bridge.service
