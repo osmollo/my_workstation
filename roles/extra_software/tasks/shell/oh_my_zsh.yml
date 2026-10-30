@@ -17,6 +17,13 @@
     path: "{{ ansible_env.HOME }}/.oh-my-zsh"
   register: ohmyzshdir_exists
 
+# The directory alone is not enough: other roles create ~/.oh-my-zsh/custom (plugins) before the
+# framework is installed, and the installer refuses to run when ~/.oh-my-zsh already exists.
+- name: "[OHMYZSH] check if the oh_my_zsh framework is installed"
+  stat:
+    path: "{{ ansible_env.HOME }}/.oh-my-zsh/oh-my-zsh.sh"
+  register: ohmyzsh_framework_exists
+
 - name: "[OHMYZSH] Install oh_my_zsh"
   become: false
   become_user: "{{ ansible_user }}"
@@ -26,6 +33,36 @@
     REPO: "ohmyzsh/ohmyzsh"
   command: /tmp/install.sh --unattended
   when: not ohmyzshdir_exists.stat.exists
+
+- name: "[OHMYZSH] ~/.oh-my-zsh exists without the framework: install it in a temporary directory and merge"
+  when:
+    - ohmyzshdir_exists.stat.exists
+    - not ohmyzsh_framework_exists.stat.exists
+  become: false
+  block:
+    - name: "[OHMYZSH] remove a previous temporary directory"
+      file:
+        path: "{{ ansible_env.HOME }}/.oh-my-zsh.tmp"
+        state: absent
+
+    # KEEP_ZSHRC: the user's ~/.zshrc already exists and must not be replaced
+    - name: "[OHMYZSH] install oh_my_zsh in the temporary directory"
+      environment:
+        ZSH: "{{ ansible_env.HOME }}/.oh-my-zsh.tmp"
+        KEEP_ZSHRC: "yes"
+        CHSH: "no"
+        RUNZSH: "no"
+        REPO: "ohmyzsh/ohmyzsh"
+      command: /tmp/install.sh --unattended
+
+    # -n: never overwrite what is already in ~/.oh-my-zsh (custom plugins and themes)
+    - name: "[OHMYZSH] merge it into ~/.oh-my-zsh without overwriting custom/"
+      command: "cp -an {{ ansible_env.HOME }}/.oh-my-zsh.tmp/. {{ ansible_env.HOME }}/.oh-my-zsh/"
+
+    - name: "[OHMYZSH] delete the temporary directory"
+      file:
+        path: "{{ ansible_env.HOME }}/.oh-my-zsh.tmp"
+        state: absent
 
 - name: "[OHMYZSH] Change $SHELL variable for {{ ansible_user }}"
   user:
@@ -38,7 +75,7 @@
     line: "emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'"
   when:
     - desktop_environment == "kde"
-    - linux_distribution in ['ubuntu', 'debian']
+    - linux_distribution in ['ubuntu', 'ubuntu_no_snap', 'debian']
 
 - name: "[OHMYZSH] delete temporal file"
   file:

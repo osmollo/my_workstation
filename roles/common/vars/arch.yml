@@ -48,3 +48,7 @@ python_packages:
   - ipython
   - python-virtualenv
   - python-virtualenvwrapper
+
+wsl_arch_packages:
+  - pinentry-tty
+  - socat

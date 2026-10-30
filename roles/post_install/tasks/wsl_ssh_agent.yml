@@ -1,0 +1,94 @@
+---
+
+# WSL: bridge the Windows 1Password SSH agent (named pipe) to ~/.1password/agent.sock, so the native
+# Linux ssh/scp/git/ansible use it (same socket path as native Linux 1Password). Requires socat
+# (wsl_*_packages in the common role) and npiperelay.exe on the Windows side.
+
+- name: "[WSL_SSH_AGENT] check if npiperelay is installed on Windows"
+  shell: "winget.exe list --id albertony.npiperelay --exact --accept-source-agreements"
+  args:
+    chdir: /mnt/c
+  register: npiperelay_installed
+  changed_when: false
+  failed_when: false
+
+- name: "[WSL_SSH_AGENT] install npiperelay on Windows"
+  shell: >-
+    winget.exe install --id albertony.npiperelay --exact --silent
+    --accept-package-agreements --accept-source-agreements
+  args:
+    chdir: /mnt/c
+  when: npiperelay_installed.rc != 0
+
+- name: "[WSL_SSH_AGENT] locate npiperelay.exe"
+  shell: >-
+    find "$(wslpath -u "$(cmd.exe /c 'echo %LOCALAPPDATA%' 2>/dev/null | tr -d '\r')")/Microsoft/WinGet/Packages"
+    -maxdepth 2 -path '*albertony.npiperelay*' -name npiperelay.exe -print -quit
+  args:
+    chdir: /mnt/c
+  register: npiperelay_path
+  changed_when: false
+  failed_when: npiperelay_path.stdout | length == 0
+
+- name: "[WSL_SSH_AGENT] create directories"
+  file:
+    path: "{{ item.path }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: "{{ item.mode }}"
+  loop:
+    - path: "{{ ansible_user_dir }}/.local/bin"
+      mode: "0755"
+    - path: "{{ ansible_user_dir }}/.1password"
+      mode: "0700"
+    - path: "{{ ansible_user_dir }}/.config/systemd/user"
+      mode: "0755"
+
+- name: "[WSL_SSH_AGENT] link npiperelay.exe into ~/.local/bin"
+  file:
+    src: "{{ npiperelay_path.stdout }}"
+    dest: "{{ ansible_user_dir }}/.local/bin/npiperelay.exe"
+    state: link
+    force: true
+
+- name: "[WSL_SSH_AGENT] create systemd user service"
+  copy:
+    content: |
+      [Unit]
+      Description=Bridge the Windows 1Password SSH agent to ~/.1password/agent.sock
+
+      [Service]
+      ExecStartPre=/usr/bin/rm -f %h/.1password/agent.sock
+      ExecStart=/usr/bin/socat UNIX-LISTEN:%h/.1password/agent.sock,fork,umask=077 EXEC:"%h/.local/bin/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork
+      Restart=always
+      RestartSec=2
+
+      [Install]
+      WantedBy=default.target
+    dest: "{{ ansible_user_dir }}/.config/systemd/user/1password-agent-bridge.service"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: "0644"
+  register: agent_bridge_unit
+
+# WSL shells don't always open a logind session, so without linger there is no user manager
+# (/run/user/<uid>) and `systemctl --user` fails with "Failed to connect to user scope bus".
+- name: "[WSL_SSH_AGENT] enable linger so the systemd user manager is always running"
+  command: "loginctl enable-linger {{ ansible_user }}"
+  args:
+    creates: "/var/lib/systemd/linger/{{ ansible_user }}"
+  become: true
+
+- name: "[WSL_SSH_AGENT] wait for the systemd user bus"
+  wait_for:
+    path: "/run/user/{{ ansible_facts.user_uid | default(lookup('pipe', 'id -u')) }}/bus"
+    timeout: 30
+
+- name: "[WSL_SSH_AGENT] enable and start the bridge"
+  systemd:
+    name: 1password-agent-bridge.service
+    scope: user
+    enabled: true
+    state: "{{ 'restarted' if agent_bridge_unit is changed else 'started' }}"
+    daemon_reload: "{{ agent_bridge_unit is changed }}"

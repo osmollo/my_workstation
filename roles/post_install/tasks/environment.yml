@@ -114,17 +114,34 @@
         group: "{{ ansible_user }}"
         mode: 0600
 
-- block:
+- when: is_wsl
+  block:
+    - name: "[ENVIRONMENT] delete {{ backup_dir }}/zsh"
+      file:
+        path: "{{ megasync_dir }}/backups/zsh"
+        state: absent
+
+    - name: "[ENVIRONMENT] create directory"
+      file:
+        path: "{{ megasync_dir }}/backups"
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: 0755
+
+    - name: "[ENVIRONMENT] create link {{ megasync_dir }}/backups/zsh"
+      file:
+        src: "/mnt/c/Users/osmol/Documents/MEGA/backups/zsh"
+        dest: "{{ megasync_dir }}/backups/zsh"
+        state: link
+
+- when: not is_wsl
+  block:
     - name: "[ENVIRONMENT] Wait until MEGASYNC files exist"
       wait_for:
         path: "{{ item.src }}"
         timeout: "{{ wait_megasync_sync }}"
       loop: "{{ links_to_create }}"
-
-#    - name: "[ENVIRONMENT] configure fish shell"
-#      import_tasks: fish.yml
-#      tags:
-#        - fish
 
     - name: "[ENVIRONMENT] Create links from MEGASYNC"
       file:
@@ -152,10 +169,3 @@
         group: "{{ ansible_user }}"
         mode: 0755
         state: link
-
-- name: "[ENVIRONMENT] register netbird"
-  command: "netbird up --setup-key {{ lookup('onepassword', 'op://Private/netbird/add more/SETUP KEY') }}"
-  ignore_errors: true
-  tags:
-    - netbird
-      

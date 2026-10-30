@@ -21,7 +21,7 @@
         name: fish
         state: present
         update_cache: true
-  when: linux_distribution == "ubuntu"
+  when: linux_distribution in ["ubuntu", "ubuntu_no_snap"]
 
 - block:
     - name: "[DEBIAN] copy repository file"

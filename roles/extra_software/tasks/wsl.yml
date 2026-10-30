@@ -1,0 +1,43 @@
+---
+
+# Subset of extra_software installed on WSL. Entrypoint for wsl.yml (tasks_from: wsl.yml).
+#
+# It lives in the root of tasks/ on purpose: the files it imports import siblings with relative
+# paths (k8s/kubecolor.yml, tools/tlp/tlp.yml...), which only resolve when they are imported
+# from a file inside the role, not when tasks_from points straight at a file in a subdirectory.
+
+- name: "include vars file based on linux distribution"
+  include_vars:
+    file: "{{ linux_distribution }}.yml"
+
+- name: "[1PASSWORD_CLI] install 1Password CLI"
+  import_tasks: pass_managers/1password/1password_cli.yml
+
+- name: "[FZF] Install FzF"
+  import_tasks: tools/fzf.yml
+  when: install_fzf
+
+- name: "[SHELL] Install Oh My ZSH!"
+  import_tasks: shell/oh_my_zsh.yml
+  when: install_ohmyzsh
+
+- name: "[SHELL] Install starship"
+  import_tasks: shell/starship/starship.yml
+  when: install_starship
+
+# k8s.yml also enables kor and kube-capacity by default; only kubectl (and its kubecolor) are wanted
+- name: "[K8S] kubectl and kubecolor"
+  import_tasks: k8s/k8s.yml
+  vars:
+    install_kor: false
+    install_kube_capacity: false
+
+# post_install/work (docker.yml) configure and restart the docker service, so the engine must exist
+- name: "[CONTAINERS] Install docker"
+  import_tasks: containers/docker/docker.yml
+  when: install_docker
+  tags:
+    - docker
+
+- name: "[TOOLS] install tools"
+  import_tasks: tools/tools.yml

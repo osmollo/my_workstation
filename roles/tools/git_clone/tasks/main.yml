@@ -9,13 +9,46 @@
     path: "{{ git_dest_dir }}"
     state: directory
 
+- name: "[GIT_CLONE] [WSL] use the signing key as identity (the bridged 1Password agent exposes several keys)"
+  when: "'microsoft' in (ansible_facts['kernel'] | lower)"
+  block:
+    - name: "[GIT_CLONE] [WSL] write public key so ssh can pick it from the 1Password agent"
+      copy:
+        content: "{{ git_config_signingkey }}\n"
+        dest: "{{ ansible_user_dir }}/.ssh/git_clone_{{ git_config_signingkey | hash('sha1') | truncate(10, true, '') }}.pub"
+        mode: "0644"
+      register: wsl_identity
+
+    - name: "[GIT_CLONE] [WSL] set ssh command"
+      set_fact:
+        git_ssh_command: "ssh -o IdentityAgent=~/.1password/agent.sock -o IdentitiesOnly=yes -i {{ wsl_identity.dest }}"
+
 - name: "[GIT_CLONE] Clone git repository '{{ item.repo }}'"
   git:
     repo: "{{ item.repo }}"
     dest: "{{ git_dest_dir }}"
     clone: true
     accept_hostkey: true
+  environment: "{{ {'GIT_SSH_COMMAND': git_ssh_command} if git_ssh_command is defined else {} }}"
+  register: git_clone_result
   ignore_errors: true
+
+- name: "[GIT_CLONE] clone failed '{{ item.repo }}'"
+  debug:
+    msg:
+      - "ssh command: {{ git_ssh_command | default('(default ssh)') }}"
+      - "{{ git_clone_result.msg | default('') }}"
+  when: git_clone_result is failed
+
+- name: "[GIT_CLONE] [WSL] persist ssh command in the repository"
+  git_config:
+    name: core.sshCommand
+    repo: "{{ git_dest_dir }}"
+    scope: local
+    value: "{{ git_ssh_command }}"
+  when: git_ssh_command is defined
+
+- debug: var=git_dest_dir
 
 - name: "[GIT_CLONE] Configure user email"
   git_config:
@@ -43,8 +76,10 @@
     - item.remote is defined
     - item.remote == "github"
 
-- name: "[GIT_CLONE] not-helm-value repository"
-  when: "'helm-values' not in item.repo"
+- name: "[GIT_CLONE] not 'helm-value' neither 'ccdd-portainer-stack' repository"
+  when:
+    - "'helm-values' not in item.repo"
+    -  "'ccdd-portainer-stack' not in item.repo"
   block:
     - name: "[GIT_CLONE] [GITLAB] Create gitlab repository '{{ (item.repo | basename).split('.')[0] }}'"
       include_role:
@@ -68,8 +103,8 @@
       vars:
         remote_url: "git@{{ item.remote | default('gitlab') }}.com:osmollo/{{ (item.repo | basename).split('.')[0] }}.git"
 
-- name: "[GIT_CLONE] helm-value repository"
-  when: "'helm-values' in item.repo"
+- name: "[GIT_CLONE] 'helm-value' or 'ccdd-portainer-stack' repository"
+  when: "'helm-values' in item.repo or 'ccdd-portainer-stack' in item.repo"
   vars:
     helm_repo_name: "{{ (item.repo | urlsplit('path')).split('/')[1] + '_' + (item.repo | urlsplit('path')).split('/')[-1].split('.')[0] }}"
   block:
@@ -102,7 +137,9 @@
     - "all"
   loop_control:
     loop_var: push_opt
-  when: item.remote is defined or git_work
+  when:
+    - item.remote is defined or git_work
+    - execute_update_remote | default(true)
   changed_when: false
   ignore_errors: true
 

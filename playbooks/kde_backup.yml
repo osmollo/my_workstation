@@ -6,7 +6,7 @@
   connection: local
   vars:
     ansible_user: "{{ lookup('env', 'USER') }}"
-    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "{{ lookup('env', 'HOME') }}"
   tasks:
     - meta: end_play
       when: desktop_environment != "kde"
