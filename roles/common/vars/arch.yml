@@ -51,3 +51,4 @@ python_packages:
 
 wsl_arch_packages:
   - pinentry-tty
+  - socat

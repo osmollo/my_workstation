@@ -54,3 +54,4 @@ python_packages:
 
 wsl_debian_packages:
   - pinentry-tty
+  - socat

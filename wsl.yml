@@ -9,7 +9,7 @@
 #   install     common (whole role) + extra_software/tasks/wsl.yml (1password_cli, oh_my_zsh, starship,
 #               kubectl and kubecolor, tools)
 #   prepare     playbooks/prepare_post.yml (imports the GPG keys and decrypts the roles' defaults)
-#   post_install  environment, docker, git
+#   post_install  environment, wsl_ssh_agent (1Password agent bridge), docker, git, netbird
 #   work          environment, docker, git
 #
 # post_install and work use include_role (dynamic) on purpose: the roles' defaults/main.yml are
@@ -93,6 +93,7 @@
         tasks_from: "{{ post_install_file }}"
       loop:
         - environment.yml
+        - wsl_ssh_agent.yml
         - docker.yml
         - git.yml
         - netbird.yml

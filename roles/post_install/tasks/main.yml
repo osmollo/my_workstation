@@ -7,6 +7,14 @@
     - environment
     - env
 
+- name: "WSL: bridge the Windows 1Password ssh-agent"
+  import_tasks: wsl_ssh_agent.yml
+  when: is_wsl
+  tags:
+    - post_install
+    - wsl_ssh_agent
+    - 1password_agent
+
 - name: "configure netbird"
   import_tasks: netbird.yml
   tags:

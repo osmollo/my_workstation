@@ -65,3 +65,4 @@ python_packages:
 
 wsl_fedora_packages:
   - pinentry-tty
+  - socat

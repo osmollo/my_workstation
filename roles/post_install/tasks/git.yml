@@ -69,14 +69,9 @@
               cmd = {{ diff_editor }} "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
           {% if is_wsl %}
-          [core]
-                  sshCommand = /mnt/c/Windows/System32/OpenSSH/ssh.exe
-
+          {# native ssh + ssh-keygen signing through the bridged 1Password agent (SSH_AUTH_SOCK) #}
           [gpg]
             format = ssh
-
-          [gpg "ssh"]
-            program = "/mnt/c/Users/osmol/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe"
           {% else %}
           [gpg]
             format = ssh

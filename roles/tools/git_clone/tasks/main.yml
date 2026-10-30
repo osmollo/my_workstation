@@ -9,38 +9,19 @@
     path: "{{ git_dest_dir }}"
     state: directory
 
-- name: "[GIT_CLONE] [WSL] use the Windows ssh client with the signing key as identity"
+- name: "[GIT_CLONE] [WSL] use the signing key as identity (the bridged 1Password agent exposes several keys)"
   when: "'microsoft' in (ansible_facts['kernel'] | lower)"
   block:
-    - name: "[GIT_CLONE] [WSL] get Windows user profile"
-      shell: "cmd.exe /c 'echo %USERPROFILE%' 2>/dev/null | tr -d '\\r'"
-      args:
-        chdir: /mnt/c
-      register: win_profile
-      changed_when: false
-
-    - name: "[GIT_CLONE] [WSL] get Windows user profile path in WSL"
-      command: "wslpath -u '{{ win_profile.stdout }}'"
-      register: win_profile_unix
-      changed_when: false
-
-    - name: "[GIT_CLONE] [WSL] get Windows user profile path with forward slashes"
-      command: "wslpath -m '{{ win_profile_unix.stdout }}'"
-      register: win_profile_mixed
-      changed_when: false
-
-    - name: "[GIT_CLONE] [WSL] write public key so ssh.exe can pick it from the 1Password agent"
+    - name: "[GIT_CLONE] [WSL] write public key so ssh can pick it from the 1Password agent"
       copy:
         content: "{{ git_config_signingkey }}\n"
-        dest: "{{ win_profile_unix.stdout }}/.ssh/git_clone_{{ git_config_signingkey | hash('sha1') | truncate(10, true, '') }}.pub"
+        dest: "{{ ansible_user_dir }}/.ssh/git_clone_{{ git_config_signingkey | hash('sha1') | truncate(10, true, '') }}.pub"
         mode: "0644"
-      register: win_identity
+      register: wsl_identity
 
     - name: "[GIT_CLONE] [WSL] set ssh command"
       set_fact:
-        git_ssh_command: >-
-          /mnt/c/Windows/System32/OpenSSH/ssh.exe -o IdentitiesOnly=yes
-          -i {{ win_profile_mixed.stdout }}/.ssh/{{ win_identity.dest | basename }}
+        git_ssh_command: "ssh -o IdentityAgent=~/.1password/agent.sock -o IdentitiesOnly=yes -i {{ wsl_identity.dest }}"
 
 - name: "[GIT_CLONE] Clone git repository '{{ item.repo }}'"
   git:

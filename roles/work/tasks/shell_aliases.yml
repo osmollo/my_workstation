@@ -7,23 +7,11 @@
     mode: 0600
   loop: "{{ shell_aliases }}"
 
-# Aliases documented by 1Password for WSL: the Windows OpenSSH client reaches the Windows agent.
-# scp.exe resolves '/path' against the WSL filesystem as long as the current directory is inside
-# it (WSL maps the cwd to \\wsl.localhost\...). From /mnt/c it would read them as C:\ paths.
-- name: "[ENVIRONMENT] WSL: aliases for the Windows OpenSSH client"
+# WSL uses the native OpenSSH client through the bridged 1Password agent (post_install wsl_ssh_agent.yml),
+# so drop the old aliases to the Windows OpenSSH client.
+- name: "[ENVIRONMENT] WSL: remove aliases for the Windows OpenSSH client"
   lineinfile:
     path: "{{ ansible_user_dir }}/.aliases"
-    line: "alias {{ item.name }}='{{ item.command }}'"
-    create: true
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
-    mode: 0600
-  loop:
-    # Appended after the generic 'ssh' alias from shell_aliases, so it wins; keeps the same options.
-    - name: ssh
-      command: ssh.exe -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
-    - name: ssh-add
-      command: ssh-add.exe
-    - name: scp
-      command: scp.exe
+    regexp: "^alias (ssh|ssh-add|scp|sftp)='(ssh|ssh-add|scp|sftp)\\.exe"
+    state: absent
   when: is_wsl

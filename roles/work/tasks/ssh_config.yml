@@ -1,5 +1,8 @@
 ---
 
+# WSL: AddressFamily inet because the WSL DNS proxy answers NOERROR/malformed instead of NXDOMAIN
+# for the corporate search domains, so getaddrinfo(AF_UNSPEC) stops at the first one and short
+# names (es1webpla01v -> .vsdpro.local) never resolve; IPv4-only lookups keep searching.
 - name: "[ENVIRONMENT] configure ssh entries"
   blockinfile:
     path: "{{ ansible_user_dir }}/.ssh/config"
@@ -32,6 +35,12 @@
         IdentityFile ~/.ssh/securitas_rsa
         PubkeyAcceptedKeyTypes {{ item.type }}
         HostKeyAlgorithms {{ item.type }}
+      {% elif is_wsl %}
+        IdentityFile ~/.ssh/securitas_ed25519.pub
+        IdentitiesOnly yes
+      {% endif %}
+      {% if is_wsl %}
+        AddressFamily inet
       {% endif %}
         IdentityAgent ~/.1password/agent.sock
     owner: "{{ ansible_user }}"
@@ -47,42 +56,16 @@
     - linux_distribution != "arch"
     - not is_wsl
 
-- name: "[ENVIRONMENT] WSL: ssh config on the Windows side (ssh.exe/scp.exe do not read ~/.ssh/config)"
+# The bridged 1Password agent exposes every key of the Private vault plus the work ones, which can
+# exceed the server's MaxAuthTries; the hosts above pin the work key with IdentitiesOnly.
+- name: "[ENVIRONMENT] WSL: write work public key so ssh can pick it from the 1Password agent"
+  copy:
+    content: "{{ lookup('onepassword', 'op://Trabajo/securitas ed25519/public key') }}\n"
+    dest: "{{ ansible_user_dir }}/.ssh/securitas_ed25519.pub"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: "0644"
   when: is_wsl
-  block:
-    - name: "[ENVIRONMENT] get Windows user profile"
-      shell: "cmd.exe /c 'echo %USERPROFILE%' 2>/dev/null | tr -d '\\r'"
-      args:
-        chdir: /mnt/c
-      register: win_profile
-      changed_when: false
-
-    - name: "[ENVIRONMENT] get Windows user profile path in WSL"
-      command: "wslpath -u '{{ win_profile.stdout }}'"
-      register: win_profile_unix
-      changed_when: false
-
-    - name: "[ENVIRONMENT] get Windows user profile path with forward slashes"
-      command: "wslpath -m '{{ win_profile_unix.stdout }}'"
-      register: win_profile_mixed
-      changed_when: false
-
-    - name: "[ENVIRONMENT] create Windows .ssh directory"
-      file:
-        path: "{{ win_profile_unix.stdout }}/.ssh"
-        state: directory
-
-    - name: "[ENVIRONMENT] write work public key so ssh.exe can pick it from the 1Password agent"
-      copy:
-        content: "{{ lookup('onepassword', 'op://Trabajo/securitas ed25519/public key') }}\n"
-        dest: "{{ win_profile_unix.stdout }}/.ssh/securitas_ed25519.pub"
-
-    - name: "[ENVIRONMENT] configure ssh entries (Windows)"
-      blockinfile:
-        path: "{{ win_profile_unix.stdout }}/.ssh/config"
-        marker: "# {mark} ANSIBLE MANAGED BLOCK work hosts #"
-        block: "{{ lookup('template', 'windows_ssh_config.j2') }}"
-        create: true
 
 - name: "[ENVIRONMENT] export RSA key"
   copy:
