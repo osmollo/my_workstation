@@ -92,3 +92,11 @@
     enabled: true
     state: "{{ 'restarted' if agent_bridge_unit is changed else 'started' }}"
     daemon_reload: "{{ agent_bridge_unit is changed }}"
+  # without a login session the systemd module can't find the user bus on its own
+  environment:
+    XDG_RUNTIME_DIR: "/run/user/{{ ansible_facts.user_uid | default(lookup('pipe', 'id -u')) }}"
+
+- name: "[WSL_SSH_AGENT] wait for the agent socket"
+  wait_for:
+    path: "{{ ansible_user_dir }}/.1password/agent.sock"
+    timeout: 15
