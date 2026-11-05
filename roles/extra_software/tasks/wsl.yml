@@ -13,6 +13,10 @@
 - name: "[1PASSWORD_CLI] install 1Password CLI"
   import_tasks: pass_managers/1password/1password_cli.yml
 
+- name: "[NEOVIM] install neovim"
+  import_tasks: editors/neovim/neovim.yml
+  when: install_neovim
+
 - name: "[FZF] Install FzF"
   import_tasks: tools/fzf.yml
   when: install_fzf

@@ -58,10 +58,3 @@
       import_role:
         name: extra_software
         tasks_from: wsl.yml
-
-###########
-# PREPARE #
-###########
-
-- name: "[PREPARE_POST] GPG keys and decrypted defaults"
-  import_playbook: playbooks/prepare_post.yml

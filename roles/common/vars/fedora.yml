@@ -18,6 +18,7 @@ distro_packages:
   - ansible-lint
   - gcc
   - python3-devel
+  - python3-requests
   - mesa-libgbm
   - mesa-libgbm-devel
   - cronie
