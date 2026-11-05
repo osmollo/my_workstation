@@ -79,7 +79,7 @@
 - name: "[GIT_CLONE] not 'helm-value' neither 'ccdd-portainer-stack' repository"
   when:
     - "'helm-values' not in item.repo"
-    -  "'ccdd-portainer-stack' not in item.repo"
+    - "'ccdd-portainer-stack' not in item.repo"
   block:
     - name: "[GIT_CLONE] [GITLAB] Create gitlab repository '{{ (item.repo | basename).split('.')[0] }}'"
       include_role:
