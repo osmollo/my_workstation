@@ -7,7 +7,7 @@
       - ripgrep
     update_cache: true
     state: present
-  when: linux_distribution == "ubuntu"
+  when: linux_distribution in ["ubuntu", "ubuntu_no_snap"]
 
 - name: "[FZF] [FEDORA] install fzf"
   dnf:

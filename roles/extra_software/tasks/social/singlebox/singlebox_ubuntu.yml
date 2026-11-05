@@ -6,3 +6,4 @@
       - singlebox
     state: present
     channel: edge
+  when: linux_distribution == "ubuntu"

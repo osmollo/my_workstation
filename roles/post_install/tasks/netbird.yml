@@ -1,0 +1,10 @@
+---
+
+# Groups (clients, workstation) are assigned via the setup key's
+# "Auto-assigned groups" in the NetBird dashboard; the CLI has no --groups flag.
+- name: "[NETBIRD] register server"
+  command: >-
+    netbird up
+    --setup-key {{ lookup('onepassword', 'op://Private/netbird/SETUP KEY') }}
+  no_log: true
+  ignore_errors: true

@@ -10,7 +10,7 @@
 
 - name: "[TRILIUM] [FEDORA] Install trilium"
   flatpak:
-    name:  "{{ trilium_flatpak }}"
+    name: com.github.zadam.trilium
     state: present
   when: linux_distribution in ['fedora', 'debian']
 

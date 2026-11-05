@@ -30,7 +30,9 @@
 
 - name: "disable selinux"
   import_tasks: selinux.yml
-  when: linux_distribution == "fedora"
+  when:
+    - linux_distribution == "fedora"
+    - not is_wsl
   tags:
     - common
     - disable_selinux
@@ -57,7 +59,7 @@
   apt:
     name: apt-transport-https
     state: present
-  when: linux_distribution in ["ubuntu", "debian"]
+  when: linux_distribution in ["ubuntu", "ubuntu_no_snap", "debian"]
   tags:
     - common
     - install_packages
@@ -74,13 +76,6 @@
     - common
     - python
     - python3
-
-- name: "delete snap packages"
-  import_tasks: delete_snap.yml
-  when: linux_distribution == "ubuntu" and ansible_distribution_major_version is version("18", ">=")
-  tags:
-    - common
-    - delete_snap
 
 - name: "install zsh"
   import_tasks: zsh.yml

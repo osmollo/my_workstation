@@ -1,10 +1,9 @@
 
-- name: "Install Claude CLI"
+- name: "Install Claude"
   import_tasks: claude/claude.yml
   when: install_claude
   tags:
-    - claude_cli
-    - claudecli
+    - claude
 
 - name: "Install OpenCode"
   import_tasks: opencode.yml

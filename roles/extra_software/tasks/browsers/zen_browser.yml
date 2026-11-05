@@ -2,5 +2,5 @@
 
 - name: "[ZEN_BROWSER] install Zen Browser"
   flatpak:
-    name: "{{ zen_flatpak }}"
+    name: app.zen_browser.zen
     state: present

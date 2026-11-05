@@ -1,5 +1,8 @@
 ---
 
+# WSL: AddressFamily inet because the WSL DNS proxy answers NOERROR/malformed instead of NXDOMAIN
+# for the corporate search domains, so getaddrinfo(AF_UNSPEC) stops at the first one and short
+# names (es1webpla01v -> .vsdpro.local) never resolve; IPv4-only lookups keep searching.
 - name: "[ENVIRONMENT] configure ssh entries"
   blockinfile:
     path: "{{ ansible_user_dir }}/.ssh/config"
@@ -32,8 +35,14 @@
         IdentityFile ~/.ssh/securitas_rsa
         PubkeyAcceptedKeyTypes {{ item.type }}
         HostKeyAlgorithms {{ item.type }}
+      {% elif is_wsl %}
+        IdentityFile ~/.ssh/securitas_ed25519.pub
+        IdentitiesOnly yes
       {% endif %}
-      IdentityAgent ~/.1password/agent.sock
+      {% if is_wsl %}
+        AddressFamily inet
+      {% endif %}
+        IdentityAgent ~/.1password/agent.sock
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     mode: 0600
@@ -43,7 +52,20 @@
   become: true
   command: update-crypto-policies --set LEGACY
   changed_when: false
-  when: linux_distribution != "arch"
+  when: 
+    - linux_distribution != "arch"
+    - not is_wsl
+
+# The bridged 1Password agent exposes every key of the Private vault plus the work ones, which can
+# exceed the server's MaxAuthTries; the hosts above pin the work key with IdentitiesOnly.
+- name: "[ENVIRONMENT] WSL: write work public key so ssh can pick it from the 1Password agent"
+  copy:
+    content: "{{ lookup('onepassword', 'op://Trabajo/securitas ed25519/public key') }}\n"
+    dest: "{{ ansible_user_dir }}/.ssh/securitas_ed25519.pub"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: "0644"
+  when: is_wsl
 
 - name: "[ENVIRONMENT] export RSA key"
   copy:

@@ -2,7 +2,7 @@
 
 # - name: "[MARK TEXT] [FEDORA] Install the MarkText flatpak"
 #   flatpak:
-#     name:  "{{ marktext_flatpak }}"
+#     name: com.github.marktext.marktext
 #     state: present
 
 - name: "[MARK TEXT] [FEDORA] install MarkText package"

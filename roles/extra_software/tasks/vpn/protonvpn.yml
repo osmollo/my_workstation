@@ -7,7 +7,7 @@
   when: linux_distribution == "arch"
 
 - name: "[PROTONVPN] [DEB] installing protonvpn dependencies"
-  when: linux_distribution in ["debian", "ubuntu"]
+  when: linux_distribution in ["debian", "ubuntu", "ubuntu_no_snap"]
   block:
     - name: "[PROTONVPN] [DEB] add protonvpn repository"
       copy:

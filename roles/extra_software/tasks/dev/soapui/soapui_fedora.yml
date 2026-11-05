@@ -2,5 +2,5 @@
 
 - name: "[SOAPUI] [FEDORA] Install SoapUI flatpak"
   flatpak:
-    name:  "{{ soapui_flatpak }}"
+    name: org.soapui.SoapUI
     state: present

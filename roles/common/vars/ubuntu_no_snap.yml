@@ -1,0 +1,62 @@
+---
+distro_packages:
+  - python-apt-common
+  - aptitude
+  - software-properties-common
+  - network-manager-openvpn
+  - apt-transport-https
+  - openvpn
+  - dnsutils
+  - python3-dev
+  - build-essential
+  - firewall-config
+  - net-tools
+  - python3-jmespath
+  - python3-gpg
+  - secure-delete
+  - libnss3-tools
+  - libzookeeper-mt-dev
+  - fonts-firacode
+  - virtualenvwrapper
+  - traceroute
+  - ansible-lint
+  - screenfetch
+  - vlc
+  - tldr
+  - remmina
+  - unixodbc
+  - wireguard
+  - arp-scan
+  - shellcheck
+  - python3-passlib
+
+gnome_ubuntu_packages:
+  - ubuntu-restricted-extras
+  - libsecret-tools
+  - network-manager-openvpn-gnome
+  - arc-theme
+  - elementary-icon-theme
+  - papirus-icon-theme
+  - gnome-tweaks
+  - python3-psutil
+  - wireshark
+  - guake
+  - chrome-gnome-shell
+  - gnome-shell-extension-manager
+  - gir1.2-gda-5.0
+  - gir1.2-gsound-1.0
+  - gnome-shell-extensions
+
+kde_ubuntu_packages:
+  - kubuntu-restricted-extras
+  - usb-creator-kde
+
+xfce_ubuntu_packages:
+  - xubuntu-restricted-extras
+
+python_packages:
+  - python3
+  - python3-pip
+  - python3-venv
+  - ipython3
+  - virtualenvwrapper

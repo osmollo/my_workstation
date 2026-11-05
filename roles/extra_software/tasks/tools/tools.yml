@@ -9,7 +9,7 @@
 - name: "[TOOLS] Install Bucklespring"
   import_tasks: bucklespring.yml
   when:
-    - linux_distribution == "ubuntu" or linux_distribution == "debian"
+    - linux_distribution in ["ubuntu", "debian"]
     - install_bucklespring
   tags:
     - bucklespring

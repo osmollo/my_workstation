@@ -2,5 +2,5 @@
 
 - name: "[POSTMAN] [FEDORA] Install the postman flatpak"
   flatpak:
-    name:  "{{ postman_flatpak }}"
+    name: com.getpostman.Postman
     state: present

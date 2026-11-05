@@ -2,6 +2,6 @@
 
 - name: "[OBSIDIAN] [FEDORA] Install Obsidian"
   flatpak:
-    name:  "{{ obsidian_flatpak }}"
+    name: md.obsidian.Obsidian
     state: present
   when: linux_distribution in ['fedora']

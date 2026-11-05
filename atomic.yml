@@ -1,0 +1,16 @@
+---
+
+- name: "[LOAD VARS] setting ansible variables"
+  import_playbook: playbooks/load_distro_vars.yml
+  tags:
+    - always
+
+- name: "[ATOMIC] configure atomic distros"
+  hosts: localhost
+  connection: local
+  vars:
+    disable_updates: "{{ lookup('env', 'REPO_DISABLE_UPDATES') | default(false) | bool }}"
+    ansible_user: "{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "{{ lookup('env', 'HOME') }}"
+  roles:
+    - atomic

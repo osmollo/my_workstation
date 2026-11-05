@@ -6,3 +6,12 @@
     group: "{{ ansible_user }}"
     mode: 0600
   loop: "{{ shell_aliases }}"
+
+# WSL uses the native OpenSSH client through the bridged 1Password agent (post_install wsl_ssh_agent.yml),
+# so drop the old aliases to the Windows OpenSSH client.
+- name: "[ENVIRONMENT] WSL: remove aliases for the Windows OpenSSH client"
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.aliases"
+    regexp: "^alias (ssh|ssh-add|scp|sftp)='(ssh|ssh-add|scp|sftp)\\.exe"
+    state: absent
+  when: is_wsl

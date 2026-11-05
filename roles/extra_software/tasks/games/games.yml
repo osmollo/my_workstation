@@ -4,7 +4,7 @@
   import_tasks: steam.yml
   when:
     - install_steam
-    - linux_distribution == "ubuntu"
+    - linux_distribution in ["ubuntu", "ubuntu_no_snap"]
   tags:
     - steam
 

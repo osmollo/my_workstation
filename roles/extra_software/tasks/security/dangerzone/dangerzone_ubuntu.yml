@@ -9,7 +9,7 @@
 - name: "[DANGERZONE] [DEB] create repository file"
   copy:
     content: |
-      deb [signed-by=/usr/share/keyrings/dangerzone.gpg] https://packages.freedom.press/apt-tools-prod {{ ansible_distribution_release }} main
+      deb [signed-by=/usr/share/keyrings/dangerzone.gpg] https://packages.freedom.press/apt-tools-prod {{ ubuntu_codename }} main
     dest: /etc/apt/sources.list.d/dangerzone.list
     mode: 0644
 

@@ -22,5 +22,7 @@
 
 - name: "[ASTRONVIM] initializing neovim"
   become: false
-  command: "nvim --headless +q"
+  command: "nvim --headless '+qa!'"
+  async: 90
+  poll: 90
   ignore_errors: true

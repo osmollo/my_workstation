@@ -20,7 +20,7 @@
   apt:
     name:
       - libx11-xcb-dev
-      - libasound2
+      - "{{ 'libasound2t64' if ubuntu_codename == 'noble' else 'libasound2' }}"
       - code
     state: present
     update_cache: true

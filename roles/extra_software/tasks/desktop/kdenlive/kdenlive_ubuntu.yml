@@ -6,6 +6,7 @@
       - kdenlive
     classic: true
     state: present
+  when: linux_distribution == "ubuntu"
   when: desktop_environment != "kde"
 
 - name: "[KDENLIVE] install kdenlive"
@@ -13,4 +14,4 @@
     name: kdenlive
     update_cache: true
     state: present
-  when: desktop_environment == "kde"
+  when: desktop_environment == "kde" or linux_distribution == "ubuntu_no_snap"

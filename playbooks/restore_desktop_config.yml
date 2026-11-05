@@ -9,7 +9,7 @@
   connection: local
   vars:
     ansible_user: "{{ lookup('env', 'USER') }}"
-    ansible_user_dir: "/home/{{ lookup('env', 'USER') }}"
+    ansible_user_dir: "{{ lookup('env', 'HOME') }}"
   tasks:
     - name: "restore kde config"
       import_role:

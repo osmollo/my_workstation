@@ -1,0 +1,76 @@
+---
+
+- name: "[ATOMIC] configure Flathub remote"
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  become: false
+
+- name: "[ATOMIC] install Flatpak applications"
+  community.general.flatpak:
+    name: "{{ item.id }}"
+    state: present
+  become: false
+  loop:
+    - id: com.dropbox.Client
+      enabled: "{{ atomic_install_dropbox }}"
+    - id: com.docker.Docker
+      enabled: "{{ atomic_install_docker }}"
+    - id: com.vscodium.codium
+      enabled: "{{ atomic_install_vscodium }}"
+    - id: com.sublimetext.three
+      enabled: "{{ atomic_install_sublimetext }}"
+    - id: org.keepassxc.KeePassXC
+      enabled: "{{ atomic_install_keepass }}"
+    - id: nz.mega.MEGAsync
+      enabled: "{{ atomic_install_megasync }}"
+    - id: com.brave.Browser
+      enabled: "{{ atomic_install_brave }}"
+    - id: io.typora.Typora
+      enabled: "{{ atomic_install_typora }}"
+    - id: com.onepassword.OnePassword
+      enabled: "{{ atomic_install_1password }}"
+    - id: io.neovim.nvim
+      enabled: "{{ atomic_install_neovim }}"
+    - id: io.dbeaver.DBeaverCommunity
+      enabled: "{{ atomic_install_dbeaver }}"
+    - id: com.github.dangerzone
+      enabled: "{{ atomic_install_dangerzone }}"
+    - id: org.telegram.desktop
+      enabled: "{{ atomic_install_telegram }}"
+    - id: com.slack.Slack
+      enabled: "{{ atomic_install_slack }}"
+    - id: com.jetbrains.PyCharm-Community
+      enabled: "{{ atomic_install_pycharm }}"
+    - id: com.getpostman.Postman
+      enabled: "{{ atomic_install_postman }}"
+    - id: com.skype.Client
+      enabled: "{{ atomic_install_skype }}"
+    - id: com.meetfranz.Franz
+      enabled: "{{ atomic_install_franz }}"
+    - id: org.kde.kdenlive
+      enabled: "{{ atomic_install_kdenlive }}"
+    - id: com.github.IsmaelMartinez.teams_for_linux
+      enabled: "{{ atomic_install_teams }}"
+    - id: org.soapui.SoapUI
+      enabled: "{{ atomic_install_soapui }}"
+    - id: com.thincast.client
+      enabled: "{{ atomic_install_thincast }}"
+    - id: com.jetpackduba.Gitnuro
+      enabled: "{{ atomic_install_gitnuro }}"
+    - id: com.spotify.Client
+      enabled: "{{ atomic_install_spotify }}"
+    - id: com.github.zadam.trilium
+      enabled: "{{ atomic_install_trilium }}"
+    - id: md.obsidian.Obsidian
+      enabled: "{{ atomic_install_obsidian }}"
+    - id: com.rustdesk.RustDesk
+      enabled: "{{ atomic_install_rustdesk }}"
+    - id: dev.zed.Zed
+      enabled: "{{ atomic_install_zed }}"
+    - id: app.zen_browser.zen
+      enabled: "{{ atomic_install_zen }}"
+    - id: us.zoom.Zoom
+      enabled: "{{ atomic_install_zoom }}"
+  when: item.enabled | bool

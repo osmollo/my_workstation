@@ -7,6 +7,11 @@ export {{ item.name }}={{ item.value }}
 {% endif %}
 {% endif %}
 {% endfor %}
+{% if is_wsl %}
+
+# Windows 1Password agent bridged by the 1password-agent-bridge user service (wsl_ssh_agent.yml)
+export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+{% endif %}
 
 if type rg &> /dev/null; then
 {% for item in environment_variables %}

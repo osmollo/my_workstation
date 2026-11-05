@@ -2,5 +2,5 @@
 
 - name: "[KDENLIVE] [FEDORA] Install the Kdenlive flatpak"
   flatpak:
-    name:  "{{ kdenlive_flatpak }}"
+    name: org.kde.kdenlive
     state: present

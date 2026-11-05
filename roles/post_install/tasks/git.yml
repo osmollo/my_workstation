@@ -68,11 +68,17 @@
           [mergetool "{{ diff_editor }}"]
               cmd = {{ diff_editor }} "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
+          {% if is_wsl %}
+          {# native ssh + ssh-keygen signing through the bridged 1Password agent (SSH_AUTH_SOCK) #}
+          [gpg]
+            format = ssh
+          {% else %}
           [gpg]
             format = ssh
 
           [gpg "ssh"]
             program = "/opt/1Password/op-ssh-sign"
+          {% endif %}
 
           [commit]
             gpgsign = true
