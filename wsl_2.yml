@@ -83,6 +83,7 @@
         name: work
         tasks_from: "{{ work_file }}"
       loop:
+        - megacmd.yml
         - environment.yml
         - docker.yml
         - git.yml

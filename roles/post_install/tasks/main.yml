@@ -1,5 +1,13 @@
 ---
 
+- name: "configure megacmd"
+  import_tasks: megacmd.yml
+  tags:
+    - post_install
+    - megacmd
+    - login
+    - login_megacmd
+
 - name: "configure environment"
   import_tasks: environment.yml
   tags:

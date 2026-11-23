@@ -45,3 +45,6 @@
 
 - name: "[TOOLS] install tools"
   import_tasks: tools/tools.yml
+
+- name: "[MEGACMD] install megacmd"
+  import_tasks: storage/megacmd/megacmd.yml
