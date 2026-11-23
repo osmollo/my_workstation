@@ -1,0 +1,51 @@
+local wezterm = require 'wezterm'
+local act = wezterm.action
+local config = wezterm.config_builder()
+
+-- Shell por defecto: WSL. Pon aquí el nombre exacto de tu distro (`wsl -l -v`)
+config.default_domain = 'WSL:{{ ansible_distribution }}Linux-{{ ansible_distribution_major_version }}'
+
+-- Menú de lanzamiento (clic derecho en "+" o CTRL+SHIFT+L... ver keys abajo)
+config.launch_menu = {
+  { label = 'PowerShell 7', args = { 'pwsh.exe', '-NoLogo' }, domain = { DomainName = 'local' } },
+  { label = 'Windows PowerShell', args = { 'powershell.exe', '-NoLogo' }, domain = { DomainName = 'local' } },
+  { label = 'CMD', args = { 'cmd.exe' }, domain = { DomainName = 'local' } },
+}
+
+-- Aspecto
+config.font = wezterm.font 'JetBrains Mono' -- incluida en WezTerm, no hay que instalarla
+config.font_size = 10
+config.color_scheme = 'Catppuccin Mocha'
+config.window_decorations = 'INTEGRATED_BUTTONS|RESIZE'
+config.window_padding = { left = 6, right = 6, top = 4, bottom = 4 }
+config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = false
+config.initial_cols = 140
+config.initial_rows = 38
+
+-- Comportamiento
+config.scrollback_lines = 20000
+config.window_close_confirmation = 'NeverPrompt'
+config.audible_bell = 'Disabled'
+config.front_end = 'WebGpu' -- si ves artefactos gráficos, cambia a 'OpenGL'
+
+-- Atajos estilo tmux: CTRL+a como leader
+config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
+config.keys = {
+  { key = '-', mods = 'LEADER', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
+  { key = '\\', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  { key = 'h', mods = 'LEADER', action = act.ActivatePaneDirection 'Left' },
+  { key = 'j', mods = 'LEADER', action = act.ActivatePaneDirection 'Down' },
+  { key = 'k', mods = 'LEADER', action = act.ActivatePaneDirection 'Up' },
+  { key = 'l', mods = 'LEADER', action = act.ActivatePaneDirection 'Right' },
+  { key = 'z', mods = 'LEADER', action = act.TogglePaneZoomState },
+  { key = 'x', mods = 'LEADER', action = act.CloseCurrentPane { confirm = true } },
+  { key = 'c', mods = 'LEADER', action = act.SpawnTab 'CurrentPaneDomain' },
+  { key = 'p', mods = 'LEADER', action = act.ShowLauncherArgs { flags = 'FUZZY|LAUNCH_MENU_ITEMS|DOMAINS' } },
+  -- Enviar CTRL+a real (inicio de línea en bash) pulsándolo dos veces
+  { key = 'a', mods = 'LEADER|CTRL', action = act.SendKey { key = 'a', mods = 'CTRL' } },
+  -- Pegar con CTRL+V (CTRL+SHIFT+V ya viene por defecto)
+  { key = 'v', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
+}
+
+return config

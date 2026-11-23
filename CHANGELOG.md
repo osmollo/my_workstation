@@ -29,6 +29,7 @@
 - Ya no se guardan en variables las URLs de los paquetes **Flatpak** sino que se usan directamente los IDs en las correspondientes tareas
 - Ya no se instala el plugin de **MegaSync** para cada gestor de ficheros
 - Soporte **WSL**
+- Instalación de **Wezterm** en el host Windows.
 - Corrección de errores:
   - Fix en la instalación de **Claude**
   - Corrección enlaces de descarga de múltiples [tools](roles/extra_software/tasks/tools/)

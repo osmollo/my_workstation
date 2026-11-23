@@ -23,6 +23,13 @@
     - wsl_ssh_agent
     - 1password_agent
 
+- name: "WSL : install windows apps"
+  import_tasks: wsl_windows_apps.yml
+  when: is_wsl
+  tags:
+    - post_install
+    - wsl_windows_apps
+
 - name: "configure netbird"
   import_tasks: netbird.yml
   tags:
