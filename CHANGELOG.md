@@ -32,6 +32,7 @@
 - Corrección de errores:
   - Fix en la instalación de **Claude**
   - Corrección enlaces de descarga de múltiples [tools](roles/extra_software/tasks/tools/)
+  - Corrección en [yay.py](./library/yay.py) que provocaba fallo en el **github action** de `ansible-lint`
 - Cambios en `post_install`:
   - Sincronización de extensiones de **Zed**
   - Configuración de **Opencode**
