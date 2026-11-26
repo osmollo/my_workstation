@@ -20,3 +20,13 @@ if type rg &> /dev/null; then
 {% endif %}
 {% endfor %}
 fi
+
+
+# Disable send data from ClaudeCode and other tools
+export DO_NOT_TRACK=1
+export DISABLE_ERRROR_REPORTING=1
+export WRANGLER_SEND_METRICS=false
+export GH_TELEMETRY=false
+export NEXT_TELEMETRY_DISABLED=1
+export ASTRO_TELEMETRY_DISABLED=1
+export VERCEL_TELEMETRY_DISABLED=1
