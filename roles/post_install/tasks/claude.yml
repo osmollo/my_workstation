@@ -28,3 +28,6 @@
   loop: "{{ claude_backup_files.files }}"
   loop_control:
     label: "{{ item.path | basename }}"
+
+- name: "[CLAUDE] create IA token files"
+  import_tasks: ia_tokens.yml

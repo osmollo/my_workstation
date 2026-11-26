@@ -10,3 +10,6 @@
     src: "{{ megasync_dir }}/backups/opencode"
     dest: "{{ ansible_user_dir }}/.config/opencode"
     state: link
+
+- name: "[OPENCODE] create IA token files"
+  import_tasks: ia_tokens.yml

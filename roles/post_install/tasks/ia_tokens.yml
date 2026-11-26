@@ -1,0 +1,28 @@
+---
+
+- name: "[IA TOKENS] create '{{ ansible_user_dir }}/.config' directory"
+  file:
+    path: "{{ ansible_user_dir }}/.config"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: "[IA TOKENS] create token files from 1Password"
+  copy:
+    content: "{{ lookup('onepassword', item.op_reference) }}"
+    dest: "{{ ansible_user_dir }}/.config/{{ item.file }}"
+    mode: "0600"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  loop:
+    - file: atlassian-forms.token
+      op_reference: "op://Trabajo/23ayoyty2pk4a446lph3efaqle/TOKENS/atlassian-mcp"
+    - file: github-token
+      op_reference: "op://Private/github.com/TOKENS/release_token"
+    - file: pro_dev.token
+      op_reference: "op://Trabajo/dev token PRO/password"
+    - file: webmc_dbo.token
+      op_reference: "op://Trabajo/Sybase PRO/password"
+  loop_control:
+    label: "{{ item.file }}"
+  no_log: true

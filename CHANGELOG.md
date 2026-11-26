@@ -38,6 +38,7 @@
   - Configuración de **Claude**
   - Fichero independiente para **Netbird**
   - Variables de entorno para deshabilitar envío de datos de **Claude Code** y otras herramientas
+  - Creación de ficheros con tokens neceasrios por **ClaudeCode** y **OpenCode**
 - Cambios en `work`:
   - Nueva entrada en `.ssh/config`
   - Fix typo en configuración ssh
