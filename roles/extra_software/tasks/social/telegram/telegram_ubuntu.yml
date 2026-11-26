@@ -5,3 +5,4 @@
     name:
       - telegram-desktop
     state: present
+  when: linux_distribution == "ubuntu"

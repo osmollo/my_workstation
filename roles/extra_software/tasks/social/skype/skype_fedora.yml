@@ -2,5 +2,5 @@
 
 - name: "[SKYPE] [FEDORA] Install the skype flatpak"
   flatpak:
-    name:  "{{ skype_flatpak }}"
+    name: com.skype.Client
     state: present

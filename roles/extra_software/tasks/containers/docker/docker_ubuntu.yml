@@ -14,7 +14,7 @@
   copy:
     content: |
       {% if ubuntu_codename is defined %}
-      deb [arch=amd64 signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/{{ linux_distribution }} {{ ubuntu_codename }} stable
+      deb [arch=amd64 signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu {{ ubuntu_codename }} stable
       {% elif debian_codename is defined %}
       deb [arch=amd64 signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/{{ linux_distribution }} bullseye stable
       {% endif %}
@@ -45,4 +45,3 @@
     alias_command: docker compose
   import_role:
     name: tools/create_alias
-      

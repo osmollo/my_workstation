@@ -1,11 +1,40 @@
 ---
 
+- name: "configure megacmd"
+  import_tasks: megacmd.yml
+  tags:
+    - post_install
+    - megacmd
+    - login
+    - login_megacmd
+
 - name: "configure environment"
   import_tasks: environment.yml
   tags:
     - post_install
     - environment
     - env
+
+- name: "WSL: bridge the Windows 1Password ssh-agent"
+  import_tasks: wsl_ssh_agent.yml
+  when: is_wsl
+  tags:
+    - post_install
+    - wsl_ssh_agent
+    - 1password_agent
+
+- name: "WSL : install windows apps"
+  import_tasks: wsl_windows_apps.yml
+  when: is_wsl
+  tags:
+    - post_install
+    - wsl_windows_apps
+
+- name: "configure netbird"
+  import_tasks: netbird.yml
+  tags:
+    - post_install
+    - netbird
 
 - name: "configure certs"
   import_tasks: certs.yml
@@ -19,12 +48,26 @@
     - post_install
     - neovim
     - nvim
+  when: ubuntu_codename == 'resolute'
 
 - name: "configure zed"
   import_tasks: zed.yml
   tags:
     - post_install
     - zed
+
+- name: "configure opencode"
+  import_tasks: opencode.yml
+  tags:
+    - post_install
+    - opencode
+
+- name: "configure claude"
+  import_tasks: claude.yml
+  when: use_megasync
+  tags:
+    - post_install
+    - claude
 
 - name: "configure helix"
   import_tasks: helix.yml

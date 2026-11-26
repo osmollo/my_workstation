@@ -5,3 +5,4 @@
     name: 
       - teams-for-linux
     state: present
+  when: linux_distribution == "ubuntu"

@@ -1,0 +1,25 @@
+---
+
+- tags:
+    - wezterm
+  block:
+    - name: "[WSL_WINDOWS_APPS] install wezterm"
+      shell: "winget.exe install --id wez.wezterm --exact --silent
+        --accept-package-agreements --accept-source-agreements"
+      args:
+        chdir: /mnt/c
+      register: wezterm_installed
+      changed_when: false
+      failed_when: false
+
+    - name: "[WSL_WINDOWS_APPS] configure wezterm"
+      file:
+        path: "{{ ansible_user_dir }}/.config/wezterm"
+        state: directory
+        mode: '0755'
+
+    - name: "[WSL_WINDOWS_APPS] create wezterm config file"
+      template:
+        src: "wezterm.lua.j2"
+        dest: "{{ ansible_user_dir }}/.config/wezterm/wezterm.lua"
+        mode: "0644"

@@ -3,6 +3,7 @@
 - name: "[NEOVIM] add ppa repository for neovim"
   apt_repository:
     repo: 'ppa:neovim-ppa/stable'
+    codename: "{{ ubuntu_codename }}"
     state: present
 
 - name: "[NEOVIM] install neovim package"

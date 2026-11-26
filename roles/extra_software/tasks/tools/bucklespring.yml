@@ -20,4 +20,4 @@
 
     - name: "[BUCKLESPRNT] [DEBIAN] run buckle"
       shell: buckle &
-  when: linux_distribution == "debian"
+  when: linux_distribution in ["debian", "ubuntu_no_snap"]

@@ -6,3 +6,4 @@
       - skype
     classic: true
     state: present
+  when: linux_distribution == "ubuntu"

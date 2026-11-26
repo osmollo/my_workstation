@@ -19,5 +19,5 @@
 
 - name: "[PYCHARM] [FEDORA] Install the PyCharm flatpak"
   flatpak:
-    name:  "{{ pycharm_flatpak }}"
+    name: com.jetbrains.PyCharm-Community
     state: present

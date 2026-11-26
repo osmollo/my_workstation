@@ -2,5 +2,5 @@
 
 - name: "[TEAMS] [FEDORA] Install the Microsoft Teams flatpak"
   flatpak:
-    name:  "{{ teams_flatpak }}"
+    name: com.github.IsmaelMartinez.teams_for_linux
     state: present

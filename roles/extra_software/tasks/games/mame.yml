@@ -5,7 +5,7 @@
     name: mame
     update_cache: true
     state: present
-  when: linux_distribution in ["ubuntu", "debian"]
+  when: linux_distribution in ["ubuntu", "ubuntu_no_snap", "debian"]
 
 - name: "[MAME] [FEDORA] install mame"
   dnf:

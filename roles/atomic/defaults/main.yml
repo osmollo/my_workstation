@@ -1,0 +1,32 @@
+---
+
+atomic_install_dropbox: false
+atomic_install_docker: true
+atomic_install_vscodium: true
+atomic_install_sublimetext: true
+atomic_install_keepass: true
+atomic_install_megasync: true
+atomic_install_brave: true
+atomic_install_typora: true
+atomic_install_1password: true
+atomic_install_neovim: true
+atomic_install_dbeaver: true
+atomic_install_dangerzone: true
+atomic_install_telegram: true
+atomic_install_slack: false
+atomic_install_pycharm: false
+atomic_install_postman: false
+atomic_install_skype: false
+atomic_install_franz: false
+atomic_install_kdenlive: false
+atomic_install_teams: true
+atomic_install_soapui: true
+atomic_install_thincast: false
+atomic_install_gitnuro: false
+atomic_install_spotify: true
+atomic_install_trilium: false
+atomic_install_obsidian: false
+atomic_install_rustdesk: true
+atomic_install_zed: true
+atomic_install_zen: false
+atomic_install_zoom: false

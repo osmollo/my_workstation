@@ -1,9 +1,9 @@
 # CHANGELOG
 
 - [CHANGELOG](#changelog)
-  - [10.1](#101)
-  - [10.0](#100)
+  - [11.0](#110)
   - [VERSIONES ANTERIORES](#versiones-anteriores)
+    - [Version 10](#version-10)
     - [Version 9](#version-9)
     - [Versión 8](#versión-8)
     - [Versión 7](#versión-7)
@@ -14,56 +14,43 @@
     - [Versión 2](#versión-2)
     - [Versión 1](#versión-1)
 
-## 10.1
+## 11.0
 
-- Soporte para **Fedora 44**
-- Nuevo fichero [AGENTS.md](./AGENTS.md)
-- Instalación de [SSHub](https://github.com/Petyok/SSHub)
-- Modificación de **GitHub Action** para generación de release
-- Cambios en `extra_software`:
-  - **Zed** instalado por defecto
-  - Instalación de **Claude CLI**
-  - Instalación de **Open Code**
-- Cambios en `post_install`:
-  - Configuración de `netbird`
-  - Configuración almacén de certificados en __Linux__
-- Cambios en `work`:
-  - Poder clonar todos los repos de un projecton con __extra_vars__ `clone_project`
-- Correccción de errores:
-  - Se regeneran los ficheros `gpg` de los roles `post_install` y `work` para que se encripten con la clave gpg correcta
-  - Corrección detectando si se trata de **Ubuntu LTS**
-
-## 10.0
-
-- Creación de [role independiente](./roles/work) para configuraciones de trabajo
-- Ya no se instala por defecto el gestor de contraseñas **Keeper**
-- Instalación de [Zen Browser](https://zen-browser.app/)
-- Actualizada la configuración por defecto de [Ghostty](https://ghostty.org/)
-- Instalación del editor [Cursor](https://cursor.com/)
-- Instalación de [Netbird](https://netbird.io/)
-- Nuevas entradas en `.gitignore`
-- Instalación de [Google Antigravity](https://antigravity.google.com/)
-- Instalación de [Dangerzone](https://dangerzone.rocks/)
-- Instalación de [ProtonVPN GUI](https://protonvpn.com/) en lugar de __CLI__
-- Paquetes que ya no se instalan en **Fedora**: `srm` y `openvpn`
+- ~~Soporte para **Ubuntu 26.04 LTS**~~
+- Soporte para distribuciones atómicas:
+  - [**Fedora Kinoite**](https://fedoraproject.org/atomic-desktops/kinoite/)
+- Soporte para distribuciones basadas en **Ubuntu** pero que no usan paquetes __snap__ (**Linux Mint**, **Pop!_OS** y **Elementary OS**)
+- Borrado instalación de **Lexnet**
+- Workflow de **Github** para checkear sintaxis antes de mergear PRs a `master`
+- La variable `ansible_user_dir`se define mediante variable de entorno del sistema
+- Instalación de **Claude Code** en **Ubuntu**
+- Añadido [CLAUDE.md](./CLAUDE.md)
+- Ya no se guardan en variables las URLs de los paquetes **Flatpak** sino que se usan directamente los IDs en las correspondientes tareas
+- Ya no se instala el plugin de **MegaSync** para cada gestor de ficheros
+- Soporte **WSL**
+- Instalación de **Wezterm** en el host Windows.
 - Corrección de errores:
-  - Definición de variables que habían desaparecido
-  - Corrección instalacion de **MegaSYNC**
-  - Fixed enlace instalación de **Kor**
-  - El playbook `playbooks/prepare_post.yml` mueve al final el desencriptado de `defaults/main.yml.gpg` y lo hace tanto para `post_install` como para `work`
-- Cambios en post_install:
-  - Eliminada la configuración de **Gimp** (pertenecía a Gimp 2.0)
-  - Cambio configuración agente **1Password**
-  - Deja de usarse **Dropbox** en favor de **MegaSync**
-  - Ya no se instala por defecto: `warp terminal`, `cursor`, `tailscale` y `zed`
-  - Ya no se configura `megacmd` porque se usa la autenticación de `megasync`
-  - Nuevo proyecto de repositorios de trabajo
-  - Fix al crear links para la configuración de **dbeaver**
-- Cambios en work:
-  - Se han corregido errores de variables en el playbook
-  - Errores corregidos en los links que se deben crear
+  - Fix en la instalación de **Claude**
+  - Corrección enlaces de descarga de múltiples [tools](roles/extra_software/tasks/tools/)
+  - Corrección en [yay.py](./library/yay.py) que provocaba fallo en el **github action** de `ansible-lint`
+- Cambios en `post_install`:
+  - Sincronización de extensiones de **Zed**
+  - Configuración de **Opencode**
+  - Configuración de **Claude**
+  - Fichero independiente para **Netbird**
+  - Variables de entorno para deshabilitar envío de datos de **Claude Code** y otras herramientas
+  - Creación de ficheros con tokens neceasrios por **ClaudeCode** y **OpenCode**
+- Cambios en `work`:
+  - Nueva entrada en `.ssh/config`
+  - Fix typo en configuración ssh
+  - Excepción clonado repositorios git `ccdd-portainer-stack
+  - Fix certificado Artifactory
+  - Fix ssh_config para WSL
+  - Alias `ssh`, `ssh-add` y `scp` para **wsl**
 
 ## VERSIONES ANTERIORES
+
+### [Version 10](changelog/v10.md)
 
 ### [Version 9](changelog/v9.md)
 

@@ -2,5 +2,5 @@
 
 - name: "[TELEGRAM] [FEDORA] Install the Telegram flatpak"
   flatpak:
-    name:  "{{ telegram_flatpak }}"
+    name: org.telegram.desktop
     state: present

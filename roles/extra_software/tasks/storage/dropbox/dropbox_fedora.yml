@@ -16,5 +16,5 @@
 
 - name: "[DROPBOX] [FEDORA] Install the Dropbox flatpak"
   flatpak:
-    name:  "{{ dropbox_flatpak }}"
+    name: com.dropbox.Client
     state: present

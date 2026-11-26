@@ -51,3 +51,7 @@ python_packages:
   - python3-venv
   - ipython3
   - virtualenvwrapper
+
+wsl_debian_packages:
+  - pinentry-tty
+  - socat
